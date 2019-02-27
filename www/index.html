@@ -1,15 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Angular</title>
-  <base href="/">
+	<meta charset="utf-8">
+	<title>Angular</title>
+	<base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+	<!--<script type="text/javascript" src="res/js/jquery-3.3.1.min.js"></script>-->
+	<!--<script type="text/javascript" src="res/js/bootstrap.bundle.min.js"></script>-->
+	<!--<script type="text/javascript" src="res/js/bootstrap.min.js"></script>-->
+	<!--<script type="text/javascript" src="app.js"></script>-->
+	<!--<script type="text/javascript" src="database/database.js"></script>-->
+	<!--<script type="text/javascript" src="forms.js"></script>-->
+	<!--<link rel="stylesheet" href="res/css/bootstrap.min.css">-->
+	<!--<link rel="stylesheet" href="res/css/bootstrap-grid.min.css">-->
+	<!--<link rel="stylesheet" href="res/css/bootstrap-reboot.min.css">-->
 </head>
 <body>
-  <app-root></app-root>
+	<!--<app-root></app-root>-->
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="runtime.js"></script>
 	<script type="text/javascript" src="es2015-polyfills.js" nomodule></script>
@@ -17,4 +27,16 @@
 	<script type="text/javascript" src="styles.js"></script>
 	<script type="text/javascript" src="vendor.js"></script>
 	<script type="text/javascript" src="main.js"></script></body>
+
+	<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+	    <div class="container">
+	        <a class="navbar-brand">Angular Router</a>
+	        <ul class="nav navbar-nav" routerLinkActive="active">
+	            <li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>
+	            <li class="nav-item"><a class="nav-link" routerLink="about">About</a></li>
+	            <li class="nav-item"><a class="nav-link" routerLink="courses">Courses</a></li>
+	        </ul>
+	    </div>
+	</nav>
+	<!--<router-outlet></router-outlet>-->
 </html>
