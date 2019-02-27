@@ -3,11 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<title>Angular</title>
-	<base href="/">
-
+	<base href=".">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
-
+	<link rel="stylesheet" href="styles.3ff695c00d717f2d2a11.css">
 	<!--<script type="text/javascript" src="res/js/jquery-3.3.1.min.js"></script>-->
 	<!--<script type="text/javascript" src="res/js/bootstrap.bundle.min.js"></script>-->
 	<!--<script type="text/javascript" src="res/js/bootstrap.min.js"></script>-->
@@ -19,43 +18,22 @@
 	<!--<link rel="stylesheet" href="res/css/bootstrap-reboot.min.css">-->
 </head>
 <body>
-	<!--<app-root></app-root>-->
+  <app-root></app-root>
+	<script type="text/javascript" src="runtime.a5dd35324ddfd942bef1.js"></script>
+	<script type="text/javascript" src="es2015-polyfills.358ed1827c991dd2afb0.js" nomodule></script>
+	<script type="text/javascript" src="polyfills.407a467dedb63cfdd103.js"></script>
+	<script type="text/javascript" src="main.d09369f7d8a477c0b822.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="runtime.js"></script>
-	<script type="text/javascript" src="es2015-polyfills.js" nomodule></script>
-	<script type="text/javascript" src="polyfills.js"></script>
-	<script type="text/javascript" src="styles.js"></script>
-	<script type="text/javascript" src="vendor.js"></script>
-	<script type="text/javascript" src="main.js"></script></body>
 
-	<nav class="navbar navbar-default">
-	    <div class="container-fluid">
-	        <div class="navbar-header">
-	            <a class="navbar-brand">
-	              <img src="assets/img/ngx-bootstrap.svg" class="logo">
-	            </a>
-	            <span class="navbar-brand">Angular + Bootstrap</span>
-	        </div>
-	        <ul class="nav navbar-nav">
-	            <li class="active"><a href="#">
-	              Link <span class="sr-only">(current)</span>
-	            </a></li>
-	            <li><a href="#">Link</a></li>
-	            <li class="dropdown" dropdown> <!-- {1} -->
-	                <a dropdownToggle role="button"> <!-- {2} -->
-	                  Dropdown <span class="caret"></span></a>
-	                <ul *dropdownMenu class="dropdown-menu"> <!-- {3} -->
-	                    <li><a href="#">Action</a></li>
-	                    <li><a href="#">Another action</a></li>
-	                    <li><a href="#">Something else here</a></li>
-	                    <li role="separator" class="divider"></li>
-	                    <li><a href="#">Separated link</a></li>
-	                    <li role="separator" class="divider"></li>
-	                    <li><a href="#">One more separated link</a></li>
-	                </ul>
-	            </li>
+	<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+	    <div class="container">
+	        <a class="navbar-brand">Angular Router</a>
+	        <ul class="nav navbar-nav" routerLinkActive="active">
+	            <li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>
+	            <li class="nav-item"><a class="nav-link" routerLink="about">About</a></li>
+	            <li class="nav-item"><a class="nav-link" routerLink="courses">Courses</a></li>
 	        </ul>
 	    </div>
 	</nav>
-	<!--<router-outlet></router-outlet>-->
+</body>
 </html>
