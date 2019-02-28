@@ -4,12 +4,13 @@ import { DeviceInfoComponent } from './device-info/device-info.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-	  DeviceInfoComponent
+    DeviceInfoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
