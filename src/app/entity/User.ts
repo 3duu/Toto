@@ -20,15 +20,39 @@ export class User {
     @Column()
     private encryptedPassword : string;
 
-    @OneToMany(type => Pet, user => this)
+    @OneToMany(type => Pet, pet => pet.getUser())
     pets: Pet[];
 
-    @OneToMany(type => Bookmark, user => this)
+    @OneToMany(type => Bookmark, bookmark => bookmark.getUser())
     bookmarks: Bookmark[];
 
     constructor() { }
   
     ngOnInit() {
+    }
+
+    getId() {
+        return this.id;
+    }
+
+    getLogin(){
+        return this.login;
+    }
+
+    getSignInDate(){
+        return this.signInDate;
+    }
+
+    getPassword(){
+        return this.encryptedPassword;
+    }
+
+    getPets() {
+        return this.pets;
+    }
+
+    getBookmarks() {
+        return this.bookmarks;
     }
   
 }

@@ -7,12 +7,20 @@ export class Pet {
     @PrimaryGeneratedColumn()
     private id : number;
 
-    @ManyToOne(type => User, pets => this)
+    @ManyToOne(type => User, user => user.getPets())
     private user : User;
 
     constructor() { }
   
     ngOnInit() {
+    }
+
+    getId() {
+        return this.id;
+    }
+
+    getUser() {
+        return this.user;
     }
   
 }
