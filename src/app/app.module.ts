@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './global/navbar.component';
+import { MapsComponent } from './maps/maps.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DeviceInfoComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    MapsComponent
   ],
   imports: [
     BrowserModule,
