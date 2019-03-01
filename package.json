@@ -5,7 +5,8 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-device": {}
+      "cordova-plugin-device": {},
+      "cordova-plugin-safariviewcontroller": {}
     },
     "platforms": [
       "android",
@@ -40,7 +41,7 @@
     "jquery": "^3.3.1",
     "ngx-bootstrap": "^3.2.0",
     "popper": "^1.0.1",
-    "rxjs": "~6.3.3",
+    "rxjs": "^6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
