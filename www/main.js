@@ -331,14 +331,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var onDeviceReady = function () {
+var startApp = function () {
     if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
     }
     Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
         .catch(function (err) { return console.error(err); });
 };
+var onDeviceReady = function () {
+    startApp();
+};
 document.addEventListener('deviceready', onDeviceReady, false);
+try {
+    if (!cordova) {
+        startApp();
+    }
+}
+catch (e) {
+    startApp();
+}
 
 
 /***/ }),

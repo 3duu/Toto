@@ -4,7 +4,9 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-let onDeviceReady = () => {
+declare var cordova;
+
+let startApp = () => {
 	if (environment.production) {
 	  enableProdMode();
 	}
@@ -12,6 +14,17 @@ let onDeviceReady = () => {
 	platformBrowserDynamic().bootstrapModule(AppModule)
 	.catch(err => console.error(err));
 };
+
+let onDeviceReady = () => {
+	startApp();
+};
+
 document.addEventListener('deviceready', onDeviceReady, false);
 
-
+try {
+  if(!cordova){
+	}
+}
+catch(e) {
+  startApp();
+}
