@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { User } from './User';
 import { ServiceType } from './ServiceType';
-import { Address } from 'cluster';
+import { Address } from './Address';
 
 @Entity()
 export class PetService {
@@ -43,6 +43,10 @@ export class PetService {
 
     getDescription(){
         return this.description;
+    }
+
+    getAddress(){
+        return this.address;
     }
   
 }

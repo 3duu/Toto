@@ -8,7 +8,19 @@
 /bazel-out
 
 # dependencies
-/node_modules
+/node_modules/*
+!/node_modules/typeorm
+!/node_modules/bootstrap
+!/node_modules/tls
+!/node_modules/typescript
+!/node_modules/rxjs
+!/node_modules/cordova-android
+!/node_modules/cordova-ios
+!/node_modules/cordova-plugin-device
+!/node_modules/cordova-plugin-whitelist
+!/node_modules/cordova-sqlite-storage
+!/node_modules/cordova-sqlite-storage-dependencies
+!/node_modules/font-awesome
 
 # profiling files
 chrome-profiler-events.json
