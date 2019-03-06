@@ -23,6 +23,8 @@
 !/node_modules/font-awesome
 !/node_modules/ansi-escapes
 !/node_modules/browserify-zlib
+!/node_modules/react-native
+!/node_modules/react-native-sqlite-storage
 
 # profiling files
 chrome-profiler-events.json
