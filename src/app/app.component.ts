@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
+  static applicationName : string = "PetLif3";
+
   title = 'angular';
 }

@@ -1,5 +1,7 @@
+import { Language } from './../language/Language';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../entity/User';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-navbar',
@@ -9,12 +11,15 @@ import { User } from '../entity/User';
 export class NavbarComponent implements OnInit {
 
   private user : User;
+  language : Language;
+  appName : string = AppComponent.applicationName;
   
   constructor() { 
     this.user = new User();
   }
 
   ngOnInit() {
+    this.language = new Language(this.user);
   }
 
 }
