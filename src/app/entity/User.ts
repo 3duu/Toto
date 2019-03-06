@@ -1,6 +1,8 @@
 import { Bookmark } from './Bookmark';
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from "typeorm";
 import { Pet } from './Pet';
+import { Rating } from './Rating';
+import { PetService } from './PetService';
 
 @Entity()
 export class User {
@@ -25,6 +27,17 @@ export class User {
 
     @OneToMany(type => Bookmark, bookmark => bookmark.getUser())
     bookmarks: Bookmark[];
+
+    @OneToMany(type => Rating, rating => rating.getOwner())
+    ratings: Rating[];
+
+    @OneToMany(type => Rating, rating => rating.getRated())
+    myRatings: Rating[];
+
+    @OneToMany(type => PetService, petService => petService.getOwner())
+    petServices: PetService[];
+
+    rate : number;
 
     constructor() { }
   
@@ -51,8 +64,16 @@ export class User {
         return this.pets;
     }
 
-    getBookmarks() {
-        return this.bookmarks;
+    getPetServices() {
+        return this.petServices;
+    }
+
+    getRatings() {
+        return this.ratings;
+    }
+
+    getMyRating() {
+        return this.myRatings;
     }
   
 }

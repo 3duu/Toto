@@ -12,12 +12,12 @@ export class Appointment {
     private date : string;
 
     @Column()
-    private time : string;
+    private appointmentType : AppointmentType;
 
-    @ManyToOne(type => User, user => user.getPets())
-    private user : User;
+    @Column()
+    private time : string;
     
-    @OneToMany(type => Pet, pet => pet.getUser())
+    @OneToMany(type => Pet, pet => pet.getAppointments())
     pets: Pet[];
 
     constructor() { }
@@ -29,5 +29,20 @@ export class Appointment {
         return this.id;
     }
 
+    getPets() {
+        return this.pets;
+    }
+
+    getUser() {
+        if(this.pets != null && this.pets != undefined){
+            return this.pets[0].getUser();
+        }
+       
+        return null;
+    }
+
+    getName() {
+        return "null";
+    }
   
 }

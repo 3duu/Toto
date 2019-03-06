@@ -1,5 +1,6 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from "typeorm";
 import { User } from './User';
+import { Appointment } from './Appointment';
 
 @Entity()
 export class Pet {
@@ -9,6 +10,9 @@ export class Pet {
 
     @ManyToOne(type => User, user => user.getPets())
     private user : User;
+
+    @OneToMany(type => Appointment, appointment => appointment.getPets())
+    appointments: Appointment[];
 
     constructor() { }
   
@@ -21,6 +25,10 @@ export class Pet {
 
     getUser() {
         return this.user;
+    }
+
+    getAppointments() {
+        return this.appointments;
     }
   
 }
