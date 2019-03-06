@@ -7,7 +7,7 @@ export class Bookmark {
     @PrimaryGeneratedColumn()
     private id : number;
 
-    @ManyToOne(type => User, user => user.getBookmarks())
+    @ManyToOne(type => User, user => user.getbookmarks())
     private user : User;
 
     constructor() { }
