@@ -1,15 +1,16 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToOne, JoinColumn } from "typeorm";
 import { User } from './User';
-import { Pet } from './Pet';
 
 @Entity()
 export class Rating {
+
+    static MAX_RATING : number = 5;
 
     @PrimaryGeneratedColumn()
     private id : number;
 
     @Column()
-    private retingDate : string;
+    private ratingDate : string;
 
     @Column()
     value : number;
@@ -17,7 +18,8 @@ export class Rating {
     @ManyToOne(type => User, owner => owner.getRatings())
     private owner : User;
 
-    @ManyToOne(type => User, rated => rated.getRatings())
+    @OneToOne(type => User)
+    @JoinColumn()
     private rated : User;
     
     constructor() { }
@@ -35,5 +37,9 @@ export class Rating {
 
     getRated() {
         return this.rated;
+    }
+
+    getRatingDate() {
+        return this.ratingDate;
     }
 }

@@ -1,6 +1,5 @@
 import {getManager} from "typeorm";
 import { User } from '../entity/User';
-import { findNode } from '@angular/compiler';
 
 export class GenericDao {
 	static  entityManager = getManager(); // you can also get it via getConnection().manager

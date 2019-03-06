@@ -12,6 +12,10 @@ export class Appointment {
     private date : string;
 
     @Column()
+    /*
+    * @OneToOne(type => AppointmentType)
+    @JoinColumn()
+    */
     private appointmentType : AppointmentType;
 
     @Column()
