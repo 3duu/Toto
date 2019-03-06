@@ -64,7 +64,7 @@ export class User {
         return this.pets;
     }
 
-    getbookmarks(){
+    getBookmarks(){
         return this.bookmarks;
     }
 

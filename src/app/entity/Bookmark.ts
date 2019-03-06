@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 import { User } from './User';
 
 @Entity()
@@ -7,7 +7,7 @@ export class Bookmark {
     @PrimaryGeneratedColumn()
     private id : number;
 
-    @ManyToOne(type => User, user => user.getbookmarks())
+    @ManyToOne(type => User, user => user.getBookmarks())
     private user : User;
 
     constructor() { }

@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 import { Pet } from './Pet';
 
 @Entity()
@@ -8,7 +8,7 @@ export class Appointment {
     private id : number;
 
     @Column()
-    private date : string;
+    private date : Date;
 
     @Column()
     /*
