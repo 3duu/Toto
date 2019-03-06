@@ -44,7 +44,6 @@
     "jquery": "^3.3.1",
     "ngx-bootstrap": "^3.2.0",
     "popper": "^1.0.1",
-    "react-native": "^0.58.6",
     "rxjs": "^6.4.0",
     "tls": "0.0.1",
     "tslib": "^1.9.0",
