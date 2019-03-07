@@ -1,21 +1,19 @@
 import { Language } from './../language/Language';
-import { Component, OnInit } from '@angular/core';
 import { User } from '../entity/User';
-import { AppComponent } from '../app.component';
+import { AppComponent, AppBase } from '../app.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent extends AppBase {
 
-  private user : User;
-  language : Language;
   appName : string = AppComponent.applicationName;
   
   constructor() { 
-    this.user = new User();
+    super();
   }
 
   ngOnInit() {

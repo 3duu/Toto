@@ -1,5 +1,6 @@
 import { Language } from './language/Language';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from './entity/User';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +14,13 @@ export class AppComponent {
   title = 'angular';
   static language : Language = new Language();
   
+}
+
+export class AppBase implements OnInit {
+  ngOnInit(): void {
+    
+  }
+  private user : User;
+  applicationName : string = AppComponent.applicationName;
+  language : Language = AppComponent.language;
 }

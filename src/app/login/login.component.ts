@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Language } from '../language/Language';
-import { AppComponent } from '../app.component';
+import { Component } from '@angular/core';
+import {  AppBase } from '../app.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
 
-  constructor() { }
+//https://bootsnipp.com/snippets/kMdg
+export class LoginComponent extends AppBase {
 
-  language : Language;
-
-  ngOnInit() {
-    this.language = AppComponent.language;
+  constructor() {
+    super();
   }
 
+  ngOnInit() {
+    
+  }
 
 }

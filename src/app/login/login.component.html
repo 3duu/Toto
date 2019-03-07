@@ -1,45 +1,53 @@
-<div class="container">
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header">
-                <h3>{{language.signIn}}</h3>
-                <div class="d-flex justify-content-end social_icon">
-                    <span><i class="fab fa-facebook-square"></i></span>
-                    <span><i class="fab fa-google-plus-square"></i></span>
-                    <span><i class="fab fa-twitter-square"></i></span>
-                </div>
-            </div>
-            <div class="card-body">
-                <form>
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="username">
-                        
-                    </div>
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <input type="password" class="form-control" placeholder="password">
-                    </div>
-                    <div class="row align-items-center remember">
-                        <input type="checkbox">{{language.remindPassword}}
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="{{language.login}}" class="btn float-right login_btn">
-                    </div>
-                </form>
-            </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center links">
-                    {{language.haveAnAccount}}<a href="#">{{language.signUp}}</a>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <a href="#">{{language.forgotPassword}}</a>
-                </div>
-            </div>
+<div class="container">     
+<script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
+
+<div class="container text-center">
+    <form class="form-signin" data-ember-action="2">
+        <h2 class="form-signin-heading">{{language.signIn}}</h2>
+        <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
+        <br><br>
+
+        <p>
+        <a class="btn btn-primary social-login-btn social-facebook" href="/auth/facebook"><i class="fa fa-facebook"></i></a>
+        <a class="btn btn-primary social-login-btn social-twitter" href="/auth/twitter"><i class="fa fa-twitter"></i></a>
+        </p>
+        <p>
+        <a class="btn btn-primary social-login-btn social-linkedin" href="/auth/linkedin"><i class="fa fa-linkedin"></i></a>
+        <a class="btn btn-primary social-login-btn social-google" href="/auth/google"><i class="fa fa-google-plus"></i></a>
+        </p>
+
+        <div class="btn-group social-login-more">
+        <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown">
+        {{language.more}}
+        </button>
+        <ul class="dropdown-menu text-left " role="menu">
+        <li><a href="#"><i class="fa fa-tumblr-sign"></i>   Tumblr</a></li>
+        <li><a href="#"><i class="fa fa-github-alt"></i>   Github</a></li>
+        <li><a href="#"><i class="fa fa-dropbox"></i>   Dropbox</a></li>
+        <li><a href="/auth/amazon"><span class="zocial-amazon"></span>   Amazon</a></li>
+        <li><a href="#"><span class="zocial-bitbucket"></span>   Bitbucket</a></li>
+        <li><a href="#"><span class="zocial-evernote"></span>   Evernote</a></li>
+        <li><a href="#"><span class="zocial-meetup"></span>   Meetup</a></li>
+        <li><a href="#"><i class="fa fa-windows"></i>   Windows Live</a></li>
+        <li><a href="#"><i class="fa fa-weibo"></i>   Weibo</a></li>
+        <li><a href="#"><i class="fa fa-foursquare"></i>   Foursquare</a></li>
+        <li><a href="#"><i class="fa fa-stackexchange"></i>   Stack Exchange</a></li>
+        <li><a href="#"><i class="fa fa-trello"></i>   Trello</a></li>
+        <li><a href="#"><span class="zocial-wordpress"></span>   Wordpress</a></li>
+        </ul>
         </div>
-    </div>
+        <br><br>
+
+        <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>
+        <br><br>
+        
+        <input id="ember360" class="ember-view ember-text-field form-control login-input" placeholder="Email Address" type="text">
+        <input id="ember361" class="ember-view ember-text-field form-control login-input-pass" placeholder="Password" type="password">
+
+        <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
+
+        <button class="btn btn-lg btn-primary btn-block btn-center" type="submit" data-bindattr-3="3">{{language.login}}</button>
+        <br>
+        <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button id="ember363" class="ember-view btn btn-sm btn-default"> {{language.signUp}} </button> </small>
+    </form>
 </div>
