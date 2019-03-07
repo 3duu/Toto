@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Language } from '../language/Language';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,11 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
+  language : Language;
+
   ngOnInit() {
+    this.language = AppComponent.language;
   }
+
 
 }

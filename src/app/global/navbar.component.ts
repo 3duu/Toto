@@ -19,9 +19,9 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.language = new Language(this.user);
+    this.language = AppComponent.language;
   }
-  
+
   navbarOpen = false;
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;

@@ -1,16 +1,17 @@
-import { User } from '../entity/User';
 
 export class Language {
 
-    constructor(private User) { }
+    constructor() { }
 
     adoptions : string[] = ["Adoção"];
     init : string[] = ["Início"];
     login : string[] = ["Entrar"];
-    myPet : string[] = ["Toto"];
+    myPet : string[] = ["Meus Pets"];
     about : string[] = ["Sobre"];
-
-    getUser(){
-        return this.User;
-    }
+    appointments : string[] = ["Agenda"];
+    remindPassword : string[] = ["Lembrar"];
+    haveAnAccount : string[] = ["Já possui conta?"];
+    forgotPassword : string[] = ["Esqueceu a senha?"];
+    signIn : string[] = ["Entre"];
+    signUp : string[] = ["Cadastre-se"];
 }
