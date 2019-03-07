@@ -23,4 +23,9 @@ export class AppBase implements OnInit {
   private user : User;
   applicationName : string = AppComponent.applicationName;
   language : Language = AppComponent.language;
+
+  getUser(){
+    return this.user;
+  }
+  
 }
