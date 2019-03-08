@@ -1,4 +1,4 @@
-import {getManager} from "typeorm";
+/*import {getManager} from "typeorm";
 import { User } from '../entity/User';
 
 export class GenericDao {
@@ -14,7 +14,7 @@ export class UserDao extends GenericDao {
 	async save(user : User){
 		await UserDao.entityManager.save(user);
 	}
-}
+}*/
 
 export class SQLite {
 	
