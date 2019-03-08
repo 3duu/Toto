@@ -40,8 +40,7 @@ export class SQLite {
 	
 	prepare() : void {
 		/*window.openDatabase("form", "2.0", "form DB", 1000000);
-		app.db.transaction(createDatabase, errorCB, successCB);
-		window.app = app;*/
+		app.db.transaction(createDatabase, errorCB, successCB);*/
 	}
 
 	errorCB(err) : boolean {

@@ -11,9 +11,10 @@ import { NavbarComponent } from './global/navbar.component';
 })
 export class AppComponent {
 
+  private sqlite : SQLite = new SQLite();
+
   static applicationName : string = "PetLif3";
   static language : Language = new Language();
-  sqlite : SQLite = new SQLite();
   
   constructor() {
 		this.sqlite.prepare();
