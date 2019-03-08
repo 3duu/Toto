@@ -1,8 +1,9 @@
-import { SQLite } from './database/database';
+
 import { Language } from './language/Language';
 import { Component, OnInit } from '@angular/core';
 import { User } from './entity/User';
 import { NavbarComponent } from './global/navbar.component';
+import { SQLiteDB } from './database/database';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { NavbarComponent } from './global/navbar.component';
 })
 export class AppComponent {
 
-  private sqlite : SQLite = new SQLite();
+  private sqlite : SQLiteDB = new SQLiteDB();
 
   static applicationName : string = "PetLif3";
   static language : Language = new Language();

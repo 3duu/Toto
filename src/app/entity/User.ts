@@ -48,8 +48,12 @@ export class User {
         return this.id;
     }
 
-    getLogin(){
+    getLogin() : string {
         return this.login;
+    }
+
+    setLogin(login : string) : void{
+        this.login = login;
     }
 
     getSignInDate(){
@@ -58,6 +62,10 @@ export class User {
 
     getPassword(){
         return this.encryptedPassword;
+    }
+
+    setPassword(password : string) : void{
+        this.password = password;
     }
 
     getPets() {

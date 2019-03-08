@@ -2,15 +2,15 @@ import { PetService } from './../entity/PetService';
 import { Address } from './../entity/Address';
 import { Appointment } from './../entity/Appointment';
 import { Bookmark } from './../entity/Bookmark';
-/*import {getManager} from "typeorm";
-import { User } from '../entity/User';*/
+/*import {getManager} from "typeorm";*/
 
 //import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
-import { ConnectionOptions, createConnection } from "typeorm"
+import { ConnectionOptions } from "typeorm"
 import { Pet } from '../entity/Pet';
 import { User } from '../entity/User';
 import { root } from '../paths';
 import { Rating } from '../entity/Rating';
+import {createConnection, Repository, getRepository} from "typeorm";
 
 /*
 export class GenericDao {
@@ -28,14 +28,16 @@ export class UserDao extends GenericDao {
 	}
 }*/
 
+/*
 const options: ConnectionOptions = {
 	type: "sqlite",
 	database: '${root}/data/line.sqlite',
 	entities: [ User, Pet, PetService, Bookmark, Appointment, Address, Rating ],
 	logging: true
-}
+}*/
 
-export class SQLite {
+//https://github.com/typeorm/cordova-example
+export class SQLiteDB {
 	
 	createTables : string[] = [
 		'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
@@ -58,10 +60,53 @@ export class SQLite {
 	}
 	
 	async prepare() {
-		//window.openDatabase("form", "2.0", "form DB", 1000000);
+		//window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
 		//window.db.transaction(createDatabase, errorCB, successCB);
-		const connection = await createConnection(options);
-		alert("Created");
+		//const connection = await createConnection(options);
+
+		//alert("Created");
+		
+		createConnection({
+			type: "cordova",
+			database: "test",
+			location: "default",
+			entities: [ User, Pet, PetService, Bookmark, Appointment, Address, Rating ],
+			logging: true,
+			synchronize: true
+		}).then(async connection => {
+		
+			const user = new User();
+			user.setLogin("admin");
+			user.setPassword("1");
+		
+			//const category2 = new Category();
+			//category2.name = "Programming";
+		
+			//const author = new Author();
+			//author.name = "Person";
+		
+			//const post = new Post();
+			//post.title = "Control flow based type analysis";
+			//post.text = `TypeScript 2.0 implements a control flow-based type analysis for local variables and parameters.`;
+			//post.categories = [category1, category2];
+			//post.author = author;
+		
+			const userRepository = getRepository('Post') as Repository<User>;
+			await userRepository.save(user);
+		
+		
+			console.log("Post has been saved");
+			document.writeln("Post has been saved");
+			
+			const savedUser = await userRepository.findOne(user.getId());
+			
+			console.log("Post has been loaded: ", savedUser);
+			document.writeln("Post has been loaded: " + JSON.stringify(savedUser));
+		
+		}).catch(error => {
+			console.log("Error: ", error);
+			document.writeln("Error: " + JSON.stringify(error));
+		});
 		
 		//const messageRepository = connection.getRepository(Message);
 		//const allMessages = await messageRepository.find();
