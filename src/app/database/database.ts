@@ -1,6 +1,13 @@
 /*import {getManager} from "typeorm";
-import { User } from '../entity/User';
+import { User } from '../entity/User';*/
 
+//import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { ConnectionOptions, createConnection } from "typeorm"
+import { Pet } from '../entity/Pet';
+import { User } from '../entity/User';
+import { root } from '../paths';
+
+/*
 export class GenericDao {
 	static  entityManager = getManager(); // you can also get it via getConnection().manager
 }
@@ -16,11 +23,20 @@ export class UserDao extends GenericDao {
 	}
 }*/
 
+const options: ConnectionOptions = {
+	type: "sqlite",
+	database: `${root}/data/line.sqlite`,
+	entities: [ User, Pet ],
+	logging: true
+  }
+
 export class SQLite {
 	
+	//db = require("nativescript-sqlite");
+
 	createTables : string[] = [
 		'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
-		'CREATE TABLE IF NOT EXISTS pet (id integer primary key autoincrement, name text, type number, userId number)'
+		'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
 	];
 
 	constructor() {
@@ -39,8 +55,8 @@ export class SQLite {
 	}
 	
 	prepare() : void {
-		/*window.openDatabase("form", "2.0", "form DB", 1000000);
-		app.db.transaction(createDatabase, errorCB, successCB);*/
+		//window.openDatabase("form", "2.0", "form DB", 1000000);
+		//window.db.transaction(createDatabase, errorCB, successCB);
 	}
 
 	errorCB(err) : boolean {

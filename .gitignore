@@ -24,6 +24,8 @@
 !/node_modules/ansi-escapes
 !/node_modules/browserify-zlib
 !/node_modules/base64-js
+!/node_modules/path
+!/node_modules/stream
 
 # profiling files
 chrome-profiler-events.json
