@@ -36,13 +36,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _device_info_device_info_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./device-info/device-info.component */ "./src/app/device-info/device-info.component.ts");
-
 
 
 
 var routes = [
-    { path: 'device-info', component: _device_info_device_info_component__WEBPACK_IMPORTED_MODULE_3__["DeviceInfoComponent"] }
+/*{ path: 'device-info', component: DeviceInfoComponent }*/
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -94,23 +92,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppBase", function() { return AppBase; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./database/database */ "./src/app/database/database.ts");
-/* harmony import */ var _language_Language__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./language/Language */ "./src/app/language/Language.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _language_Language__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./language/Language */ "./src/app/language/Language.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./database/database */ "./src/app/database/database.ts");
 
 
 
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.sqlite = new _database_database__WEBPACK_IMPORTED_MODULE_1__["SQLite"]();
+        this.sqlite = new _database_database__WEBPACK_IMPORTED_MODULE_3__["SQLiteDB"]();
         this.title = 'angular';
         this.sqlite.prepare();
     }
     AppComponent.applicationName = "PetLif3";
-    AppComponent.language = new _language_Language__WEBPACK_IMPORTED_MODULE_2__["Language"]();
+    AppComponent.language = new _language_Language__WEBPACK_IMPORTED_MODULE_1__["Language"]();
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
@@ -124,6 +122,7 @@ var AppBase = /** @class */ (function () {
     function AppBase() {
         this.applicationName = AppComponent.applicationName;
         this.language = AppComponent.language;
+        AppBase.addModule(this);
     }
     AppBase.prototype.ngOnInit = function () {
     };
@@ -176,13 +175,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _device_info_device_info_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./device-info/device-info.component */ "./src/app/device-info/device-info.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-bootstrap/tooltip */ "./node_modules/ngx-bootstrap/tooltip/fesm5/ngx-bootstrap-tooltip.js");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _global_navbar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./global/navbar.component */ "./src/app/global/navbar.component.ts");
-/* harmony import */ var _maps_maps_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./maps/maps.component */ "./src/app/maps/maps.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-bootstrap/tooltip */ "./node_modules/ngx-bootstrap/tooltip/fesm5/ngx-bootstrap-tooltip.js");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _global_navbar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./global/navbar.component */ "./src/app/global/navbar.component.ts");
+/* harmony import */ var _maps_maps_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./maps/maps.component */ "./src/app/maps/maps.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 
 
 
@@ -199,19 +198,19 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-                _device_info_device_info_component__WEBPACK_IMPORTED_MODULE_3__["DeviceInfoComponent"],
-                _global_navbar_component__WEBPACK_IMPORTED_MODULE_8__["NavbarComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"],
-                _maps_maps_component__WEBPACK_IMPORTED_MODULE_9__["MapsComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+                _global_navbar_component__WEBPACK_IMPORTED_MODULE_7__["NavbarComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"],
+                _maps_maps_component__WEBPACK_IMPORTED_MODULE_8__["MapsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-                ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_6__["TooltipModule"].forRoot()
+                _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+                ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_5__["TooltipModule"].forRoot()
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -225,29 +224,26 @@ var AppModule = /** @class */ (function () {
 /*!**************************************!*\
   !*** ./src/app/database/database.ts ***!
   \**************************************/
-/*! exports provided: SQLite */
+/*! exports provided: SQLiteDB */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SQLite", function() { return SQLite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SQLiteDB", function() { return SQLiteDB; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _entity_PetService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../entity/PetService */ "./src/app/entity/PetService.ts");
 /* harmony import */ var _entity_Address__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../entity/Address */ "./src/app/entity/Address.ts");
 /* harmony import */ var _entity_Appointment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../entity/Appointment */ "./src/app/entity/Appointment.ts");
 /* harmony import */ var _entity_Bookmark__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../entity/Bookmark */ "./src/app/entity/Bookmark.ts");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
-/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../entity/Pet */ "./src/app/entity/Pet.ts");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
-/* harmony import */ var _entity_Rating__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../entity/Rating */ "./src/app/entity/Rating.ts");
+/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../entity/Pet */ "./src/app/entity/Pet.ts");
+/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _entity_Rating__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../entity/Rating */ "./src/app/entity/Rating.ts");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
 
 
 
 
 
-/*import {getManager} from "typeorm";
-import { User } from '../entity/User';*/
-//import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
 
 
@@ -267,20 +263,22 @@ export class UserDao extends GenericDao {
         await UserDao.entityManager.save(user);
     }
 }*/
-var options = {
+/*
+const options: ConnectionOptions = {
     type: "sqlite",
     database: '${root}/data/line.sqlite',
-    entities: [_entity_User__WEBPACK_IMPORTED_MODULE_7__["User"], _entity_Pet__WEBPACK_IMPORTED_MODULE_6__["Pet"], _entity_PetService__WEBPACK_IMPORTED_MODULE_1__["PetService"], _entity_Bookmark__WEBPACK_IMPORTED_MODULE_4__["Bookmark"], _entity_Appointment__WEBPACK_IMPORTED_MODULE_3__["Appointment"], _entity_Address__WEBPACK_IMPORTED_MODULE_2__["Address"], _entity_Rating__WEBPACK_IMPORTED_MODULE_8__["Rating"]],
+    entities: [ User, Pet, PetService, Bookmark, Appointment, Address, Rating ],
     logging: true
-};
-var SQLite = /** @class */ (function () {
-    function SQLite() {
+}*/
+//https://github.com/typeorm/cordova-example
+var SQLiteDB = /** @class */ (function () {
+    function SQLiteDB() {
         this.createTables = [
             'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
             'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
         ];
     }
-    SQLite.prototype.createDatabase = function (tx) {
+    SQLiteDB.prototype.createDatabase = function (tx) {
         tx.executeSql("DROP TABLE IF EXISTS user");
         tx.executeSql("DROP TABLE IF EXISTS pet");
         //cria tabelas
@@ -288,93 +286,60 @@ var SQLite = /** @class */ (function () {
             tx.executeSql(this.createTables[sql]);
         }
     };
-    SQLite.prototype.prepare = function () {
+    SQLiteDB.prototype.prepare = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var connection;
+            var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, Object(typeorm__WEBPACK_IMPORTED_MODULE_5__["createConnection"])(options)];
-                    case 1:
-                        connection = _a.sent();
-                        alert("Created");
-                        return [2 /*return*/];
-                }
+                //window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
+                //window.db.transaction(createDatabase, errorCB, successCB);
+                //const connection = await createConnection(options);
+                //alert("Created");
+                Object(typeorm__WEBPACK_IMPORTED_MODULE_8__["createConnection"])({
+                    type: "cordova",
+                    database: "test",
+                    location: "default",
+                    entities: [_entity_User__WEBPACK_IMPORTED_MODULE_6__["User"], _entity_Pet__WEBPACK_IMPORTED_MODULE_5__["Pet"], _entity_PetService__WEBPACK_IMPORTED_MODULE_1__["PetService"], _entity_Bookmark__WEBPACK_IMPORTED_MODULE_4__["Bookmark"], _entity_Appointment__WEBPACK_IMPORTED_MODULE_3__["Appointment"], _entity_Address__WEBPACK_IMPORTED_MODULE_2__["Address"], _entity_Rating__WEBPACK_IMPORTED_MODULE_7__["Rating"]],
+                    logging: true,
+                    synchronize: true
+                }).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                    var user, userRepository, savedUser;
+                    return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                user = new _entity_User__WEBPACK_IMPORTED_MODULE_6__["User"]();
+                                user.setLogin("admin");
+                                user.setPassword("1");
+                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_8__["getRepository"])('Post');
+                                return [4 /*yield*/, userRepository.save(user)];
+                            case 1:
+                                _a.sent();
+                                console.log("Post has been saved");
+                                document.writeln("Post has been saved");
+                                return [4 /*yield*/, userRepository.findOne(user.getId())];
+                            case 2:
+                                savedUser = _a.sent();
+                                console.log("User has been loaded: ", savedUser);
+                                document.writeln("Post has been loaded: " + JSON.stringify(savedUser));
+                                return [2 /*return*/];
+                        }
+                    });
+                }); }).catch(function (error) {
+                    console.log("Error: ", error);
+                    document.writeln("Error: " + JSON.stringify(error));
+                });
+                return [2 /*return*/];
             });
         });
     };
-    SQLite.prototype.errorCB = function (err) {
+    SQLiteDB.prototype.errorCB = function (err) {
         console.log("Error processing SQL: " + err.code + ": " + err.message);
         alert('Error when executing command - ' + err.code + ": " + err.message);
         return true;
     };
-    SQLite.prototype.successCB = function () {
+    SQLiteDB.prototype.successCB = function () {
         console.log('SQL COMMAND EXECUTED');
     };
-    return SQLite;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/device-info/device-info.component.css":
-/*!*******************************************************!*\
-  !*** ./src/app/device-info/device-info.component.css ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2RldmljZS1pbmZvL2RldmljZS1pbmZvLmNvbXBvbmVudC5jc3MifQ== */"
-
-/***/ }),
-
-/***/ "./src/app/device-info/device-info.component.html":
-/*!********************************************************!*\
-  !*** ./src/app/device-info/device-info.component.html ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"p-4\">\n    <h4>Your Device Info</h4>\n    <table class=\"table table-hover mt-3\">\n        <tr>\n            <td>Device Model</td>\n            <td>{{deviceInfo.model}}</td>\n        </tr>\n        <tr>\n            <td>Device Platform</td>\n            <td>{{deviceInfo.platform}}</td>\n        </tr>\n        <tr>\n            <td>Device UID</td>\n            <td>{{deviceInfo.uuid}}</td>\n        </tr>\n        <tr>\n            <td>Device Version</td>\n            <td>{{deviceInfo.version}}</td>\n        </tr>\n        <tr>\n            <td>Device Manufacturer</td>\n            <td>{{deviceInfo.manufacturer}}</td>\n        </tr>\n        <tr>\n            <td>Device Serial</td>\n            <td>{{deviceInfo.serial}}</td>\n        </tr>\n    </table>\n    <div class=\"col-md-6 offset-md-3\">\n        <a class=\"col-md-6 offset-md-3 btn btn-primary\" routerLink=\"/\">Home</a>\n    </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/device-info/device-info.component.ts":
-/*!******************************************************!*\
-  !*** ./src/app/device-info/device-info.component.ts ***!
-  \******************************************************/
-/*! exports provided: DeviceInfoComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeviceInfoComponent", function() { return DeviceInfoComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var DeviceInfoComponent = /** @class */ (function () {
-    function DeviceInfoComponent() {
-    }
-    DeviceInfoComponent.prototype.ngOnInit = function () {
-        this.deviceInfo = {
-            model: device.model,
-            platform: device.platform,
-            uuid: device.uuid,
-            version: device.version,
-            manufacturer: device.manufacturer,
-            serial: device.serial
-        };
-    };
-    DeviceInfoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-device-info',
-            template: __webpack_require__(/*! ./device-info.component.html */ "./src/app/device-info/device-info.component.html"),
-            styles: [__webpack_require__(/*! ./device-info.component.css */ "./src/app/device-info/device-info.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], DeviceInfoComponent);
-    return DeviceInfoComponent;
+    return SQLiteDB;
 }());
 
 
@@ -835,11 +800,17 @@ var User = /** @class */ (function () {
     User.prototype.getLogin = function () {
         return this.login;
     };
+    User.prototype.setLogin = function (login) {
+        this.login = login;
+    };
     User.prototype.getSignInDate = function () {
         return this.signInDate;
     };
     User.prototype.getPassword = function () {
         return this.encryptedPassword;
+    };
+    User.prototype.setPassword = function (password) {
+        this.password = password;
     };
     User.prototype.getPets = function () {
         return this.pets;
@@ -1036,7 +1007,7 @@ module.exports = "/* brandico */\r\n[class*=\"brandico-\"]:before {\r\n  font-fa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n\n<div class=\"container text-center\">\n    <form class=\"form-signin\" data-ember-action=\"2\">\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br><br>\n\n        <p>\n        <a class=\"btn btn-primary social-login-btn social-facebook\" href=\"/auth/facebook\"><i class=\"fa fa-facebook\"></i></a>\n        <a class=\"btn btn-primary social-login-btn social-twitter\" href=\"/auth/twitter\"><i class=\"fa fa-twitter\"></i></a>\n        </p>\n        <p>\n        <a class=\"btn btn-primary social-login-btn social-linkedin\" href=\"/auth/linkedin\"><i class=\"fa fa-linkedin\"></i></a>\n        <a class=\"btn btn-primary social-login-btn social-google\" href=\"/auth/google\"><i class=\"fa fa-google-plus\"></i></a>\n        </p>\n\n        <div class=\"btn-group social-login-more\">\n        <button type=\"button\" class=\"btn btn-default dropdown-toggle btn-block\" data-toggle=\"dropdown\">\n        {{language.more}}\n        </button>\n        <ul class=\"dropdown-menu text-left \" role=\"menu\">\n        <li><a href=\"#\"><i class=\"fa fa-tumblr-sign\"></i>   Tumblr</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-github-alt\"></i>   Github</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-dropbox\"></i>   Dropbox</a></li>\n        <li><a href=\"/auth/amazon\"><span class=\"zocial-amazon\"></span>   Amazon</a></li>\n        <li><a href=\"#\"><span class=\"zocial-bitbucket\"></span>   Bitbucket</a></li>\n        <li><a href=\"#\"><span class=\"zocial-evernote\"></span>   Evernote</a></li>\n        <li><a href=\"#\"><span class=\"zocial-meetup\"></span>   Meetup</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-windows\"></i>   Windows Live</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-weibo\"></i>   Weibo</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-foursquare\"></i>   Foursquare</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-stackexchange\"></i>   Stack Exchange</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-trello\"></i>   Trello</a></li>\n        <li><a href=\"#\"><span class=\"zocial-wordpress\"></span>   Wordpress</a></li>\n        </ul>\n        </div>\n        <br><br>\n\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\n        <br><br>\n        \n        <input id=\"ember360\" class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.email}}\" type=\"text\">\n        <input id=\"ember361\" class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\">\n\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\n\n        <button class=\"btn btn-lg btn-success btn-block btn-center\" type=\"submit\" data-bindattr-3=\"3\">{{language.login}}</button>\n        <br>\n        <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button id=\"ember363\" class=\"ember-view btn btn-sm btn-default\"> {{language.signUp}} </button> </small>\n    </form>\n</div>"
+module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n\n<div class=\"container text-center\">\n    <form class=\"form-signin\" #loginForm=\"ngForm\" (ngSubmit)=\"doLogin(loginForm)\">\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br><br>\n\n        <p>\n        <a class=\"btn btn-primary social-login-btn social-facebook\" href=\"/auth/facebook\"><i class=\"fa fa-facebook\"></i></a>\n        <a class=\"btn btn-primary social-login-btn social-twitter\" href=\"/auth/twitter\"><i class=\"fa fa-twitter\"></i></a>\n        </p>\n        <p>\n        <a class=\"btn btn-primary social-login-btn social-linkedin\" href=\"/auth/linkedin\"><i class=\"fa fa-linkedin\"></i></a>\n        <a class=\"btn btn-primary social-login-btn social-google\" href=\"/auth/google\"><i class=\"fa fa-google-plus\"></i></a>\n        </p>\n\n        <div class=\"btn-group social-login-more\">\n        <button type=\"button\" class=\"btn btn-default dropdown-toggle btn-block\" data-toggle=\"dropdown\">\n        {{language.more}}\n        </button>\n        <ul class=\"dropdown-menu text-left \" role=\"menu\">\n        <li><a href=\"#\"><i class=\"fa fa-tumblr-sign\"></i>   Tumblr</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-github-alt\"></i>   Github</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-dropbox\"></i>   Dropbox</a></li>\n        <li><a href=\"/auth/amazon\"><span class=\"zocial-amazon\"></span>   Amazon</a></li>\n        <li><a href=\"#\"><span class=\"zocial-bitbucket\"></span>   Bitbucket</a></li>\n        <li><a href=\"#\"><span class=\"zocial-evernote\"></span>   Evernote</a></li>\n        <li><a href=\"#\"><span class=\"zocial-meetup\"></span>   Meetup</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-windows\"></i>   Windows Live</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-weibo\"></i>   Weibo</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-foursquare\"></i>   Foursquare</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-stackexchange\"></i>   Stack Exchange</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-trello\"></i>   Trello</a></li>\n        <li><a href=\"#\"><span class=\"zocial-wordpress\"></span>   Wordpress</a></li>\n        </ul>\n        </div>\n        <br><br>\n\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\n        <br><br>\n        \n        <input id=\"ember360\" class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.email}}\" type=\"text\" name=\"login\" id=\"login\" ngModel>\n        <input id=\"ember361\" class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel>\n\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\n\n        <button class=\"btn btn-lg btn-success btn-block btn-center\" type=\"submit\" data-bindattr-3=\"3\">{{language.login}}</button>\n        <br>\n        <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button id=\"ember363\" class=\"ember-view btn btn-sm btn-default\"> {{language.signUp}} </button> </small>\n    </form>\n</div>"
 
 /***/ }),
 
@@ -1062,7 +1033,12 @@ var LoginComponent = /** @class */ (function (_super) {
         return _super.call(this) || this;
     }
     LoginComponent.prototype.ngOnInit = function () {
-        _app_component__WEBPACK_IMPORTED_MODULE_2__["AppBase"].addModule(this);
+    };
+    LoginComponent.prototype.doLogin = function (form) {
+        console.log(form.value);
+        alert(form.value.login);
+        // {email: '...', password: '...'}
+        // ... <-- now use JSON.stringify() to convert form values to json.
     };
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1099,7 +1075,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  maps works!\n</p>\n"
+module.exports = "<div id=\"mapView\">\n    \n</div>"
 
 /***/ }),
 
@@ -1115,10 +1091,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapsComponent", function() { return MapsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app.component */ "./src/app/app.component.ts");
 
 
-var MapsComponent = /** @class */ (function () {
+
+var MapsComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MapsComponent, _super);
     function MapsComponent() {
+        return _super.call(this) || this;
     }
     MapsComponent.prototype.ngOnInit = function () {
     };
@@ -1127,11 +1107,14 @@ var MapsComponent = /** @class */ (function () {
             selector: 'app-maps',
             template: __webpack_require__(/*! ./maps.component.html */ "./src/app/maps/maps.component.html"),
             styles: [__webpack_require__(/*! ./maps.component.css */ "./src/app/maps/maps.component.css")]
-        }),
+        })
+        //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
+        //phonegap plugin add  cordova-plugin-googlemaps
+        ,
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], MapsComponent);
     return MapsComponent;
-}());
+}(_app_component__WEBPACK_IMPORTED_MODULE_2__["AppBase"]));
 
 
 
