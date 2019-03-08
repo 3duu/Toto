@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
+@Navbar
 export class NavbarComponent extends AppBase {
   
   constructor() { 
@@ -13,7 +15,7 @@ export class NavbarComponent extends AppBase {
   }
 
   ngOnInit() {
-    
+    AppBase.setNavbarComponent(this);
   }
 
   navbarOpen = false;
@@ -21,4 +23,11 @@ export class NavbarComponent extends AppBase {
     this.navbarOpen = !this.navbarOpen;
   }
 
+}
+
+function Navbar(constructor: Function) {
+  //Object.seal(constructor);
+  //Object.seal(constructor.prototype);
+  
+  //AppBase.setNavbarComponent(constructor.prototype);
 }

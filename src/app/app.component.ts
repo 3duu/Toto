@@ -1,3 +1,4 @@
+import { SQLite } from './database/database';
 import { Language } from './language/Language';
 import { Component, OnInit } from '@angular/core';
 import { User } from './entity/User';
@@ -12,7 +13,11 @@ export class AppComponent {
 
   static applicationName : string = "PetLif3";
   static language : Language = new Language();
- 
+  sqlite : SQLite = new SQLite();
+  
+  constructor() {
+		this.sqlite.prepare();
+	}
 
   title = 'angular';
 }
@@ -24,9 +29,9 @@ export class AppBase implements OnInit {
 
   applicationName : string = AppComponent.applicationName;
   language : Language = AppComponent.language;
-  navbarComponent : NavbarComponent;
 
-  private static modules = [];
+  private static modules : AppBase[] = [];
+  static navbarComponent : NavbarComponent;
 
   ngOnInit(): void {
     
@@ -44,9 +49,20 @@ export class AppBase implements OnInit {
     return null;
   }
 
-  setNavbarComponent(navbarComponent : NavbarComponent) : void {
-    AppBase.modules.push(navbarComponent);
-    this.navbarComponent = navbarComponent;
+  protected static setNavbarComponent(navbarComponent : NavbarComponent) : void {
+    if(this.navbarComponent == null){
+      AppBase.addModule(navbarComponent);
+      this.navbarComponent = navbarComponent;
+    }
+  }
+
+  protected static addModule(module : AppBase) : void {
+    for(let m in AppBase.modules){
+      if(module.constructor.name == m.constructor.name){
+        return;
+      }
+    }
+    AppBase.modules.push(module);
   }
   
 }
