@@ -20,4 +20,6 @@ export class Language {
     enterYourLogon : string[] = ["Ou entre com o seu cadastro"];
     dontHave : string[] = ["Não possui"];
     orSocialMediaAccount : string[] = ["ou conta em rede social?"];
+    email : string[] = ["E-mail"];
+    password : string[] = ["Senha"];
 }
