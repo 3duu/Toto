@@ -8,27 +8,27 @@
 /bazel-out
 
 # dependencies
-#/node_modules/*
-#!/node_modules/.bin
-#!/node_modules/typeorm
-#!/node_modules/bootstrap
-#!/node_modules/font-awesome
-#!/node_modules/tls
-#!/node_modules/typescript
-#!/node_modules/rxjs
-#!/node_modules/cordova-android
-#!/node_modules/cordova-ios
-#!/node_modules/cordova-plugin-device
-#!/node_modules/cordova-plugin-whitelist
-#!/node_modules/cordova-sqlite-storage
-#!/node_modules/cordova-sqlite-storage-dependencies
-#!/node_modules/ansi-escapes
-#!/node_modules/browserify-zlib
-#!/node_modules/base64-js
-#!/node_modules/path
-#!/node_modules/stream
-#!/node_modules/sqlite3
-#!/node_modules/electron-rebuild
+/node_modules/*
+!/node_modules/.bin
+!/node_modules/typeorm
+!/node_modules/bootstrap
+!/node_modules/font-awesome
+!/node_modules/tls
+!/node_modules/typescript
+!/node_modules/rxjs
+!/node_modules/cordova-android
+!/node_modules/cordova-ios
+!/node_modules/cordova-plugin-device
+!/node_modules/cordova-plugin-whitelist
+!/node_modules/cordova-sqlite-storage
+!/node_modules/cordova-sqlite-storage-dependencies
+!/node_modules/ansi-escapes
+!/node_modules/browserify-zlib
+!/node_modules/base64-js
+!/node_modules/path
+!/node_modules/stream
+!/node_modules/sqlite3
+!/node_modules/electron-rebuild
 
 # profiling files
 chrome-profiler-events.json
