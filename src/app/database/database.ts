@@ -100,7 +100,7 @@ export class SQLiteDB {
 			
 			const savedUser = await userRepository.findOne(user.getId());
 			
-			console.log("Post has been loaded: ", savedUser);
+			console.log("User has been loaded: ", savedUser);
 			document.writeln("Post has been loaded: " + JSON.stringify(savedUser));
 		
 		}).catch(error => {
