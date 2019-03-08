@@ -26,6 +26,7 @@
 !/node_modules/base64-js
 !/node_modules/path
 !/node_modules/stream
+!/node_modules/sqlite3
 
 # profiling files
 chrome-profiler-events.json
