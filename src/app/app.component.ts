@@ -45,8 +45,13 @@ export class AppBase implements OnInit {
   setNavMenuVisiility() : boolean {
     return this.showNavMenu;
   }
-
-  getNavbarComponent() : NavbarComponent {
+  
+  getNavbarComponent() /*: NavbarComponent*/ {
+    for(let m in AppBase.modules){
+      if('NavbarComponent' == m.constructor.name){
+        return m;
+      }
+    }
     return null;
   }
 
