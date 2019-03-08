@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <link rel="stylesheet" type="text/css" href="../code-prettify/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../js/loader.js"></script>
+    <script src="../code-prettify/run_prettify.js" async="async"></script>
+    <script src="../js/menu.js" async="async"></script>
+</head>
+
+<body>
+    <div id="menuView"><ul id="menu"></ul></div>
+    <div id="header">
+        <div id="menuButton"></div><h3>event: MY_LOCATION_BUTTON_CLICK</h3>
+    </div>
+    <div id="contentView">
+        <div id="contentsFrame">
+            <section class="demo">
+
+                <p>
+                    Tap on the location button on the map, then you will see the alert.
+                </p>
+                <div class="map" id="map_canvas" style="position:relative;"></div>
+                <pre class="prettyprint">plugin.google.maps.LocationService.getMyLocation(function(result) {
+
+  // Display the current location map
+  var mapDiv = document.getElementById('map_canvas');
+  var map = plugin.google.maps.Map.getMap(mapDiv, {
+    'camera': {
+      'target': result.latLng,
+      'zoom': 16
+    },
+    'controls': {
+      'myLocationButton': true,
+      'myLocation': true  // try `myLocation = false`
+    }
+  });
+  map.on(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
+    alert("The my location button is clicked.");
+  });
+});
+</pre>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

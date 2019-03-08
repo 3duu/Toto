@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules/*
+!/node_modules/.bin
 !/node_modules/typeorm
 !/node_modules/bootstrap
 !/node_modules/font-awesome
@@ -27,6 +28,7 @@
 !/node_modules/path
 !/node_modules/stream
 !/node_modules/sqlite3
+!/node_modules/electron-rebuild
 
 # profiling files
 chrome-profiler-events.json

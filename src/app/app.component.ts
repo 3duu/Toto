@@ -34,6 +34,10 @@ export class AppBase implements OnInit {
   private static modules : AppBase[] = [];
   static navbarComponent : NavbarComponent;
 
+  constructor(){
+    AppBase.addModule(this);
+  }
+
   ngOnInit(): void {
     
   }

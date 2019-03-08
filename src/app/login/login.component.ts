@@ -15,7 +15,7 @@ export class LoginComponent extends AppBase {
   }
 
   ngOnInit() {
-    AppBase.addModule(this);
+    
   }
 
 }

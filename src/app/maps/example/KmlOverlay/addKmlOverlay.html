@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <link rel="stylesheet" type="text/css" href="../code-prettify/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../js/loader.js"></script>
+    <script src="../code-prettify/run_prettify.js" async="async"></script>
+    <script src="../js/menu.js" async="async"></script>
+</head>
+
+<body>
+
+    <div id="menuView"><ul id="menu"></ul></div>
+    <div id="header">
+        <div id="menuButton"></div><h3>map.addKmlOverlay()</h3>
+    </div>
+    <div id="contentView">
+        <div id="contentsFrame">
+            <section class="demo">
+                <p>
+                    The map.addKmlOverlay() method imports a kml file from URL or file path, then generate a layer.
+                </p>
+                <div class="map" id="map_canvas">
+  <select>
+    <option>Select one kml file</option>
+    <optgroup label="Basic KMLs">
+      <option value="./marker.kml">marker.kml</option>
+      <option value="./shizuoka.kml">shizuoka.kml</option>
+      <option value="./polygon.kml">polygon.kml</option>
+    </optgroup>
+    <optgroup label="Examples: Data.gov">
+    <option value="https://data.cityofnewyork.us/api/geospatial/3qz8-muuu?method=export&format=KML">MTA New York city Subway</option>
+    <option value="https://data.austintexas.gov/api/geospatial/23x8-agw7?method=export&format=KML">City of Austin: zip codes</option>
+    </optgroup>
+    <optgroup label="Schema">
+      <option value="Extended_Data.Balloon_Substitution.kml">Schema + BalloonStyle</option>
+      <option value="https://raw.githubusercontent.com/jalbertbowden/open-virginia-gis/a5308244bbd84fd106c46be3c61ddad46b8c4ee4/city/falls-church/curbholes/kml/Curbholes.kml">Curbholes.kml</option>
+    </optgroup>
+    <optgroup label="GroundOverlay">
+      <option value="https://raw.githubusercontent.com/MelikeSila/FinalProject/f32af4d2292876c015cf30ac6bb4cea54ae876a3/library/build/intermediates/res/merged/androidTest/debug/raw/amu_draw_order_ground_overlay.kml">amu_draw_order_ground_overlay.kml</option>
+      <option value="https://raw.githubusercontent.com/MattSchroyer/roomfinder3d/bfd3ba25056f7146a30b62dd329a57d32ade7976/MB1c.kml">MB1c.kml</option>
+    </optgroup>
+  </select>
+</div>
+                <pre class="prettyprint">var mapDiv = document.getElementById("map_canvas");
+var map = plugin.google.maps.Map.getMap(mapDiv, {
+  'mapTypeId': plugin.google.maps.MapTypeId.SATELLITE
+});
+
+var select = mapDiv.getElementsByTagName('select')[0];
+select.addEventListener('change', function() {
+  var kmlUrl = this.value;
+  if (!kmlUrl || kmlUrl === "Select one kml file") {
+    return;
+  }
+
+  map.clear();
+
+  // Show a dialog
+  var dialogDiv = showVirtualDialog(mapDiv, "Just a moment, please ...");
+
+  map.addKmlOverlay({
+    'url': kmlUrl,
+    'clickable': true,
+    'suppressInfoWindows': false
+  }, function(kmlOverlay) {
+
+    // debug
+    //console.log(kmlOverlay);
+
+    // You can get additional information
+    //kmlOverlay.on(plugin.google.maps.event.KML_CLICK, function(overlay, latLng) {
+    //  console.log(overlay);
+    //});
+
+    // You need to change the camera by yourself.
+    map.moveCamera(kmlOverlay.camera, function() {
+
+      //close the dialog
+      mapDiv.removeChild(dialogDiv);
+
+    });
+
+  });
+});
+
+</pre>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <link rel="stylesheet" type="text/css" href="../code-prettify/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../js/loader.js"></script>
+    <script src="../code-prettify/run_prettify.js" async="async"></script>
+    <script src="../js/menu.js" async="async"></script>
+</head>
+
+<body>
+    <div id="menuView"><ul id="menu"></ul></div>
+    <div id="header">
+        <div id="menuButton"></div><h3>panorama.getPanorama()</h3>
+    </div>
+
+    <div id="contentView">
+        <div id="contentsFrame">
+            <section class="demo">
+                <h3>Create a panorama container</h3>
+                <p>
+                    After the <span class="highlihgt">deviceready</span>, you can create maps using <span class="highlight">plugin.google.maps.StreetView.getPanorama()</span>.
+                </p>
+                <div class="pano" id="pano_canvas1"></div>
+                <pre class="prettyprint">var div = document.getElementById("pano_canvas1");
+var panorama = plugin.google.maps.StreetView.getPanorama(div);
+panorama.setPosition({
+  target: {lat: 42.345573, lng: -71.098326}
+});
+</pre>
+            </section>
+            <section class="demo">
+                <h3>Create a panorama with initialize options</h3>
+                <p>
+                    You can specify the panorama options with <span class="highlight">getPanorama()</span> method.
+                </p>
+                <div class="map" id="panorama_canvas2"></div>
+                <pre class="prettyprint">var div = document.getElementById("panorama_canvas2");
+var panorama = plugin.google.maps.StreetView.getPanorama(div, {
+  camera: {
+    target: {lat: 48.859669, lng: 2.2923967},
+    zoom: 0,  // from 0 to 2
+    bearing: 90,
+    tilt: 30,
+    radius: 10,
+    source: plugin.google.maps.StreetView.Source.OUTSIDE
+  },
+  gestures: {
+    panning: true,
+    zoom: true
+  },
+  controls: {
+    navigation: true,
+    streetNames: true
+  }
+});
+
+</pre>
+            </section>
+
+        </div>
+    </div>
+</body>
+
+</html>

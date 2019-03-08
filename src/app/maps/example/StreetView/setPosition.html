@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <link rel="stylesheet" type="text/css" href="../code-prettify/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../js/loader.js"></script>
+    <script src="../code-prettify/run_prettify.js" async="async"></script>
+    <script src="../js/menu.js" async="async"></script>
+</head>
+
+<body>
+    <div id="menuView"><ul id="menu"></ul></div>
+    <div id="header">
+        <div id="menuButton"></div><h3>StreetView.setPosition()</h3>
+    </div>
+
+    <div id="contentView">
+        <div id="contentsFrame">
+            <section class="demo">
+                <h3>setPosition</h3>
+                <p>
+                  Sets the current LatLng position for the Street View panorama.
+                </p>
+                <div class="map" id="map_canvas3" style="height: 250px;"></div>
+                <div class="map" id="panorama_canvas3" style="height: 250px;"></div>
+                <pre class="prettyprint">var startPos = {lat: 42.345573, lng: -71.098326};
+var mapDiv = document.getElementById("map_canvas3");
+var map = plugin.google.maps.Map.getMap(mapDiv, {
+  camera: {
+    target: startPos,
+    zoom: 18
+  }
+});
+
+var panoramaDiv = document.getElementById("panorama_canvas3");
+var panorama = plugin.google.maps.StreetView.getPanorama(panoramaDiv, {
+  camera: {
+    target: startPos
+  }
+});
+
+var marker = map.addMarker({
+  position: startPos,
+  draggable: true,
+  title: "Drag me!"
+});
+marker.showInfoWindow();
+
+marker.on(plugin.google.maps.event.MARKER_DRAG_END, function(latLng) {
+  panorama.setPosition({
+    target: latLng,
+    source: plugin.google.maps.StreetView.Source.DEFAULT,
+    radius: 50
+  });
+});
+panorama.on(plugin.google.maps.event.PANORAMA_LOCATION_CHANGE, function(location) {
+  marker.setPosition(location.latLng);
+});
+</pre>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
