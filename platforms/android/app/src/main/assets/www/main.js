@@ -231,14 +231,16 @@ var AppModule = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SQLiteDB", function() { return SQLiteDB; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _entity_PetService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../entity/PetService */ "./src/app/entity/PetService.ts");
-/* harmony import */ var _entity_Address__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../entity/Address */ "./src/app/entity/Address.ts");
-/* harmony import */ var _entity_Appointment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../entity/Appointment */ "./src/app/entity/Appointment.ts");
-/* harmony import */ var _entity_Bookmark__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../entity/Bookmark */ "./src/app/entity/Bookmark.ts");
-/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../entity/Pet */ "./src/app/entity/Pet.ts");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
-/* harmony import */ var _entity_Rating__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../entity/Rating */ "./src/app/entity/Rating.ts");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _entity_PetService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../entity/PetService */ "./src/app/entity/PetService.ts");
+/* harmony import */ var _entity_Address__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../entity/Address */ "./src/app/entity/Address.ts");
+/* harmony import */ var _entity_Appointment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../entity/Appointment */ "./src/app/entity/Appointment.ts");
+/* harmony import */ var _entity_Bookmark__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../entity/Bookmark */ "./src/app/entity/Bookmark.ts");
+/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../entity/Pet */ "./src/app/entity/Pet.ts");
+/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _entity_Rating__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../entity/Rating */ "./src/app/entity/Rating.ts");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+
 
 
 
@@ -293,12 +295,11 @@ var SQLiteDB = /** @class */ (function () {
                 //window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
                 //window.db.transaction(createDatabase, errorCB, successCB);
                 //const connection = await createConnection(options);
-                //alert("Created");
-                Object(typeorm__WEBPACK_IMPORTED_MODULE_8__["createConnection"])({
+                Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["createConnection"])({
                     type: "cordova",
-                    database: "test",
+                    database: _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName,
                     location: "default",
-                    entities: [_entity_User__WEBPACK_IMPORTED_MODULE_6__["User"], _entity_Pet__WEBPACK_IMPORTED_MODULE_5__["Pet"], _entity_PetService__WEBPACK_IMPORTED_MODULE_1__["PetService"], _entity_Bookmark__WEBPACK_IMPORTED_MODULE_4__["Bookmark"], _entity_Appointment__WEBPACK_IMPORTED_MODULE_3__["Appointment"], _entity_Address__WEBPACK_IMPORTED_MODULE_2__["Address"], _entity_Rating__WEBPACK_IMPORTED_MODULE_7__["Rating"]],
+                    entities: [_entity_User__WEBPACK_IMPORTED_MODULE_7__["User"], _entity_Pet__WEBPACK_IMPORTED_MODULE_6__["Pet"], _entity_PetService__WEBPACK_IMPORTED_MODULE_2__["PetService"], _entity_Bookmark__WEBPACK_IMPORTED_MODULE_5__["Bookmark"], _entity_Appointment__WEBPACK_IMPORTED_MODULE_4__["Appointment"], _entity_Address__WEBPACK_IMPORTED_MODULE_3__["Address"], _entity_Rating__WEBPACK_IMPORTED_MODULE_8__["Rating"]],
                     logging: true,
                     synchronize: true
                 }).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
@@ -306,10 +307,10 @@ var SQLiteDB = /** @class */ (function () {
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                         switch (_a.label) {
                             case 0:
-                                user = new _entity_User__WEBPACK_IMPORTED_MODULE_6__["User"]();
+                                user = new _entity_User__WEBPACK_IMPORTED_MODULE_7__["User"]();
                                 user.setLogin("admin");
                                 user.setPassword("1");
-                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_8__["getRepository"])('Post');
+                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["getRepository"])('Post');
                                 return [4 /*yield*/, userRepository.save(user)];
                             case 1:
                                 _a.sent();
@@ -325,7 +326,7 @@ var SQLiteDB = /** @class */ (function () {
                     });
                 }); }).catch(function (error) {
                     console.log("Error: ", error);
-                    document.writeln("Error: " + JSON.stringify(error));
+                    //document.writeln("Error: " + JSON.stringify(error));
                 });
                 return [2 /*return*/];
             });

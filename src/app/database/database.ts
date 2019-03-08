@@ -1,3 +1,4 @@
+import { AppComponent } from './../app.component';
 import { PetService } from './../entity/PetService';
 import { Address } from './../entity/Address';
 import { Appointment } from './../entity/Appointment';
@@ -64,11 +65,9 @@ export class SQLiteDB {
 		//window.db.transaction(createDatabase, errorCB, successCB);
 		//const connection = await createConnection(options);
 
-		//alert("Created");
-		
 		createConnection({
 			type: "cordova",
-			database: "test",
+			database: AppComponent.applicationName,
 			location: "default",
 			entities: [ User, Pet, PetService, Bookmark, Appointment, Address, Rating ],
 			logging: true,
@@ -79,22 +78,9 @@ export class SQLiteDB {
 			user.setLogin("admin");
 			user.setPassword("1");
 		
-			//const category2 = new Category();
-			//category2.name = "Programming";
-		
-			//const author = new Author();
-			//author.name = "Person";
-		
-			//const post = new Post();
-			//post.title = "Control flow based type analysis";
-			//post.text = `TypeScript 2.0 implements a control flow-based type analysis for local variables and parameters.`;
-			//post.categories = [category1, category2];
-			//post.author = author;
-		
 			const userRepository = getRepository('Post') as Repository<User>;
 			await userRepository.save(user);
-		
-		
+			
 			console.log("Post has been saved");
 			document.writeln("Post has been saved");
 			
@@ -105,7 +91,7 @@ export class SQLiteDB {
 		
 		}).catch(error => {
 			console.log("Error: ", error);
-			document.writeln("Error: " + JSON.stringify(error));
+			//document.writeln("Error: " + JSON.stringify(error));
 		});
 		
 		//const messageRepository = connection.getRepository(Message);
