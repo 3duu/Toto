@@ -78,7 +78,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-navbar></app-navbar>\n<!--<div style=\"text-align:center\">\n  <img width=\"300\" alt=\"Angular Logo\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\">\n</div> -->\n<app-login></app-login>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-navbar></app-navbar>\n<app-login></app-login>\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -94,23 +94,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppBase", function() { return AppBase; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _language_Language__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./language/Language */ "./src/app/language/Language.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./database/database */ "./src/app/database/database.ts");
+/* harmony import */ var _language_Language__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./language/Language */ "./src/app/language/Language.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
 
 
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
+        this.sqlite = new _database_database__WEBPACK_IMPORTED_MODULE_1__["SQLite"]();
         this.title = 'angular';
+        this.sqlite.prepare();
     }
     AppComponent.applicationName = "PetLif3";
-    AppComponent.language = new _language_Language__WEBPACK_IMPORTED_MODULE_1__["Language"]();
+    AppComponent.language = new _language_Language__WEBPACK_IMPORTED_MODULE_2__["Language"]();
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], AppComponent);
     return AppComponent;
 }());
@@ -125,6 +130,32 @@ var AppBase = /** @class */ (function () {
     AppBase.prototype.getUser = function () {
         return this.user;
     };
+    AppBase.prototype.setNavMenuVisiility = function () {
+        return this.showNavMenu;
+    };
+    AppBase.prototype.getNavbarComponent = function () {
+        for (var m in AppBase.modules) {
+            if ('NavbarComponent' == m.constructor.name) {
+                return m;
+            }
+        }
+        return null;
+    };
+    AppBase.setNavbarComponent = function (navbarComponent) {
+        if (this.navbarComponent == null) {
+            AppBase.addModule(navbarComponent);
+            this.navbarComponent = navbarComponent;
+        }
+    };
+    AppBase.addModule = function (module) {
+        for (var m in AppBase.modules) {
+            if (module.constructor.name == m.constructor.name) {
+                return;
+            }
+        }
+        AppBase.modules.push(module);
+    };
+    AppBase.modules = [];
     return AppBase;
 }());
 
@@ -184,6 +215,102 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/database/database.ts":
+/*!**************************************!*\
+  !*** ./src/app/database/database.ts ***!
+  \**************************************/
+/*! exports provided: SQLite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SQLite", function() { return SQLite; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _entity_PetService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../entity/PetService */ "./src/app/entity/PetService.ts");
+/* harmony import */ var _entity_Address__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../entity/Address */ "./src/app/entity/Address.ts");
+/* harmony import */ var _entity_Appointment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../entity/Appointment */ "./src/app/entity/Appointment.ts");
+/* harmony import */ var _entity_Bookmark__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../entity/Bookmark */ "./src/app/entity/Bookmark.ts");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../entity/Pet */ "./src/app/entity/Pet.ts");
+/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _entity_Rating__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../entity/Rating */ "./src/app/entity/Rating.ts");
+
+
+
+
+
+/*import {getManager} from "typeorm";
+import { User } from '../entity/User';*/
+//import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+
+
+
+
+/*
+export class GenericDao {
+    static  entityManager = getManager(); // you can also get it via getConnection().manager
+}
+
+export class UserDao extends GenericDao {
+
+    async findNode(id : number){
+        return await UserDao.entityManager.findOne(User, 1);
+    }
+
+    async save(user : User){
+        await UserDao.entityManager.save(user);
+    }
+}*/
+var options = {
+    type: "sqlite",
+    database: '${root}/data/line.sqlite',
+    entities: [_entity_User__WEBPACK_IMPORTED_MODULE_7__["User"], _entity_Pet__WEBPACK_IMPORTED_MODULE_6__["Pet"], _entity_PetService__WEBPACK_IMPORTED_MODULE_1__["PetService"], _entity_Bookmark__WEBPACK_IMPORTED_MODULE_4__["Bookmark"], _entity_Appointment__WEBPACK_IMPORTED_MODULE_3__["Appointment"], _entity_Address__WEBPACK_IMPORTED_MODULE_2__["Address"], _entity_Rating__WEBPACK_IMPORTED_MODULE_8__["Rating"]],
+    logging: true
+};
+var SQLite = /** @class */ (function () {
+    function SQLite() {
+        this.createTables = [
+            'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
+            'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
+        ];
+    }
+    SQLite.prototype.createDatabase = function (tx) {
+        tx.executeSql("DROP TABLE IF EXISTS user");
+        tx.executeSql("DROP TABLE IF EXISTS pet");
+        //cria tabelas
+        for (var sql in this.createTables) {
+            tx.executeSql(this.createTables[sql]);
+        }
+    };
+    SQLite.prototype.prepare = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var connection;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, Object(typeorm__WEBPACK_IMPORTED_MODULE_5__["createConnection"])(options)];
+                    case 1:
+                        connection = _a.sent();
+                        alert("Created");
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    SQLite.prototype.errorCB = function (err) {
+        console.log("Error processing SQL: " + err.code + ": " + err.message);
+        alert('Error when executing command - ' + err.code + ": " + err.message);
+        return true;
+    };
+    SQLite.prototype.successCB = function () {
+        console.log('SQL COMMAND EXECUTED');
+    };
+    return SQLite;
 }());
 
 
@@ -254,6 +381,532 @@ var DeviceInfoComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/entity/Address.ts":
+/*!***********************************!*\
+  !*** ./src/app/entity/Address.ts ***!
+  \***********************************/
+/*! exports provided: Address */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Address", function() { return Address; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+
+
+var Address = /** @class */ (function () {
+    function Address() {
+    }
+    Address.prototype.ngOnInit = function () {
+    };
+    Address.prototype.getId = function () {
+        return this.id;
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], Address.prototype, "id", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], Address.prototype, "streetName", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], Address.prototype, "number", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], Address.prototype, "complement", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], Address.prototype, "zipcode", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], Address.prototype, "state", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], Address.prototype, "geolocationstate", void 0);
+    Address = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], Address);
+    return Address;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/entity/Appointment.ts":
+/*!***************************************!*\
+  !*** ./src/app/entity/Appointment.ts ***!
+  \***************************************/
+/*! exports provided: Appointment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Appointment", function() { return Appointment; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+/* harmony import */ var _Pet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Pet */ "./src/app/entity/Pet.ts");
+
+
+
+var Appointment = /** @class */ (function () {
+    function Appointment() {
+    }
+    Appointment.prototype.ngOnInit = function () {
+    };
+    Appointment.prototype.getId = function () {
+        return this.id;
+    };
+    Appointment.prototype.getPets = function () {
+        return this.pets;
+    };
+    Appointment.prototype.getUser = function () {
+        if (this.pets != null && this.pets != undefined) {
+            return this.pets[0].getUser();
+        }
+        return null;
+    };
+    Appointment.prototype.getName = function () {
+        return "null";
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], Appointment.prototype, "id", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
+    ], Appointment.prototype, "date", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], Appointment.prototype, "appointmentType", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], Appointment.prototype, "time", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["OneToMany"])(function (type) { return _Pet__WEBPACK_IMPORTED_MODULE_2__["Pet"]; }, function (pet) { return pet.getAppointments(); }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], Appointment.prototype, "pets", void 0);
+    Appointment = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], Appointment);
+    return Appointment;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/entity/Bookmark.ts":
+/*!************************************!*\
+  !*** ./src/app/entity/Bookmark.ts ***!
+  \************************************/
+/*! exports provided: Bookmark */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Bookmark", function() { return Bookmark; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./src/app/entity/User.ts");
+
+
+
+var Bookmark = /** @class */ (function () {
+    function Bookmark() {
+    }
+    Bookmark.prototype.ngOnInit = function () {
+    };
+    Bookmark.prototype.getId = function () {
+        return this.id;
+    };
+    Bookmark.prototype.getUser = function () {
+        return this.user;
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], Bookmark.prototype, "id", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["ManyToOne"])(function (type) { return _User__WEBPACK_IMPORTED_MODULE_2__["User"]; }, function (user) { return user.getBookmarks(); }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
+    ], Bookmark.prototype, "user", void 0);
+    Bookmark = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], Bookmark);
+    return Bookmark;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/entity/Pet.ts":
+/*!*******************************!*\
+  !*** ./src/app/entity/Pet.ts ***!
+  \*******************************/
+/*! exports provided: Pet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Pet", function() { return Pet; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./src/app/entity/User.ts");
+/* harmony import */ var _Appointment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Appointment */ "./src/app/entity/Appointment.ts");
+
+
+
+
+var Pet = /** @class */ (function () {
+    function Pet() {
+    }
+    Pet.prototype.ngOnInit = function () {
+    };
+    Pet.prototype.getId = function () {
+        return this.id;
+    };
+    Pet.prototype.getBirthDate = function () {
+        return this.birthDate;
+    };
+    Pet.prototype.getUser = function () {
+        return this.user;
+    };
+    Pet.prototype.getAppointments = function () {
+        return this.appointments;
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], Pet.prototype, "id", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
+    ], Pet.prototype, "birthDate", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["ManyToOne"])(function (type) { return _User__WEBPACK_IMPORTED_MODULE_2__["User"]; }, function (user) { return user.getPets(); }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
+    ], Pet.prototype, "user", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["OneToMany"])(function (type) { return _Appointment__WEBPACK_IMPORTED_MODULE_3__["Appointment"]; }, function (appointment) { return appointment.getPets(); }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], Pet.prototype, "appointments", void 0);
+    Pet = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], Pet);
+    return Pet;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/entity/PetService.ts":
+/*!**************************************!*\
+  !*** ./src/app/entity/PetService.ts ***!
+  \**************************************/
+/*! exports provided: PetService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetService", function() { return PetService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./src/app/entity/User.ts");
+/* harmony import */ var _ServiceType__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ServiceType */ "./src/app/entity/ServiceType.ts");
+/* harmony import */ var _Address__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Address */ "./src/app/entity/Address.ts");
+
+
+
+
+
+var PetService = /** @class */ (function () {
+    function PetService() {
+    }
+    PetService.prototype.ngOnInit = function () {
+    };
+    PetService.prototype.getId = function () {
+        return this.id;
+    };
+    PetService.prototype.getOwner = function () {
+        return this.owner;
+    };
+    PetService.prototype.getCreationDate = function () {
+        return this.creationDate;
+    };
+    PetService.prototype.getDescription = function () {
+        return this.description;
+    };
+    PetService.prototype.getAddress = function () {
+        return this.address;
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], PetService.prototype, "id", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["ManyToOne"])(function (type) { return _User__WEBPACK_IMPORTED_MODULE_2__["User"]; }, function (user) { return user.getPetServices(); }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
+    ], PetService.prototype, "owner", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], PetService.prototype, "creationDate", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ServiceType__WEBPACK_IMPORTED_MODULE_3__["ServiceType"])
+    ], PetService.prototype, "serviceType", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], PetService.prototype, "description", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _Address__WEBPACK_IMPORTED_MODULE_4__["Address"])
+    ], PetService.prototype, "address", void 0);
+    PetService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], PetService);
+    return PetService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/entity/Rating.ts":
+/*!**********************************!*\
+  !*** ./src/app/entity/Rating.ts ***!
+  \**********************************/
+/*! exports provided: Rating */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Rating", function() { return Rating; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./src/app/entity/User.ts");
+
+
+
+var Rating = /** @class */ (function () {
+    function Rating() {
+    }
+    Rating.prototype.ngOnInit = function () {
+    };
+    Rating.prototype.getId = function () {
+        return this.id;
+    };
+    Rating.prototype.getOwner = function () {
+        return this.owner;
+    };
+    Rating.prototype.getRated = function () {
+        return this.rated;
+    };
+    Rating.prototype.getRatingDate = function () {
+        return this.ratingDate;
+    };
+    Rating.MAX_RATING = 5;
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], Rating.prototype, "id", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], Rating.prototype, "ratingDate", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], Rating.prototype, "value", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["ManyToOne"])(function (type) { return _User__WEBPACK_IMPORTED_MODULE_2__["User"]; }, function (owner) { return owner.getRatings(); }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
+    ], Rating.prototype, "owner", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["OneToOne"])(function (type) { return _User__WEBPACK_IMPORTED_MODULE_2__["User"]; }),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["JoinColumn"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
+    ], Rating.prototype, "rated", void 0);
+    Rating = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], Rating);
+    return Rating;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/entity/ServiceType.ts":
+/*!***************************************!*\
+  !*** ./src/app/entity/ServiceType.ts ***!
+  \***************************************/
+/*! exports provided: ServiceType */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServiceType", function() { return ServiceType; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+
+
+var ServiceType = /** @class */ (function () {
+    function ServiceType() {
+    }
+    ServiceType.prototype.ngOnInit = function () {
+    };
+    ServiceType.prototype.getId = function () {
+        return this.id;
+    };
+    ServiceType.prototype.getName = function () {
+        return this.name;
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], ServiceType.prototype, "id", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], ServiceType.prototype, "name", void 0);
+    ServiceType = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], ServiceType);
+    return ServiceType;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/entity/User.ts":
+/*!********************************!*\
+  !*** ./src/app/entity/User.ts ***!
+  \********************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _Bookmark__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bookmark */ "./src/app/entity/Bookmark.ts");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+/* harmony import */ var _Pet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Pet */ "./src/app/entity/Pet.ts");
+/* harmony import */ var _Rating__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Rating */ "./src/app/entity/Rating.ts");
+/* harmony import */ var _PetService__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./PetService */ "./src/app/entity/PetService.ts");
+
+
+
+
+
+
+var User = /** @class */ (function () {
+    function User() {
+    }
+    User.prototype.ngOnInit = function () {
+    };
+    User.prototype.getId = function () {
+        return this.id;
+    };
+    User.prototype.getLogin = function () {
+        return this.login;
+    };
+    User.prototype.getSignInDate = function () {
+        return this.signInDate;
+    };
+    User.prototype.getPassword = function () {
+        return this.encryptedPassword;
+    };
+    User.prototype.getPets = function () {
+        return this.pets;
+    };
+    User.prototype.getBookmarks = function () {
+        return this.bookmarks;
+    };
+    User.prototype.getPetServices = function () {
+        return this.petServices;
+    };
+    User.prototype.getRatings = function () {
+        return this.ratings;
+    };
+    User.prototype.getMyRating = function () {
+        return this.myRatings;
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["PrimaryGeneratedColumn"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], User.prototype, "id", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], User.prototype, "login", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], User.prototype, "signInDate", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], User.prototype, "password", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], User.prototype, "encryptedPassword", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["OneToMany"])(function (type) { return _Pet__WEBPACK_IMPORTED_MODULE_3__["Pet"]; }, function (pet) { return pet.getUser(); }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], User.prototype, "pets", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["OneToMany"])(function (type) { return _Bookmark__WEBPACK_IMPORTED_MODULE_1__["Bookmark"]; }, function (bookmark) { return bookmark.getUser(); }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], User.prototype, "bookmarks", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["OneToMany"])(function (type) { return _Rating__WEBPACK_IMPORTED_MODULE_4__["Rating"]; }, function (rating) { return rating.getOwner(); }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], User.prototype, "ratings", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["OneToMany"])(function (type) { return _Rating__WEBPACK_IMPORTED_MODULE_4__["Rating"]; }, function (rating) { return rating.getRated(); }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], User.prototype, "myRatings", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["OneToMany"])(function (type) { return _PetService__WEBPACK_IMPORTED_MODULE_5__["PetService"]; }, function (petService) { return petService.getOwner(); }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], User.prototype, "petServices", void 0);
+    User = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Entity"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], User);
+    return User;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/global/navbar.component.css":
 /*!*********************************************!*\
   !*** ./src/app/global/navbar.component.css ***!
@@ -272,7 +925,7 @@ module.exports = "mat-navbar-container {\r\n    width: 100% !important;\r\n    h
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n    <a class=\"navbar-brand\" href=\"#\">{{applicationName}}</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" (click)=\"toggleNavbar()\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" [ngClass]=\"{ 'show': navbarOpen }\" id=\"navbarColor02\">\n        <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item active\">\n            <a class=\"nav-link\" href=\"#\">{{language.init}} <span class=\"sr-only\">{{language.login}}</span></a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">{{language.myPet}}</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">{{language.adoptions}}</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">{{language.appointments}}</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">{{language.about}}</a>\n        </li>\n        </ul>\n        <!----<form class=\"form-inline\">\n        <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n        <button class=\"btn btn-outline-light my-2 my-sm-0\" type=\"submit\">Search</button>\n        </form> -->\n    </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-success\">\n    <a class=\"navbar-brand\" href=\"#\">{{applicationName}}</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" (click)=\"toggleNavbar()\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" [ngClass]=\"{ 'show': navbarOpen }\" id=\"navbarColor02\">\n        <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item active\">\n            <a class=\"nav-link\" href=\"#\">{{language.init}} <span class=\"sr-only\">{{language.login}}</span></a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">{{language.myPet}}</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">{{language.adoptions}}</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">{{language.appointments}}</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">{{language.about}}</a>\n        </li>\n        </ul>\n        <!----<form class=\"form-inline\">\n        <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n        <button class=\"btn btn-outline-light my-2 my-sm-0\" type=\"submit\">Search</button>\n        </form> -->\n    </div>\n</nav>"
 
 /***/ }),
 
@@ -300,6 +953,7 @@ var NavbarComponent = /** @class */ (function (_super) {
         return _this;
     }
     NavbarComponent.prototype.ngOnInit = function () {
+        _app_component__WEBPACK_IMPORTED_MODULE_1__["AppBase"].setNavbarComponent(this);
     };
     NavbarComponent.prototype.toggleNavbar = function () {
         this.navbarOpen = !this.navbarOpen;
@@ -310,11 +964,17 @@ var NavbarComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./navbar.component.html */ "./src/app/global/navbar.component.html"),
             styles: [__webpack_require__(/*! ./navbar.component.css */ "./src/app/global/navbar.component.css")]
         }),
+        Navbar,
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], NavbarComponent);
     return NavbarComponent;
 }(_app_component__WEBPACK_IMPORTED_MODULE_1__["AppBase"]));
 
+function Navbar(constructor) {
+    //Object.seal(constructor);
+    //Object.seal(constructor.prototype);
+    //AppBase.setNavbarComponent(constructor.prototype);
+}
 
 
 /***/ }),
@@ -348,6 +1008,8 @@ var Language = /** @class */ (function () {
         this.enterYourLogon = ["Ou entre com o seu cadastro"];
         this.dontHave = ["Não possui"];
         this.orSocialMediaAccount = ["ou conta em rede social?"];
+        this.email = ["E-mail"];
+        this.password = ["Senha"];
     }
     return Language;
 }());
@@ -374,7 +1036,7 @@ module.exports = "/* brandico */\r\n[class*=\"brandico-\"]:before {\r\n  font-fa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n\n<div class=\"container text-center\">\n    <form class=\"form-signin\" data-ember-action=\"2\">\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br><br>\n\n        <p>\n        <a class=\"btn btn-primary social-login-btn social-facebook\" href=\"/auth/facebook\"><i class=\"fa fa-facebook\"></i></a>\n        <a class=\"btn btn-primary social-login-btn social-twitter\" href=\"/auth/twitter\"><i class=\"fa fa-twitter\"></i></a>\n        </p>\n        <p>\n        <a class=\"btn btn-primary social-login-btn social-linkedin\" href=\"/auth/linkedin\"><i class=\"fa fa-linkedin\"></i></a>\n        <a class=\"btn btn-primary social-login-btn social-google\" href=\"/auth/google\"><i class=\"fa fa-google-plus\"></i></a>\n        </p>\n\n        <div class=\"btn-group social-login-more\">\n        <button type=\"button\" class=\"btn btn-default dropdown-toggle btn-block\" data-toggle=\"dropdown\">\n        {{language.more}}\n        </button>\n        <ul class=\"dropdown-menu text-left \" role=\"menu\">\n        <li><a href=\"#\"><i class=\"fa fa-tumblr-sign\"></i>   Tumblr</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-github-alt\"></i>   Github</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-dropbox\"></i>   Dropbox</a></li>\n        <li><a href=\"/auth/amazon\"><span class=\"zocial-amazon\"></span>   Amazon</a></li>\n        <li><a href=\"#\"><span class=\"zocial-bitbucket\"></span>   Bitbucket</a></li>\n        <li><a href=\"#\"><span class=\"zocial-evernote\"></span>   Evernote</a></li>\n        <li><a href=\"#\"><span class=\"zocial-meetup\"></span>   Meetup</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-windows\"></i>   Windows Live</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-weibo\"></i>   Weibo</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-foursquare\"></i>   Foursquare</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-stackexchange\"></i>   Stack Exchange</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-trello\"></i>   Trello</a></li>\n        <li><a href=\"#\"><span class=\"zocial-wordpress\"></span>   Wordpress</a></li>\n        </ul>\n        </div>\n        <br><br>\n\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\n        <br><br>\n        \n        <input id=\"ember360\" class=\"ember-view ember-text-field form-control login-input\" placeholder=\"Email Address\" type=\"text\">\n        <input id=\"ember361\" class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"Password\" type=\"password\">\n\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\n\n        <button class=\"btn btn-lg btn-primary btn-block btn-center\" type=\"submit\" data-bindattr-3=\"3\">{{language.login}}</button>\n        <br>\n        <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button id=\"ember363\" class=\"ember-view btn btn-sm btn-default\"> {{language.signUp}} </button> </small>\n    </form>\n</div>"
+module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n\n<div class=\"container text-center\">\n    <form class=\"form-signin\" data-ember-action=\"2\">\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br><br>\n\n        <p>\n        <a class=\"btn btn-primary social-login-btn social-facebook\" href=\"/auth/facebook\"><i class=\"fa fa-facebook\"></i></a>\n        <a class=\"btn btn-primary social-login-btn social-twitter\" href=\"/auth/twitter\"><i class=\"fa fa-twitter\"></i></a>\n        </p>\n        <p>\n        <a class=\"btn btn-primary social-login-btn social-linkedin\" href=\"/auth/linkedin\"><i class=\"fa fa-linkedin\"></i></a>\n        <a class=\"btn btn-primary social-login-btn social-google\" href=\"/auth/google\"><i class=\"fa fa-google-plus\"></i></a>\n        </p>\n\n        <div class=\"btn-group social-login-more\">\n        <button type=\"button\" class=\"btn btn-default dropdown-toggle btn-block\" data-toggle=\"dropdown\">\n        {{language.more}}\n        </button>\n        <ul class=\"dropdown-menu text-left \" role=\"menu\">\n        <li><a href=\"#\"><i class=\"fa fa-tumblr-sign\"></i>   Tumblr</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-github-alt\"></i>   Github</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-dropbox\"></i>   Dropbox</a></li>\n        <li><a href=\"/auth/amazon\"><span class=\"zocial-amazon\"></span>   Amazon</a></li>\n        <li><a href=\"#\"><span class=\"zocial-bitbucket\"></span>   Bitbucket</a></li>\n        <li><a href=\"#\"><span class=\"zocial-evernote\"></span>   Evernote</a></li>\n        <li><a href=\"#\"><span class=\"zocial-meetup\"></span>   Meetup</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-windows\"></i>   Windows Live</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-weibo\"></i>   Weibo</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-foursquare\"></i>   Foursquare</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-stackexchange\"></i>   Stack Exchange</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-trello\"></i>   Trello</a></li>\n        <li><a href=\"#\"><span class=\"zocial-wordpress\"></span>   Wordpress</a></li>\n        </ul>\n        </div>\n        <br><br>\n\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\n        <br><br>\n        \n        <input id=\"ember360\" class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.email}}\" type=\"text\">\n        <input id=\"ember361\" class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\">\n\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\n\n        <button class=\"btn btn-lg btn-success btn-block btn-center\" type=\"submit\" data-bindattr-3=\"3\">{{language.login}}</button>\n        <br>\n        <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button id=\"ember363\" class=\"ember-view btn btn-sm btn-default\"> {{language.signUp}} </button> </small>\n    </form>\n</div>"
 
 /***/ }),
 
@@ -400,6 +1062,7 @@ var LoginComponent = /** @class */ (function (_super) {
         return _super.call(this) || this;
     }
     LoginComponent.prototype.ngOnInit = function () {
+        _app_component__WEBPACK_IMPORTED_MODULE_2__["AppBase"].addModule(this);
     };
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
