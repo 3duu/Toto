@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 import { User } from './User';
 
-@Entity()
+@Entity("bookmark")
 export class Bookmark {
 
     @PrimaryGeneratedColumn()
@@ -11,15 +11,12 @@ export class Bookmark {
     private user : User;
 
     constructor() { }
-  
-    ngOnInit() {
-    }
 
-    getId() {
+    getId() : number {
         return this.id;
     }
 
-    getUser() {
+    getUser() : User {
         return this.user;
     }
   

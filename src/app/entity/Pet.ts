@@ -2,13 +2,13 @@ import { Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany, Column } from "ty
 import { User } from './User';
 import { Appointment } from './Appointment';
 
-@Entity()
+@Entity("pet")
 export class Pet {
 
     @PrimaryGeneratedColumn()
     private id : number;
 
-    @Column()
+    @Column("birth_date")
     private birthDate : Date;
 
     @ManyToOne(type => User, user => user.getPets())
@@ -18,23 +18,20 @@ export class Pet {
     appointments: Appointment[];
 
     constructor() { }
-  
-    ngOnInit() {
-    }
 
-    getId() {
+    getId() : number {
         return this.id;
     }
 
-    getBirthDate() {
+    getBirthDate() : Date {
         return this.birthDate;
     }
 
-    getUser() {
+    getUser() : User {
         return this.user;
     }
 
-    getAppointments() {
+    getAppointments() : Appointment[] {
         return this.appointments;
     }
   

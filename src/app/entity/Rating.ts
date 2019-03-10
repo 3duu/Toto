@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToOne, JoinColumn } from "typeorm";
 import { User } from './User';
 
-@Entity()
+@Entity("rating")
 export class Rating {
 
     static MAX_RATING : number = 5;
@@ -9,10 +9,10 @@ export class Rating {
     @PrimaryGeneratedColumn()
     private id : number;
 
-    @Column()
-    private ratingDate : string;
+    @Column("rating_date")
+    private ratingDate : Date;
 
-    @Column()
+    @Column("value")
     value : number;
 
     @ManyToOne(type => User, owner => owner.getRatings())
@@ -24,22 +24,19 @@ export class Rating {
     
     constructor() { }
   
-    ngOnInit() {
-    }
-
-    getId() {
+    getId() : number {
         return this.id;
     }
 
-    getOwner() {
+    getOwner() : User {
         return this.owner;
     }
 
-    getRated() {
+    getRated() : User {
         return this.rated;
     }
 
-    getRatingDate() {
+    getRatingDate() : Date {
         return this.ratingDate;
     }
 }

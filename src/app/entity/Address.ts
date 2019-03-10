@@ -1,36 +1,64 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
 
-@Entity()
+@Entity("address")
 export class Address {
 
     @PrimaryGeneratedColumn()
     private id : number;
 
-    @Column()
+    @Column("streetName")
     private streetName : string;
 
-    @Column()
+    @Column("number")
     private number : string;
 
-    @Column()
+    @Column("complement")
     private complement : string;
 
-    @Column()
+    @Column("zipcode")
     private zipcode : string;
 
-    @Column()
+    @Column("city")
+    private city : string;
+
+    //@Column("state")
     private state : State;
 
-    @Column()
+    //@Column("geolocationstate")
     private geolocationstate : Geolocation;
 
     constructor() { }
-  
-    ngOnInit() {
+
+    getId() : number {
+        return this.id;
     }
 
-    getId() {
-        return this.id;
+    getStreetName() : string {
+        return this.streetName;
+    }
+
+    getNumber() : string {
+        return this.number;
+    }
+
+    getComplement() : string {
+        return this.complement;
+    }
+
+    getZipcode() : string {
+        return this.zipcode;
+    }
+
+    getCity() : string {
+        return this.city;
+    }
+
+    getState() : State {
+        return this.state;
+    }
+
+    getGeolocationstate() : Geolocation {
+        return this.geolocationstate;
     }
 
   

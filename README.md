@@ -4,7 +4,7 @@
 
 ### PhoneGap CLI
 
-    $ phonegap create my-app --template blank
+    App PetLIf3
 
 ### Desktop
 
@@ -19,4 +19,7 @@ npm install bootstrap
 
 build angular on www:
 ng build --prod --base-href . --output-path ../www/
+
+###Ubuntu
+npm start
 

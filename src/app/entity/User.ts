@@ -1,25 +1,25 @@
 import { Bookmark } from './Bookmark';
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 import { Pet } from './Pet';
 import { Rating } from './Rating';
 import { PetService } from './PetService';
 
-@Entity()
+@Entity("user")
 export class User {
 
     @PrimaryGeneratedColumn()
     private id : number;
 
-    @Column()
+    @Column("login")
     private login : string;
 
-    @Column()
-    private signInDate : string;
+    @Column("signin_date")
+    private signInDate : Date;
 
-    @Column()
+    @Column("password")
     private password : string;
 
-    @Column()
+    @Column("encrypted_password")
     private encryptedPassword : string;
 
     @OneToMany(type => Pet, pet => pet.getUser())
@@ -41,10 +41,7 @@ export class User {
 
     constructor() { }
   
-    ngOnInit() {
-    }
-
-    getId() {
+    getId() : number {
         return this.id;
     }
 
@@ -52,39 +49,39 @@ export class User {
         return this.login;
     }
 
-    setLogin(login : string) : void{
+    setLogin(login : string) : void {
         this.login = login;
     }
 
-    getSignInDate(){
+    getSignInDate() : Date {
         return this.signInDate;
     }
 
-    getPassword(){
+    getPassword() : string {
         return this.encryptedPassword;
     }
 
-    setPassword(password : string) : void{
+    setPassword(password : string) : void {
         this.password = password;
     }
 
-    getPets() {
+    getPets() : Pet[] {
         return this.pets;
     }
 
-    getBookmarks(){
+    getBookmarks() : Bookmark[] {
         return this.bookmarks;
     }
 
-    getPetServices() {
+    getPetServices() : PetService[] {
         return this.petServices;
     }
 
-    getRatings() {
+    getRatings() : Rating[] {
         return this.ratings;
     }
 
-    getMyRating() {
+    getMyRating() : Rating[] {
         return this.myRatings;
     }
   

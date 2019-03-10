@@ -1,6 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from "typeorm";
 
-@Entity()
+@Entity("service_type")
 export class ServiceType {
 
     @PrimaryGeneratedColumn()
@@ -11,14 +11,11 @@ export class ServiceType {
 
     constructor() { }
   
-    ngOnInit() {
-    }
-
-    getId() {
+    getId() : number {
         return this.id;
     }
 
-    getName(){
+    getName() : string {
         return this.name;
     }
   

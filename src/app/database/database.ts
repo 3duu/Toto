@@ -6,10 +6,10 @@ import { Bookmark } from './../entity/Bookmark';
 /*import {getManager} from "typeorm";*/
 
 //import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
-import { ConnectionOptions } from "typeorm"
+//import { ConnectionOptions } from "typeorm"
 import { Pet } from '../entity/Pet';
 import { User } from '../entity/User';
-import { root } from '../paths';
+//import { root } from '../paths';
 import { Rating } from '../entity/Rating';
 import {createConnection, Repository, getRepository} from "typeorm";
 

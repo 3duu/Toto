@@ -3,7 +3,7 @@ import { User } from './User';
 import { ServiceType } from './ServiceType';
 import { Address } from './Address';
 
-@Entity()
+@Entity("pet_service")
 export class PetService {
 
     @PrimaryGeneratedColumn()
@@ -12,41 +12,42 @@ export class PetService {
     @ManyToOne(type => User, user => user.getPetServices())
     private owner : User;
 
-    @Column()
-    private creationDate : string;
+    @Column("creation_date")
+    private creationDate : Date;
 
-    @Column()
+    //@Column("service_type")
     private serviceType : ServiceType;
 
-    @Column()
+    @Column("description")
     private description : string;
 
-    @Column()
+    @Column("address")
     private address : Address;
 
     constructor() { }
-  
-    ngOnInit() {
-    }
 
-    getId() {
+    getId() : number {
         return this.id;
     }
 
-    getOwner(){
+    getOwner() : User {
         return this.owner;
     }
 
-    getCreationDate(){
+    getCreationDate() : Date {
         return this.creationDate;
     }
 
-    getDescription(){
+    getDescription() : string {
         return this.description;
     }
 
-    getAddress(){
+    getAddress() : Address {
         return this.address;
     }
+
+    getServiceType() : ServiceType {
+        return this.serviceType;
+    } 
   
 }

@@ -1,16 +1,17 @@
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 import { Pet } from './Pet';
+import { User } from './User';
 
-@Entity()
+@Entity("appointment")
 export class Appointment {
 
     @PrimaryGeneratedColumn()
     private id : number;
 
-    @Column()
+    @Column("date")
     private date : Date;
 
-    @Column()
+    //@Column("appointmentType")
     /*
     * @OneToOne(type => AppointmentType)
     @JoinColumn()
@@ -28,15 +29,15 @@ export class Appointment {
     ngOnInit() {
     }
 
-    getId() {
+    getId() : number {
         return this.id;
     }
 
-    getPets() {
+    getPets() : Pet[] {
         return this.pets;
     }
 
-    getUser() {
+    getUser() : User {
         if(this.pets != null && this.pets != undefined){
             return this.pets[0].getUser();
         }
