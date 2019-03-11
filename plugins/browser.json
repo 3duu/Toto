@@ -1,24 +1,40 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.toto"
     },
-    "config_munge": {
-        "files": {}
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.toto"
     },
-    "installed_plugins": {
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.toto"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.toto"
-        },
-        "cordova-plugin-safariviewcontroller": {
-            "PACKAGE_NAME": "com.toto"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.toto"
-        }
+    "cordova-plugin-safariviewcontroller": {
+      "PACKAGE_NAME": "com.toto"
     },
-    "dependent_plugins": {}
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "cordova-plugin-googlemaps": {
+      "PACKAGE_NAME": "com.toto"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.toto"
+    }
+  }
 }

@@ -9,11 +9,18 @@
   },
   "cordova-plugin-safariviewcontroller": {
     "source": {
-      "type": "registry",
-      "id": "cordova-plugin-safariviewcontroller"
+      "type": "local",
+      "path": "C:\\Users\\eporto\\git\\Toto\\node_modules\\cordova-plugin-safariviewcontroller"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "API_KEY_FOR_ANDROID": "AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU",
+      "API_KEY_FOR_IOS": "AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8",
+      "PLAY_SERVICES_VERSION": "15.0.1",
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
+      "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
+    }
   },
   "cordova-plugin-device": {
     "source": {
@@ -39,12 +46,35 @@
     "is_top_level": true,
     "variables": {}
   },
+  "cordova-plugin-dialogs": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-dialogs"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-geolocation": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-geolocation@4.0.1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
   "cordova-plugin-googlemaps": {
     "source": {
       "type": "registry",
       "id": "cordova-plugin-googlemaps"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "API_KEY_FOR_ANDROID": "AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU",
+      "API_KEY_FOR_IOS": "AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8",
+      "PLAY_SERVICES_VERSION": "15.0.1",
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
+      "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
+    }
   }
 }

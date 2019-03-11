@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Toto",
+  "short_name": "Toto",
+  "version": "com.toto",
+  "description": "A blank PhoneGap app.",
+  "author": "DUTI",
+  "icons": [],
+  "start_url": "index.html"
+}
