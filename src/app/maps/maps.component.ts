@@ -6,9 +6,10 @@ declare var Map: any;
 declare var LatLng: any;
 declare var googleMapsEvents: any;
 
-Map = require("..\\plugins\\cordova-plugin-googlemaps\\www\\Map");
-LatLng = require("..\\cordova-plugin-googlemaps\\www\\LatLng");
-googleMapsEvents = require("..\\cordova-plugin-googlemaps\\www\\event");
+Map = require("\\plugins\\cordova-plugin-googlemaps\\www\\Map");
+LatLng = require("\\cordova-plugin-googlemaps\\www\\LatLng");
+googleMapsEvents = require("\\cordova-plugin-googlemaps\\www\\event");
+navigator = require("\\cordova-plugin-geolocation\\www\\geolocation");
 
 //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
 //phonegap plugin add  cordova-plugin-googlemaps
