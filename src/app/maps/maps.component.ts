@@ -16,6 +16,7 @@ navigator = require("\\cordova-plugin-geolocation\\www\\geolocation");
 
 //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
 //phonegap plugin add  cordova-plugin-googlemaps
+//https://github.com/arnesson/angular-cordova
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
