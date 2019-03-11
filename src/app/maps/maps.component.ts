@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AppBase } from '../app.component';
+import { GeolocationService } from 'angular-cordova/plugin/geolocation';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 
 declare var navigator: any;
 declare var Map: any;
@@ -21,7 +24,9 @@ navigator = require("\\cordova-plugin-geolocation\\www\\geolocation");
 export class MapsComponent extends AppBase {
 
   private map;
-  private postiion;
+  private position : any;
+  private sub: any;
+  private geolocationService: GeolocationService;
 
   private options = {
     enableHighAccuracy: true,
@@ -36,26 +41,28 @@ export class MapsComponent extends AppBase {
     this.loadMap();
   }
 
-  getPosition() : void {
-
-    let watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, this.options);
- 
-    function onSuccess(position) {
- 
-      alert('Latitude: '          + position.coords.latitude          + '\n' +
-        'Longitude: '         + position.coords.longitude         + '\n' +
-        'Altitude: '          + position.coords.altitude          + '\n' +
-        'Accuracy: '          + position.coords.accuracy          + '\n' +
-        'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-        'Heading: '           + position.coords.heading           + '\n' +
-        'Speed: '             + position.coords.speed             + '\n' +
-        'Timestamp: '         + position.timestamp                + '\n');
-    };
- 
-    function onError(error) {
-       alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+  getCurrentPosition(): Observable<any> {
+    if (!this.sub) {
+      this.sub = this.geolocationService.watchPosition().map((res) => {
+        // console.log("watchPosition update");
+        this.position = {
+          lat: res.coords.latitude,
+          lng: res.coords.longitude
+        };
+      }).catch(() => {
+        return of({});
+      }).share();
+      this.sub.subscribe(() => {});
     }
- }
+
+    if (this.position) {
+      return of(this.position);
+    } else {
+      return this.sub.first().timeout(10000).catch(() => {
+        return of({});
+      });
+    }
+  }
 
   loadMap() : void {
     let div = document.getElementById("map_canvas");
