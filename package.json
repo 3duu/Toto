@@ -34,7 +34,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve && cordova run -- --live-reload",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

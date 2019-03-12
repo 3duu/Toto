@@ -64,7 +64,7 @@ export class MapsComponent extends AppBase {
       maximumAge: 3600000
     }
 
-    //let watchID = (<any>window).navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+    let watchID = (<any>window).navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 
     function onSuccess(position) {
       this.position = new (<any>window).plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
