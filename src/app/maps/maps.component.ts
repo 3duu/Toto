@@ -3,16 +3,19 @@ import { AppBase } from '../app.component';
 import { GeolocationService } from 'angular-cordova/plugin/geolocation';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
+import { map } from "rxjs/operators";
+import { GoogleMapsService } from './GoogleMapsService';
 
 declare var navigator: any;
 declare var Map: any;
 declare var LatLng: any;
 declare var googleMapsEvents: any;
 
-Map = require("\\plugins\\cordova-plugin-googlemaps\\www\\Map");
+/*
+Map = require("\\cordova-plugin-googlemaps\\www\\Map");
 LatLng = require("\\cordova-plugin-googlemaps\\www\\LatLng");
 googleMapsEvents = require("\\cordova-plugin-googlemaps\\www\\event");
-navigator = require("\\cordova-plugin-geolocation\\www\\geolocation");
+navigator = require("\\cordova-plugin-geolocation\\www\\geolocation");*/
 
 //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
 //phonegap plugin add  cordova-plugin-googlemaps
@@ -27,7 +30,8 @@ export class MapsComponent extends AppBase {
   private map;
   private position : any;
   private sub: any;
-  private geolocationService: GeolocationService;
+  private geolocationService : GeolocationService;
+  private googleMapsService : GoogleMapsService;
 
   private options = {
     enableHighAccuracy: true,
@@ -44,16 +48,15 @@ export class MapsComponent extends AppBase {
 
   getCurrentPosition(): Observable<any> {
     if (!this.sub) {
-      this.sub = this.geolocationService.watchPosition().map((res) => {
-        // console.log("watchPosition update");
-        this.position = {
-          lat: res.coords.latitude,
-          lng: res.coords.longitude
-        };
-      }).catch(() => {
-        return of({});
-      }).share();
-      this.sub.subscribe(() => {});
+      this.sub = this.geolocationService.watchPosition(
+        map((res) => {
+          // console.log("watchPosition update");
+          this.position = {
+            lat: (<any>res).coords.latitude,
+            lng: (<any>res).coords.longitude
+          };
+        })
+      );
     }
 
     if (this.position) {
@@ -69,38 +72,36 @@ export class MapsComponent extends AppBase {
     let div = document.getElementById("map_canvas");
 
     let options = {
-        enableHighAccuracy: true,
-        maximumAge: 3600000
+      enableHighAccuracy: true,
+      maximumAge: 3600000
     }
 
-    let watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+    let watchID = (<any>window).navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 
     function onSuccess(position) {
-
-        this.postiion = new LatLng(position.coords.latitude, position.coords.longitude);
+      this.postiion = new (<any>window).plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     };
 
     function onError(error) {
-        navigator.notification.alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+      (<any>window).navigator.notification.alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
     }
 
     function onMapReady() {
-      //navigator.notification.alert('lat: ' + this.postiion.lat + "\n" + this.postiion.lng);
-      this.map.showDialog();
-      this.map.setCenter(this.postiion);
-      this.map.setZoom(13);
-  } 
+      //(<any>window).navigator.notification.alert('lat: ' + this.postiion.lat + "\n" + this.postiion.lng);
+      //this.map.showDialog();
+      //this.map.setCenter(this.postiion);
+      //this.map.setZoom(13);
+      alert("The google map is available on this device.");
+    }
 
-    Map.isAvailable(function (isAvailable, message) {
-        if (isAvailable) {
-            // Initialize the map view
-            this.map = Map.getMap(div);
-            // Wait until the map is ready status.
-            this.map.addEventListener(googleMapsEvents.MAP_READY, onMapReady);
-        } else {
-            navigator.notification.alert(message);
-        }
-    });
+    // Initialize the map view
+    if(this.googleMapsService != null){
+      this.map = this.googleMapsService.getMap(div, onMapReady);
+    }
+    
+    this.map = (<any>window).plugin.google.maps.Map.getMap(div);
+    this.map.addEventListener((<any>window).plugin.google.maps.event.MAP_READY, onMapReady);
+    // Wait until the map is ready status.
   }
 
 }

@@ -59,26 +59,28 @@ export class SQLiteDB {
 			tx.executeSql(this.createTables[sql]);
 		}
 	}
+
+	private options : any = {
+		type: "cordova",
+		database: AppComponent.applicationName,
+		location: "default",
+		entities: [ User, Pet, PetService, Bookmark, Appointment, Address, Rating ],
+		logging: true,
+		synchronize: true
+	};
 	
 	async prepare() {
 		//window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
 		//window.db.transaction(createDatabase, errorCB, successCB);
 		//const connection = await createConnection(options);
 
-		createConnection({
-			type: "cordova",
-			database: AppComponent.applicationName,
-			location: "default",
-			entities: [ User, Pet, PetService, Bookmark, Appointment, Address, Rating ],
-			logging: true,
-			synchronize: true
-		}).then(async connection => {
+		createConnection(this.options).then(async connection => {
 		
 			const user = new User();
 			user.setLogin("admin");
 			user.setPassword("1");
 		
-			const userRepository = getRepository('Post') as Repository<User>;
+			const userRepository = getRepository('User') as Repository<User>;
 			await userRepository.save(user);
 			
 			console.log("Post has been saved");
@@ -115,6 +117,23 @@ export class SQLiteDB {
 			.setParameter("id", 3)
 			.getMany()
 		  console.log(messages[0].sender)*/
+	}
+
+	async getUser(login, password) {
+		//window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
+		//window.db.transaction(createDatabase, errorCB, successCB);
+		//const connection = await createConnection(options);
+
+		createConnection(this.options).then(async connection => {
+			const userRepository = getRepository('User') as Repository<User>;
+			const savedUser = await userRepository.findOne(login, password);
+			
+			return savedUser;
+		
+		}).catch(error => {
+			console.log("Error: ", error);
+			//document.writeln("Error: " + JSON.stringify(error));
+		});
 	}
 
 	errorCB(err) : boolean {

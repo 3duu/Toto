@@ -45,6 +45,10 @@ export class User {
         return this.id;
     }
 
+    setId(id : number) : void {
+        this.id = id;
+    }
+
     getLogin() : string {
         return this.login;
     }

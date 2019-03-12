@@ -76,7 +76,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-navbar></app-navbar>\n<app-login></app-login>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-navbar></app-navbar>\n<app-login></app-login>\n<app-maps></app-maps>\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -246,8 +246,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/*import {getManager} from "typeorm";*/
+//import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+//import { ConnectionOptions } from "typeorm"
 
 
+//import { root } from '../paths';
 
 
 /*
@@ -279,6 +283,14 @@ var SQLiteDB = /** @class */ (function () {
             'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
             'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
         ];
+        this.options = {
+            type: "cordova",
+            database: _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName,
+            location: "default",
+            entities: [_entity_User__WEBPACK_IMPORTED_MODULE_7__["User"], _entity_Pet__WEBPACK_IMPORTED_MODULE_6__["Pet"], _entity_PetService__WEBPACK_IMPORTED_MODULE_2__["PetService"], _entity_Bookmark__WEBPACK_IMPORTED_MODULE_5__["Bookmark"], _entity_Appointment__WEBPACK_IMPORTED_MODULE_4__["Appointment"], _entity_Address__WEBPACK_IMPORTED_MODULE_3__["Address"], _entity_Rating__WEBPACK_IMPORTED_MODULE_8__["Rating"]],
+            logging: true,
+            synchronize: true
+        };
     }
     SQLiteDB.prototype.createDatabase = function (tx) {
         tx.executeSql("DROP TABLE IF EXISTS user");
@@ -295,14 +307,7 @@ var SQLiteDB = /** @class */ (function () {
                 //window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
                 //window.db.transaction(createDatabase, errorCB, successCB);
                 //const connection = await createConnection(options);
-                Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["createConnection"])({
-                    type: "cordova",
-                    database: _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName,
-                    location: "default",
-                    entities: [_entity_User__WEBPACK_IMPORTED_MODULE_7__["User"], _entity_Pet__WEBPACK_IMPORTED_MODULE_6__["Pet"], _entity_PetService__WEBPACK_IMPORTED_MODULE_2__["PetService"], _entity_Bookmark__WEBPACK_IMPORTED_MODULE_5__["Bookmark"], _entity_Appointment__WEBPACK_IMPORTED_MODULE_4__["Appointment"], _entity_Address__WEBPACK_IMPORTED_MODULE_3__["Address"], _entity_Rating__WEBPACK_IMPORTED_MODULE_8__["Rating"]],
-                    logging: true,
-                    synchronize: true
-                }).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["createConnection"])(this.options).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
                     var user, userRepository, savedUser;
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                         switch (_a.label) {
@@ -310,7 +315,7 @@ var SQLiteDB = /** @class */ (function () {
                                 user = new _entity_User__WEBPACK_IMPORTED_MODULE_7__["User"]();
                                 user.setLogin("admin");
                                 user.setPassword("1");
-                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["getRepository"])('Post');
+                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["getRepository"])('User');
                                 return [4 /*yield*/, userRepository.save(user)];
                             case 1:
                                 _a.sent();
@@ -322,6 +327,33 @@ var SQLiteDB = /** @class */ (function () {
                                 console.log("User has been loaded: ", savedUser);
                                 document.writeln("Post has been loaded: " + JSON.stringify(savedUser));
                                 return [2 /*return*/];
+                        }
+                    });
+                }); }).catch(function (error) {
+                    console.log("Error: ", error);
+                    //document.writeln("Error: " + JSON.stringify(error));
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    SQLiteDB.prototype.getUser = function (login, password) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                //window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
+                //window.db.transaction(createDatabase, errorCB, successCB);
+                //const connection = await createConnection(options);
+                Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["createConnection"])(this.options).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                    var userRepository, savedUser;
+                    return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["getRepository"])('User');
+                                return [4 /*yield*/, userRepository.findOne(login, password)];
+                            case 1:
+                                savedUser = _a.sent();
+                                return [2 /*return*/, savedUser];
                         }
                     });
                 }); }).catch(function (error) {
@@ -364,41 +396,56 @@ __webpack_require__.r(__webpack_exports__);
 var Address = /** @class */ (function () {
     function Address() {
     }
-    Address.prototype.ngOnInit = function () {
-    };
     Address.prototype.getId = function () {
         return this.id;
+    };
+    Address.prototype.getStreetName = function () {
+        return this.streetName;
+    };
+    Address.prototype.getNumber = function () {
+        return this.number;
+    };
+    Address.prototype.getComplement = function () {
+        return this.complement;
+    };
+    Address.prototype.getZipcode = function () {
+        return this.zipcode;
+    };
+    Address.prototype.getCity = function () {
+        return this.city;
+    };
+    Address.prototype.getState = function () {
+        return this.state;
+    };
+    Address.prototype.getGeolocationstate = function () {
+        return this.geolocationstate;
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
     ], Address.prototype, "id", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("streetName"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], Address.prototype, "streetName", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("number"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], Address.prototype, "number", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("complement"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], Address.prototype, "complement", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("zipcode"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], Address.prototype, "zipcode", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("city"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], Address.prototype, "state", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], Address.prototype, "geolocationstate", void 0);
+    ], Address.prototype, "city", void 0);
     Address = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("address"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], Address);
     return Address;
@@ -449,13 +496,9 @@ var Appointment = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
     ], Appointment.prototype, "id", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("date"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
     ], Appointment.prototype, "date", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-    ], Appointment.prototype, "appointmentType", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
@@ -465,7 +508,7 @@ var Appointment = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
     ], Appointment.prototype, "pets", void 0);
     Appointment = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("appointment"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], Appointment);
     return Appointment;
@@ -494,8 +537,6 @@ __webpack_require__.r(__webpack_exports__);
 var Bookmark = /** @class */ (function () {
     function Bookmark() {
     }
-    Bookmark.prototype.ngOnInit = function () {
-    };
     Bookmark.prototype.getId = function () {
         return this.id;
     };
@@ -511,7 +552,7 @@ var Bookmark = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
     ], Bookmark.prototype, "user", void 0);
     Bookmark = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("bookmark"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], Bookmark);
     return Bookmark;
@@ -542,8 +583,6 @@ __webpack_require__.r(__webpack_exports__);
 var Pet = /** @class */ (function () {
     function Pet() {
     }
-    Pet.prototype.ngOnInit = function () {
-    };
     Pet.prototype.getId = function () {
         return this.id;
     };
@@ -561,7 +600,7 @@ var Pet = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
     ], Pet.prototype, "id", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("birth_date"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
     ], Pet.prototype, "birthDate", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -573,7 +612,7 @@ var Pet = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
     ], Pet.prototype, "appointments", void 0);
     Pet = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("pet"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], Pet);
     return Pet;
@@ -596,9 +635,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./src/app/entity/User.ts");
-/* harmony import */ var _ServiceType__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ServiceType */ "./src/app/entity/ServiceType.ts");
-/* harmony import */ var _Address__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Address */ "./src/app/entity/Address.ts");
-
+/* harmony import */ var _Address__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Address */ "./src/app/entity/Address.ts");
 
 
 
@@ -606,8 +643,6 @@ __webpack_require__.r(__webpack_exports__);
 var PetService = /** @class */ (function () {
     function PetService() {
     }
-    PetService.prototype.ngOnInit = function () {
-    };
     PetService.prototype.getId = function () {
         return this.id;
     };
@@ -623,6 +658,9 @@ var PetService = /** @class */ (function () {
     PetService.prototype.getAddress = function () {
         return this.address;
     };
+    PetService.prototype.getServiceType = function () {
+        return this.serviceType;
+    };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
@@ -632,23 +670,19 @@ var PetService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
     ], PetService.prototype, "owner", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("creation_date"),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
     ], PetService.prototype, "creationDate", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ServiceType__WEBPACK_IMPORTED_MODULE_3__["ServiceType"])
-    ], PetService.prototype, "serviceType", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("description"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], PetService.prototype, "description", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _Address__WEBPACK_IMPORTED_MODULE_4__["Address"])
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("address"),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _Address__WEBPACK_IMPORTED_MODULE_3__["Address"])
     ], PetService.prototype, "address", void 0);
     PetService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("pet_service"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], PetService);
     return PetService;
@@ -677,8 +711,6 @@ __webpack_require__.r(__webpack_exports__);
 var Rating = /** @class */ (function () {
     function Rating() {
     }
-    Rating.prototype.ngOnInit = function () {
-    };
     Rating.prototype.getId = function () {
         return this.id;
     };
@@ -697,11 +729,11 @@ var Rating = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
     ], Rating.prototype, "id", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("rating_date"),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
     ], Rating.prototype, "ratingDate", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("value"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
     ], Rating.prototype, "value", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -714,54 +746,10 @@ var Rating = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
     ], Rating.prototype, "rated", void 0);
     Rating = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("rating"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], Rating);
     return Rating;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/entity/ServiceType.ts":
-/*!***************************************!*\
-  !*** ./src/app/entity/ServiceType.ts ***!
-  \***************************************/
-/*! exports provided: ServiceType */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServiceType", function() { return ServiceType; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
-
-
-var ServiceType = /** @class */ (function () {
-    function ServiceType() {
-    }
-    ServiceType.prototype.ngOnInit = function () {
-    };
-    ServiceType.prototype.getId = function () {
-        return this.id;
-    };
-    ServiceType.prototype.getName = function () {
-        return this.name;
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-    ], ServiceType.prototype, "id", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], ServiceType.prototype, "name", void 0);
-    ServiceType = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], ServiceType);
-    return ServiceType;
 }());
 
 
@@ -793,10 +781,11 @@ __webpack_require__.r(__webpack_exports__);
 var User = /** @class */ (function () {
     function User() {
     }
-    User.prototype.ngOnInit = function () {
-    };
     User.prototype.getId = function () {
         return this.id;
+    };
+    User.prototype.setId = function (id) {
+        this.id = id;
     };
     User.prototype.getLogin = function () {
         return this.login;
@@ -833,19 +822,19 @@ var User = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
     ], User.prototype, "id", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])("login"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], User.prototype, "login", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])("signin_date"),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
     ], User.prototype, "signInDate", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])("password"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], User.prototype, "password", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])("encrypted_password"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], User.prototype, "encryptedPassword", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -869,7 +858,7 @@ var User = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
     ], User.prototype, "petServices", void 0);
     User = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Entity"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Entity"])("user"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], User);
     return User;
@@ -1025,30 +1014,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
 
 
 
+
+//https://bootsnipp.com/snippets/kMdg
 var LoginComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](LoginComponent, _super);
     function LoginComponent() {
-        return _super.call(this) || this;
+        var _this = _super.call(this) || this;
+        _this.loading = false;
+        _this.submitted = false;
+        return _this;
     }
+    LoginComponent_1 = LoginComponent;
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.doLogin = function (form) {
+        this.submitted = true;
+        this.loginForm = form;
+        // stop here if form is invalid
+        if (this.loginForm.invalid) {
+            return;
+        }
+        this.loading = true;
+        LoginComponent_1.user = new _entity_User__WEBPACK_IMPORTED_MODULE_3__["User"];
+        LoginComponent_1.user.setId(1);
+        LoginComponent_1.user.setLogin(form.value.login);
         console.log(form.value);
-        alert(form.value.login);
-        // {email: '...', password: '...'}
-        // ... <-- now use JSON.stringify() to convert form values to json.
+        /*
+        this.authenticationService.login(form.value.login, form.value.password);
+          .pipe(first())
+          .subscribe(
+              data => {
+                  this.router.navigate([this.returnUrl]);
+              },
+              error => {
+                  //this.alertService.error(error);
+                  this.loading = false;
+              });
+        }*/
+        //alert(form.value.login);
     };
-    LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    LoginComponent.getUser = function () {
+        return LoginComponent_1.user;
+    };
+    var LoginComponent_1;
+    LoginComponent = LoginComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-login',
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
-        })
-        //https://bootsnipp.com/snippets/kMdg
-        ,
+        }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], LoginComponent);
     return LoginComponent;
@@ -1065,7 +1083,7 @@ var LoginComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21hcHMvbWFwcy5jb21wb25lbnQuY3NzIn0= */"
+module.exports = ".map-container {\r\n    height: 100%;\r\n}\r\n.Location__title{\r\n    padding-left: 10px;\r\n    padding-right: 10px;\r\n}\r\n#map_canvas {\r\n    height: 100% !important;\r\n    width: 100% !important;\r\n    top: 0;\r\n    left: 0;\r\n    position: absolute;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFwcy9tYXBzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSx1QkFBdUI7SUFDdkIsc0JBQXNCO0lBQ3RCLE1BQU07SUFDTixPQUFPO0lBQ1Asa0JBQWtCO0FBQ3RCIiwiZmlsZSI6InNyYy9hcHAvbWFwcy9tYXBzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFwLWNvbnRhaW5lciB7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuLkxvY2F0aW9uX190aXRsZXtcclxuICAgIHBhZGRpbmctbGVmdDogMTBweDtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbn1cclxuI21hcF9jYW52YXMge1xyXG4gICAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XHJcbiAgICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xyXG4gICAgdG9wOiAwO1xyXG4gICAgbGVmdDogMDtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -1076,7 +1094,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"mapView\">\n    \n</div>"
+module.exports = "<div id=\"map_canvas\" style=\"width:90%;height:85%;align-content:center\"></div>"
 
 /***/ }),
 
@@ -1093,25 +1111,89 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app.component */ "./src/app/app.component.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 
 
 
+
+
+/*
+Map = require("\\cordova-plugin-googlemaps\\www\\Map");
+LatLng = require("\\cordova-plugin-googlemaps\\www\\LatLng");
+googleMapsEvents = require("\\cordova-plugin-googlemaps\\www\\event");
+navigator = require("\\cordova-plugin-geolocation\\www\\geolocation");*/
+//https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
+//phonegap plugin add  cordova-plugin-googlemaps
+//https://github.com/arnesson/angular-cordova
 var MapsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MapsComponent, _super);
     function MapsComponent() {
-        return _super.call(this) || this;
+        var _this = _super.call(this) || this;
+        _this.options = {
+            enableHighAccuracy: true,
+            maximumAge: 3600000
+        };
+        return _this;
     }
     MapsComponent.prototype.ngOnInit = function () {
+        this.loadMap();
+    };
+    MapsComponent.prototype.getCurrentPosition = function () {
+        var _this = this;
+        if (!this.sub) {
+            this.sub = this.geolocationService.watchPosition(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) {
+                // console.log("watchPosition update");
+                _this.position = {
+                    lat: res.coords.latitude,
+                    lng: res.coords.longitude
+                };
+            }));
+        }
+        if (this.position) {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(this.position);
+        }
+        else {
+            return this.sub.first().timeout(10000).catch(function () {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])({});
+            });
+        }
+    };
+    MapsComponent.prototype.loadMap = function () {
+        var div = document.getElementById("map_canvas");
+        var options = {
+            enableHighAccuracy: true,
+            maximumAge: 3600000
+        };
+        var watchID = window.navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+        function onSuccess(position) {
+            this.postiion = new window.plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        }
+        ;
+        function onError(error) {
+            window.navigator.notification.alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+        }
+        function onMapReady() {
+            //(<any>window).navigator.notification.alert('lat: ' + this.postiion.lat + "\n" + this.postiion.lng);
+            //this.map.showDialog();
+            this.map.setCenter(this.postiion);
+            this.map.setZoom(13);
+            alert("The google map is available on this device.");
+        }
+        // Initialize the map view
+        if (this.googleMapsService != null) {
+            this.map = this.googleMapsService.getMap(div, onMapReady);
+        }
+        this.map = window.plugin.google.maps.Map.getMap(div);
+        this.map.addEventListener(window.plugin.google.maps.event.MAP_READY, onMapReady);
+        // Wait until the map is ready status.
     };
     MapsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-maps',
             template: __webpack_require__(/*! ./maps.component.html */ "./src/app/maps/maps.component.html"),
             styles: [__webpack_require__(/*! ./maps.component.css */ "./src/app/maps/maps.component.css")]
-        })
-        //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
-        //phonegap plugin add  cordova-plugin-googlemaps
-        ,
+        }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], MapsComponent);
     return MapsComponent;
