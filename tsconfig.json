@@ -18,6 +18,13 @@
     "lib": [
       "es2018",
       "dom"
+    ],
+    "paths": {
+      "@app/*": ["app/*"]
+    }
+  },
+  "include": [
+        "src/**/*",
+        "./node_modules/angular-cordova/**/*"
     ]
-  }
 }

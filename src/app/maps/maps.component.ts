@@ -5,17 +5,7 @@ import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { map } from "rxjs/operators";
 import { GoogleMapsService } from './GoogleMapsService';
-
-declare var navigator: any;
-declare var Map: any;
-declare var LatLng: any;
-declare var googleMapsEvents: any;
-
-/*
-Map = require("\\cordova-plugin-googlemaps\\www\\Map");
-LatLng = require("\\cordova-plugin-googlemaps\\www\\LatLng");
-googleMapsEvents = require("\\cordova-plugin-googlemaps\\www\\event");
-navigator = require("\\cordova-plugin-geolocation\\www\\geolocation");*/
+//import { Cordova } from 'angular-cordova/index';
 
 //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
 //phonegap plugin add  cordova-plugin-googlemaps
@@ -30,7 +20,6 @@ export class MapsComponent extends AppBase {
   private map;
   private position : any;
   private sub: any;
-  private geolocationService : GeolocationService;
   private googleMapsService : GoogleMapsService;
 
   private options = {
@@ -38,14 +27,16 @@ export class MapsComponent extends AppBase {
     maximumAge: 3600000
   }
   
-  constructor() {
+  constructor(private geolocationService: GeolocationService) {
     super();
   }
 
   ngOnInit() {
-    this.loadMap();
+    //Cordova.deviceready.subscribe(() => {
+      this.loadMap();
+    //});
   }
-
+  
   getCurrentPosition(): Observable<any> {
     if (!this.sub) {
       this.sub = this.geolocationService.watchPosition(
@@ -76,20 +67,20 @@ export class MapsComponent extends AppBase {
       maximumAge: 3600000
     }
 
-    let watchID = (<any>window).navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+    //let watchID = (<any>window).navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 
     function onSuccess(position) {
-      this.postiion = new (<any>window).plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      this.position = new (<any>window).plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     };
 
     function onError(error) {
-      (<any>window).navigator.notification.alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+      (<any>window).navigator.notification.alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n ');
     }
 
     function onMapReady() {
-      //(<any>window).navigator.notification.alert('lat: ' + this.postiion.lat + "\n" + this.postiion.lng);
+      //(<any>window).navigator.notification.alert('lat: ' + this.position.lat + "\n" + this.position.lng);
       //this.map.showDialog();
-      //this.map.setCenter(this.postiion);
+      //this.map.setCenter(this.position);
       //this.map.setZoom(13);
       alert("The google map is available on this device.");
     }

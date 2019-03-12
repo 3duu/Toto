@@ -1111,25 +1111,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app.component */ "./src/app/app.component.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var angular_cordova_plugin_geolocation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-cordova/plugin/geolocation */ "./node_modules/angular-cordova/plugin/geolocation.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 
 
 
 
 
-/*
-Map = require("\\cordova-plugin-googlemaps\\www\\Map");
-LatLng = require("\\cordova-plugin-googlemaps\\www\\LatLng");
-googleMapsEvents = require("\\cordova-plugin-googlemaps\\www\\event");
-navigator = require("\\cordova-plugin-geolocation\\www\\geolocation");*/
+
+//import { Cordova } from 'angular-cordova/index';
 //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
 //phonegap plugin add  cordova-plugin-googlemaps
 //https://github.com/arnesson/angular-cordova
 var MapsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MapsComponent, _super);
-    function MapsComponent() {
+    function MapsComponent(geolocationService) {
         var _this = _super.call(this) || this;
+        _this.geolocationService = geolocationService;
         _this.options = {
             enableHighAccuracy: true,
             maximumAge: 3600000
@@ -1137,12 +1136,14 @@ var MapsComponent = /** @class */ (function (_super) {
         return _this;
     }
     MapsComponent.prototype.ngOnInit = function () {
+        //Cordova.deviceready.subscribe(() => {
         this.loadMap();
+        //});
     };
     MapsComponent.prototype.getCurrentPosition = function () {
         var _this = this;
         if (!this.sub) {
-            this.sub = this.geolocationService.watchPosition(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) {
+            this.sub = this.geolocationService.watchPosition(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (res) {
                 // console.log("watchPosition update");
                 _this.position = {
                     lat: res.coords.latitude,
@@ -1151,11 +1152,11 @@ var MapsComponent = /** @class */ (function (_super) {
             }));
         }
         if (this.position) {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(this.position);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(this.position);
         }
         else {
             return this.sub.first().timeout(10000).catch(function () {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])({});
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])({});
             });
         }
     };
@@ -1165,19 +1166,19 @@ var MapsComponent = /** @class */ (function (_super) {
             enableHighAccuracy: true,
             maximumAge: 3600000
         };
-        var watchID = window.navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+        //let watchID = (<any>window).navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
         function onSuccess(position) {
-            this.postiion = new window.plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            this.position = new window.plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         }
         ;
         function onError(error) {
-            window.navigator.notification.alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+            window.navigator.notification.alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n ');
         }
         function onMapReady() {
-            //(<any>window).navigator.notification.alert('lat: ' + this.postiion.lat + "\n" + this.postiion.lng);
+            //(<any>window).navigator.notification.alert('lat: ' + this.position.lat + "\n" + this.position.lng);
             //this.map.showDialog();
-            this.map.setCenter(this.postiion);
-            this.map.setZoom(13);
+            //this.map.setCenter(this.position);
+            //this.map.setZoom(13);
             alert("The google map is available on this device.");
         }
         // Initialize the map view
@@ -1194,7 +1195,7 @@ var MapsComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./maps.component.html */ "./src/app/maps/maps.component.html"),
             styles: [__webpack_require__(/*! ./maps.component.css */ "./src/app/maps/maps.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angular_cordova_plugin_geolocation__WEBPACK_IMPORTED_MODULE_3__["GeolocationService"]])
     ], MapsComponent);
     return MapsComponent;
 }(_app_component__WEBPACK_IMPORTED_MODULE_2__["AppBase"]));
