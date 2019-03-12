@@ -76,7 +76,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-navbar></app-navbar>\n<app-login></app-login>\n<app-maps></app-maps>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-navbar></app-navbar>\n<!--<app-login></app-login>-->\n<app-maps></app-maps>\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -211,7 +211,7 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                 ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_5__["TooltipModule"].forRoot()
             ],
-            providers: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgZone"], angular_cordova_plugin__WEBPACK_IMPORTED_MODULE_10__["GeolocationService"]],
+            providers: [angular_cordova_plugin__WEBPACK_IMPORTED_MODULE_10__["GeolocationService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
@@ -1251,6 +1251,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+//declare var cordova;
 var startApp = function () {
     if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
@@ -1258,17 +1259,21 @@ var startApp = function () {
     Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
         .catch(function (err) { return console.error(err); });
 };
-var onDeviceReady = function () {
+/*
+let onDeviceReady = () => {
     startApp();
 };
+
 document.addEventListener('deviceready', onDeviceReady, false);
+
 try {
-    if (!cordova) {
+  if(!cordova){
     }
 }
-catch (e) {
-    startApp();
-}
+catch(e) {
+  startApp();
+}*/
+startApp();
 
 
 /***/ }),

@@ -22,9 +22,5 @@
     "paths": {
       "@app/*": ["app/*"]
     }
-  },
-  "include": [
-        "src/**/*",
-        "./node_modules/angular-cordova/**/*"
-    ]
+  }
 }

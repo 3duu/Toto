@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './global/navbar.component';
 import { MapsComponent } from './maps/maps.component';
 import { FormsModule } from '@angular/forms';
-import { GeolocationService } from 'angular-cordova/plugin';
+import { CordovaService } from './cordova.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { GeolocationService } from 'angular-cordova/plugin';
     AppRoutingModule,
     TooltipModule.forRoot()
   ],
-  providers: [GeolocationService],
+  providers: [CordovaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

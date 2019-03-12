@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { AppBase } from '../app.component';
-import { GeolocationService } from 'angular-cordova/plugin/geolocation';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { map } from "rxjs/operators";
-import { GoogleMapsService } from './GoogleMapsService';
-//import { Cordova } from 'angular-cordova/index';
+import { CordovaService } from '../cordova.service';
 
 //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
 //phonegap plugin add  cordova-plugin-googlemaps
 //https://github.com/arnesson/angular-cordova
+//alternative https://github.com/ercobo/angular-cordova
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
@@ -19,15 +18,13 @@ export class MapsComponent extends AppBase {
 
   private map;
   private position : any;
-  private sub: any;
-  private googleMapsService : GoogleMapsService;
 
   private options = {
     enableHighAccuracy: true,
     maximumAge: 3600000
   }
   
-  constructor(private geolocationService: GeolocationService) {
+  constructor(private cordovaService : CordovaService) {
     super();
   }
 
@@ -36,7 +33,7 @@ export class MapsComponent extends AppBase {
       this.loadMap();
     //});
   }
-  
+  /*
   getCurrentPosition(): Observable<any> {
     if (!this.sub) {
       this.sub = this.geolocationService.watchPosition(
@@ -57,7 +54,7 @@ export class MapsComponent extends AppBase {
         return of({});
       });
     }
-  }
+  }*/
 
   loadMap() : void {
     let div = document.getElementById("map_canvas");
@@ -83,11 +80,6 @@ export class MapsComponent extends AppBase {
       //this.map.setCenter(this.position);
       //this.map.setZoom(13);
       alert("The google map is available on this device.");
-    }
-
-    // Initialize the map view
-    if(this.googleMapsService != null){
-      this.map = this.googleMapsService.getMap(div, onMapReady);
     }
     
     this.map = (<any>window).plugin.google.maps.Map.getMap(div);
