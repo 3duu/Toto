@@ -37,64 +37,67 @@ const options: ConnectionOptions = {
 	logging: true
 }*/
 
+createConnection({
+	type: "cordova",
+	database: "PetLif3",
+	location: "default",
+	entities: [ User ],
+	logging: true,
+	synchronize: true
+}).then(connection => {
+	
+	const user = new User();
+	user.setLogin("admin");
+	user.setPassword("1");
+
+	const userRepository = getRepository('User') as Repository<User>;
+	userRepository.save(user);
+	
+	console.log("User has been saved");
+	document.writeln("User has been saved");
+	
+	const savedUser = userRepository.findOne(user.getId());
+	
+	console.log("User has been loaded: ", savedUser);
+	document.writeln("User has been loaded: " + JSON.stringify(savedUser));
+
+}).catch(error => {
+	console.log("SQLite Error: ", error);
+});
+
 //https://github.com/typeorm/cordova-example
 export class SQLiteDB {
 	
-	createTables : string[] = [
-		'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
-		'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
-	];
+	private createTables;
+	private database : any;
 
 	constructor() {
+		this.createTables  = [
+			'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
+			'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
+		];
 
+		(<any>window).db = (<any>window).openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
+		(<any>window).db.transaction(this.createDatabase, this.errorCB, this.successCB);
+		this.database = (<any>window).db;
 	}
 
 	createDatabase(tx) {
 
 		tx.executeSql("DROP TABLE IF EXISTS user");
 		tx.executeSql("DROP TABLE IF EXISTS pet");
-	
+		let createTables = [
+			'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
+			'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
+		];
 		//cria tabelas
-		for(let sql in this.createTables){
-			tx.executeSql(this.createTables[sql]);
-		}
+		createTables.forEach((sql) => {
+			tx.executeSql(sql);
+		});
 	}
-
-	private options : any = {
-		type: "cordova",
-		database: AppComponent.applicationName,
-		location: "default",
-		entities: [ User ],
-		logging: true,
-		synchronize: true
-	};
 	
 	async prepare() {
-		//window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
-		//window.db.transaction(createDatabase, errorCB, successCB);
-		//const connection = await createConnection(options);
-
-		createConnection(this.options).then(async connection => {
-		
-			const user = new User();
-			user.setLogin("admin");
-			user.setPassword("1");
-		
-			const userRepository = getRepository('User') as Repository<User>;
-			await userRepository.save(user);
-			
-			console.log("Post has been saved");
-			document.writeln("Post has been saved");
-			
-			const savedUser = await userRepository.findOne(user.getId());
-			
-			console.log("User has been loaded: ", savedUser);
-			document.writeln("Post has been loaded: " + JSON.stringify(savedUser));
-		
-		}).catch(error => {
-			console.log("Error: ", error);
-			//document.writeln("Error: " + JSON.stringify(error));
-		});
+		//const connection = await createConnection(this.options);
 		
 		//const messageRepository = connection.getRepository(Message);
 		//const allMessages = await messageRepository.find();
@@ -124,16 +127,7 @@ export class SQLiteDB {
 		//window.db.transaction(createDatabase, errorCB, successCB);
 		//const connection = await createConnection(options);
 
-		createConnection(this.options).then(async connection => {
-			const userRepository = getRepository('User') as Repository<User>;
-			const savedUser = await userRepository.findOne(login, password);
-			
-			return savedUser;
 		
-		}).catch(error => {
-			console.log("Error: ", error);
-			//document.writeln("Error: " + JSON.stringify(error));
-		});
 	}
 
 	errorCB(err) : boolean {

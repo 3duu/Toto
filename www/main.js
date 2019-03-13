@@ -345,6 +345,27 @@ const options: ConnectionOptions = {
     entities: [ User, Pet, PetService, Bookmark, Appointment, Address, Rating ],
     logging: true
 }*/
+Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])({
+    type: "cordova",
+    database: "PetLif3",
+    location: "default",
+    entities: [_entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]],
+    logging: true,
+    synchronize: true
+}).then(function (connection) {
+    var user = new _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]();
+    user.setLogin("admin");
+    user.setPassword("1");
+    var userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
+    userRepository.save(user);
+    console.log("User has been saved");
+    document.writeln("User has been saved");
+    var savedUser = userRepository.findOne(user.getId());
+    console.log("User has been loaded: ", savedUser);
+    document.writeln("User has been loaded: " + JSON.stringify(savedUser));
+}).catch(function (error) {
+    console.log("SQLite Error: ", error);
+});
 //https://github.com/typeorm/cordova-example
 var SQLiteDB = /** @class */ (function () {
     function SQLiteDB() {
@@ -352,83 +373,32 @@ var SQLiteDB = /** @class */ (function () {
             'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
             'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
         ];
-        this.options = {
-            type: "cordova",
-            database: _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName,
-            location: "default",
-            entities: [_entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]],
-            logging: true,
-            synchronize: true
-        };
+        window.db = window.openDatabase(_app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName, "2.0", _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName + " DB", 1000000);
+        window.db.transaction(this.createDatabase, this.errorCB, this.successCB);
+        this.database = window.db;
     }
     SQLiteDB.prototype.createDatabase = function (tx) {
         tx.executeSql("DROP TABLE IF EXISTS user");
         tx.executeSql("DROP TABLE IF EXISTS pet");
+        var createTables = [
+            'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
+            'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
+        ];
         //cria tabelas
-        for (var sql in this.createTables) {
-            tx.executeSql(this.createTables[sql]);
-        }
+        createTables.forEach(function (sql) {
+            tx.executeSql(sql);
+        });
     };
     SQLiteDB.prototype.prepare = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                //window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
-                //window.db.transaction(createDatabase, errorCB, successCB);
-                //const connection = await createConnection(options);
-                Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])(this.options).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
-                    var user, userRepository, savedUser;
-                    return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                user = new _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]();
-                                user.setLogin("admin");
-                                user.setPassword("1");
-                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
-                                return [4 /*yield*/, userRepository.save(user)];
-                            case 1:
-                                _a.sent();
-                                console.log("Post has been saved");
-                                document.writeln("Post has been saved");
-                                return [4 /*yield*/, userRepository.findOne(user.getId())];
-                            case 2:
-                                savedUser = _a.sent();
-                                console.log("User has been loaded: ", savedUser);
-                                document.writeln("Post has been loaded: " + JSON.stringify(savedUser));
-                                return [2 /*return*/];
-                        }
-                    });
-                }); }).catch(function (error) {
-                    console.log("Error: ", error);
-                    //document.writeln("Error: " + JSON.stringify(error));
-                });
                 return [2 /*return*/];
             });
         });
     };
     SQLiteDB.prototype.getUser = function (login, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                //window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
-                //window.db.transaction(createDatabase, errorCB, successCB);
-                //const connection = await createConnection(options);
-                Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])(this.options).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
-                    var userRepository, savedUser;
-                    return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
-                                return [4 /*yield*/, userRepository.findOne(login, password)];
-                            case 1:
-                                savedUser = _a.sent();
-                                return [2 /*return*/, savedUser];
-                        }
-                    });
-                }); }).catch(function (error) {
-                    console.log("Error: ", error);
-                    //document.writeln("Error: " + JSON.stringify(error));
-                });
                 return [2 /*return*/];
             });
         });
