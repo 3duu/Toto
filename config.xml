@@ -33,17 +33,10 @@
         <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="This app wants to get your location while this app runs only." />
         <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
     </plugin>
-    <plugin name="cordova-plugin-safariviewcontroller" spec="~1.5.4">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU" />
-        <variable name="API_KEY_FOR_IOS" value="AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8" />
-        <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
-        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
-        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="This app wants to get your location while this app runs only." />
-        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
-    </plugin>
+    <plugin name="cordova-plugin-safariviewcontroller" spec="~1.5.4" />
     <plugin name="cordova-plugin-inappbrowser" spec="~3.0.0" />
     <plugin name="cordova-sqlite-storage" spec="~3.1.0" />
-    <engine name="android" spec="^7.0.0" />
+    <engine name="android" spec="^7.1.4" />
     <engine name="ios" spec="~4.5.5" />
     <engine name="browser" spec="^5.0.4" />
 </widget>

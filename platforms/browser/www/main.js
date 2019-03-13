@@ -198,8 +198,11 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
                 _global_navbar_component__WEBPACK_IMPORTED_MODULE_7__["NavbarComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"],
-                _maps_maps_component__WEBPACK_IMPORTED_MODULE_8__["MapsComponent"]
+                _maps_maps_component__WEBPACK_IMPORTED_MODULE_8__["MapsComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"]
+            ],
+            entryComponents: [
+                _login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -394,16 +397,23 @@ var UserDao = /** @class */ (function (_super) {
     }
     UserDao.getUser = function (login, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var user;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getConnection"])().createQueryBuilder(_entity_User__WEBPACK_IMPORTED_MODULE_2__["User"], "user")
-                            .where("user.login = :lg and user.password = :pwd", { lg: login, pwd: password })
-                            .getOne()];
-                    case 1:
-                        user = _a.sent();
-                        return [2 /*return*/, user];
-                }
+                /*
+                const user = await getConnection().createQueryBuilder(User, "user")
+                .where("user.login = :lg and user.password = :pwd", { lg: login, pwd: password })
+                .getOne();*/
+                user: _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"];
+                connection.then(function (connection) {
+                    var userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
+                    var user = userRepository.findOne(1);
+                    console.log("User has been loaded: ", user);
+                    alert("User has been loaded: " + JSON.stringify(user));
+                    return user;
+                }).catch(function (error) {
+                    console.log("SQLite Error: ", error);
+                    alert(error);
+                });
+                return [2 /*return*/, null];
             });
         });
     };
@@ -652,7 +662,7 @@ __webpack_require__.r(__webpack_exports__);
 //https://bootsnipp.com/snippets/kMdg
 var LoginComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](LoginComponent, _super);
-    function LoginComponent() {
+    function LoginComponent( /*private elementRef: ElementRef*/) {
         var _this = _super.call(this) || this;
         _this.loading = false;
         _this.submitted = false;
@@ -696,11 +706,10 @@ var LoginComponent = /** @class */ (function (_super) {
     LoginComponent.getUser = function () {
         return LoginComponent_1.user;
     };
+    LoginComponent.prototype.destroy = function () {
+        //this.elementRef.nativeElement.remove();
+    };
     var LoginComponent_1;
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('entryPoint', { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"])
-    ], LoginComponent.prototype, "entryPoint", void 0);
     LoginComponent = LoginComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-login',

@@ -13,7 +13,8 @@ import { CordovaService } from './cordova.service';
   declarations: [
     AppComponent,
     NavbarComponent,
-    MapsComponent
+    MapsComponent,
+    LoginComponent
   ],
   entryComponents: [
     LoginComponent

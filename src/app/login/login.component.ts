@@ -20,10 +20,7 @@ export class LoginComponent extends AppBase {
   private authenticationService: AuthenticationService;
   private dynamicComponentRef: ComponentRef<LoginComponent>;
 
-  @ViewChild('entryPoint', { read: ViewContainerRef }) 
-  entryPoint: ViewContainerRef;
-
-  constructor(private elementRef: ElementRef) {
+  constructor(/*private elementRef: ElementRef*/) {
     super();
   }
 
@@ -69,7 +66,7 @@ export class LoginComponent extends AppBase {
   }
 
   destroy() {
-    this.elementRef.nativeElement.remove();
+    //this.elementRef.nativeElement.remove();
   }
 
 }

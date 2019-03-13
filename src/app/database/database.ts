@@ -29,6 +29,16 @@ export class GenericDao {
 	private createTables;
 	private database : any;
 	static entityManager = getManager(); // you can also get it via getConnection().manager
+	static connection : Promise<Connection>;
+
+	private static options : ConnectionOptions = {
+		type: "cordova",
+		database: AppComponent.applicationName,
+		location: "default",
+		entities: [ User ],
+		logging: true,
+		synchronize: true
+	};
 
 	constructor() {
 		(<any>window).db = (<any>window).openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
@@ -50,15 +60,6 @@ export class GenericDao {
 			tx.executeSql(sql);
 		});
 	}
-
-	private static options : ConnectionOptions = {
-		type: "cordova",
-		database: AppComponent.applicationName,
-		location: "default",
-		entities: [ User ],
-		logging: true,
-		synchronize: true
-	};
 
 	static GetConnection(){
 		return connection;
@@ -103,11 +104,28 @@ export class GenericDao {
 export class UserDao extends GenericDao {
 
 	static async getUser(login : string, password : string) : Promise<User> {
-		
+		/*
 		const user = await getConnection().createQueryBuilder(User, "user")
 		.where("user.login = :lg and user.password = :pwd", { lg: login, pwd: password })
-		.getOne();
+		.getOne();*/
+		user : User;
 
-		return user;
+		connection.then(connection => {
+			
+			const userRepository = getRepository('User') as Repository<User>;
+
+			const user = userRepository.findOne(1);
+			
+			console.log("User has been loaded: ", user);
+			alert("User has been loaded: " + JSON.stringify(user));
+			
+			return user;
+		
+		}).catch(error => {
+			console.log("SQLite Error: ", error);
+			alert(error);
+		});
+		
+		return null;
 	}
 }
