@@ -338,13 +338,6 @@ export class UserDao extends GenericDao {
         await UserDao.entityManager.save(user);
     }
 }*/
-/*
-const options: ConnectionOptions = {
-    type: "sqlite",
-    database: '${root}/data/line.sqlite',
-    entities: [ User, Pet, PetService, Bookmark, Appointment, Address, Rating ],
-    logging: true
-}*/
 Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])({
     type: "cordova",
     database: "PetLif3",
@@ -360,15 +353,20 @@ Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])({
     userRepository.save(user);
     console.log("User has been saved");
     document.writeln("User has been saved");
-    var savedUser = userRepository.findOne(user.getId());
-    console.log("User has been loaded: ", savedUser);
-    document.writeln("User has been loaded: " + JSON.stringify(savedUser));
 }).catch(function (error) {
     console.log("SQLite Error: ", error);
 });
 //https://github.com/typeorm/cordova-example
 var SQLiteDB = /** @class */ (function () {
     function SQLiteDB() {
+        this.options = {
+            type: "cordova",
+            database: _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName,
+            location: "default",
+            entities: [_entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]],
+            logging: true,
+            synchronize: true
+        };
         this.createTables = [
             'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
             'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
@@ -390,15 +388,71 @@ var SQLiteDB = /** @class */ (function () {
         });
     };
     SQLiteDB.prototype.prepare = function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                return [2 /*return*/];
-            });
-        });
+        /*
+        createConnection(this.options).then(connection => {
+        
+            const user = new User();
+            user.setLogin("admin");
+            user.setPassword("1");
+        
+            const userRepository = getRepository('User') as Repository<User>;
+            userRepository.save(user);
+            
+            console.log("User has been saved");
+            document.writeln("User has been saved");
+            
+            const savedUser = userRepository.findOne(user.getId());
+            
+            console.log("User has been loaded: ", savedUser);
+            document.writeln("User has been loaded: " + JSON.stringify(savedUser));
+        
+        }).catch(error => {
+            console.log("SQLite Error: ", error);
+        });*/
+        //const messageRepository = connection.getRepository(Message);
+        //const allMessages = await messageRepository.find();
+        /*
+        allMessages.forEach((message: Message) => {
+            const text = message.text
+            if (!text) {
+              return
+            }
+            if (text.match(/ape/)) {
+              console.log(text)
+            }
+          })
+
+          const messages = await messageRepository
+            .createQueryBuilder("ZMESSAGE")
+            .leftJoinAndSelect("ZMESSAGE.sender", "ZUSER")
+            .where("ZMESSAGE.Z_PK=:id")
+            .setParameter("id", 3)
+            .getMany()
+          console.log(messages[0].sender)*/
     };
     SQLiteDB.prototype.getUser = function (login, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                //window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
+                //window.db.transaction(createDatabase, errorCB, successCB);
+                //const connection = await createConnection(options);
+                Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])(this.options).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                    var userRepository, savedUser;
+                    return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
+                                return [4 /*yield*/, userRepository.findOne(login, password)];
+                            case 1:
+                                savedUser = _a.sent();
+                                return [2 /*return*/, savedUser];
+                        }
+                    });
+                }); }).catch(function (error) {
+                    console.log("Error: ", error);
+                    //document.writeln("Error: " + JSON.stringify(error));
+                });
                 return [2 /*return*/];
             });
         });

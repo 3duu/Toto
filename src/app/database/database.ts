@@ -11,7 +11,7 @@ import { Pet } from '../entity/Pet';
 import { User } from '../entity/User';
 //import { root } from '../paths';
 import { Rating } from '../entity/Rating';
-import {createConnection, Repository, getRepository} from "typeorm";
+import {createConnection, Repository, getRepository, Connection} from "typeorm";
 
 /*
 export class GenericDao {
@@ -29,14 +29,6 @@ export class UserDao extends GenericDao {
 	}
 }*/
 
-/*
-const options: ConnectionOptions = {
-	type: "sqlite",
-	database: '${root}/data/line.sqlite',
-	entities: [ User, Pet, PetService, Bookmark, Appointment, Address, Rating ],
-	logging: true
-}*/
-
 createConnection({
 	type: "cordova",
 	database: "PetLif3",
@@ -45,7 +37,7 @@ createConnection({
 	logging: true,
 	synchronize: true
 }).then(connection => {
-	
+		
 	const user = new User();
 	user.setLogin("admin");
 	user.setPassword("1");
@@ -55,11 +47,6 @@ createConnection({
 	
 	console.log("User has been saved");
 	document.writeln("User has been saved");
-	
-	const savedUser = userRepository.findOne(user.getId());
-	
-	console.log("User has been loaded: ", savedUser);
-	document.writeln("User has been loaded: " + JSON.stringify(savedUser));
 
 }).catch(error => {
 	console.log("SQLite Error: ", error);
@@ -70,13 +57,9 @@ export class SQLiteDB {
 	
 	private createTables;
 	private database : any;
+	private connection : Connection;
 
 	constructor() {
-		this.createTables  = [
-			'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
-			'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
-		];
-
 		(<any>window).db = (<any>window).openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
 		(<any>window).db.transaction(this.createDatabase, this.errorCB, this.successCB);
 		this.database = (<any>window).db;
@@ -95,9 +78,38 @@ export class SQLiteDB {
 			tx.executeSql(sql);
 		});
 	}
+
+	private options : any = {
+		type: "cordova",
+		database: AppComponent.applicationName,
+		location: "default",
+		entities: [ User ],
+		logging: true,
+		synchronize: true
+	};
 	
-	async prepare() {
-		//const connection = await createConnection(this.options);
+	prepare() {
+		/*
+		createConnection(this.options).then(connection => {
+		
+			const user = new User();
+			user.setLogin("admin");
+			user.setPassword("1");
+		
+			const userRepository = getRepository('User') as Repository<User>;
+			userRepository.save(user);
+			
+			console.log("User has been saved");
+			document.writeln("User has been saved");
+			
+			const savedUser = userRepository.findOne(user.getId());
+			
+			console.log("User has been loaded: ", savedUser);
+			document.writeln("User has been loaded: " + JSON.stringify(savedUser));
+		
+		}).catch(error => {
+			console.log("SQLite Error: ", error);
+		});*/
 		
 		//const messageRepository = connection.getRepository(Message);
 		//const allMessages = await messageRepository.find();
@@ -127,7 +139,16 @@ export class SQLiteDB {
 		//window.db.transaction(createDatabase, errorCB, successCB);
 		//const connection = await createConnection(options);
 
+		createConnection(this.options).then(async connection => {
+			const userRepository = getRepository('User') as Repository<User>;
+			const savedUser = await userRepository.findOne(login, password);
+			
+			return savedUser;
 		
+		}).catch(error => {
+			console.log("Error: ", error);
+			//document.writeln("Error: " + JSON.stringify(error));
+		});
 	}
 
 	errorCB(err) : boolean {
