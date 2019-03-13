@@ -10,13 +10,13 @@ export class User {
     @PrimaryGeneratedColumn()
     private id : number;
 
-    @Column("login")
+    @Column()
     private login : string;
 
     @Column("signin_date")
     private signInDate : Date;
 
-    @Column("password")
+    @Column()
     private password : string;
 
     @Column("encrypted_password")

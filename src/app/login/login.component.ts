@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ComponentRef, ViewChild, ViewContainerRef, ElementRef } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {  AppBase } from '../app.component';
 import { User } from '../entity/User';
 import { AuthenticationService } from './AuthenticationService';
+import { UserDao } from '../database/database';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -17,8 +18,12 @@ export class LoginComponent extends AppBase {
   private loading = false;
   private submitted = false;
   private authenticationService: AuthenticationService;
+  private dynamicComponentRef: ComponentRef<LoginComponent>;
 
-  constructor() {
+  @ViewChild('entryPoint', { read: ViewContainerRef }) 
+  entryPoint: ViewContainerRef;
+
+  constructor(private elementRef: ElementRef) {
     super();
   }
 
@@ -34,9 +39,14 @@ export class LoginComponent extends AppBase {
       return;
     }
     this.loading = true;
-    LoginComponent.user = new User;
-    LoginComponent.user.setId(1);
-    LoginComponent.user.setLogin(form.value.login);
+    UserDao.getUser(form.value.login, form.value.password).then( usr => {
+      LoginComponent.user = usr;
+      alert("Done!");
+      //this.dynamicComponentRef = this.entryPoint.createComponent(componentFactory);
+      if (this.dynamicComponentRef) {
+        this.dynamicComponentRef.destroy();
+      }
+    });
     console.log(form.value);
     /*
     this.authenticationService.login(form.value.login, form.value.password);
@@ -56,6 +66,10 @@ export class LoginComponent extends AppBase {
 
   static getUser() : User {
     return LoginComponent.user;
+  }
+
+  destroy() {
+    this.elementRef.nativeElement.remove();
   }
 
 }

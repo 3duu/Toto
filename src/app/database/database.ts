@@ -11,58 +11,30 @@ import { Pet } from '../entity/Pet';
 import { User } from '../entity/User';
 //import { root } from '../paths';
 import { Rating } from '../entity/Rating';
-import {createConnection, Repository, getRepository, Connection} from "typeorm";
+import {createConnection, Repository, getRepository, Connection, getManager, getConnection, ConnectionOptions} from "typeorm";
 
-/*
-export class GenericDao {
-	static  entityManager = getManager(); // you can also get it via getConnection().manager
-}
 
-export class UserDao extends GenericDao {
-
-	async findNode(id : number){
-		return await UserDao.entityManager.findOne(User, 1);
-	}
-
-	async save(user : User){
-		await UserDao.entityManager.save(user);
-	}
-}*/
-
-createConnection({
+const connection  = createConnection({
 	type: "cordova",
 	database: "PetLif3",
 	location: "default",
 	entities: [ User ],
 	logging: true,
 	synchronize: true
-}).then(connection => {
-		
-	const user = new User();
-	user.setLogin("admin");
-	user.setPassword("1");
-
-	const userRepository = getRepository('User') as Repository<User>;
-	userRepository.save(user);
-	
-	console.log("User has been saved");
-	document.writeln("User has been saved");
-
-}).catch(error => {
-	console.log("SQLite Error: ", error);
 });
 
 //https://github.com/typeorm/cordova-example
-export class SQLiteDB {
+export class GenericDao {
 	
 	private createTables;
 	private database : any;
-	private connection : Connection;
+	static entityManager = getManager(); // you can also get it via getConnection().manager
 
 	constructor() {
 		(<any>window).db = (<any>window).openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
 		(<any>window).db.transaction(this.createDatabase, this.errorCB, this.successCB);
 		this.database = (<any>window).db;
+		this.execute();
 	}
 
 	createDatabase(tx) {
@@ -79,7 +51,7 @@ export class SQLiteDB {
 		});
 	}
 
-	private options : any = {
+	private static options : ConnectionOptions = {
 		type: "cordova",
 		database: AppComponent.applicationName,
 		location: "default",
@@ -87,10 +59,14 @@ export class SQLiteDB {
 		logging: true,
 		synchronize: true
 	};
+
+	static GetConnection(){
+		return connection;
+	}
 	
-	prepare() {
-		/*
-		createConnection(this.options).then(connection => {
+	execute() {
+		
+		createConnection(GenericDao.options).then(connection => {
 		
 			const user = new User();
 			user.setLogin("admin");
@@ -100,54 +76,15 @@ export class SQLiteDB {
 			userRepository.save(user);
 			
 			console.log("User has been saved");
-			document.writeln("User has been saved");
 			
 			const savedUser = userRepository.findOne(user.getId());
 			
 			console.log("User has been loaded: ", savedUser);
-			document.writeln("User has been loaded: " + JSON.stringify(savedUser));
+			alert("User has been loaded: " + JSON.stringify(savedUser));
 		
 		}).catch(error => {
 			console.log("SQLite Error: ", error);
-		});*/
-		
-		//const messageRepository = connection.getRepository(Message);
-		//const allMessages = await messageRepository.find();
-
-		/*
-		allMessages.forEach((message: Message) => {
-			const text = message.text
-			if (!text) {
-			  return
-			}
-			if (text.match(/ape/)) {
-			  console.log(text)
-			}
-		  })
-
-		  const messages = await messageRepository
-			.createQueryBuilder("ZMESSAGE")
-			.leftJoinAndSelect("ZMESSAGE.sender", "ZUSER")
-			.where("ZMESSAGE.Z_PK=:id")
-			.setParameter("id", 3)
-			.getMany()
-		  console.log(messages[0].sender)*/
-	}
-
-	async getUser(login, password) {
-		//window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
-		//window.db.transaction(createDatabase, errorCB, successCB);
-		//const connection = await createConnection(options);
-
-		createConnection(this.options).then(async connection => {
-			const userRepository = getRepository('User') as Repository<User>;
-			const savedUser = await userRepository.findOne(login, password);
-			
-			return savedUser;
-		
-		}).catch(error => {
-			console.log("Error: ", error);
-			//document.writeln("Error: " + JSON.stringify(error));
+			alert(error);
 		});
 	}
 
@@ -161,4 +98,16 @@ export class SQLiteDB {
 		console.log('SQL COMMAND EXECUTED');
 	}
 	
+}
+
+export class UserDao extends GenericDao {
+
+	static async getUser(login : string, password : string) : Promise<User> {
+		
+		const user = await getConnection().createQueryBuilder(User, "user")
+		.where("user.login = :lg and user.password = :pwd", { lg: login, pwd: password })
+		.getOne();
+
+		return user;
+	}
 }

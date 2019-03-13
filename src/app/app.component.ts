@@ -3,7 +3,6 @@ import { Language } from './language/Language';
 import { Component, OnInit } from '@angular/core';
 import { User } from './entity/User';
 import { NavbarComponent } from './global/navbar.component';
-import { SQLiteDB } from './database/database';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +11,10 @@ import { SQLiteDB } from './database/database';
 })
 export class AppComponent {
 
-  private sqlite : SQLiteDB = new SQLiteDB();
-
   static applicationName : string = "PetLif3";
   static language : Language = new Language();
   
   constructor() {
-		this.sqlite.prepare();
 	}
 
   title = 'angular';

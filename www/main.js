@@ -94,16 +94,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _language_Language__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./language/Language */ "./src/app/language/Language.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./database/database */ "./src/app/database/database.ts");
-
 
 
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.sqlite = new _database_database__WEBPACK_IMPORTED_MODULE_3__["SQLiteDB"]();
         this.title = 'angular';
-        this.sqlite.prepare();
     }
     AppComponent.applicationName = "PetLif3";
     AppComponent.language = new _language_Language__WEBPACK_IMPORTED_MODULE_1__["Language"]();
@@ -202,8 +198,10 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
                 _global_navbar_component__WEBPACK_IMPORTED_MODULE_7__["NavbarComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"],
                 _maps_maps_component__WEBPACK_IMPORTED_MODULE_8__["MapsComponent"]
+            ],
+            entryComponents: [
+                _login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -309,12 +307,13 @@ var CordovaService = /** @class */ (function () {
 /*!**************************************!*\
   !*** ./src/app/database/database.ts ***!
   \**************************************/
-/*! exports provided: SQLiteDB */
+/*! exports provided: GenericDao, UserDao */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SQLiteDB", function() { return SQLiteDB; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GenericDao", function() { return GenericDao; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserDao", function() { return UserDao; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
@@ -323,59 +322,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/*
-export class GenericDao {
-    static  entityManager = getManager(); // you can also get it via getConnection().manager
-}
-
-export class UserDao extends GenericDao {
-
-    async findNode(id : number){
-        return await UserDao.entityManager.findOne(User, 1);
-    }
-
-    async save(user : User){
-        await UserDao.entityManager.save(user);
-    }
-}*/
-Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])({
+var connection = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])({
     type: "cordova",
     database: "PetLif3",
     location: "default",
     entities: [_entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]],
     logging: true,
     synchronize: true
-}).then(function (connection) {
-    var user = new _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]();
-    user.setLogin("admin");
-    user.setPassword("1");
-    var userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
-    userRepository.save(user);
-    console.log("User has been saved");
-    document.writeln("User has been saved");
-}).catch(function (error) {
-    console.log("SQLite Error: ", error);
 });
 //https://github.com/typeorm/cordova-example
-var SQLiteDB = /** @class */ (function () {
-    function SQLiteDB() {
-        this.options = {
-            type: "cordova",
-            database: _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName,
-            location: "default",
-            entities: [_entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]],
-            logging: true,
-            synchronize: true
-        };
-        this.createTables = [
-            'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
-            'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
-        ];
+var GenericDao = /** @class */ (function () {
+    function GenericDao() {
         window.db = window.openDatabase(_app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName, "2.0", _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName + " DB", 1000000);
         window.db.transaction(this.createDatabase, this.errorCB, this.successCB);
         this.database = window.db;
+        this.execute();
     }
-    SQLiteDB.prototype.createDatabase = function (tx) {
+    GenericDao.prototype.createDatabase = function (tx) {
         tx.executeSql("DROP TABLE IF EXISTS user");
         tx.executeSql("DROP TABLE IF EXISTS pet");
         var createTables = [
@@ -387,86 +350,67 @@ var SQLiteDB = /** @class */ (function () {
             tx.executeSql(sql);
         });
     };
-    SQLiteDB.prototype.prepare = function () {
-        /*
-        createConnection(this.options).then(connection => {
-        
-            const user = new User();
+    GenericDao.GetConnection = function () {
+        return connection;
+    };
+    GenericDao.prototype.execute = function () {
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])(GenericDao.options).then(function (connection) {
+            var user = new _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]();
             user.setLogin("admin");
             user.setPassword("1");
-        
-            const userRepository = getRepository('User') as Repository<User>;
+            var userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
             userRepository.save(user);
-            
             console.log("User has been saved");
-            document.writeln("User has been saved");
-            
-            const savedUser = userRepository.findOne(user.getId());
-            
+            var savedUser = userRepository.findOne(user.getId());
             console.log("User has been loaded: ", savedUser);
-            document.writeln("User has been loaded: " + JSON.stringify(savedUser));
-        
-        }).catch(error => {
+            alert("User has been loaded: " + JSON.stringify(savedUser));
+        }).catch(function (error) {
             console.log("SQLite Error: ", error);
-        });*/
-        //const messageRepository = connection.getRepository(Message);
-        //const allMessages = await messageRepository.find();
-        /*
-        allMessages.forEach((message: Message) => {
-            const text = message.text
-            if (!text) {
-              return
-            }
-            if (text.match(/ape/)) {
-              console.log(text)
-            }
-          })
-
-          const messages = await messageRepository
-            .createQueryBuilder("ZMESSAGE")
-            .leftJoinAndSelect("ZMESSAGE.sender", "ZUSER")
-            .where("ZMESSAGE.Z_PK=:id")
-            .setParameter("id", 3)
-            .getMany()
-          console.log(messages[0].sender)*/
-    };
-    SQLiteDB.prototype.getUser = function (login, password) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var _this = this;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                //window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
-                //window.db.transaction(createDatabase, errorCB, successCB);
-                //const connection = await createConnection(options);
-                Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])(this.options).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
-                    var userRepository, savedUser;
-                    return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
-                                return [4 /*yield*/, userRepository.findOne(login, password)];
-                            case 1:
-                                savedUser = _a.sent();
-                                return [2 /*return*/, savedUser];
-                        }
-                    });
-                }); }).catch(function (error) {
-                    console.log("Error: ", error);
-                    //document.writeln("Error: " + JSON.stringify(error));
-                });
-                return [2 /*return*/];
-            });
+            alert(error);
         });
     };
-    SQLiteDB.prototype.errorCB = function (err) {
+    GenericDao.prototype.errorCB = function (err) {
         console.log("Error processing SQL: " + err.code + ": " + err.message);
         alert('Error when executing command - ' + err.code + ": " + err.message);
         return true;
     };
-    SQLiteDB.prototype.successCB = function () {
+    GenericDao.prototype.successCB = function () {
         console.log('SQL COMMAND EXECUTED');
     };
-    return SQLiteDB;
+    GenericDao.entityManager = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getManager"])(); // you can also get it via getConnection().manager
+    GenericDao.options = {
+        type: "cordova",
+        database: _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName,
+        location: "default",
+        entities: [_entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]],
+        logging: true,
+        synchronize: true
+    };
+    return GenericDao;
 }());
+
+var UserDao = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](UserDao, _super);
+    function UserDao() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    UserDao.getUser = function (login, password) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var user;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getConnection"])().createQueryBuilder(_entity_User__WEBPACK_IMPORTED_MODULE_2__["User"], "user")
+                            .where("user.login = :lg and user.password = :pwd", { lg: login, pwd: password })
+                            .getOne()];
+                    case 1:
+                        user = _a.sent();
+                        return [2 /*return*/, user];
+                }
+            });
+        });
+    };
+    return UserDao;
+}(GenericDao));
 
 
 
@@ -530,7 +474,7 @@ var User = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
     ], User.prototype, "id", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("login"),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], User.prototype, "login", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -538,7 +482,7 @@ var User = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
     ], User.prototype, "signInDate", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("password"),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], User.prototype, "password", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -702,7 +646,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../database/database */ "./src/app/database/database.ts");
 
 
 
@@ -710,8 +654,9 @@ __webpack_require__.r(__webpack_exports__);
 //https://bootsnipp.com/snippets/kMdg
 var LoginComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](LoginComponent, _super);
-    function LoginComponent() {
+    function LoginComponent(elementRef) {
         var _this = _super.call(this) || this;
+        _this.elementRef = elementRef;
         _this.loading = false;
         _this.submitted = false;
         return _this;
@@ -720,6 +665,7 @@ var LoginComponent = /** @class */ (function (_super) {
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.doLogin = function (form) {
+        var _this = this;
         this.submitted = true;
         this.loginForm = form;
         // stop here if form is invalid
@@ -727,9 +673,14 @@ var LoginComponent = /** @class */ (function (_super) {
             return;
         }
         this.loading = true;
-        LoginComponent_1.user = new _entity_User__WEBPACK_IMPORTED_MODULE_3__["User"];
-        LoginComponent_1.user.setId(1);
-        LoginComponent_1.user.setLogin(form.value.login);
+        _database_database__WEBPACK_IMPORTED_MODULE_3__["UserDao"].getUser(form.value.login, form.value.password).then(function (usr) {
+            LoginComponent_1.user = usr;
+            alert("Done!");
+            //this.dynamicComponentRef = this.entryPoint.createComponent(componentFactory);
+            if (_this.dynamicComponentRef) {
+                _this.dynamicComponentRef.destroy();
+            }
+        });
         console.log(form.value);
         /*
         this.authenticationService.login(form.value.login, form.value.password);
@@ -748,14 +699,21 @@ var LoginComponent = /** @class */ (function (_super) {
     LoginComponent.getUser = function () {
         return LoginComponent_1.user;
     };
+    LoginComponent.prototype.destroy = function () {
+        this.elementRef.nativeElement.remove();
+    };
     var LoginComponent_1;
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('entryPoint', { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"])
+    ], LoginComponent.prototype, "entryPoint", void 0);
     LoginComponent = LoginComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-login',
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
     ], LoginComponent);
     return LoginComponent;
 }(_app_component__WEBPACK_IMPORTED_MODULE_2__["AppBase"]));
