@@ -4,7 +4,7 @@
   "name": "Toto",
   "short_name": "Toto",
   "version": "com.toto",
-  "description": "A blank PhoneGap app.",
+  "description": "Manage you Pet Life",
   "author": "DUTI",
   "icons": [],
   "start_url": "index.html"

@@ -76,7 +76,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-navbar></app-navbar>\n<!--<app-login></app-login>-->\n<app-maps></app-maps>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-navbar></app-navbar>\n<app-login></app-login>\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -182,7 +182,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _global_navbar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./global/navbar.component */ "./src/app/global/navbar.component.ts");
 /* harmony import */ var _maps_maps_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./maps/maps.component */ "./src/app/maps/maps.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var angular_cordova_plugin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angular-cordova/plugin */ "./node_modules/angular-cordova/plugin/index.ts");
+/* harmony import */ var _cordova_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./cordova.service */ "./src/app/cordova.service.ts");
 
 
 
@@ -211,11 +211,94 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                 ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_5__["TooltipModule"].forRoot()
             ],
-            providers: [angular_cordova_plugin__WEBPACK_IMPORTED_MODULE_10__["GeolocationService"]],
+            providers: [_cordova_service__WEBPACK_IMPORTED_MODULE_10__["CordovaService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/cordova.service.ts":
+/*!************************************!*\
+  !*** ./src/app/cordova.service.ts ***!
+  \************************************/
+/*! exports provided: CordovaService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CordovaService", function() { return CordovaService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
+
+
+
+function _window() {
+    // return the global native browser window object
+    return window;
+}
+//https://medium.com/@EliaPalme/how-to-wrap-an-angular-app-with-apache-cordova-909024a25d79
+var CordovaService = /** @class */ (function () {
+    function CordovaService(zone) {
+        var _this = this;
+        this.zone = zone;
+        this.resume = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(document, 'resume').subscribe(function (event) {
+            _this.zone.run(function () {
+                _this.onResume();
+            });
+        });
+    }
+    Object.defineProperty(CordovaService.prototype, "cordova", {
+        get: function () {
+            return _window().cordova;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CordovaService.prototype, "window", {
+        get: function () {
+            return _window();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CordovaService.prototype, "onCordova", {
+        get: function () {
+            return !!_window().cordova;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    CordovaService.prototype.onResume = function () {
+        this.resume.next(true);
+    };
+    CordovaService.prototype.openLinkInBrowser = function (url) {
+        _window().SafariViewController.isAvailable(function (available) {
+            if (available) {
+                _window().SafariViewController.show({
+                    url: url,
+                    barColor: "#f7f7f9",
+                    tintColor: "#1ca8dd",
+                    controlTintColor: "#1ca8dd",
+                });
+            }
+            else {
+                _window().cordova.InAppBrowser.open(url, "_blank");
+            }
+        });
+    };
+    CordovaService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+    ], CordovaService);
+    return CordovaService;
 }());
 
 
@@ -234,26 +317,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SQLiteDB", function() { return SQLiteDB; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _entity_PetService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../entity/PetService */ "./src/app/entity/PetService.ts");
-/* harmony import */ var _entity_Address__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../entity/Address */ "./src/app/entity/Address.ts");
-/* harmony import */ var _entity_Appointment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../entity/Appointment */ "./src/app/entity/Appointment.ts");
-/* harmony import */ var _entity_Bookmark__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../entity/Bookmark */ "./src/app/entity/Bookmark.ts");
-/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../entity/Pet */ "./src/app/entity/Pet.ts");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
-/* harmony import */ var _entity_Rating__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../entity/Rating */ "./src/app/entity/Rating.ts");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
+/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
 
 
-
-
-
-
-/*import {getManager} from "typeorm";*/
-//import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
-//import { ConnectionOptions } from "typeorm"
-
-
-//import { root } from '../paths';
 
 
 /*
@@ -289,7 +356,7 @@ var SQLiteDB = /** @class */ (function () {
             type: "cordova",
             database: _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName,
             location: "default",
-            entities: [_entity_User__WEBPACK_IMPORTED_MODULE_7__["User"], _entity_Pet__WEBPACK_IMPORTED_MODULE_6__["Pet"], _entity_PetService__WEBPACK_IMPORTED_MODULE_2__["PetService"], _entity_Bookmark__WEBPACK_IMPORTED_MODULE_5__["Bookmark"], _entity_Appointment__WEBPACK_IMPORTED_MODULE_4__["Appointment"], _entity_Address__WEBPACK_IMPORTED_MODULE_3__["Address"], _entity_Rating__WEBPACK_IMPORTED_MODULE_8__["Rating"]],
+            entities: [_entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]],
             logging: true,
             synchronize: true
         };
@@ -309,15 +376,15 @@ var SQLiteDB = /** @class */ (function () {
                 //window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
                 //window.db.transaction(createDatabase, errorCB, successCB);
                 //const connection = await createConnection(options);
-                Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["createConnection"])(this.options).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])(this.options).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
                     var user, userRepository, savedUser;
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                         switch (_a.label) {
                             case 0:
-                                user = new _entity_User__WEBPACK_IMPORTED_MODULE_7__["User"]();
+                                user = new _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]();
                                 user.setLogin("admin");
                                 user.setPassword("1");
-                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["getRepository"])('User');
+                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
                                 return [4 /*yield*/, userRepository.save(user)];
                             case 1:
                                 _a.sent();
@@ -346,12 +413,12 @@ var SQLiteDB = /** @class */ (function () {
                 //window.openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
                 //window.db.transaction(createDatabase, errorCB, successCB);
                 //const connection = await createConnection(options);
-                Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["createConnection"])(this.options).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])(this.options).then(function (connection) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
                     var userRepository, savedUser;
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                         switch (_a.label) {
                             case 0:
-                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_9__["getRepository"])('User');
+                                userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
                                 return [4 /*yield*/, userRepository.findOne(login, password)];
                             case 1:
                                 savedUser = _a.sent();
@@ -381,383 +448,6 @@ var SQLiteDB = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/entity/Address.ts":
-/*!***********************************!*\
-  !*** ./src/app/entity/Address.ts ***!
-  \***********************************/
-/*! exports provided: Address */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Address", function() { return Address; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
-
-
-var Address = /** @class */ (function () {
-    function Address() {
-    }
-    Address.prototype.getId = function () {
-        return this.id;
-    };
-    Address.prototype.getStreetName = function () {
-        return this.streetName;
-    };
-    Address.prototype.getNumber = function () {
-        return this.number;
-    };
-    Address.prototype.getComplement = function () {
-        return this.complement;
-    };
-    Address.prototype.getZipcode = function () {
-        return this.zipcode;
-    };
-    Address.prototype.getCity = function () {
-        return this.city;
-    };
-    Address.prototype.getState = function () {
-        return this.state;
-    };
-    Address.prototype.getGeolocationstate = function () {
-        return this.geolocationstate;
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-    ], Address.prototype, "id", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("streetName"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], Address.prototype, "streetName", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("number"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], Address.prototype, "number", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("complement"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], Address.prototype, "complement", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("zipcode"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], Address.prototype, "zipcode", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("city"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], Address.prototype, "city", void 0);
-    Address = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("address"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], Address);
-    return Address;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/entity/Appointment.ts":
-/*!***************************************!*\
-  !*** ./src/app/entity/Appointment.ts ***!
-  \***************************************/
-/*! exports provided: Appointment */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Appointment", function() { return Appointment; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
-/* harmony import */ var _Pet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Pet */ "./src/app/entity/Pet.ts");
-
-
-
-var Appointment = /** @class */ (function () {
-    function Appointment() {
-    }
-    Appointment.prototype.ngOnInit = function () {
-    };
-    Appointment.prototype.getId = function () {
-        return this.id;
-    };
-    Appointment.prototype.getPets = function () {
-        return this.pets;
-    };
-    Appointment.prototype.getUser = function () {
-        if (this.pets != null && this.pets != undefined) {
-            return this.pets[0].getUser();
-        }
-        return null;
-    };
-    Appointment.prototype.getName = function () {
-        return "null";
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-    ], Appointment.prototype, "id", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("date"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
-    ], Appointment.prototype, "date", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], Appointment.prototype, "time", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["OneToMany"])(function (type) { return _Pet__WEBPACK_IMPORTED_MODULE_2__["Pet"]; }, function (pet) { return pet.getAppointments(); }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
-    ], Appointment.prototype, "pets", void 0);
-    Appointment = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("appointment"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], Appointment);
-    return Appointment;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/entity/Bookmark.ts":
-/*!************************************!*\
-  !*** ./src/app/entity/Bookmark.ts ***!
-  \************************************/
-/*! exports provided: Bookmark */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Bookmark", function() { return Bookmark; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
-/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./src/app/entity/User.ts");
-
-
-
-var Bookmark = /** @class */ (function () {
-    function Bookmark() {
-    }
-    Bookmark.prototype.getId = function () {
-        return this.id;
-    };
-    Bookmark.prototype.getUser = function () {
-        return this.user;
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-    ], Bookmark.prototype, "id", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["ManyToOne"])(function (type) { return _User__WEBPACK_IMPORTED_MODULE_2__["User"]; }, function (user) { return user.getBookmarks(); }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
-    ], Bookmark.prototype, "user", void 0);
-    Bookmark = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("bookmark"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], Bookmark);
-    return Bookmark;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/entity/Pet.ts":
-/*!*******************************!*\
-  !*** ./src/app/entity/Pet.ts ***!
-  \*******************************/
-/*! exports provided: Pet */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Pet", function() { return Pet; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
-/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./src/app/entity/User.ts");
-/* harmony import */ var _Appointment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Appointment */ "./src/app/entity/Appointment.ts");
-
-
-
-
-var Pet = /** @class */ (function () {
-    function Pet() {
-    }
-    Pet.prototype.getId = function () {
-        return this.id;
-    };
-    Pet.prototype.getBirthDate = function () {
-        return this.birthDate;
-    };
-    Pet.prototype.getUser = function () {
-        return this.user;
-    };
-    Pet.prototype.getAppointments = function () {
-        return this.appointments;
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-    ], Pet.prototype, "id", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("birth_date"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
-    ], Pet.prototype, "birthDate", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["ManyToOne"])(function (type) { return _User__WEBPACK_IMPORTED_MODULE_2__["User"]; }, function (user) { return user.getPets(); }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
-    ], Pet.prototype, "user", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["OneToMany"])(function (type) { return _Appointment__WEBPACK_IMPORTED_MODULE_3__["Appointment"]; }, function (appointment) { return appointment.getPets(); }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
-    ], Pet.prototype, "appointments", void 0);
-    Pet = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("pet"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], Pet);
-    return Pet;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/entity/PetService.ts":
-/*!**************************************!*\
-  !*** ./src/app/entity/PetService.ts ***!
-  \**************************************/
-/*! exports provided: PetService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetService", function() { return PetService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
-/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./src/app/entity/User.ts");
-/* harmony import */ var _Address__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Address */ "./src/app/entity/Address.ts");
-
-
-
-
-var PetService = /** @class */ (function () {
-    function PetService() {
-    }
-    PetService.prototype.getId = function () {
-        return this.id;
-    };
-    PetService.prototype.getOwner = function () {
-        return this.owner;
-    };
-    PetService.prototype.getCreationDate = function () {
-        return this.creationDate;
-    };
-    PetService.prototype.getDescription = function () {
-        return this.description;
-    };
-    PetService.prototype.getAddress = function () {
-        return this.address;
-    };
-    PetService.prototype.getServiceType = function () {
-        return this.serviceType;
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-    ], PetService.prototype, "id", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["ManyToOne"])(function (type) { return _User__WEBPACK_IMPORTED_MODULE_2__["User"]; }, function (user) { return user.getPetServices(); }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
-    ], PetService.prototype, "owner", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("creation_date"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
-    ], PetService.prototype, "creationDate", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("description"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], PetService.prototype, "description", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("address"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _Address__WEBPACK_IMPORTED_MODULE_3__["Address"])
-    ], PetService.prototype, "address", void 0);
-    PetService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("pet_service"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], PetService);
-    return PetService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/entity/Rating.ts":
-/*!**********************************!*\
-  !*** ./src/app/entity/Rating.ts ***!
-  \**********************************/
-/*! exports provided: Rating */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Rating", function() { return Rating; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
-/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./src/app/entity/User.ts");
-
-
-
-var Rating = /** @class */ (function () {
-    function Rating() {
-    }
-    Rating.prototype.getId = function () {
-        return this.id;
-    };
-    Rating.prototype.getOwner = function () {
-        return this.owner;
-    };
-    Rating.prototype.getRated = function () {
-        return this.rated;
-    };
-    Rating.prototype.getRatingDate = function () {
-        return this.ratingDate;
-    };
-    Rating.MAX_RATING = 5;
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-    ], Rating.prototype, "id", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("rating_date"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
-    ], Rating.prototype, "ratingDate", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("value"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-    ], Rating.prototype, "value", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["ManyToOne"])(function (type) { return _User__WEBPACK_IMPORTED_MODULE_2__["User"]; }, function (owner) { return owner.getRatings(); }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
-    ], Rating.prototype, "owner", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["OneToOne"])(function (type) { return _User__WEBPACK_IMPORTED_MODULE_2__["User"]; }),
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["JoinColumn"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _User__WEBPACK_IMPORTED_MODULE_2__["User"])
-    ], Rating.prototype, "rated", void 0);
-    Rating = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("rating"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], Rating);
-    return Rating;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/entity/User.ts":
 /*!********************************!*\
   !*** ./src/app/entity/User.ts ***!
@@ -769,15 +459,7 @@ var Rating = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _Bookmark__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bookmark */ "./src/app/entity/Bookmark.ts");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
-/* harmony import */ var _Pet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Pet */ "./src/app/entity/Pet.ts");
-/* harmony import */ var _Rating__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Rating */ "./src/app/entity/Rating.ts");
-/* harmony import */ var _PetService__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./PetService */ "./src/app/entity/PetService.ts");
-
-
-
-
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
 
 
 var User = /** @class */ (function () {
@@ -820,47 +502,27 @@ var User = /** @class */ (function () {
         return this.myRatings;
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["PrimaryGeneratedColumn"])(),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
     ], User.prototype, "id", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])("login"),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("login"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], User.prototype, "login", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])("signin_date"),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("signin_date"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
     ], User.prototype, "signInDate", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])("password"),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("password"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], User.prototype, "password", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Column"])("encrypted_password"),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("encrypted_password"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], User.prototype, "encryptedPassword", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["OneToMany"])(function (type) { return _Pet__WEBPACK_IMPORTED_MODULE_3__["Pet"]; }, function (pet) { return pet.getUser(); }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
-    ], User.prototype, "pets", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["OneToMany"])(function (type) { return _Bookmark__WEBPACK_IMPORTED_MODULE_1__["Bookmark"]; }, function (bookmark) { return bookmark.getUser(); }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
-    ], User.prototype, "bookmarks", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["OneToMany"])(function (type) { return _Rating__WEBPACK_IMPORTED_MODULE_4__["Rating"]; }, function (rating) { return rating.getOwner(); }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
-    ], User.prototype, "ratings", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["OneToMany"])(function (type) { return _Rating__WEBPACK_IMPORTED_MODULE_4__["Rating"]; }, function (rating) { return rating.getRated(); }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
-    ], User.prototype, "myRatings", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["OneToMany"])(function (type) { return _PetService__WEBPACK_IMPORTED_MODULE_5__["PetService"]; }, function (petService) { return petService.getOwner(); }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
-    ], User.prototype, "petServices", void 0);
     User = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_2__["Entity"])("user"),
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("user"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], User);
     return User;
@@ -1096,7 +758,7 @@ module.exports = ".map-container {\r\n    height: 100%;\r\n}\r\n.Location__title
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"map_canvas\" style=\"width:90%;height:85%;align-content:center\"></div>"
+module.exports = "<div id=\"map_canvas\" class=\"container\" style=\"width:90%;height:85%;align-content:center\"></div>"
 
 /***/ }),
 
@@ -1113,24 +775,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app.component */ "./src/app/app.component.ts");
-/* harmony import */ var angular_cordova_plugin_geolocation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-cordova/plugin/geolocation */ "./node_modules/angular-cordova/plugin/geolocation.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _cordova_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../cordova.service */ "./src/app/cordova.service.ts");
 
 
 
 
-
-
-//import { Cordova } from 'angular-cordova/index';
 //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
 //phonegap plugin add  cordova-plugin-googlemaps
 //https://github.com/arnesson/angular-cordova
+//alternative https://github.com/ercobo/angular-cordova
 var MapsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MapsComponent, _super);
-    function MapsComponent(geolocationService) {
+    function MapsComponent(cordovaService) {
         var _this = _super.call(this) || this;
-        _this.geolocationService = geolocationService;
+        _this.cordovaService = cordovaService;
         _this.options = {
             enableHighAccuracy: true,
             maximumAge: 3600000
@@ -1142,35 +800,39 @@ var MapsComponent = /** @class */ (function (_super) {
         this.loadMap();
         //});
     };
-    MapsComponent.prototype.getCurrentPosition = function () {
-        var _this = this;
-        if (!this.sub) {
-            this.sub = this.geolocationService.watchPosition(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (res) {
-                // console.log("watchPosition update");
-                _this.position = {
-                    lat: res.coords.latitude,
-                    lng: res.coords.longitude
-                };
-            }));
-        }
-        if (this.position) {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(this.position);
-        }
-        else {
-            return this.sub.first().timeout(10000).catch(function () {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])({});
-            });
-        }
-    };
+    /*
+    getCurrentPosition(): Observable<any> {
+      if (!this.sub) {
+        this.sub = this.geolocationService.watchPosition(
+          map((res) => {
+            // console.log("watchPosition update");
+            this.position = {
+              lat: (<any>res).coords.latitude,
+              lng: (<any>res).coords.longitude
+            };
+          })
+        );
+      }
+  
+      if (this.position) {
+        return of(this.position);
+      } else {
+        return this.sub.first().timeout(10000).catch(() => {
+          return of({});
+        });
+      }
+    }*/
     MapsComponent.prototype.loadMap = function () {
         var div = document.getElementById("map_canvas");
         var options = {
             enableHighAccuracy: true,
             maximumAge: 3600000
         };
-        //let watchID = (<any>window).navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+        var watchID = window.navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
         function onSuccess(position) {
             this.position = new window.plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            this.cordovaService.window().position = this.position;
+            alert(this.position);
         }
         ;
         function onError(error) {
@@ -1183,10 +845,6 @@ var MapsComponent = /** @class */ (function (_super) {
             //this.map.setZoom(13);
             alert("The google map is available on this device.");
         }
-        // Initialize the map view
-        if (this.googleMapsService != null) {
-            this.map = this.googleMapsService.getMap(div, onMapReady);
-        }
         this.map = window.plugin.google.maps.Map.getMap(div);
         this.map.addEventListener(window.plugin.google.maps.event.MAP_READY, onMapReady);
         // Wait until the map is ready status.
@@ -1197,7 +855,7 @@ var MapsComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./maps.component.html */ "./src/app/maps/maps.component.html"),
             styles: [__webpack_require__(/*! ./maps.component.css */ "./src/app/maps/maps.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angular_cordova_plugin_geolocation__WEBPACK_IMPORTED_MODULE_3__["GeolocationService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cordova_service__WEBPACK_IMPORTED_MODULE_3__["CordovaService"]])
     ], MapsComponent);
     return MapsComponent;
 }(_app_component__WEBPACK_IMPORTED_MODULE_2__["AppBase"]));
@@ -1251,29 +909,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-//declare var cordova;
-var startApp = function () {
+var onDeviceReady = function () {
     if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
     }
-    Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
-        .catch(function (err) { return console.error(err); });
+    Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"]);
 };
-/*
-let onDeviceReady = () => {
-    startApp();
-};
-
 document.addEventListener('deviceready', onDeviceReady, false);
-
-try {
-  if(!cordova){
-    }
+if (window.cordova == undefined) {
+    onDeviceReady();
 }
-catch(e) {
-  startApp();
-}*/
-startApp();
+//onDeviceReady();
 
 
 /***/ }),

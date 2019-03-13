@@ -25,6 +25,11 @@ export class CordovaService {
    get cordova(): any {
       return _window().cordova;
    }
+
+   get window(): any {
+      return _window();
+   }
+
    get onCordova(): Boolean {
     return !!_window().cordova;
     }

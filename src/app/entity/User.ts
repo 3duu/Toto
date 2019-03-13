@@ -22,19 +22,19 @@ export class User {
     @Column("encrypted_password")
     private encryptedPassword : string;
 
-    @OneToMany(type => Pet, pet => pet.getUser())
+    //@OneToMany(type => Pet, pet => pet.getUser())
     pets: Pet[];
 
-    @OneToMany(type => Bookmark, bookmark => bookmark.getUser())
+    //@OneToMany(type => Bookmark, bookmark => bookmark.getUser())
     bookmarks: Bookmark[];
 
-    @OneToMany(type => Rating, rating => rating.getOwner())
+    //@OneToMany(type => Rating, rating => rating.getOwner())
     ratings: Rating[];
 
-    @OneToMany(type => Rating, rating => rating.getRated())
+    //@OneToMany(type => Rating, rating => rating.getRated())
     myRatings: Rating[];
 
-    @OneToMany(type => PetService, petService => petService.getOwner())
+    //@OneToMany(type => PetService, petService => petService.getOwner())
     petServices: PetService[];
 
     rate : number;

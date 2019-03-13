@@ -2,7 +2,7 @@
 <widget id="com.toto" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Toto</name>
     <description>
-        A blank PhoneGap app.
+        Manage you Pet Life
     </description>
     <author email="eduu.porto@gmail.com" href="http://phonegap.com">
         DUTI
@@ -45,4 +45,5 @@
         <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
     </plugin>
     <plugin name="cordova-plugin-inappbrowser" spec="~3.0.0" />
+    <plugin name="cordova-sqlite-storage" spec="~3.1.0" />
 </widget>

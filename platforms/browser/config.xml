@@ -2,7 +2,7 @@
 <widget id="com.toto" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Toto</name>
     <description>
-        A blank PhoneGap app.
+        Manage you Pet Life
     </description>
     <author email="eduu.porto@gmail.com" href="http://phonegap.com">
         DUTI

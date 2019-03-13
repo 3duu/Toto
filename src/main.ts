@@ -11,4 +11,8 @@ let onDeviceReady = () => {
   platformBrowserDynamic().bootstrapModule(AppModule);
 };
 document.addEventListener('deviceready', onDeviceReady, false);
+
+if((<any>window).cordova == undefined){
+	onDeviceReady();
+}
 //onDeviceReady();

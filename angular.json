@@ -27,8 +27,6 @@
               "node_modules/font-awesome/css/font-awesome.min.css",
               "src/styles.css"
             ],
-            "scripts": ["platforms/browser/www/cordova.js",
-              "platforms/browser/www/cordova_plugins.js"],
             "es5BrowserSupport": true
           },
           "configurations": {

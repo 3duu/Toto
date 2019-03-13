@@ -64,7 +64,7 @@ export class SQLiteDB {
 		type: "cordova",
 		database: AppComponent.applicationName,
 		location: "default",
-		entities: [ User, Pet, PetService, Bookmark, Appointment, Address, Rating ],
+		entities: [ User ],
 		logging: true,
 		synchronize: true
 	};

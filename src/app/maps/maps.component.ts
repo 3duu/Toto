@@ -68,6 +68,8 @@ export class MapsComponent extends AppBase {
 
     function onSuccess(position) {
       this.position = new (<any>window).plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      this.cordovaService.window().position = this.position;
+      alert(this.position);
     };
 
     function onError(error) {
