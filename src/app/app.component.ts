@@ -3,6 +3,7 @@ import { Language } from './language/Language';
 import { Component, OnInit } from '@angular/core';
 import { User } from './entity/User';
 import { NavbarComponent } from './global/navbar.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { NavbarComponent } from './global/navbar.component';
 })
 export class AppComponent {
 
-  static applicationName : string = "PetLif3";
+  static applicationName : string = environment.name;
   static language : Language = new Language();
   
   constructor() {

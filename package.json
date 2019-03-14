@@ -1,19 +1,12 @@
 {
   "name": "com.toto",
   "version": "1.0.0",
-  "displayName": "Toto",
+  "displayName": "PetLif3",
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
-      "cordova-plugin-safariviewcontroller": {
-        "API_KEY_FOR_ANDROID": "AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU",
-        "API_KEY_FOR_IOS": "AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8",
-        "PLAY_SERVICES_VERSION": "15.0.1",
-        "ANDROID_SUPPORT_V4_VERSION": "27.+",
-        "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
-        "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
-      },
+      "cordova-plugin-safariviewcontroller": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-geolocation": {},
       "cordova-plugin-googlemaps": {
