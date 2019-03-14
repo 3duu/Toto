@@ -3,17 +3,12 @@ import { PetService } from './../entity/PetService';
 import { Address } from './../entity/Address';
 import { Appointment } from './../entity/Appointment';
 import { Bookmark } from './../entity/Bookmark';
-/*import {getManager} from "typeorm";*/
-
-//import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
-//import { ConnectionOptions } from "typeorm"
 import { Pet } from '../entity/Pet';
 import { User } from '../entity/User';
-//import { root } from '../paths';
 import { Rating } from '../entity/Rating';
-import {createConnection, Repository, getRepository, Connection, getManager, getConnection, ConnectionOptions} from "typeorm";
+import {createConnection, Repository, getRepository, Connection, getManager, ConnectionOptions} from "typeorm";
 
-
+/*
 const connection  = createConnection({
 	type: "cordova",
 	database: "PetLif3",
@@ -21,15 +16,14 @@ const connection  = createConnection({
 	entities: [ User ],
 	logging: true,
 	synchronize: true
-});
+});*/
 
 //https://github.com/typeorm/cordova-example
 export class GenericDao {
 	
-	private createTables;
-	private database : any;
-	static entityManager = getManager(); // you can also get it via getConnection().manager
-	static connection : Promise<Connection>;
+	//private createTables;
+	//static entityManager = getManager();
+	private static connection : Promise<Connection>;
 
 	private static options : ConnectionOptions = {
 		type: "cordova",
@@ -41,9 +35,8 @@ export class GenericDao {
 	};
 
 	constructor() {
-		(<any>window).db = (<any>window).openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
-		(<any>window).db.transaction(this.createDatabase, this.errorCB, this.successCB);
-		this.database = (<any>window).db;
+		//(<any>window).db = (<any>window).openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
+		//(<any>window).db.transaction(this.createDatabase, this.errorCB, this.successCB);
 		this.execute();
 	}
 
@@ -60,15 +53,19 @@ export class GenericDao {
 			tx.executeSql(sql);
 		});
 	}
-
-	static GetConnection(){
-		return connection;
-	}
 	
 	execute() {
-		
-		createConnection(GenericDao.options).then(connection => {
-		
+		GenericDao.connection = createConnection(GenericDao.options);
+	}
+
+	protected static getConnection() : Promise<Connection> {
+		return GenericDao.connection;
+	}
+
+	/**
+	 * 
+	 * .then(connection => {
+			
 			const user = new User();
 			user.setLogin("admin");
 			user.setPassword("1");
@@ -87,7 +84,7 @@ export class GenericDao {
 			console.log("SQLite Error: ", error);
 			alert(error);
 		});
-	}
+	 */
 
 	errorCB(err) : boolean {
 		console.log("Error processing SQL: " + err.code + ": " + err.message);
@@ -110,7 +107,7 @@ export class UserDao extends GenericDao {
 		.getOne();*/
 		user : User;
 
-		connection.then(connection => {
+		GenericDao.getConnection().then(con => {
 			
 			const userRepository = getRepository('User') as Repository<User>;
 

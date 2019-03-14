@@ -347,9 +347,8 @@ var connection = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"]
 //https://github.com/typeorm/cordova-example
 var GenericDao = /** @class */ (function () {
     function GenericDao() {
-        window.db = window.openDatabase(_app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName, "2.0", _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName + " DB", 1000000);
-        window.db.transaction(this.createDatabase, this.errorCB, this.successCB);
-        this.database = window.db;
+        //(<any>window).db = (<any>window).openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
+        //(<any>window).db.transaction(this.createDatabase, this.errorCB, this.successCB);
         this.execute();
     }
     GenericDao.prototype.createDatabase = function (tx) {
