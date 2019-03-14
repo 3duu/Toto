@@ -336,20 +336,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var connection = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])({
+/*
+const connection  = createConnection({
     type: "cordova",
     database: "PetLif3",
     location: "default",
-    entities: [_entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]],
+    entities: [ User ],
     logging: true,
     synchronize: true
-});
+});*/
 //https://github.com/typeorm/cordova-example
 var GenericDao = /** @class */ (function () {
     function GenericDao() {
         //(<any>window).db = (<any>window).openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
         //(<any>window).db.transaction(this.createDatabase, this.errorCB, this.successCB);
-        this.execute();
+        //GenericDao.execute();
     }
     GenericDao.prototype.createDatabase = function (tx) {
         tx.executeSql("DROP TABLE IF EXISTS user");
@@ -363,25 +364,35 @@ var GenericDao = /** @class */ (function () {
             tx.executeSql(sql);
         });
     };
-    GenericDao.GetConnection = function () {
-        return connection;
+    GenericDao.getConnection = function () {
+        if (GenericDao.connection == null) {
+            GenericDao.connection = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])(GenericDao.options);
+        }
+        return GenericDao.connection;
     };
-    GenericDao.prototype.execute = function () {
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])(GenericDao.options).then(function (connection) {
-            var user = new _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]();
+    /**
+     *
+     * .then(connection => {
+            
+            const user = new User();
             user.setLogin("admin");
             user.setPassword("1");
-            var userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
+        
+            const userRepository = getRepository('User') as Repository<User>;
             userRepository.save(user);
+            
             console.log("User has been saved");
-            var savedUser = userRepository.findOne(user.getId());
+            
+            const savedUser = userRepository.findOne(user.getId());
+            
             console.log("User has been loaded: ", savedUser);
             alert("User has been loaded: " + JSON.stringify(savedUser));
-        }).catch(function (error) {
+        
+        }).catch(error => {
             console.log("SQLite Error: ", error);
             alert(error);
         });
-    };
+     */
     GenericDao.prototype.errorCB = function (err) {
         console.log("Error processing SQL: " + err.code + ": " + err.message);
         alert('Error when executing command - ' + err.code + ": " + err.message);
@@ -390,7 +401,8 @@ var GenericDao = /** @class */ (function () {
     GenericDao.prototype.successCB = function () {
         console.log('SQL COMMAND EXECUTED');
     };
-    GenericDao.entityManager = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getManager"])(); // you can also get it via getConnection().manager
+    //private createTables;
+    //static entityManager = getManager();
     GenericDao.options = {
         type: "cordova",
         database: _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName,
@@ -415,7 +427,7 @@ var UserDao = /** @class */ (function (_super) {
                 .where("user.login = :lg and user.password = :pwd", { lg: login, pwd: password })
                 .getOne();*/
                 user: _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"];
-                connection.then(function (connection) {
+                GenericDao.getConnection().then(function (con) {
                     var userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
                     var user = userRepository.findOne(1);
                     console.log("User has been loaded: ", user);

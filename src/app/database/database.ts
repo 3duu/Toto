@@ -23,8 +23,6 @@ export class GenericDao {
 	
 	//private createTables;
 	//static entityManager = getManager();
-	private static connection : Promise<Connection>;
-
 	private static options : ConnectionOptions = {
 		type: "cordova",
 		database: AppComponent.applicationName,
@@ -34,10 +32,12 @@ export class GenericDao {
 		synchronize: true
 	};
 
+	private static connection : Promise<Connection>;
+
 	constructor() {
 		//(<any>window).db = (<any>window).openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
 		//(<any>window).db.transaction(this.createDatabase, this.errorCB, this.successCB);
-		this.execute();
+		//GenericDao.execute();
 	}
 
 	createDatabase(tx) {
@@ -53,12 +53,11 @@ export class GenericDao {
 			tx.executeSql(sql);
 		});
 	}
-	
-	execute() {
-		GenericDao.connection = createConnection(GenericDao.options);
-	}
 
 	protected static getConnection() : Promise<Connection> {
+		if(GenericDao.connection == null){
+			GenericDao.connection = createConnection(GenericDao.options);
+		}
 		return GenericDao.connection;
 	}
 
