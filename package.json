@@ -1,5 +1,5 @@
 {
-  "name": "com.toto",
+  "name": "br.com.petlife",
   "version": "1.0.0",
   "displayName": "PetLif3",
   "cordova": {
@@ -64,7 +64,6 @@
     "stream": "0.0.2",
     "tls": "0.0.1",
     "tslib": "^1.9.0",
-    "typeorm": "^0.2.14",
     "webpack": "^4.29.6",
     "zone.js": "~0.8.26"
   },

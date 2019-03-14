@@ -6,33 +6,23 @@ import { Bookmark } from './../entity/Bookmark';
 import { Pet } from '../entity/Pet';
 import { User } from '../entity/User';
 import { Rating } from '../entity/Rating';
-import {createConnection, Repository, getRepository, Connection, getManager, ConnectionOptions} from "typeorm";
-
-/*
-const connection  = createConnection({
-	type: "cordova",
-	database: "PetLif3",
-	location: "default",
-	entities: [ User ],
-	logging: true,
-	synchronize: true
-});*/
+//import {createConnection, Repository, getRepository, Connection, getManager, ConnectionOptions} from "typeorm";
 
 //https://github.com/typeorm/cordova-example
 export class GenericDao {
 	
 	//private createTables;
 	//static entityManager = getManager();
-	private static options : ConnectionOptions = {
+	/*private static options : ConnectionOptions = {
 		type: "cordova",
 		database: AppComponent.applicationName,
 		location: "default",
 		entities: [ User ],
 		logging: true,
 		synchronize: true
-	};
+	};*/
 
-	private static connection : Promise<Connection>;
+	//private static connection : Promise<Connection>;
 
 	constructor() {
 		//(<any>window).db = (<any>window).openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
@@ -53,13 +43,13 @@ export class GenericDao {
 			tx.executeSql(sql);
 		});
 	}
-
+	/*
 	protected static getConnection() : Promise<Connection> {
 		if(GenericDao.connection == null){
 			GenericDao.connection = createConnection(GenericDao.options);
 		}
 		return GenericDao.connection;
-	}
+	}*/
 
 	/**
 	 * 
@@ -96,14 +86,14 @@ export class GenericDao {
 	}
 	
 }
-
+/*
 export class UserDao extends GenericDao {
 
 	static async getUser(login : string, password : string) : Promise<User> {
-		/*
-		const user = await getConnection().createQueryBuilder(User, "user")
-		.where("user.login = :lg and user.password = :pwd", { lg: login, pwd: password })
-		.getOne();*/
+		
+		//const user = await getConnection().createQueryBuilder(User, "user")
+		//.where("user.login = :lg and user.password = :pwd", { lg: login, pwd: password })
+		//.getOne();
 		user : User;
 
 		GenericDao.getConnection().then(con => {
@@ -124,4 +114,4 @@ export class UserDao extends GenericDao {
 		
 		return null;
 	}
-}
+}*/

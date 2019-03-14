@@ -8,12 +8,12 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.duti.petlife.models.User;
 
-@Path("/toto/user")
+@Path("/user")
 public class UserService {
 	
 	@GET
 	@Produces( { MediaType.APPLICATION_JSON })
-	 public User get(@PathParam("login") String login, @PathParam("id") String password) {
+	 public User getByLogin(@PathParam("login") String login, @PathParam("id") String password) {
 		final User user = new User();
 		user.setId(1);
 		user.setLogin("admin");

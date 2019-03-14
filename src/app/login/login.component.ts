@@ -3,7 +3,7 @@ import {NgForm} from '@angular/forms';
 import {  AppBase } from '../app.component';
 import { User } from '../entity/User';
 import { AuthenticationService } from './AuthenticationService';
-import { UserDao } from '../database/database';
+//import { UserDao } from '../database/database';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -36,14 +36,7 @@ export class LoginComponent extends AppBase {
       return;
     }
     this.loading = true;
-    UserDao.getUser(form.value.login, form.value.password).then( usr => {
-      LoginComponent.user = usr;
-      alert("Done!");
-      //this.dynamicComponentRef = this.entryPoint.createComponent(componentFactory);
-      if (this.dynamicComponentRef) {
-        this.dynamicComponentRef.destroy();
-      }
-    });
+    alert("Done!");
     console.log(form.value);
     /*
     this.authenticationService.login(form.value.login, form.value.password);

@@ -7,7 +7,7 @@
 /*! exports provided: name, version, displayName, cordova, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"com.toto","version":"1.0.0","displayName":"PetLif3","cordova":{"plugins":{"cordova-plugin-whitelist":{},"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{},"cordova-sqlite-storage":{},"cordova-plugin-geolocation":{},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{}},"platforms":["android","ios","browser"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e","rebuild":"electron-rebuild -f -w sqlite3"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","browserify-zlib":"^0.2.0","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-ios":"~4.5.5","cordova-plugin-device":"2.0.2","cordova-plugin-geolocation":"~2.2.0","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"^1.3.3","core-js":"^2.5.4","font-awesome":"^4.7.0","jquery":"^3.3.1","ngx-bootstrap":"^3.2.0","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","typeorm":"^0.2.14","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
+module.exports = {"name":"br.com.petlife","version":"1.0.0","displayName":"PetLif3","cordova":{"plugins":{"cordova-plugin-whitelist":{},"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{},"cordova-sqlite-storage":{},"cordova-plugin-geolocation":{},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{}},"platforms":["android","ios","browser"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e","rebuild":"electron-rebuild -f -w sqlite3"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","browserify-zlib":"^0.2.0","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-ios":"~4.5.5","cordova-plugin-device":"2.0.2","cordova-plugin-geolocation":"~2.2.0","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"^1.3.3","core-js":"^2.5.4","font-awesome":"^4.7.0","jquery":"^3.3.1","ngx-bootstrap":"^3.2.0","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
 
 /***/ }),
 
@@ -317,221 +317,6 @@ var CordovaService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/database/database.ts":
-/*!**************************************!*\
-  !*** ./src/app/database/database.ts ***!
-  \**************************************/
-/*! exports provided: GenericDao, UserDao */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GenericDao", function() { return GenericDao; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserDao", function() { return UserDao; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
-
-
-
-
-/*
-const connection  = createConnection({
-    type: "cordova",
-    database: "PetLif3",
-    location: "default",
-    entities: [ User ],
-    logging: true,
-    synchronize: true
-});*/
-//https://github.com/typeorm/cordova-example
-var GenericDao = /** @class */ (function () {
-    function GenericDao() {
-        //(<any>window).db = (<any>window).openDatabase(AppComponent.applicationName, "2.0", AppComponent.applicationName+" DB", 1000000);
-        //(<any>window).db.transaction(this.createDatabase, this.errorCB, this.successCB);
-        //GenericDao.execute();
-    }
-    GenericDao.prototype.createDatabase = function (tx) {
-        tx.executeSql("DROP TABLE IF EXISTS user");
-        tx.executeSql("DROP TABLE IF EXISTS pet");
-        var createTables = [
-            'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, name text, email text, password text)',
-            'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement, name text, type number, userId number)'
-        ];
-        //cria tabelas
-        createTables.forEach(function (sql) {
-            tx.executeSql(sql);
-        });
-    };
-    GenericDao.getConnection = function () {
-        if (GenericDao.connection == null) {
-            GenericDao.connection = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["createConnection"])(GenericDao.options);
-        }
-        return GenericDao.connection;
-    };
-    /**
-     *
-     * .then(connection => {
-            
-            const user = new User();
-            user.setLogin("admin");
-            user.setPassword("1");
-        
-            const userRepository = getRepository('User') as Repository<User>;
-            userRepository.save(user);
-            
-            console.log("User has been saved");
-            
-            const savedUser = userRepository.findOne(user.getId());
-            
-            console.log("User has been loaded: ", savedUser);
-            alert("User has been loaded: " + JSON.stringify(savedUser));
-        
-        }).catch(error => {
-            console.log("SQLite Error: ", error);
-            alert(error);
-        });
-     */
-    GenericDao.prototype.errorCB = function (err) {
-        console.log("Error processing SQL: " + err.code + ": " + err.message);
-        alert('Error when executing command - ' + err.code + ": " + err.message);
-        return true;
-    };
-    GenericDao.prototype.successCB = function () {
-        console.log('SQL COMMAND EXECUTED');
-    };
-    //private createTables;
-    //static entityManager = getManager();
-    GenericDao.options = {
-        type: "cordova",
-        database: _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"].applicationName,
-        location: "default",
-        entities: [_entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]],
-        logging: true,
-        synchronize: true
-    };
-    return GenericDao;
-}());
-
-var UserDao = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](UserDao, _super);
-    function UserDao() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    UserDao.getUser = function (login, password) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                /*
-                const user = await getConnection().createQueryBuilder(User, "user")
-                .where("user.login = :lg and user.password = :pwd", { lg: login, pwd: password })
-                .getOne();*/
-                user: _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"];
-                GenericDao.getConnection().then(function (con) {
-                    var userRepository = Object(typeorm__WEBPACK_IMPORTED_MODULE_3__["getRepository"])('User');
-                    var user = userRepository.findOne(1);
-                    console.log("User has been loaded: ", user);
-                    alert("User has been loaded: " + JSON.stringify(user));
-                    return user;
-                }).catch(function (error) {
-                    console.log("SQLite Error: ", error);
-                    alert(error);
-                });
-                return [2 /*return*/, null];
-            });
-        });
-    };
-    return UserDao;
-}(GenericDao));
-
-
-
-/***/ }),
-
-/***/ "./src/app/entity/User.ts":
-/*!********************************!*\
-  !*** ./src/app/entity/User.ts ***!
-  \********************************/
-/*! exports provided: User */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "./node_modules/typeorm/browser/index.js");
-
-
-var User = /** @class */ (function () {
-    function User() {
-    }
-    User.prototype.getId = function () {
-        return this.id;
-    };
-    User.prototype.setId = function (id) {
-        this.id = id;
-    };
-    User.prototype.getLogin = function () {
-        return this.login;
-    };
-    User.prototype.setLogin = function (login) {
-        this.login = login;
-    };
-    User.prototype.getSignInDate = function () {
-        return this.signInDate;
-    };
-    User.prototype.getPassword = function () {
-        return this.encryptedPassword;
-    };
-    User.prototype.setPassword = function (password) {
-        this.password = password;
-    };
-    User.prototype.getPets = function () {
-        return this.pets;
-    };
-    User.prototype.getBookmarks = function () {
-        return this.bookmarks;
-    };
-    User.prototype.getPetServices = function () {
-        return this.petServices;
-    };
-    User.prototype.getRatings = function () {
-        return this.ratings;
-    };
-    User.prototype.getMyRating = function () {
-        return this.myRatings;
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryGeneratedColumn"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-    ], User.prototype, "id", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], User.prototype, "login", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("signin_date"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Date)
-    ], User.prototype, "signInDate", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], User.prototype, "password", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])("encrypted_password"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], User.prototype, "encryptedPassword", void 0);
-    User = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])("user"),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], User);
-    return User;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/global/navbar.component.css":
 /*!*********************************************!*\
   !*** ./src/app/global/navbar.component.css ***!
@@ -678,11 +463,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../database/database */ "./src/app/database/database.ts");
 
 
 
-
+//import { UserDao } from '../database/database';
 //https://bootsnipp.com/snippets/kMdg
 var LoginComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](LoginComponent, _super);
@@ -696,7 +480,6 @@ var LoginComponent = /** @class */ (function (_super) {
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.doLogin = function (form) {
-        var _this = this;
         this.submitted = true;
         this.loginForm = form;
         // stop here if form is invalid
@@ -704,14 +487,7 @@ var LoginComponent = /** @class */ (function (_super) {
             return;
         }
         this.loading = true;
-        _database_database__WEBPACK_IMPORTED_MODULE_3__["UserDao"].getUser(form.value.login, form.value.password).then(function (usr) {
-            LoginComponent_1.user = usr;
-            alert("Done!");
-            //this.dynamicComponentRef = this.entryPoint.createComponent(componentFactory);
-            if (_this.dynamicComponentRef) {
-                _this.dynamicComponentRef.destroy();
-            }
-        });
+        alert("Done!");
         console.log(form.value);
         /*
         this.authenticationService.login(form.value.login, form.value.password);
