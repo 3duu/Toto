@@ -13,7 +13,7 @@ public class UserService {
 	
 	@GET
 	@Produces( { MediaType.APPLICATION_JSON })
-	 public User getByLogin(@PathParam("login") String login, @PathParam("id") String password) {
+	 public User getByLogin(/*@PathParam("login") String login, @PathParam("id") String password*/) {
 		final User user = new User();
 		user.setId(1);
 		user.setLogin("admin");
