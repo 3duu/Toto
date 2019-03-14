@@ -9,21 +9,22 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<java.version>1.8</java.version>
 		<!-- Hibernate / JPA -->
 		<hibernate.version>5.3.6.Final</hibernate.version>
 		<jersey2.version>2.28</jersey2.version>
-		<jaxrs.version>2.0.1</jaxrs.version>
+		<jaxrs.version>2.1.1</jaxrs.version>
 	</properties>
 	
-	<repositories>
-		<repository>
-			<id>maven2-repository.java.net</id>
-			<name>Java.net Repository for Maven</name>
-			<url>http://download.java.net/maven/2/</url>
-			<layout>default</layout>
-		</repository>
-	</repositories>
+<!-- 	<repositories> -->
+<!-- 		<repository> -->
+<!-- 			<id>maven2-repository.java.net</id> -->
+<!-- 			<name>Java.net Repository for Maven</name> -->
+<!-- 			<url>http://download.java.net/maven/2/</url> -->
+<!-- 			<layout>default</layout> -->
+<!-- 		</repository> -->
+<!-- 	</repositories> -->
 	
 	<dependencies>
 		<dependency>
@@ -41,13 +42,13 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.version}</version>
+			<version>4.3.0.Final</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
+			<version>4.3.0.Final</version>
 		</dependency>
 
 		<dependency>
@@ -69,34 +70,54 @@
 			<version>${jaxrs.version}</version>
 		</dependency>
 		
-		<!-- Jersey 2.19 -->
-		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet</artifactId>
-			<version>${jersey2.version}</version>
-		</dependency>
+		<!-- Jersey 2.28 -->
 		
 		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>${jersey2.version}</version>
+		    <groupId>org.glassfish.jersey.core</groupId>
+		    <artifactId>jersey-common</artifactId>
+		    <version>${jersey2.version}</version>
 		</dependency>
 		
-		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-client</artifactId>
-			<version>${jersey2.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		   <groupId>org.glassfish.jersey.containers</groupId> -->
+<!-- 		   <artifactId>jersey-container-servlet-core</artifactId> -->
+<!-- 		   <version>${jersey2.version}</version> -->
+<!-- 		</dependency> -->
 		
-		<dependency>
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-json-processing</artifactId>
-			<version>2.25.1</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.glassfish.jersey.containers</groupId> -->
+<!-- 			<artifactId>jersey-container-servlet</artifactId> -->
+<!-- 			<version>${jersey2.version}</version> -->
+<!-- 		</dependency> -->
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.glassfish.jersey.core</groupId> -->
+<!-- 			<artifactId>jersey-server</artifactId> -->
+<!-- 			<version>${jersey2.version}</version> -->
+<!-- 		</dependency> -->
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.glassfish.jersey.core</groupId> -->
+<!-- 			<artifactId>jersey-client</artifactId> -->
+<!-- 			<version>${jersey2.version}</version> -->
+<!-- 		</dependency> -->
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.glassfish.jersey.media</groupId> -->
+<!-- 			<artifactId>jersey-media-json-processing</artifactId> -->
+<!-- 			<version>${jersey2.version}</version> -->
+<!-- 		</dependency> -->
+		
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.glassfish.jersey.ext</groupId> -->
+<!-- 		    <artifactId>jersey-bean-validation</artifactId> -->
+<!-- 		    <version>${jersey2.version}</version> -->
+<!-- 		</dependency> -->
 		
 	</dependencies>
 	
 	<build>
+		<finalName>petlife</finalName>
 	    <plugins>
 	        <plugin>
 	            <groupId>org.apache.maven.plugins</groupId>
