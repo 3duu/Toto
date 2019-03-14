@@ -15,6 +15,9 @@ public class UserService {
 	@Produces( { MediaType.APPLICATION_JSON })
 	 public User get(@PathParam("login") String login, @PathParam("id") String password) {
 		final User user = new User();
+		user.setId(1);
+		user.setLogin("admin");
+		user.setPassword("1");
 		return user;
 	 }
 }
