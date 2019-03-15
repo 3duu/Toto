@@ -4,6 +4,7 @@ import {  AppBase } from '../app.component';
 import { User } from '../entity/User';
 import { AuthenticationService } from './AuthenticationService';
 import { ApiService } from '../service/services';
+import { Observable } from 'rxjs';
 //import { UserDao } from '../database/database';
 
 //https://bootsnipp.com/snippets/kMdg
@@ -37,7 +38,14 @@ export class LoginComponent extends AppBase {
       return;
     }
     this.loading = true;
-    alert("Done!");
+    let user = this.api.login(new User());
+
+    user.subscribe(val => {
+      (<any>window).user = user;
+      alert(val);
+      console.log(val);
+    });
+
     console.log(form.value);
     /*
     this.authenticationService.login(form.value.login, form.value.password);

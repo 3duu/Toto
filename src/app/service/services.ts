@@ -8,19 +8,17 @@ import {
   HttpErrorResponse
 } from "@angular/common/http";
 import { catchError, map } from "rxjs/operators";
+import { User } from '../entity/User';
 
 // Set the http options
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json", "Authorization": "c31z" })
 };
-
-@Injectable({
-    providedIn: "root"
-})
+@Injectable()
 export class ApiService {
 
     static endpoint = environment.endpoint;
-    static USER_LOGIN = ApiService.endpoint+"/user";
+    static USER_LOGIN = ApiService.endpoint+"/user/login";
 
     constructor(private http: HttpClient) {}
 
@@ -53,16 +51,11 @@ export class ApiService {
     return body || {};
   }
 
-  /**
-   * Function to GET what you want
-   *
-   * @param url
-   */
-  public getListOfGroup(url: string): Observable<any> {
-    // Call the http GET
-    return this.http.get(url, httpOptions).pipe(
-        map(this.extractData),
-            catchError(this.handleError)
+  public login(user: User): Observable<any> {
+    // Call the http GETaler
+    console.log(ApiService.USER_LOGIN);
+    return this.http.get(ApiService.USER_LOGIN, httpOptions).pipe(
+        map(this.extractData), catchError(this.handleError)
         );
     }
 }

@@ -1,3 +1,4 @@
+import { ApiService } from './service/services';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +9,7 @@ import { NavbarComponent } from './global/navbar.component';
 import { MapsComponent } from './maps/maps.component';
 import { FormsModule } from '@angular/forms';
 import { CordovaService } from './cordova.service';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -16,16 +18,17 @@ import { CordovaService } from './cordova.service';
     MapsComponent,
     LoginComponent
   ],
-  entryComponents: [
+  /*entryComponents: [
     LoginComponent
-  ],
+  ],*/
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [CordovaService],
+  providers: [CordovaService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
