@@ -10,7 +10,7 @@ import br.com.duti.petlife.models.User;
 /**
  * @author Eduardo Porto de Araujo
  */
-@Path("user")
+@Path("/user")
 public class UserService {
 	
 	@GET

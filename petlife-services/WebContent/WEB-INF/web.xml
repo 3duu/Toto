@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+    <servlet>
+        <!-- The servlet name is the full qualified name of your rest application it must be a subclass of java.ws.rs.Application --> 
+        <servlet-name>br.com.duti.petlife.services.ApplicationService</servlet-name>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!-- other servlet definitions --> 
+	
+	<welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file>
+    </welcome-file-list>
+
+    <!--servlet mapping --> 
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/index.html</location>
+    </error-page>
+</web-app>

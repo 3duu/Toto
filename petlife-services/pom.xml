@@ -141,7 +141,7 @@
         <configuration>
           <warSourceDirectory>WebContent</warSourceDirectory>
           <configuration>
-              <failOnMissingWebXml>false</failOnMissingWebXml>
+              <failOnMissingWebXml>true</failOnMissingWebXml>
           </configuration>
         </configuration>
       </plugin>

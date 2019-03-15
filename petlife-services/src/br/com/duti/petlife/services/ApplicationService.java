@@ -9,7 +9,7 @@ import javax.ws.rs.core.Application;
 /**
  * @author Eduardo Porto de Araujo
  */
-@ApplicationPath("petlife")
+@ApplicationPath("/petlife")
 public class ApplicationService extends Application {
 	
 	@Override
