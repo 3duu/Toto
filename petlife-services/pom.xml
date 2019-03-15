@@ -13,8 +13,8 @@
 		<java.version>1.8</java.version>
 		<!-- Hibernate / JPA -->
 		<hibernate.version>5.3.6.Final</hibernate.version>
-		<jersey2.version>2.28</jersey2.version>
-		<jaxrs.version>2.1.1</jaxrs.version>
+		<jersey2.version>2.19</jersey2.version>
+		<jaxrs.version>2.0.1</jaxrs.version>
   </properties>
   
   <dependencies>
@@ -63,22 +63,20 @@
    		 	<version>1.2.17</version>
 		</dependency>
 		
-		<!-- JAX-RS -->
+		<!-- Servlet 3.0 API -->
+	    <dependency>
+	        <groupId>javax.servlet</groupId>
+	        <artifactId>javax.servlet-api</artifactId>
+	        <version>3.1.0</version>
+	        <scope>provided</scope>
+	    </dependency>
+	    
+	    <!-- JAX-RS -->
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
 			<artifactId>javax.ws.rs-api</artifactId>
 			<version>${jaxrs.version}</version>
 		</dependency>
-		
-		<!-- Jersey 2.28 -->
-		
-		<!-- Servlet 3.0 API -->
-<!-- 	    <dependency> -->
-<!-- 	        <groupId>javax.servlet</groupId> -->
-<!-- 	        <artifactId>javax.servlet-api</artifactId> -->
-<!-- 	        <version>3.1.0</version> -->
-<!-- 	        <scope>provided</scope> -->
-<!-- 	    </dependency> -->
 					
 <!-- 		<dependency> -->
 <!-- 		    <groupId>org.glassfish.jersey.core</groupId> -->
@@ -86,46 +84,42 @@
 <!-- 		    <version>${jersey2.version}</version> -->
 <!-- 		</dependency> -->
 		
-		<dependency>
-		   <groupId>org.glassfish.jersey.containers</groupId>
-		   <artifactId>jersey-container-servlet-core</artifactId>
-		   <version>${jersey2.version}</version>
-		</dependency>
+		<!-- Jersey 2.28 -->
 		
-		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet</artifactId>
-			<version>${jersey2.version}</version>
-		</dependency>
+		<!-- JAX-RS -->
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>${jaxrs.version}</version>
+        </dependency>
+        <!-- Jersey 2.19 -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${jersey2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${jersey2.version}</version>
+        </dependency>
 		
-		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>${jersey2.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-client</artifactId>
-			<version>${jersey2.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-json-processing</artifactId>
-			<version>${jersey2.version}</version>
-		</dependency>
-		
-		<dependency>
-		    <groupId>org.glassfish.jersey.ext</groupId>
-		    <artifactId>jersey-bean-validation</artifactId>
-		    <version>${jersey2.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.glassfish.jersey.ext</groupId> -->
+<!-- 		    <artifactId>jersey-bean-validation</artifactId> -->
+<!-- 		    <version>${jersey2.version}</version> -->
+<!-- 		</dependency> -->
 		
 	</dependencies>
   
   <build>
-    <sourceDirectory>src</sourceDirectory>
+  	<finalName>petlife</finalName>
+<!--     <sourceDirectory>src</sourceDirectory> -->
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -135,16 +129,16 @@
           <target>1.8</target>
         </configuration>
       </plugin>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.0.0</version>
-        <configuration>
-          <warSourceDirectory>WebContent</warSourceDirectory>
-          <configuration>
-              <failOnMissingWebXml>true</failOnMissingWebXml>
-          </configuration>
-        </configuration>
-      </plugin>
+<!--       <plugin> -->
+<!--         <artifactId>maven-war-plugin</artifactId> -->
+<!--         <version>3.0.0</version> -->
+<!--         <configuration> -->
+<!--           <warSourceDirectory>webapp</warSourceDirectory> -->
+<!--           <configuration> -->
+<!--               <failOnMissingWebXml>true</failOnMissingWebXml> -->
+<!--           </configuration> -->
+<!--         </configuration> -->
+<!--       </plugin> -->
     </plugins>
   </build>
 </project>

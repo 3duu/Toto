@@ -4,21 +4,35 @@
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
-    <servlet>
-        <!-- The servlet name is the full qualified name of your rest application it must be a subclass of java.ws.rs.Application --> 
-        <servlet-name>br.com.duti.petlife.services.ApplicationService</servlet-name>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <!-- other servlet definitions --> 
 	
-	<welcome-file-list>
-        <welcome-file>index.xhtml</welcome-file>
-    </welcome-file-list>
+<!--     <servlet> -->
+<!--         <servlet-name>br.com.duti.petlife.services.ApplicationService</servlet-name> -->
+<!--         <load-on-startup>1</load-on-startup> -->
+<!--     </servlet> -->
+<!-- 	<welcome-file-list> -->
+<!--         <welcome-file>index.html</welcome-file> -->
+<!--     </welcome-file-list> -->
 
     <!--servlet mapping --> 
 
-    <error-page>
-        <error-code>404</error-code>
-        <location>/index.html</location>
-    </error-page>
+<!--     <error-page> -->
+<!--         <error-code>404</error-code> -->
+<!--         <location>/index.html</location> -->
+<!--     </error-page> -->
+    
+    <servlet>
+        <servlet-name>petlife-services</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+             <param-name>jersey.config.server.provider.packages</param-name>
+             <param-value>br.com.duti.petlife.services</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+   
+    <servlet-mapping>
+        <servlet-name>petlife-services</servlet-name>
+        <url-pattern>/petlife/*</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
