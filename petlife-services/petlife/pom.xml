@@ -5,6 +5,7 @@
   <artifactId>petlife</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+<!--   https://howtodoinjava.com/jersey/solved-java-lang-classnotfoundexception-org-glassfish-jersey-servlet-servletcontainer/ -->
   <repositories>
         <repository>
             <id>maven2-repository.java.net</id>
