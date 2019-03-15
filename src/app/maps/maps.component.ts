@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { map } from "rxjs/operators";
 import { CordovaService } from '../cordova.service';
+import { ApiService } from '../service/services';
 
 //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
 //phonegap plugin add  cordova-plugin-googlemaps
@@ -24,8 +25,8 @@ export class MapsComponent extends AppBase {
     maximumAge: 3600000
   }
   
-  constructor(private cordovaService : CordovaService) {
-    super();
+  constructor(private cordovaService : CordovaService, api: ApiService) {
+    super(api);
   }
 
   ngOnInit() {

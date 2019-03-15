@@ -2,6 +2,7 @@
   "name": "br.com.petlife",
   "version": "1.0.0",
   "displayName": "PetLif3",
+  "endpoint": "localhost:7002/petlife",
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},

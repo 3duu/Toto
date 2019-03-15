@@ -1,5 +1,6 @@
 import { AppComponent, AppBase } from '../app.component';
 import { Component } from '@angular/core';
+import { ApiService } from '../service/services';
 
 @Component({
   selector: 'app-navbar',
@@ -10,8 +11,8 @@ import { Component } from '@angular/core';
 @Navbar
 export class NavbarComponent extends AppBase {
   
-  constructor() { 
-    super();
+  constructor(api: ApiService) { 
+    super(api);
   }
 
   ngOnInit() {

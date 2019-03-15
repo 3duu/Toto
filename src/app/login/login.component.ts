@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {  AppBase } from '../app.component';
 import { User } from '../entity/User';
 import { AuthenticationService } from './AuthenticationService';
+import { ApiService } from '../service/services';
 //import { UserDao } from '../database/database';
 
 //https://bootsnipp.com/snippets/kMdg
@@ -20,8 +21,8 @@ export class LoginComponent extends AppBase {
   private authenticationService: AuthenticationService;
   private dynamicComponentRef: ComponentRef<LoginComponent>;
 
-  constructor(/*private elementRef: ElementRef*/) {
-    super();
+  constructor(/*private elementRef: ElementRef,*/api: ApiService) {
+    super(api);
   }
 
   ngOnInit() {

@@ -4,10 +4,10 @@
 /*!**********************!*\
   !*** ./package.json ***!
   \**********************/
-/*! exports provided: name, version, displayName, cordova, scripts, private, dependencies, devDependencies, default */
+/*! exports provided: name, version, displayName, endpoint, cordova, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"br.com.petlife","version":"1.0.0","displayName":"PetLif3","cordova":{"plugins":{"cordova-plugin-whitelist":{},"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{},"cordova-sqlite-storage":{},"cordova-plugin-geolocation":{},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{}},"platforms":["android","ios","browser"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e","rebuild":"electron-rebuild -f -w sqlite3"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","browserify-zlib":"^0.2.0","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-ios":"~4.5.5","cordova-plugin-device":"2.0.2","cordova-plugin-geolocation":"~2.2.0","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"^1.3.3","core-js":"^2.5.4","font-awesome":"^4.7.0","jquery":"^3.3.1","ngx-bootstrap":"^3.2.0","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
+module.exports = {"name":"br.com.petlife","version":"1.0.0","displayName":"PetLif3","endpoint":"localhost:7002/petlife","cordova":{"plugins":{"cordova-plugin-whitelist":{},"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{},"cordova-sqlite-storage":{},"cordova-plugin-geolocation":{},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{}},"platforms":["android","ios","browser"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e","rebuild":"electron-rebuild -f -w sqlite3"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","browserify-zlib":"^0.2.0","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-ios":"~4.5.5","cordova-plugin-device":"2.0.2","cordova-plugin-geolocation":"~2.2.0","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"^1.3.3","core-js":"^2.5.4","font-awesome":"^4.7.0","jquery":"^3.3.1","ngx-bootstrap":"^3.2.0","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
 
 /***/ }),
 
@@ -128,7 +128,8 @@ var AppComponent = /** @class */ (function () {
 }());
 
 var AppBase = /** @class */ (function () {
-    function AppBase() {
+    function AppBase(api) {
+        this.api = api;
         this.applicationName = AppComponent.applicationName;
         this.language = AppComponent.language;
         AppBase.addModule(this);
@@ -352,13 +353,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
+
 
 
 
 var NavbarComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](NavbarComponent, _super);
-    function NavbarComponent() {
-        var _this = _super.call(this) || this;
+    function NavbarComponent(api) {
+        var _this = _super.call(this, api) || this;
         _this.navbarOpen = false;
         return _this;
     }
@@ -375,7 +378,7 @@ var NavbarComponent = /** @class */ (function (_super) {
             styles: [__webpack_require__(/*! ./navbar.component.css */ "./src/app/global/navbar.component.css")]
         }),
         Navbar,
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_3__["ApiService"]])
     ], NavbarComponent);
     return NavbarComponent;
 }(_app_component__WEBPACK_IMPORTED_MODULE_1__["AppBase"]));
@@ -463,6 +466,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
+
 
 
 
@@ -470,8 +475,8 @@ __webpack_require__.r(__webpack_exports__);
 //https://bootsnipp.com/snippets/kMdg
 var LoginComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](LoginComponent, _super);
-    function LoginComponent( /*private elementRef: ElementRef*/) {
-        var _this = _super.call(this) || this;
+    function LoginComponent(/*private elementRef: ElementRef,*/ api) {
+        var _this = _super.call(this, api) || this;
         _this.loading = false;
         _this.submitted = false;
         return _this;
@@ -516,7 +521,7 @@ var LoginComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_3__["ApiService"]])
     ], LoginComponent);
     return LoginComponent;
 }(_app_component__WEBPACK_IMPORTED_MODULE_2__["AppBase"]));
@@ -561,6 +566,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _cordova_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../cordova.service */ "./src/app/cordova.service.ts");
+/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
+
 
 
 
@@ -571,8 +578,8 @@ __webpack_require__.r(__webpack_exports__);
 //alternative https://github.com/ercobo/angular-cordova
 var MapsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MapsComponent, _super);
-    function MapsComponent(cordovaService) {
-        var _this = _super.call(this) || this;
+    function MapsComponent(cordovaService, api) {
+        var _this = _super.call(this, api) || this;
         _this.cordovaService = cordovaService;
         _this.options = {
             enableHighAccuracy: true,
@@ -640,10 +647,92 @@ var MapsComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./maps.component.html */ "./src/app/maps/maps.component.html"),
             styles: [__webpack_require__(/*! ./maps.component.css */ "./src/app/maps/maps.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cordova_service__WEBPACK_IMPORTED_MODULE_3__["CordovaService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cordova_service__WEBPACK_IMPORTED_MODULE_3__["CordovaService"], _service_services__WEBPACK_IMPORTED_MODULE_4__["ApiService"]])
     ], MapsComponent);
     return MapsComponent;
 }(_app_component__WEBPACK_IMPORTED_MODULE_2__["AppBase"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/service/services.ts":
+/*!*************************************!*\
+  !*** ./src/app/service/services.ts ***!
+  \*************************************/
+/*! exports provided: ApiService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApiService", function() { return ApiService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+
+
+// Set the http options
+var httpOptions = {
+    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({ "Content-Type": "application/json", "Authorization": "c31z" })
+};
+var ApiService = /** @class */ (function () {
+    function ApiService(http) {
+        this.http = http;
+    }
+    ApiService_1 = ApiService;
+    /**
+     * Function to handle error when the server return an error
+     *
+     * @param error
+     */
+    ApiService.prototype.handleError = function (error) {
+        if (error.error instanceof ErrorEvent) {
+            // A client-side or network error occurred. Handle it accordingly.
+            console.error("An error occurred:", error.error.message);
+        }
+        else {
+            // The backend returned an unsuccessful response code. The response body may contain clues as to what went wrong,
+            console.error("Backend returned code " + error.status + ", " + ("body was: " + error.error));
+        }
+        // return an observable with a user-facing error message
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error);
+    };
+    /**
+     * Function to extract the data when the server return some
+     *
+     * @param res
+     */
+    ApiService.prototype.extractData = function (res) {
+        var body = res;
+        return body || {};
+    };
+    /**
+     * Function to GET what you want
+     *
+     * @param url
+     */
+    ApiService.prototype.getListOfGroup = function (url) {
+        // Call the http GET
+        return this.http.get(url, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(this.extractData), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.handleError));
+    };
+    var ApiService_1;
+    ApiService.endpoint = src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].endpoint;
+    ApiService.USER_LOGIN = ApiService_1.endpoint + "/user";
+    ApiService = ApiService_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+            providedIn: "root"
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]])
+    ], ApiService);
+    return ApiService;
+}());
 
 
 
@@ -665,7 +754,8 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     version: __webpack_require__(/*! ../../package.json */ "./package.json").version,
-    name: __webpack_require__(/*! ../../package.json */ "./package.json").displayName
+    name: __webpack_require__(/*! ../../package.json */ "./package.json").displayName,
+    endpoint: __webpack_require__(/*! ../../package.json */ "./package.json").endpoint
 };
 /*
  * For easier debugging in development mode, you can import the following file

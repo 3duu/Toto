@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './entity/User';
 import { NavbarComponent } from './global/navbar.component';
 import { environment } from 'src/environments/environment';
+import { ApiService } from './service/services';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +33,7 @@ export class AppBase implements OnInit {
   private static modules : AppBase[] = [];
   static navbarComponent : NavbarComponent;
 
-  constructor(){
+  constructor(protected api: ApiService){
     AppBase.addModule(this);
   }
 
