@@ -14,6 +14,7 @@ import br.com.duti.petlife.models.User;
 public class UserService {
 	
 	@GET
+	@Path("/")
 	@Produces( { MediaType.APPLICATION_JSON })
 	 public User getByLogin(/*@PathParam("login") String login, @PathParam("id") String password*/) {
 		final User user = new User();
