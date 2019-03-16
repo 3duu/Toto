@@ -40,10 +40,10 @@ export class LoginComponent extends AppBase {
     this.loading = true;
     let user = this.api.login(new User());
 
-    user.subscribe(val => {
+    user.subscribe(usr => {
       (<any>window).user = user;
-      alert(val);
-      console.log(val);
+      alert(usr);
+      console.log(usr);
     });
 
     console.log(form.value);

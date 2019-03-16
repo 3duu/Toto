@@ -18,11 +18,12 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<org.springframework.version>5.0.8.RELEASE</org.springframework.version>
+		<org.springframework.version>5.1.4.RELEASE</org.springframework.version>
 		<!-- Hibernate / JPA -->
 		<hibernate.version>5.3.6.Final</hibernate.version>
 		<!-- Logging -->
 		<slf4j.version>1.7.5</slf4j.version>
+		<org.springframework.security-version>5.1.4.RELEASE</org.springframework.security-version>
 	</properties>
 	
     <dependencies>
@@ -56,6 +57,12 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${org.springframework.security-version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -63,10 +70,11 @@
 			<version>${org.springframework.version}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
 		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.3</version>
+		    <groupId>oracle</groupId>
+		    <artifactId>ojdbc6</artifactId>
+		    <version>11.2.0.3</version>
 		</dependency>
 
 		<!-- Hibernate -->
