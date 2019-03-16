@@ -4,13 +4,13 @@ import java.util.List;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import br.com.duti.petlife.models.User;
 import br.com.duti.petlife.repository.interfaces.IUserRepository;
 
-@Component
-public class UserRepository extends GenericRepository implements IUserRepository {
+@Repository
+public class UserRepository extends GenericRepository<User, Long> implements IUserRepository {
 
 	@Override
 	public final User getUser(final String username, final String password) {

@@ -23,6 +23,7 @@ public class UserController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
     public @ResponseBody ResponseEntity<User> getUser(@RequestParam("username") String username, @RequestParam("password") String password) {
+		
 		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.getUser(username, getEncryptedString(password)));
 		if(response.getEntity() == null) {
 			response.setErrorCode(MessageCode.SUCCESS.getValue());
