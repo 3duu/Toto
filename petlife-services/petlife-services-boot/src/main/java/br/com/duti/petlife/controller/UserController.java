@@ -3,6 +3,7 @@ package br.com.duti.petlife.controller;
 import static br.com.duti.utils.Utils.getEncryptedString;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,12 +24,28 @@ public class UserController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
     public @ResponseBody ResponseEntity<User> getUser(@RequestParam("username") String username, @RequestParam("password") String password) {
-		
+		//User user = new User();
+		//user.setUsername("admin");
+		//user.setPassword(getEncryptedString(password));
 		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.getUser(username, getEncryptedString(password)));
 		if(response.getEntity() == null) {
-			response.setErrorCode(MessageCode.SUCCESS.getValue());
+			response.setCode(MessageCode.SUCCESS.getValue());
 		} else {
-			response.setErrorCode(MessageCode.NOT_FOUND.getValue());
+			response.setCode(MessageCode.NOT_FOUND.getValue());
+		}
+        return response;
+    }
+	
+	@PostMapping(value="/login")
+    public @ResponseBody ResponseEntity<User> doLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
+		//User user = new User();
+		//user.setUsername("admin");
+		//user.setPassword(getEncryptedString(password));
+		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.getUser(username, getEncryptedString(password)));
+		if(response.getEntity() == null) {
+			response.setCode(MessageCode.SUCCESS.getValue());
+		} else {
+			response.setCode(MessageCode.NOT_FOUND.getValue());
 		}
         return response;
     }

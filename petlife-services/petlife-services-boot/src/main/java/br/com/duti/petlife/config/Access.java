@@ -12,7 +12,7 @@ public class Access {
 	private String user;
 	private String password;
 	protected String connectionString;
-	protected final static String driver = "com.mysql.jdbc.Driver";
+	protected final static String driver = "oracle.jdbc.driver.OracleDriver";
 	
 	public Access(){
 		final Path path = Paths.get("/home/eduardo/Java/dbconfig.cfg");
@@ -34,7 +34,7 @@ public class Access {
 		
 		//jdbc:mysql://localhost:3306/teste_crud
 		
-		if(!ip.isEmpty()) {
+		if(ip != null && !ip.isEmpty()) {
 			connectionString = String.format("jdbc:oracle:thin:@//%s", ip);
 		}
 	}

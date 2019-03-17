@@ -4,23 +4,27 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
-@EnableTransactionManagement
+//@EnableTransactionManagement
+@Configuration
 public class JPAConfiguration {
 	
-	protected final static Access accessInfo = new Access();
+	//protected final static Access accessInfo = new Access();
 	private final static String ENTITY_PACKAGE = "br.com.duti.petlife.models";
+	
+	@Autowired
+	private DataSourceProperties dataSourceProperties;
 	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
-
+		
 		LocalContainerEntityManagerFactoryBean em = new
 		LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
@@ -38,12 +42,12 @@ public class JPAConfiguration {
 	
 	private DataSource dataSource(){
 		
-		DriverManagerDataSource dataSource =
+		final DriverManagerDataSource dataSource =
 		new DriverManagerDataSource();
-		dataSource.setDriverClassName(Access.driver);
-		dataSource.setUrl(accessInfo.connectionString);
-		dataSource.setUsername(accessInfo.getUser());
-		dataSource.setPassword(accessInfo.getPassword());
+		dataSource.setDriverClassName(dataSourceProperties.getDriver());
+		dataSource.setUrl(dataSourceProperties.getHost());
+		dataSource.setUsername(dataSourceProperties.getUsername());
+		dataSource.setPassword(dataSourceProperties.getPassword());
 		
 		return dataSource;
 	}

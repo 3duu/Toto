@@ -1,4 +1,4 @@
-package br.com.duti.config;
+package br.com.duti.petlife.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

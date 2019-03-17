@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public abstract class GenericRepository<T,B> {
 	
-	//@PersistenceContext
+	@PersistenceContext
 	private EntityManager manager;
 	
 	protected final EntityManager getEntityManager() {
