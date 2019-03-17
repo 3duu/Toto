@@ -16,6 +16,8 @@ public class DataSourceProperties {
 	private String password;
 	
 	private String driver;
+	
+	private String dialect;
 
 	public String getHost() {
 		return host;
@@ -47,6 +49,14 @@ public class DataSourceProperties {
 
 	public void setDriver(String driver) {
 		this.driver = driver;
+	}
+
+	public String getDialect() {
+		return dialect;
+	}
+
+	public void setDialect(String dialect) {
+		this.dialect = dialect;
 	}
 	
 	

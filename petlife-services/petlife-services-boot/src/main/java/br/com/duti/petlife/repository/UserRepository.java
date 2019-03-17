@@ -10,8 +10,8 @@ import br.com.duti.petlife.models.User;
 import br.com.duti.petlife.repository.interfaces.IUserRepository;
 
 @Repository
-public class UserRepository extends GenericRepository<User, Long> implements IUserRepository {
-
+public class UserRepository extends GenericRepository<User> implements IUserRepository {
+	
 	@Override
 	public final User getUser(final String username, final String password) {
 		final String jpql = "SELECT u FROM User u WHERE u.username = :login and u.password = :pass";

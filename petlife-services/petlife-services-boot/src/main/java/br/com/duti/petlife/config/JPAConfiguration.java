@@ -11,25 +11,27 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-//@EnableTransactionManagement
+@EnableTransactionManagement
 @Configuration
 public class JPAConfiguration {
 	
 	//protected final static Access accessInfo = new Access();
+	//sudo /etc/init.d/oracle-xe-18c configure
+	//sudo service oracle-xe-18c start
 	private final static String ENTITY_PACKAGE = "br.com.duti.petlife.models";
 	
 	@Autowired
 	private DataSourceProperties dataSourceProperties;
 	
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		
-		LocalContainerEntityManagerFactoryBean em = new
+		final LocalContainerEntityManagerFactoryBean em = new
 		LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
-		em.setPackagesToScan(new String[]
-		{ 
+		em.setPackagesToScan(new String[] { 
 			ENTITY_PACKAGE
 		});
 		final JpaVendorAdapter vendorAdapter =
@@ -55,10 +57,8 @@ public class JPAConfiguration {
 	private Properties additionalProperties() {
 		
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto",
-		"update");
-		properties.setProperty("hibernate.dialect",
-		"org.hibernate.dialect.Oracle10gDialect");
+		properties.setProperty("hibernate.hbm2ddl.auto","update");
+		properties.setProperty("hibernate.dialect", dataSourceProperties.getDialect());
 		properties.setProperty("hibernate.show_sql", "true");
 		
 		return properties;

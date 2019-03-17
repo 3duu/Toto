@@ -23,10 +23,10 @@ public class UserController {
 	private IUserRepository userRepository;
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-    public @ResponseBody ResponseEntity<User> getUser(@RequestParam("username") String username, @RequestParam("password") String password) {
-		//User user = new User();
-		//user.setUsername("admin");
-		//user.setPassword(getEncryptedString(password));
+    public @ResponseBody ResponseEntity<User> getUser(@RequestParam("username") final String username, @RequestParam("password") final String password) {
+		/*User user = new User();
+		user.setUsername("admin");
+		user.setPassword(getEncryptedString(password));*/
 		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.getUser(username, getEncryptedString(password)));
 		if(response.getEntity() == null) {
 			response.setCode(MessageCode.SUCCESS.getValue());
@@ -37,10 +37,10 @@ public class UserController {
     }
 	
 	@PostMapping(value="/login")
-    public @ResponseBody ResponseEntity<User> doLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
-		//User user = new User();
-		//user.setUsername("admin");
-		//user.setPassword(getEncryptedString(password));
+    public @ResponseBody ResponseEntity<User> doLogin(@RequestParam("username") final String username, @RequestParam("password") final String password) {
+		/*User user = new User();
+		user.setUsername("admin");
+		user.setPassword(getEncryptedString(password));*/
 		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.getUser(username, getEncryptedString(password)));
 		if(response.getEntity() == null) {
 			response.setCode(MessageCode.SUCCESS.getValue());
