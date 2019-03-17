@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -42,7 +43,8 @@ public class JPAConfiguration {
 		return em;
 	}
 	
-	private DataSource dataSource(){
+	@Bean(/*destroyMethod = "close"*/)
+	public DataSource dataSource(){
 		
 		final DriverManagerDataSource dataSource =
 		new DriverManagerDataSource();
@@ -53,6 +55,13 @@ public class JPAConfiguration {
 		
 		return dataSource;
 	}
+	
+	@Bean
+    public JpaTransactionManager jpaTransactionManager() {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+        return transactionManager;
+    }
 	
 	private Properties additionalProperties() {
 		

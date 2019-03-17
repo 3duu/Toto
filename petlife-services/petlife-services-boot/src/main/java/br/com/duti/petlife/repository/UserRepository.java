@@ -2,6 +2,8 @@ package br.com.duti.petlife.repository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
@@ -10,6 +12,7 @@ import br.com.duti.petlife.models.User;
 import br.com.duti.petlife.repository.interfaces.IUserRepository;
 
 @Repository
+@Transactional
 public class UserRepository extends GenericRepository<User> implements IUserRepository {
 	
 	@Override
