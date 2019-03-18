@@ -22,7 +22,7 @@ export class LoginComponent extends AppBase {
   private dynamicComponentRef: ComponentRef<LoginComponent>;
 
   constructor(/*private elementRef: ElementRef,*/api: ApiService) {
-    super(api);
+    super();
   }
 
   ngOnInit() {
