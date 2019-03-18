@@ -1,6 +1,6 @@
 import { Component, ComponentRef, ViewChild, ViewContainerRef, ElementRef } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {  AppBase } from '../app.component';
+import {  AppBase, AppComponent } from '../app.component';
 import { User } from '../entity/User';
 import { AuthenticationService } from './AuthenticationService';
 import { ApiService, ReturnCode } from '../service/services';
@@ -15,7 +15,6 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent extends AppBase {
 
-  private static user: User;
   loginForm: NgForm;
   private loading = false;
   private submitted = false;
@@ -28,6 +27,10 @@ export class LoginComponent extends AppBase {
 
   ngOnInit() {
     
+  }
+
+  getUser() : User {
+    return AppComponent.user;
   }
 
   doLogin(form: NgForm) : void {
@@ -48,8 +51,9 @@ export class LoginComponent extends AppBase {
     user.subscribe(usr => {
       (<any>window).user = user;
       console.log(usr);
-
+      
       if(usr.code == ReturnCode.SUCCESS){
+        AppComponent.user = usr;
         alert("SUCCESS!");
       }
     });

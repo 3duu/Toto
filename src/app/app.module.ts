@@ -9,14 +9,16 @@ import { NavbarComponent } from './global/navbar.component';
 import { MapsComponent } from './maps/maps.component';
 import { FormsModule } from '@angular/forms';
 import { CordovaService } from './cordova.service';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './alert/alert.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MapsComponent,
-    LoginComponent
+    LoginComponent,
+    AlertComponent
   ],
   /*entryComponents: [
     LoginComponent
