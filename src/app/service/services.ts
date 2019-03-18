@@ -12,7 +12,7 @@ import { User } from '../entity/User';
 
 // Set the http options
 const httpOptions = {
-  headers: new HttpHeaders({ "Content-Type": "application/json", "Authorization": "c31z" })
+  headers: new HttpHeaders({ "Content-Type": "application/json"})
 };
 @Injectable()
 export class ApiService {
@@ -54,8 +54,15 @@ export class ApiService {
   public login(user: User): Observable<any> {
     // Call the http GETaler
     console.log(ApiService.USER_LOGIN);
-    return this.http.get(ApiService.USER_LOGIN, httpOptions).pipe(
+    console.log(user);
+    /*return this.http.get(ApiService.USER_LOGIN, httpOptions).pipe(
         map(this.extractData), catchError(this.handleError)
         );
-    }
+    }*/
+    
+    return this.http.post<User>(ApiService.USER_LOGIN, user, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
 }

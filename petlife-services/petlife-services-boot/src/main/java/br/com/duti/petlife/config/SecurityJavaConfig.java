@@ -24,6 +24,9 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+		if(auth == null)
+			return;
+		
 	    auth.inMemoryAuthentication()
 	        .withUser(admin).password(encoder().encode("adminPass")).roles(ADMIN)
 	        .and()
@@ -32,6 +35,9 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(final HttpSecurity http) throws Exception { 
+		if(http == null)
+			return;
+		
 	    http
 	    .csrf().disable()
 	    .exceptionHandling()

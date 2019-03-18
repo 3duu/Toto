@@ -1,27 +1,16 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 import { Pet } from './Pet';
 import { User } from './User';
 
-@Entity("appointment")
 export class Appointment {
 
-    @PrimaryGeneratedColumn()
     private id : number;
 
-    @Column("date")
     private date : Date;
 
-    //@Column("appointmentType")
-    /*
-    * @OneToOne(type => AppointmentType)
-    @JoinColumn()
-    */
     private appointmentType : AppointmentType;
 
-    @Column()
     private time : string;
     
-    @OneToMany(type => Pet, pet => pet.getAppointments())
     pets: Pet[];
 
     constructor() { }

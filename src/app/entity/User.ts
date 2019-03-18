@@ -1,26 +1,17 @@
 import { Bookmark } from './Bookmark';
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 import { Pet } from './Pet';
 import { Rating } from './Rating';
 import { PetService } from './PetService';
 
-@Entity("user")
 export class User {
 
-    @PrimaryGeneratedColumn()
     private id : number;
 
-    @Column()
-    private login : string;
+    private username : string;
 
-    @Column("signin_date")
     private signInDate : Date;
 
-    @Column()
     private password : string;
-
-    @Column("encrypted_password")
-    private encryptedPassword : string;
 
     //@OneToMany(type => Pet, pet => pet.getUser())
     pets: Pet[];
@@ -49,12 +40,12 @@ export class User {
         this.id = id;
     }
 
-    getLogin() : string {
-        return this.login;
+    getUsername() : string {
+        return this.username;
     }
 
-    setLogin(login : string) : void {
-        this.login = login;
+    setUsername(username : string) : void {
+        this.username = username;
     }
 
     getSignInDate() : Date {
@@ -62,7 +53,7 @@ export class User {
     }
 
     getPassword() : string {
-        return this.encryptedPassword;
+        return this.password;
     }
 
     setPassword(password : string) : void {

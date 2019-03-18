@@ -9,7 +9,10 @@ public class ResponseEntity<T> implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public ResponseEntity(T entity) {
+	private final String sid;
+	
+	public ResponseEntity(T entity, final String sid) {
+		this.sid = sid;
 		this.entity = entity;
 	}
 	
@@ -27,6 +30,10 @@ public class ResponseEntity<T> implements Serializable {
 
 	public Object getEntity() {
 		return entity;
+	}
+
+	public String getSid() {
+		return sid;
 	}
 
 

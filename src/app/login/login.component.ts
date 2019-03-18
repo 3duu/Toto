@@ -38,7 +38,12 @@ export class LoginComponent extends AppBase {
       return;
     }
     this.loading = true;
-    let user = this.api.login(new User());
+
+    let formUser = new User();
+    formUser.setUsername(form.value.username);
+    formUser.setPassword(form.value.password);
+
+    let user = this.api.login(formUser);
 
     user.subscribe(usr => {
       (<any>window).user = user;
