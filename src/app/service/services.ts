@@ -12,7 +12,10 @@ import { User } from '../entity/User';
 
 // Set the http options
 const httpOptions = {
-  headers: new HttpHeaders({ "Content-Type": "application/json"})
+  headers: new HttpHeaders({ "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"})
 };
 @Injectable()
 export class ApiService {
@@ -65,4 +68,9 @@ export class ApiService {
       catchError(this.handleError)
     );
   }
+}
+
+export enum ReturnCode {
+  SUCCESS = 0,
+  NOT_FOUND = -1
 }

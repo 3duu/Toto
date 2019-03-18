@@ -3,7 +3,7 @@ import {NgForm} from '@angular/forms';
 import {  AppBase } from '../app.component';
 import { User } from '../entity/User';
 import { AuthenticationService } from './AuthenticationService';
-import { ApiService } from '../service/services';
+import { ApiService, ReturnCode } from '../service/services';
 import { Observable } from 'rxjs';
 //import { UserDao } from '../database/database';
 
@@ -47,8 +47,11 @@ export class LoginComponent extends AppBase {
 
     user.subscribe(usr => {
       (<any>window).user = user;
-      alert(usr);
       console.log(usr);
+
+      if(usr.code == ReturnCode.SUCCESS){
+        alert("SUCCESS!");
+      }
     });
 
     console.log(form.value);

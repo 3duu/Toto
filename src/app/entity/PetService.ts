@@ -5,7 +5,7 @@ import { Address } from './Address';
 export class PetService {
 
     private id : number;
-    private owner : User;
+    private user : User;
 
     private creationDate : Date;
 
@@ -21,8 +21,8 @@ export class PetService {
         return this.id;
     }
 
-    getOwner() : User {
-        return this.owner;
+    getUser() : User {
+        return this.user;
     }
 
     getCreationDate() : Date {

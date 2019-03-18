@@ -9,9 +9,13 @@ export class User {
 
     private username : string;
 
-    private signInDate : Date;
+    private name : string;
+
+    private creationDate : Date;
 
     private password : string;
+
+    private admin : boolean;
 
     //@OneToMany(type => Pet, pet => pet.getUser())
     pets: Pet[];
@@ -48,8 +52,20 @@ export class User {
         this.username = username;
     }
 
-    getSignInDate() : Date {
-        return this.signInDate;
+    getName() : string {
+        return this.name;
+    }
+
+    setName(name : string) : void {
+        this.name = name;
+    }
+
+    getCreationDate() : Date {
+        return this.creationDate;
+    }
+
+    setCreationDate(creationDate : Date) : void {
+        this.creationDate = creationDate;
     }
 
     getPassword() : string {
@@ -78,6 +94,14 @@ export class User {
 
     getMyRating() : Rating[] {
         return this.myRatings;
+    }
+
+    isAdmin() : boolean {
+        return this.admin;
+    }
+
+    setAdmin(admin : boolean) : void {
+        this.admin = admin;
     }
   
 }

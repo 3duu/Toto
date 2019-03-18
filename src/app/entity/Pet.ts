@@ -5,7 +5,13 @@ export class Pet {
 
     private id : number;
 
+    private name : string;
+
+    private creationDate : Date;
+
     private birthDate : Date;
+
+    private img : string;
 
     private user : User;
 
@@ -27,6 +33,30 @@ export class Pet {
 
     getAppointments() : Appointment[] {
         return this.appointments;
+    }
+
+    getName() : string {
+        return this.name;
+    }
+
+    setName(name : string) : void {
+        this.name = name;
+    }
+
+    getCreationDate() : Date {
+        return this.creationDate;
+    }
+
+    setCreationDate(creationDate : Date) : void {
+        this.creationDate = creationDate;
+    }
+
+    getImg() : string {
+        return this.img;
+    }
+
+    setImg(img : string) : void {
+        this.img = img;
     }
   
 }
