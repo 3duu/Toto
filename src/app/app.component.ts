@@ -1,41 +1,48 @@
 import { LoginComponent } from './login/login.component';
-
 import { Language } from './language/Language';
-import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, Type } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver, Type, AfterContentInit } from '@angular/core';
 import { User } from './entity/User';
-import { NavbarComponent } from './global/navbar.component';
 import { environment } from 'src/environments/environment';
 import { ApiService } from './service/services';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements AfterContentInit {
 
-  @ViewChild('container', {read: ViewContainerRef}) container: ViewContainerRef;
+  //@ViewChild("container", {read: ViewContainerRef}) container: ViewContainerRef;
   
   static applicationName : string = environment.name;
   static language : Language = new Language();
   static user: User;
+  private static appComponent : AppComponent;
   // Keep track of list of generated components for removal purposes
-  components = [];
+  private components = [];
   
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
-    this.addComponent(LoginComponent);
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef) {
+    AppComponent.appComponent = this;
   }
   
-  addComponent(componentClass: Type<any>) {
+  static getAppComponent() : AppComponent {
+    return AppComponent.appComponent;
+  }
+
+  addComponent(componentClass: Type<any>) : void {
     // Create component dynamically inside the ng-template
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
-    const component = this.container.createComponent(componentFactory);
+    if(this.container != null){
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
+      const component = this.container.createComponent(componentFactory);
 
-    // Push the component so that we can keep track of which components are created
-    this.components.push(component);
+      // Push the component so that we can keep track of which components are created
+      this.components.push(component);
+      //alert("added");
+    }
   }
 
-  removeComponent(componentClass: Type<any>) {
+  removeComponent(componentClass: Type<any>) : void {
     // Find the component
     const component = this.components.find((component) => component.instance instanceof componentClass);
     const componentIndex = this.components.indexOf(component);
@@ -47,7 +54,12 @@ export class AppComponent {
     }
   }
 
-  title = 'angular';
+  ngAfterContentInit(): void {
+    //this.addComponent(LoginComponent);
+    //AppComponent.getAppComponent().addComponent(LoginComponent);
+  }
+
+  title = AppComponent.applicationName;
 }
 
 export class AppBase implements OnInit {
