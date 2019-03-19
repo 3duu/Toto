@@ -66,7 +66,7 @@ export class AppBase implements OnInit {
   
     protected onLogged(afterLoginRedirectComponent: Type<any>) : void {
       let user : User = this.getUser();
-       (<any>window).user = user;
+      (<any>window).user = user;
       if(user != null){
         this.getNavbarComponent().username = user.getName();
         if(afterLoginRedirectComponent != null){
