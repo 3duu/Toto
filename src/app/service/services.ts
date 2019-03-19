@@ -7,12 +7,13 @@ import {
   HttpHeaders,
   HttpErrorResponse
 } from "@angular/common/http";
-import { catchError, map } from "rxjs/operators";
+import { catchError } from "rxjs/operators";
 import { User } from '../entity/User';
 
 // Set the http options
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json",
+  "Authorization": "petlife-toto",
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
   "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"})
@@ -21,7 +22,7 @@ const httpOptions = {
 export class ApiService {
 
     static endpoint = environment.endpoint;
-    static USER_LOGIN = ApiService.endpoint+"/user/login";
+    static USER_LOGIN = ApiService.endpoint+"/user/authenticate";
 
     constructor(private http: HttpClient) {}
 

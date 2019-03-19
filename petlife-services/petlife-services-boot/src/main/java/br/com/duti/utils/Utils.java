@@ -11,6 +11,7 @@ public class Utils {
 	public static final String MD5 = "MD5";
 	private static MessageDigest messageDigest;
 	public static final String ANGULAR_HOST =  "http://localhost:4200";
+	public static final String ANGULAR_CREDENTIALS =  "petlife-toto";
 	
 	public static final String getEncryptedString(final String string) {
 		if(messageDigest == null) {

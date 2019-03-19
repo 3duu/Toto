@@ -1,10 +1,9 @@
-import { Component, ComponentRef, ViewChild, ViewContainerRef, ElementRef } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { Component, ComponentRef, ViewChild, ViewContainerRef, ElementRef, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {  AppBase, AppComponent } from '../app.component';
 import { User } from '../entity/User';
-import { AuthenticationService } from './AuthenticationService';
 import { ApiService, ReturnCode } from '../service/services';
-import { Observable } from 'rxjs';
+import { Language } from '../language/Language';
 //import { UserDao } from '../database/database';
 
 //https://bootsnipp.com/snippets/kMdg
@@ -18,14 +17,12 @@ export class LoginComponent extends AppBase {
   loginForm: NgForm;
   private loading = false;
   private submitted = false;
-  private authenticationService: AuthenticationService;
-  private dynamicComponentRef: ComponentRef<LoginComponent>;
 
-  constructor(/*private elementRef: ElementRef,*/api: ApiService) {
-    super();
+  constructor(api: ApiService) { 
+    super(api);
   }
 
-  ngOnInit() {
+  ngOnInit() : void {
     
   }
 
@@ -48,39 +45,29 @@ export class LoginComponent extends AppBase {
 
     let user = this.api.login(formUser);
 
-    user.subscribe(usr => {
+    user.subscribe(ret => {
       (<any>window).user = user;
-      console.log(usr);
+      console.log(ret);
       
-      if(usr.code == ReturnCode.SUCCESS){
-        AppComponent.user = usr;
+      if(ret.code == ReturnCode.SUCCESS){
+        AppComponent.user = ret;
+        if (ret && ret.sid) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+            localStorage.setItem("currentUser", JSON.stringify(ret.entity));
+            localStorage.setItem("sessionId", ret.sid);
+            localStorage.setItem("loginDate", ret.date);
+            //this.addComponent(LoginComponent);
+            //localStorage.removeItem('currentUser');
+        }
         alert("SUCCESS!");
       }
     });
 
     console.log(form.value);
-    /*
-    this.authenticationService.login(form.value.login, form.value.password);
-      .pipe(first())
-      .subscribe(
-          data => {
-              this.router.navigate([this.returnUrl]);
-          },
-          error => {
-              //this.alertService.error(error);
-              this.loading = false;
-          });
-    }*/
-    //alert(form.value.login);
-    
   }
 
   static getUser() : User {
-    return LoginComponent.user;
-  }
-
-  destroy() {
-    //this.elementRef.nativeElement.remove();
+    return AppComponent.user;
   }
 
 }

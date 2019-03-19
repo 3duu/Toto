@@ -1,6 +1,7 @@
 package br.com.duti.petlife.models;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class ResponseEntity<T> implements Serializable {
 
@@ -19,6 +20,8 @@ public class ResponseEntity<T> implements Serializable {
 	private int code;
 	
 	private Object entity;
+	
+	private Date date;
 
 	public int getCode() {
 		return code;
@@ -34,6 +37,14 @@ public class ResponseEntity<T> implements Serializable {
 
 	public String getSid() {
 		return sid;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 

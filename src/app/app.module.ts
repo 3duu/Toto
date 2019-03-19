@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './global/navbar.component';
 import { MapsComponent } from './maps/maps.component';
 import { FormsModule } from '@angular/forms';
 import { CordovaService } from './cordova.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './alert/alert.component'; 
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +20,12 @@ import { AlertComponent } from './alert/alert.component';
     LoginComponent,
     AlertComponent
   ],
-  /*entryComponents: [
-    LoginComponent
-  ],*/
+  entryComponents: [
+    LoginComponent,
+    AlertComponent,
+    MapsComponent,
+    NavbarComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
