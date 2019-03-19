@@ -45,9 +45,11 @@
         <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel/>
 
         <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
-
-        <button class="btn btn-lg btn-success btn-block btn-center" type="submit" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.login}}</button>
+        <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
+            <span class="sr-only">Carregando...</span>
+        </div>
+        <button class="btn btn-lg btn-petlife btn-block btn-center" type="submit" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.login}}</button>
         <br>
-        <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button id="ember363" class="ember-view btn btn-sm btn-default"> {{language.signUp}} </button> </small>
+        <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class="ember-view btn btn-sm btn-default"> {{language.signUp}} </button> </small>
     </form>
 </div>

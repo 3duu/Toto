@@ -22,6 +22,7 @@ export class Language {
     orSocialMediaAccount : string[] = ["ou conta em rede social?"];
     email : string[] = ["E-mail"];
     password : string[] = ["Senha"];
+    logout : string[] = ["Sair"];
 
     //Messages
     connectionError : string[] = ["Erro ao conexão"];

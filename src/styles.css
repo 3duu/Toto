@@ -5,3 +5,31 @@
 .button-disabled {
     display: none !important;
 }
+
+.btn-killgrave {
+    color: #fff;
+    background-color: #7608ba;
+    border-color: #7608ba;
+}
+
+.bg-killgrave {
+    background-color: #7608ba;
+}
+
+.text-killgrave {
+    color: #7608ba!important;
+}
+
+.btn-petlife {
+    color: #fff;
+    background-color: #08b578;
+    border-color: #08b578;
+}
+
+.bg-petlife {
+    background-color: #08b578;
+}
+
+.text-petlife {
+    color: #08b578!important;
+}

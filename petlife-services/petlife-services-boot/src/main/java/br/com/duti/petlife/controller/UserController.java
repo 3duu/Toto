@@ -39,7 +39,7 @@ public class UserController {
         return response;
     }*/
 	
-	@CrossOrigin(origins = Utils.ANGULAR_HOST)
+	@CrossOrigin(origins = {Utils.ANGULAR_HOST, Utils.PHONEGAP_HOST})
 	@PostMapping(value="/authenticate", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> doLogin(@RequestBody final User user) {
 		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.getUser(user.getUsername(), getEncryptedString(user.getPassword())), RequestContextHolder.currentRequestAttributes().getSessionId());
