@@ -9,14 +9,14 @@
 
         <p>
         <a class="btn btn-primary social-login-btn social-facebook" href="/auth/facebook"><i class="fa fa-facebook"></i></a>
-        <a class="btn btn-primary social-login-btn social-twitter" href="/auth/twitter"><i class="fa fa-twitter"></i></a>
-        </p>
-        <p>
-        <a class="btn btn-primary social-login-btn social-linkedin" href="/auth/linkedin"><i class="fa fa-linkedin"></i></a>
         <a class="btn btn-primary social-login-btn social-google" href="/auth/google"><i class="fa fa-google-plus"></i></a>
         </p>
+        <!-- <p>
+        <a class="btn btn-primary social-login-btn social-linkedin" href="/auth/linkedin"><i class="fa fa-linkedin"></i></a>
+        <a class="btn btn-primary social-login-btn social-twitter" href="/auth/twitter"><i class="fa fa-twitter"></i></a>
+        </p> -->
 
-        <div class="btn-group social-login-more">
+        <!-- <div class="btn-group social-login-more">
         <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown">
         {{language.more}}
         </button>
@@ -35,14 +35,15 @@
         <li><a href="#"><i class="fa fa-trello"></i>   Trello</a></li>
         <li><a href="#"><span class="zocial-wordpress"></span>   Wordpress</a></li>
         </ul>
-        </div>
-        <br><br>
+        </div> 
+        <br> -->
+        <br>
 
         <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>
         <br><br>
         
-        <input id="ember360" class="ember-view ember-text-field form-control login-input" placeholder="{{language.email}}" type="text" name="username" id="username" ngModel>
-        <input id="ember361" class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel>
+        <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.email}}" type="text" name="username" id="username" ngModel/>
+        <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel/>
 
         <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
 

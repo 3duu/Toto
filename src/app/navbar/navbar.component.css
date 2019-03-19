@@ -17,3 +17,11 @@ app-navbar {
     position: fixed;
     z-index: 100;
 }
+
+.menu-disabled {
+    display: none !important;
+}
+
+.menu-enabled {
+    display: block !important;
+}

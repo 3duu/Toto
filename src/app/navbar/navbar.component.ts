@@ -1,5 +1,5 @@
 import { AppComponent, AppBase } from '../app.component';
-import { Component } from '@angular/core';
+import { Component, AfterContentInit } from '@angular/core';
 import { ApiService } from '../service/services';
 import { LoginComponent } from '../login/login.component';
 
@@ -10,18 +10,24 @@ import { LoginComponent } from '../login/login.component';
 })
 
 @Navbar
-export class NavbarComponent extends AppBase {
+export class NavbarComponent extends AppBase implements AfterContentInit {
   
-  constructor(api: ApiService) { 
+  constructor(api: ApiService) {
     super(api);
   }
 
+  disableMenu = false;
+  navbarOpen = false;
+
   ngOnInit() {
     AppBase.setNavbarComponent(this);
+  }
+
+  ngAfterContentInit(): void {
     AppComponent.getAppComponent().addComponent(LoginComponent);
   }
 
-  navbarOpen = false;
+  
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }

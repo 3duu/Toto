@@ -38,7 +38,6 @@ export class AppComponent implements AfterContentInit {
 
       // Push the component so that we can keep track of which components are created
       this.components.push(component);
-      //alert("added");
     }
   }
 
