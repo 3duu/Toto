@@ -1,7 +1,8 @@
-import { AppComponent, AppBase } from '../app.component';
+import { AppComponent } from '../app.component';
 import { Component, AfterContentInit } from '@angular/core';
 import { ApiService } from '../service/services';
 import { LoginComponent } from '../login/login.component';
+import { AppBase } from '../appbase';
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +19,7 @@ export class NavbarComponent extends AppBase implements AfterContentInit {
 
   disableMenu = true;
   navbarOpen = false;
+  username : string;
 
   ngOnInit() {
     AppBase.setNavbarComponent(this);

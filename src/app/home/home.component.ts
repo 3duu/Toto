@@ -1,6 +1,6 @@
-import { AppBase } from './../app.component';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from '../service/services';
+import { AppBase } from '../appbase';
 
 @Component({
   selector: 'app-home',

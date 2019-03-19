@@ -80,6 +80,10 @@ export class User {
         return this.pets;
     }
 
+    setPets(pets : Pet[]) : void {
+        this.pets = pets;
+    }
+
     getBookmarks() : Bookmark[] {
         return this.bookmarks;
     }

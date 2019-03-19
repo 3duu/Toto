@@ -2,6 +2,8 @@ package br.com.duti.petlife.controller;
 
 import static br.com.duti.utils.Utils.getEncryptedString;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -43,6 +45,7 @@ public class UserController {
 		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.getUser(user.getUsername(), getEncryptedString(user.getPassword())), RequestContextHolder.currentRequestAttributes().getSessionId());
 		if(response.getEntity() != null) {
 			response.setCode(MessageCode.SUCCESS.getValue());
+			response.setDate(new Date());
 		} else {
 			response.setCode(MessageCode.NOT_FOUND.getValue());
 		}

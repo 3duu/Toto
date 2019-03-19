@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { AppBase } from '../app.component';
-import { Observable } from 'rxjs';
-import { of } from 'rxjs';
-import { map } from "rxjs/operators";
 import { CordovaService } from '../cordova.service';
 import { ApiService } from '../service/services';
+import { AppBase } from '../appbase';
 
 //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
 //phonegap plugin add  cordova-plugin-googlemaps

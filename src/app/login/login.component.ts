@@ -1,12 +1,9 @@
-import { Component, ComponentRef, ViewChild, ViewContainerRef, ElementRef, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {  AppBase, AppComponent } from '../app.component';
 import { User } from '../entity/User';
 import { ApiService, ReturnCode } from '../service/services';
-import { Language } from '../language/Language';
-import { MapsComponent } from '../maps/maps.component';
 import { HomeComponent } from '../home/home.component';
-//import { UserDao } from '../database/database';
+import { AppBase } from '../appbase';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -30,10 +27,6 @@ export class LoginComponent extends AppBase {
     
   }
 
-  getUser() : User {
-    return AppComponent.user;
-  }
-
   doLogin(form: NgForm) : void {
     this.submitted = true;
     this.loginForm = form;
@@ -50,32 +43,33 @@ export class LoginComponent extends AppBase {
     let user = this.api.login(formUser);
 
     user.subscribe(ret => {
-      (<any>window).user = user;
       console.log(ret);
       
       if(ret.code == ReturnCode.SUCCESS){
-        
         if (ret && ret.sid) {
-            AppComponent.user = ret;
             //store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem("currentUser", JSON.stringify(ret.entity));
-            localStorage.setItem("sessionId", ret.sid);
-            localStorage.setItem("loginDate", ret.date);
+            localStorage.setItem(SessionAttributes.CURRENT_USER, JSON.stringify(ret.entity));
+            localStorage.setItem(SessionAttributes.CURRENT_PASSWORD, form.value.password);
+            localStorage.setItem(SessionAttributes.SESSION_ID, ret.sid);
+            localStorage.setItem(SessionAttributes.LOGIN_DATE, ret.date);
             //localStorage.removeItem('currentUser');
             this.getNavbarComponent().disableMenu = false;
             this.loading = false;
-            AppComponent.getAppComponent().removeComponent(LoginComponent);
-            AppComponent.getAppComponent().addComponent(this.afterLoginRedirectComponent);
+            this.onLogged(this.afterLoginRedirectComponent);
         }
-        alert("SUCCESS!");
+      }
+      else if(ret.code == ReturnCode.NOT_FOUND){
+        alert("Usuário não encontrado");
       }
     });
 
     console.log(form.value);
   }
+}
 
-  static getUser() : User {
-    return AppComponent.user;
-  }
-
+export enum SessionAttributes {
+  CURRENT_USER = "currentUser",
+  CURRENT_PASSWORD = "currentPassword",
+  SESSION_ID = "sessionId",
+  LOGIN_DATE = "loginDate"
 }

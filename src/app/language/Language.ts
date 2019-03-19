@@ -22,4 +22,8 @@ export class Language {
     orSocialMediaAccount : string[] = ["ou conta em rede social?"];
     email : string[] = ["E-mail"];
     password : string[] = ["Senha"];
+
+    //Messages
+    connectionError : string[] = ["Erro ao conexão"];
+    invalidUserPassword : string[] = ["Usuário ou senha inválido(s)"];
 }

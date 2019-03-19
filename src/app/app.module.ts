@@ -26,7 +26,6 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     AlertComponent,
     MapsComponent,
-    NavbarComponent,
     HomeComponent
   ],
   imports: [
