@@ -44,7 +44,7 @@ export class LoginComponent extends AppBase {
 
     user.subscribe(ret => {
       console.log(ret);
-      
+      this.loading = false;
       if(ret.code == ReturnCode.SUCCESS){
         if (ret && ret.sid) {
             //store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -54,12 +54,15 @@ export class LoginComponent extends AppBase {
             localStorage.setItem(SessionAttributes.LOGIN_DATE, ret.date);
             //localStorage.removeItem('currentUser');
             this.getNavbarComponent().disableMenu = false;
-            this.loading = false;
+            
             this.onLogged(this.afterLoginRedirectComponent);
         }
       }
       else if(ret.code == ReturnCode.NOT_FOUND){
-        alert("Usuário não encontrado");
+        alert(this.language.invalidUserPassword);
+      }
+      else {
+        alert(this.language.connectionError);
       }
     });
 

@@ -33,3 +33,31 @@
 .text-petlife {
     color: #08b578!important;
 }
+
+.btn-pink {
+    color: #fff;
+    background-color:hotpink;
+    border-color: hotpink;
+}
+
+.bg-pink {
+    background-color: hotpink;
+}
+
+.text-pink {
+    color: hotpink !important;
+}
+
+.btn-orange {
+    color: #fff;
+    background-color:orange;
+    border-color: orange;
+}
+
+.bg-orange {
+    background-color: orange;
+}
+
+.text-orange {
+    color: orange !important;
+}

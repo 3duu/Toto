@@ -563,7 +563,7 @@ module.exports = ".index-icon {\r\n    margin: 5px;\r\n    width: 26%;\r\n    fo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container text-center\">\n  <br>\n  <br>\n  <br>\n    <p>\n      <a class=\"btn btn-primary index-icon\" href=\"#\"><i class=\"fa fa-map-marker\"></i></a>&nbsp;\n      <a class=\"btn btn-killgrave index-icon\" href=\"#\"><i class=\"fa fa-calendar\"></i></a>\n    </p>\n    <p>\n      <a class=\"btn btn-warning index-icon\" href=\"#\"><i class=\"fa fa-paw\"></i></a>&nbsp;\n      <a class=\"btn btn-secondary index-icon\" href=\"#\"><i class=\"fa fa-gift\"></i></a>\n    </p>\n    <br>\n  <br>\n</div>\n"
+module.exports = "<div class=\"container text-center\">\n  <br>\n  <br>\n  <br>\n    <p>\n      <a class=\"btn btn-primary index-icon\" href=\"#\"><i class=\"fa fa-map-marker\"></i></a>&nbsp;\n      <a class=\"btn btn-killgrave index-icon\" href=\"#\"><i class=\"fa fa-calendar\"></i></a>\n    </p>\n    <p>\n      <a class=\"btn btn-orange index-icon\" href=\"#\"><i class=\"fa fa-paw\"></i></a>&nbsp;\n      <a class=\"btn btn-pink index-icon\" href=\"#\"><i class=\"fa fa-gift\"></i></a>\n    </p>\n    <br>\n  <br>\n</div>\n"
 
 /***/ }),
 
@@ -722,6 +722,7 @@ var LoginComponent = /** @class */ (function (_super) {
         var user = this.api.login(formUser);
         user.subscribe(function (ret) {
             console.log(ret);
+            _this.loading = false;
             if (ret.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS) {
                 if (ret && ret.sid) {
                     //store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -731,12 +732,14 @@ var LoginComponent = /** @class */ (function (_super) {
                     localStorage.setItem(SessionAttributes.LOGIN_DATE, ret.date);
                     //localStorage.removeItem('currentUser');
                     _this.getNavbarComponent().disableMenu = false;
-                    _this.loading = false;
                     _this.onLogged(_this.afterLoginRedirectComponent);
                 }
             }
             else if (ret.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].NOT_FOUND) {
-                alert("Usuário não encontrado");
+                alert(_this.language.invalidUserPassword);
+            }
+            else {
+                alert(_this.language.connectionError);
             }
         });
         console.log(form.value);
