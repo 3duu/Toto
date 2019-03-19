@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { ApiService } from './service/services';
 import { NavbarComponent } from './navbar/navbar.component';
 
+//ng generate component home --entryComponent=true
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,8 +14,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 })
 export class AppComponent implements AfterContentInit {
 
-  //@ViewChild("container", {read: ViewContainerRef}) container: ViewContainerRef;
-  
   static applicationName : string = environment.name;
   static language : Language = new Language();
   static user: User;
@@ -72,7 +71,7 @@ export class AppBase implements OnInit {
   language : Language = AppComponent.language;
 
   private static modules : AppBase[] = [];
-  static navbarComponent : NavbarComponent;
+  private static navbarComponent : NavbarComponent;
 
   constructor(protected api: ApiService){
     AppBase.addModule(this);
@@ -90,13 +89,13 @@ export class AppBase implements OnInit {
     return this.showNavMenu;
   }
   
-  getNavbarComponent() /*: NavbarComponent*/ {
-    for(let m in AppBase.modules){
+  getNavbarComponent() : NavbarComponent {
+    return AppBase.navbarComponent;
+    /*for(let m in AppBase.modules){
       if('NavbarComponent' == m.constructor.name){
         return m;
       }
-    }
-    return null;
+    }*/
   }
 
   protected static setNavbarComponent(navbarComponent : NavbarComponent) : void {

@@ -16,7 +16,7 @@ export class NavbarComponent extends AppBase implements AfterContentInit {
     super(api);
   }
 
-  disableMenu = false;
+  disableMenu = true;
   navbarOpen = false;
 
   ngOnInit() {

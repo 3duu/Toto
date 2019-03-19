@@ -6,14 +6,13 @@
         <h2 class="form-signin-heading">{{language.signIn}}</h2>
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
         <br><br>
-
         <p>
-        <a class="btn btn-primary social-login-btn social-facebook" href="/auth/facebook"><i class="fa fa-facebook"></i></a>
-        <a class="btn btn-primary social-login-btn social-google" href="/auth/google"><i class="fa fa-google-plus"></i></a>
+            <a class="btn btn-primary social-login-btn social-facebook" href="#"><i class="fa fa-facebook"></i></a>
+            <a class="btn btn-primary social-login-btn social-google" href="#"><i class="fa fa-google-plus"></i></a>
         </p>
         <!-- <p>
-        <a class="btn btn-primary social-login-btn social-linkedin" href="/auth/linkedin"><i class="fa fa-linkedin"></i></a>
-        <a class="btn btn-primary social-login-btn social-twitter" href="/auth/twitter"><i class="fa fa-twitter"></i></a>
+        <a class="btn btn-primary social-login-btn social-linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+        <a class="btn btn-primary social-login-btn social-twitter" href="#"><i class="fa fa-twitter"></i></a>
         </p> -->
 
         <!-- <div class="btn-group social-login-more">
@@ -47,7 +46,7 @@
 
         <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
 
-        <button class="btn btn-lg btn-success btn-block btn-center" type="submit" data-bindattr-3="3">{{language.login}}</button>
+        <button class="btn btn-lg btn-success btn-block btn-center" type="submit" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.login}}</button>
         <br>
         <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button id="ember363" class="ember-view btn btn-sm btn-default"> {{language.signUp}} </button> </small>
     </form>

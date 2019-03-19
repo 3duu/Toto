@@ -11,6 +11,7 @@ import { CordovaService } from './cordova.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './alert/alert.component'; 
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,15 @@ import { NavbarComponent } from './navbar/navbar.component';
     NavbarComponent,
     MapsComponent,
     LoginComponent,
-    AlertComponent
+    AlertComponent,
+    HomeComponent
   ],
   entryComponents: [
     LoginComponent,
     AlertComponent,
     MapsComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

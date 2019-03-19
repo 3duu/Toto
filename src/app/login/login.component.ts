@@ -4,6 +4,8 @@ import {  AppBase, AppComponent } from '../app.component';
 import { User } from '../entity/User';
 import { ApiService, ReturnCode } from '../service/services';
 import { Language } from '../language/Language';
+import { MapsComponent } from '../maps/maps.component';
+import { HomeComponent } from '../home/home.component';
 //import { UserDao } from '../database/database';
 
 //https://bootsnipp.com/snippets/kMdg
@@ -16,7 +18,9 @@ export class LoginComponent extends AppBase {
 
   loginForm: NgForm;
   private loading = false;
+
   private submitted = false;
+  private afterLoginRedirectComponent = HomeComponent;
 
   constructor(api: ApiService) { 
     super(api);
@@ -50,14 +54,18 @@ export class LoginComponent extends AppBase {
       console.log(ret);
       
       if(ret.code == ReturnCode.SUCCESS){
-        AppComponent.user = ret;
+        
         if (ret && ret.sid) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
+            AppComponent.user = ret;
+            //store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem("currentUser", JSON.stringify(ret.entity));
             localStorage.setItem("sessionId", ret.sid);
             localStorage.setItem("loginDate", ret.date);
-            //this.addComponent(LoginComponent);
             //localStorage.removeItem('currentUser');
+            this.getNavbarComponent().disableMenu = false;
+            this.loading = false;
+            AppComponent.getAppComponent().removeComponent(LoginComponent);
+            AppComponent.getAppComponent().addComponent(this.afterLoginRedirectComponent);
         }
         alert("SUCCESS!");
       }
