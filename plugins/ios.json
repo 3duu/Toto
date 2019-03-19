@@ -13,9 +13,6 @@
     "cordova-plugin-safariviewcontroller": {
       "PACKAGE_NAME": "com.toto"
     },
-    "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "com.toto"
-    },
     "cordova-plugin-googlemaps": {
       "API_KEY_FOR_IOS": "AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8",
       "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",

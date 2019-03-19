@@ -24,7 +24,6 @@
     </platform>
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
-    <plugin name="cordova-plugin-geolocation" spec="~2.2.0" />
     <plugin name="cordova-plugin-googlemaps" spec="~2.5.2">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8" />

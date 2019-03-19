@@ -18,38 +18,6 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-geolocation.Coordinates",
-    "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
-    "pluginId": "cordova-plugin-geolocation",
-    "clobbers": [
-      "Coordinates"
-    ]
-  },
-  {
-    "id": "cordova-plugin-geolocation.PositionError",
-    "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-    "pluginId": "cordova-plugin-geolocation",
-    "clobbers": [
-      "PositionError"
-    ]
-  },
-  {
-    "id": "cordova-plugin-geolocation.Position",
-    "file": "plugins/cordova-plugin-geolocation/www/Position.js",
-    "pluginId": "cordova-plugin-geolocation",
-    "clobbers": [
-      "Position"
-    ]
-  },
-  {
-    "id": "cordova-plugin-geolocation.geolocation",
-    "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
-    "pluginId": "cordova-plugin-geolocation",
-    "clobbers": [
-      "navigator.geolocation"
-    ]
-  },
-  {
     "id": "cordova-plugin-googlemaps.Promise",
     "file": "plugins/cordova-plugin-googlemaps/www/Promise.js",
     "pluginId": "cordova-plugin-googlemaps"
@@ -292,8 +260,6 @@ module.exports.metadata =
 {
   "cordova-plugin-inappbrowser": "3.0.0",
   "cordova-plugin-safariviewcontroller": "1.5.4",
-  "cordova-plugin-compat": "1.0.0",
-  "cordova-plugin-geolocation": "2.2.0",
   "cordova-plugin-googlemaps": "2.5.2",
   "cordova-sqlite-storage": "3.1.0"
 };

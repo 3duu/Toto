@@ -29,6 +29,7 @@ export class AppBase implements OnInit {
       let json = localStorage.getItem(SessionAttributes.CURRENT_USER) != undefined ? JSON.parse(localStorage.getItem(SessionAttributes.CURRENT_USER)) : null;
       if(json != null){
         let user : User = new User();
+        user.setId(json.id);
         user.setName(json.name);
         user.setPassword(json.password);
         user.setUsername(json.username);

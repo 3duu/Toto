@@ -19,8 +19,6 @@
 		D843F8C0B49E4D7B9F776A69 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = BE01E48DDE3146FAAF017647 /* CDVInAppBrowser.m */; };
 		203E2CCE74C24D8DB2B1840D /* SafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA55833B3C6249E39DED3592 /* SafariViewController.m */; };
 		FC80C083CAE64AC9ADCEA0F9 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC1E6374E1846948D5D1679 /* SafariServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		A69339CA028D41F29486E780 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB85A2FA3DA455183D01F62 /* CDVLocation.m */; };
-		535294EDBF5F4B52B11DFF25 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0652878FAE5B4AABB1332BFF /* CoreLocation.framework */; };
 		73D0C0D94AF94233A2B3096F /* PluginObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4334156D2462A9DFC17B6 /* PluginObjects.m */; };
 		75627DCC9F7A4ABEAAAC4F2C /* PluginCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F18107FEF5B4D4682E81541 /* PluginCircle.m */; };
 		25EF1200E3AD472CBAB298EA /* PluginGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C7EC885E624B7E8AAA4565 /* PluginGeocoder.m */; };
@@ -108,9 +106,6 @@
 		FA55833B3C6249E39DED3592 /* SafariViewController.m */ = {isa = PBXFileReference; name = "SafariViewController.m"; path = "cordova-plugin-safariviewcontroller/SafariViewController.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		F26A3E9E94EB4844891F160F /* SafariViewController.h */ = {isa = PBXFileReference; name = "SafariViewController.h"; path = "cordova-plugin-safariviewcontroller/SafariViewController.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		5FC1E6374E1846948D5D1679 /* SafariServices.framework */ = {isa = PBXFileReference; name = "SafariServices.framework"; path = "System/Library/Frameworks/SafariServices.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		7AB85A2FA3DA455183D01F62 /* CDVLocation.m */ = {isa = PBXFileReference; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		413433E9C13A457F800874E7 /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		0652878FAE5B4AABB1332BFF /* CoreLocation.framework */ = {isa = PBXFileReference; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		79A4334156D2462A9DFC17B6 /* PluginObjects.m */ = {isa = PBXFileReference; name = "PluginObjects.m"; path = "cordova-plugin-googlemaps/PluginObjects.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		1F18107FEF5B4D4682E81541 /* PluginCircle.m */ = {isa = PBXFileReference; name = "PluginCircle.m"; path = "cordova-plugin-googlemaps/PluginCircle.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		90C7EC885E624B7E8AAA4565 /* PluginGeocoder.m */ = {isa = PBXFileReference; name = "PluginGeocoder.m"; path = "cordova-plugin-googlemaps/PluginGeocoder.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
@@ -192,7 +187,6 @@
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				FC80C083CAE64AC9ADCEA0F9 /* SafariServices.framework in Frameworks */,
-				535294EDBF5F4B52B11DFF25 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				5FC1E6374E1846948D5D1679 /* SafariServices.framework */,
-				0652878FAE5B4AABB1332BFF /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -308,8 +301,6 @@
 				EA23B0B29CD845F39EAE210B /* CDVInAppBrowser.h */,
 				FA55833B3C6249E39DED3592 /* SafariViewController.m */,
 				F26A3E9E94EB4844891F160F /* SafariViewController.h */,
-				7AB85A2FA3DA455183D01F62 /* CDVLocation.m */,
-				413433E9C13A457F800874E7 /* CDVLocation.h */,
 				79A4334156D2462A9DFC17B6 /* PluginObjects.m */,
 				1F18107FEF5B4D4682E81541 /* PluginCircle.m */,
 				90C7EC885E624B7E8AAA4565 /* PluginGeocoder.m */,
@@ -496,7 +487,6 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				D843F8C0B49E4D7B9F776A69 /* CDVInAppBrowser.m in Sources */,
 				203E2CCE74C24D8DB2B1840D /* SafariViewController.m in Sources */,
-				A69339CA028D41F29486E780 /* CDVLocation.m in Sources */,
 				73D0C0D94AF94233A2B3096F /* PluginObjects.m in Sources */,
 				75627DCC9F7A4ABEAAAC4F2C /* PluginCircle.m in Sources */,
 				25EF1200E3AD472CBAB298EA /* PluginGeocoder.m in Sources */,

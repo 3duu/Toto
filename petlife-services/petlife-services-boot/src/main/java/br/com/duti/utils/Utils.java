@@ -13,6 +13,8 @@ public class Utils {
 	public static final String ANGULAR_HOST = "http://localhost:4200";
 	public static final String ANGULAR_CREDENTIALS =  "petlife-toto";
 	public static final String PHONEGAP_HOST = "http://home:3000";
+	public static final String PHONEGAP_HOST2 = "http://192.168.1.2:3000";
+	public static final String PHONEGAP_HOST3 = "http://192.168.1.3:3000";
 	
 	public static final String getEncryptedString(final String string) {
 		if(messageDigest == null) {

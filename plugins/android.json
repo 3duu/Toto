@@ -22,9 +22,6 @@
     "cordova-sqlite-storage": {
       "PACKAGE_NAME": "com.toto"
     },
-    "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "com.toto"
-    },
     "cordova-plugin-googlemaps": {
       "API_KEY_FOR_ANDROID": "AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU",
       "PLAY_SERVICES_VERSION": "15.0.1",
