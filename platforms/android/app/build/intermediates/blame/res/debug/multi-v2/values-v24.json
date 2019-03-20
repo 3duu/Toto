@@ -14,21 +14,6 @@
                     }
                 }
             ]
-        },
-        {
-            "outputFile": "/home/eduardo/git/Toto/C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
-            "map": [
-                {
-                    "source": "/home/eduardo/git/Toto/C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\8db2fa57caaa5a4a9cc18189cf13c3de\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,121,182,248",
-                        "endColumns": "65,60,65,66",
-                        "endOffsets": "116,177,243,310"
-                    }
-                }
-            ]
         }
     ]
 }

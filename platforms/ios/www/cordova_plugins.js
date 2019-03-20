@@ -247,14 +247,6 @@ module.exports = [
     "runs": true
   },
   {
-    "id": "cordova-sqlite-storage.SQLitePlugin",
-    "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
-    "pluginId": "cordova-sqlite-storage",
-    "clobbers": [
-      "SQLitePlugin"
-    ]
-  },
-  {
     "id": "cordova-plugin-geolocation.Coordinates",
     "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
     "pluginId": "cordova-plugin-geolocation",
@@ -293,7 +285,6 @@ module.exports.metadata =
   "cordova-plugin-inappbrowser": "3.0.0",
   "cordova-plugin-safariviewcontroller": "1.5.4",
   "cordova-plugin-googlemaps": "2.5.2",
-  "cordova-sqlite-storage": "3.1.0",
   "cordova-plugin-geolocation": "4.0.1"
 };
 // BOTTOM OF METADATA

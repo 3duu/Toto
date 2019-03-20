@@ -5,9 +5,9 @@ INJECTED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManif
 INJECTED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:2:1-23:12
 INJECTED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:2:1-23:12
 MERGED from [:tbxml-android:] /root/.gradle/caches/transforms-1/files-1.1/tbxml-android.aar/55637e8b324483bdeb8f3732596bcc07/AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:customtabs:23.2.0] /root/.gradle/caches/transforms-1/files-1.1/customtabs-23.2.0.aar/8b5cac378b765f07e379b51174b8ac70/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/932e4afbefcc82bc9e4af43b82ee31fe/AndroidManifest.xml:17:1-32:12
 MERGED from [com.google.android.gms:play-services-location:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/676d9a2ddd88d95bb4b4b99fcb113a7a/AndroidManifest.xml:2:1-9:12
+MERGED from [com.android.support:customtabs:23.2.0] /root/.gradle/caches/transforms-1/files-1.1/customtabs-23.2.0.aar/8b5cac378b765f07e379b51174b8ac70/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/6636ec0ae6046fa9a4414ad8b186f187/AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/d43affb6deed999b779b78580a5306ac/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/5812022177c35c99c0eee5c54d468ed5/AndroidManifest.xml:2:1-9:12
@@ -61,12 +61,12 @@ MERGED from [com.google.android.gms:play-services-maps:15.0.1] /root/.gradle/cac
 		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
 application
 ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:5:5-15:19
-MERGED from [com.android.support:customtabs:23.2.0] /root/.gradle/caches/transforms-1/files-1.1/customtabs-23.2.0.aar/8b5cac378b765f07e379b51174b8ac70/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:customtabs:23.2.0] /root/.gradle/caches/transforms-1/files-1.1/customtabs-23.2.0.aar/8b5cac378b765f07e379b51174b8ac70/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/932e4afbefcc82bc9e4af43b82ee31fe/AndroidManifest.xml:30:5-20
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/932e4afbefcc82bc9e4af43b82ee31fe/AndroidManifest.xml:30:5-20
 MERGED from [com.google.android.gms:play-services-location:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/676d9a2ddd88d95bb4b4b99fcb113a7a/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-location:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/676d9a2ddd88d95bb4b4b99fcb113a7a/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:customtabs:23.2.0] /root/.gradle/caches/transforms-1/files-1.1/customtabs-23.2.0.aar/8b5cac378b765f07e379b51174b8ac70/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:customtabs:23.2.0] /root/.gradle/caches/transforms-1/files-1.1/customtabs-23.2.0.aar/8b5cac378b765f07e379b51174b8ac70/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/6636ec0ae6046fa9a4414ad8b186f187/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/6636ec0ae6046fa9a4414ad8b186f187/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/d43affb6deed999b779b78580a5306ac/AndroidManifest.xml:22:5-20
@@ -142,12 +142,12 @@ ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest
 INJECTED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:16:5-74
 MERGED from [:tbxml-android:] /root/.gradle/caches/transforms-1/files-1.1/tbxml-android.aar/55637e8b324483bdeb8f3732596bcc07/AndroidManifest.xml:7:5-9:41
 MERGED from [:tbxml-android:] /root/.gradle/caches/transforms-1/files-1.1/tbxml-android.aar/55637e8b324483bdeb8f3732596bcc07/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:customtabs:23.2.0] /root/.gradle/caches/transforms-1/files-1.1/customtabs-23.2.0.aar/8b5cac378b765f07e379b51174b8ac70/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customtabs:23.2.0] /root/.gradle/caches/transforms-1/files-1.1/customtabs-23.2.0.aar/8b5cac378b765f07e379b51174b8ac70/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/932e4afbefcc82bc9e4af43b82ee31fe/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/932e4afbefcc82bc9e4af43b82ee31fe/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-location:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/676d9a2ddd88d95bb4b4b99fcb113a7a/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-location:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/676d9a2ddd88d95bb4b4b99fcb113a7a/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:customtabs:23.2.0] /root/.gradle/caches/transforms-1/files-1.1/customtabs-23.2.0.aar/8b5cac378b765f07e379b51174b8ac70/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:23.2.0] /root/.gradle/caches/transforms-1/files-1.1/customtabs-23.2.0.aar/8b5cac378b765f07e379b51174b8ac70/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/6636ec0ae6046fa9a4414ad8b186f187/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/6636ec0ae6046fa9a4414ad8b186f187/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/d43affb6deed999b779b78580a5306ac/AndroidManifest.xml:20:5-44
@@ -181,36 +181,36 @@ INJECTED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManif
 		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:16:15-41
 		INJECTED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml
 		INJECTED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:17:5-81
+	android:name
+		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:17:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:18:5-79
+	android:name
+		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:18:22-76
+uses-feature#android.hardware.location.gps
+ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:19:5-66
+	android:name
+		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:19:19-63
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:17:5-79
+ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:20:5-79
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/932e4afbefcc82bc9e4af43b82ee31fe/AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/932e4afbefcc82bc9e4af43b82ee31fe/AndroidManifest.xml:23:5-79
 	android:name
-		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:17:22-76
+		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:20:22-76
 uses-feature#0x00020000
-ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:18:5-78
+ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:21:5-78
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/932e4afbefcc82bc9e4af43b82ee31fe/AndroidManifest.xml:26:5-28:35
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/932e4afbefcc82bc9e4af43b82ee31fe/AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
-		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:18:19-51
+		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:21:19-51
 	android:required
-		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:18:52-75
+		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:21:52-75
 uses-feature#android.hardware.location
-ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:19:5-62
+ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:22:5-62
 	android:name
-		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:19:19-59
-uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:20:5-81
-	android:name
-		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:20:22-78
-uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:21:5-79
-	android:name
-		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:21:22-76
-uses-feature#android.hardware.location.gps
-ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:22:5-66
-	android:name
-		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:22:19-63
+		ADDED from /home/eduardo/git/Toto/platforms/android/app/src/main/AndroidManifest.xml:22:19-59
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/6636ec0ae6046fa9a4414ad8b186f187/AndroidManifest.xml:23:9-26:75
 	android:exported

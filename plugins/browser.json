@@ -16,12 +16,6 @@
     "cordova-plugin-safariviewcontroller": {
       "PACKAGE_NAME": "com.toto"
     },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.toto"
-    },
-    "cordova-sqlite-storage": {
-      "PACKAGE_NAME": "com.toto"
-    },
     "cordova-plugin-googlemaps": {
       "PACKAGE_NAME": "com.toto"
     },

@@ -73,10 +73,6 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"SQLitePlugin\"><param name=\"ios-package\" value=\"SQLitePlugin\" /></feature>",
-              "count": 1
-            },
-            {
               "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
               "count": 1
             }
@@ -130,9 +126,6 @@
       "API_KEY_FOR_IOS": "AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8",
       "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
       "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background.",
-      "PACKAGE_NAME": "com.toto"
-    },
-    "cordova-sqlite-storage": {
       "PACKAGE_NAME": "com.toto"
     },
     "cordova-plugin-geolocation": {
@@ -388,14 +381,6 @@
       "runs": true
     },
     {
-      "id": "cordova-sqlite-storage.SQLitePlugin",
-      "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
-      "pluginId": "cordova-sqlite-storage",
-      "clobbers": [
-        "SQLitePlugin"
-      ]
-    },
-    {
       "id": "cordova-plugin-geolocation.Coordinates",
       "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
       "pluginId": "cordova-plugin-geolocation",
@@ -432,7 +417,6 @@
     "cordova-plugin-inappbrowser": "3.0.0",
     "cordova-plugin-safariviewcontroller": "1.5.4",
     "cordova-plugin-googlemaps": "2.5.2",
-    "cordova-sqlite-storage": "3.1.0",
     "cordova-plugin-geolocation": "4.0.1"
   }
 }

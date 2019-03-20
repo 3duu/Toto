@@ -91,8 +91,8 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-plugin-safariviewcontroller/toto-SafariViewController-java18.gradle"
 apply from: "../cordova-plugin-googlemaps/toto-tbxml-android.gradle"
+apply from: "../cordova-plugin-safariviewcontroller/toto-SafariViewController-java18.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -267,10 +267,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
-    compile "com.android.support:customtabs:23.2.0"
     compile "com.google.android.gms:play-services-maps:15.0.1"
     compile "com.google.android.gms:play-services-location:15.0.1"
     compile "com.android.support:support-core-utils:27.+"
+    compile "com.android.support:customtabs:23.2.0"
     // SUB-PROJECT DEPENDENCIES END
 }
 

@@ -69,9 +69,6 @@
     <feature name="PluginStreetViewPanorama">
         <param name="ios-package" value="PluginStreetViewPanorama" />
     </feature>
-    <feature name="SQLitePlugin">
-        <param name="ios-package" value="SQLitePlugin" />
-    </feature>
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
