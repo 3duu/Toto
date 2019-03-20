@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChange } from '@angular/core';
 import { ColorClass } from '../styles/styles';
 
 @Component({
@@ -6,21 +6,32 @@ import { ColorClass } from '../styles/styles';
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css']
 })
-export class AlertComponent implements OnInit {
+export class AlertComponent implements OnInit, OnChanges {
 
   visible : boolean = false;
+  message : string = "";
+  type : ColorClass = ColorClass.danger;
 
-  constructor(private message : string, private type : ColorClass) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  show() : void {
+  ngOnChanges(changes: { [propName: string]: SimpleChange }) {
+    alert('rrrrrr');
+    if (changes['input'] && changes['input'].currentValue !== changes['input'].previousValue) {
+      //this.currentNumber = this.data.someOtherNumber+this.input.numberIneed;
+    }
+  }
+
+  show(message : string, type : ColorClass) : void {
+    this.message = message;
     this.visible = true;
+    this.type = type;
   }
 
   remove() : void {
-    this.visible = true;
+    this.visible = false;
   }
 
 }

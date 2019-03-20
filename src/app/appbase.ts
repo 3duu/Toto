@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { Language } from './language/Language';
 import { ApiService } from './service/services';
 import { User } from './entity/User';
-import { SessionAttributes, LoginComponent } from './login/login.component';
+import { SessionAttributes } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
 export class AppBase implements OnInit {
@@ -48,6 +48,10 @@ export class AppBase implements OnInit {
     getNavbarComponent() : NavbarComponent {
       return AppBase.navbarComponent;
     }
+
+    protected getAppComponent() : AppComponent {
+      return AppComponent.getAppComponent();
+    }
   
     protected static setNavbarComponent(navbarComponent : NavbarComponent) : void {
       if(this.navbarComponent == null){
@@ -71,12 +75,11 @@ export class AppBase implements OnInit {
       if(user != null){
         this.getNavbarComponent().username = user.getName();
         if(afterLoginRedirectComponent != null){
-            AppComponent.getAppComponent().addComponent(afterLoginRedirectComponent);
+          this.getAppComponent().changePage(afterLoginRedirectComponent);
         }
         else{
-            AppComponent.getAppComponent().addComponent(HomeComponent);
+          this.getAppComponent().changePage(HomeComponent);
         }
-        AppComponent.getAppComponent().removeComponent(LoginComponent);
       }
     }
     

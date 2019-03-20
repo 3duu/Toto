@@ -25,7 +25,7 @@ export class AppComponent implements AfterContentInit {
     return AppComponent.appComponent;
   }
 
-  addComponent(componentClass: Type<any>) : void {
+  private addComponent(componentClass: Type<any>) : any {
     // Create component dynamically inside the ng-template
     if(this.container != null){
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
@@ -33,12 +33,14 @@ export class AppComponent implements AfterContentInit {
 
       // Push the component so that we can keep track of which components are created
       this.components.push(component);
+      return component.injector;
     }
+    return null;
   }
 
-  removeComponent(componentClass: Type<any>) : void {
+  private removeComponent(componentClass: Type<any>, instance : boolean) : void {
     // Find the component
-    const component = this.components.find((component) => component.instance instanceof componentClass);
+    const component = instance ? componentClass : this.components.find(component => component.instance instanceof componentClass);
     const componentIndex = this.components.indexOf(component);
 
     if (componentIndex !== -1) {
@@ -53,17 +55,28 @@ export class AppComponent implements AfterContentInit {
   }
 
   startApp() : void {
-    this.components.forEach(component => {
-      this.removeComponent(component);
-    });
-    
     //Apagar session values
-    let values = Object.keys(SessionAttributes).map(k => SessionAttributes[k as any]); // [0, 1]
+    let values = Object.keys(SessionAttributes).map(k => SessionAttributes[k as any]);
     values.forEach(attr => {
       localStorage.setItem(attr, null);
     });
+    this.changePage(LoginComponent);
+  }
 
-    this.addComponent(LoginComponent);
+  changePage(page: Type<any>) : void {
+    this.components.forEach(component => {
+      this.removeComponent(component, true);
+    });
+    
+    this.addComponent(page);
+  }
+
+  addSingleComponent(page: Type<any>, instance : boolean) : any {
+    const component = instance ? page : this.components.find(component => component.instance instanceof page);
+    if(component == null){
+      return this.addComponent(page);
+    }
+    return component;
   }
 
   title = AppComponent.applicationName;

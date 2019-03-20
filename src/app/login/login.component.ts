@@ -4,6 +4,8 @@ import { User } from '../entity/User';
 import { ApiService, ReturnCode } from '../service/services';
 import { HomeComponent } from '../home/home.component';
 import { AppBase } from '../appbase';
+import { AlertComponent } from '../alert/alert.component';
+import { ColorClass } from '../styles/styles';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -18,16 +20,18 @@ export class LoginComponent extends AppBase {
 
   private submitted = false;
   private afterLoginRedirectComponent = HomeComponent;
+  private alert : AlertComponent;
 
   constructor(api: ApiService) { 
     super(api);
   }
 
   ngOnInit() : void {
-    
+    this.alert = this.getAppComponent().addSingleComponent(AlertComponent, false);
   }
 
   doLogin(form: NgForm) : void {
+    
     this.submitted = true;
     this.loginForm = form;
     // stop here if form is invalid
@@ -60,9 +64,11 @@ export class LoginComponent extends AppBase {
       }
       else if(ret.code == ReturnCode.NOT_FOUND){
         alert(this.language.invalidUserPassword);
+        this.alert.show(this.language.invalidUserPassword[0], ColorClass.danger);
       }
       else {
         alert(this.language.connectionError);
+        this.alert.show(this.language.connectionError[0], ColorClass.danger);
       }
     });
 
