@@ -21,11 +21,10 @@
     },
     "cordova-sqlite-storage": {
       "PACKAGE_NAME": "com.toto"
-    }
-  },
-  "dependent_plugins": {
-    "cordova-plugin-compat": {
+    },
+    "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.toto"
     }
-  }
+  },
+  "dependent_plugins": {}
 }

@@ -378,15 +378,14 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-compat": "1.0.0",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-dialogs": "1.2.1",
-    "cordova-plugin-geolocation": "2.2.0",
     "cordova-plugin-googlemaps": "2.5.2",
     "cordova-plugin-inappbrowser": "3.0.0",
     "cordova-plugin-safariviewcontroller": "1.5.4",
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-sqlite-storage": "3.1.0"
+    "cordova-sqlite-storage": "3.1.0",
+    "cordova-plugin-geolocation": "4.0.1"
 }
 // BOTTOM OF METADATA
 });

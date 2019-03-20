@@ -26,7 +26,7 @@ export class NavbarComponent extends AppBase implements AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    AppComponent.getAppComponent().addComponent(LoginComponent);
+    //AppComponent.getAppComponent().addComponent(LoginComponent);
   }
 
   

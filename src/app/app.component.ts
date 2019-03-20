@@ -1,6 +1,7 @@
 import { Language } from './language/Language';
-import { Component, ViewContainerRef, ComponentFactoryResolver, Type } from '@angular/core';
+import { Component, ViewContainerRef, ComponentFactoryResolver, Type, AfterContentInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { LoginComponent, SessionAttributes } from './login/login.component';
 
 //ng generate component home --entryComponent=true
 @Component({
@@ -8,7 +9,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements AfterContentInit {
 
   static applicationName : string = environment.name;
   static language : Language = new Language();
@@ -45,6 +46,24 @@ export class AppComponent {
       this.container.remove(this.container.indexOf(component));
       this.components.splice(componentIndex, 1);
     }
+  }
+
+  ngAfterContentInit(): void {
+    this.startApp();
+  }
+
+  startApp() : void {
+    this.components.forEach(component => {
+      this.removeComponent(component);
+    });
+    
+    //Apagar session values
+    let values = Object.keys(SessionAttributes).map(k => SessionAttributes[k as any]); // [0, 1]
+    values.forEach(attr => {
+      localStorage.setItem(attr, null);
+    });
+
+    this.addComponent(LoginComponent);
   }
 
   title = AppComponent.applicationName;

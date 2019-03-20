@@ -50,20 +50,6 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-geolocation.geolocation",
-    "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
-    "pluginId": "cordova-plugin-geolocation",
-    "clobbers": [
-      "navigator.geolocation"
-    ]
-  },
-  {
-    "id": "cordova-plugin-geolocation.PositionError",
-    "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-    "pluginId": "cordova-plugin-geolocation",
-    "runs": true
-  },
-  {
     "id": "cordova-plugin-googlemaps.Promise",
     "file": "plugins/cordova-plugin-googlemaps/www/Promise.js",
     "pluginId": "cordova-plugin-googlemaps"
@@ -291,6 +277,20 @@ module.exports = [
     "file": "plugins/cordova-plugin-googlemaps/www/js_CordovaGoogleMaps-for-android_ios.js",
     "pluginId": "cordova-plugin-googlemaps",
     "runs": true
+  },
+  {
+    "id": "cordova-plugin-geolocation.geolocation",
+    "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+    "pluginId": "cordova-plugin-geolocation",
+    "clobbers": [
+      "navigator.geolocation"
+    ]
+  },
+  {
+    "id": "cordova-plugin-geolocation.PositionError",
+    "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+    "pluginId": "cordova-plugin-geolocation",
+    "runs": true
   }
 ];
 module.exports.metadata = 
@@ -302,9 +302,8 @@ module.exports.metadata =
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-sqlite-storage": "3.1.0",
   "cordova-plugin-dialogs": "1.2.1",
-  "cordova-plugin-compat": "1.0.0",
-  "cordova-plugin-geolocation": "2.2.0",
-  "cordova-plugin-googlemaps": "2.5.2"
+  "cordova-plugin-googlemaps": "2.5.2",
+  "cordova-plugin-geolocation": "4.0.1"
 };
 // BOTTOM OF METADATA
 });

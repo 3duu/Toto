@@ -384,7 +384,8 @@ module.exports.metadata =
     "cordova-plugin-inappbrowser": "3.0.0",
     "cordova-plugin-safariviewcontroller": "1.5.4",
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-sqlite-storage": "3.1.0"
+    "cordova-sqlite-storage": "3.1.0",
+    "cordova-plugin-geolocation": "4.0.1"
 }
 // BOTTOM OF METADATA
 });
