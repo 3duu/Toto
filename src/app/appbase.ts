@@ -16,6 +16,8 @@ export class AppBase implements OnInit {
   
     applicationName : string = AppComponent.applicationName;
     language : Language = AppComponent.language;
+
+    private children = [];
   
     constructor(protected api: ApiService){
       AppBase.addModule(this);

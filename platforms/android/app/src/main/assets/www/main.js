@@ -52,7 +52,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"alert alert-{{type}}\" role=\"alert\">\n  {{message}}\n</div>"
+module.exports = "<div class=\"alert alert-{{type}}\" [ngClass]=\"{ 'button-disabled': !visible }\" role=\"alert\">\n  {{message}}\n</div>"
 
 /***/ }),
 
@@ -68,23 +68,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertComponent", function() { return AlertComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
-
 
 
 var AlertComponent = /** @class */ (function () {
-    function AlertComponent(message, type) {
-        this.message = message;
-        this.type = type;
+    function AlertComponent() {
         this.visible = false;
     }
     AlertComponent.prototype.ngOnInit = function () {
     };
-    AlertComponent.prototype.show = function () {
+    AlertComponent.prototype.show = function (message, type) {
+        this.message = message;
         this.visible = true;
+        this.type = type;
     };
     AlertComponent.prototype.remove = function () {
-        this.visible = true;
+        this.visible = false;
     };
     AlertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -92,7 +90,7 @@ var AlertComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./alert.component.html */ "./src/app/alert/alert.component.html"),
             styles: [__webpack_require__(/*! ./alert.component.css */ "./src/app/alert/alert.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [String, String])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], AlertComponent);
     return AlertComponent;
 }());
@@ -199,11 +197,13 @@ var AppComponent = /** @class */ (function () {
             var component = this.container.createComponent(componentFactory);
             // Push the component so that we can keep track of which components are created
             this.components.push(component);
+            return component.instance;
         }
+        return null;
     };
-    AppComponent.prototype.removeComponent = function (componentClass) {
+    AppComponent.prototype.removeComponent = function (componentClass, instance) {
         // Find the component
-        var component = this.components.find(function (component) { return component.instance instanceof componentClass; });
+        var component = instance ? componentClass : this.components.find(function (component) { return component.instance instanceof componentClass; });
         var componentIndex = this.components.indexOf(component);
         if (componentIndex !== -1) {
             // Remove component from both view and array
@@ -215,16 +215,26 @@ var AppComponent = /** @class */ (function () {
         this.startApp();
     };
     AppComponent.prototype.startApp = function () {
-        var _this = this;
-        this.components.forEach(function (component) {
-            _this.removeComponent(component);
-        });
         //Apagar session values
-        var values = Object.keys(_login_login_component__WEBPACK_IMPORTED_MODULE_4__["SessionAttributes"]).map(function (k) { return _login_login_component__WEBPACK_IMPORTED_MODULE_4__["SessionAttributes"][k]; }); // [0, 1]
+        var values = Object.keys(_login_login_component__WEBPACK_IMPORTED_MODULE_4__["SessionAttributes"]).map(function (k) { return _login_login_component__WEBPACK_IMPORTED_MODULE_4__["SessionAttributes"][k]; });
         values.forEach(function (attr) {
             localStorage.setItem(attr, null);
         });
-        this.addComponent(_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]);
+        this.changePage(_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]);
+    };
+    AppComponent.prototype.changePage = function (page) {
+        var _this = this;
+        this.components.forEach(function (component) {
+            _this.removeComponent(component, true);
+        });
+        this.addComponent(page);
+    };
+    AppComponent.prototype.addSingleComponent = function (page, instance) {
+        var component = instance ? page : this.components.find(function (component) { return component.instance instanceof page; });
+        if (component == null) {
+            return this.addComponent(page);
+        }
+        return component;
     };
     var AppComponent_1;
     AppComponent.applicationName = src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].name;
@@ -370,6 +380,9 @@ var AppBase = /** @class */ (function () {
     AppBase.prototype.getNavbarComponent = function () {
         return AppBase.navbarComponent;
     };
+    AppBase.prototype.getAppComponent = function () {
+        return _app_component__WEBPACK_IMPORTED_MODULE_0__["AppComponent"].getAppComponent();
+    };
     AppBase.setNavbarComponent = function (navbarComponent) {
         if (this.navbarComponent == null) {
             AppBase.addModule(navbarComponent);
@@ -390,12 +403,11 @@ var AppBase = /** @class */ (function () {
         if (user != null) {
             this.getNavbarComponent().username = user.getName();
             if (afterLoginRedirectComponent != null) {
-                _app_component__WEBPACK_IMPORTED_MODULE_0__["AppComponent"].getAppComponent().addComponent(afterLoginRedirectComponent);
+                this.getAppComponent().changePage(afterLoginRedirectComponent);
             }
             else {
-                _app_component__WEBPACK_IMPORTED_MODULE_0__["AppComponent"].getAppComponent().addComponent(_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"]);
+                this.getAppComponent().changePage(_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"]);
             }
-            _app_component__WEBPACK_IMPORTED_MODULE_0__["AppComponent"].getAppComponent().removeComponent(_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]);
         }
     };
     AppBase.modules = [];
@@ -707,6 +719,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
+/* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
+/* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
+
+
 
 
 
@@ -724,6 +740,7 @@ var LoginComponent = /** @class */ (function (_super) {
         return _this;
     }
     LoginComponent.prototype.ngOnInit = function () {
+        this.alert = this.getAppComponent().addSingleComponent(_alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"], false);
     };
     LoginComponent.prototype.doLogin = function (form) {
         var _this = this;
@@ -754,10 +771,12 @@ var LoginComponent = /** @class */ (function (_super) {
                 }
             }
             else if (ret.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].NOT_FOUND) {
-                alert(_this.language.invalidUserPassword);
+                //alert(this.language.invalidUserPassword);
+                _this.alert.show(_this.language.invalidUserPassword[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             }
             else {
-                alert(_this.language.connectionError);
+                //alert(this.language.connectionError);
+                _this.alert.show(_this.language.connectionError[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             }
         });
         console.log(form.value);
@@ -962,7 +981,6 @@ var NavbarComponent = /** @class */ (function (_super) {
         _appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"].setNavbarComponent(this);
     };
     NavbarComponent.prototype.ngAfterContentInit = function () {
-        //AppComponent.getAppComponent().addComponent(LoginComponent);
     };
     NavbarComponent.prototype.toggleNavbar = function () {
         this.navbarOpen = !this.navbarOpen;

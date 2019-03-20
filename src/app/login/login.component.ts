@@ -22,7 +22,7 @@ export class LoginComponent extends AppBase {
   private afterLoginRedirectComponent = HomeComponent;
   private alert : AlertComponent;
 
-  constructor(api: ApiService) { 
+  constructor(api: ApiService) {
     super(api);
   }
 

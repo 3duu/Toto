@@ -24,7 +24,9 @@ export class AlertComponent implements OnInit {
   }
 
   remove() : void {
+    this.message = null;
     this.visible = false;
+    this.type = null;
   }
 
 }
