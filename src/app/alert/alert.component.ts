@@ -6,22 +6,15 @@ import { ColorClass } from '../styles/styles';
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css']
 })
-export class AlertComponent implements OnInit, OnChanges {
+export class AlertComponent implements OnInit {
 
   visible : boolean = false;
-  message : string = "";
-  type : ColorClass = ColorClass.danger;
+  message : string;
+  type : ColorClass;
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  ngOnChanges(changes: { [propName: string]: SimpleChange }) {
-    alert('rrrrrr');
-    if (changes['input'] && changes['input'].currentValue !== changes['input'].previousValue) {
-      //this.currentNumber = this.data.someOtherNumber+this.input.numberIneed;
-    }
   }
 
   show(message : string, type : ColorClass) : void {
