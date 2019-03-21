@@ -24,7 +24,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 public class JPAConfiguration {
 	
-	//protected final static Access accessInfo = new Access();
 	//sudo /etc/init.d/oracle-xe-18c configure
 	//sudo service oracle-xe-18c start
 	private final static String ENTITY_PACKAGE = "br.com.duti.petlife.models";
@@ -45,6 +44,7 @@ public class JPAConfiguration {
 		new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
 		em.setJpaProperties(additionalProperties());
+		em.setPersistenceUnitName("PETLIF3");
 
 		return em;
 	}
