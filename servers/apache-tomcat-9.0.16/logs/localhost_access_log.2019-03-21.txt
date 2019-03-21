@@ -24,3 +24,11 @@
 172.20.206.17 - - [21/Mar/2019:16:35:50 -0300] "OPTIONS /petlife/user/authenticate HTTP/1.1" 401 -
 172.20.206.17 - - [21/Mar/2019:16:36:20 -0300] "GET / HTTP/1.1" 200 11488
 172.20.206.17 - - [21/Mar/2019:16:36:20 -0300] "GET /favicon.ico HTTP/1.1" 200 21630
+172.20.206.17 - - [21/Mar/2019:16:38:38 -0300] "POST /petlife/user/authenticate HTTP/1.1" 403 146
+172.20.206.17 - - [21/Mar/2019:16:38:44 -0300] "POST /user/authenticate HTTP/1.1" 404 1107
+172.20.206.17 - - [21/Mar/2019:16:38:51 -0300] "POST /petlife HTTP/1.1" 302 -
+172.20.206.17 - - [21/Mar/2019:16:38:51 -0300] "GET /petlife/ HTTP/1.1" 401 135
+172.20.206.17 - - [21/Mar/2019:16:38:58 -0300] "POST /petlife/user/authenticate HTTP/1.1" 403 146
+172.20.206.17 - - [21/Mar/2019:17:10:17 -0300] "POST /petlife/user/authenticate HTTP/1.1" 401 152
+172.20.206.17 - - [21/Mar/2019:17:20:28 -0300] "POST /petlife/user/authenticate HTTP/1.1" 401 152
+172.20.206.17 - - [21/Mar/2019:17:20:40 -0300] "POST /petlife/user/authenticate HTTP/1.1" 401 152

@@ -3,6 +3,7 @@ import { Component, ViewContainerRef, ComponentFactoryResolver, Type, AfterConte
 import { environment } from 'src/environments/environment';
 import { LoginComponent, SessionAttributes } from './login/login.component';
 
+//https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
 @Component({
   selector: 'app-root',
