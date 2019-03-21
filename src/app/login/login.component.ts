@@ -45,32 +45,39 @@ export class LoginComponent extends AppBase {
     formUser.setPassword(form.value.password);
 
     let user = this.api.login(formUser);
-
-    user.subscribe(ret => {
-      console.log(ret);
-      this.loading = false;
-      if(ret.code == ReturnCode.SUCCESS){
-        if (ret && ret.sid) {
-            //store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem(SessionAttributes.CURRENT_USER, JSON.stringify(ret.entity));
-            localStorage.setItem(SessionAttributes.CURRENT_PASSWORD, form.value.password);
-            localStorage.setItem(SessionAttributes.SESSION_ID, ret.sid);
-            localStorage.setItem(SessionAttributes.LOGIN_DATE, ret.date);
-            //localStorage.removeItem('currentUser');
-            this.getNavbarComponent().disableMenu = false;
-            
-            this.onLogged(this.afterLoginRedirectComponent);
+    
+    if(user != null){
+      (<any>window).httpUser = user;
+      user.subscribe(ret => {
+        alert('666');
+        console.log(ret);
+        this.loading = false;
+        if(ret.code == ReturnCode.SUCCESS){
+          if (ret && ret.sid) {
+              //store user details and jwt token in local storage to keep user logged in between page refreshes
+              localStorage.setItem(SessionAttributes.CURRENT_USER, JSON.stringify(ret.entity));
+              localStorage.setItem(SessionAttributes.CURRENT_PASSWORD, form.value.password);
+              localStorage.setItem(SessionAttributes.SESSION_ID, ret.sid);
+              localStorage.setItem(SessionAttributes.LOGIN_DATE, ret.date);
+              //localStorage.removeItem('currentUser');
+              this.getNavbarComponent().disableMenu = false;
+              
+              this.onLogged(this.afterLoginRedirectComponent);
+          }
         }
-      }
-      else if(ret.code == ReturnCode.NOT_FOUND){
-        //alert(this.language.invalidUserPassword);
-        this.alert.show(this.language.invalidUserPassword[0], ColorClass.danger);
-      }
-      else {
-        //alert(this.language.connectionError);
-        this.alert.show(this.language.connectionError[0], ColorClass.danger);
-      }
-    });
+        else if(ret.code == ReturnCode.NOT_FOUND){
+          //alert(this.language.invalidUserPassword);
+          this.alert.show(this.language.invalidUserPassword[0], ColorClass.danger);
+        }
+        else {
+          //alert(this.language.connectionError);
+          this.alert.show(this.language.connectionError[0], ColorClass.danger);
+        }
+      });
+    }
+    else {
+      this.alert.show(this.language.connectionError[0], ColorClass.danger);
+    }
 
     console.log(form.value);
   }

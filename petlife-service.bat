@@ -1,0 +1,1 @@
+java -jar petlife-services-0.1.0.jar
