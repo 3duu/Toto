@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 
 import br.com.duti.petlife.Application;
 
-@Component
-public class HostsBean implements WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> {
-	@Override
+//@Component
+public class HostsBean /*implements WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>*/ {
+	/*@Override
     public void customize(ConfigurableServletWebServerFactory container) {
         container.setPort(Integer.parseInt(Application.PORT));
-    }
+    }*/
 }

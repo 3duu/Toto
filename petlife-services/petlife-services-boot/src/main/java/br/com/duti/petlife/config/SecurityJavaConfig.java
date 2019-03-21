@@ -10,11 +10,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Configuration
-@EnableWebSecurity
-public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
+//@Configuration
+//@EnableWebSecurity
+public class SecurityJavaConfig /*extends WebSecurityConfigurerAdapter*/ {
 	
-	private static final String ADMIN = "ADMIN";
+	/*private static final String ADMIN = "ADMIN";
 	private static final String USER = "USER";
 	private static final String admin = "admin";
 	private static final String user = "user";
@@ -57,5 +57,5 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	public PasswordEncoder encoder() {
 	    return new BCryptPasswordEncoder();
-	}
+	}*/
 }

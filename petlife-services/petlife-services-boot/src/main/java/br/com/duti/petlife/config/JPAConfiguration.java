@@ -49,7 +49,7 @@ public class JPAConfiguration {
 		return em;
 	}
 	
-	@Bean(/*destroyMethod = "close"*/)
+	@Bean
 	public DataSource dataSource(){
 		
 		final DriverManagerDataSource dataSource =

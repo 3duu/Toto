@@ -2,9 +2,9 @@ package br.com.duti.petlife.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class ServletSpringMVC /*extends AbstractAnnotationConfigDispatcherServletInitializer*/ {
 	
-	@Override
+	/*@Override
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class[]{
 		JPAConfiguration.class};
@@ -18,6 +18,6 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	@Override
 	protected String[] getServletMappings() {
 		return new String[] {"/"};
-	}
+	}*/
 
 }

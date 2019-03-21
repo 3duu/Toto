@@ -13,8 +13,8 @@ import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.util.StringUtils;
 
-public class MySavedRequestAwareAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
-	
+public class MySavedRequestAwareAuthenticationSuccessHandler /*extends SimpleUrlAuthenticationSuccessHandler*/ {
+	/*
 	private RequestCache requestCache = new HttpSessionRequestCache();
 	
 	@Override
@@ -45,5 +45,5 @@ public class MySavedRequestAwareAuthenticationSuccessHandler extends SimpleUrlAu
  
     public void setRequestCache(RequestCache requestCache) {
         this.requestCache = requestCache;
-    }
+    }*/
 }
