@@ -32,3 +32,6 @@
 172.20.206.17 - - [21/Mar/2019:17:10:17 -0300] "POST /petlife/user/authenticate HTTP/1.1" 401 152
 172.20.206.17 - - [21/Mar/2019:17:20:28 -0300] "POST /petlife/user/authenticate HTTP/1.1" 401 152
 172.20.206.17 - - [21/Mar/2019:17:20:40 -0300] "POST /petlife/user/authenticate HTTP/1.1" 401 152
+0:0:0:0:0:0:0:1 - - [21/Mar/2019:18:04:41 -0300] "POST /user/authenticate HTTP/1.1" 404 1107
+172.20.206.17 - - [21/Mar/2019:18:04:47 -0300] "POST /user/authenticate HTTP/1.1" 404 1107
+172.20.206.17 - - [21/Mar/2019:18:05:25 -0300] "POST /petlife/user/authenticate HTTP/1.1" 200 396

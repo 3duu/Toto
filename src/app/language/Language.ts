@@ -21,6 +21,7 @@ export class Language {
     dontHave : string[] = ["Não possui"];
     orSocialMediaAccount : string[] = ["ou conta em rede social?"];
     email : string[] = ["E-mail"];
+    username : string[] = ["Usuário"];
     password : string[] = ["Senha"];
     logout : string[] = ["Sair"];
 
