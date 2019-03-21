@@ -4,6 +4,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 import java.util.Arrays;
 
@@ -14,7 +15,7 @@ import org.slf4j.LoggerFactory;
 {		"br.com.duti.petlife.config",
 		"br.com.duti.petlife.controller",
 		"br.com.duti.petlife.repository"})
-public class Application implements ApplicationRunner {
+public class Application extends SpringBootServletInitializer implements ApplicationRunner  {
 	
 	private static final Logger logger = LoggerFactory.getLogger(Application.class);
 	

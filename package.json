@@ -2,7 +2,7 @@
   "name": "br.com.petlife",
   "version": "1.0.0",
   "displayName": "PetLif3",
-  "endpoint": "http://localhost:9003",
+  "endpoint": "http://172.20.206.17:9003/petlife",
   "cordova": {
     "plugins": {
       "cordova-plugin-device": {},
