@@ -1,4 +1,4 @@
-import { ApiService } from './service/services';
+import { UserApiService } from './service/services';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -35,7 +35,7 @@ import { HomeComponent } from './home/home.component';
     TooltipModule.forRoot(),
     HttpClientModule
   ],
-  providers: [CordovaService, ApiService],
+  providers: [CordovaService, UserApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

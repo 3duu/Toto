@@ -2,7 +2,6 @@ import { OnInit, Type } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { Language } from './language/Language';
-import { ApiService } from './service/services';
 import { User } from './entity/User';
 import { SessionAttributes } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -19,7 +18,7 @@ export class AppBase implements OnInit {
 
     private children = [];
   
-    constructor(protected api: ApiService){
+    constructor(){
       AppBase.addModule(this);
     }
   
@@ -83,6 +82,10 @@ export class AppBase implements OnInit {
           this.getAppComponent().changePage(HomeComponent);
         }
       }
+    }
+
+    setError(message : string) : void {
+
     }
     
   }

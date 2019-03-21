@@ -7,8 +7,8 @@
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
         <br><br>
         <p>
-            <a class="btn btn-primary social-login-btn social-facebook" href="#"><i class="fa fa-facebook"></i></a>
-            <a class="btn btn-primary social-login-btn social-google" href="#"><i class="fa fa-google-plus"></i></a>
+            <a class="btn btn-primary social-login-btn social-facebook" (click)="facebook()" href="#"><i class="fa fa-facebook"></i></a>
+            <a class="btn btn-primary social-login-btn social-google"   (click)="google()" href="#"><i class="fa fa-google-plus"></i></a>
         </p>
         <!-- <p>
         <a class="btn btn-primary social-login-btn social-linkedin" href="#"><i class="fa fa-linkedin"></i></a>
@@ -41,13 +41,15 @@
         <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>
         <br><br>
         
-        <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.email}}" type="text" name="username" id="username" ngModel/>
-        <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel/>
+        <input type="hidden" name="socialMedia" id="socialMedia" ngModel />
+        <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.email}}" type="text" name="username" id="username" ngModel /><!-- required -->
+        <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel />
 
         <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
         <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
             <span class="sr-only">Carregando...</span>
         </div>
+        <app-alert></app-alert>
         <button class="btn btn-lg btn-petlife btn-block btn-center" type="submit" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.login}}</button>
         <br>
         <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class="ember-view btn btn-sm btn-default"> {{language.signUp}} </button> </small>

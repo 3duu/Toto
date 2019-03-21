@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CordovaService } from '../cordova.service';
-import { ApiService } from '../service/services';
 import { AppBase } from '../appbase';
 
 //https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md
@@ -22,8 +21,8 @@ export class MapsComponent extends AppBase {
     maximumAge: 3600000
   }
   
-  constructor(private cordovaService : CordovaService, api: ApiService) {
-    super(api);
+  constructor(private cordovaService : CordovaService) {
+    super();
   }
 
   ngOnInit() {

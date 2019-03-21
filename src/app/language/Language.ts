@@ -27,4 +27,8 @@ export class Language {
     //Messages
     connectionError : string[] = ["Erro ao conexão"];
     invalidUserPassword : string[] = ["Usuário ou senha inválido(s)"];
+    requiredFields : string[] = ["Preencha o(s) campo(s) obrigatório(s)"];
+    validateDataError : string[] = ["Erro ao validar os dados"];
+    retrieveDataError : string[] = ["Erro ao obter dados"];
+    registerSuccess : string[] = ["Usuário registrado com sucsso"];
 }

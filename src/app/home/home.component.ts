@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../service/services';
 import { AppBase } from '../appbase';
 
 @Component({
@@ -9,11 +8,12 @@ import { AppBase } from '../appbase';
 })
 export class HomeComponent extends AppBase {
 
-  constructor(api: ApiService) {
-    super(api);
+  constructor() {
+    super();
   }
 
   ngOnInit() {
+    this.getNavbarComponent().disableMenu = false;
   }
 
 }

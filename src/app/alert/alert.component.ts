@@ -8,11 +8,13 @@ import { ColorClass } from '../styles/styles';
 })
 export class AlertComponent implements OnInit {
 
-  visible : boolean = false;
+  visible : boolean;
   message : string;
   type : ColorClass;
 
-  constructor() { }
+  constructor() { 
+    this.visible = false;
+  }
 
   ngOnInit() {
   }
@@ -23,7 +25,7 @@ export class AlertComponent implements OnInit {
     this.type = type;
   }
 
-  remove() : void {
+  hide() : void {
     this.message = null;
     this.visible = false;
     this.type = null;

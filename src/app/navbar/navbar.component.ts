@@ -1,7 +1,5 @@
-import { AppComponent } from '../app.component';
 import { Component, AfterContentInit } from '@angular/core';
-import { ApiService } from '../service/services';
-import { LoginComponent } from '../login/login.component';
+import { UserApiService } from '../service/services';
 import { AppBase } from '../appbase';
 
 @Component({
@@ -9,12 +7,11 @@ import { AppBase } from '../appbase';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-
 @Navbar
 export class NavbarComponent extends AppBase implements AfterContentInit {
   
-  constructor(api: ApiService) {
-    super(api);
+  constructor(private api: UserApiService) {
+    super();
   }
 
   disableMenu = true;
@@ -29,7 +26,6 @@ export class NavbarComponent extends AppBase implements AfterContentInit {
     
   }
 
-  
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }

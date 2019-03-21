@@ -1,0 +1,57 @@
+<div class="container">     
+<script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
+
+<div class="container text-center">
+    <form class="form-signin" #loginForm="ngForm" (ngSubmit)="doLogin(loginForm)">
+        <h2 class="form-signin-heading">{{language.signIn}}</h2>
+        <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
+        <br><br>
+        <p>
+            <a class="btn btn-primary social-login-btn social-facebook" (click)="facebook()" href="#"><i class="fa fa-facebook"></i></a>
+            <a class="btn btn-primary social-login-btn social-google"   (click)="google()" href="#"><i class="fa fa-google-plus"></i></a>
+        </p>
+        <!-- <p>
+        <a class="btn btn-primary social-login-btn social-linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+        <a class="btn btn-primary social-login-btn social-twitter" href="#"><i class="fa fa-twitter"></i></a>
+        </p> -->
+
+        <!-- <div class="btn-group social-login-more">
+        <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown">
+        {{language.more}}
+        </button>
+        <ul class="dropdown-menu text-left " role="menu">
+        <li><a href="#"><i class="fa fa-tumblr-sign"></i>   Tumblr</a></li>
+        <li><a href="#"><i class="fa fa-github-alt"></i>   Github</a></li>
+        <li><a href="#"><i class="fa fa-dropbox"></i>   Dropbox</a></li>
+        <li><a href="/auth/amazon"><span class="zocial-amazon"></span>   Amazon</a></li>
+        <li><a href="#"><span class="zocial-bitbucket"></span>   Bitbucket</a></li>
+        <li><a href="#"><span class="zocial-evernote"></span>   Evernote</a></li>
+        <li><a href="#"><span class="zocial-meetup"></span>   Meetup</a></li>
+        <li><a href="#"><i class="fa fa-windows"></i>   Windows Live</a></li>
+        <li><a href="#"><i class="fa fa-weibo"></i>   Weibo</a></li>
+        <li><a href="#"><i class="fa fa-foursquare"></i>   Foursquare</a></li>
+        <li><a href="#"><i class="fa fa-stackexchange"></i>   Stack Exchange</a></li>
+        <li><a href="#"><i class="fa fa-trello"></i>   Trello</a></li>
+        <li><a href="#"><span class="zocial-wordpress"></span>   Wordpress</a></li>
+        </ul>
+        </div> 
+        <br> -->
+        <br>
+
+        <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>
+        <br><br>
+        
+        <input type="hidden" name="socialMedia" id="socialMedia" ngModel />
+        <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.email}}" type="text" name="username" id="username" ngModel /><!-- required -->
+        <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel />
+
+        <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
+        <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
+            <span class="sr-only">Carregando...</span>
+        </div>
+        <app-alert></app-alert>
+        <button class="btn btn-lg btn-petlife btn-block btn-center" type="submit" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.login}}</button>
+        <br>
+        <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class="ember-view btn btn-sm btn-default"> {{language.signUp}} </button> </small>
+    </form>
+</div>
