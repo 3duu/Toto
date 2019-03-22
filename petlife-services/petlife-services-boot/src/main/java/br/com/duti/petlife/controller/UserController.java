@@ -18,7 +18,7 @@ import br.com.duti.petlife.models.ResponseEntity;
 import br.com.duti.petlife.models.User;
 import br.com.duti.petlife.repository.interfaces.IUserRepository;
 import br.com.duti.utils.MessageCode;
-import br.com.duti.utils.Utils;
+import static br.com.duti.utils.Utils.CORS;
 
 @RequestMapping("/user")
 @RestController
@@ -39,10 +39,24 @@ public class UserController {
         return response;
     }*/
 	
-	@CrossOrigin(origins = {Utils.ANGULAR_HOST, Utils.PHONEGAP_HOST, Utils.PHONEGAP_HOST2, Utils.PHONEGAP_HOST3})
+	@CrossOrigin(origins = CORS)
 	@PostMapping(value="/authenticate", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> doLogin(@RequestBody final User user) {
 		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.getUser(user.getUsername(), getEncryptedString(user.getPassword())), RequestContextHolder.currentRequestAttributes().getSessionId());
+		if(response.getEntity() != null) {
+			response.setCode(MessageCode.SUCCESS.getValue());
+			response.setDate(new Date());
+		} else {
+			response.setCode(MessageCode.NOT_FOUND.getValue());
+		}
+        return response;
+	}
+	
+	@CrossOrigin(origins = CORS)
+	@PostMapping(value="/register", produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<User> register(@RequestBody final User user) {
+		user.setPassword(getEncryptedString(user.getPassword()));
+		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.save(user), RequestContextHolder.currentRequestAttributes().getSessionId());
 		if(response.getEntity() != null) {
 			response.setCode(MessageCode.SUCCESS.getValue());
 			response.setDate(new Date());

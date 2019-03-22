@@ -21,9 +21,14 @@ export class Language {
     dontHave : string[] = ["Não possui"];
     orSocialMediaAccount : string[] = ["ou conta em rede social?"];
     email : string[] = ["E-mail"];
-    username : string[] = ["Usuário"];
+    username : string[] = ["E-mail/Usuário"];
+    name : string[] = ["Nome"];
+    birthday : string[] = ["Nascimento"];
     password : string[] = ["Senha"];
+    confirmPassword : string[] = ["Confirme a senha"];
     logout : string[] = ["Sair"];
+    createUser : string[] = ["Registrar"];
+    createYourAccount : string[] = ["Crie sua conta no "];
 
     //Messages
     connectionError : string[] = ["Erro ao conexão"];
@@ -32,4 +37,7 @@ export class Language {
     validateDataError : string[] = ["Erro ao validar os dados"];
     retrieveDataError : string[] = ["Erro ao obter dados"];
     registerSuccess : string[] = ["Usuário registrado com sucsso"];
+    invalidEmailAddress : string[] = ["Forneça um endereço de e-mail válido"];
+    invalidPassword : string[] = ["Senha deve conter pelo menos :min caracteres"];
+    passwordDoesntMatch : string[] = ["Confirmação de senha não corresponde com senha"];
 }

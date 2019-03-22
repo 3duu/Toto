@@ -15,6 +15,9 @@ public class Utils {
 	public static final String PHONEGAP_HOST = "http://home:3000";
 	public static final String PHONEGAP_HOST2 = "http://192.168.1.2:3000";
 	public static final String PHONEGAP_HOST3 = "http://192.168.1.3:3000";
+	public static final String SMARTPHONE = "file://";
+
+	public static final String[] CORS = {Utils.ANGULAR_HOST, Utils.PHONEGAP_HOST, Utils.PHONEGAP_HOST2, Utils.PHONEGAP_HOST3, Utils.SMARTPHONE};
 	
 	public static final String getEncryptedString(final String string) {
 		if(messageDigest == null) {

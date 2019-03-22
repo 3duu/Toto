@@ -31,6 +31,7 @@ export class AppComponent implements AfterContentInit {
     if(this.container != null){
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
       const component = this.container.createComponent(componentFactory);
+      console.log("Adicionado: " + component.instance.constructor.name);
 
       // Push the component so that we can keep track of which components are created
       this.components.push(component);
@@ -48,6 +49,7 @@ export class AppComponent implements AfterContentInit {
       // Remove component from both view and array
       this.container.remove(this.container.indexOf(component));
       this.components.splice(componentIndex, 1);
+      console.log("Adicionado: " + component.instance.constructor.name);
     }
   }
 
@@ -69,6 +71,11 @@ export class AppComponent implements AfterContentInit {
       this.removeComponent(component, true);
     });
     
+    this.addComponent(page);
+  }
+
+  changeCurrentPage(current: Type<any>, page: Type<any>) : void {
+    this.removeComponent(current, false);
     this.addComponent(page);
   }
 

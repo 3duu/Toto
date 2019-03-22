@@ -7,6 +7,10 @@ import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { Observable } from 'rxjs';
+import { StringUtils } from '../utils';
+import { environment } from 'src/environments/environment';
+
+const passwordConfig = environment.passwordConfig;
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -29,7 +33,7 @@ export class RegisterComponent extends AppBase {
   }
 
   ngOnInit() : void {
-    
+    this.getNavbarComponent().disableMenu = true;
   }
 
   doRegister(form: NgForm) : void {
@@ -47,9 +51,33 @@ export class RegisterComponent extends AppBase {
     let formUser = new User();
     formUser.setUsername(form.value.username);
     formUser.setPassword(form.value.password);
+    formUser.setName(form.value.name);
+    console.log(form.value);
 
-    if(formUser.getUsername() == null || formUser.getUsername().trim() == "" || formUser.getPassword() == null || formUser.getPassword().trim() == ""){
+    //Campos obrigaorios
+    if(!this.requiredFieldsFilled(formUser, form.value.confirmPassword)){
       this.alert.show(this.language.requiredFields[0], ColorClass.danger);
+      this.loading = false;
+      return;
+    }
+
+    //Validar e-mail
+    if(!StringUtils.isEmail(formUser.getUsername())){
+      this.alert.show(this.language.invalidEmailAddress[0], ColorClass.danger);
+      this.loading = false;
+      return;
+    }
+
+    //Validar senha
+    if(formUser.getPassword().length < passwordConfig.min || (!StringUtils.isEmpty(passwordConfig.contains))){
+      this.alert.show(this.language.invalidPassword[0].replace(":min", passwordConfig.min), ColorClass.danger);
+      this.loading = false;
+      return;
+    }
+
+    //Corresponder senha
+    if(formUser.getPassword() != form.value.confirmPassword){
+      this.alert.show(this.language.passwordDoesntMatch[0], ColorClass.danger);
       this.loading = false;
       return;
     }
@@ -73,11 +101,20 @@ export class RegisterComponent extends AppBase {
       else {
         this.alert.show(this.language.connectionError[0], ColorClass.danger);
       }
-    }, error => {
+    } ,error => {
       this.alert.show(this.language.connectionError[0], ColorClass.danger);
       this.loading = false;
     });
 
+    
+
+  }
+
+  requiredFieldsFilled(user: User, confirmPassword : string) : boolean {
+    return !(StringUtils.isEmpty(user.getUsername())
+    || StringUtils.isEmpty(user.getPassword())
+    || StringUtils.isEmpty(user.getName())
+    || StringUtils.isEmpty(confirmPassword));
   }
 
 }

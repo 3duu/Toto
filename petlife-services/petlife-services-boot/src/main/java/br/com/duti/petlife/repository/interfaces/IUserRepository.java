@@ -6,6 +6,7 @@ import br.com.duti.petlife.models.User;
 
 public interface IUserRepository {
 	
-	public User getUser(final String username, final String password);
+	public User getUser(String username, String password);
 	public UserDetails loadUserByUsername(final String username);
+	public User save(User user);
 }

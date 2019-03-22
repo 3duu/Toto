@@ -7,6 +7,8 @@ import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { Observable } from 'rxjs';
+import { RegisterComponent } from '../register/register.component';
+import { StringUtils } from '../utils';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -30,6 +32,7 @@ export class LoginComponent extends AppBase {
   } 
 
   ngOnInit() : void {
+    this.getNavbarComponent().disableMenu = true;
     this.onLogged(this.afterLoginRedirectComponent);
   }
 
@@ -49,7 +52,7 @@ export class LoginComponent extends AppBase {
     formUser.setUsername(form.value.username);
     formUser.setPassword(form.value.password);
 
-    if(formUser.getUsername() == null || formUser.getUsername().trim() == "" || formUser.getPassword() == null || formUser.getPassword().trim() == ""){
+    if(!this.requiredFieldsFilled(formUser)){
       this.alert.show(this.language.requiredFields[0], ColorClass.danger);
       this.loading = false;
       return;
@@ -94,12 +97,21 @@ export class LoginComponent extends AppBase {
     }*/
   }
 
+  requiredFieldsFilled(user: User) : boolean {
+    return !(StringUtils.isEmpty(user.getUsername())
+    || StringUtils.isEmpty(user.getPassword()));
+  }
+
   facebook() : void {
     //alert("facebook");
   }
 
   google() : void {
     //alert("google");
+  }
+
+  register() : void {
+    this.getAppComponent().changeCurrentPage(LoginComponent, RegisterComponent);
   }
 
 }
@@ -109,4 +121,10 @@ export enum SessionAttributes {
   CURRENT_PASSWORD = "currentPassword",
   SESSION_ID = "sessionId",
   LOGIN_DATE = "loginDate"
+}
+
+export enum SocialMediaLogin {
+  FACEBOOK,
+  GOOGLE,
+  TWITTER
 }

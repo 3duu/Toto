@@ -21,6 +21,9 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.toto"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.toto"
     }
   },
   "dependent_plugins": {}

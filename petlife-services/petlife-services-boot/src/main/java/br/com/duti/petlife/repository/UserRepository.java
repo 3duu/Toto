@@ -44,16 +44,12 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 			throw new UsernameNotFoundException("O usuário " + username + " não existe");
 		}
 		
-//		User u = new User();
-//		u.setUserName("eduu.porto@gmail.com");
-//		u.setPassword("nemesis164");
-		
 		return users.get(0);
 	}
 	
-	public void save(final User user){
+	public User save(final User user){
 		try{
-			getEntityManager().persist(user);
+			return (User)getEntityManager().persist(user);
 		}
 		catch(Exception e){
 			e.printStackTrace();

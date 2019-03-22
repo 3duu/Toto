@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './alert/alert.component'; 
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,15 @@ import { HomeComponent } from './home/home.component';
     MapsComponent,
     LoginComponent,
     AlertComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   entryComponents: [
     LoginComponent,
     AlertComponent,
     MapsComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

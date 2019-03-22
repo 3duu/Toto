@@ -1,5 +1,4 @@
 import { environment } from 'src/environments/environment';
-
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import {
@@ -12,10 +11,11 @@ import { User } from '../entity/User';
 
 // Set the http options
 const httpOptions = {
-  headers: new HttpHeaders({ "Content-Type": "application/json"})
+  headers: new HttpHeaders({"Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "*"})
 };
 
-const endpoint = environment.endpoint;
+const endpoints = environment.endpoint;
 
 class ApiService {
   /**
@@ -23,6 +23,14 @@ class ApiService {
    *
    * @param error
    */
+
+  protected endpoint : string;
+
+  constructor() {
+    this.endpoint = endpoints.indra;
+    console.log(window.location.origin);
+  }
+
   protected handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
@@ -33,7 +41,7 @@ class ApiService {
         `Backend returned code ${error.status}, ` + `body was: ${error.error}`
       );
     }
-
+    
     return throwError(error);
   }
 
@@ -51,7 +59,7 @@ class ApiService {
 @Injectable()
 export class UserApiService extends ApiService {
 
-  private controller = endpoint+"/user";
+  private controller = this.endpoint+"/user";
   private authenticate = this.controller+"/authenticate";
   private register = this.controller+"/register";
 

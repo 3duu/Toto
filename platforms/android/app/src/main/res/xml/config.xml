@@ -56,6 +56,10 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <feature name="SafariViewController">
         <param name="android-package" value="com.customtabplugin.ChromeCustomTabPlugin" />
         <param name="onload" value="true" />
