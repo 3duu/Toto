@@ -1,3 +1,4 @@
+import { LoginComponent } from './../login/login.component';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../entity/User';
@@ -24,7 +25,7 @@ export class RegisterComponent extends AppBase {
   private loading = false;
 
   private submitted = false;
-  private afterLoginRedirectComponent = HomeComponent;
+  private afterRegisterRedirectComponent = HomeComponent;
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
@@ -83,16 +84,15 @@ export class RegisterComponent extends AppBase {
     }
 
     let user : Observable<any> = this.api.save(formUser);
-    let connectionError = true;
 
     user.subscribe(ret => {
-      connectionError = false;
       console.log(ret);
       this.loading = false;
 
       if(ret.code == ReturnCode.SUCCESS){
         if (ret && ret.sid) {
-            alert(this.language.registerSuccess);
+          alert(this.language.registerSuccess);
+          LoginComponent.userInSession(ret, this, formUser.getPassword());
         }
       }
       else if(ret.code == ReturnCode.NOT_FOUND){
@@ -102,12 +102,10 @@ export class RegisterComponent extends AppBase {
         this.alert.show(this.language.connectionError[0], ColorClass.danger);
       }
     } ,error => {
+      console.log(error);
       this.alert.show(this.language.connectionError[0], ColorClass.danger);
       this.loading = false;
     });
-
-    
-
   }
 
   requiredFieldsFilled(user: User, confirmPassword : string) : boolean {

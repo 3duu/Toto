@@ -31,7 +31,7 @@ export class Language {
     createYourAccount : string[] = ["Crie sua conta no "];
 
     //Messages
-    connectionError : string[] = ["Erro ao conexão"];
+    connectionError : string[] = ["Algo deu errado! \n Verifique se o dispositivo está conectado ou tente novamente mais tarde"];
     invalidUserPassword : string[] = ["Usuário ou senha inválido(s)"];
     requiredFields : string[] = ["Preencha o(s) campo(s) obrigatório(s)"];
     validateDataError : string[] = ["Erro ao validar os dados"];

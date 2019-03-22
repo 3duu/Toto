@@ -4,6 +4,8 @@ import static br.com.duti.utils.Utils.getEncryptedString;
 
 import java.util.Date;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,7 +20,7 @@ import br.com.duti.petlife.models.ResponseEntity;
 import br.com.duti.petlife.models.User;
 import br.com.duti.petlife.repository.interfaces.IUserRepository;
 import br.com.duti.utils.MessageCode;
-import static br.com.duti.utils.Utils.CORS;
+import br.com.duti.utils.Utils;
 
 @RequestMapping("/user")
 @RestController
@@ -39,7 +41,7 @@ public class UserController {
         return response;
     }*/
 	
-	@CrossOrigin(origins = CORS)
+	@CrossOrigin(origins = {Utils.ANGULAR_HOST, Utils.PHONEGAP_HOST, Utils.PHONEGAP_HOST2, Utils.PHONEGAP_HOST3, Utils.SMARTPHONE})
 	@PostMapping(value="/authenticate", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> doLogin(@RequestBody final User user) {
 		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.getUser(user.getUsername(), getEncryptedString(user.getPassword())), RequestContextHolder.currentRequestAttributes().getSessionId());
@@ -52,10 +54,14 @@ public class UserController {
         return response;
 	}
 	
-	@CrossOrigin(origins = CORS)
+	@Transactional
+	@CrossOrigin(origins = {Utils.ANGULAR_HOST, Utils.PHONEGAP_HOST, Utils.PHONEGAP_HOST2, Utils.PHONEGAP_HOST3, Utils.SMARTPHONE})
 	@PostMapping(value="/register", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> register(@RequestBody final User user) {
 		user.setPassword(getEncryptedString(user.getPassword()));
+		user.setCreationDate(new Date());
+		user.setAdmin(false);
+		//validate unique username
 		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.save(user), RequestContextHolder.currentRequestAttributes().getSessionId());
 		if(response.getEntity() != null) {
 			response.setCode(MessageCode.SUCCESS.getValue());

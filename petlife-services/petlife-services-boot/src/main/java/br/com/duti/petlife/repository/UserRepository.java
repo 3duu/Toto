@@ -33,8 +33,6 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 		try{
 			users = getEntityManager().createQuery(jpql, User.class)
 					.setParameter("login", username).getResultList();
-			
-			//Object o = manager.find(User.class, 1);
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -49,10 +47,13 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 	
 	public User save(final User user){
 		try{
-			return (User)getEntityManager().persist(user);
+			getEntityManager().persist(user);
+			getEntityManager().flush();
+			return user;
 		}
 		catch(Exception e){
 			e.printStackTrace();
+			return null;
 		}
 	}
 

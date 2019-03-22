@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Type } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../entity/User';
 import { UserApiService, ReturnCode } from '../service/services';
@@ -23,7 +23,11 @@ export class LoginComponent extends AppBase {
   private loading = false;
 
   private submitted = false;
-  private afterLoginRedirectComponent = HomeComponent;
+  private static afterLoginRedirectComponent = HomeComponent;
+
+  static getAfterLoginPageRedirection() {
+    return LoginComponent.afterLoginRedirectComponent;
+  }
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
@@ -59,25 +63,16 @@ export class LoginComponent extends AppBase {
     }
     
     let user : Observable<any> = this.api.login(formUser);
-    let connectionError = true;
 
     (<any>window).httpUser = user;
 
     user.subscribe(result => {
-      connectionError = false;
+
       console.log(result);
       this.loading = false;
 
       if(result.code == ReturnCode.SUCCESS){
-        if (result && result.sid) {
-            //store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem(SessionAttributes.CURRENT_USER, JSON.stringify(result.entity));
-            localStorage.setItem(SessionAttributes.CURRENT_PASSWORD, form.value.password);
-            localStorage.setItem(SessionAttributes.SESSION_ID, result.sid);
-            localStorage.setItem(SessionAttributes.LOGIN_DATE, result.date);
-            //localStorage.removeItem('currentUser');
-            this.onLogged(this.afterLoginRedirectComponent);
-        }
+        LoginComponent.userInSession(result, this, form.value.password);
       }
       else if(result.code == ReturnCode.NOT_FOUND){
         this.alert.show(this.language.invalidUserPassword[0], ColorClass.danger);
@@ -86,15 +81,10 @@ export class LoginComponent extends AppBase {
         this.alert.show(this.language.connectionError[0], ColorClass.danger);
       }
     }, error => {
+      console.log(error);
       this.alert.show(this.language.connectionError[0], ColorClass.danger);
       this.loading = false;
     });
-
-    /*
-    if(connectionError) {
-      this.loading = false;
-      this.alert.show(this.language.connectionError[0], ColorClass.danger);
-    }*/
   }
 
   requiredFieldsFilled(user: User) : boolean {
@@ -103,15 +93,27 @@ export class LoginComponent extends AppBase {
   }
 
   facebook() : void {
-    //alert("facebook");
+    alert("facebook");
   }
 
   google() : void {
-    //alert("google");
+    alert("google");
   }
 
   register() : void {
     this.getAppComponent().changeCurrentPage(LoginComponent, RegisterComponent);
+  }
+
+  static userInSession(result : any, baseApp : AppBase, password : string) : void {
+    if (result && result.sid) {
+      //store user details and jwt token in local storage to keep user logged in between page refreshes
+      localStorage.setItem(SessionAttributes.CURRENT_USER, JSON.stringify(result.entity));
+      localStorage.setItem(SessionAttributes.CURRENT_PASSWORD, password);
+      localStorage.setItem(SessionAttributes.SESSION_ID, result.sid);
+      localStorage.setItem(SessionAttributes.LOGIN_DATE, result.date);
+      //localStorage.removeItem('currentUser');
+      baseApp.onLogged(LoginComponent.getAfterLoginPageRedirection());
+    }
   }
 
 }

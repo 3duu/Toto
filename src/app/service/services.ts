@@ -79,7 +79,7 @@ export class UserApiService extends ApiService {
 
   public save(user: User): Observable<any> {
     
-    console.log(this.authenticate);
+    console.log(this.register);
     console.log(user);
     
     return this.http.post<User>(this.register, user, httpOptions)

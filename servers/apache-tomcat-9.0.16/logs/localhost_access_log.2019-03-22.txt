@@ -72,3 +72,9 @@
 192.168.137.1 - - [22/Mar/2019:14:46:38 -0300] "OPTIONS /petlife/user/authenticate HTTP/1.1" 200 5
 192.168.137.1 - - [22/Mar/2019:14:46:38 -0300] "OPTIONS /petlife/user/authenticate HTTP/1.1" 200 5
 192.168.137.1 - - [22/Mar/2019:14:46:39 -0300] "POST /petlife/user/authenticate HTTP/1.1" 200 396
+192.168.137.1 - - [22/Mar/2019:17:05:10 -0300] "OPTIONS /petlife/user/authenticate HTTP/1.1" 200 5
+192.168.137.1 - - [22/Mar/2019:17:05:18 -0300] "POST /petlife/user/authenticate HTTP/1.1" 200 396
+192.168.137.1 - - [22/Mar/2019:17:05:42 -0300] "OPTIONS /petlife/user/register HTTP/1.1" 200 5
+192.168.137.1 - - [22/Mar/2019:17:05:43 -0300] "POST /petlife/user/register HTTP/1.1" 500 221
+192.168.137.1 - - [22/Mar/2019:17:08:57 -0300] "POST /petlife/user/register HTTP/1.1" 200 448
+192.168.137.1 - - [22/Mar/2019:17:09:28 -0300] "POST /petlife/user/authenticate HTTP/1.1" 200 448
