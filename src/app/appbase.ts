@@ -17,6 +17,8 @@ export class AppBase implements OnInit {
     language : Language = AppComponent.language;
 
     private children = [];
+
+    protected loading = false;
   
     constructor(){
       AppBase.addModule(this);

@@ -20,9 +20,6 @@ import { StringUtils } from '../utils';
 export class LoginComponent extends AppBase {
 
   loginForm: NgForm;
-  private loading = false;
-
-  private submitted = false;
   private static afterLoginRedirectComponent = HomeComponent;
 
   static getAfterLoginPageRedirection() {
@@ -37,12 +34,11 @@ export class LoginComponent extends AppBase {
 
   ngOnInit() : void {
     this.getNavbarComponent().disableMenu = true;
-    this.onLogged(this.afterLoginRedirectComponent);
+    this.onLogged(LoginComponent.getAfterLoginPageRedirection());
   }
 
   doLogin(form: NgForm) : void {
 
-    this.submitted = true;
     this.alert.hide();
     this.loginForm = form;
     // stop here if form is invalid
@@ -74,11 +70,8 @@ export class LoginComponent extends AppBase {
       if(result.code == ReturnCode.SUCCESS){
         LoginComponent.userInSession(result, this, form.value.password);
       }
-      else if(result.code == ReturnCode.NOT_FOUND){
-        this.alert.show(this.language.invalidUserPassword[0], ColorClass.danger);
-      }
       else {
-        this.alert.show(this.language.connectionError[0], ColorClass.danger);
+        this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
       }
     }, error => {
       console.log(error);

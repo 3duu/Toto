@@ -3,7 +3,6 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../entity/User';
 import { UserApiService, ReturnCode } from '../service/services';
-import { HomeComponent } from '../home/home.component';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
@@ -22,10 +21,6 @@ const passwordConfig = environment.passwordConfig;
 export class RegisterComponent extends AppBase {
 
   registerForm: NgForm;
-  private loading = false;
-
-  private submitted = false;
-  private afterRegisterRedirectComponent = HomeComponent;
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
@@ -39,7 +34,6 @@ export class RegisterComponent extends AppBase {
 
   doRegister(form: NgForm) : void {
 
-    this.submitted = true;
     this.alert.hide();
     this.registerForm = form;
     // stop here if form is invalid
@@ -85,21 +79,18 @@ export class RegisterComponent extends AppBase {
 
     let user : Observable<any> = this.api.save(formUser);
 
-    user.subscribe(ret => {
-      console.log(ret);
+    user.subscribe(result => {
+      console.log(result);
       this.loading = false;
 
-      if(ret.code == ReturnCode.SUCCESS){
-        if (ret && ret.sid) {
+      if(result.code == ReturnCode.SUCCESS){
+        if (result && result.sid) {
           alert(this.language.registerSuccess);
-          LoginComponent.userInSession(ret, this, formUser.getPassword());
+          LoginComponent.userInSession(result, this, formUser.getPassword());
         }
       }
-      else if(ret.code == ReturnCode.NOT_FOUND){
-        this.alert.show(this.language.invalidUserPassword[0], ColorClass.danger);
-      }
       else {
-        this.alert.show(this.language.connectionError[0], ColorClass.danger);
+        this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
       }
     } ,error => {
       console.log(error);

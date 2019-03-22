@@ -15,6 +15,7 @@ public class ResponseEntity<T> implements Serializable {
 	public ResponseEntity(T entity, final String sid) {
 		this.sid = sid;
 		this.entity = entity;
+		setDate(new Date());
 	}
 	
 	private int code;

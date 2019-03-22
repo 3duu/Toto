@@ -4,10 +4,10 @@
 /*!**********************!*\
   !*** ./package.json ***!
   \**********************/
-/*! exports provided: name, version, displayName, endpoints, cordova, scripts, private, dependencies, devDependencies, default */
+/*! exports provided: name, version, displayName, endpoints, passwordConfig, cordova, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"br.com.petlife","version":"1.0.0","displayName":"PetLif3","endpoints":{"local":"http://localhost:9003","indra":"http://192.168.137.1:9003/petlife","home":"http://192.168.1.3:9003/petlife","home2":"http://192.168.1.3:9003"},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{}},"platforms":["ios","browser","android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","browserify-zlib":"^0.2.0","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-ios":"~4.5.5","cordova-plugin-device":"2.0.2","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","core-js":"^2.5.4","font-awesome":"^4.7.0","jquery":"^3.3.1","ngx-bootstrap":"^3.2.0","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
+module.exports = {"name":"br.com.petlife","version":"1.0.0","displayName":"PetLif3","endpoints":{"local":"http://localhost:9003","indra":"http://192.168.137.1:9003/petlife","home":"http://192.168.1.3:9003/petlife","home2":"http://192.168.1.3:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{}},"platforms":["ios","browser","android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","browserify-zlib":"^0.2.0","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-ios":"~4.5.5","cordova-plugin-device":"2.0.2","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","core-js":"^2.5.4","font-awesome":"^4.7.0","jquery":"^3.3.1","ngx-bootstrap":"^3.2.0","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
 
 /***/ }),
 
@@ -198,6 +198,7 @@ var AppComponent = /** @class */ (function () {
         if (this.container != null) {
             var componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
             var component = this.container.createComponent(componentFactory);
+            console.log("Adicionado: " + component.instance.constructor.name);
             // Push the component so that we can keep track of which components are created
             this.components.push(component);
             return component.instance;
@@ -212,6 +213,7 @@ var AppComponent = /** @class */ (function () {
             // Remove component from both view and array
             this.container.remove(this.container.indexOf(component));
             this.components.splice(componentIndex, 1);
+            console.log("Adicionado: " + component.instance.constructor.name);
         }
     };
     AppComponent.prototype.ngAfterContentInit = function () {
@@ -233,7 +235,7 @@ var AppComponent = /** @class */ (function () {
         this.addComponent(page);
     };
     AppComponent.prototype.changeCurrentPage = function (current, page) {
-        this.removeComponent(current, true);
+        this.removeComponent(current, false);
         this.addComponent(page);
     };
     AppComponent.prototype.addSingleComponent = function (page, instance) {
@@ -366,6 +368,7 @@ var AppBase = /** @class */ (function () {
         this.applicationName = _app_component__WEBPACK_IMPORTED_MODULE_0__["AppComponent"].applicationName;
         this.language = _app_component__WEBPACK_IMPORTED_MODULE_0__["AppComponent"].language;
         this.children = [];
+        this.loading = false;
         AppBase.addModule(this);
     }
     AppBase.prototype.ngOnInit = function () {
@@ -679,16 +682,25 @@ var Language = /** @class */ (function () {
         this.dontHave = ["Não possui"];
         this.orSocialMediaAccount = ["ou conta em rede social?"];
         this.email = ["E-mail"];
-        this.username = ["Usuário"];
+        this.username = ["E-mail/Usuário"];
+        this.name = ["Nome"];
+        this.birthday = ["Nascimento"];
         this.password = ["Senha"];
+        this.confirmPassword = ["Confirme a senha"];
         this.logout = ["Sair"];
+        this.createUser = ["Registrar"];
+        this.createYourAccount = ["Crie sua conta no "];
         //Messages
-        this.connectionError = ["Erro ao conexão"];
+        this.connectionError = ["Algo deu errado! \n Verifique se o dispositivo está conectado ou tente novamente mais tarde"];
+        this.serverError = ["Algo inesperado aconteceu! \n Se o problema persistir reporte o problema"];
         this.invalidUserPassword = ["Usuário ou senha inválido(s)"];
         this.requiredFields = ["Preencha o(s) campo(s) obrigatório(s)"];
         this.validateDataError = ["Erro ao validar os dados"];
         this.retrieveDataError = ["Erro ao obter dados"];
         this.registerSuccess = ["Usuário registrado com sucsso"];
+        this.invalidEmailAddress = ["Forneça um endereço de e-mail válido"];
+        this.invalidPassword = ["Senha deve conter pelo menos :min caracteres"];
+        this.passwordDoesntMatch = ["Confirmação de senha não corresponde com senha"];
     }
     return Language;
 }());
@@ -723,13 +735,14 @@ module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start
 /*!******************************************!*\
   !*** ./src/app/login/login.component.ts ***!
   \******************************************/
-/*! exports provided: LoginComponent, SessionAttributes */
+/*! exports provided: LoginComponent, SessionAttributes, SocialMediaLogin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SessionAttributes", function() { return SessionAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SocialMediaLogin", function() { return SocialMediaLogin; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
@@ -739,6 +752,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
 /* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../register/register.component */ "./src/app/register/register.component.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+
 
 
 
@@ -754,17 +769,18 @@ var LoginComponent = /** @class */ (function (_super) {
     function LoginComponent(api) {
         var _this = _super.call(this) || this;
         _this.api = api;
-        _this.loading = false;
-        _this.submitted = false;
-        _this.afterLoginRedirectComponent = _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"];
         return _this;
     }
+    LoginComponent_1 = LoginComponent;
+    LoginComponent.getAfterLoginPageRedirection = function () {
+        return LoginComponent_1.afterLoginRedirectComponent;
+    };
     LoginComponent.prototype.ngOnInit = function () {
-        this.onLogged(this.afterLoginRedirectComponent);
+        this.getNavbarComponent().disableMenu = true;
+        this.onLogged(LoginComponent_1.getAfterLoginPageRedirection());
     };
     LoginComponent.prototype.doLogin = function (form) {
         var _this = this;
-        this.submitted = true;
         this.alert.hide();
         this.loginForm = form;
         // stop here if form is invalid
@@ -776,59 +792,59 @@ var LoginComponent = /** @class */ (function (_super) {
         var formUser = new _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]();
         formUser.setUsername(form.value.username);
         formUser.setPassword(form.value.password);
-        if (formUser.getUsername() == null || formUser.getUsername().trim() == "" || formUser.getPassword() == null || formUser.getPassword().trim() == "") {
+        if (!this.requiredFieldsFilled(formUser)) {
             this.alert.show(this.language.requiredFields[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             this.loading = false;
             return;
         }
         var user = this.api.login(formUser);
-        var connectionError = true;
         window.httpUser = user;
         user.subscribe(function (result) {
-            connectionError = false;
             console.log(result);
             _this.loading = false;
             if (result.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS) {
-                if (result && result.sid) {
-                    //store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem(SessionAttributes.CURRENT_USER, JSON.stringify(result.entity));
-                    localStorage.setItem(SessionAttributes.CURRENT_PASSWORD, form.value.password);
-                    localStorage.setItem(SessionAttributes.SESSION_ID, result.sid);
-                    localStorage.setItem(SessionAttributes.LOGIN_DATE, result.date);
-                    //localStorage.removeItem('currentUser');
-                    _this.onLogged(_this.afterLoginRedirectComponent);
-                }
-            }
-            else if (result.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].NOT_FOUND) {
-                _this.alert.show(_this.language.invalidUserPassword[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
+                LoginComponent_1.userInSession(result, _this, form.value.password);
             }
             else {
-                _this.alert.show(_this.language.connectionError[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
+                _this.alert.show(_this.api.getErrorMessage(result, _this.language), _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             }
         }, function (error) {
+            console.log(error);
             _this.alert.show(_this.language.connectionError[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             _this.loading = false;
         });
-        /*
-        if(connectionError) {
-          this.loading = false;
-          this.alert.show(this.language.connectionError[0], ColorClass.danger);
-        }*/
+    };
+    LoginComponent.prototype.requiredFieldsFilled = function (user) {
+        return !(_utils__WEBPACK_IMPORTED_MODULE_9__["StringUtils"].isEmpty(user.getUsername())
+            || _utils__WEBPACK_IMPORTED_MODULE_9__["StringUtils"].isEmpty(user.getPassword()));
     };
     LoginComponent.prototype.facebook = function () {
-        //alert("facebook");
+        alert("facebook");
     };
     LoginComponent.prototype.google = function () {
-        //alert("google");
+        alert("google");
     };
     LoginComponent.prototype.register = function () {
-        this.getAppComponent().changeCurrentPage(this, _register_register_component__WEBPACK_IMPORTED_MODULE_8__["RegisterComponent"]);
+        this.getAppComponent().changeCurrentPage(LoginComponent_1, _register_register_component__WEBPACK_IMPORTED_MODULE_8__["RegisterComponent"]);
     };
+    LoginComponent.userInSession = function (result, baseApp, password) {
+        if (result && result.sid) {
+            //store user details and jwt token in local storage to keep user logged in between page refreshes
+            localStorage.setItem(SessionAttributes.CURRENT_USER, JSON.stringify(result.entity));
+            localStorage.setItem(SessionAttributes.CURRENT_PASSWORD, password);
+            localStorage.setItem(SessionAttributes.SESSION_ID, result.sid);
+            localStorage.setItem(SessionAttributes.LOGIN_DATE, result.date);
+            //localStorage.removeItem('currentUser');
+            baseApp.onLogged(LoginComponent_1.getAfterLoginPageRedirection());
+        }
+    };
+    var LoginComponent_1;
+    LoginComponent.afterLoginRedirectComponent = _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"];
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"])
     ], LoginComponent.prototype, "alert", void 0);
-    LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    LoginComponent = LoginComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-login',
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
@@ -846,6 +862,12 @@ var SessionAttributes;
     SessionAttributes["SESSION_ID"] = "sessionId";
     SessionAttributes["LOGIN_DATE"] = "loginDate";
 })(SessionAttributes || (SessionAttributes = {}));
+var SocialMediaLogin;
+(function (SocialMediaLogin) {
+    SocialMediaLogin[SocialMediaLogin["FACEBOOK"] = 0] = "FACEBOOK";
+    SocialMediaLogin[SocialMediaLogin["GOOGLE"] = 1] = "GOOGLE";
+    SocialMediaLogin[SocialMediaLogin["TWITTER"] = 2] = "TWITTER";
+})(SocialMediaLogin || (SocialMediaLogin = {}));
 
 
 /***/ }),
@@ -1070,7 +1092,7 @@ module.exports = "/* brandico */\r\n[class*=\"brandico-\"]:before {\r\n  font-fa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n\n<div class=\"container text-center\">\n    <form class=\"form-signin\" #loginForm=\"ngForm\" (ngSubmit)=\"doLogin(loginForm)\">\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br><br>\n        <p>\n            <a class=\"btn btn-primary social-login-btn social-facebook\" (click)=\"facebook()\" href=\"#\"><i class=\"fa fa-facebook\"></i></a>\n            <a class=\"btn btn-primary social-login-btn social-google\"   (click)=\"google()\" href=\"#\"><i class=\"fa fa-google-plus\"></i></a>\n        </p>\n        <!-- <p>\n        <a class=\"btn btn-primary social-login-btn social-linkedin\" href=\"#\"><i class=\"fa fa-linkedin\"></i></a>\n        <a class=\"btn btn-primary social-login-btn social-twitter\" href=\"#\"><i class=\"fa fa-twitter\"></i></a>\n        </p> -->\n\n        <!-- <div class=\"btn-group social-login-more\">\n        <button type=\"button\" class=\"btn btn-default dropdown-toggle btn-block\" data-toggle=\"dropdown\">\n        {{language.more}}\n        </button>\n        <ul class=\"dropdown-menu text-left \" role=\"menu\">\n        <li><a href=\"#\"><i class=\"fa fa-tumblr-sign\"></i>   Tumblr</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-github-alt\"></i>   Github</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-dropbox\"></i>   Dropbox</a></li>\n        <li><a href=\"/auth/amazon\"><span class=\"zocial-amazon\"></span>   Amazon</a></li>\n        <li><a href=\"#\"><span class=\"zocial-bitbucket\"></span>   Bitbucket</a></li>\n        <li><a href=\"#\"><span class=\"zocial-evernote\"></span>   Evernote</a></li>\n        <li><a href=\"#\"><span class=\"zocial-meetup\"></span>   Meetup</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-windows\"></i>   Windows Live</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-weibo\"></i>   Weibo</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-foursquare\"></i>   Foursquare</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-stackexchange\"></i>   Stack Exchange</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-trello\"></i>   Trello</a></li>\n        <li><a href=\"#\"><span class=\"zocial-wordpress\"></span>   Wordpress</a></li>\n        </ul>\n        </div> \n        <br> -->\n        <br>\n\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\n        <br><br>\n        \n        <input type=\"hidden\" name=\"socialMedia\" id=\"socialMedia\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.email}}\" type=\"text\" name=\"username\" id=\"username\" ngModel /><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel />\n\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\n        <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n            <span class=\"sr-only\">Carregando...</span>\n        </div>\n        <app-alert></app-alert>\n        <button class=\"btn btn-lg btn-petlife btn-block btn-center\" type=\"submit\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.login}}</button>\n        <br>\n        <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class=\"ember-view btn btn-sm btn-default\"> {{language.signUp}} </button> </small>\n    </form>\n</div>"
+module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n\n<div class=\"container text-center\">\n    <form class=\"form-signin\" #registerForm=\"ngForm\" (ngSubmit)=\"doRegister(registerForm)\" autocomplete=\"off\">\n        <h2 class=\"form-signin-heading\">{{language.signUp}}</h2>\n        <br><br>\n        <small class=\"text-muted\">{{language.createYourAccount}} {{applicationName}}</small>\n        <br><br>\n        \n        <input type=\"hidden\" name=\"socialMedia\" id=\"socialMedia\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.email}}\" type=\"text\" name=\"username\" id=\"username\" ngModel /><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.name}}\" type=\"text\" name=\"name\" id=\"name\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.confirmPassword}}\" type=\"password\" name=\"confirmPassword\" id=\"confirmPassword\" ngModel />\n\n        \n        <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n            <span class=\"sr-only\">Carregando...</span>\n        </div>\n        <app-alert></app-alert>\n        <button class=\"btn btn-lg btn-petlife btn-block btn-center\" type=\"submit\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.createUser}}</button>\n        <br>\n    </form>\n</div>"
 
 /***/ }),
 
@@ -1085,13 +1107,15 @@ module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
-/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
 /* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
 /* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
 /* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
 
 
 
@@ -1100,22 +1124,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+var passwordConfig = src_environments_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].passwordConfig;
 //https://bootsnipp.com/snippets/kMdg
 var RegisterComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RegisterComponent, _super);
     function RegisterComponent(api) {
         var _this = _super.call(this) || this;
         _this.api = api;
-        _this.loading = false;
-        _this.submitted = false;
-        _this.afterLoginRedirectComponent = _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"];
         return _this;
     }
     RegisterComponent.prototype.ngOnInit = function () {
+        this.getNavbarComponent().disableMenu = true;
     };
     RegisterComponent.prototype.doRegister = function (form) {
         var _this = this;
-        this.submitted = true;
         this.alert.hide();
         this.registerForm = form;
         // stop here if form is invalid
@@ -1124,47 +1148,71 @@ var RegisterComponent = /** @class */ (function (_super) {
             return;
         }
         this.loading = true;
-        var formUser = new _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]();
+        var formUser = new _entity_User__WEBPACK_IMPORTED_MODULE_3__["User"]();
         formUser.setUsername(form.value.username);
         formUser.setPassword(form.value.password);
-        if (formUser.getUsername() == null || formUser.getUsername().trim() == "" || formUser.getPassword() == null || formUser.getPassword().trim() == "") {
+        formUser.setName(form.value.name);
+        console.log(form.value);
+        //Campos obrigaorios
+        if (!this.requiredFieldsFilled(formUser, form.value.confirmPassword)) {
             this.alert.show(this.language.requiredFields[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             this.loading = false;
             return;
         }
+        //Validar e-mail
+        if (!_utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmail(formUser.getUsername())) {
+            this.alert.show(this.language.invalidEmailAddress[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
+            this.loading = false;
+            return;
+        }
+        //Validar senha
+        if (formUser.getPassword().length < passwordConfig.min || (!_utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(passwordConfig.contains))) {
+            this.alert.show(this.language.invalidPassword[0].replace(":min", passwordConfig.min), _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
+            this.loading = false;
+            return;
+        }
+        //Corresponder senha
+        if (formUser.getPassword() != form.value.confirmPassword) {
+            this.alert.show(this.language.passwordDoesntMatch[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
+            this.loading = false;
+            return;
+        }
         var user = this.api.save(formUser);
-        var connectionError = true;
-        user.subscribe(function (ret) {
-            connectionError = false;
-            console.log(ret);
+        user.subscribe(function (result) {
+            console.log(result);
             _this.loading = false;
-            if (ret.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS) {
-                if (ret && ret.sid) {
+            if (result.code == _service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].SUCCESS) {
+                if (result && result.sid) {
                     alert(_this.language.registerSuccess);
+                    _login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"].userInSession(result, _this, formUser.getPassword());
                 }
             }
-            else if (ret.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].NOT_FOUND) {
-                _this.alert.show(_this.language.invalidUserPassword[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
-            }
             else {
-                _this.alert.show(_this.language.connectionError[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
+                _this.alert.show(_this.api.getErrorMessage(result, _this.language), _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             }
         }, function (error) {
+            console.log(error);
             _this.alert.show(_this.language.connectionError[0], _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             _this.loading = false;
         });
     };
+    RegisterComponent.prototype.requiredFieldsFilled = function (user, confirmPassword) {
+        return !(_utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(user.getUsername())
+            || _utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(user.getPassword())
+            || _utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(user.getName())
+            || _utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(confirmPassword));
+    };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"]),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"])
     ], RegisterComponent.prototype, "alert", void 0);
     RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-register',
             template: __webpack_require__(/*! ./register.component.html */ "./src/app/register/register.component.html"),
             styles: [__webpack_require__(/*! ./register.component.css */ "./src/app/register/register.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_3__["UserApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_4__["UserApiService"]])
     ], RegisterComponent);
     return RegisterComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_5__["AppBase"]));
@@ -1227,6 +1275,22 @@ var ApiService = /** @class */ (function () {
         var body = res;
         return body || {};
     };
+    ApiService.prototype.getErrorMessage = function (result, language) {
+        if (result.code == ReturnCode.SUCCESS) {
+            if (result && result.sid) {
+                return language.registerSuccess[0];
+            }
+        }
+        else if (result.code == ReturnCode.NOT_FOUND) {
+            return language.invalidUserPassword[0];
+        }
+        else if (result.code == ReturnCode.SERVER_ERROR) {
+            return language.serverError[0];
+        }
+        else {
+            return language.connectionError[0];
+        }
+    };
     return ApiService;
 }());
 var UserApiService = /** @class */ (function (_super) {
@@ -1246,7 +1310,7 @@ var UserApiService = /** @class */ (function (_super) {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.handleError));
     };
     UserApiService.prototype.save = function (user) {
-        console.log(this.authenticate);
+        console.log(this.register);
         console.log(user);
         return this.http.post(this.register, user, httpOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.handleError));
@@ -1263,6 +1327,7 @@ var ReturnCode;
     ReturnCode[ReturnCode["SUCCESS"] = 0] = "SUCCESS";
     ReturnCode[ReturnCode["NOT_FOUND"] = -1] = "NOT_FOUND";
     ReturnCode[ReturnCode["VALIDATION_ERROR"] = -2] = "VALIDATION_ERROR";
+    ReturnCode[ReturnCode["SERVER_ERROR"] = -3] = "SERVER_ERROR";
 })(ReturnCode || (ReturnCode = {}));
 
 
@@ -1293,6 +1358,33 @@ var ColorClass;
 
 /***/ }),
 
+/***/ "./src/app/utils.ts":
+/*!**************************!*\
+  !*** ./src/app/utils.ts ***!
+  \**************************/
+/*! exports provided: StringUtils */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StringUtils", function() { return StringUtils; });
+var StringUtils = /** @class */ (function () {
+    function StringUtils() {
+    }
+    StringUtils.isEmpty = function (str) {
+        return (str == undefined || str == null || str.trim() == "");
+    };
+    StringUtils.isEmail = function (text) {
+        var regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        return regex.test(text);
+    };
+    return StringUtils;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -1310,7 +1402,8 @@ var environment = {
     production: false,
     version: __webpack_require__(/*! ../../package.json */ "./package.json").version,
     name: __webpack_require__(/*! ../../package.json */ "./package.json").displayName,
-    endpoint: __webpack_require__(/*! ../../package.json */ "./package.json").endpoints
+    endpoint: __webpack_require__(/*! ../../package.json */ "./package.json").endpoints,
+    passwordConfig: __webpack_require__(/*! ../../package.json */ "./package.json").passwordConfig
 };
 /*
  * For easier debugging in development mode, you can import the following file

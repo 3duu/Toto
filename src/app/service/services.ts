@@ -1,3 +1,4 @@
+import { Language } from './../language/Language';
 import { environment } from 'src/environments/environment';
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
@@ -27,7 +28,7 @@ class ApiService {
   protected endpoint : string;
 
   constructor() {
-    this.endpoint = endpoints.indra;
+    this.endpoint = endpoints.home2;
     console.log(window.location.origin);
   }
 
@@ -41,6 +42,7 @@ class ApiService {
         `Backend returned code ${error.status}, ` + `body was: ${error.error}`
       );
     }
+
     
     return throwError(error);
   }
@@ -53,6 +55,24 @@ class ApiService {
   private extractData(res: Response) {
   let body = res;
     return body || {};
+  }
+
+  getErrorMessage(result : any, language : Language) : string {
+
+    if(result.code == ReturnCode.SUCCESS){
+      if (result && result.sid) {
+        return language.registerSuccess[0];
+      }
+    }
+    else if(result.code == ReturnCode.NOT_FOUND){
+      return language.invalidUserPassword[0];
+    }
+    else if(result.code == ReturnCode.SERVER_ERROR){
+      return language.serverError[0];
+    }
+    else {
+      return language.connectionError[0];
+    }
   }
 }
 
@@ -92,5 +112,6 @@ export class UserApiService extends ApiService {
 export enum ReturnCode {
   SUCCESS = 0,
   NOT_FOUND = -1,
-  VALIDATION_ERROR = -2
+  VALIDATION_ERROR = -2,
+  SERVER_ERROR = -3
 }

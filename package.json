@@ -8,7 +8,10 @@
     "home": "http://192.168.1.3:9003/petlife",
     "home2": "http://192.168.1.3:9003"
   },
-  "passwordConfig": {"min": 6, "contains": ""},
+  "passwordConfig": {
+    "min": 6,
+    "contains": ""
+  },
   "cordova": {
     "plugins": {
       "cordova-plugin-device": {},
