@@ -38,7 +38,7 @@ export class RegisterComponent extends AppBase {
     this.registerForm = form;
     // stop here if form is invalid
     if (this.registerForm.invalid) {
-      this.alert.show(this.language.validateDataError[0], ColorClass.danger);
+      this.alert.show(this.language.validateDataError, ColorClass.danger);
       return;
     }
     this.loading = true;
@@ -51,28 +51,28 @@ export class RegisterComponent extends AppBase {
 
     //Campos obrigaorios
     if(!this.requiredFieldsFilled(formUser, form.value.confirmPassword)){
-      this.alert.show(this.language.requiredFields[0], ColorClass.danger);
+      this.alert.show(this.language.requiredFields, ColorClass.danger);
       this.loading = false;
       return;
     }
 
     //Validar e-mail
     if(!StringUtils.isEmail(formUser.getUsername())){
-      this.alert.show(this.language.invalidEmailAddress[0], ColorClass.danger);
+      this.alert.show(this.language.invalidEmailAddress, ColorClass.danger);
       this.loading = false;
       return;
     }
 
     //Validar senha
     if(formUser.getPassword().length < passwordConfig.min || (!StringUtils.isEmpty(passwordConfig.contains))){
-      this.alert.show(this.language.invalidPassword[0].replace(":min", passwordConfig.min), ColorClass.danger);
+      this.alert.show(this.language.invalidPassword.replace(":min", passwordConfig.min), ColorClass.danger);
       this.loading = false;
       return;
     }
 
     //Corresponder senha
     if(formUser.getPassword() != form.value.confirmPassword){
-      this.alert.show(this.language.passwordDoesntMatch[0], ColorClass.danger);
+      this.alert.show(this.language.passwordDoesntMatch, ColorClass.danger);
       this.loading = false;
       return;
     }
@@ -89,12 +89,15 @@ export class RegisterComponent extends AppBase {
           LoginComponent.userInSession(result, this, formUser.getPassword());
         }
       }
+      else if(result.code == ReturnCode.RESOURCE_EXISTS){
+        this.alert.show(this.language.usernameExists, ColorClass.danger);
+      }
       else {
         this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
       }
     } ,error => {
       console.log(error);
-      this.alert.show(this.language.connectionError[0], ColorClass.danger);
+      this.alert.show(this.language.connectionError, ColorClass.danger);
       this.loading = false;
     });
   }
@@ -104,6 +107,10 @@ export class RegisterComponent extends AppBase {
     || StringUtils.isEmpty(user.getPassword())
     || StringUtils.isEmpty(user.getName())
     || StringUtils.isEmpty(confirmPassword));
+  }
+
+  goBack() : void {
+    super.goBack(LoginComponent);
   }
 
 }

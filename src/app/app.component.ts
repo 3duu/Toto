@@ -1,5 +1,5 @@
 import { Language } from './language/Language';
-import { Component, ViewContainerRef, ComponentFactoryResolver, Type, AfterContentInit } from '@angular/core';
+import { Component, ViewContainerRef, ComponentFactoryResolver, Type, AfterViewInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { LoginComponent, SessionAttributes } from './login/login.component';
 
@@ -10,7 +10,7 @@ import { LoginComponent, SessionAttributes } from './login/login.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterContentInit {
+export class AppComponent implements AfterViewInit {
 
   static applicationName : string = environment.name;
   static language : Language = new Language();
@@ -42,19 +42,19 @@ export class AppComponent implements AfterContentInit {
 
   private removeComponent(componentClass: Type<any>, instance : boolean) : void {
     // Find the component
-    const component = instance ? componentClass : this.components.find(component => component.instance instanceof componentClass);
+    const component = this.components.find(component => instance ? (component.instance.constructor == componentClass.constructor) : (component.instance instanceof componentClass));
     const componentIndex = this.components.indexOf(component);
-
     if (componentIndex !== -1) {
       // Remove component from both view and array
       this.container.remove(this.container.indexOf(component));
       this.components.splice(componentIndex, 1);
-      console.log("Adicionado: " + component.instance.constructor.name);
+      console.log("Removido: " + component.instance.constructor.name);
     }
   }
 
-  ngAfterContentInit(): void {
-    this.startApp();
+  ngAfterViewInit(): void {
+    setTimeout(() => this.startApp());
+    //this.startApp();
   }
 
   startApp() : void {
@@ -74,12 +74,12 @@ export class AppComponent implements AfterContentInit {
     this.addComponent(page);
   }
 
-  changeCurrentPage(current: Type<any>, page: Type<any>) : void {
-    this.removeComponent(current, false);
+  changeCurrentPage(current: any, page: Type<any>) : void {
+    this.removeComponent(current, true);
     this.addComponent(page);
   }
 
-  addSingleComponent(page: Type<any>, instance : boolean) : any {
+  addSingleComponent(page: any, instance : boolean) : any {
     const component = instance ? page : this.components.find(component => component.instance instanceof page);
     if(component == null){
       return this.addComponent(page);

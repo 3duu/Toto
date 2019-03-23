@@ -86,8 +86,8 @@ export class AppBase implements OnInit {
       }
     }
 
-    setError(message : string) : void {
-
+    goBack(lastComponent : any) : void {
+      this.getAppComponent().changeCurrentPage(this, lastComponent);
     }
     
   }

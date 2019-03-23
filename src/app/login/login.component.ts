@@ -43,7 +43,7 @@ export class LoginComponent extends AppBase {
     this.loginForm = form;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
-      this.alert.show(this.language.validateDataError[0], ColorClass.danger);
+      this.alert.show(this.language.validateDataError, ColorClass.danger);
       return;
     }
     this.loading = true;
@@ -53,7 +53,7 @@ export class LoginComponent extends AppBase {
     formUser.setPassword(form.value.password);
 
     if(!this.requiredFieldsFilled(formUser)){
-      this.alert.show(this.language.requiredFields[0], ColorClass.danger);
+      this.alert.show(this.language.requiredFields, ColorClass.danger);
       this.loading = false;
       return;
     }
@@ -75,7 +75,7 @@ export class LoginComponent extends AppBase {
       }
     }, error => {
       console.log(error);
-      this.alert.show(this.language.connectionError[0], ColorClass.danger);
+      this.alert.show(this.language.connectionError, ColorClass.danger);
       this.loading = false;
     });
   }
@@ -94,7 +94,7 @@ export class LoginComponent extends AppBase {
   }
 
   register() : void {
-    this.getAppComponent().changeCurrentPage(LoginComponent, RegisterComponent);
+    this.getAppComponent().changeCurrentPage(this, RegisterComponent);
   }
 
   static userInSession(result : any, baseApp : AppBase, password : string) : void {

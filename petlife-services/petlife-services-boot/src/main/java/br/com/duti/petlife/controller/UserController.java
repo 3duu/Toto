@@ -71,6 +71,11 @@ public class UserController {
 			user.setCreationDate(new Date());
 			user.setAdmin(false);
 			//validate unique username
+			if(userRepository.getByUsername(user.getUsername()) != null) {
+				response = new ResponseEntity<User>(userRepository.save(user), RequestContextHolder.currentRequestAttributes().getSessionId());
+				response.setCode(ReturnCode.RESOURCE_EXISTS.getValue());
+				return response;
+			}
 			response = new ResponseEntity<User>(userRepository.save(user), RequestContextHolder.currentRequestAttributes().getSessionId());
 			if(response.getEntity() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());

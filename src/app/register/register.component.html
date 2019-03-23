@@ -14,12 +14,13 @@
         <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel />
         <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.confirmPassword}}" type="password" name="confirmPassword" id="confirmPassword" ngModel />
 
-        
         <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
             <span class="sr-only">Carregando...</span>
         </div>
+        <br>
         <app-alert></app-alert>
         <button class="btn btn-lg btn-petlife btn-block btn-center" type="submit" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.createUser}}</button>
         <br>
     </form>
+    <small class="create-account text-muted"><button class="ember-view btn btn-sm btn-default" (click)="goBack()"> <b>{{language.back}} </b></button> </small>
 </div>

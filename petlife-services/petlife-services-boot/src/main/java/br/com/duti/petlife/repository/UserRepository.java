@@ -15,10 +15,12 @@ import br.com.duti.petlife.repository.interfaces.IUserRepository;
 @Transactional
 public class UserRepository extends GenericRepository<User> implements IUserRepository {
 	
+	private final String GET_USER_QUERY = "SELECT u FROM User u WHERE u.username = :login and u.password = :pass";
+	private final String GET_USERNAME_QUERY = "SELECT u FROM User u WHERE u.username = :login";
+	
 	@Override
 	public final User getUser(final String username, final String password) {
-		final String jpql = "SELECT u FROM User u WHERE u.username = :login and u.password = :pass";
-		final List<User> users = getEntityManager().createQuery(jpql, User.class)
+		final List<User> users = getEntityManager().createQuery(GET_USER_QUERY, User.class).setMaxResults(1)
 				.setParameter("login", username)
 				.setParameter("pass", password).getResultList();
 		return users.isEmpty() ? null : users.get(0);
@@ -55,6 +57,14 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public User getByUsername(final String username) {
+		final List<User> users = getEntityManager().createQuery(GET_USERNAME_QUERY, User.class).setMaxResults(1)
+				.setParameter("login", username)
+				.getResultList();
+		return users.isEmpty() ? null : users.get(0);
 	}
 
 }

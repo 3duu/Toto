@@ -61,17 +61,17 @@ class ApiService {
 
     if(result.code == ReturnCode.SUCCESS){
       if (result && result.sid) {
-        return language.registerSuccess[0];
+        return language.registerSuccess;
       }
     }
     else if(result.code == ReturnCode.NOT_FOUND){
-      return language.invalidUserPassword[0];
+      return language.invalidUserPassword;
     }
     else if(result.code == ReturnCode.SERVER_ERROR){
-      return language.serverError[0];
+      return language.serverError;
     }
     else {
-      return language.connectionError[0];
+      return language.connectionError;
     }
   }
 }
@@ -113,5 +113,6 @@ export enum ReturnCode {
   SUCCESS = 0,
   NOT_FOUND = -1,
   VALIDATION_ERROR = -2,
-  SERVER_ERROR = -3
+  SERVER_ERROR = -3,
+  RESOURCE_EXISTS = -4
 }
