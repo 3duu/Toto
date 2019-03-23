@@ -4,41 +4,7 @@
             "outputFile": "/home/eduardo/git/Toto/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/4ff598d856fd3752029b1f0371c4230b/res/values-zh-rHK/values-zh-rHK.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "101",
-                        "endOffsets": "152"
-                    },
-                    "to": {
-                        "startLines": "20",
-                        "startColumns": "4",
-                        "startOffsets": "2420",
-                        "endColumns": "101",
-                        "endOffsets": "2517"
-                    }
-                },
-                {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/553291265fe04a5f432b1e267cc3442c/res/values-zh-rHK/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "166",
-                        "endOffsets": "417"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1127",
-                        "endColumns": "166",
-                        "endOffsets": "1289"
-                    }
-                },
-                {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/6636ec0ae6046fa9a4414ad8b186f187/res/values-zh-rHK/values.xml",
+                    "source": "/home/eduardo/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/0d3bfbd73ab0e83f15155f31c7feb1fb/res/values-zh-rHK/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -53,14 +19,9 @@
                         "endColumns": "102,159,116,103,165,117,131,121,168,102,159,116,165,137,84,86,100",
                         "endOffsets": "203,363,480,584,750,868,1000,1122,1458,1561,1721,1838,2004,2142,2227,2314,2415"
                     }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
-            "map": [
+                },
                 {
-                    "source": "/home/eduardo/git/Toto/C:\\root\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-15.0.1.aar\\553291265fe04a5f432b1e267cc3442c\\res\\values-zh-rHK\\values.xml",
+                    "source": "/home/eduardo/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/836623341de5d39f1f7758ef3e608a44/res/values-zh-rHK/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -76,6 +37,28 @@
                         "endOffsets": "1289"
                     }
                 },
+                {
+                    "source": "/home/eduardo/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/700ba09b8f2072d78250f744bf59fa85/res/values-zh-rHK/values-zh-rHK.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "101",
+                        "endOffsets": "152"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "2420",
+                        "endColumns": "101",
+                        "endOffsets": "2517"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
+            "map": [
                 {
                     "source": "/home/eduardo/git/Toto/C:\\root\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\4ff598d856fd3752029b1f0371c4230b\\res\\values-zh-rHK\\values-zh-rHK.xml",
                     "from": {
@@ -109,14 +92,9 @@
                         "endColumns": "102,159,116,103,165,117,131,121,168,102,159,116,165,137,84,86,100",
                         "endOffsets": "203,363,480,584,750,868,1000,1122,1458,1561,1721,1838,2004,2142,2227,2314,2415"
                     }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/eduardo/git/Toto/C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
-            "map": [
+                },
                 {
-                    "source": "/home/eduardo/git/Toto/C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-15.0.1.aar\\3983803c8b09907b9208847ccb78fbe0\\res\\values-zh-rHK\\values.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\root\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-15.0.1.aar\\553291265fe04a5f432b1e267cc3442c\\res\\values-zh-rHK\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -131,7 +109,12 @@
                         "endColumns": "166",
                         "endOffsets": "1289"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/eduardo/git/Toto/C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
+            "map": [
                 {
                     "source": "/home/eduardo/git/Toto/C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\fbf26583cdf6a2f506416ad02a885dac\\res\\values-zh-rHK\\values-zh-rHK.xml",
                     "from": {
@@ -164,6 +147,23 @@
                         "startOffsets": "105,208,368,485,589,755,873,1005,1294,1463,1566,1726,1843,2009,2147,2232,2319",
                         "endColumns": "102,159,116,103,165,117,131,121,168,102,159,116,165,137,84,86,100",
                         "endOffsets": "203,363,480,584,750,868,1000,1122,1458,1561,1721,1838,2004,2142,2227,2314,2415"
+                    }
+                },
+                {
+                    "source": "/home/eduardo/git/Toto/C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-15.0.1.aar\\3983803c8b09907b9208847ccb78fbe0\\res\\values-zh-rHK\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "166",
+                        "endOffsets": "417"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1127",
+                        "endColumns": "166",
+                        "endOffsets": "1289"
                     }
                 }
             ]

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/eduardo/git/Toto/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rIN\\values-en-rIN.xml",
             "map": [
                 {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/4ff598d856fd3752029b1f0371c4230b/res/values-en-rIN/values-en-rIN.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\root\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\4ff598d856fd3752029b1f0371c4230b\\res\\values-en-rIN\\values-en-rIN.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -31,10 +31,10 @@
             ]
         },
         {
-            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rIN\\values-en-rIN.xml",
+            "outputFile": "/home/eduardo/git/Toto/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
-                    "source": "/home/eduardo/git/Toto/C:\\root\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\4ff598d856fd3752029b1f0371c4230b\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "/home/eduardo/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/700ba09b8f2072d78250f744bf59fa85/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

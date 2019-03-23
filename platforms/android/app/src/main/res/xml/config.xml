@@ -64,7 +64,7 @@
         <param name="android-package" value="com.customtabplugin.ChromeCustomTabPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>Toto</name>
+    <name>PetLif3</name>
     <description>
         Manage you Pet Life
     </description>
@@ -84,4 +84,7 @@
     <preference name="xwalkZOrderOnTop" value="true" />
     <preference name="BackgroundColor" value="0" />
     <preference name="android-minSdkVersion" value="19" />
+    <preference name="target-device" value="universal" />
+    <preference name="orientation" value="default" />
+    <preference name="permissions" value="none" />
 </widget>
