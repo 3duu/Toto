@@ -170,6 +170,7 @@ export class LoginComponent extends AppBase {
   }
   //token: 69e3ce1251c258e87b8f9ffae8e60ae7
   //https://binary-studio.com/2015/09/24/facebook-login-in-cordova/
+  //https://stackoverflow.com/questions/27135185/how-can-i-specify-the-minimum-sdk-in-phonegap-it-is-ignoring-android-minsdkvers
 
   /**
    * function displayData($http, access_token)
