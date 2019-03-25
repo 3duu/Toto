@@ -1,106 +1,101 @@
+import { SociaNetworkType } from '../login/login.component';
 import { Bookmark } from './Bookmark';
 import { Pet } from './Pet';
-import { Rating } from './Rating';
 import { PetService } from './PetService';
+import { Rating } from './Rating';
 
 export class User {
 
-    private id : number;
+    id : number;
 
-    private username : string;
+    username : string;
 
-    private name : string;
+    name : string;
 
-    private creationDate : Date;
+    creationDate : Date;
 
-    private password : string;
+    password : string;
 
-    private admin : boolean;
+    admin : boolean;
+
+    loginType: SociaNetworkType;
 
     pets: Pet[];
 
-    bookmarks: Bookmark[];
+    //bookmarks: Bookmark[];
 
-    ratings: Rating[];
+    //ratings: Rating[];
 
-    myRatings: Rating[];
+    //myRatings: Rating[];
 
     petServices: PetService[];
 
     rate : number;
 
     constructor() { }
-  
-    getId() : number {
-        return this.id;
+
+    /*
+    public get id(): number {
+        return this._id;
+    }
+    public set id(value: number) {
+        this._id = value;
     }
 
-    setId(id : number) : void {
-        this.id = id;
+    public get username(): string {
+        return this._username;
+    }
+    public set username(value: string) {
+        this._username = value;
     }
 
-    getUsername() : string {
-        return this.username;
+    public get name(): string {
+        return this._name;
+    }
+    public set name(value: string) {
+        this._name = value;
     }
 
-    setUsername(username : string) : void {
-        this.username = username;
+    public get creationDate(): Date {
+        return this._creationDate;
+    }
+    public set creationDate(value: Date) {
+        this._creationDate = value;
     }
 
-    getName() : string {
-        return this.name;
+    public get password(): string {
+        return this._password;
+    }
+    public set password(value: string) {
+        this._password = value;
     }
 
-    setName(name : string) : void {
-        this.name = name;
+    public get admin(): boolean {
+        return this._admin;
+    }
+    public set admin(value: boolean) {
+        this._admin = value;
     }
 
-    getCreationDate() : Date {
-        return this.creationDate;
+    public get pets(): Pet[] {
+        return this._pets;
+    }
+    public set pets(value: Pet[]) {
+        this._pets = value;
     }
 
-    setCreationDate(creationDate : Date) : void {
-        this.creationDate = creationDate;
+    public get loginType(): SociaNetworkType {
+        return this._loginType;
+    }
+    public set loginType(value: SociaNetworkType) {
+        this._loginType = value;
     }
 
-    getPassword() : string {
-        return this.password;
+    public get petServices(): PetService[] {
+        return this._petServices;
     }
-
-    setPassword(password : string) : void {
-        this.password = password;
-    }
-
-    getPets() : Pet[] {
-        return this.pets;
-    }
-
-    setPets(pets : Pet[]) : void {
-        this.pets = pets;
-    }
-
-    getBookmarks() : Bookmark[] {
-        return this.bookmarks;
-    }
-
-    getPetServices() : PetService[] {
-        return this.petServices;
-    }
-
-    getRatings() : Rating[] {
-        return this.ratings;
-    }
-
-    getMyRating() : Rating[] {
-        return this.myRatings;
-    }
-
-    isAdmin() : boolean {
-        return this.admin;
-    }
-
-    setAdmin(admin : boolean) : void {
-        this.admin = admin;
-    }
+    public set petServices(value: PetService[]) {
+        this._petServices = value;
+    }*/
   
 }

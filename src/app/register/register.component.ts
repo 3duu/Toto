@@ -44,9 +44,9 @@ export class RegisterComponent extends AppBase {
     this.loading = true;
 
     let formUser = new User();
-    formUser.setUsername(form.value.username);
-    formUser.setPassword(form.value.password);
-    formUser.setName(form.value.name);
+    formUser.username = (form.value.username);
+    formUser.password = (form.value.password);
+    formUser.name = (form.value.name);
     console.log(form.value);
 
     //Campos obrigaorios
@@ -57,21 +57,21 @@ export class RegisterComponent extends AppBase {
     }
 
     //Validar e-mail
-    if(!StringUtils.isEmail(formUser.getUsername())){
+    if(!StringUtils.isEmail(formUser.username)){
       this.alert.show(this.language.invalidEmailAddress, ColorClass.danger);
       this.loading = false;
       return;
     }
 
     //Validar senha
-    if(formUser.getPassword().length < passwordConfig.min || (!StringUtils.isEmpty(passwordConfig.contains))){
+    if(formUser.password.length < passwordConfig.min || (!StringUtils.isEmpty(passwordConfig.contains))){
       this.alert.show(this.language.invalidPassword.replace(":min", passwordConfig.min), ColorClass.danger);
       this.loading = false;
       return;
     }
 
     //Corresponder senha
-    if(formUser.getPassword() != form.value.confirmPassword){
+    if(formUser.password != form.value.confirmPassword){
       this.alert.show(this.language.passwordDoesntMatch, ColorClass.danger);
       this.loading = false;
       return;
@@ -86,7 +86,7 @@ export class RegisterComponent extends AppBase {
       if(result.code == ReturnCode.SUCCESS){
         if (result && result.sid) {
           alert(this.language.registerSuccess);
-          LoginComponent.userInSession(result, this, formUser.getPassword());
+          LoginComponent.userInSession(result, this, formUser.password);
         }
       }
       else if(result.code == ReturnCode.RESOURCE_EXISTS){
@@ -103,9 +103,9 @@ export class RegisterComponent extends AppBase {
   }
 
   requiredFieldsFilled(user: User, confirmPassword : string) : boolean {
-    return !(StringUtils.isEmpty(user.getUsername())
-    || StringUtils.isEmpty(user.getPassword())
-    || StringUtils.isEmpty(user.getName())
+    return !(StringUtils.isEmpty(user.username)
+    || StringUtils.isEmpty(user.password)
+    || StringUtils.isEmpty(user.name)
     || StringUtils.isEmpty(confirmPassword));
   }
 

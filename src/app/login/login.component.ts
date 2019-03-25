@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 import { RegisterComponent } from '../register/register.component';
 import { StringUtils } from '../utils';
 
+declare let FB;
+
 //https://bootsnipp.com/snippets/kMdg
 @Component({
   selector: 'app-login',
@@ -34,11 +36,12 @@ export class LoginComponent extends AppBase {
 
   ngOnInit() : void {
     this.getNavbarComponent().disableMenu = true;
+    this.facebookConfig();
     this.onLogged(LoginComponent.getAfterLoginPageRedirection());
   }
 
   doLogin(form: NgForm) : void {
-
+    console.log("login start");
     this.alert.hide();
     this.loginForm = form;
     // stop here if form is invalid
@@ -49,8 +52,12 @@ export class LoginComponent extends AppBase {
     this.loading = true;
 
     let formUser = new User();
-    formUser.setUsername(form.value.username);
-    formUser.setPassword(form.value.password);
+    formUser.username = form.value.username;
+    formUser.password = form.value.password;
+    if(form.value.socialMedia == ""){
+      form.value.socialMedia = SociaNetworkType.NONE;
+    }
+    formUser.loginType = form.value.socialMedia;
 
     if(!this.requiredFieldsFilled(formUser)){
       this.alert.show(this.language.requiredFields, ColorClass.danger);
@@ -81,12 +88,42 @@ export class LoginComponent extends AppBase {
   }
 
   requiredFieldsFilled(user: User) : boolean {
-    return !(StringUtils.isEmpty(user.getUsername())
-    || StringUtils.isEmpty(user.getPassword()));
+    return !(StringUtils.isEmpty(user.username)
+    || StringUtils.isEmpty(user.password));
   }
 
   facebook() : void {
-    alert("facebook");
+    console.log("submit login to facebook");
+    // FB.login();
+    (<any>FB).login((response)=>
+        {
+          console.log('submitLogin',response);
+          if (response.authResponse && response.status == "connected") {
+            (<any>window).facebook = response;
+            let form : NgForm = new NgForm([],[]);
+            (<any>form).value.username = response.authResponse.userID;
+            (<any>form).value.password = response.authResponse.userID;
+            (<any>form).value.socialMedia = SociaNetworkType.FACEBOOK;
+            this.doLogin(form);
+          }
+          else {
+            console.log('User login failed');
+          }
+      });
+      /*(<any>FB).getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });*/
+      /**
+       * {
+              status: 'connected',
+              authResponse: {
+                  accessToken: '...',
+                  expiresIn:'...',
+                  signedRequest:'...',
+                  userID:'...'
+              }
+          }
+       */
   }
 
   google() : void {
@@ -109,6 +146,26 @@ export class LoginComponent extends AppBase {
     }
   }
 
+  private facebookConfig() : void {
+    (window as any).fbAsyncInit = function() {
+      FB.init({
+        appId      : '389609115207477',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v3.1'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  }
+
 }
 
 export enum SessionAttributes {
@@ -118,8 +175,9 @@ export enum SessionAttributes {
   LOGIN_DATE = "loginDate"
 }
 
-export enum SocialMediaLogin {
-  FACEBOOK,
-  GOOGLE,
-  TWITTER
+export enum SociaNetworkType {
+  NONE = 0,
+  FACEBOOK = 1,
+  GOOGLE = 2,
+  TWITTER = 3
 }

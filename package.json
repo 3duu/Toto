@@ -1,11 +1,11 @@
 {
-  "name": "br.com.petlife",
+  "name": "br.com.toppet",
   "version": "1.0.0",
-  "displayName": "PetLif3",
+  "displayName": "Top-Pet",
   "endpoints": {
     "local": "http://localhost:9003",
-    "indra": "http://192.168.137.1:9003/petlife",
-    "home": "http://192.168.1.3:9003/petlife",
+    "indra": "http://192.168.137.1:9003/toppet",
+    "home": "http://192.168.1.3:9003/toppet",
     "home2": "http://192.168.1.3:9003"
   },
   "passwordConfig": {

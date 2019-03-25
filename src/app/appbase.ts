@@ -32,13 +32,13 @@ export class AppBase implements OnInit {
       let json = localStorage.getItem(SessionAttributes.CURRENT_USER) != undefined ? JSON.parse(localStorage.getItem(SessionAttributes.CURRENT_USER)) : null;
       if(json != null){
         let user : User = new User();
-        user.setId(json.id);
-        user.setName(json.name);
-        user.setPassword(json.password);
-        user.setUsername(json.username);
-        user.setCreationDate(json.creationDate);
-        user.setAdmin(json.admin);
-        user.setPets(json.pets);
+        user.id = json.id;
+        user.name= json.name;
+        user.password = json.password;
+        user.username = json.username;
+        user.creationDate = json.creationDate;
+        user.admin = json.admin;
+        user.pets = json.pets;
         return user;
       }
       return json;
@@ -76,9 +76,9 @@ export class AppBase implements OnInit {
       let user : User = this.getUser();
       (<any>window).user = user;
       if(user != null){
-        this.getNavbarComponent().username = user.getName();
+        this.getNavbarComponent().username = user.name;
         if(afterLoginRedirectComponent != null){
-          this.getAppComponent().changePage(afterLoginRedirectComponent);
+          setTimeout(() => {this.getAppComponent().changePage(afterLoginRedirectComponent)});
         }
         else{
           this.getAppComponent().changePage(HomeComponent);

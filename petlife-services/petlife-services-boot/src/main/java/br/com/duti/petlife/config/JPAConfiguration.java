@@ -44,7 +44,7 @@ public class JPAConfiguration {
 		new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
 		em.setJpaProperties(additionalProperties());
-		em.setPersistenceUnitName("PETLIF3");
+		em.setPersistenceUnitName("TOPPET");
 
 		return em;
 	}

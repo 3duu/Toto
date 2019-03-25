@@ -9,6 +9,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -48,7 +50,7 @@ public class User implements Serializable, UserDetails {
 	private String password;
 	
 	@Column(name="admin",nullable=false)
-	private Boolean admin;
+	private boolean admin;
 	
 	@Column(name="birth_date", nullable=true)
 	private Date birthDate;
@@ -61,6 +63,10 @@ public class User implements Serializable, UserDetails {
             joinColumns = @JoinColumn( name="user_id"),
             inverseJoinColumns = @JoinColumn( name="address_id"))
 	private Address address;
+	
+	@Column(name="login_type", nullable=true, length=2)
+	@Enumerated(EnumType.ORDINAL)
+	private SocialNetworkType loginType;
 	
 	public long getId() {
 		return id;
@@ -166,7 +172,13 @@ public class User implements Serializable, UserDetails {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
-	
+
+	public SocialNetworkType getLoginType() {
+		return loginType;
+	}
+
+	public void setLoginType(SocialNetworkType loginType) {
+		this.loginType = loginType;
+	}
 
 }

@@ -2,6 +2,7 @@ import { Language } from './language/Language';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Type, AfterViewInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { LoginComponent, SessionAttributes } from './login/login.component';
+import { FormUtils } from './utils';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
@@ -31,7 +32,7 @@ export class AppComponent implements AfterViewInit {
     if(this.container != null){
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
       const component = this.container.createComponent(componentFactory);
-      console.log("Adicionado: " + component.instance.constructor.name);
+      FormUtils.log("Adicionado: " + component.instance.constructor.name);
 
       // Push the component so that we can keep track of which components are created
       this.components.push(component);
@@ -42,19 +43,18 @@ export class AppComponent implements AfterViewInit {
 
   private removeComponent(componentClass: Type<any>, instance : boolean) : void {
     // Find the component
-    const component = this.components.find(component => instance ? (component.instance.constructor == componentClass.constructor) : (component.instance instanceof componentClass));
+    const component = this.components.find(component => instance ? (component.instance instanceof componentClass.constructor) : (component.instance instanceof componentClass));
     const componentIndex = this.components.indexOf(component);
     if (componentIndex !== -1) {
       // Remove component from both view and array
       this.container.remove(this.container.indexOf(component));
       this.components.splice(componentIndex, 1);
-      console.log("Removido: " + component.instance.constructor.name);
+      FormUtils.log("Removido: " + component.instance.constructor.name);
     }
   }
 
   ngAfterViewInit(): void {
     setTimeout(() => this.startApp());
-    //this.startApp();
   }
 
   startApp() : void {
@@ -68,7 +68,7 @@ export class AppComponent implements AfterViewInit {
 
   changePage(page: Type<any>) : void {
     this.components.forEach(component => {
-      this.removeComponent(component, true);
+      this.removeComponent(component.instance, true);
     });
     
     this.addComponent(page);

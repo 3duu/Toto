@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 
 import br.com.duti.petlife.models.ResponseEntity;
+import br.com.duti.petlife.models.SocialNetworkType;
 import br.com.duti.petlife.models.User;
 import br.com.duti.petlife.repository.interfaces.IUserRepository;
 import br.com.duti.utils.ReturnCode;
@@ -44,14 +45,29 @@ public class UserController {
 	@CrossOrigin(origins = {Utils.ANGULAR_HOST, Utils.PHONEGAP_HOST, Utils.PHONEGAP_HOST2, Utils.PHONEGAP_HOST3, Utils.SMARTPHONE})
 	@PostMapping(value="/authenticate", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> doLogin(@RequestBody final User user) {
-		ResponseEntity<User> response;
+		
+		ResponseEntity<User> response = null;
+		//Lidar com login de redes sociais
+		
+		if(SocialNetworkType.NONE.equals(user.getLoginType())) {
+			user.setLoginType(null);
+			user.setPassword(getEncryptedString(user.getPassword()));
+		}
+		
+		if(user.getLoginType() != null) {
+			response = register(user);
+		}
+
 		try {
-			response = new ResponseEntity<User>(userRepository.getUser(user.getUsername(), getEncryptedString(user.getPassword())), RequestContextHolder.currentRequestAttributes().getSessionId());
-			if(response.getEntity() != null) {
-				response.setCode(ReturnCode.SUCCESS.getValue());
-			} else {
-				response.setCode(ReturnCode.NOT_FOUND.getValue());
+			if(response == null) {
+				response = new ResponseEntity<User>(userRepository.getUser(user.getUsername(), user.getPassword()), RequestContextHolder.currentRequestAttributes().getSessionId());
+				if(response.getEntity() != null) {
+					response.setCode(ReturnCode.SUCCESS.getValue());
+				} else {
+					response.setCode(ReturnCode.NOT_FOUND.getValue());
+				}
 			}
+			
 		}
 		catch(Exception e){
 			response = new ResponseEntity<User>(user, RequestContextHolder.currentRequestAttributes().getSessionId());
@@ -68,14 +84,24 @@ public class UserController {
 		ResponseEntity<User> response;
 		try {
 			user.setPassword(getEncryptedString(user.getPassword()));
+			
+			if(user.getLoginType() == null) {
+				//validate unique username
+				if(userRepository.getByUsername(user.getUsername()) != null) {
+					response = new ResponseEntity<User>(userRepository.save(user), RequestContextHolder.currentRequestAttributes().getSessionId());
+					response.setCode(ReturnCode.RESOURCE_EXISTS.getValue());
+					return response;
+				}
+			}
+			else {
+				if(userRepository.getSocialMediaUser(user) != null) {
+					return null;
+				}
+			}
+			
 			user.setCreationDate(new Date());
 			user.setAdmin(false);
-			//validate unique username
-			if(userRepository.getByUsername(user.getUsername()) != null) {
-				response = new ResponseEntity<User>(userRepository.save(user), RequestContextHolder.currentRequestAttributes().getSessionId());
-				response.setCode(ReturnCode.RESOURCE_EXISTS.getValue());
-				return response;
-			}
+			
 			response = new ResponseEntity<User>(userRepository.save(user), RequestContextHolder.currentRequestAttributes().getSessionId());
 			if(response.getEntity() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
@@ -91,5 +117,14 @@ public class UserController {
 		
         return response;
     }
+	
+	private boolean createUser(final User user) {
+		try {
+			return true;
+		}
+		catch(Exception e){
+			return false;
+		}
+	}
 	
 }

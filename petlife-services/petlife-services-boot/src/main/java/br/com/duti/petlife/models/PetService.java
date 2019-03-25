@@ -41,7 +41,7 @@ public class PetService implements Serializable {
 	@ManyToOne(fetch=FetchType.LAZY)
 	private User user;
 	
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.ORDINAL)
 	@Column(name="service_type", nullable=false)
 	private ServiceType serviceType;
 	

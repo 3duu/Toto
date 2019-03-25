@@ -17,6 +17,7 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 	
 	private final String GET_USER_QUERY = "SELECT u FROM User u WHERE u.username = :login and u.password = :pass";
 	private final String GET_USERNAME_QUERY = "SELECT u FROM User u WHERE u.username = :login";
+	private final String GET_SOCIAL_NETWORK_QUERY = "SELECT u FROM User u WHERE u.username = :login and loginType = :social";
 	
 	@Override
 	public final User getUser(final String username, final String password) {
@@ -63,6 +64,15 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 	public User getByUsername(final String username) {
 		final List<User> users = getEntityManager().createQuery(GET_USERNAME_QUERY, User.class).setMaxResults(1)
 				.setParameter("login", username)
+				.getResultList();
+		return users.isEmpty() ? null : users.get(0);
+	}
+
+	@Override
+	public User getSocialMediaUser(final User user) {
+		final List<User> users = getEntityManager().createQuery(GET_SOCIAL_NETWORK_QUERY, User.class).setMaxResults(1)
+				.setParameter("login", user.getUsername())
+				.setParameter("social", user.getLoginType())
 				.getResultList();
 		return users.isEmpty() ? null : users.get(0);
 	}

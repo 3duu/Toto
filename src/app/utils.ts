@@ -12,3 +12,10 @@ export class StringUtils {
     }
 
 }
+
+export class FormUtils {
+
+    static log(text : any) : void {
+        console.log(text);
+    }
+}

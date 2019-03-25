@@ -58,7 +58,7 @@ class ApiService {
   }
 
   getErrorMessage(result : any, language : Language) : string {
-
+    console.log('return code', result.code);
     if(result.code == ReturnCode.SUCCESS){
       if (result && result.sid) {
         return language.registerSuccess;

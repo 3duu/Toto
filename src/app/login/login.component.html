@@ -1,12 +1,16 @@
 <div class="container">     
 <script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
-
 <div class="container text-center">
     <form class="form-signin" #loginForm="ngForm" (ngSubmit)="doLogin(loginForm)">
         <h2 class="form-signin-heading">{{language.signIn}}</h2>
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
         <br><br>
         <p>
+            
+            <!-- <fb:login-button 
+                scope="public_profile,email"
+                onlogin="checkLoginState();">
+            </fb:login-button> -->
             <a class="btn btn-primary social-login-btn social-facebook" (click)="facebook()" href="#"><i class="fa fa-facebook"></i></a>
             <a class="btn btn-primary social-login-btn social-google"   (click)="google()" href="#"><i class="fa fa-google-plus"></i></a>
         </p>
@@ -41,7 +45,7 @@
         <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>
         <br><br>
         
-        <input type="hidden" name="socialMedia" id="socialMedia" ngModel>
+        <input type="hidden" name="socialMedia" id="socialMedia" value="0" ngModel>
         <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.username}}" type="text" name="username" id="username" ngModel><!-- required -->
         <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel>
 

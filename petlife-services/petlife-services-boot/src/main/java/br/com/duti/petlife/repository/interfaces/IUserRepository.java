@@ -10,4 +10,5 @@ public interface IUserRepository {
 	public UserDetails loadUserByUsername(final String username);
 	public User save(User user);
 	public User getByUsername(String username);
+	public User getSocialMediaUser(User user);
 }
