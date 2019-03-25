@@ -21,7 +21,7 @@ export class Language {
     dontHave : string = "Não possui";
     orSocialMediaAccount : string = "ou conta em rede social?";
     email : string = "E-mail";
-    username : string = "E-mail/Usuário";
+    username : string = "E-mail";
     name : string = "Nome";
     birthday : string = "Nascimento";
     password : string = "Senha";

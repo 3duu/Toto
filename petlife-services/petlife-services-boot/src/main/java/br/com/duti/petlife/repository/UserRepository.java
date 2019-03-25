@@ -15,15 +15,21 @@ import br.com.duti.petlife.repository.interfaces.IUserRepository;
 @Transactional
 public class UserRepository extends GenericRepository<User> implements IUserRepository {
 	
-	private final String GET_USER_QUERY = "SELECT u FROM User u WHERE u.username = :login and u.password = :pass";
+	private final String GET_USER_QUERY = "SELECT u FROM User u WHERE u.username = :login and u.password = :pass and loginType = :social";
 	private final String GET_USERNAME_QUERY = "SELECT u FROM User u WHERE u.username = :login";
 	private final String GET_SOCIAL_NETWORK_QUERY = "SELECT u FROM User u WHERE u.username = :login and loginType = :social";
 	
+	private final String LOGIN = "login";
+	private final String PASS = "pass";
+	private final String SOCIAL = "social";
+	
 	@Override
-	public final User getUser(final String username, final String password) {
+	public final User getUser(final User user) {
 		final List<User> users = getEntityManager().createQuery(GET_USER_QUERY, User.class).setMaxResults(1)
-				.setParameter("login", username)
-				.setParameter("pass", password).getResultList();
+				.setParameter(LOGIN, user.getUsername())
+				.setParameter(PASS, user.getPassword())
+				.setParameter(SOCIAL, user.getLoginType())
+				.getResultList();
 		return users.isEmpty() ? null : users.get(0);
 	}
 	
@@ -35,7 +41,7 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 			throw new UsernameNotFoundException("Erro ao fazer login");
 		try{
 			users = getEntityManager().createQuery(jpql, User.class)
-					.setParameter("login", username).getResultList();
+					.setParameter(LOGIN, username).getResultList();
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -48,22 +54,10 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 		return users.get(0);
 	}
 	
-	public User save(final User user){
-		try{
-			getEntityManager().persist(user);
-			getEntityManager().flush();
-			return user;
-		}
-		catch(Exception e){
-			e.printStackTrace();
-			return null;
-		}
-	}
-
 	@Override
 	public User getByUsername(final String username) {
 		final List<User> users = getEntityManager().createQuery(GET_USERNAME_QUERY, User.class).setMaxResults(1)
-				.setParameter("login", username)
+				.setParameter(LOGIN, username)
 				.getResultList();
 		return users.isEmpty() ? null : users.get(0);
 	}
@@ -71,8 +65,8 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 	@Override
 	public User getSocialMediaUser(final User user) {
 		final List<User> users = getEntityManager().createQuery(GET_SOCIAL_NETWORK_QUERY, User.class).setMaxResults(1)
-				.setParameter("login", user.getUsername())
-				.setParameter("social", user.getLoginType())
+				.setParameter(LOGIN, user.getUsername())
+				.setParameter(SOCIAL, user.getLoginType())
 				.getResultList();
 		return users.isEmpty() ? null : users.get(0);
 	}

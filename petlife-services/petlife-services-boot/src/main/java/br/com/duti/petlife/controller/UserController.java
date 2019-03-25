@@ -60,7 +60,7 @@ public class UserController {
 
 		try {
 			if(response == null) {
-				response = new ResponseEntity<User>(userRepository.getUser(user.getUsername(), user.getPassword()), RequestContextHolder.currentRequestAttributes().getSessionId());
+				response = new ResponseEntity<User>(userRepository.getUser(user), RequestContextHolder.currentRequestAttributes().getSessionId());
 				if(response.getEntity() != null) {
 					response.setCode(ReturnCode.SUCCESS.getValue());
 				} else {
@@ -88,7 +88,7 @@ public class UserController {
 			if(user.getLoginType() == null) {
 				//validate unique username
 				if(userRepository.getByUsername(user.getUsername()) != null) {
-					response = new ResponseEntity<User>(userRepository.save(user), RequestContextHolder.currentRequestAttributes().getSessionId());
+					response = new ResponseEntity<User>(userRepository.insert(user), RequestContextHolder.currentRequestAttributes().getSessionId());
 					response.setCode(ReturnCode.RESOURCE_EXISTS.getValue());
 					return response;
 				}
@@ -102,7 +102,7 @@ public class UserController {
 			user.setCreationDate(new Date());
 			user.setAdmin(false);
 			
-			response = new ResponseEntity<User>(userRepository.save(user), RequestContextHolder.currentRequestAttributes().getSessionId());
+			response = new ResponseEntity<User>(userRepository.insert(user), RequestContextHolder.currentRequestAttributes().getSessionId());
 			if(response.getEntity() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
 			} else {
@@ -118,13 +118,5 @@ public class UserController {
         return response;
     }
 	
-	private boolean createUser(final User user) {
-		try {
-			return true;
-		}
-		catch(Exception e){
-			return false;
-		}
-	}
-	
+
 }
