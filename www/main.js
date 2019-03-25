@@ -7,7 +7,7 @@
 /*! exports provided: name, version, displayName, endpoints, passwordConfig, cordova, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"Toppet","endpoints":{"local":"http://localhost:9003","indra":"http://192.168.137.1:9003/toppet","home":"http://192.168.1.3:9003/toppet","home2":"http://192.168.1.3:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{}},"platforms":["ios","browser","android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","browserify-zlib":"^0.2.0","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-ios":"~4.5.5","cordova-plugin-device":"2.0.2","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","core-js":"^2.5.4","font-awesome":"^4.7.0","jquery":"^3.3.1","ngx-bootstrap":"^3.2.0","phonegap":"^8.2.2","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
+module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"Top-Pet","endpoints":{"local":"http://localhost:9003","indra":"http://192.168.137.1:9003/toppet","home":"http://192.168.1.3:9003/toppet","home2":"http://192.168.1.3:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{}},"platforms":["ios","browser","android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","browserify-zlib":"^0.2.0","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-ios":"~4.5.5","cordova-plugin-device":"2.0.2","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","core-js":"^2.5.4","font-awesome":"^4.7.0","jquery":"^3.3.1","ngx-bootstrap":"^3.2.0","phonegap":"^8.2.2","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
 
 /***/ }),
 
@@ -173,6 +173,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils */ "./src/app/utils.ts");
+
 
 
 
@@ -198,7 +200,7 @@ var AppComponent = /** @class */ (function () {
         if (this.container != null) {
             var componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
             var component = this.container.createComponent(componentFactory);
-            console.log("Adicionado: " + component.instance.constructor.name);
+            _utils__WEBPACK_IMPORTED_MODULE_5__["FormUtils"].log("Adicionado: " + component.instance.constructor.name);
             // Push the component so that we can keep track of which components are created
             this.components.push(component);
             return component.instance;
@@ -213,13 +215,12 @@ var AppComponent = /** @class */ (function () {
             // Remove component from both view and array
             this.container.remove(this.container.indexOf(component));
             this.components.splice(componentIndex, 1);
-            console.log("Removido: " + component.instance.constructor.name);
+            _utils__WEBPACK_IMPORTED_MODULE_5__["FormUtils"].log("Removido: " + component.instance.constructor.name);
         }
     };
     AppComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
         setTimeout(function () { return _this.startApp(); });
-        //this.startApp();
     };
     AppComponent.prototype.startApp = function () {
         //Apagar session values
@@ -379,13 +380,13 @@ var AppBase = /** @class */ (function () {
         var json = localStorage.getItem(_login_login_component__WEBPACK_IMPORTED_MODULE_2__["SessionAttributes"].CURRENT_USER) != undefined ? JSON.parse(localStorage.getItem(_login_login_component__WEBPACK_IMPORTED_MODULE_2__["SessionAttributes"].CURRENT_USER)) : null;
         if (json != null) {
             var user = new _entity_User__WEBPACK_IMPORTED_MODULE_1__["User"]();
-            user.setId(json.id);
-            user.setName(json.name);
-            user.setPassword(json.password);
-            user.setUsername(json.username);
-            user.setCreationDate(json.creationDate);
-            user.setAdmin(json.admin);
-            user.setPets(json.pets);
+            user.id = json.id;
+            user.name = json.name;
+            user.password = json.password;
+            user.username = json.username;
+            user.creationDate = json.creationDate;
+            user.admin = json.admin;
+            user.pets = json.pets;
             return user;
         }
         return json;
@@ -414,12 +415,13 @@ var AppBase = /** @class */ (function () {
         AppBase.modules.push(module);
     };
     AppBase.prototype.onLogged = function (afterLoginRedirectComponent) {
+        var _this = this;
         var user = this.getUser();
         window.user = user;
         if (user != null) {
-            this.getNavbarComponent().username = user.getName();
+            this.getNavbarComponent().username = user.name;
             if (afterLoginRedirectComponent != null) {
-                this.getAppComponent().changePage(afterLoginRedirectComponent);
+                setTimeout(function () { _this.getAppComponent().changePage(afterLoginRedirectComponent); });
             }
             else {
                 this.getAppComponent().changePage(_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"]);
@@ -533,60 +535,6 @@ __webpack_require__.r(__webpack_exports__);
 var User = /** @class */ (function () {
     function User() {
     }
-    User.prototype.getId = function () {
-        return this.id;
-    };
-    User.prototype.setId = function (id) {
-        this.id = id;
-    };
-    User.prototype.getUsername = function () {
-        return this.username;
-    };
-    User.prototype.setUsername = function (username) {
-        this.username = username;
-    };
-    User.prototype.getName = function () {
-        return this.name;
-    };
-    User.prototype.setName = function (name) {
-        this.name = name;
-    };
-    User.prototype.getCreationDate = function () {
-        return this.creationDate;
-    };
-    User.prototype.setCreationDate = function (creationDate) {
-        this.creationDate = creationDate;
-    };
-    User.prototype.getPassword = function () {
-        return this.password;
-    };
-    User.prototype.setPassword = function (password) {
-        this.password = password;
-    };
-    User.prototype.getPets = function () {
-        return this.pets;
-    };
-    User.prototype.setPets = function (pets) {
-        this.pets = pets;
-    };
-    User.prototype.getBookmarks = function () {
-        return this.bookmarks;
-    };
-    User.prototype.getPetServices = function () {
-        return this.petServices;
-    };
-    User.prototype.getRatings = function () {
-        return this.ratings;
-    };
-    User.prototype.getMyRating = function () {
-        return this.myRatings;
-    };
-    User.prototype.isAdmin = function () {
-        return this.admin;
-    };
-    User.prototype.setAdmin = function (admin) {
-        this.admin = admin;
-    };
     return User;
 }());
 
@@ -639,6 +587,11 @@ var HomeComponent = /** @class */ (function (_super) {
     }
     HomeComponent.prototype.ngOnInit = function () {
         this.getNavbarComponent().disableMenu = false;
+    };
+    HomeComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.ngOnInit();
+        setTimeout(function () { _this.getNavbarComponent().disableMenu = false; });
     };
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -732,7 +685,7 @@ module.exports = "/* brandico */\n[class*=\"brandico-\"]:before {\n  font-family
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n\n<div class=\"container text-center\">\n    <form class=\"form-signin\" #loginForm=\"ngForm\" (ngSubmit)=\"doLogin(loginForm)\">\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br><br>\n        <p>\n            <a class=\"btn btn-primary social-login-btn social-facebook\" (click)=\"facebook()\" href=\"#\"><i class=\"fa fa-facebook\"></i></a>\n            <a class=\"btn btn-primary social-login-btn social-google\"   (click)=\"google()\" href=\"#\"><i class=\"fa fa-google-plus\"></i></a>\n        </p>\n        <!-- <p>\n        <a class=\"btn btn-primary social-login-btn social-linkedin\" href=\"#\"><i class=\"fa fa-linkedin\"></i></a>\n        <a class=\"btn btn-primary social-login-btn social-twitter\" href=\"#\"><i class=\"fa fa-twitter\"></i></a>\n        </p> -->\n\n        <!-- <div class=\"btn-group social-login-more\">\n        <button type=\"button\" class=\"btn btn-default dropdown-toggle btn-block\" data-toggle=\"dropdown\">\n        {{language.more}}\n        </button>\n        <ul class=\"dropdown-menu text-left \" role=\"menu\">\n        <li><a href=\"#\"><i class=\"fa fa-tumblr-sign\"></i>   Tumblr</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-github-alt\"></i>   Github</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-dropbox\"></i>   Dropbox</a></li>\n        <li><a href=\"/auth/amazon\"><span class=\"zocial-amazon\"></span>   Amazon</a></li>\n        <li><a href=\"#\"><span class=\"zocial-bitbucket\"></span>   Bitbucket</a></li>\n        <li><a href=\"#\"><span class=\"zocial-evernote\"></span>   Evernote</a></li>\n        <li><a href=\"#\"><span class=\"zocial-meetup\"></span>   Meetup</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-windows\"></i>   Windows Live</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-weibo\"></i>   Weibo</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-foursquare\"></i>   Foursquare</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-stackexchange\"></i>   Stack Exchange</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-trello\"></i>   Trello</a></li>\n        <li><a href=\"#\"><span class=\"zocial-wordpress\"></span>   Wordpress</a></li>\n        </ul>\n        </div> \n        <br> -->\n        <br>\n\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\n        <br><br>\n        \n        <input type=\"hidden\" name=\"socialMedia\" id=\"socialMedia\" ngModel>\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.username}}\" type=\"text\" name=\"username\" id=\"username\" ngModel><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel>\n\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\n        <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n            <span class=\"sr-only\">Carregando...</span>\n        </div>\n        <app-alert></app-alert>\n        <button class=\"btn btn-lg btn-petlife btn-block btn-center\" type=\"submit\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.login}}</button>\n        <br>\n    </form>\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.signUp}} </b></button> </small>\n</div>"
+module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n<div class=\"container text-center\">\n    <form class=\"form-signin\" #loginForm=\"ngForm\" (ngSubmit)=\"doLogin(loginForm)\">\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br><br>\n        <p>\n            \n            <!-- <fb:login-button \n                scope=\"public_profile,email\"\n                onlogin=\"checkLoginState();\">\n            </fb:login-button> -->\n            <a class=\"btn btn-primary social-login-btn social-facebook\" (click)=\"facebook()\" href=\"#\"><i class=\"fa fa-facebook\"></i></a>\n            <a class=\"btn btn-primary social-login-btn social-google\"   (click)=\"google()\" href=\"#\"><i class=\"fa fa-google-plus\"></i></a>\n        </p>\n        <!-- <p>\n        <a class=\"btn btn-primary social-login-btn social-linkedin\" href=\"#\"><i class=\"fa fa-linkedin\"></i></a>\n        <a class=\"btn btn-primary social-login-btn social-twitter\" href=\"#\"><i class=\"fa fa-twitter\"></i></a>\n        </p> -->\n\n        <!-- <div class=\"btn-group social-login-more\">\n        <button type=\"button\" class=\"btn btn-default dropdown-toggle btn-block\" data-toggle=\"dropdown\">\n        {{language.more}}\n        </button>\n        <ul class=\"dropdown-menu text-left \" role=\"menu\">\n        <li><a href=\"#\"><i class=\"fa fa-tumblr-sign\"></i>   Tumblr</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-github-alt\"></i>   Github</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-dropbox\"></i>   Dropbox</a></li>\n        <li><a href=\"/auth/amazon\"><span class=\"zocial-amazon\"></span>   Amazon</a></li>\n        <li><a href=\"#\"><span class=\"zocial-bitbucket\"></span>   Bitbucket</a></li>\n        <li><a href=\"#\"><span class=\"zocial-evernote\"></span>   Evernote</a></li>\n        <li><a href=\"#\"><span class=\"zocial-meetup\"></span>   Meetup</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-windows\"></i>   Windows Live</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-weibo\"></i>   Weibo</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-foursquare\"></i>   Foursquare</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-stackexchange\"></i>   Stack Exchange</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-trello\"></i>   Trello</a></li>\n        <li><a href=\"#\"><span class=\"zocial-wordpress\"></span>   Wordpress</a></li>\n        </ul>\n        </div> \n        <br> -->\n        <br>\n\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\n        <br><br>\n        \n        <input type=\"hidden\" name=\"socialMedia\" id=\"socialMedia\" value=\"0\" ngModel>\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.username}}\" type=\"text\" name=\"username\" id=\"username\" ngModel><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel>\n\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\n        <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n            <span class=\"sr-only\">Carregando...</span>\n        </div>\n        <app-alert></app-alert>\n        <button class=\"btn btn-lg btn-petlife btn-block btn-center\" type=\"submit\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.login}}</button>\n        <br>\n    </form>\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.signUp}} </b></button> </small>\n</div>"
 
 /***/ }),
 
@@ -740,24 +693,26 @@ module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start
 /*!******************************************!*\
   !*** ./src/app/login/login.component.ts ***!
   \******************************************/
-/*! exports provided: LoginComponent, SessionAttributes, SocialMediaLogin */
+/*! exports provided: LoginComponent, SessionAttributes, SociaNetworkType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SessionAttributes", function() { return SessionAttributes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SocialMediaLogin", function() { return SocialMediaLogin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SociaNetworkType", function() { return SociaNetworkType; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
-/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
-/* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
-/* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
-/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../register/register.component */ "./src/app/register/register.component.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
+/* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
+/* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
+/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../register/register.component */ "./src/app/register/register.component.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+
 
 
 
@@ -782,23 +737,29 @@ var LoginComponent = /** @class */ (function (_super) {
     };
     LoginComponent.prototype.ngOnInit = function () {
         this.getNavbarComponent().disableMenu = true;
+        this.facebookConfig();
         this.onLogged(LoginComponent_1.getAfterLoginPageRedirection());
     };
     LoginComponent.prototype.doLogin = function (form) {
         var _this = this;
+        console.log("login start");
         this.alert.hide();
         this.loginForm = form;
         // stop here if form is invalid
         if (this.loginForm.invalid) {
-            this.alert.show(this.language.validateDataError, _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
+            this.alert.show(this.language.validateDataError, _styles_styles__WEBPACK_IMPORTED_MODULE_8__["ColorClass"].danger);
             return;
         }
         this.loading = true;
-        var formUser = new _entity_User__WEBPACK_IMPORTED_MODULE_2__["User"]();
-        formUser.setUsername(form.value.username);
-        formUser.setPassword(form.value.password);
+        var formUser = new _entity_User__WEBPACK_IMPORTED_MODULE_3__["User"]();
+        formUser.username = form.value.username;
+        formUser.password = form.value.password;
+        if (form.value.socialMedia == "") {
+            form.value.socialMedia = SociaNetworkType.NONE;
+        }
+        formUser.loginType = form.value.socialMedia;
         if (!this.requiredFieldsFilled(formUser)) {
-            this.alert.show(this.language.requiredFields, _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
+            this.alert.show(this.language.requiredFields, _styles_styles__WEBPACK_IMPORTED_MODULE_8__["ColorClass"].danger);
             this.loading = false;
             return;
         }
@@ -807,30 +768,60 @@ var LoginComponent = /** @class */ (function (_super) {
         user.subscribe(function (result) {
             console.log(result);
             _this.loading = false;
-            if (result.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS) {
+            if (result.code == _service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].SUCCESS) {
                 LoginComponent_1.userInSession(result, _this, form.value.password);
             }
             else {
-                _this.alert.show(_this.api.getErrorMessage(result, _this.language), _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
+                _this.alert.show(_this.api.getErrorMessage(result, _this.language), _styles_styles__WEBPACK_IMPORTED_MODULE_8__["ColorClass"].danger);
             }
         }, function (error) {
             console.log(error);
-            _this.alert.show(_this.language.connectionError, _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
+            _this.alert.show(_this.language.connectionError, _styles_styles__WEBPACK_IMPORTED_MODULE_8__["ColorClass"].danger);
             _this.loading = false;
         });
     };
     LoginComponent.prototype.requiredFieldsFilled = function (user) {
-        return !(_utils__WEBPACK_IMPORTED_MODULE_9__["StringUtils"].isEmpty(user.getUsername())
-            || _utils__WEBPACK_IMPORTED_MODULE_9__["StringUtils"].isEmpty(user.getPassword()));
+        return !(_utils__WEBPACK_IMPORTED_MODULE_10__["StringUtils"].isEmpty(user.username)
+            || _utils__WEBPACK_IMPORTED_MODULE_10__["StringUtils"].isEmpty(user.password));
     };
     LoginComponent.prototype.facebook = function () {
-        alert("facebook");
+        var _this = this;
+        console.log("submit login to facebook");
+        // FB.login();
+        FB.login(function (response) {
+            console.log('submitLogin', response);
+            if (response.authResponse && response.status == "connected") {
+                window.facebook = response;
+                var form = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"]([], []);
+                form.value.username = response.authResponse.userID;
+                form.value.password = response.authResponse.userID;
+                form.value.socialMedia = SociaNetworkType.FACEBOOK;
+                _this.doLogin(form);
+            }
+            else {
+                console.log('User login failed');
+            }
+        });
+        /*(<any>FB).getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });*/
+        /**
+         * {
+                status: 'connected',
+                authResponse: {
+                    accessToken: '...',
+                    expiresIn:'...',
+                    signedRequest:'...',
+                    userID:'...'
+                }
+            }
+         */
     };
     LoginComponent.prototype.google = function () {
         alert("google");
     };
     LoginComponent.prototype.register = function () {
-        this.getAppComponent().changeCurrentPage(this, _register_register_component__WEBPACK_IMPORTED_MODULE_8__["RegisterComponent"]);
+        this.getAppComponent().changeCurrentPage(this, _register_register_component__WEBPACK_IMPORTED_MODULE_9__["RegisterComponent"]);
     };
     LoginComponent.userInSession = function (result, baseApp, password) {
         if (result && result.sid) {
@@ -843,11 +834,32 @@ var LoginComponent = /** @class */ (function (_super) {
             baseApp.onLogged(LoginComponent_1.getAfterLoginPageRedirection());
         }
     };
+    LoginComponent.prototype.facebookConfig = function () {
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '389609115207477',
+                cookie: true,
+                xfbml: true,
+                version: 'v3.1'
+            });
+            FB.AppEvents.logPageView();
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    };
     var LoginComponent_1;
-    LoginComponent.afterLoginRedirectComponent = _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"];
+    LoginComponent.afterLoginRedirectComponent = _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"];
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_7__["AlertComponent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_7__["AlertComponent"])
     ], LoginComponent.prototype, "alert", void 0);
     LoginComponent = LoginComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -855,10 +867,10 @@ var LoginComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_3__["UserApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_4__["UserApiService"]])
     ], LoginComponent);
     return LoginComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_5__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_6__["AppBase"]));
 
 var SessionAttributes;
 (function (SessionAttributes) {
@@ -867,12 +879,13 @@ var SessionAttributes;
     SessionAttributes["SESSION_ID"] = "sessionId";
     SessionAttributes["LOGIN_DATE"] = "loginDate";
 })(SessionAttributes || (SessionAttributes = {}));
-var SocialMediaLogin;
-(function (SocialMediaLogin) {
-    SocialMediaLogin[SocialMediaLogin["FACEBOOK"] = 0] = "FACEBOOK";
-    SocialMediaLogin[SocialMediaLogin["GOOGLE"] = 1] = "GOOGLE";
-    SocialMediaLogin[SocialMediaLogin["TWITTER"] = 2] = "TWITTER";
-})(SocialMediaLogin || (SocialMediaLogin = {}));
+var SociaNetworkType;
+(function (SociaNetworkType) {
+    SociaNetworkType[SociaNetworkType["NONE"] = 0] = "NONE";
+    SociaNetworkType[SociaNetworkType["FACEBOOK"] = 1] = "FACEBOOK";
+    SociaNetworkType[SociaNetworkType["GOOGLE"] = 2] = "GOOGLE";
+    SociaNetworkType[SociaNetworkType["TWITTER"] = 3] = "TWITTER";
+})(SociaNetworkType || (SociaNetworkType = {}));
 
 
 /***/ }),
@@ -1154,9 +1167,9 @@ var RegisterComponent = /** @class */ (function (_super) {
         }
         this.loading = true;
         var formUser = new _entity_User__WEBPACK_IMPORTED_MODULE_3__["User"]();
-        formUser.setUsername(form.value.username);
-        formUser.setPassword(form.value.password);
-        formUser.setName(form.value.name);
+        formUser.username = (form.value.username);
+        formUser.password = (form.value.password);
+        formUser.name = (form.value.name);
         console.log(form.value);
         //Campos obrigaorios
         if (!this.requiredFieldsFilled(formUser, form.value.confirmPassword)) {
@@ -1165,19 +1178,19 @@ var RegisterComponent = /** @class */ (function (_super) {
             return;
         }
         //Validar e-mail
-        if (!_utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmail(formUser.getUsername())) {
+        if (!_utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmail(formUser.username)) {
             this.alert.show(this.language.invalidEmailAddress, _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             this.loading = false;
             return;
         }
         //Validar senha
-        if (formUser.getPassword().length < passwordConfig.min || (!_utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(passwordConfig.contains))) {
+        if (formUser.password.length < passwordConfig.min || (!_utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(passwordConfig.contains))) {
             this.alert.show(this.language.invalidPassword.replace(":min", passwordConfig.min), _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             this.loading = false;
             return;
         }
         //Corresponder senha
-        if (formUser.getPassword() != form.value.confirmPassword) {
+        if (formUser.password != form.value.confirmPassword) {
             this.alert.show(this.language.passwordDoesntMatch, _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             this.loading = false;
             return;
@@ -1189,7 +1202,7 @@ var RegisterComponent = /** @class */ (function (_super) {
             if (result.code == _service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].SUCCESS) {
                 if (result && result.sid) {
                     alert(_this.language.registerSuccess);
-                    _login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"].userInSession(result, _this, formUser.getPassword());
+                    _login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"].userInSession(result, _this, formUser.password);
                 }
             }
             else if (result.code == _service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].RESOURCE_EXISTS) {
@@ -1205,9 +1218,9 @@ var RegisterComponent = /** @class */ (function (_super) {
         });
     };
     RegisterComponent.prototype.requiredFieldsFilled = function (user, confirmPassword) {
-        return !(_utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(user.getUsername())
-            || _utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(user.getPassword())
-            || _utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(user.getName())
+        return !(_utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(user.username)
+            || _utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(user.password)
+            || _utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(user.name)
             || _utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(confirmPassword));
     };
     RegisterComponent.prototype.goBack = function () {
@@ -1287,6 +1300,7 @@ var ApiService = /** @class */ (function () {
         return body || {};
     };
     ApiService.prototype.getErrorMessage = function (result, language) {
+        console.log('return code', result.code);
         if (result.code == ReturnCode.SUCCESS) {
             if (result && result.sid) {
                 return language.registerSuccess;
@@ -1374,12 +1388,13 @@ var ColorClass;
 /*!**************************!*\
   !*** ./src/app/utils.ts ***!
   \**************************/
-/*! exports provided: StringUtils */
+/*! exports provided: StringUtils, FormUtils */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StringUtils", function() { return StringUtils; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormUtils", function() { return FormUtils; });
 var StringUtils = /** @class */ (function () {
     function StringUtils() {
     }
@@ -1391,6 +1406,15 @@ var StringUtils = /** @class */ (function () {
         return regex.test(text);
     };
     return StringUtils;
+}());
+
+var FormUtils = /** @class */ (function () {
+    function FormUtils() {
+    }
+    FormUtils.log = function (text) {
+        console.log(text);
+    };
+    return FormUtils;
 }());
 
 
