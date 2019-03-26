@@ -7,10 +7,13 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-inappbrowser": {
+    "cordova-plugin-device": {
       "PACKAGE_NAME": "com.toto"
     },
-    "cordova-plugin-safariviewcontroller": {
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.toto"
     },
     "cordova-plugin-googlemaps": {
@@ -19,10 +22,18 @@
       "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background.",
       "PACKAGE_NAME": "com.toto"
     },
-    "cordova-plugin-geolocation": {
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "cordova-plugin-safariviewcontroller": {
       "PACKAGE_NAME": "com.toto"
     },
     "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "phonegap-facebook-plugin": {
+      "APP_ID": "389609115207477",
+      "APP_NAME": "Toppet",
       "PACKAGE_NAME": "com.toto"
     }
   },

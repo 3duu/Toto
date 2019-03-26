@@ -68,5 +68,16 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "phonegap-facebook-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/Wizcorp/phonegap-facebook-plugin.git"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "389609115207477",
+      "APP_NAME": "Toppet"
+    }
   }
 }

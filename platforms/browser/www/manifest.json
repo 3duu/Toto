@@ -1,11 +1,12 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "Toto",
-  "short_name": "Toto",
+  "name": "Toppet",
+  "short_name": "Toppet",
   "version": "com.toto",
   "description": "Manage you Pet Life",
   "author": "DUTI",
   "icons": [],
+  "orientation": "any",
   "start_url": "index.html"
 }

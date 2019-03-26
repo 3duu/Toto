@@ -16,8 +16,7 @@ declare let FB;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  //directives: [AlertComponent],
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent extends AppBase {
 
@@ -161,16 +160,17 @@ export class LoginComponent extends AppBase {
     };
 
     (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
   }
   //token: 69e3ce1251c258e87b8f9ffae8e60ae7
   //https://binary-studio.com/2015/09/24/facebook-login-in-cordova/
   //https://stackoverflow.com/questions/27135185/how-can-i-specify-the-minimum-sdk-in-phonegap-it-is-ignoring-android-minsdkvers
+  //phonegap -d plugin add https://github.com/phonegap/phonegap-facebook-plugin.git --variable APP_ID="389609115207477" --variable APP_NAME="Toppet"
 
   /**
    * function displayData($http, access_token)

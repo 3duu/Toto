@@ -365,6 +365,14 @@ module.exports = [
         "clobbers": [
             "SafariViewController"
         ]
+    },
+    {
+        "file": "plugins/phonegap-facebook-plugin/facebookConnectPlugin.js",
+        "id": "phonegap-facebook-plugin.FacebookConnectPlugin",
+        "pluginId": "phonegap-facebook-plugin",
+        "clobbers": [
+            "facebookConnectPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -376,7 +384,8 @@ module.exports.metadata =
     "cordova-plugin-inappbrowser": "3.0.0",
     "cordova-plugin-safariviewcontroller": "1.5.4",
     "cordova-plugin-geolocation": "4.0.1",
-    "cordova-plugin-whitelist": "1.3.3"
+    "cordova-plugin-whitelist": "1.3.3",
+    "phonegap-facebook-plugin": "0.12.0"
 }
 // BOTTOM OF METADATA
 });

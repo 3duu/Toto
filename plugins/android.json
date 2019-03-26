@@ -1,0 +1,26 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "phonegap-facebook-plugin": {
+      "APP_ID": "389609115207477",
+      "APP_NAME": "Toppet",
+      "PACKAGE_NAME": "com.toto"
+    }
+  },
+  "dependent_plugins": {}
+}

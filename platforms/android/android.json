@@ -1,0 +1,165 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "res/xml/config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"android-package\" value=\"org.apache.cordova.facebook.ConnectPlugin\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://m.facebook.com\" />",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://graph.facebook.com\" />",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://api.facebook.com\" />",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://*.fbcdn.net\" />",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://*.akamaihd.net\" />",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "AndroidManifest.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-feature android:name=\"android.hardware.location.gps\" />",
+              "count": 1
+            }
+          ],
+          "application": [
+            {
+              "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
+              "count": 1
+            },
+            {
+              "xml": "<activity android:label=\"@string/fb_app_name\" android:name=\"com.facebook.LoginActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "res/values/facebookconnect.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<string name=\"fb_app_id\">389609115207477</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"fb_app_name\">Toppet</string>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.toto"
+    },
+    "phonegap-facebook-plugin": {
+      "APP_ID": "389609115207477",
+      "APP_NAME": "Toppet",
+      "PACKAGE_NAME": "com.toto"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
+      "id": "cordova-plugin-dialogs.notification",
+      "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-dialogs.notification_android",
+      "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.geolocation",
+      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "navigator.geolocation"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.PositionError",
+      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "runs": true
+    },
+    {
+      "id": "phonegap-facebook-plugin.FacebookConnectPlugin",
+      "file": "plugins/phonegap-facebook-plugin/facebookConnectPlugin.js",
+      "pluginId": "phonegap-facebook-plugin",
+      "clobbers": [
+        "facebookConnectPlugin"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-dialogs": "1.2.1",
+    "cordova-plugin-geolocation": "4.0.1",
+    "phonegap-facebook-plugin": "0.12.0"
+  }
+}
