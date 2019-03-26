@@ -25,7 +25,7 @@ export class PetsComponent extends AppBase implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => {this.loadPets()});
+    this.loadPets();
   }
 
   private loadPets() : void {
@@ -54,10 +54,11 @@ export class PetsComponent extends AppBase implements AfterViewInit {
           }
         }
         else {
-          //this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
+          alert(this.api.getErrorMessage(result, this.language));
         }
       } ,error => {
         console.log(error);
+        alert(error);
         this.loading = false;
 
         this.user.pets = [];
