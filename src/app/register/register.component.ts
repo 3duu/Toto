@@ -1,4 +1,4 @@
-import { LoginComponent } from './../login/login.component';
+import { HomeComponent } from './../home/home.component';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../entity/User';
@@ -7,7 +7,7 @@ import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { Observable } from 'rxjs';
-import { StringUtils } from '../utils';
+import { StringUtils, LoginUtils } from '../utils';
 import { environment } from 'src/environments/environment';
 
 const passwordConfig = environment.passwordConfig;
@@ -86,7 +86,7 @@ export class RegisterComponent extends AppBase {
       if(result.code == ReturnCode.SUCCESS){
         if (result && result.sid) {
           alert(this.language.registerSuccess);
-          LoginComponent.userInSession(result, this, formUser.password);
+          LoginUtils.userInSession(result, this, formUser.password, HomeComponent);
         }
       }
       else if(result.code == ReturnCode.RESOURCE_EXISTS){
@@ -110,7 +110,9 @@ export class RegisterComponent extends AppBase {
   }
 
   goBack() : void {
-    super.goBack(LoginComponent);
+    if(this.lastComponent != undefined && this.lastComponent != null){
+      super.goBack(this.lastComponent);
+    }
   }
 
 }

@@ -13,6 +13,7 @@ import { AlertComponent } from './alert/alert.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { PetsComponent } from './pets/pets.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +23,16 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     AlertComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    PetsComponent
   ],
   entryComponents: [
     LoginComponent,
     AlertComponent,
     MapsComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    PetsComponent
   ],
   imports: [
     BrowserModule,

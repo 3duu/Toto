@@ -1,4 +1,4 @@
-import { Component, ViewChild, Type } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../entity/User';
 import { UserApiService, ReturnCode } from '../service/services';
@@ -8,7 +8,7 @@ import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { Observable } from 'rxjs';
 import { RegisterComponent } from '../register/register.component';
-import { StringUtils } from '../utils';
+import { StringUtils, LoginUtils } from '../utils';
 
 declare let FB;
 
@@ -74,7 +74,7 @@ export class LoginComponent extends AppBase {
       this.loading = false;
 
       if(result.code == ReturnCode.SUCCESS){
-        LoginComponent.userInSession(result, this, form.value.password);
+        LoginUtils.userInSession(result, this, form.value.password, LoginComponent.getAfterLoginPageRedirection());
       }
       else {
         this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
@@ -133,19 +133,7 @@ export class LoginComponent extends AppBase {
   }
 
   register() : void {
-    this.getAppComponent().changeCurrentPage(this, RegisterComponent);
-  }
-
-  static userInSession(result : any, baseApp : AppBase, password : string) : void {
-    if (result && result.sid) {
-      //store user details and jwt token in local storage to keep user logged in between page refreshes
-      localStorage.setItem(SessionAttributes.CURRENT_USER, JSON.stringify(result.entity));
-      localStorage.setItem(SessionAttributes.CURRENT_PASSWORD, password);
-      localStorage.setItem(SessionAttributes.SESSION_ID, result.sid);
-      localStorage.setItem(SessionAttributes.LOGIN_DATE, result.date);
-      //localStorage.removeItem('currentUser');
-      baseApp.onLogged(LoginComponent.getAfterLoginPageRedirection());
-    }
+    super.changeCurrentPage(this, RegisterComponent);
   }
 
   private facebookConfig() : void {
@@ -196,13 +184,6 @@ export class LoginComponent extends AppBase {
    */
 
 
-}
-
-export enum SessionAttributes {
-  CURRENT_USER = "currentUser",
-  CURRENT_PASSWORD = "currentPassword",
-  SESSION_ID = "sessionId",
-  LOGIN_DATE = "loginDate"
 }
 
 export enum SociaNetworkType {

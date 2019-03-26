@@ -15,11 +15,6 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.toto"
-    },
-    "phonegap-facebook-plugin": {
-      "APP_ID": "389609115207477",
-      "APP_NAME": "Toppet",
-      "PACKAGE_NAME": "com.toto"
     }
   },
   "dependent_plugins": {}

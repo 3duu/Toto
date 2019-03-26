@@ -1,8 +1,8 @@
 import { Language } from './language/Language';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Type, AfterViewInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { LoginComponent, SessionAttributes } from './login/login.component';
-import { FormUtils } from './utils';
+import { LoginComponent } from './login/login.component';
+import { SessionAttributes } from './utils';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
@@ -32,7 +32,7 @@ export class AppComponent implements AfterViewInit {
     if(this.container != null){
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
       const component = this.container.createComponent(componentFactory);
-      FormUtils.log("Adicionado: " + component.instance.constructor.name);
+      console.log("Adicionado: " + component.instance.constructor.name);
 
       // Push the component so that we can keep track of which components are created
       this.components.push(component);
@@ -49,7 +49,7 @@ export class AppComponent implements AfterViewInit {
       // Remove component from both view and array
       this.container.remove(this.container.indexOf(component));
       this.components.splice(componentIndex, 1);
-      FormUtils.log("Removido: " + component.instance.constructor.name);
+      console.log("Removido: " + component.instance.constructor.name);
     }
   }
 
@@ -74,9 +74,9 @@ export class AppComponent implements AfterViewInit {
     this.addComponent(page);
   }
 
-  changeCurrentPage(current: any, page: Type<any>) : void {
+  changeCurrentPage(current: any, page: any) : any {
     this.removeComponent(current, true);
-    this.addComponent(page);
+    return this.addComponent(page);
   }
 
   addSingleComponent(page: any, instance : boolean) : any {

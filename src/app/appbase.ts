@@ -3,20 +3,21 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { Language } from './language/Language';
 import { User } from './entity/User';
-import { SessionAttributes } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { SessionAttributes } from './utils';
 
 export class AppBase implements OnInit {
   
     private static modules : AppBase[] = [];
     private static navbarComponent : NavbarComponent;
+    lastComponent :Type<any>;
   
     showNavMenu : boolean = true;
   
     applicationName : string = AppComponent.applicationName;
     language : Language = AppComponent.language;
 
-    private children = [];
+    //private children = [];
 
     protected loading = false;
   
@@ -86,6 +87,12 @@ export class AppBase implements OnInit {
       }
     }
 
+    protected changeCurrentPage(current: any, page: Type<any>) : void {
+      let newPage = this.getAppComponent().changeCurrentPage(current, page);
+      console.log(1);
+      newPage.lastComponent = current.constructor;
+    }
+    
     goBack(lastComponent : any) : void {
       this.getAppComponent().changeCurrentPage(this, lastComponent);
     }

@@ -64,12 +64,6 @@
 		77F6D526FB9647BAA1CDD546 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = DB11B70216294CB29DAF3E68 /* CDVInAppBrowser.m */; };
 		EC78AB99B4734A15B34D335D /* SafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34745ACF248C4057811CFB4E /* SafariViewController.m */; };
 		0889D721A0254B47A071DCB0 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE46B10400341978CB09E4A /* SafariServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		090D8053E93547B180B46AB9 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A119FEC4813B4CE781371699 /* FacebookConnectPlugin.m */; };
-		5315D271AB0E4077ABF0CD9A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCCE1F8A8FE406A863A9B0B /* FacebookSDK.framework */; };
-		DB80B5E1B3424F2A90CE77BF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E2FF1B5040414EA0A4D7766C /* libsqlite3.dylib */; };
-		BF162B3119CD407A984F6B10 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2874784A3244FAB423511C /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		FB2F013A4FAD42179EDDDDB0 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEF981E45374915B6BDD7F7 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		F87522351F954902ADBE3A43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1072CC9ED8554E2DB32DE6F1 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,13 +184,6 @@
 		34745ACF248C4057811CFB4E /* SafariViewController.m */ = {isa = PBXFileReference; name = "SafariViewController.m"; path = "cordova-plugin-safariviewcontroller/SafariViewController.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		AC66D48DAF82417A9FEAEDA8 /* SafariViewController.h */ = {isa = PBXFileReference; name = "SafariViewController.h"; path = "cordova-plugin-safariviewcontroller/SafariViewController.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		4EE46B10400341978CB09E4A /* SafariServices.framework */ = {isa = PBXFileReference; name = "SafariServices.framework"; path = "System/Library/Frameworks/SafariServices.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		A119FEC4813B4CE781371699 /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; name = "FacebookConnectPlugin.m"; path = "phonegap-facebook-plugin/FacebookConnectPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		BCBF6B5327974260ABAD0AC3 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; name = "FacebookConnectPlugin.h"; path = "phonegap-facebook-plugin/FacebookConnectPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		2CCCE1F8A8FE406A863A9B0B /* FacebookSDK.framework */ = {isa = PBXFileReference; name = "FacebookSDK.framework"; path = "Toppet/Plugins/phonegap-facebook-plugin/FacebookSDK.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		E2FF1B5040414EA0A4D7766C /* libsqlite3.dylib */ = {isa = PBXFileReference; name = "libsqlite3.dylib"; path = "usr/lib/libsqlite3.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
-		9E2874784A3244FAB423511C /* Social.framework */ = {isa = PBXFileReference; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		6EEF981E45374915B6BDD7F7 /* Accounts.framework */ = {isa = PBXFileReference; name = "Accounts.framework"; path = "System/Library/Frameworks/Accounts.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		1072CC9ED8554E2DB32DE6F1 /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,11 +195,6 @@
 				5AA49B8C44CD44D5B4244330 /* AudioToolbox.framework in Frameworks */,
 				EA62AD6168334EA8955230C5 /* CoreLocation.framework in Frameworks */,
 				0889D721A0254B47A071DCB0 /* SafariServices.framework in Frameworks */,
-				5315D271AB0E4077ABF0CD9A /* FacebookSDK.framework in Frameworks */,
-				DB80B5E1B3424F2A90CE77BF /* libsqlite3.dylib in Frameworks */,
-				BF162B3119CD407A984F6B10 /* Social.framework in Frameworks */,
-				FB2F013A4FAD42179EDDDDB0 /* Accounts.framework in Frameworks */,
-				F87522351F954902ADBE3A43 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,11 +283,6 @@
 				1841C1C77BD042629E1A312D /* AudioToolbox.framework */,
 				C3AFE16CBF194CF1A11DB2F9 /* CoreLocation.framework */,
 				4EE46B10400341978CB09E4A /* SafariServices.framework */,
-				2CCCE1F8A8FE406A863A9B0B /* FacebookSDK.framework */,
-				E2FF1B5040414EA0A4D7766C /* libsqlite3.dylib */,
-				9E2874784A3244FAB423511C /* Social.framework */,
-				6EEF981E45374915B6BDD7F7 /* Accounts.framework */,
-				1072CC9ED8554E2DB32DE6F1 /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -393,8 +370,6 @@
 				3CA2381737614F51A24BBCB0 /* CDVInAppBrowser.h */,
 				34745ACF248C4057811CFB4E /* SafariViewController.m */,
 				AC66D48DAF82417A9FEAEDA8 /* SafariViewController.h */,
-				A119FEC4813B4CE781371699 /* FacebookConnectPlugin.m */,
-				BCBF6B5327974260ABAD0AC3 /* FacebookConnectPlugin.h */,
 			);
 			name = Plugins;
 			path = "Toppet/Plugins";
@@ -552,7 +527,6 @@
 				475BE907D8B94759AA68D766 /* PluginViewController.m in Sources */,
 				77F6D526FB9647BAA1CDD546 /* CDVInAppBrowser.m in Sources */,
 				EC78AB99B4734A15B34D335D /* SafariViewController.m in Sources */,
-				090D8053E93547B180B46AB9 /* FacebookConnectPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

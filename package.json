@@ -1,7 +1,7 @@
 {
   "name": "br.com.toppet",
   "version": "1.0.0",
-  "displayName": "Top-Pet",
+  "displayName": "TOP-PET",
   "endpoints": {
     "local": "http://localhost:9003",
     "indra": "http://192.168.137.1:9003/toppet",
@@ -35,15 +35,12 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-geolocation": {},
       "cordova-plugin-whitelist": {},
-      "phonegap-facebook-plugin": {
-        "APP_ID": "389609115207477",
-        "APP_NAME": "Toppet"
-      },
       "cordova-plugin-dialogs": {}
     },
     "platforms": [
       "browser",
-      "ios"
+      "ios",
+      "android"
     ]
   },
   "scripts": {
@@ -86,7 +83,6 @@
     "lodash": "^4.17.11",
     "ngx-bootstrap": "^3.2.0",
     "phonegap": "^8.2.2",
-    "phonegap-facebook-plugin": "git+https://github.com/Wizcorp/phonegap-facebook-plugin.git",
     "rxjs": "^6.4.0",
     "stream": "0.0.2",
     "tls": "0.0.1",

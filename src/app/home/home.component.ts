@@ -1,3 +1,4 @@
+import { MapsComponent } from './../maps/maps.component';
 import { Component, AfterViewInit } from '@angular/core';
 import { AppBase } from '../appbase';
 
@@ -13,12 +14,31 @@ export class HomeComponent extends AppBase implements AfterViewInit {
   }
 
   ngOnInit() {
-    this.getNavbarComponent().disableMenu = false;
+    this.enableMenu();
   }
 
   ngAfterViewInit(): void {
-    this.ngOnInit();
-    setTimeout(() => {this.getNavbarComponent().disableMenu = false});
+    setTimeout(() => {this.enableMenu()});
+  }
+
+  private enableMenu() : void {
+    this.getNavbarComponent().disableMenu = false;
+  }
+
+  maps(): void {
+    super.changeCurrentPage(this, MapsComponent);
+  }
+
+  appointments(): void {
+    alert("Agenda");
+  }
+
+  pets(): void {
+    alert("Pets");
+  }
+
+  donations(): void {
+    alert("Doações");
   }
 
 }

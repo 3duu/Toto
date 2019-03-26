@@ -30,18 +30,6 @@ public class UserController {
 	@Autowired
 	private IUserRepository userRepository;
 	
-	/*
-	@RequestMapping(value="/login", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<User> getUser(@RequestParam("username") final String username, @RequestParam("password") final String password) {
-		final ResponseEntity<User> response = new ResponseEntity<User>(userRepository.getUser(username, getEncryptedString(password)), RequestContextHolder.currentRequestAttributes().getSessionId());
-		if(response.getEntity() != null) {
-			response.setCode(ReturnCode.SUCCESS.getValue());
-		} else {
-			response.setCode(ReturnCode.NOT_FOUND.getValue());
-		}
-        return response;
-    }*/
-	
 	@CrossOrigin(origins = {Utils.ANGULAR_HOST, Utils.PHONEGAP_HOST, Utils.PHONEGAP_HOST2, Utils.PHONEGAP_HOST3, Utils.SMARTPHONE})
 	@PostMapping(value="/authenticate", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> doLogin(@RequestBody final User user) {

@@ -2,12 +2,14 @@ package br.com.duti.petlife.repository;
 
 import java.util.List;
 
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
+import br.com.duti.petlife.models.SocialNetworkType;
 import br.com.duti.petlife.models.User;
 import br.com.duti.petlife.repository.interfaces.IUserRepository;
 
@@ -15,7 +17,8 @@ import br.com.duti.petlife.repository.interfaces.IUserRepository;
 @Transactional
 public class UserRepository extends GenericRepository<User> implements IUserRepository {
 	
-	private final String GET_USER_QUERY = "SELECT u FROM User u WHERE u.username = :login and u.password = :pass and loginType = :social";
+	private final String GET_USER_QUERY = "SELECT u FROM User u WHERE u.username = :login and u.password = :pass and u.loginType = :social";
+	private final String GET_USER_FULL_QUERY = "SELECT u FROM User u WHERE u.username = :login and u.password = :pass and (u.loginType is null OR u.loginType = 0)";
 	private final String GET_USERNAME_QUERY = "SELECT u FROM User u WHERE u.username = :login";
 	private final String GET_SOCIAL_NETWORK_QUERY = "SELECT u FROM User u WHERE u.username = :login and loginType = :social";
 	
@@ -25,11 +28,14 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 	
 	@Override
 	public final User getUser(final User user) {
-		final List<User> users = getEntityManager().createQuery(GET_USER_QUERY, User.class).setMaxResults(1)
+		final TypedQuery<User> query = getEntityManager().createQuery(hasSocialNetwork(user) ? GET_USER_QUERY : GET_USER_FULL_QUERY, User.class).setMaxResults(1)
 				.setParameter(LOGIN, user.getUsername())
-				.setParameter(PASS, user.getPassword())
-				.setParameter(SOCIAL, user.getLoginType())
-				.getResultList();
+				.setParameter(PASS, user.getPassword());
+		
+		if(hasSocialNetwork(user)){
+			query.setParameter(SOCIAL, user.getLoginType());
+		}
+		final List<User> users = query.getResultList();
 		return users.isEmpty() ? null : users.get(0);
 	}
 	
@@ -69,6 +75,10 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 				.setParameter(SOCIAL, user.getLoginType())
 				.getResultList();
 		return users.isEmpty() ? null : users.get(0);
+	}
+	
+	private boolean hasSocialNetwork(User user){
+		return user.getLoginType() != null && !SocialNetworkType.NONE.equals(user.getLoginType());
 	}
 
 }

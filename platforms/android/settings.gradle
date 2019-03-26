@@ -2,5 +2,3 @@
 include ":"
 include ":CordovaLib"
 include ":app"
-include ":phonegap-facebook-plugin:FacebookLib"
-project(":phonegap-facebook-plugin:FacebookLib").projectDir = new File("phonegap-facebook-plugin/toto-FacebookLib")

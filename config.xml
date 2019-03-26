@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.toto" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="br.com.duti.toppet" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Toppet</name>
     <description>
         Manage you Pet Life
@@ -31,7 +31,6 @@
     <preference name="target-device" value="universal" />
     <preference name="orientation" value="default" />
     <preference name="permissions" value="none" />
-    <engine name="browser" spec="^5.0.4" />
     <plugin name="cordova-plugin-inappbrowser" spec="~3.0.0" />
     <plugin name="cordova-plugin-safariviewcontroller" spec="C:\Users\eporto\git\Toto\node_modules\cordova-plugin-safariviewcontroller">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU" />
@@ -53,9 +52,7 @@
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="~4.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="~1.3.3" />
-    <engine name="ios" spec="~4.5.5" />
-    <plugin name="phonegap-facebook-plugin" spec="https://github.com/Wizcorp/phonegap-facebook-plugin.git">
-        <variable name="APP_ID" value="389609115207477" />
-        <variable name="APP_NAME" value="Toppet" />
-    </plugin>
+    <engine name="browser" spec="^5.0.4" />
+    <engine name="ios" spec="^4.5.5" />
+    <engine name="android" spec="^7.1.4" />
 </widget>
