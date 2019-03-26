@@ -1,4 +1,4 @@
-import { UserApiService } from './service/services';
+import { UserApiService, PetApiService } from './service/services';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -41,7 +41,7 @@ import { PetsComponent } from './pets/pets.component';
     TooltipModule.forRoot(),
     HttpClientModule
   ],
-  providers: [CordovaService, UserApiService],
+  providers: [CordovaService, UserApiService, PetApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

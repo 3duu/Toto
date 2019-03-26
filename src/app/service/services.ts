@@ -1,3 +1,4 @@
+import { Pet } from './../entity/Pet';
 import { Language } from './../language/Language';
 import { environment } from 'src/environments/environment';
 import { Injectable } from "@angular/core";
@@ -103,6 +104,48 @@ export class UserApiService extends ApiService {
     console.log(user);
     
     return this.http.post<User>(this.register, user, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+}
+
+@Injectable()
+export class PetApiService extends ApiService {
+
+  private controller = this.endpoint+"/pet";
+  private retrieve = this.controller+"/retrieve";
+  private register = this.controller+"/register";
+
+  constructor(private http: HttpClient) {
+    super();
+  }
+
+  public get(pet: Pet): Observable<any> {
+    console.log(this.retrieve);
+    console.log(pet);
+
+    return this.http.post<Pet>(this.retrieve, pet, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public getByUser(userId: number): Observable<any> {
+    console.log(this.retrieve);
+    console.log(userId);
+
+    return this.http.post<Pet>(this.retrieve, userId, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public save(pet: Pet): Observable<any> {
+    console.log(this.register);
+    console.log(pet);
+    
+    return this.http.post<User>(this.register, pet, httpOptions)
     .pipe(
       catchError(this.handleError)
     );
