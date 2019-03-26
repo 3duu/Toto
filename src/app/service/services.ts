@@ -131,11 +131,11 @@ export class PetApiService extends ApiService {
     );
   }
 
-  public getByUser(userId: number): Observable<any> {
+  public getByUser(user: User): Observable<any> {
     console.log(this.retrieve);
-    console.log(userId);
+    console.log(user);
 
-    return this.http.post<Pet>(this.retrieve, userId, httpOptions)
+    return this.http.post<Pet>(this.retrieve, user.id, httpOptions)
     .pipe(
       catchError(this.handleError)
     );

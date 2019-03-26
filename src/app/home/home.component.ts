@@ -1,3 +1,4 @@
+import { PetsComponent } from './../pets/pets.component';
 import { MapsComponent } from './../maps/maps.component';
 import { Component, AfterViewInit } from '@angular/core';
 import { AppBase } from '../appbase';
@@ -34,7 +35,7 @@ export class HomeComponent extends AppBase implements AfterViewInit {
   }
 
   pets(): void {
-    alert("Pets");
+    super.changeCurrentPage(this, PetsComponent);
   }
 
   donations(): void {

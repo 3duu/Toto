@@ -3,13 +3,13 @@ import { User } from './User';
 
 export class Appointment {
 
-    private id : number;
+    id : number;
 
-    private date : Date;
+    date : Date;
 
-    private appointmentType : AppointmentType;
+    appointmentType : AppointmentType;
 
-    private time : string;
+    time : string;
     
     pets: Pet[];
 
@@ -18,24 +18,12 @@ export class Appointment {
     ngOnInit() {
     }
 
-    getId() : number {
-        return this.id;
-    }
-
-    getPets() : Pet[] {
-        return this.pets;
-    }
-
     getUser() : User {
         if(this.pets != null && this.pets != undefined){
-            return this.pets[0].getUser();
+            return this.pets[0].user;
         }
        
         return null;
-    }
-
-    getName() {
-        return "null";
     }
   
 }
