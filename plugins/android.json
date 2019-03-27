@@ -8,13 +8,32 @@
   },
   "installed_plugins": {
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.toto"
-    },
-    "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "com.toto"
+      "PACKAGE_NAME": "br.com.duti.toppet"
     },
     "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "com.toto"
+      "PACKAGE_NAME": "br.com.duti.toppet"
+    },
+    "cordova-plugin-googlemaps": {
+      "API_KEY_FOR_ANDROID": "AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU",
+      "PLAY_SERVICES_VERSION": "15.0.1",
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "br.com.duti.toppet"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "br.com.duti.toppet"
+    },
+    "cordova-plugin-safariviewcontroller": {
+      "PACKAGE_NAME": "br.com.duti.toppet"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "br.com.duti.toppet"
+    },
+    "cordova-plugin-facebook4": {
+      "APP_ID": "389609115207477",
+      "APP_NAME": "Toppet",
+      "FACEBOOK_HYBRID_APP_EVENTS": "false",
+      "FACEBOOK_ANDROID_SDK_VERSION": "4.40.0",
+      "PACKAGE_NAME": "br.com.duti.toppet"
     }
   },
   "dependent_plugins": {}

@@ -15,22 +15,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
-        "id": "cordova-plugin-dialogs.notification",
-        "pluginId": "cordova-plugin-dialogs",
-        "merges": [
-            "navigator.notification"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-dialogs/www/browser/notification.js",
-        "id": "cordova-plugin-dialogs.notification_browser",
-        "pluginId": "cordova-plugin-dialogs",
-        "merges": [
-            "navigator.notification"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-googlemaps/www/Promise.js",
         "id": "cordova-plugin-googlemaps.Promise",
         "pluginId": "cordova-plugin-googlemaps"
@@ -365,18 +349,26 @@ module.exports = [
         "clobbers": [
             "SafariViewController"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-facebook4/www/facebook-browser.js",
+        "id": "cordova-plugin-facebook4.FacebookConnectPluginBrowser",
+        "pluginId": "cordova-plugin-facebook4",
+        "clobbers": [
+            "facebookConnectPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-dialogs": "1.2.1",
     "cordova-plugin-googlemaps": "2.5.2",
     "cordova-plugin-inappbrowser": "3.0.0",
     "cordova-plugin-safariviewcontroller": "1.5.4",
     "cordova-plugin-geolocation": "4.0.1",
-    "cordova-plugin-whitelist": "1.3.3"
+    "cordova-plugin-whitelist": "1.3.3",
+    "cordova-plugin-facebook4": "4.2.1"
 }
 // BOTTOM OF METADATA
 });

@@ -35,11 +35,15 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-geolocation": {},
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-dialogs": {}
+      "cordova-plugin-facebook4": {
+        "APP_ID": "389609115207477",
+        "APP_NAME": "Toppet",
+        "FACEBOOK_HYBRID_APP_EVENTS": "false",
+        "FACEBOOK_ANDROID_SDK_VERSION": "4.40.0"
+      }
     },
     "platforms": [
       "browser",
-      "ios",
       "android"
     ]
   },
@@ -69,9 +73,8 @@
     "cached-path-relative": "^1.0.2",
     "cordova-android": "^7.1.4",
     "cordova-browser": "^5.0.4",
-    "cordova-ios": "^4.5.5",
     "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-dialogs": "~1.2.1",
+    "cordova-plugin-facebook4": "4.2.1",
     "cordova-plugin-geolocation": "4.0.1",
     "cordova-plugin-googlemaps": "~2.5.2",
     "cordova-plugin-inappbrowser": "~3.0.0",

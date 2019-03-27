@@ -1,32 +1,43 @@
-<div class="container text-center">
-  <!-- <div *ngFor="" class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+<section class="body_section">
+  <div class=interface_class>
+    <!-- <div *ngFor="" class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div> -->
+    <div class="page-header">
+		  <h1>{{title}} <small>{{user.pets.length}}</small></h1>
     </div>
-  </div> -->
-  <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
-      <span class="sr-only">Carregando...</span>
-  </div>
-  <div class="col-sm-6 col-md-4" *ngFor="let pet of user.pets">
-      <div class="thumbnail" style="width: 425px;height: 415px;"  ng-model="id">
-      <input name="petId" value="{{pet.id}}" hidden="hidden" ng-model="pet">
-      <a href="#">
-          <img src="{{pet.img}}" alt="{{pet.name}}" width="180" height="130"  ng-model="product.productImage" style="width:180; height:130;">
-      </a>
-        <div class="caption" align="center" style="position: relative; bottom: 2px;">
-          <h3 style="width: 262px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{pet.name}}</h3>
-          <p>{{pet.type}}</p>
-          <div>
-          <p>
-          </p>
+    <div class="row">
+      <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
+          <span class="sr-only">Carregando...</span>
+      </div>
+      <article *ngFor="let pet of user.pets">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail" style="width: 425px;height: 415px;"  ng-model="id">
+          <input name="petId" value="{{pet.id}}" hidden="hidden" ng-model="pet">
+          <a href="#">
+              <img src="{{pet.img}}" alt="{{pet.name}}" width="180" height="130"  ng-model="product.productImage" style="width:180; height:130;">
+          </a>
+            <div class="caption" style="position: relative; bottom: 2px;">
+              <h3 style="width: 262px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{pet.name}}</h3>
+              <p>{{pet.type}}</p>
+              <div>
+              <p>
+              </p>
+              </div>
           </div>
+          </div>
+        </div>
+      </article>
       </div>
-      </div>
-    </div>
 
-</div> 
-
+      <a href="#" class="float bg-petlife" (click)="add">
+        <i class="fa fa-plus my-float"></i>
+      </a>
+  </div> 
+</section>
 

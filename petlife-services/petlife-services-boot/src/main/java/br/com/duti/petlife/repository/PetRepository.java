@@ -13,10 +13,13 @@ import br.com.duti.petlife.repository.interfaces.IPetRepository;
 @Transactional
 public class PetRepository extends GenericRepository<Pet> implements IPetRepository {
 
+	private final String GET_PETS_QUERY = "SELECT p FROM Pet p WHERE p.id = :id";
+	
 	@Override
-	public List<Pet> getByUser(Long userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Pet> getByUser(final Long userId) {
+		return getEntityManager().createQuery(GET_PETS_QUERY, Pet.class).setMaxResults(1)
+				.setParameter(ID, userId)
+				.getResultList();
 	}
 
 }

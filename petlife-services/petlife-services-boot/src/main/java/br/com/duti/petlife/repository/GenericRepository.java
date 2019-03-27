@@ -3,9 +3,9 @@ package br.com.duti.petlife.repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import br.com.duti.petlife.models.User;
-
 public abstract class GenericRepository<T> {
+	
+	protected final String ID = "id";
 	
 	@PersistenceContext
 	private EntityManager manager;

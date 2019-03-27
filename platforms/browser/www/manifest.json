@@ -3,7 +3,7 @@
   "display": "standalone",
   "name": "Toppet",
   "short_name": "Toppet",
-  "version": "com.toto",
+  "version": "br.com.duti.toppet",
   "description": "Manage you Pet Life",
   "author": "DUTI",
   "icons": [],

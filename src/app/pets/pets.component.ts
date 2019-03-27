@@ -18,6 +18,7 @@ export class PetsComponent extends AppBase implements AfterViewInit {
   }
 
   private user : User;
+  private title : string = "Pets";
 
   ngOnInit() {
     this.loading = true;
@@ -31,29 +32,35 @@ export class PetsComponent extends AppBase implements AfterViewInit {
   private loadPets() : void {
     if(this.user != null && this.user != undefined){
       const pets = this.api.getByUser(this.user);
-    
+      this.user.pets = [];
+
       pets.subscribe(result => {
         console.log(result);
-        this.user.pets = [];
+        
         //this.user.pets = result;
         this.loading = false;
 
-        result.forEach(p => {
-          let pet : Pet = new Pet();
-          pet.id = p.id;
-          pet.name = p.name;
-          pet.birthDate = p.birthDate;
-          pet.user = this.user;
-          pet.appointments = [];
-          this.user.pets.push(pet);
-        });
-  
-        if(result.code == ReturnCode.SUCCESS){
-          if (result && result.sid) {
-            
+        if(result.entity){
+
+          result.entity.forEach(p => {
+            let pet : Pet = new Pet();
+            pet.id = p.id;
+            pet.name = p.name;
+            pet.birthDate = p.birthDate;
+            pet.user = this.user;
+            pet.appointments = [];
+            this.user.pets.push(pet);
+          });
+
+          if(result.code == ReturnCode.SUCCESS){
+            if (result && result.sid) {
+              
+            }
           }
+
         }
-        else {
+
+        if(result.code != ReturnCode.SUCCESS) {
           alert(this.api.getErrorMessage(result, this.language));
         }
       } ,error => {
@@ -77,8 +84,12 @@ export class PetsComponent extends AppBase implements AfterViewInit {
     }
   }
 
-  view(pet : Pet) : void {
+  protected view(pet : Pet) : void {
     alert("Visualizar");
+  }
+
+  protected add() : void {
+
   }
 
 }

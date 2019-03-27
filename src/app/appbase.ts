@@ -89,7 +89,6 @@ export class AppBase implements OnInit {
 
     protected changeCurrentPage(current: any, page: Type<any>) : void {
       let newPage = this.getAppComponent().changeCurrentPage(current, page);
-      console.log(1);
       newPage.lastComponent = current.constructor;
     }
     

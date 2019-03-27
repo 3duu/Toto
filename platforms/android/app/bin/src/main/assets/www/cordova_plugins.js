@@ -37,23 +37,12 @@ module.exports = [
     "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
     "pluginId": "cordova-plugin-geolocation",
     "runs": true
-  },
-  {
-    "id": "phonegap-facebook-plugin.FacebookConnectPlugin",
-    "file": "plugins/phonegap-facebook-plugin/facebookConnectPlugin.js",
-    "pluginId": "phonegap-facebook-plugin",
-    "clobbers": [
-      "facebookConnectPlugin"
-    ]
   }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-  "cordova-plugin-device": "2.0.2",
-  "cordova-plugin-dialogs": "1.2.1",
-  "cordova-plugin-geolocation": "4.0.1",
-  "phonegap-facebook-plugin": "0.12.0"
+  "cordova-plugin-geolocation": "4.0.1"
 };
 // BOTTOM OF METADATA
 });

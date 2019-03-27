@@ -29,7 +29,7 @@ class ApiService {
   protected endpoint : string;
 
   constructor() {
-    this.endpoint = endpoints.local;
+    this.endpoint = endpoints.home2;
     console.log(window.location.origin);
   }
 
@@ -44,7 +44,6 @@ class ApiService {
       );
     }
 
-    
     return throwError(error);
   }
 
@@ -54,7 +53,7 @@ class ApiService {
   * @param res
   */
   private extractData(res: Response) {
-  let body = res;
+    let body = res;
     return body || {};
   }
 
@@ -135,7 +134,7 @@ export class PetApiService extends ApiService {
     console.log(this.retrieve);
     console.log(user);
 
-    return this.http.post<Pet>(this.retrieve, user.id, httpOptions)
+    return this.http.post<number>(this.retrieve, user.id, httpOptions)
     .pipe(
       catchError(this.handleError)
     );

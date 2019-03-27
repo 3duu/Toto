@@ -1,4 +1,4 @@
-#Tue Mar 26 12:02:02 BRT 2019
-base.0=C\:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Tue Mar 26 22:28:18 BRT 2019
+base.0=/home/eduardo/git/Toto/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
