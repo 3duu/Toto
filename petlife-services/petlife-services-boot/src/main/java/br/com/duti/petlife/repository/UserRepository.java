@@ -13,8 +13,8 @@ import br.com.duti.petlife.models.SocialNetworkType;
 import br.com.duti.petlife.models.User;
 import br.com.duti.petlife.repository.interfaces.IUserRepository;
 
-@Repository
 @Transactional
+@Repository
 public class UserRepository extends GenericRepository<User> implements IUserRepository {
 	
 	private final String GET_USER_QUERY = "SELECT u FROM User u WHERE u.username = :login and u.password = :pass and u.loginType = :social";

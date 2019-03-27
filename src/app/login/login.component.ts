@@ -136,6 +136,7 @@ export class LoginComponent extends AppBase {
     super.changeCurrentPage(this, RegisterComponent);
   }
 
+  ////plugin add cordova-plugin-facebook4 --save --variable APP_ID="389609115207477" --variable APP_NAME="Toppet"
   private facebookConfig() : void {
     (window as any).fbAsyncInit = function() {
       FB.init({

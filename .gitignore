@@ -29,6 +29,8 @@
 !/node_modules/stream
 !/node_modules/sqlite3
 !/node_modules/angular-cordova
+!/node_modules/ngx-modialog
+!/node_modules/ng-bootstrap
 
 # profiling files
 chrome-profiler-events.json

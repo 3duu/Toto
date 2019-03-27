@@ -3,12 +3,12 @@ package br.com.duti.petlife.controller;
 import static br.com.duti.utils.Utils.getEncryptedString;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.transaction.Transactional;
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +30,7 @@ public class UserController {
 	@Autowired
 	private IUserRepository userRepository;
 	
-	@CrossOrigin(origins = {Utils.ANGULAR_HOST, Utils.PHONEGAP_HOST, Utils.PHONEGAP_HOST2, Utils.PHONEGAP_HOST3, Utils.SMARTPHONE})
+	//@CrossOrigin(origins = {Utils.HTTP, Utils.SMARTPHONE})
 	@PostMapping(value="/authenticate", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> doLogin(@RequestBody final User user) {
 		
@@ -60,13 +60,10 @@ public class UserController {
 		catch(Exception e){
 			response = new ResponseEntity<User>(user, RequestContextHolder.currentRequestAttributes().getSessionId());
 			response.setCode(ReturnCode.SERVER_ERROR.getValue());
-			e.printStackTrace();
 		}
         return response;
 	}
 	
-	@Transactional
-	@CrossOrigin(origins = {Utils.ANGULAR_HOST, Utils.PHONEGAP_HOST, Utils.PHONEGAP_HOST2, Utils.PHONEGAP_HOST3, Utils.SMARTPHONE})
 	@PostMapping(value="/register", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> register(@RequestBody final User user) {
 		ResponseEntity<User> response;
@@ -105,6 +102,37 @@ public class UserController {
 		
         return response;
     }
+	
+	@PostConstruct
+	private void resolveAdminUser(){
+		final User admin = new User();
+		admin.setUsername("admin");
+		admin.setName("Administrador");
+		admin.setPassword("1");
+		admin.setAdmin(true);
+		
+		final List<String> dados = Utils.readConfigFile(Utils.ADMIN_CONFIG_FILE);
+		if(dados != null){
+			if(!dados.isEmpty()){
+				final String username = dados.get(0);
+				if(!username.isEmpty()){
+					admin.setUsername(username);
+				}
+				if(dados.size() > 1){
+					final String password = dados.get(1);
+					if(!password.isEmpty()){
+						admin.setPassword(password);
+					}
+				}
+			}
+		}
+		
+		admin.setPassword(getEncryptedString(admin.getPassword()));
+		
+		if(userRepository.getUser(admin) == null){
+			userRepository.insert(admin);
+		}
+	}
 	
 
 }

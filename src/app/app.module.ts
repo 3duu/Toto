@@ -13,7 +13,7 @@ import { AlertComponent } from './alert/alert.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { PetsComponent } from './pets/pets.component';
+import { PetsComponent, NgbdModalFocus } from './pets/pets.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { PetsComponent } from './pets/pets.component';
     AlertComponent,
     HomeComponent,
     RegisterComponent,
-    PetsComponent
+    PetsComponent,
+    NgbdModalFocus
   ],
   entryComponents: [
     LoginComponent,

@@ -1,9 +1,10 @@
 import { AppBase } from './../appbase';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, Injectable } from '@angular/core';
 import { PetApiService, ReturnCode } from '../service/services';
 import { User } from '../entity/User';
-import { ColorClass } from '../styles/styles';
 import { Pet } from '../entity/Pet';
+
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pets',
@@ -12,7 +13,6 @@ import { Pet } from '../entity/Pet';
 })
 export class PetsComponent extends AppBase implements AfterViewInit {
 
-  //plugin add cordova-plugin-facebook4 --save --variable APP_ID="389609115207477" --variable APP_NAME="Toppet"
   constructor(private api : PetApiService) {
     super();
   }
@@ -88,8 +88,79 @@ export class PetsComponent extends AppBase implements AfterViewInit {
     alert("Visualizar");
   }
 
+  //https://mdbootstrap.com/docs/angular/modals/basic/
   protected add() : void {
 
   }
 
+}
+
+@Component({
+  selector: 'ngbd-modal-confirm',
+  template: `
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Profile deletion</h4>
+    <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Are you sure you want to delete <span class="text-primary">"John Doe"</span> profile?</strong></p>
+    <p>All information associated to this user profile will be permanently deleted.
+    <span class="text-danger">This operation can not be undone.</span>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Ok click')">Ok</button>
+  </div>
+  `
+})
+export class NgbdModalConfirm {
+  constructor(public modal: NgbActiveModal) {}
+}
+
+@Component({
+  selector: 'ngbd-modal-confirm-autofocus',
+  template: `
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Profile deletion</h4>
+    <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Are you sure you want to delete <span class="text-primary">"John Doe"</span> profile?</strong></p>
+    <p>All information associated to this user profile will be permanently deleted.
+    <span class="text-danger">This operation can not be undone.</span>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" ngbAutofocus class="btn btn-danger" (click)="modal.close('Ok click')">Ok</button>
+  </div>
+  `
+})
+export class NgbdModalConfirmAutofocus {
+  constructor(public modal: NgbActiveModal) {}
+}
+
+const MODALS = {
+  focusFirst: NgbdModalConfirm,
+  autofocus: NgbdModalConfirmAutofocus
+};
+
+@Component({
+  selector: 'pets-modal-focus',
+  templateUrl: './add.html'
+})
+export class NgbdModalFocus {
+  withAutofocus = `<button type="button" ngbAutofocus class="btn btn-danger"
+      (click)="modal.close('Ok click')">Ok</button>`;
+
+  constructor(private _modalService: NgbModal) {}
+
+  open(name: string) {
+    this._modalService.open(MODALS[name]);
+  }
 }

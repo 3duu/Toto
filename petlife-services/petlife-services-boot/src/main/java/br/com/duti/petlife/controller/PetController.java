@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +16,6 @@ import br.com.duti.petlife.models.Pet;
 import br.com.duti.petlife.models.ResponseEntity;
 import br.com.duti.petlife.repository.interfaces.IPetRepository;
 import br.com.duti.utils.ReturnCode;
-import br.com.duti.utils.Utils;
 
 @RequestMapping("/pet")
 @RestController
@@ -26,7 +24,7 @@ public class PetController {
 	@Autowired
 	private IPetRepository petRepository;
 	
-	@CrossOrigin(origins = {Utils.ANGULAR_HOST, Utils.PHONEGAP_HOST, Utils.PHONEGAP_HOST2, Utils.PHONEGAP_HOST3, Utils.SMARTPHONE})
+	//@CrossOrigin(origins = {Utils.HTTP, Utils.SMARTPHONE})
 	@PostMapping(value="/retrieve", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<List<Pet>> getPets(@RequestBody final Long userId) {
 		

@@ -1,10 +1,5 @@
 package br.com.duti.petlife.config;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Properties;
 
@@ -19,6 +14,8 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import br.com.duti.utils.Utils;
 
 @EnableTransactionManagement
 @Configuration
@@ -54,7 +51,7 @@ public class JPAConfiguration {
 		
 		final DriverManagerDataSource dataSource =
 		new DriverManagerDataSource();
-		readConfigFile();
+		readDbConfigFile();
 		dataSource.setDriverClassName(dataSourceProperties.getDriver());
 		dataSource.setUrl(dataSourceProperties.getHost());
 		dataSource.setUsername(dataSourceProperties.getUsername());
@@ -80,38 +77,27 @@ public class JPAConfiguration {
 		return properties;
 	}
 	
-	private void readConfigFile(){
-		final String home = System.getProperty("user.home")
-				.concat(File.separator).concat("petlife")
-				.concat(File.separator).concat("dbconfig.cfg");
-		final Path path = Paths.get(home);
-		if(Files.exists(path)){
-			List<String> dados = null;
-			try {
-				dados = Files.readAllLines(path);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			if(dados != null){
-				if(!dados.isEmpty()){
-					final String host = dados.get(0);
-					if(!host.isEmpty()){
-						dataSourceProperties.setHost(host);
-					}
-					if(dados.size() > 1){
-						final String username = dados.get(1);
-						if(!username.isEmpty()){
-							dataSourceProperties.setUsername(username);
-						}
-					}
-					if(dados.size() > 2){
-						final String password = dados.get(2);
-						if(!password.isEmpty()){
-							dataSourceProperties.setPassword(password);
-						}
+	private void readDbConfigFile(){
+		final List<String> dados = Utils.readConfigFile(Utils.DB_CONFIG_FILE);
+		if(dados != null){
+			if(!dados.isEmpty()){
+				final String host = dados.get(0);
+				if(!host.isEmpty()){
+					dataSourceProperties.setHost(host);
+				}
+				if(dados.size() > 1){
+					final String username = dados.get(1);
+					if(!username.isEmpty()){
+						dataSourceProperties.setUsername(username);
 					}
 				}
-			}	
+				if(dados.size() > 2){
+					final String password = dados.get(2);
+					if(!password.isEmpty()){
+						dataSourceProperties.setPassword(password);
+					}
+				}
+			}
 		}
 	}
 

@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import br.com.duti.petlife.models.Pet;
 import br.com.duti.petlife.repository.interfaces.IPetRepository;
 
-@Repository
 @Transactional
+@Repository
 public class PetRepository extends GenericRepository<Pet> implements IPetRepository {
 
 	private final String GET_PETS_QUERY = "SELECT p FROM Pet p WHERE p.id = :id";
