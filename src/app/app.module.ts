@@ -13,7 +13,11 @@ import { AlertComponent } from './alert/alert.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { PetsComponent, NgbdModalFocus } from './pets/pets.component';
+import { PetsComponent, AddPetsComponent } from './pets/pets.component';
+
+
+import { ModalModule } from 'ngx-modialog';
+import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,7 @@ import { PetsComponent, NgbdModalFocus } from './pets/pets.component';
     HomeComponent,
     RegisterComponent,
     PetsComponent,
-    NgbdModalFocus
+    AddPetsComponent
   ],
   entryComponents: [
     LoginComponent,
@@ -33,14 +37,17 @@ import { PetsComponent, NgbdModalFocus } from './pets/pets.component';
     MapsComponent,
     HomeComponent,
     RegisterComponent,
-    PetsComponent
+    PetsComponent,
+    AddPetsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     TooltipModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot(),
+    BootstrapModalModule
   ],
   providers: [CordovaService, UserApiService, PetApiService],
   bootstrap: [AppComponent]

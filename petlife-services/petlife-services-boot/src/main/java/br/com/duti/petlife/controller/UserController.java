@@ -3,9 +3,6 @@ package br.com.duti.petlife.controller;
 import static br.com.duti.utils.Utils.getEncryptedString;
 
 import java.util.Date;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,7 +18,6 @@ import br.com.duti.petlife.models.SocialNetworkType;
 import br.com.duti.petlife.models.User;
 import br.com.duti.petlife.repository.interfaces.IUserRepository;
 import br.com.duti.utils.ReturnCode;
-import br.com.duti.utils.Utils;
 
 @RequestMapping("/user")
 @RestController
@@ -103,36 +99,4 @@ public class UserController {
         return response;
     }
 	
-	@PostConstruct
-	private void resolveAdminUser(){
-		final User admin = new User();
-		admin.setUsername("admin");
-		admin.setName("Administrador");
-		admin.setPassword("1");
-		admin.setAdmin(true);
-		
-		final List<String> dados = Utils.readConfigFile(Utils.ADMIN_CONFIG_FILE);
-		if(dados != null){
-			if(!dados.isEmpty()){
-				final String username = dados.get(0);
-				if(!username.isEmpty()){
-					admin.setUsername(username);
-				}
-				if(dados.size() > 1){
-					final String password = dados.get(1);
-					if(!password.isEmpty()){
-						admin.setPassword(password);
-					}
-				}
-			}
-		}
-		
-		admin.setPassword(getEncryptedString(admin.getPassword()));
-		
-		if(userRepository.getUser(admin) == null){
-			userRepository.insert(admin);
-		}
-	}
-	
-
 }

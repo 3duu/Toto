@@ -81,4 +81,12 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 		return user.getLoginType() != null && !SocialNetworkType.NONE.equals(user.getLoginType());
 	}
 
+	@Override
+	public User getAdminUser(User admin) {
+		final TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.username = :login and u.admin = true", User.class).setMaxResults(1)
+				.setParameter(LOGIN, admin.getUsername());
+		final List<User> users = query.getResultList();
+		return users.isEmpty() ? null : users.get(0);
+	}
+
 }

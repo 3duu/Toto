@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,6 +36,13 @@ public class Pet implements Serializable {
 	
 	@Column(name="img", length=250, nullable=true)
 	private String img;
+	
+	@Column(name="pet_type", nullable=false)
+	@Enumerated(EnumType.ORDINAL)
+	private PetType petType;
+	
+	@Column(name="description", length=100, nullable=true)
+	private String description;
 	
 	@Column(name="birth_date", nullable=true)
 	private Date birthDate;
@@ -88,6 +97,22 @@ public class Pet implements Serializable {
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public PetType getPetType() {
+		return petType;
+	}
+
+	public void setPetType(PetType petType) {
+		this.petType = petType;
 	}
 	
 	

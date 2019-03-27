@@ -12,4 +12,5 @@ public interface IUserRepository {
 	public User update(User user);
 	public User getByUsername(String username);
 	public User getSocialMediaUser(User user);
+	public User getAdminUser(User admin);
 }

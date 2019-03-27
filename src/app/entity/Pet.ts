@@ -1,6 +1,5 @@
 import { User } from './User';
 import { Appointment } from './Appointment';
-import { Animal } from './animal';
 
 export class Pet {
 
@@ -14,11 +13,27 @@ export class Pet {
 
     img : string;
 
-    user : User;
+    petType: PetType
+	
+	description: string;
 
-    type : Animal;
+    user : User;
 
     appointments: Appointment[];
 
     constructor() { }
+}
+
+export enum PetType {
+    OTHER,
+	DOG,
+	CAT,
+	BIRD,
+	TURTLE,
+	MOUSE,
+	HAMSTER,
+	FISH,
+	SNAKE,
+	HEDGEHOG,
+	PIG
 }

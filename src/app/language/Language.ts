@@ -1,6 +1,5 @@
 
 export class Language {
-
     constructor() { }
 
     adoptions : string = "Adoção";
@@ -30,6 +29,8 @@ export class Language {
     createUser : string = "Registrar";
     back : string = "Voltar";
     createYourAccount : string = "Crie sua conta no ";
+
+    addNewPet : string = "Adicionar PET ";
 
     //Messages
     connectionError : string = "Algo deu errado! \n Verifique se o dispositivo está conectado ou tente novamente mais tarde";
