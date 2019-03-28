@@ -19,6 +19,7 @@ export class PetsComponent extends AppBase implements AfterViewInit {
 
   private user : User;
   private title : string = "Pets";
+  private addDialog : any;
 
   ngOnInit() {
     this.loading = true;
@@ -46,7 +47,7 @@ export class PetsComponent extends AppBase implements AfterViewInit {
             let pet : Pet = new Pet();
             pet.id = p.id;
             pet.name = p.name;
-            pet.birthDate = p.birthDate;
+            //pet.age = p.birthDate;
             pet.user = this.user;
             pet.appointments = [];
             this.user.pets.push(pet);
@@ -88,20 +89,22 @@ export class PetsComponent extends AppBase implements AfterViewInit {
     alert("Visualizar");
   }
 
-  protected save(save : boolean) : void {
-    if(save) {
-      alert("Salvar");
-    }
+  public save(pet : Pet) : void {
+    alert("Salvar");
   }
 
   //https://mdbootstrap.com/docs/angular/modals/basic/
-  protected add() : void {
+  private openAddDialog() : void {
     const dialogRef = this.modal
       .open(AddPetsComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
     console.log(dialogRef);
+    this.addDialog = dialogRef;
+    // dialogRef.result
+    //   .then( result => this.save(result) );
+  }
 
-    dialogRef.result
-      .then( result => this.save(result) );
+  protected add() : void {
+    setTimeout(() => {this.openAddDialog()});
   }
 
 }
@@ -113,9 +116,12 @@ export class PetsComponent extends AppBase implements AfterViewInit {
 })
 export class AddPetsComponent extends AppBase implements AfterViewInit {
 
-  private dropdownrOpen = false;
+  private dropdownOpen : boolean = false;
 
+  private pet : Pet;
+  
   ngOnInit() {
+    this.pet = new Pet();
     let values = Object.keys(PetType).map(k => PetType[k as any]);
     values.forEach(attr => {
       
@@ -127,6 +133,11 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
   }
 
   toggleDropdown() {
-    this.dropdownrOpen = !this.dropdownrOpen;
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  protected createPet() : void {
+    this.loading = true;
+    alert(this.pet.name);
   }
 }

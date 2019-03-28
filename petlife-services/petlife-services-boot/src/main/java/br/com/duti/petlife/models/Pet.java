@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Table(name="pet")
 @Entity
@@ -50,6 +51,9 @@ public class Pet implements Serializable {
 	@JoinColumn(name="user_id")
 	@ManyToOne(fetch=FetchType.LAZY)
 	private User user;
+	
+	@Transient
+	private Integer age;
 
 	public Long getId() {
 		return id;
@@ -113,6 +117,14 @@ public class Pet implements Serializable {
 
 	public void setPetType(PetType petType) {
 		this.petType = petType;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 	
 	
