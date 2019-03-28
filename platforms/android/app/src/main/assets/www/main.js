@@ -7,7 +7,7 @@
 /*! exports provided: name, version, displayName, endpoints, passwordConfig, cordova, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOP-PET","endpoints":{"local":"http://localhost:9003","indra":"http://192.168.137.1:9003/toppet","indraLocal":"http://192.168.137.1:9003","home":"http://192.168.1.3:9003/toppet","home2":"http://192.168.1.3:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"}},"platforms":["browser","android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","braces":"^2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"^1.0.2","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","core-js":"^2.5.4","font-awesome":"^4.7.0","jquery":"^3.3.1","lodash":"^4.17.11","ngx-bootstrap":"^3.2.0","phonegap":"^8.2.2","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
+module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOP-PET","endpoints":{"local":"http://localhost:9003","indra":"http://192.168.137.1:9003/toppet","indraLocal":"http://192.168.137.1:9003","home":"http://192.168.1.3:9003/toppet","home2":"http://192.168.1.3:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"}},"platforms":["browser","android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","braces":"^2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"^1.0.2","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","core-js":"^2.5.4","font-awesome":"^4.7.0","jquery":"^3.3.1","lodash":"^4.17.11","ngx-bootstrap":"^3.2.0","ngx-modialog":"^5.0.1","phonegap":"^8.2.2","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
 
 /***/ }),
 
@@ -293,6 +293,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
 /* harmony import */ var _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pets/pets.component */ "./src/app/pets/pets.component.ts");
+/* harmony import */ var ngx_modialog__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ngx-modialog */ "./node_modules/ngx-modialog/fesm5/ngx-modialog.js");
+/* harmony import */ var ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ngx-modialog/plugins/bootstrap */ "./node_modules/ngx-modialog/plugins/bootstrap/fesm5/ngx-modialog-plugins-bootstrap.js");
+
+
 
 
 
@@ -323,7 +327,8 @@ var AppModule = /** @class */ (function () {
                 _alert_alert_component__WEBPACK_IMPORTED_MODULE_12__["AlertComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"],
                 _register_register_component__WEBPACK_IMPORTED_MODULE_15__["RegisterComponent"],
-                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["PetsComponent"]
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["PetsComponent"],
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["AddPetsComponent"]
             ],
             entryComponents: [
                 _login_login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"],
@@ -331,14 +336,17 @@ var AppModule = /** @class */ (function () {
                 _maps_maps_component__WEBPACK_IMPORTED_MODULE_8__["MapsComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"],
                 _register_register_component__WEBPACK_IMPORTED_MODULE_15__["RegisterComponent"],
-                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["PetsComponent"]
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["PetsComponent"],
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["AddPetsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
                 ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_6__["TooltipModule"].forRoot(),
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"],
+                ngx_modialog__WEBPACK_IMPORTED_MODULE_17__["ModalModule"].forRoot(),
+                ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_18__["BootstrapModalModule"]
             ],
             providers: [_cordova_service__WEBPACK_IMPORTED_MODULE_10__["CordovaService"], _service_services__WEBPACK_IMPORTED_MODULE_1__["UserApiService"], _service_services__WEBPACK_IMPORTED_MODULE_1__["PetApiService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -534,18 +542,33 @@ var CordovaService = /** @class */ (function () {
 /*!*******************************!*\
   !*** ./src/app/entity/Pet.ts ***!
   \*******************************/
-/*! exports provided: Pet */
+/*! exports provided: Pet, PetType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Pet", function() { return Pet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetType", function() { return PetType; });
 var Pet = /** @class */ (function () {
     function Pet() {
     }
     return Pet;
 }());
 
+var PetType;
+(function (PetType) {
+    PetType[PetType["OTHER"] = 0] = "OTHER";
+    PetType[PetType["DOG"] = 1] = "DOG";
+    PetType[PetType["CAT"] = 2] = "CAT";
+    PetType[PetType["BIRD"] = 3] = "BIRD";
+    PetType[PetType["TURTLE"] = 4] = "TURTLE";
+    PetType[PetType["MOUSE"] = 5] = "MOUSE";
+    PetType[PetType["HAMSTER"] = 6] = "HAMSTER";
+    PetType[PetType["FISH"] = 7] = "FISH";
+    PetType[PetType["SNAKE"] = 8] = "SNAKE";
+    PetType[PetType["HEDGEHOG"] = 9] = "HEDGEHOG";
+    PetType[PetType["PIG"] = 10] = "PIG";
+})(PetType || (PetType = {}));
 
 
 /***/ }),
@@ -693,6 +716,10 @@ var Language = /** @class */ (function () {
         this.createUser = "Registrar";
         this.back = "Voltar";
         this.createYourAccount = "Crie sua conta no ";
+        this.age = "Idade";
+        this.petType = "Animal";
+        this.description = "Descrição";
+        this.addNewPet = "Adicionar PET ";
         //Messages
         this.connectionError = "Algo deu errado! \n Verifique se o dispositivo está conectado ou tente novamente mais tarde";
         this.serverError = "Algo inesperado aconteceu! \n Se o problema persistir reporte o problema";
@@ -1062,7 +1089,7 @@ module.exports = "mat-navbar-container {\r\n    width: 100% !important;\r\n    h
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar  navbar-dark bg-petlife\"><!-- navbar-expand-lg-->\r\n    <a class=\"navbar-brand\" href=\"#\">{{applicationName}}</a>\r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" [ngClass]=\"{ 'button-disabled': disableMenu }\" (click)=\"toggleNavbar()\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n\r\n    <div class=\"collapse navbar-collapse\" [ngClass]=\"{ 'show': navbarOpen }\" id=\"navbarColor02\">\r\n        <ul class=\"navbar-nav mr-auto\">\r\n            <!-- <li class=\"nav-item active\">\r\n                <a class=\"nav-link\" href=\"#\">{{language.init}} <span class=\"sr-only\">{{language.login}}</span></a>\r\n            </li> -->\r\n            <li class=\"nav-item active\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-user\">&nbsp;&nbsp;</i>{{username}}</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-paw\">&nbsp;&nbsp;</i>{{language.myPet}}</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-gift\">&nbsp;&nbsp;</i>{{language.adoptions}}</a><!--hands-helping -->\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-calendar\">&nbsp;&nbsp;</i>{{language.appointments}}</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-question-circle\">&nbsp;&nbsp;</i>{{language.about}}</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-times-circle\">&nbsp;&nbsp;</i>{{language.logout}}</a>\r\n            </li>\r\n        </ul>\r\n        <!----<form class=\"form-inline\">\r\n        <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\r\n        <button class=\"btn btn-outline-light my-2 my-sm-0\" type=\"submit\">Search</button>\r\n        </form> -->\r\n    </div>\r\n</nav>"
+module.exports = "<nav class=\"navbar  navbar-dark bg-petlife\"><!-- navbar-expand-lg-->\r\n    <a class=\"navbar-brand\" href=\"#\">{{applicationName}}</a>\r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" [ngClass]=\"{ 'button-disabled': disableMenu }\" (click)=\"toggleNavbar()\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n\r\n    <div class=\"collapse navbar-collapse\" [ngClass]=\"{ 'show': navbarOpen }\" id=\"navbarColor02\">\r\n        <ul class=\"navbar-nav mr-auto\">\r\n            <li class=\"nav-item active\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-user\">&nbsp;&nbsp;</i>{{username}}</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-paw\">&nbsp;&nbsp;</i>{{language.myPet}}</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-gift\">&nbsp;&nbsp;</i>{{language.adoptions}}</a><!--hands-helping -->\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-calendar\">&nbsp;&nbsp;</i>{{language.appointments}}</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-question-circle\">&nbsp;&nbsp;</i>{{language.about}}</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-times-circle\">&nbsp;&nbsp;</i>{{language.logout}}</a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>"
 
 /***/ }),
 
@@ -1122,6 +1149,28 @@ function Navbar(constructor) {
 
 /***/ }),
 
+/***/ "./src/app/pets/add.component.css":
+/*!****************************************!*\
+  !*** ./src/app/pets/add.component.css ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/* .form-input {\r\n    display: block;\r\n    width: 100%;\r\n    height: calc(1.5em + .75rem + 2px);\r\n    padding: .375rem .75rem;\r\n    font-size: 1rem;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: .25rem;\r\n    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;\r\n} */\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9hZGQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7R0FjRyIsImZpbGUiOiJzcmMvYXBwL3BldHMvYWRkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiAuZm9ybS1pbnB1dCB7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiBjYWxjKDEuNWVtICsgLjc1cmVtICsgMnB4KTtcclxuICAgIHBhZGRpbmc6IC4zNzVyZW0gLjc1cmVtO1xyXG4gICAgZm9udC1zaXplOiAxcmVtO1xyXG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcclxuICAgIGxpbmUtaGVpZ2h0OiAxLjU7XHJcbiAgICBjb2xvcjogIzQ5NTA1NztcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmY7XHJcbiAgICBiYWNrZ3JvdW5kLWNsaXA6IHBhZGRpbmctYm94O1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2NlZDRkYTtcclxuICAgIGJvcmRlci1yYWRpdXM6IC4yNXJlbTtcclxuICAgIHRyYW5zaXRpb246IGJvcmRlci1jb2xvciAuMTVzIGVhc2UtaW4tb3V0LGJveC1zaGFkb3cgLjE1cyBlYXNlLWluLW91dDtcclxufSAqLyJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pets/add.component.html":
+/*!*****************************************!*\
+  !*** ./src/app/pets/add.component.html ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container text-center\">\r\n    <br>\r\n    <h2 class=\"form-signin-heading\">{{language.addNewPet}}</h2>\r\n    <br>\r\n    <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl  />\r\n    <!-- <select class=\"form-control\">\r\n        <option selected value=\"\">{{language.petType}}</option>\r\n    </select> -->\r\n    <div class=\"btn-group show\">\r\n        <button class=\"btn btn-petlife btn-lg dropdown-toggle\" type=\"button\" (click)=\"toggleDropdown()\" [(ngModel)]=\"pet.petType\" data-toggle=\"dropdown\" aria-haspopup=\"true\"  aria-expanded=\"false\">\r\n            {{language.petType}}\r\n        </button>\r\n        <div class=\"dropdown-menu\" [ngClass]=\"{ 'show': dropdownOpen }\" x-placement=\"bottom-start\" style=\"position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;\">\r\n        </div>\r\n    </div>\r\n    <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.age\" placeholder=\"{{language.age}}\" type=\"text\" ngDefaultControl />\r\n    <input class=\"ember-view ember-text-field form-control login-input-pass\" [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl />\r\n\r\n    <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\r\n        <span class=\"sr-only\">Carregando...</span>\r\n    </div>\r\n    <br>\r\n    <app-alert></app-alert>\r\n    <button class=\"btn btn-lg btn-petlife btn-block btn-center\" type=\"button\" (click)=\"createPet()\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.createUser}}</button>\r\n    <br>\r\n</div>\r\n<!-- https://yespornplease.com/v/100046849\r\nhttps://yespornplease.com/v/956831015 -->"
+
+/***/ }),
+
 /***/ "./src/app/pets/pets.component.css":
 /*!*****************************************!*\
   !*** ./src/app/pets/pets.component.css ***!
@@ -1140,7 +1189,7 @@ module.exports = "*{padding:0;margin:0;}\r\n\r\nbody{\r\n\tfont-family:Verdana, 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"body_section\">\r\n  <div class=interface_class>\r\n    <!-- <div *ngFor=\"\" class=\"card\" style=\"width: 18rem;\">\r\n      <img src=\"...\" class=\"card-img-top\" alt=\"...\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">Card title</h5>\r\n        <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\r\n        <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\r\n      </div>\r\n    </div> -->\r\n    <div class=\"page-header\">\r\n\t\t  <h1>{{title}} <small>{{user.pets.length}}</small></h1>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\r\n          <span class=\"sr-only\">Carregando...</span>\r\n      </div>\r\n      <article *ngFor=\"let pet of user.pets\">\r\n        <div class=\"col-sm-6 col-md-4\">\r\n          <div class=\"thumbnail\" style=\"width: 425px;height: 415px;\"  ng-model=\"id\">\r\n          <input name=\"petId\" value=\"{{pet.id}}\" hidden=\"hidden\" ng-model=\"pet\">\r\n          <a href=\"#\">\r\n              <img src=\"{{pet.img}}\" alt=\"{{pet.name}}\" width=\"180\" height=\"130\"  ng-model=\"product.productImage\" style=\"width:180; height:130;\">\r\n          </a>\r\n            <div class=\"caption\" style=\"position: relative; bottom: 2px;\">\r\n              <h3 style=\"width: 262px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">{{pet.name}}</h3>\r\n              <p>{{pet.type}}</p>\r\n              <div>\r\n              <p>\r\n              </p>\r\n              </div>\r\n          </div>\r\n          </div>\r\n        </div>\r\n      </article>\r\n      </div>\r\n\r\n      <a href=\"#\" class=\"float bg-petlife\" (click)=\"add\">\r\n        <i class=\"fa fa-plus my-float\"></i>\r\n      </a>\r\n  </div> \r\n</section>\r\n\r\n"
+module.exports = "<section class=\"body_section\">\r\n  <div class=interface_class>\r\n    <!-- <div *ngFor=\"\" class=\"card\" style=\"width: 18rem;\">\r\n      <img src=\"...\" class=\"card-img-top\" alt=\"...\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">Card title</h5>\r\n        <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\r\n        <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\r\n      </div>\r\n    </div> -->\r\n    <div class=\"page-header\">\r\n\t\t  <h1>{{title}} <small>{{user.pets.length}}</small></h1>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\r\n        <span class=\"sr-only\">Carregando...</span>\r\n      </div>\r\n      <article *ngFor=\"let pet of user.pets\">\r\n        <div class=\"col-sm-6 col-md-4\">\r\n          <div class=\"thumbnail\" style=\"width: 425px;height: 415px;\"  ng-model=\"id\">\r\n          <input name=\"petId\" value=\"{{pet.id}}\" hidden=\"hidden\" ng-model=\"pet\">\r\n          <a href=\"#\">\r\n              <img src=\"{{pet.img}}\" alt=\"{{pet.name}}\" width=\"180\" height=\"130\"  ng-model=\"product.productImage\" style=\"width:180; height:130;\">\r\n          </a>\r\n            <div class=\"caption\" style=\"position: relative; bottom: 2px;\">\r\n              <h3 style=\"width: 262px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">{{pet.name}}</h3>\r\n              <p>{{pet.type}}</p>\r\n              <div>\r\n              <p>\r\n              </p>\r\n              </div>\r\n          </div>\r\n          </div>\r\n        </div>\r\n      </article>\r\n      </div>\r\n\r\n      <a href=\"#\" class=\"float bg-petlife\" (click)=\"add()\">\r\n        <i class=\"fa fa-plus my-float\"></i>\r\n      </a>\r\n  </div> \r\n</section>\r\n\r\n"
 
 /***/ }),
 
@@ -1148,17 +1197,22 @@ module.exports = "<section class=\"body_section\">\r\n  <div class=interface_cla
 /*!****************************************!*\
   !*** ./src/app/pets/pets.component.ts ***!
   \****************************************/
-/*! exports provided: PetsComponent */
+/*! exports provided: PetsComponent, AddPetsComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetsComponent", function() { return PetsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddPetsComponent", function() { return AddPetsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
 /* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entity/Pet */ "./src/app/entity/Pet.ts");
+/* harmony import */ var ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-modialog/plugins/bootstrap */ "./node_modules/ngx-modialog/plugins/bootstrap/fesm5/ngx-modialog-plugins-bootstrap.js");
+/* harmony import */ var ngx_modialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-modialog */ "./node_modules/ngx-modialog/fesm5/ngx-modialog.js");
+
+
 
 
 
@@ -1166,9 +1220,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var PetsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetsComponent, _super);
-    function PetsComponent(api) {
+    function PetsComponent(api, modal) {
         var _this = _super.call(this) || this;
         _this.api = api;
+        _this.modal = modal;
         _this.title = "Pets";
         return _this;
     }
@@ -1193,7 +1248,7 @@ var PetsComponent = /** @class */ (function (_super) {
                         var pet = new _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["Pet"]();
                         pet.id = p.id;
                         pet.name = p.name;
-                        pet.birthDate = p.birthDate;
+                        //pet.age = p.birthDate;
                         pet.user = _this.user;
                         pet.appointments = [];
                         _this.user.pets.push(pet);
@@ -1227,7 +1282,21 @@ var PetsComponent = /** @class */ (function (_super) {
     PetsComponent.prototype.view = function (pet) {
         alert("Visualizar");
     };
+    PetsComponent.prototype.save = function (pet) {
+        alert("Salvar");
+    };
+    //https://mdbootstrap.com/docs/angular/modals/basic/
+    PetsComponent.prototype.openAddDialog = function () {
+        var dialogRef = this.modal
+            .open(AddPetsComponent, Object(ngx_modialog__WEBPACK_IMPORTED_MODULE_6__["overlayConfigFactory"])({ isBlocking: false }, ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__["BSModalContext"]));
+        console.log(dialogRef);
+        this.addDialog = dialogRef;
+        // dialogRef.result
+        //   .then( result => this.save(result) );
+    };
     PetsComponent.prototype.add = function () {
+        var _this = this;
+        setTimeout(function () { _this.openAddDialog(); });
     };
     PetsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -1235,9 +1304,42 @@ var PetsComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./pets.component.html */ "./src/app/pets/pets.component.html"),
             styles: [__webpack_require__(/*! ./pets.component.css */ "./src/app/pets/pets.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_3__["PetApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_3__["PetApiService"], ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Modal"]])
     ], PetsComponent);
     return PetsComponent;
+}(_appbase__WEBPACK_IMPORTED_MODULE_1__["AppBase"]));
+
+var AddPetsComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AddPetsComponent, _super);
+    function AddPetsComponent() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.dropdownOpen = false;
+        return _this;
+    }
+    AddPetsComponent.prototype.ngOnInit = function () {
+        this.pet = new _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["Pet"]();
+        var values = Object.keys(_entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"]).map(function (k) { return _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"][k]; });
+        values.forEach(function (attr) {
+        });
+    };
+    AddPetsComponent.prototype.ngAfterViewInit = function () {
+        // <a class="dropdown-item" href="#">Action</a>
+    };
+    AddPetsComponent.prototype.toggleDropdown = function () {
+        this.dropdownOpen = !this.dropdownOpen;
+    };
+    AddPetsComponent.prototype.createPet = function () {
+        this.loading = true;
+        alert(this.pet.name);
+    };
+    AddPetsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-add-pets',
+            template: __webpack_require__(/*! ./add.component.html */ "./src/app/pets/add.component.html"),
+            styles: [__webpack_require__(/*! ./add.component.css */ "./src/app/pets/add.component.css")]
+        })
+    ], AddPetsComponent);
+    return AddPetsComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_1__["AppBase"]));
 
 
@@ -1431,7 +1533,7 @@ var httpOptions = {
 var endpoints = src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].endpoint;
 var ApiService = /** @class */ (function () {
     function ApiService() {
-        this.endpoint = endpoints.local;
+        this.endpoint = endpoints.indraLocal;
         console.log(window.location.origin);
     }
     ApiService.prototype.handleError = function (error) {
