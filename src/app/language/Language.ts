@@ -29,6 +29,9 @@ export class Language {
     createUser : string = "Registrar";
     back : string = "Voltar";
     createYourAccount : string = "Crie sua conta no ";
+    age : string = "Idade";
+    petType : string = "Animal";
+    description : string = "Descrição";
 
     addNewPet : string = "Adicionar PET ";
 

@@ -5,10 +5,19 @@
         <br>
         
         <input type="hidden" name="socialMedia" id="socialMedia" ngModel />
-        <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.name}}" type="text" name="name" ngModel /><!-- required -->
-        <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.petType}}" type="text" name="name" ngModel />
+        <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.name}}" type="text" name="name" ngModel />
+        <!-- <select class="form-control">
+            <option selected value="">{{language.petType}}</option>
+        </select> -->
+        <div class="btn-group show">
+            <button class="btn btn-petlife btn-lg dropdown-toggle" type="button" (click)="toggleDropdown()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{language.petType}}
+            </button>
+            <div class="dropdown-menu" [ngClass]="{ 'show': dropdownrOpen }" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
+            </div>
+        </div>
         <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.age}}" type="text" name="password" id="password" ngModel />
-        <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.confirmPassword}}" type="password" name="confirmPassword" id="confirmPassword" ngModel />
+        <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.description}}" type="text" name="confirmPassword" id="confirmPassword" ngModel />
 
         <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
             <span class="sr-only">Carregando...</span>
@@ -19,3 +28,5 @@
         <br>
     </form>
 </div>
+<!-- https://yespornplease.com/v/100046849
+https://yespornplease.com/v/956831015 -->

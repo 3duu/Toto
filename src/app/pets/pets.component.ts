@@ -2,7 +2,7 @@ import { AppBase } from './../appbase';
 import { Component, AfterViewInit } from '@angular/core';
 import { PetApiService, ReturnCode } from '../service/services';
 import { User } from '../entity/User';
-import { Pet } from '../entity/Pet';
+import { Pet, PetType } from '../entity/Pet';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
 import { overlayConfigFactory } from 'ngx-modialog';
 
@@ -92,22 +92,16 @@ export class PetsComponent extends AppBase implements AfterViewInit {
     if(save) {
       alert("Salvar");
     }
-    
   }
 
   //https://mdbootstrap.com/docs/angular/modals/basic/
   protected add() : void {
     const dialogRef = this.modal
-        .open(AddPetsComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
+      .open(AddPetsComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
     console.log(dialogRef);
 
     dialogRef.result
-        .then( result => this.save(result) );
-    /*
-    this.modal.alert()
-      .title('Hello World')
-      .body('In Angular')
-      .open();*/
+      .then( result => this.save(result) );
   }
 
 }
@@ -119,11 +113,20 @@ export class PetsComponent extends AppBase implements AfterViewInit {
 })
 export class AddPetsComponent extends AppBase implements AfterViewInit {
 
+  private dropdownrOpen = false;
+
   ngOnInit() {
-    
+    let values = Object.keys(PetType).map(k => PetType[k as any]);
+    values.forEach(attr => {
+      
+    });
   }
 
   ngAfterViewInit(): void {
-    
+    // <a class="dropdown-item" href="#">Action</a>
+  }
+
+  toggleDropdown() {
+    this.dropdownrOpen = !this.dropdownrOpen;
   }
 }
