@@ -1,6 +1,7 @@
 package br.com.duti.petlife.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,6 @@ public class PetController {
 	@Autowired
 	private IPetRepository petRepository;
 	
-	//@CrossOrigin(origins = {Utils.HTTP, Utils.SMARTPHONE})
 	@PostMapping(value="/retrieve", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<List<Pet>> getPets(@RequestBody final Long userId) {
 		
@@ -49,5 +49,29 @@ public class PetController {
 		}
         return response;
 	}
+	
+	@PostMapping(value="/register", produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<Pet> register(@RequestBody final Pet pet) {
+		ResponseEntity<Pet> response;
+		try {
+			final Date today = new Date();
+			pet.setCreationDate(today);
+			pet.setBirthDate(today);
+			
+			response = new ResponseEntity<Pet>(petRepository.insert(pet), RequestContextHolder.currentRequestAttributes().getSessionId());
+			if(response.getEntity() != null) {
+				response.setCode(ReturnCode.SUCCESS.getValue());
+			} else {
+				response.setCode(ReturnCode.SERVER_ERROR.getValue());
+			}
+		}
+		catch(Exception e){
+			response = new ResponseEntity<Pet>(pet, RequestContextHolder.currentRequestAttributes().getSessionId());
+			response.setCode(ReturnCode.SERVER_ERROR.getValue());
+			e.printStackTrace();
+		}
+		
+        return response;
+    }
 
 }

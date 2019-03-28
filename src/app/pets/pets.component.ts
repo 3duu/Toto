@@ -1,10 +1,13 @@
 import { AppBase } from './../appbase';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { PetApiService, ReturnCode } from '../service/services';
 import { User } from '../entity/User';
 import { Pet, PetType } from '../entity/Pet';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
 import { overlayConfigFactory } from 'ngx-modialog';
+import { StringUtils } from '../utils';
+import { AlertComponent } from '../alert/alert.component';
+import { ColorClass } from '../styles/styles';
 
 @Component({
   selector: 'app-pets',
@@ -98,6 +101,7 @@ export class PetsComponent extends AppBase implements AfterViewInit {
     const dialogRef = this.modal
       .open(AddPetsComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
     console.log(dialogRef);
+    console.log(this.modal);
     this.addDialog = dialogRef;
     // dialogRef.result
     //   .then( result => this.save(result) );
@@ -116,9 +120,13 @@ export class PetsComponent extends AppBase implements AfterViewInit {
 })
 export class AddPetsComponent extends AppBase implements AfterViewInit {
 
+  @ViewChild(AlertComponent) private alert: AlertComponent;
   private dropdownOpen : boolean = false;
-
   private pet : Pet;
+
+  constructor(private api : PetApiService){
+    super();
+  }
   
   ngOnInit() {
     this.pet = new Pet();
@@ -138,6 +146,42 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
 
   protected createPet() : void {
     this.loading = true;
-    alert(this.pet.name);
+
+    //Campos obrigatorios
+    if(!this.requiredFieldsFilled(this.pet)){
+      this.alert.show(this.language.requiredFields, ColorClass.danger);
+      this.loading = false;
+      return;
+    }
+
+    const pets = this.api.save(this.pet);
+
+      pets.subscribe(result => {
+        console.log(result);
+        
+        //this.user.pets = result;
+        this.loading = false;
+
+        if(result.entity){
+
+          if(result.code == ReturnCode.SUCCESS){
+            if (result && result.sid) {
+              
+            }
+          }
+        }
+
+        if(result.code != ReturnCode.SUCCESS) {
+          alert(this.api.getErrorMessage(result, this.language));
+        }
+      } ,error => {
+        console.log(error);
+      });
+  }
+
+  requiredFieldsFilled(pet: Pet) : boolean {
+    return !(StringUtils.isEmpty(pet.name)
+    || (pet.age == null || pet.age == undefined)
+    || (pet.petType == null || pet.petType == undefined));
   }
 }

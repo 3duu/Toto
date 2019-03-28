@@ -87,7 +87,7 @@ public class UserController {
 			if(response.getEntity() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
 			} else {
-				response.setCode(ReturnCode.NOT_FOUND.getValue());
+				response.setCode(ReturnCode.SERVER_ERROR.getValue());
 			}
 		}
 		catch(Exception e){
