@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,6 +52,7 @@ public class PetController {
         return response;
 	}
 	
+	@Transactional
 	@PostMapping(value="/register", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<Pet> register(@RequestBody final Pet pet) {
 		ResponseEntity<Pet> response;

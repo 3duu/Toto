@@ -2,17 +2,17 @@
     <br>
     <h2 class="form-signin-heading">{{language.addNewPet}}</h2>
     <br>
-    <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl  />
     <!-- <select class="form-control">
         <option selected value="">{{language.petType}}</option>
-    </select> -->
+    </select>  -->
     <div class="btn-group show">
-        <button class="btn btn-petlife btn-lg dropdown-toggle" type="button" (click)="toggleDropdown()" [(ngModel)]="pet.petType" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+        <button class="btn btn-petlife btn-lg dropdown-toggle" type="button" (click)="toggleDropdown()" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
             {{language.petType}}
         </button>
         <div class="dropdown-menu" [ngClass]="{ 'show': dropdownOpen }" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
         </div>
     </div>
+    <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl />
     <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.age" placeholder="{{language.age}}" type="text" ngDefaultControl />
     <input class="ember-view ember-text-field form-control login-input-pass" [(ngModel)]="pet.description" placeholder="{{language.description}}" type="text" ngDefaultControl />
 

@@ -175,13 +175,15 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
           alert(this.api.getErrorMessage(result, this.language));
         }
       } ,error => {
+        this.loading = false;
         console.log(error);
       });
   }
 
   requiredFieldsFilled(pet: Pet) : boolean {
+    console.log(pet);
     return !(StringUtils.isEmpty(pet.name)
     || (pet.age == null || pet.age == undefined)
-    || (pet.petType == null || pet.petType == undefined));
+    /*|| (pet.petType == null || pet.petType == undefined)*/);
   }
 }

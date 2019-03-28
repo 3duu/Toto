@@ -4,6 +4,8 @@ import static br.com.duti.utils.Utils.getEncryptedString;
 
 import java.util.Date;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,6 +62,7 @@ public class UserController {
         return response;
 	}
 	
+	@Transactional
 	@PostMapping(value="/register", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> register(@RequestBody final User user) {
 		ResponseEntity<User> response;
