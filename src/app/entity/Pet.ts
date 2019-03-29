@@ -27,15 +27,16 @@ export class Pet {
 }
 
 export enum PetType {
-    OTHER,
-	DOG,
-	CAT,
-	BIRD,
-	TURTLE,
-	MOUSE,
-	HAMSTER,
-	FISH,
-	SNAKE,
-	HEDGEHOG,
-	PIG
+    OTHER = "Outro",
+	DOG = "Cachorro",
+	CAT = "Gato",
+	BIRD = "Passaro",
+	TURTLE = "Tartaruga",
+	MOUSE = "Camundongo/Rato",
+	HAMSTER = "Hamster",
+	FISH = "Peixe",
+	SNAKE = "Serpente",
+	HEDGEHOG = "Ouriço",
+	PIG = "Leitão/Porco",
+	RABBIT = "Coelho",
 }

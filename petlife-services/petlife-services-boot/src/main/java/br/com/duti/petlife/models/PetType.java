@@ -11,5 +11,6 @@ public enum PetType {
 	FISH,
 	SNAKE,
 	HEDGEHOG,
-	PIG
+	PIG,
+	RABBIT
 }

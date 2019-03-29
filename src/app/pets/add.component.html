@@ -10,6 +10,7 @@
             {{language.petType}}
         </button>
         <div class="dropdown-menu" [ngClass]="{ 'show': dropdownOpen }" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
+            <a *ngFor="let item of petTypes | enumKeyValuelist;" class="dropdown-item" href="#"><input type="hidden" [value]="item.key"/>{{item.value}}</a>
         </div>
     </div>
     <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl />

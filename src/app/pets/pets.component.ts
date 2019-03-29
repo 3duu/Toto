@@ -123,6 +123,8 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
   @ViewChild(AlertComponent) private alert: AlertComponent;
   private dropdownOpen : boolean = false;
   private pet : Pet;
+  private animals : Animal[] = [];
+  private petTypes = PetType;
 
   constructor(private api : PetApiService){
     super();
@@ -130,10 +132,7 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
   
   ngOnInit() {
     this.pet = new Pet();
-    let values = Object.keys(PetType).map(k => PetType[k as any]);
-    values.forEach(attr => {
-      
-    });
+    //this.petTypes = Object.keys(PetType).map(k => PetType[k as any]);
   }
 
   ngAfterViewInit(): void {
@@ -185,5 +184,34 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
     return !(StringUtils.isEmpty(pet.name)
     || (pet.age == null || pet.age == undefined)
     /*|| (pet.petType == null || pet.petType == undefined)*/);
+  }
+}
+
+export class Animal {
+
+  constructor(private petType : PetType){
+
+  }
+
+  public get text(): string {
+      let values = Object.keys(PetType).map(k => PetType[k as any]);
+      values.forEach(attr => {
+        if(attr == this.petType){
+          return attr;
+        }
+      });
+      return this.petType;
+  }
+
+  public get value(): number {
+    let index = 0;
+    let values = Object.keys(PetType).map(k => PetType[k as any]);
+    values.forEach(attr => {
+      if(attr == this.petType){
+        return index;
+      }
+      index++;
+    });
+    return index;
   }
 }

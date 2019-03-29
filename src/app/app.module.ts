@@ -14,10 +14,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { PetsComponent, AddPetsComponent } from './pets/pets.component';
-
-
 import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
+import { EnumKeyValueListPipe } from './pipes/enumlist.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,8 @@ import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
     HomeComponent,
     RegisterComponent,
     PetsComponent,
-    AddPetsComponent
+    AddPetsComponent,
+    EnumKeyValueListPipe
   ],
   entryComponents: [
     LoginComponent,
