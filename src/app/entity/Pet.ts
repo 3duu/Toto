@@ -14,8 +14,8 @@ export class Pet {
 	age : number;
 
     img : string;
-
-    petType: PetType
+	
+	petType: number
 	
 	description: string;
 
@@ -30,13 +30,8 @@ export enum PetType {
     OTHER = "Outro",
 	DOG = "Cachorro",
 	CAT = "Gato",
-	BIRD = "Passaro",
-	TURTLE = "Tartaruga",
-	MOUSE = "Camundongo/Rato",
-	HAMSTER = "Hamster",
+	BIRD = "Pássaro",
 	FISH = "Peixe",
-	SNAKE = "Serpente",
-	HEDGEHOG = "Ouriço",
-	PIG = "Leitão/Porco",
-	RABBIT = "Coelho",
+	/*RABBIT = "Coelho",
+	HAMSTER = "Hamster",*/
 }

@@ -5,12 +5,7 @@ public enum PetType {
 	DOG,
 	CAT,
 	BIRD,
-	TURTLE,
-	MOUSE,
-	HAMSTER,
-	FISH,
-	SNAKE,
-	HEDGEHOG,
-	PIG,
-	RABBIT
+	FISH/*,
+	RABBIT,
+	HAMSTER*/;
 }

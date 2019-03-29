@@ -5,7 +5,7 @@ import { User } from '../entity/User';
 import { Pet, PetType } from '../entity/Pet';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
 import { overlayConfigFactory } from 'ngx-modialog';
-import { StringUtils } from '../utils';
+import { StringUtils, ObjectUtils } from '../utils';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 
@@ -22,7 +22,8 @@ export class PetsComponent extends AppBase implements AfterViewInit {
 
   private user : User;
   private title : string = "Pets";
-  private addDialog : any;
+  public addDialog : any;
+  private dialog : boolean = false;
 
   ngOnInit() {
     this.loading = true;
@@ -71,19 +72,6 @@ export class PetsComponent extends AppBase implements AfterViewInit {
         console.log(error);
         alert(error);
         this.loading = false;
-
-        this.user.pets = [];
-        let pet1 : Pet = new Pet();
-        pet1.id = 1;
-        pet1.name = 'Thanos';
-        pet1.img = 'https://cachorrosincriveis.com.br/wp-content/uploads/2018/07/filhote-de-rottweiler-1-696x464.jpg';
-        this.user.pets.push(pet1);
-
-        let pet2 : Pet = new Pet();
-        pet2.id = 2;
-        pet2.name = 'Fenrir';
-        pet2.img = 'http://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Le%C3%AFko_au_bois_de_la_Cambre.jpg/640px-Le%C3%AFko_au_bois_de_la_Cambre.jpg';
-        this.user.pets.push(pet2);
       });
     }
   }
@@ -98,6 +86,7 @@ export class PetsComponent extends AppBase implements AfterViewInit {
 
   //https://mdbootstrap.com/docs/angular/modals/basic/
   private openAddDialog() : void {
+    this.dialog = true;
     const dialogRef = this.modal
       .open(AddPetsComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
     console.log(dialogRef);
@@ -105,12 +94,15 @@ export class PetsComponent extends AppBase implements AfterViewInit {
     this.addDialog = dialogRef;
     // dialogRef.result
     //   .then( result => this.save(result) );
+
+    dialogRef.onDestroy.subscribe(() => {
+      this.dialog = false;
+    });
   }
 
   protected add() : void {
     setTimeout(() => {this.openAddDialog()});
   }
-
 }
 
 @Component({
@@ -123,24 +115,25 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
   @ViewChild(AlertComponent) private alert: AlertComponent;
   private dropdownOpen : boolean = false;
   private pet : Pet;
-  private animals : Animal[] = [];
-  private petTypes = PetType;
+  private animals = [];
+  private dialog : boolean = false;
 
-  constructor(private api : PetApiService){
+  constructor(private api : PetApiService, private modal: Modal){
     super();
   }
   
   ngOnInit() {
     this.pet = new Pet();
-    //this.petTypes = Object.keys(PetType).map(k => PetType[k as any]);
+    this.animals = Object.keys(PetType).map(k => PetType[k as any]);
   }
 
   ngAfterViewInit(): void {
-    // <a class="dropdown-item" href="#">Action</a>
+    
   }
 
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
+    this.add();
   }
 
   protected createPet() : void {
@@ -157,61 +150,81 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
 
       pets.subscribe(result => {
         console.log(result);
-        
-        //this.user.pets = result;
+
         this.loading = false;
 
         if(result.entity){
-
           if(result.code == ReturnCode.SUCCESS){
-            if (result && result.sid) {
-              
+            if(result && result.sid) {
+              //this.parent.addDialog.close();
             }
           }
         }
 
         if(result.code != ReturnCode.SUCCESS) {
-          alert(this.api.getErrorMessage(result, this.language));
+          this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
         }
-      } ,error => {
+      }, error => {
         this.loading = false;
         console.log(error);
       });
   }
 
+  selectAnimal(selected : number) : void {
+    /*let index = 0;
+    Object.keys(PetType).forEach(attr => {
+      if(index == selected)
+        return;
+      this.pet.petType = PetType[attr];
+      index++;
+    });*/
+    this.pet.petType = selected;
+    console.log(this.pet.petType);
+  }
+
   requiredFieldsFilled(pet: Pet) : boolean {
     console.log(pet);
     return !(StringUtils.isEmpty(pet.name)
-    || (pet.age == null || pet.age == undefined)
-    /*|| (pet.petType == null || pet.petType == undefined)*/);
+      || ObjectUtils.isEmpty(pet.age)
+      || ObjectUtils.isEmpty(pet.petType));
+  }
+
+  private openPetDialog() : void {
+    this.dialog = true;
+    const dialogRef = this.modal
+      .open(PetPicker, overlayConfigFactory({ isBlocking: false }, BSModalContext));
+    console.log(dialogRef);
+
+    dialogRef.onDestroy.subscribe(() => {
+      this.dialog = false;
+    });
+  }
+
+  protected add() : void {
+    setTimeout(() => {this.openPetDialog()});
   }
 }
 
-export class Animal {
+@Component({
+  selector: 'app-add-pets',
+  templateUrl: './pet.picker.component.html',
+  styleUrls: ['./pet.picker.component.css']
+})
+export class PetPicker extends AppBase implements AfterViewInit {
 
-  constructor(private petType : PetType){
-
+  private animals = [];
+  
+  ngOnInit() {
+    this.animals = Object.keys(PetType).map(k => PetType[k as any]);
   }
 
-  public get text(): string {
-      let values = Object.keys(PetType).map(k => PetType[k as any]);
-      values.forEach(attr => {
-        if(attr == this.petType){
-          return attr;
-        }
-      });
-      return this.petType;
+  ngAfterViewInit(): void {
+    
+  }
+  
+  select(selected : number) : void {
+    //this.pet.petType = selected;
+    console.log(selected);
   }
 
-  public get value(): number {
-    let index = 0;
-    let values = Object.keys(PetType).map(k => PetType[k as any]);
-    values.forEach(attr => {
-      if(attr == this.petType){
-        return index;
-      }
-      index++;
-    });
-    return index;
-  }
 }

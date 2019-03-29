@@ -1,29 +1,45 @@
-<div class="container text-center">
-    <br>
-    <h2 class="form-signin-heading">{{language.addNewPet}}</h2>
-    <br>
-    <!-- <select class="form-control">
-        <option selected value="">{{language.petType}}</option>
-    </select>  -->
-    <div class="btn-group show">
-        <button class="btn btn-petlife btn-lg dropdown-toggle" type="button" (click)="toggleDropdown()" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
-            {{language.petType}}
-        </button>
-        <div class="dropdown-menu" [ngClass]="{ 'show': dropdownOpen }" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
-            <a *ngFor="let item of petTypes | enumKeyValuelist;" class="dropdown-item" href="#"><input type="hidden" [value]="item.key"/>{{item.value}}</a>
-        </div>
-    </div>
-    <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl />
-    <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.age" placeholder="{{language.age}}" type="text" ngDefaultControl />
-    <input class="ember-view ember-text-field form-control login-input-pass" [(ngModel)]="pet.description" placeholder="{{language.description}}" type="text" ngDefaultControl />
 
-    <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
-        <span class="sr-only">Carregando...</span>
-    </div>
-    <br>
-    <app-alert></app-alert>
-    <button class="btn btn-lg btn-petlife btn-block btn-center" type="button" (click)="createPet()" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.createUser}}</button>
-    <br>
-</div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content"> 
+            <div class="container text-center">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{language.addNewPet}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <br>
+                <br>
+                <!-- <select class="form-control">
+                    <option selected value="">{{language.petType}}</option>
+                </select>  -->
+                <div class="modal-body">
+                    <div class="btn-group show">
+                        <a class="btn btn-petlife social-login-btn" (click)="camera()" href="#"><i class="fa fa-camera"></i></a>
+                        <span style="display:inline-block; width: 2px;"></span>
+                        <button class="btn btn-petlife btn-block btn-center dropdown-toggle" type="button" (click)="toggleDropdown()" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+                            {{language.petType}}
+                        </button>
+                        <!-- <div class="dropdown-menu" [ngClass]="{ 'show': dropdownOpen }" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <a *ngFor="let item of animals; let i= index ;trackBy: trackByFn" class="dropdown-item" href="#" (click)="selectAnimal(i)">
+                                {{item}} 
+                            </a>
+                        </div> -->
+                    </div>
+                    <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl />
+                    <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.age" placeholder="{{language.age}}" type="text" ngDefaultControl />
+                    <input class="ember-view ember-text-field form-control login-input-pass" [(ngModel)]="pet.description" placeholder="{{language.description}}" type="text" ngDefaultControl />       
+                </div>
+                <app-alert></app-alert>
+                <div class="modal-footer">
+                    <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
+                        <span class="sr-only">Carregando...</span>
+                    </div>
+                    <button class="btn btn-petlife btn-block btn-center" type="button" (click)="createPet()" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.createUser}}</button>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>  
 <!-- https://yespornplease.com/v/100046849
 https://yespornplease.com/v/956831015 -->

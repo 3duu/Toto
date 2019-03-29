@@ -36,6 +36,13 @@ export class LoginUtils {
       }
 }
 
+export class ObjectUtils {
+
+    static isEmpty(str : any) : boolean {
+        return (str == undefined || str == null);
+    }
+}
+
 export enum SessionAttributes {
     CURRENT_USER = "currentUser",
     CURRENT_PASSWORD = "currentPassword",

@@ -32,8 +32,9 @@ export class Language {
     age : string = "Idade";
     petType : string = "Animal";
     description : string = "Descrição";
-
-    addNewPet : string = "Adicionar PET ";
+    view : string = "Visualizar";
+    animal : string = "Tipo do Pet";
+    addNewPet : string = "Adicionar Pet";
 
     //Messages
     connectionError : string = "Algo deu errado! \n Verifique se o dispositivo está conectado ou tente novamente mais tarde";
