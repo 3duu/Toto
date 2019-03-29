@@ -272,6 +272,7 @@ dependencies {
     compile "com.android.support:support-core-utils:27.+"
     compile "com.android.support:customtabs:23.2.0"
     compile "com.facebook.android:facebook-android-sdk:4.40.0"
+    compile "com.android.support:support-v4:24.1.1+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

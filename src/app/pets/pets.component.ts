@@ -8,6 +8,7 @@ import { overlayConfigFactory } from 'ngx-modialog';
 import { StringUtils, ObjectUtils } from '../utils';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
+import { CordovaService } from '../cordova.service';
 
 @Component({
   selector: 'app-pets',
@@ -88,7 +89,7 @@ export class PetsComponent extends AppBase implements AfterViewInit {
   private openAddDialog() : void {
     this.dialog = true;
     const dialogRef = this.modal
-      .open(AddPetsComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
+      .open(EditPetsComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
     console.log(dialogRef);
     console.log(this.modal);
     this.addDialog = dialogRef;
@@ -110,7 +111,7 @@ export class PetsComponent extends AppBase implements AfterViewInit {
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
-export class AddPetsComponent extends AppBase implements AfterViewInit {
+export class EditPetsComponent extends AppBase implements AfterViewInit {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   private dropdownOpen : boolean = false;
@@ -118,7 +119,7 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
   private animals = [];
   private dialog : boolean = false;
 
-  constructor(private api : PetApiService, private modal: Modal){
+  constructor(private api : PetApiService, private modal: Modal, private phone : CordovaService){
     super();
   }
   
@@ -192,7 +193,7 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
   private openPetDialog() : void {
     this.dialog = true;
     const dialogRef = this.modal
-      .open(PetPicker, overlayConfigFactory({ isBlocking: false }, BSModalContext));
+      .open(PetPickerComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
     console.log(dialogRef);
 
     dialogRef.onDestroy.subscribe(() => {
@@ -203,6 +204,10 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
   protected add() : void {
     setTimeout(() => {this.openPetDialog()});
   }
+
+  protected camera() : void {
+    this.phone.cordova.camera.getPicture();
+  }
 }
 
 @Component({
@@ -210,7 +215,7 @@ export class AddPetsComponent extends AppBase implements AfterViewInit {
   templateUrl: './pet.picker.component.html',
   styleUrls: ['./pet.picker.component.css']
 })
-export class PetPicker extends AppBase implements AfterViewInit {
+export class PetPickerComponent extends AppBase implements AfterViewInit {
 
   private animals = [];
   

@@ -328,7 +328,8 @@ var AppModule = /** @class */ (function () {
                 _home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"],
                 _register_register_component__WEBPACK_IMPORTED_MODULE_15__["RegisterComponent"],
                 _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["PetsComponent"],
-                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["AddPetsComponent"]
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["AddPetsComponent"],
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["PetPicker"]
             ],
             entryComponents: [
                 _login_login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"],
@@ -337,7 +338,8 @@ var AppModule = /** @class */ (function () {
                 _home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"],
                 _register_register_component__WEBPACK_IMPORTED_MODULE_15__["RegisterComponent"],
                 _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["PetsComponent"],
-                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["AddPetsComponent"]
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["AddPetsComponent"],
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_16__["PetPicker"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
@@ -557,17 +559,13 @@ var Pet = /** @class */ (function () {
 
 var PetType;
 (function (PetType) {
-    PetType[PetType["OTHER"] = 0] = "OTHER";
-    PetType[PetType["DOG"] = 1] = "DOG";
-    PetType[PetType["CAT"] = 2] = "CAT";
-    PetType[PetType["BIRD"] = 3] = "BIRD";
-    PetType[PetType["TURTLE"] = 4] = "TURTLE";
-    PetType[PetType["MOUSE"] = 5] = "MOUSE";
-    PetType[PetType["HAMSTER"] = 6] = "HAMSTER";
-    PetType[PetType["FISH"] = 7] = "FISH";
-    PetType[PetType["SNAKE"] = 8] = "SNAKE";
-    PetType[PetType["HEDGEHOG"] = 9] = "HEDGEHOG";
-    PetType[PetType["PIG"] = 10] = "PIG";
+    PetType["OTHER"] = "Outro";
+    PetType["DOG"] = "Cachorro";
+    PetType["CAT"] = "Gato";
+    PetType["BIRD"] = "P\u00E1ssaro";
+    PetType["FISH"] = "Peixe";
+    /*RABBIT = "Coelho",
+    HAMSTER = "Hamster",*/
 })(PetType || (PetType = {}));
 
 
@@ -719,7 +717,9 @@ var Language = /** @class */ (function () {
         this.age = "Idade";
         this.petType = "Animal";
         this.description = "Descrição";
-        this.addNewPet = "Adicionar PET ";
+        this.view = "Visualizar";
+        this.animal = "Tipo do Pet";
+        this.addNewPet = "Adicionar Pet";
         //Messages
         this.connectionError = "Algo deu errado! \n Verifique se o dispositivo está conectado ou tente novamente mais tarde";
         this.serverError = "Algo inesperado aconteceu! \n Se o problema persistir reporte o problema";
@@ -758,7 +758,7 @@ module.exports = "/* brandico */\r\n[class*=\"brandico-\"]:before {\r\n  font-fa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">     \r\n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\r\n<div class=\"container text-center\">\r\n    <form class=\"form-signin\" #loginForm=\"ngForm\" (ngSubmit)=\"doLogin(loginForm)\">\r\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\r\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\r\n        <br><br>\r\n        <p>\r\n            \r\n            <!-- <fb:login-button \r\n                scope=\"public_profile,email\"\r\n                onlogin=\"checkLoginState();\">\r\n            </fb:login-button> -->\r\n            <a class=\"btn btn-primary social-login-btn social-facebook\" (click)=\"facebook()\" href=\"#\"><i class=\"fa fa-facebook\"></i></a>\r\n            <a class=\"btn btn-primary social-login-btn social-google\"   (click)=\"google()\" href=\"#\"><i class=\"fa fa-google-plus\"></i></a>\r\n        </p>\r\n        <!-- <p>\r\n        <a class=\"btn btn-primary social-login-btn social-linkedin\" href=\"#\"><i class=\"fa fa-linkedin\"></i></a>\r\n        <a class=\"btn btn-primary social-login-btn social-twitter\" href=\"#\"><i class=\"fa fa-twitter\"></i></a>\r\n        </p> -->\r\n\r\n        <!-- <div class=\"btn-group social-login-more\">\r\n        <button type=\"button\" class=\"btn btn-default dropdown-toggle btn-block\" data-toggle=\"dropdown\">\r\n        {{language.more}}\r\n        </button>\r\n        <ul class=\"dropdown-menu text-left \" role=\"menu\">\r\n        <li><a href=\"#\"><i class=\"fa fa-tumblr-sign\"></i>   Tumblr</a></li>\r\n        <li><a href=\"#\"><i class=\"fa fa-github-alt\"></i>   Github</a></li>\r\n        <li><a href=\"#\"><i class=\"fa fa-dropbox\"></i>   Dropbox</a></li>\r\n        <li><a href=\"/auth/amazon\"><span class=\"zocial-amazon\"></span>   Amazon</a></li>\r\n        <li><a href=\"#\"><span class=\"zocial-bitbucket\"></span>   Bitbucket</a></li>\r\n        <li><a href=\"#\"><span class=\"zocial-evernote\"></span>   Evernote</a></li>\r\n        <li><a href=\"#\"><span class=\"zocial-meetup\"></span>   Meetup</a></li>\r\n        <li><a href=\"#\"><i class=\"fa fa-windows\"></i>   Windows Live</a></li>\r\n        <li><a href=\"#\"><i class=\"fa fa-weibo\"></i>   Weibo</a></li>\r\n        <li><a href=\"#\"><i class=\"fa fa-foursquare\"></i>   Foursquare</a></li>\r\n        <li><a href=\"#\"><i class=\"fa fa-stackexchange\"></i>   Stack Exchange</a></li>\r\n        <li><a href=\"#\"><i class=\"fa fa-trello\"></i>   Trello</a></li>\r\n        <li><a href=\"#\"><span class=\"zocial-wordpress\"></span>   Wordpress</a></li>\r\n        </ul>\r\n        </div> \r\n        <br> -->\r\n        <br>\r\n\r\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\r\n        <br><br>\r\n        \r\n        <input type=\"hidden\" name=\"socialMedia\" id=\"socialMedia\" value=\"0\" ngModel>\r\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.username}}\" type=\"text\" name=\"username\" id=\"username\" ngModel><!-- required -->\r\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel>\r\n\r\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\r\n        <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\r\n            <span class=\"sr-only\">Carregando...</span>\r\n        </div>\r\n        <app-alert></app-alert>\r\n        <button class=\"btn btn-lg btn-petlife btn-block btn-center\" type=\"submit\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.login}}</button>\r\n        <br>\r\n    </form>\r\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.signUp}} </b></button> </small>\r\n</div>"
+module.exports = "<div class=\"container\">     \r\n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\r\n<div class=\"container text-center\">\r\n    <form class=\"form-signin\" #loginForm=\"ngForm\" (ngSubmit)=\"doLogin(loginForm)\">\r\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\r\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\r\n        <br><br>\r\n        <p>\r\n            \r\n            <!-- <fb:login-button \r\n                scope=\"public_profile,email\"\r\n                onlogin=\"checkLoginState();\">\r\n            </fb:login-button> -->\r\n            <a class=\"btn btn-primary social-login-btn social-facebook\" (click)=\"facebook()\" href=\"#\"><i class=\"fa fa-facebook\"></i></a>\r\n            <a class=\"btn btn-primary social-login-btn social-google\"   (click)=\"google()\" href=\"#\"><i class=\"fa fa-google-plus\"></i></a>\r\n        </p>\r\n        <br>\r\n\r\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\r\n        <br><br>\r\n        \r\n        <input type=\"hidden\" name=\"socialMedia\" id=\"socialMedia\" value=\"0\" ngModel>\r\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.username}}\" type=\"text\" name=\"username\" id=\"username\" ngModel><!-- required -->\r\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel>\r\n\r\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\r\n        <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\r\n            <span class=\"sr-only\">Carregando...</span>\r\n        </div>\r\n        <app-alert></app-alert>\r\n        <button class=\"btn btn-lg btn-petlife btn-block btn-center\" type=\"submit\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.login}}</button>\r\n        <br>\r\n    </form>\r\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.signUp}} </b></button> </small>\r\n</div>"
 
 /***/ }),
 
@@ -1167,7 +1167,29 @@ module.exports = "/* .form-input {\r\n    display: block;\r\n    width: 100%;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container text-center\">\r\n    <br>\r\n    <h2 class=\"form-signin-heading\">{{language.addNewPet}}</h2>\r\n    <br>\r\n    <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl  />\r\n    <!-- <select class=\"form-control\">\r\n        <option selected value=\"\">{{language.petType}}</option>\r\n    </select> -->\r\n    <div class=\"btn-group show\">\r\n        <button class=\"btn btn-petlife btn-lg dropdown-toggle\" type=\"button\" (click)=\"toggleDropdown()\" [(ngModel)]=\"pet.petType\" data-toggle=\"dropdown\" aria-haspopup=\"true\"  aria-expanded=\"false\">\r\n            {{language.petType}}\r\n        </button>\r\n        <div class=\"dropdown-menu\" [ngClass]=\"{ 'show': dropdownOpen }\" x-placement=\"bottom-start\" style=\"position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;\">\r\n        </div>\r\n    </div>\r\n    <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.age\" placeholder=\"{{language.age}}\" type=\"text\" ngDefaultControl />\r\n    <input class=\"ember-view ember-text-field form-control login-input-pass\" [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl />\r\n\r\n    <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\r\n        <span class=\"sr-only\">Carregando...</span>\r\n    </div>\r\n    <br>\r\n    <app-alert></app-alert>\r\n    <button class=\"btn btn-lg btn-petlife btn-block btn-center\" type=\"button\" (click)=\"createPet()\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.createUser}}</button>\r\n    <br>\r\n</div>\r\n<!-- https://yespornplease.com/v/100046849\r\nhttps://yespornplease.com/v/956831015 -->"
+module.exports = "\r\n    <div class=\"modal-dialog\" role=\"document\">\r\n        <div class=\"modal-content\"> \r\n            <div class=\"container text-center\">\r\n                    <div class=\"modal-header\">\r\n                        <h5 class=\"modal-title\">{{language.addNewPet}}</h5>\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                            <span aria-hidden=\"true\">&times;</span>\r\n                        </button>\r\n                    </div>\r\n                <br>\r\n                <br>\r\n                <!-- <select class=\"form-control\">\r\n                    <option selected value=\"\">{{language.petType}}</option>\r\n                </select>  -->\r\n                <div class=\"modal-body\">\r\n                    <div class=\"btn-group show\">\r\n                        <a class=\"btn btn-petlife social-login-btn\" (click)=\"camera()\" href=\"#\"><i class=\"fa fa-camera\"></i></a>\r\n                        <span style=\"display:inline-block; width: 2px;\"></span>\r\n                        <button class=\"btn btn-petlife btn-block btn-center dropdown-toggle\" type=\"button\" (click)=\"toggleDropdown()\" data-toggle=\"dropdown\" aria-haspopup=\"true\"  aria-expanded=\"false\">\r\n                            {{language.petType}}\r\n                        </button>\r\n                        <!-- <div class=\"dropdown-menu\" [ngClass]=\"{ 'show': dropdownOpen }\" x-placement=\"bottom-start\" style=\"position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;\">\r\n                            <a *ngFor=\"let item of animals; let i= index ;trackBy: trackByFn\" class=\"dropdown-item\" href=\"#\" (click)=\"selectAnimal(i)\">\r\n                                {{item}} \r\n                            </a>\r\n                        </div> -->\r\n                    </div>\r\n                    <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl />\r\n                    <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.age\" placeholder=\"{{language.age}}\" type=\"text\" ngDefaultControl />\r\n                    <input class=\"ember-view ember-text-field form-control login-input-pass\" [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl />       \r\n                </div>\r\n                <app-alert></app-alert>\r\n                <div class=\"modal-footer\">\r\n                    <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\r\n                        <span class=\"sr-only\">Carregando...</span>\r\n                    </div>\r\n                    <button class=\"btn btn-petlife btn-block btn-center\" type=\"button\" (click)=\"createPet()\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.createUser}}</button>\r\n                </div>\r\n                <br>\r\n            </div>\r\n        </div>\r\n    </div>  \r\n<!-- https://yespornplease.com/v/100046849\r\nhttps://yespornplease.com/v/956831015 -->"
+
+/***/ }),
+
+/***/ "./src/app/pets/pet.picker.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/pets/pet.picker.component.css ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BldHMvcGV0LnBpY2tlci5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/pets/pet.picker.component.html":
+/*!************************************************!*\
+  !*** ./src/app/pets/pet.picker.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"modal-dialog\" role=\"document\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.animal}}</h5>\r\n      <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n        <span aria-hidden=\"true\">&times;</span>\r\n      </button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n      <p>\r\n          <a class=\"btn btn-primary social-login-btn\" (click)=\"select()\" href=\"#\"><i class=\"fa fa-dog\"></i></a>\r\n          <a class=\"btn btn-primary social-login-btn\" (click)=\"select()\" href=\"#\"><i class=\"fa fa-cat\"></i></a>\r\n          <a class=\"btn btn-primary social-login-btn\" (click)=\"select()\" href=\"#\"><i class=\"fa fa-dove\"></i></a>\r\n          <a class=\"btn btn-primary social-login-btn\" (click)=\"select()\" href=\"#\"><i class=\"fa fa-fish\"></i></a>\r\n      </p>\r\n    </div>\r\n    <!-- <div class=\"modal-footer\">\r\n      <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n      <button type=\"button\" class=\"btn btn-primary\">Send message</button>\r\n    </div> -->\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1189,7 +1211,7 @@ module.exports = "*{padding:0;margin:0;}\r\n\r\nbody{\r\n\tfont-family:Verdana, 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"body_section\">\r\n  <div class=interface_class>\r\n    <!-- <div *ngFor=\"\" class=\"card\" style=\"width: 18rem;\">\r\n      <img src=\"...\" class=\"card-img-top\" alt=\"...\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">Card title</h5>\r\n        <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\r\n        <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\r\n      </div>\r\n    </div> -->\r\n    <div class=\"page-header\">\r\n\t\t  <h1>{{title}} <small>{{user.pets.length}}</small></h1>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\r\n        <span class=\"sr-only\">Carregando...</span>\r\n      </div>\r\n      <article *ngFor=\"let pet of user.pets\">\r\n        <div class=\"col-sm-6 col-md-4\">\r\n          <div class=\"thumbnail\" style=\"width: 425px;height: 415px;\"  ng-model=\"id\">\r\n          <input name=\"petId\" value=\"{{pet.id}}\" hidden=\"hidden\" ng-model=\"pet\">\r\n          <a href=\"#\">\r\n              <img src=\"{{pet.img}}\" alt=\"{{pet.name}}\" width=\"180\" height=\"130\"  ng-model=\"product.productImage\" style=\"width:180; height:130;\">\r\n          </a>\r\n            <div class=\"caption\" style=\"position: relative; bottom: 2px;\">\r\n              <h3 style=\"width: 262px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">{{pet.name}}</h3>\r\n              <p>{{pet.type}}</p>\r\n              <div>\r\n              <p>\r\n              </p>\r\n              </div>\r\n          </div>\r\n          </div>\r\n        </div>\r\n      </article>\r\n      </div>\r\n\r\n      <a href=\"#\" class=\"float bg-petlife\" (click)=\"add()\">\r\n        <i class=\"fa fa-plus my-float\"></i>\r\n      </a>\r\n  </div> \r\n</section>\r\n\r\n"
+module.exports = "<section class=\"body_section\">\r\n  <div class=interface_class>\r\n    <div class=\"page-header\">\r\n\t\t  <h1>{{title}} <small>{{user.pets.length}}</small></h1>\r\n    </div>\r\n    <div *ngFor=\"let pet of user.pets\" class=\"card\" style=\"width: 18rem;\">\r\n      <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\r\n        <span class=\"sr-only\">Carregando...</span>\r\n      </div>\r\n      <img src=\"{{pet.img}}\" class=\"card-img-top\" alt=\"...\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">{{pet.name}}</h5>\r\n        <p class=\"card-text\">{{pet.description}}</p>\r\n        <a href=\"#\" class=\"btn btn-petlife\">{{language.view}}</a>\r\n      </div>\r\n    </div>\r\n\r\n    <a href=\"#\" class=\"float bg-petlife\" (click)=\"add()\" [ngClass]=\"{ 'button-disabled': dialog }\">\r\n      <i class=\"fa fa-plus my-float\"></i>\r\n    </a>\r\n  </div> \r\n</section>\r\n\r\n"
 
 /***/ }),
 
@@ -1197,13 +1219,14 @@ module.exports = "<section class=\"body_section\">\r\n  <div class=interface_cla
 /*!****************************************!*\
   !*** ./src/app/pets/pets.component.ts ***!
   \****************************************/
-/*! exports provided: PetsComponent, AddPetsComponent */
+/*! exports provided: PetsComponent, AddPetsComponent, PetPicker */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetsComponent", function() { return PetsComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddPetsComponent", function() { return AddPetsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetPicker", function() { return PetPicker; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
@@ -1211,6 +1234,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entity/Pet */ "./src/app/entity/Pet.ts");
 /* harmony import */ var ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-modialog/plugins/bootstrap */ "./node_modules/ngx-modialog/plugins/bootstrap/fesm5/ngx-modialog-plugins-bootstrap.js");
 /* harmony import */ var ngx_modialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-modialog */ "./node_modules/ngx-modialog/fesm5/ngx-modialog.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+/* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
+/* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
+
+
+
 
 
 
@@ -1225,6 +1254,7 @@ var PetsComponent = /** @class */ (function (_super) {
         _this.api = api;
         _this.modal = modal;
         _this.title = "Pets";
+        _this.dialog = false;
         return _this;
     }
     PetsComponent.prototype.ngOnInit = function () {
@@ -1265,17 +1295,6 @@ var PetsComponent = /** @class */ (function (_super) {
                 console.log(error);
                 alert(error);
                 _this.loading = false;
-                _this.user.pets = [];
-                var pet1 = new _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["Pet"]();
-                pet1.id = 1;
-                pet1.name = 'Thanos';
-                pet1.img = 'https://cachorrosincriveis.com.br/wp-content/uploads/2018/07/filhote-de-rottweiler-1-696x464.jpg';
-                _this.user.pets.push(pet1);
-                var pet2 = new _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["Pet"]();
-                pet2.id = 2;
-                pet2.name = 'Fenrir';
-                pet2.img = 'http://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Le%C3%AFko_au_bois_de_la_Cambre.jpg/640px-Le%C3%AFko_au_bois_de_la_Cambre.jpg';
-                _this.user.pets.push(pet2);
             });
         }
     };
@@ -1287,12 +1306,18 @@ var PetsComponent = /** @class */ (function (_super) {
     };
     //https://mdbootstrap.com/docs/angular/modals/basic/
     PetsComponent.prototype.openAddDialog = function () {
+        var _this = this;
+        this.dialog = true;
         var dialogRef = this.modal
             .open(AddPetsComponent, Object(ngx_modialog__WEBPACK_IMPORTED_MODULE_6__["overlayConfigFactory"])({ isBlocking: false }, ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__["BSModalContext"]));
         console.log(dialogRef);
+        console.log(this.modal);
         this.addDialog = dialogRef;
         // dialogRef.result
         //   .then( result => this.save(result) );
+        dialogRef.onDestroy.subscribe(function () {
+            _this.dialog = false;
+        });
     };
     PetsComponent.prototype.add = function () {
         var _this = this;
@@ -1311,35 +1336,123 @@ var PetsComponent = /** @class */ (function (_super) {
 
 var AddPetsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AddPetsComponent, _super);
-    function AddPetsComponent() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    function AddPetsComponent(api, modal) {
+        var _this = _super.call(this) || this;
+        _this.api = api;
+        _this.modal = modal;
         _this.dropdownOpen = false;
+        _this.animals = [];
+        _this.dialog = false;
         return _this;
     }
     AddPetsComponent.prototype.ngOnInit = function () {
         this.pet = new _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["Pet"]();
-        var values = Object.keys(_entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"]).map(function (k) { return _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"][k]; });
-        values.forEach(function (attr) {
-        });
+        this.animals = Object.keys(_entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"]).map(function (k) { return _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"][k]; });
     };
     AddPetsComponent.prototype.ngAfterViewInit = function () {
-        // <a class="dropdown-item" href="#">Action</a>
     };
     AddPetsComponent.prototype.toggleDropdown = function () {
         this.dropdownOpen = !this.dropdownOpen;
+        this.add();
     };
     AddPetsComponent.prototype.createPet = function () {
+        var _this = this;
         this.loading = true;
-        alert(this.pet.name);
+        //Campos obrigatorios
+        if (!this.requiredFieldsFilled(this.pet)) {
+            this.alert.show(this.language.requiredFields, _styles_styles__WEBPACK_IMPORTED_MODULE_9__["ColorClass"].danger);
+            this.loading = false;
+            return;
+        }
+        var pets = this.api.save(this.pet);
+        pets.subscribe(function (result) {
+            console.log(result);
+            _this.loading = false;
+            if (result.entity) {
+                if (result.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS) {
+                    if (result && result.sid) {
+                        //this.parent.addDialog.close();
+                    }
+                }
+            }
+            if (result.code != _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS) {
+                _this.alert.show(_this.api.getErrorMessage(result, _this.language), _styles_styles__WEBPACK_IMPORTED_MODULE_9__["ColorClass"].danger);
+            }
+        }, function (error) {
+            _this.loading = false;
+            console.log(error);
+        });
     };
+    AddPetsComponent.prototype.selectAnimal = function (selected) {
+        /*let index = 0;
+        Object.keys(PetType).forEach(attr => {
+          if(index == selected)
+            return;
+          this.pet.petType = PetType[attr];
+          index++;
+        });*/
+        this.pet.petType = selected;
+        console.log(this.pet.petType);
+    };
+    AddPetsComponent.prototype.requiredFieldsFilled = function (pet) {
+        console.log(pet);
+        return !(_utils__WEBPACK_IMPORTED_MODULE_7__["StringUtils"].isEmpty(pet.name)
+            || _utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(pet.age)
+            || _utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(pet.petType));
+    };
+    AddPetsComponent.prototype.openPetDialog = function () {
+        var _this = this;
+        this.dialog = true;
+        var dialogRef = this.modal
+            .open(PetPicker, Object(ngx_modialog__WEBPACK_IMPORTED_MODULE_6__["overlayConfigFactory"])({ isBlocking: false }, ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__["BSModalContext"]));
+        console.log(dialogRef);
+        dialogRef.onDestroy.subscribe(function () {
+            _this.dialog = false;
+        });
+    };
+    AddPetsComponent.prototype.add = function () {
+        var _this = this;
+        setTimeout(function () { _this.openPetDialog(); });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_8__["AlertComponent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_8__["AlertComponent"])
+    ], AddPetsComponent.prototype, "alert", void 0);
     AddPetsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-add-pets',
             template: __webpack_require__(/*! ./add.component.html */ "./src/app/pets/add.component.html"),
             styles: [__webpack_require__(/*! ./add.component.css */ "./src/app/pets/add.component.css")]
-        })
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_3__["PetApiService"], ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Modal"]])
     ], AddPetsComponent);
     return AddPetsComponent;
+}(_appbase__WEBPACK_IMPORTED_MODULE_1__["AppBase"]));
+
+var PetPicker = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetPicker, _super);
+    function PetPicker() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.animals = [];
+        return _this;
+    }
+    PetPicker.prototype.ngOnInit = function () {
+        this.animals = Object.keys(_entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"]).map(function (k) { return _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"][k]; });
+    };
+    PetPicker.prototype.ngAfterViewInit = function () {
+    };
+    PetPicker.prototype.select = function (selected) {
+        //this.pet.petType = selected;
+        console.log(selected);
+    };
+    PetPicker = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-add-pets',
+            template: __webpack_require__(/*! ./pet.picker.component.html */ "./src/app/pets/pet.picker.component.html"),
+            styles: [__webpack_require__(/*! ./pet.picker.component.css */ "./src/app/pets/pet.picker.component.css")]
+        })
+    ], PetPicker);
+    return PetPicker;
 }(_appbase__WEBPACK_IMPORTED_MODULE_1__["AppBase"]));
 
 
@@ -1533,7 +1646,7 @@ var httpOptions = {
 var endpoints = src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].endpoint;
 var ApiService = /** @class */ (function () {
     function ApiService() {
-        this.endpoint = endpoints.indraLocal;
+        this.endpoint = endpoints.local;
         console.log(window.location.origin);
     }
     ApiService.prototype.handleError = function (error) {
@@ -1680,7 +1793,7 @@ var ColorClass;
 /*!**************************!*\
   !*** ./src/app/utils.ts ***!
   \**************************/
-/*! exports provided: StringUtils, FormUtils, LoginUtils, SessionAttributes */
+/*! exports provided: StringUtils, FormUtils, LoginUtils, ObjectUtils, SessionAttributes */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1688,6 +1801,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StringUtils", function() { return StringUtils; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormUtils", function() { return FormUtils; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginUtils", function() { return LoginUtils; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ObjectUtils", function() { return ObjectUtils; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SessionAttributes", function() { return SessionAttributes; });
 var StringUtils = /** @class */ (function () {
     function StringUtils() {
@@ -1726,6 +1840,15 @@ var LoginUtils = /** @class */ (function () {
         }
     };
     return LoginUtils;
+}());
+
+var ObjectUtils = /** @class */ (function () {
+    function ObjectUtils() {
+    }
+    ObjectUtils.isEmpty = function (str) {
+        return (str == undefined || str == null);
+    };
+    return ObjectUtils;
 }());
 
 var SessionAttributes;

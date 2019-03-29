@@ -13,7 +13,7 @@ import { AlertComponent } from './alert/alert.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { PetsComponent, AddPetsComponent, PetPicker } from './pets/pets.component';
+import { PetsComponent, EditPetsComponent, PetPickerComponent } from './pets/pets.component';
 import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 
@@ -27,8 +27,8 @@ import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
     HomeComponent,
     RegisterComponent,
     PetsComponent,
-    AddPetsComponent,
-    PetPicker
+    EditPetsComponent,
+    PetPickerComponent
   ],
   entryComponents: [
     LoginComponent,
@@ -37,8 +37,8 @@ import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
     HomeComponent,
     RegisterComponent,
     PetsComponent,
-    AddPetsComponent,
-    PetPicker
+    EditPetsComponent,
+    PetPickerComponent
   ],
   imports: [
     BrowserModule,
