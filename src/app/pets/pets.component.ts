@@ -4,7 +4,7 @@ import { PetApiService, ReturnCode } from '../service/services';
 import { User } from '../entity/User';
 import { Pet, PetType } from '../entity/Pet';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
-import { overlayConfigFactory } from 'ngx-modialog';
+import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
 import { StringUtils, ObjectUtils } from '../utils';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
@@ -23,8 +23,8 @@ export class PetsComponent extends AppBase implements AfterViewInit {
 
   private user : User;
   private title : string = "Pets";
-  public addDialog : any;
   private dialog : boolean = false;
+  static dialogRef : DialogRef<any>;
 
   ngOnInit() {
     this.loading = true;
@@ -92,19 +92,23 @@ export class PetsComponent extends AppBase implements AfterViewInit {
       .open(EditPetsComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
     console.log(dialogRef);
     console.log(this.modal);
-    this.addDialog = dialogRef;
     // dialogRef.result
     //   .then( result => this.save(result) );
 
     dialogRef.onDestroy.subscribe(() => {
       this.dialog = false;
     });
+
+    PetsComponent.dialogRef = dialogRef;
   }
 
   protected add() : void {
     setTimeout(() => {this.openAddDialog()});
   }
+
 }
+
+///////////////////////////
 
 @Component({
   selector: 'app-add-pets',
@@ -118,6 +122,7 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
   private pet : Pet;
   private animals = [];
   private dialog : boolean = false;
+  static dialogRef : DialogRef<any>; 
 
   constructor(private api : PetApiService, private modal: Modal, private phone : CordovaService){
     super();
@@ -157,7 +162,7 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
         if(result.entity){
           if(result.code == ReturnCode.SUCCESS){
             if(result && result.sid) {
-              //this.parent.addDialog.close();
+              this.closeDialog();
             }
           }
         }
@@ -169,6 +174,10 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
         this.loading = false;
         console.log(error);
       });
+  }
+
+  private closeDialog() : void {
+    PetsComponent.dialogRef.close();
   }
 
   selectAnimal(selected : number) : void {
@@ -194,11 +203,11 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
     this.dialog = true;
     const dialogRef = this.modal
       .open(PetPickerComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
-    console.log(dialogRef);
-
+    
     dialogRef.onDestroy.subscribe(() => {
       this.dialog = false;
     });
+    EditPetsComponent.dialogRef = dialogRef;
   }
 
   protected add() : void {
@@ -209,6 +218,8 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
     this.phone.cordova.camera.getPicture();
   }
 }
+
+//////////////////////////////////////
 
 @Component({
   selector: 'app-add-pets',
@@ -230,6 +241,11 @@ export class PetPickerComponent extends AppBase implements AfterViewInit {
   select(selected : number) : void {
     //this.pet.petType = selected;
     console.log(selected);
+    this.closeDialog();
+  }
+
+  private closeDialog() : void {
+    EditPetsComponent.dialogRef.close();
   }
 
 }

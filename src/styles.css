@@ -8,30 +8,30 @@
 
 .btn-killgrave {
     color: #fff;
-    background-color: #7608ba;
-    border-color: #7608ba;
-}
-
-.bg-killgrave {
-    background-color: #7608ba;
-}
-
-.text-killgrave {
-    color: #7608ba!important;
-}
-
-.btn-petlife {
-    color: #fff;
     background-color: #02a582;
     border-color: #02a582;
 }
 
-.bg-petlife {
+.bg-killgrave {
     background-color: #02a582;
 }
 
+.text-killgrave {
+    color: #02a582!important;
+}
+
+.btn-petlife {
+    color: #fff;
+    background-color: #563d7c;
+    border-color: #563d7c;
+}
+
+.bg-petlife {
+    background-color: #563d7c;
+}
+
 .text-petlife {
-    color: #02a582 !important;
+    color: #563d7c !important;
 }
 
 .btn-pink {

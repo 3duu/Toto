@@ -2,17 +2,17 @@
   <div class="modal-content">
     <div class="modal-header">
       <h5 class="modal-title" id="exampleModalLabel">{{language.animal}}</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeDialog()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
       <div class="container text-center">
         <p>
-            <a class="btn btn-primary social-login-btn" (click)="select()" href="#"><i class="fa fa-dog"></i></a>
-            <a class="btn btn-primary social-login-btn" (click)="select()" href="#"><i class="fa fa-cat"></i></a>
-            <a class="btn btn-primary social-login-btn" (click)="select()" href="#"><i class="fa fa-dove"></i></a>
-            <a class="btn btn-primary social-login-btn" (click)="select()" href="#"><i class="fa fa-fish"></i></a>
+            <a class="btn btn-petlife social-login-btn pet-icon" (click)="select()" href="#"><i class="fa fa-dog"></i></a>
+            <a class="btn btn-petlife social-login-btn pet-icon" (click)="select()" href="#"><i class="fa fa-cat"></i></a>
+            <a class="btn btn-petlife social-login-btn pet-icon" (click)="select()" href="#"><i class="fa fa-dove"></i></a>
+            <a class="btn btn-petlife social-login-btn pet-icon" (click)="select()" href="#"><i class="fa fa-fish"></i></a>
         </p>
       </div> 
     </div>
