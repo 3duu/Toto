@@ -6,7 +6,7 @@ export class Language {
     init : string = "Início";
     login : string = "Entrar";
     myPet : string = "Meus Pets";
-    about : string = "Sobre";
+    about : string = "Ajuda";
     appointments : string = "Agenda";
     remindPassword : string = "Lembrar";
     haveAnAccount : string = "Já possui conta?";
@@ -33,7 +33,7 @@ export class Language {
     petType : string = "Animal";
     description : string = "Descrição";
     view : string = "Visualizar";
-    animal : string = "Tipo do Pet";
+    animal : string = "Qual o Pet?";
     addNewPet : string = "Adicionar Pet";
 
     //Messages

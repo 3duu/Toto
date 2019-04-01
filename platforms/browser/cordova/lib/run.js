@@ -29,7 +29,7 @@ module.exports.run = function (args) {
     args.port = args.port || 8000;
     args.target = args.target || 'default'; // make default the system browser
 
-    var wwwPath = path.join(__dirname, '../../www');
+    var wwwPath = path.join(__dirname, '../../wwww');
     var manifestFilePath = path.resolve(path.join(wwwPath, 'manifest.json'));
 
     var startPage;

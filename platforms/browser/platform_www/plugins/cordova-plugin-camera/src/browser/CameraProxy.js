@@ -101,8 +101,10 @@ function capture (success, errorCallback, opts) {
                              navigator.msGetUserMedia;
 
     var successCallback = function (stream) {
+        console.log(stream);
         localMediaStream = stream;
-        video.src = window.URL.createObjectURL(localMediaStream);
+        //video.src = window.URL.createObjectURL(localMediaStream);
+        video.srcObject = localMediaStream;
         video.play();
 
         document.body.appendChild(parent);

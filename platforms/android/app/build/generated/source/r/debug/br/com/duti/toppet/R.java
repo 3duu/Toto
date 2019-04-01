@@ -10252,6 +10252,7 @@ public final class R {
     public static final int com_facebook_profile_picture_view_com_facebook_preset_size=1;
   }
   public static final class xml {
-    public static final int config=0x7f0e0000;
+    public static final int camera_provider_paths=0x7f0e0000;
+    public static final int config=0x7f0e0001;
   }
 }

@@ -23,11 +23,12 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/font-awesome/css/all.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css",
               "src/styles.css"
             ],
-            "es5BrowserSupport": true
+            "es5BrowserSupport": true,
+            "scripts": []
           },
           "configurations": {
             "production": {

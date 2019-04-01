@@ -10,6 +10,8 @@ import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { CordovaService } from '../cordova.service';
 
+declare let Camera;
+
 @Component({
   selector: 'app-pets',
   templateUrl: './pets.component.html',
@@ -118,27 +120,26 @@ export class PetsComponent extends AppBase implements AfterViewInit {
 export class EditPetsComponent extends AppBase implements AfterViewInit {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
-  private dropdownOpen : boolean = false;
   private pet : Pet;
-  private animals = [];
   private dialog : boolean = false;
-  static dialogRef : DialogRef<any>; 
-
+  static dialogRef : DialogRef<any>;
+  animal : Animal = new Animal(PetType.OTHER);
+  
   constructor(private api : PetApiService, private modal: Modal, private phone : CordovaService){
     super();
   }
   
   ngOnInit() {
     this.pet = new Pet();
-    this.animals = Object.keys(PetType).map(k => PetType[k as any]);
+    //this.pet.img = "...";
+    this.animal.name = this.language.animal;
   }
 
   ngAfterViewInit(): void {
     
   }
 
-  toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
+  openPetType() {
     this.add();
   }
 
@@ -181,13 +182,6 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
   }
 
   selectAnimal(selected : number) : void {
-    /*let index = 0;
-    Object.keys(PetType).forEach(attr => {
-      if(index == selected)
-        return;
-      this.pet.petType = PetType[attr];
-      index++;
-    });*/
     this.pet.petType = selected;
     console.log(this.pet.petType);
   }
@@ -211,12 +205,31 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
   }
 
   protected add() : void {
-    setTimeout(() => {this.openPetDialog()});
+    setTimeout(() => { this.openPetDialog() });
   }
 
   protected camera() : void {
-    this.phone.cordova.camera.getPicture();
+    /*this.phone.window.navigator.camera.getPicture(onSuccess, onFail, { quality: 70,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+    });*/
+
+    this.phone.window.navigator.camera.getPicture(this.onCameraSuccess, this.onCameraFail, {
+      quality: 70,
+      destinationType: Camera.DestinationType.FILE_URI,
+      sourceType: Camera.PictureSourceType.CAMERA
+    });
   }
+
+  onCameraSuccess(imageURL) {
+    console.log(imageURL);
+    this.pet.img = window.URL.createObjectURL(imageURL);
+  }
+
+  onCameraFail(message) {
+     alert('Failed because: ' + message);
+  }
+
 }
 
 //////////////////////////////////////
@@ -228,17 +241,24 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
 })
 export class PetPickerComponent extends AppBase implements AfterViewInit {
 
-  private animals = [];
+  private animals : Animal[] = [];
   
   ngOnInit() {
-    this.animals = Object.keys(PetType).map(k => PetType[k as any]);
+    //this.animals = Object.keys(PetType).map(k => PetType[k as any]);
+    Object.keys(PetType).map(k => PetType[k as any]).forEach( attr => {
+      const animal = new Animal(PetType[attr]);
+      if(!ObjectUtils.isEmpty(animal.id) && animal.id != 0){
+        this.animals.push(animal);
+      }
+    });
+    this.animals.push(new Animal(PetType.OTHER));
   }
 
   ngAfterViewInit(): void {
     
   }
   
-  select(selected : number) : void {
+  select(selected : Animal) : void {
     //this.pet.petType = selected;
     console.log(selected);
     this.closeDialog();
@@ -248,4 +268,41 @@ export class PetPickerComponent extends AppBase implements AfterViewInit {
     EditPetsComponent.dialogRef.close();
   }
 
+}
+
+///////////////////////////
+
+export class Animal {
+
+  id : number;
+  name : string;
+  icon : string;
+
+  constructor(petType : PetType) {
+    if(petType == PetType.OTHER){
+      this.id = 0;
+      this.name = "Outro";
+      this.icon = "paw";
+    }
+    else if(petType == PetType.DOG){
+      this.id = 1;
+      this.name = "Cachorro";
+      this.icon = "dog";
+    }
+    else if(petType == PetType.CAT){
+      this.id = 2;
+      this.name = "Gato";
+      this.icon = "cat";
+    }
+    else if(petType == PetType.BIRD){
+      this.id = 3;
+      this.name = "Pássaro";
+      this.icon = "dove";
+    }
+    else if(petType == PetType.FISH){
+      this.id = 4;
+      this.name = "Peixe";
+      this.icon = "fish";
+    }
+  }
 }

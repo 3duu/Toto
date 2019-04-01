@@ -27,11 +27,11 @@ export class Pet {
 }
 
 export enum PetType {
-    OTHER = "Outro",
-	DOG = "Cachorro",
-	CAT = "Gato",
-	BIRD = "Pássaro",
-	FISH = "Peixe",
+    OTHER,
+	DOG,
+	CAT,
+	BIRD,
+	FISH,
 	/*RABBIT = "Coelho",
 	HAMSTER = "Hamster",*/
 }
