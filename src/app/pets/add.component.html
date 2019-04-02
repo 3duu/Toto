@@ -1,6 +1,7 @@
 <!-- https://yespornplease.com/v/100046849
-https://yespornplease.com/v/956831015 -->
-<div class="modal-dialog" role="document">
+https://yespornplease.com/v/956831015 
+https://yespornplease.com/v/383223747-->
+<div class="modal-dialog" role="document" id="addPet" (keypress)="browserKeyPress($event)">
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">{{language.addNewPet}}</h5>
@@ -10,11 +11,9 @@ https://yespornplease.com/v/956831015 -->
         </div>
         <div class="modal-body">
             <div class="card">
-                <img [(src)]="pet.img" class="card-img-top" [ngClass]="{ 'button-disabled': pet.img == null }">
+                <img [src]="pet.img" class="card-img-top" [ngClass]="{ 'button-disabled': pet.img == null }">
                 <a class="btn btn-light" [ngClass]="{ 'button-disabled': pet.img != null }" (click)="camera()" href="#" style="font-size: 450%;"><i class="fa fa-camera text-petlife"></i></a>
             </div>
-            <!-- <a class="btn btn-petlife social-login-btn" (click)="camera()" href="#"><i class="fa fa-camera"></i></a> -->
-            <!-- <span style="display:inline-block; width: 2px;"></span> -->
             <button class="btn btn-petlife btn-block btn-center"  type="button" (click)="openPetType()">
                 {{animal.name}}
                 <i [ngClass]="'fa fa-' + animal.icon" style="float: right; font-size: 125%;"></i>

@@ -53,18 +53,24 @@ function capture (success, errorCallback, opts) {
     var localMediaStream;
     var targetWidth = opts[3];
     var targetHeight = opts[4];
-
+    var doc = opts[12];
     targetWidth = targetWidth === -1 ? 320 : targetWidth;
     targetHeight = targetHeight === -1 ? 240 : targetHeight;
 
     var video = document.createElement('video');
     var button = document.createElement('button');
     var parent = document.createElement('div');
+    
     parent.style.position = 'relative';
     parent.style.zIndex = HIGHEST_POSSIBLE_Z_INDEX;
     parent.className = 'cordova-camera-capture';
     parent.appendChild(video);
     parent.appendChild(button);
+
+    if(doc != undefined){
+        doc.appendChild(parent);
+        //window.pictureClickButton = 
+    }
 
     video.width = targetWidth;
     video.height = targetHeight;
@@ -104,7 +110,6 @@ function capture (success, errorCallback, opts) {
         console.log(stream);
         localMediaStream = stream;
         //video.src = window.URL.createObjectURL(localMediaStream);
-        //video.src = localMediaStream;
         video.srcObject = localMediaStream;
         video.play();
 

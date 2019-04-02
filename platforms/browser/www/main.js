@@ -1167,7 +1167,7 @@ module.exports = "/* .form-input {\n    display: block;\n    width: 100%;\n    h
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- https://yespornplease.com/v/100046849\nhttps://yespornplease.com/v/956831015 -->\n<div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.addNewPet}}</h5>\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeDialog()\">\n                <span aria-hidden=\"true\">&times;</span>\n            </button>\n        </div>\n        <div class=\"modal-body\">\n            <div class=\"card\">\n                <img [(src)]=\"pet.img\" class=\"card-img-top\" [ngClass]=\"{ 'button-disabled': pet.img == null }\">\n                <a class=\"btn btn-light\" [ngClass]=\"{ 'button-disabled': pet.img != null }\" (click)=\"camera()\" href=\"#\" style=\"font-size: 450%;\"><i class=\"fa fa-camera text-petlife\"></i></a>\n            </div>\n            <!-- <a class=\"btn btn-petlife social-login-btn\" (click)=\"camera()\" href=\"#\"><i class=\"fa fa-camera\"></i></a> -->\n            <!-- <span style=\"display:inline-block; width: 2px;\"></span> -->\n            <button class=\"btn btn-petlife btn-block btn-center\"  type=\"button\" (click)=\"openPetType()\">\n                {{animal.name}}\n                <i [ngClass]=\"'fa fa-' + animal.icon\" style=\"float: right; font-size: 125%;\"></i>\n            </button>\n            <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl />\n            <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.age\" placeholder=\"{{language.age}}\" type=\"text\" ngDefaultControl />\n            <input class=\"ember-view ember-text-field form-control login-input-pass\" [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl />       \n        </div>\n        <app-alert></app-alert>\n        <div class=\"modal-footer\">\n            <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n                <span class=\"sr-only\">Carregando...</span>\n            </div>\n            <button class=\"btn btn-petlife btn-block btn-center\" type=\"button\" (click)=\"createPet()\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.createUser}}</button>\n        </div>\n    </div>\n</div>\n      "
+module.exports = "<!-- https://yespornplease.com/v/100046849\nhttps://yespornplease.com/v/956831015 \nhttps://yespornplease.com/v/383223747-->\n<div class=\"modal-dialog\" role=\"document\" id=\"addPet\" (keypress)=\"browserKeyPress($event)\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.addNewPet}}</h5>\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeDialog()\">\n                <span aria-hidden=\"true\">&times;</span>\n            </button>\n        </div>\n        <div class=\"modal-body\">\n            <div class=\"card\">\n                <img [src]=\"pet.img\" class=\"card-img-top\" [ngClass]=\"{ 'button-disabled': pet.img == null }\">\n                <a class=\"btn btn-light\" [ngClass]=\"{ 'button-disabled': pet.img != null }\" (click)=\"camera()\" href=\"#\" style=\"font-size: 450%;\"><i class=\"fa fa-camera text-petlife\"></i></a>\n            </div>\n            <button class=\"btn btn-petlife btn-block btn-center\"  type=\"button\" (click)=\"openPetType()\">\n                {{animal.name}}\n                <i [ngClass]=\"'fa fa-' + animal.icon\" style=\"float: right; font-size: 125%;\"></i>\n            </button>\n            <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl />\n            <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.age\" placeholder=\"{{language.age}}\" type=\"text\" ngDefaultControl />\n            <input class=\"ember-view ember-text-field form-control login-input-pass\" [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl />       \n        </div>\n        <app-alert></app-alert>\n        <div class=\"modal-footer\">\n            <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n                <span class=\"sr-only\">Carregando...</span>\n            </div>\n            <button class=\"btn btn-petlife btn-block btn-center\" type=\"button\" (click)=\"createPet()\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.createUser}}</button>\n        </div>\n    </div>\n</div>\n      "
 
 /***/ }),
 
@@ -1422,19 +1422,43 @@ var EditPetsComponent = /** @class */ (function (_super) {
             destinationType: Camera.DestinationType.DATA_URL,
             sourceType: Camera.PictureSourceType.PHOTOLIBRARY
         });*/
-        this.phone.window.navigator.camera.getPicture(this.onCameraSuccess, this.onCameraFail, {
+        var _this = this;
+        var onCameraSuccess = function (imageURL) {
+            console.log(_this);
+            _this.pet.img = 'data:image/jpg;base64,' + imageURL;
+            console.log(_this.pet.img);
+        };
+        var onCameraFail = function (message) {
+            alert('Failed because: ' + message);
+        };
+        this.phone.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, {
             quality: 70,
             destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.CAMERA
+            sourceType: Camera.PictureSourceType.CAMERA,
+            parent: document.getElementById('addPet')
         });
+        var cameraDiv = document.getElementsByClassName("cordova-camera-capture");
+        if (document.getElementsByClassName("cordova-camera-capture").length > 0) {
+            for (var i = 0; i < cameraDiv[0].children.length; i++) {
+                var attr = cameraDiv[0].children[i];
+                if (attr.tagName == "BUTTON") {
+                    this.browserPicture = attr.onclick;
+                    return;
+                }
+            }
+        }
     };
-    EditPetsComponent.prototype.onCameraSuccess = function (imageURL) {
-        console.log(imageURL);
-        //this.pet.img = window.URL.createObjectURL(imageURL);
-        alert(imageURL);
-    };
-    EditPetsComponent.prototype.onCameraFail = function (message) {
-        alert('Failed because: ' + message);
+    EditPetsComponent.prototype.browserKeyPress = function ($event) {
+        var keynum;
+        if (window.event) {
+            keynum = $event.keyCode;
+        }
+        else if ($event.which) {
+            keynum = $event.which;
+        }
+        if (String.fromCharCode(keynum) == 'c') {
+            this.browserPicture();
+        }
     };
     var EditPetsComponent_1;
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
