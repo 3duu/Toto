@@ -7,6 +7,8 @@ function _window(): any {
  return window;
 }
 
+declare let device;
+
 //https://medium.com/@EliaPalme/how-to-wrap-an-angular-app-with-apache-cordova-909024a25d79
 @Injectable()
 export class CordovaService {
@@ -30,11 +32,19 @@ export class CordovaService {
       return _window();
    }
 
-   get onCordova(): Boolean {
+   get onCordova(): boolean {
     return !!_window().cordova;
     }
    public onResume(): void {
       this.resume.next(true);
+   }
+
+   get devicePlatform() : string {
+      return device.platform;
+   }
+
+   get isBrowser() : boolean {
+      return device == undefined || device.platform == "browser";
    }
 
    public openLinkInBrowser(url: string) {

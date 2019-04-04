@@ -9,7 +9,6 @@ import { StringUtils, ObjectUtils } from '../utils';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { CordovaService } from '../cordova.service';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 declare let Camera;
 
@@ -125,16 +124,25 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
   private dialog : boolean = false;
   static dialogRef : DialogRef<any>;
   animal : Animal = new Animal(PetType.OTHER);
-  private browserPicture : any;
+
+  cameraOptions : any;
   
-  constructor(private api : PetApiService, private modal: Modal, private phone : CordovaService){
+  constructor(private api : PetApiService, private modal: Modal, private phonegap : CordovaService){
     super();
   }
   
   ngOnInit() {
     this.pet = new Pet();
-    //this.pet.img = "...";
     this.animal.name = this.language.animal;
+
+    this.cameraOptions = {
+      quality: 100,
+      destinationType: Camera.DestinationType.FILE_URI,
+      sourceType: Camera.PictureSourceType.CAMERA,
+      allowEdit: false,
+      encodingType: Camera.EncodingType.JPEG,
+      saveToPhotoAlbum: false
+    };
   }
 
   ngAfterViewInit(): void {
@@ -203,12 +211,31 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
     dialogRef.onDestroy.subscribe(() => {
       this.dialog = false;
     });
+    /*
+    const dialogRef = this.modal.confirm()
+        .size('lg')
+        .showClose(true)
+        .title(this.language.animal)
+        .body(`
+          <div class="container text-center">
+            <p>
+                <a *ngFor="let item of animals; let i= index ;trackBy: trackByFn" class="btn btn-petlife social-login-btn pet-icon" (click)="select(item)" href="#"><i class="fa fa-{{item.icon}}"></i></a>
+            </p>
+          </div> 
+      `)
+        .open();
+
+    dialogRef.result
+        .then( result => alert(`The result is: ${result}`) );*/
+
     EditPetsComponent.dialogRef = dialogRef;
   }
 
   protected add() : void {
     setTimeout(() => { this.openPetDialog() });
   }
+
+  private browserPicture : any;
 
   protected camera() : void {
     /*this.phone.window.navigator.camera.getPicture(onSuccess, onFail, { quality: 70,
@@ -217,48 +244,18 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
     });*/
 
     let onCameraSuccess = (imageURL) => {
-      console.log(this);
-      this.pet.img = 'data:image/jpg;base64,' + imageURL;
-      console.log(this.pet.img);
+      console.log(imageURL);
+      this.pet.img = imageURL;
+      if(this.phonegap.isBrowser){
+        this.pet.img = 'data:image/jpg;base64,' + this.pet.img;
+      }
     }
-    
+      
     let onCameraFail = (message) => {
       alert('Failed because: ' + message);
     }
 
-    this.phone.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, {
-      quality: 70,
-      destinationType: Camera.DestinationType.FILE_URI,
-      sourceType: Camera.PictureSourceType.CAMERA,
-      parent: document.getElementById('addPet')
-    });
-
-    let cameraDiv : any = document.getElementsByClassName("cordova-camera-capture");
-    if(document.getElementsByClassName("cordova-camera-capture").length > 0) {
-
-      for(let i = 0; i < cameraDiv[0].children.length; i++){
-        let attr = cameraDiv[0].children[i];
-
-        if(attr.tagName == "BUTTON"){
-          this.browserPicture = attr.onclick;
-          return;
-        }
-      }
-    }
-
-  }
-
-  private browserKeyPress($event){
-    var keynum;
-
-    if(window.event) {             
-      keynum = $event.keyCode;
-    } else if($event.which){                
-      keynum = $event.which;
-    }
-    if(String.fromCharCode(keynum) == 'c'){
-      this.browserPicture();
-    }
+    this.phonegap.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, this.cameraOptions);
   }
 
 }
@@ -292,6 +289,8 @@ export class PetPickerComponent extends AppBase implements AfterViewInit {
   select(selected : Animal) : void {
     //this.pet.petType = selected;
     console.log(selected);
+    EditPetsComponent.dialogRef
+
     this.closeDialog();
   }
 

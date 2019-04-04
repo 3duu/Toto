@@ -514,6 +514,20 @@ var CordovaService = /** @class */ (function () {
     CordovaService.prototype.onResume = function () {
         this.resume.next(true);
     };
+    Object.defineProperty(CordovaService.prototype, "devicePlatform", {
+        get: function () {
+            return device.platform;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CordovaService.prototype, "isBrowser", {
+        get: function () {
+            return device == undefined || device.platform == "browser";
+        },
+        enumerable: true,
+        configurable: true
+    });
     CordovaService.prototype.openLinkInBrowser = function (url) {
         _window().SafariViewController.isAvailable(function (available) {
             if (available) {
@@ -1342,13 +1356,21 @@ var PetsComponent = /** @class */ (function (_super) {
 ///////////////////////////
 var EditPetsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](EditPetsComponent, _super);
-    function EditPetsComponent(api, modal, phone) {
+    function EditPetsComponent(api, modal, phonegap) {
         var _this = _super.call(this) || this;
         _this.api = api;
         _this.modal = modal;
-        _this.phone = phone;
+        _this.phonegap = phonegap;
         _this.dialog = false;
         _this.animal = new Animal(_entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"].OTHER);
+        _this.cameraOptions = {
+            quality: 70,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            allowEdit: false,
+            encodingType: Camera.EncodingType.JPEG,
+            saveToPhotoAlbum: false
+        };
         return _this;
     }
     EditPetsComponent_1 = EditPetsComponent;
@@ -1424,41 +1446,16 @@ var EditPetsComponent = /** @class */ (function (_super) {
         });*/
         var _this = this;
         var onCameraSuccess = function (imageURL) {
-            console.log(_this);
-            _this.pet.img = 'data:image/jpg;base64,' + imageURL;
-            console.log(_this.pet.img);
+            console.log(imageURL);
+            _this.pet.img = imageURL;
+            if (_this.phonegap.isBrowser) {
+                _this.pet.img = 'data:image/jpg;base64,' + _this.pet.img;
+            }
         };
         var onCameraFail = function (message) {
             alert('Failed because: ' + message);
         };
-        this.phone.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, {
-            quality: 70,
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.CAMERA,
-            parent: document.getElementById('addPet')
-        });
-        var cameraDiv = document.getElementsByClassName("cordova-camera-capture");
-        if (document.getElementsByClassName("cordova-camera-capture").length > 0) {
-            for (var i = 0; i < cameraDiv[0].children.length; i++) {
-                var attr = cameraDiv[0].children[i];
-                if (attr.tagName == "BUTTON") {
-                    this.browserPicture = attr.onclick;
-                    return;
-                }
-            }
-        }
-    };
-    EditPetsComponent.prototype.browserKeyPress = function ($event) {
-        var keynum;
-        if (window.event) {
-            keynum = $event.keyCode;
-        }
-        else if ($event.which) {
-            keynum = $event.which;
-        }
-        if (String.fromCharCode(keynum) == 'c') {
-            this.browserPicture();
-        }
+        this.phonegap.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, this.cameraOptions);
     };
     var EditPetsComponent_1;
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
