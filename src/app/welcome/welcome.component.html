@@ -1,0 +1,17 @@
+<div class="container welcome-background"> 
+  <script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
+  <div class="container text-center">
+    <br>
+    <h1 class="form-signin-heading" style="color: white">{{language.welcome}} <b>{{applicationName}}</b></h1>
+    <br>
+    <small class="text-muted">{{language.alreadyHaveAnAccount}} <b>{{language.login}}</b><br> {{language.otherWiseClickNext}} <b>{{language.next}}</b></small>
+    <br><br>
+    <p></p>
+    <br>
+    <!-- <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>  -->
+    <br><br>
+    <button class="btn btn-lg btn-petlife btn-block btn-center" type="submit" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.login}}</button>
+    <br>
+    <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class="ember-view btn btn-sm btn-default" (click)="register()"> <b>{{language.signUp}} </b></button> </small>
+</div>
+

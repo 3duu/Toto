@@ -15,6 +15,7 @@ export class NavbarComponent extends AppBase implements AfterContentInit {
   }
 
   disableMenu = true;
+  disable = false;
   navbarOpen = false;
   username : string;
 

@@ -16,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { PetsComponent, EditPetsComponent, PetPickerComponent } from './pets/pets.component';
 import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
     RegisterComponent,
     PetsComponent,
     EditPetsComponent,
-    PetPickerComponent
+    PetPickerComponent,
+    WelcomeComponent
   ],
   entryComponents: [
     LoginComponent,
@@ -38,7 +40,8 @@ import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
     RegisterComponent,
     PetsComponent,
     EditPetsComponent,
-    PetPickerComponent
+    PetPickerComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

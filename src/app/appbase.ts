@@ -3,8 +3,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { Language } from './language/Language';
 import { User } from './entity/User';
-import { HomeComponent } from './home/home.component';
 import { SessionAttributes } from './utils';
+import { Pages } from './application';
 
 export class AppBase implements OnInit {
   
@@ -82,7 +82,7 @@ export class AppBase implements OnInit {
           setTimeout(() => {this.getAppComponent().changePage(afterLoginRedirectComponent)});
         }
         else{
-          this.getAppComponent().changePage(HomeComponent);
+          this.getAppComponent().changePage(Pages.HOME_PAGE);
         }
       }
     }

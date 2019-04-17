@@ -154,6 +154,7 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
   }
 
   protected createPet() : void {
+
     this.loading = true;
 
     //Campos obrigatorios
@@ -204,6 +205,7 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
   }
 
   private openPetDialog() : void {
+
     this.dialog = true;
     const dialogRef = this.modal
       .open(PetPickerComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));

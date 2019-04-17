@@ -1203,7 +1203,7 @@ module.exports = ".pet-icon {\n    margin: 5px;\n    width: 20%;\n    font-size:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal-dialog\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.animal}}</h5>\n      <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeDialog()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"container text-center\">\n        <p>\n            <a *ngFor=\"let item of animals; let i= index ;trackBy: trackByFn\" class=\"btn btn-petlife social-login-btn pet-icon\" (click)=\"select(item)\" href=\"#\"><i class=\"fa fa-{{item.icon}}\"></i></a>\n            <!-- <a class=\"btn btn-petlife social-login-btn pet-icon\" (click)=\"select()\" href=\"#\"><i class=\"fa fa-dog\"></i></a>\n            <a class=\"btn btn-petlife social-login-btn pet-icon\" (click)=\"select()\" href=\"#\"><i class=\"fa fa-cat\"></i></a>\n            <a class=\"btn btn-petlife social-login-btn pet-icon\" (click)=\"select()\" href=\"#\"><i class=\"fa fa-dove\"></i></a>\n            <a class=\"btn btn-petlife social-login-btn pet-icon\" (click)=\"select()\" href=\"#\"><i class=\"fa fa-fish\"></i></a> -->\n        </p>\n      </div> \n    </div>\n    <!-- <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n      <button type=\"button\" class=\"btn btn-primary\">Send message</button>\n    </div> -->\n  </div>\n</div>\n"
+module.exports = "<div class=\"modal-dialog\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.animal}}</h5>\n      <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeDialog()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"container text-center\">\n        <p>\n            <a *ngFor=\"let item of animals; let i= index ;trackBy: trackByFn\" class=\"btn btn-petlife social-login-btn pet-icon\" (click)=\"select(item)\" href=\"#\"><i class=\"fa fa-{{item.icon}}\"></i></a>\n        </p>\n      </div> \n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1370,7 +1370,7 @@ var EditPetsComponent = /** @class */ (function (_super) {
         this.pet = new _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["Pet"]();
         this.animal.name = this.language.animal;
         this.cameraOptions = {
-            quality: 70,
+            quality: 100,
             destinationType: Camera.DestinationType.FILE_URI,
             sourceType: Camera.PictureSourceType.CAMERA,
             allowEdit: false,
@@ -1432,6 +1432,22 @@ var EditPetsComponent = /** @class */ (function (_super) {
         dialogRef.onDestroy.subscribe(function () {
             _this.dialog = false;
         });
+        /*
+        const dialogRef = this.modal.confirm()
+            .size('lg')
+            .showClose(true)
+            .title(this.language.animal)
+            .body(`
+              <div class="container text-center">
+                <p>
+                    <a *ngFor="let item of animals; let i= index ;trackBy: trackByFn" class="btn btn-petlife social-login-btn pet-icon" (click)="select(item)" href="#"><i class="fa fa-{{item.icon}}"></i></a>
+                </p>
+              </div>
+          `)
+            .open();
+    
+        dialogRef.result
+            .then( result => alert(`The result is: ${result}`) );*/
         EditPetsComponent_1.dialogRef = dialogRef;
     };
     EditPetsComponent.prototype.add = function () {
@@ -1496,6 +1512,7 @@ var PetPickerComponent = /** @class */ (function (_super) {
     PetPickerComponent.prototype.select = function (selected) {
         //this.pet.petType = selected;
         console.log(selected);
+        EditPetsComponent.dialogRef;
         this.closeDialog();
     };
     PetPickerComponent.prototype.closeDialog = function () {

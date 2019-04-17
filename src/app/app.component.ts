@@ -1,8 +1,9 @@
 import { Language } from './language/Language';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Type, AfterViewInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { LoginComponent } from './login/login.component';
 import { SessionAttributes } from './utils';
+import { WELCOME_PAGE, LOGIN_PAGE } from './application';
+//import { Pages } from './application';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
@@ -36,6 +37,7 @@ export class AppComponent implements AfterViewInit {
 
       // Push the component so that we can keep track of which components are created
       this.components.push(component);
+
       return component.instance;
     }
     return null;
@@ -57,13 +59,13 @@ export class AppComponent implements AfterViewInit {
     setTimeout(() => this.startApp());
   }
 
-  startApp() : void {
+  private startApp() : void {
     //Apagar session values
     let values = Object.keys(SessionAttributes).map(k => SessionAttributes[k as any]);
     values.forEach(attr => {
       localStorage.setItem(attr, null);
     });
-    this.changePage(LoginComponent);
+    this.changePage(WELCOME_PAGE);
   }
 
   changePage(page: Type<any>) : void {

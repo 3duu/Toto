@@ -35,10 +35,14 @@ export class Language {
     view : string = "Visualizar";
     animal : string = "Qual o Pet?";
     addNewPet : string = "Adicionar Pet";
+    welcome : string = "Bem vindo ao ";
+    alreadyHaveAnAccount : string = "Você já passui uma conta? Clique em ";
+    otherWiseClickNext : string = "Caso contrário clique em ";
+    next : string = "Próximo";
 
     //Messages
-    connectionError : string = "Algo deu errado! \n Verifique se o dispositivo está conectado ou tente novamente mais tarde";
-    serverError : string = "Algo inesperado aconteceu! \n Se o problema persistir reporte o problema";
+    connectionError : string = "Algo deu errado! <br> Verifique se o dispositivo está conectado ou tente novamente mais tarde";
+    serverError : string = "Algo inesperado aconteceu! <br> Se o problema persistir reporte o problema";
     invalidUserPassword : string = "Usuário ou senha inválido(s)";
     requiredFields : string = "Preencha o(s) campo(s) obrigatório(s)";
     usernameExists : string = "Usuário já cadastrado no sistema";
