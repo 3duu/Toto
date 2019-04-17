@@ -2,7 +2,7 @@ import { Language } from './language/Language';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Type, AfterViewInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { SessionAttributes } from './utils';
-import { WELCOME_PAGE, LOGIN_PAGE } from './application';
+import { WELCOME_PAGE } from './application';
 //import { Pages } from './application';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
@@ -24,6 +24,10 @@ export class AppComponent implements AfterViewInit {
     AppComponent.appComponent = this;
   }
   
+  ngAfterViewInit(): void {
+    setTimeout(() => this.startApp());
+  }
+
   static getAppComponent() : AppComponent {
     return AppComponent.appComponent;
   }
@@ -53,10 +57,6 @@ export class AppComponent implements AfterViewInit {
       this.components.splice(componentIndex, 1);
       console.log("Removido: " + component.instance.constructor.name);
     }
-  }
-
-  ngAfterViewInit(): void {
-    setTimeout(() => this.startApp());
   }
 
   private startApp() : void {

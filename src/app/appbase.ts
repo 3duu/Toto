@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { Language } from './language/Language';
 import { User } from './entity/User';
 import { SessionAttributes } from './utils';
-import { Pages } from './application';
+import { HOME_PAGE } from './application';
 
 export class AppBase implements OnInit {
   
@@ -16,8 +16,6 @@ export class AppBase implements OnInit {
   
     applicationName : string = AppComponent.applicationName;
     language : Language = AppComponent.language;
-
-    //private children = [];
 
     protected loading = false;
   
@@ -82,7 +80,7 @@ export class AppBase implements OnInit {
           setTimeout(() => {this.getAppComponent().changePage(afterLoginRedirectComponent)});
         }
         else{
-          this.getAppComponent().changePage(Pages.HOME_PAGE);
+          this.getAppComponent().changePage(HOME_PAGE);
         }
       }
     }

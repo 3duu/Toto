@@ -2,13 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../entity/User';
 import { UserApiService, ReturnCode } from '../service/services';
-import { HomeComponent } from '../home/home.component';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { Observable } from 'rxjs';
-import { RegisterComponent } from '../register/register.component';
 import { StringUtils, LoginUtils } from '../utils';
+import { REGISTER_PAGE, HOME_PAGE } from '../application';
 
 declare let FB;
 
@@ -21,7 +20,7 @@ declare let FB;
 export class LoginComponent extends AppBase {
 
   loginForm: NgForm;
-  private static afterLoginRedirectComponent = HomeComponent;
+  private static afterLoginRedirectComponent = HOME_PAGE;
 
   static getAfterLoginPageRedirection() {
     return LoginComponent.afterLoginRedirectComponent;
@@ -35,6 +34,7 @@ export class LoginComponent extends AppBase {
 
   ngOnInit() : void {
     this.getNavbarComponent().disableMenu = true;
+    this.getNavbarComponent().disable = false;
     this.facebookConfig();
     this.onLogged(LoginComponent.getAfterLoginPageRedirection());
   }
@@ -133,7 +133,7 @@ export class LoginComponent extends AppBase {
   }
 
   register() : void {
-    super.changeCurrentPage(this, RegisterComponent);
+    super.changeCurrentPage(this, REGISTER_PAGE);
   }
 
   ////plugin add cordova-plugin-facebook4 --save --variable APP_ID="389609115207477" --variable APP_NAME="Toppet"

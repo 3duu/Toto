@@ -3,15 +3,10 @@
   <div class="container text-center">
     <br>
     <h1 class="form-signin-heading" style="color: white">{{language.welcome}} <b>{{applicationName}}</b></h1>
-    <br>
+    <br><br><br><br><br><br>
     <small class="text-muted">{{language.alreadyHaveAnAccount}} <b>{{language.login}}</b><br> {{language.otherWiseClickNext}} <b>{{language.next}}</b></small>
-    <br><br>
-    <p></p>
-    <br>
-    <!-- <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>  -->
-    <br><br>
-    <button class="btn btn-lg btn-petlife btn-block btn-center" type="submit" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.login}}</button>
-    <br>
-    <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class="ember-view btn btn-sm btn-default" (click)="register()"> <b>{{language.signUp}} </b></button> </small>
+    <footer>
+      <button class="btn btn-hollow btn-center btn-bottom-left" (click)="login()">{{language.login}}</button>
+      <button class="btn btn-hollow btn-center btn-bottom-right" (click)="register()">{{language.next}}</button>
+    </footer>
 </div>
-
