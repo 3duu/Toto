@@ -38,7 +38,9 @@ export class Language {
     welcome : string = "Bem vindo ao ";
     alreadyHaveAnAccount : string = "Você já passui uma conta? Clique em ";
     otherWiseClickNext : string = "Caso contrário clique em ";
+    quickAndEasy : string = "é rápido e fácil!";
     next : string = "Próximo";
+    createWithSomeInfo = "Ou forneça apenas algumas informações";
 
     //Messages
     connectionError : string = "Algo deu errado! <br> Verifique se o dispositivo está conectado ou tente novamente mais tarde";

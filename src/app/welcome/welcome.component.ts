@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { AppBase } from './../appbase';
-import { REGISTER_PAGE, LOGIN_PAGE } from '../application';
+import { LOGIN_PAGE, REGISTER_USER_PAGE } from '../application';
 
 @Component({
   selector: 'app-welcome',
@@ -26,7 +26,7 @@ export class WelcomeComponent extends AppBase implements AfterViewInit {
   }
 
   register() : void {
-    super.changeCurrentPage(this, REGISTER_PAGE);
+    super.changeCurrentPage(this, REGISTER_USER_PAGE);
   }
 
 }

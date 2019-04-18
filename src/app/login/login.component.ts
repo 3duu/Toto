@@ -7,7 +7,7 @@ import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { Observable } from 'rxjs';
 import { StringUtils, LoginUtils } from '../utils';
-import { REGISTER_PAGE, HOME_PAGE } from '../application';
+import { REGISTER_USER_PAGE, HOME_PAGE } from '../application';
 
 declare let FB;
 
@@ -133,7 +133,7 @@ export class LoginComponent extends AppBase {
   }
 
   register() : void {
-    super.changeCurrentPage(this, REGISTER_PAGE);
+    super.changeCurrentPage(this, REGISTER_USER_PAGE);
   }
 
   ////plugin add cordova-plugin-facebook4 --save --variable APP_ID="389609115207477" --variable APP_NAME="Toppet"
