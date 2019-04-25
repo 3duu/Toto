@@ -1,3 +1,5 @@
+import { GoogleService } from './socialNetwork/socialNetworkServices';
+import { FacebookService, GoogleService } from './socialNetwork/SocialNetworkServices';
 import { UserApiService, PetApiService } from './service/services';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -49,7 +51,7 @@ import { LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, WELCOME_PAGE, REGISTER_PET_P
     ModalModule.forRoot(),
     BootstrapModalModule
   ],
-  providers: [CordovaService, UserApiService, PetApiService],
+  providers: [CordovaService, UserApiService, PetApiService, FacebookService, GoogleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

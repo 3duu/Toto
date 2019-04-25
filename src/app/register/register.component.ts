@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { StringUtils, LoginUtils } from '../utils';
 import { environment } from 'src/environments/environment';
 import { HOME_PAGE } from '../application';
+import { FacebookService, GoogleService } from '../socialNetwork/socialNetworkServices';
 
 const passwordConfig = environment.passwordConfig;
 
@@ -24,12 +25,14 @@ export class RegisterUserComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
-  constructor(private api: UserApiService) {
+  constructor(private api: UserApiService, private facebookService : FacebookService, private googleService : GoogleService) {
     super();
   }
 
   ngOnInit() : void {
     this.getNavbarComponent().disableMenu = true;
+    this.facebookService.config();
+    this.googleService.config();
   }
 
   doRegister(form: NgForm) : void {
@@ -100,6 +103,16 @@ export class RegisterUserComponent extends AppBase {
       this.alert.show(this.language.connectionError, ColorClass.danger);
       this.loading = false;
     });
+  }
+
+  facebook() : void {
+    console.log("submit login to facebook");
+    this.facebookService.login(undefined);
+  }
+
+  google() : void {
+    console.log("submit login to google");
+    this.googleService.login(undefined);
   }
 
   requiredFieldsFilled(user: User, confirmPassword : string) : boolean {

@@ -12,7 +12,7 @@ export class Language {
     haveAnAccount : string = "Já possui conta?";
     forgotPassword : string = "Esqueceu a senha?";
     signIn : string = "Entre";
-    signUp : string = "Cadastre-se";
+    signUp : string = "Cadastrar";
     more : string = "mais...";
     connect : string = "Conecte";
     favoriteSocialMedia : string = "com a sua rede social favorita";
@@ -41,10 +41,11 @@ export class Language {
     quickAndEasy : string = "é rápido e fácil!";
     next : string = "Próximo";
     createWithSomeInfo = "Ou forneça apenas algumas informações";
+    appDescription = "O jeito mais fácil e completo de cuidar do seu pet.";
 
     //Messages
-    connectionError : string = "Algo deu errado! <br> Verifique se o dispositivo está conectado ou tente novamente mais tarde";
-    serverError : string = "Algo inesperado aconteceu! <br> Se o problema persistir reporte o problema";
+    connectionError : string = "Algo deu errado! \n Verifique se o dispositivo está conectado ou tente novamente mais tarde";
+    serverError : string = "Algo inesperado aconteceu! \n Se o problema persistir reporte o problema";
     invalidUserPassword : string = "Usuário ou senha inválido(s)";
     requiredFields : string = "Preencha o(s) campo(s) obrigatório(s)";
     usernameExists : string = "Usuário já cadastrado no sistema";

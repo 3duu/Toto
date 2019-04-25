@@ -5,17 +5,17 @@
     display: none !important;
 }
 
-.btn-killgrave {
+.btn-toppet {
     color: #fff;
     background-color: #02a582;
     border-color: #02a582;
 }
 
-.bg-killgrave {
+.bg-toppet {
     background-color: #02a582;
 }
 
-.text-killgrave {
+.text-toppet {
     color: #02a582!important;
 }
 
@@ -69,12 +69,20 @@
     position: absolute;
     right:    0;
     bottom:   0;
+    margin-bottom: 3%;
+    margin-right: 3%;
 }
 
 .btn-bottom-left {
     position: absolute;
     left:    0;
     bottom:   0;
+    margin-bottom: 3%;
+    margin-left: 3%;
+}
+
+.btn-hollow {
+    background: none !important;
 }
 
 .welcome-background {
