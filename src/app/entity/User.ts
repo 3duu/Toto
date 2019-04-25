@@ -1,8 +1,8 @@
-import { SociaNetworkType } from '../login/login.component';
 import { Bookmark } from './Bookmark';
 import { Pet } from './Pet';
 import { PetService } from './PetService';
 import { Rating } from './Rating';
+import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 
 export class User {
 

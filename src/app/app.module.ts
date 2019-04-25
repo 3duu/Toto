@@ -1,5 +1,3 @@
-import { GoogleService } from './socialNetwork/socialNetworkServices';
-import { FacebookService, GoogleService } from './socialNetwork/SocialNetworkServices';
 import { UserApiService, PetApiService } from './service/services';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,6 +12,7 @@ import { EditPetsComponent, PetPickerComponent } from './pets/pets.component';
 import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 import { LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, WELCOME_PAGE, REGISTER_PET_PAGE, PETS_PAGE, MAPS_PAGE, ALERT_TEMPLATE } from './application';
+import { FacebookService, GoogleService } from './socialNetwork/socialNetworkServices';
 
 @NgModule({
   declarations: [

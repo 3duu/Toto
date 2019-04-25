@@ -1,18 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Observable, throwError } from "rxjs";
-import { catchError } from "rxjs/operators";
+import { Injectable } from "@angular/core";
 import { NgForm } from '@angular/forms';
-
-export enum SociaNetworkType {
-  NONE = 0,
-  FACEBOOK = 1,
-  GOOGLE = 2,
-  TWITTER = 3
-}
 
 interface SocialNetworkService {
   config() : void;
-  login(callback) : void;
+  login(callback : void) : void;
 }
 
 const facebookAppId = '389609115207477';
@@ -20,13 +11,18 @@ declare let FB;
 
 @Injectable()
 export class FacebookService implements SocialNetworkService {
+
+  constructor(){
+
+  }
+
   login(callback): void {
       //Chave Secreta do Aplicativo
       //b4a49157bf9ba2cc4b7b085c0ba13ad3
       // FB.login();
       (<any>FB).login((response)=>
           {
-            console.log('submitLogin',response);
+            console.log('submitLogin', response);
             if (response.authResponse && response.status == "connected") {
               (<any>window).facebook = response;
               let form : NgForm = new NgForm([],[]);
@@ -107,10 +103,22 @@ export class FacebookService implements SocialNetworkService {
 
 @Injectable()
 export class GoogleService implements SocialNetworkService {
-  login(callback: any): void {
+
+  constructor(){
     
+  }
+
+  login(callback: any): void {
+    callback();
   }
   config(): void {
     
   }
+}
+
+export enum SociaNetworkType {
+  NONE = 0,
+  FACEBOOK = 1,
+  GOOGLE = 2,
+  TWITTER = 3
 }

@@ -13,6 +13,7 @@ export class Language {
     forgotPassword : string = "Esqueceu a senha?";
     signIn : string = "Entre";
     signUp : string = "Cadastrar";
+    register : string = "Cadastre-se";
     more : string = "mais...";
     connect : string = "Conecte";
     favoriteSocialMedia : string = "com a sua rede social favorita";

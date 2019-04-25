@@ -1,3 +1,4 @@
+import { LOGIN_PAGE } from './../application';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../entity/User';
@@ -88,8 +89,8 @@ export class RegisterUserComponent extends AppBase {
 
       if(result.code == ReturnCode.SUCCESS){
         if (result && result.sid) {
-          alert(this.language.registerSuccess);
-          LoginUtils.userInSession(result, this, formUser.password, HOME_PAGE);
+          //alert(this.language.registerSuccess);
+          this.doLogin(form, result);
         }
       }
       else if(result.code == ReturnCode.RESOURCE_EXISTS){
@@ -107,12 +108,21 @@ export class RegisterUserComponent extends AppBase {
 
   facebook() : void {
     console.log("submit login to facebook");
-    this.facebookService.login(undefined);
+    this.facebookService.login(this.doLogin);
   }
 
   google() : void {
     console.log("submit login to google");
     this.googleService.login(undefined);
+  }
+
+  doLogin(form: NgForm, result) {
+
+    let formUser = new User();
+    formUser.username = form.value.username;
+    formUser.password = form.value.password;
+
+    LoginUtils.userInSession(result, this, form.value.password, LOGIN_PAGE.getAfterLoginPageRedirection());
   }
 
   requiredFieldsFilled(user: User, confirmPassword : string) : boolean {
