@@ -13,6 +13,7 @@ import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 import { LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, WELCOME_PAGE, REGISTER_PET_PAGE, PETS_PAGE, MAPS_PAGE, ALERT_TEMPLATE } from './application';
 import { FacebookService, GoogleService } from './socialNetwork/socialNetworkServices';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FacebookService, GoogleService } from './socialNetwork/socialNetworkSer
     PETS_PAGE,
     EditPetsComponent,
     PetPickerComponent,
-    WELCOME_PAGE
+    WELCOME_PAGE,
+    SigninComponent
   ],
   entryComponents: [
     LOGIN_PAGE,
@@ -39,7 +41,8 @@ import { FacebookService, GoogleService } from './socialNetwork/socialNetworkSer
     PETS_PAGE,
     EditPetsComponent,
     PetPickerComponent,
-    WELCOME_PAGE
+    WELCOME_PAGE,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
