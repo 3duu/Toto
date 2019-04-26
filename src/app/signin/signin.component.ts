@@ -1,59 +1,69 @@
-import { LOGIN_PAGE } from './../application';
-import { Language } from './../language/Language';
+import { ColorClass } from './../styles/styles';
 import { UserApiService, ReturnCode } from './../service/services';
 import { AppBase } from './../appbase';
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../entity/User';
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 import { Observable } from 'rxjs';
-import { LoginUtils } from '../utils';
+import { LoginUtils, StringUtils } from '../utils';
 
 @Component({
-  selector: 'app-signin',
+  selector: 'login-button',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SignInComponent extends AppBase implements ClickableComponent {
+export class SignInComponent extends AppBase implements ClickableComponent, AfterViewInit {
 
   @Output() click = new EventEmitter();
   @Output() success = new EventEmitter();
   @Output() error = new EventEmitter();
+  @Output() begin = new EventEmitter();
+  @Output() done = new EventEmitter();
   @Input() text = this.language.signIn;
-  loginForm: NgForm;
+  @Input() classes : string;
+  @Input() form: NgForm;
 
   constructor(private userApi : UserApiService) {
     super();
   }
 
   ngOnInit() {
+    
   }
 
-  doLogin(form: NgForm) : void {
-    console.log("login start");
+  ngAfterViewInit(): void {
+    if(StringUtils.isEmpty(this.classes)){
+      this.classes = "btn btn-lg btn-petlife btn-block btn-center";
+    }
+  }
 
-    this.loginForm = form;
+  //returnCodeArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger};
+
+  private doLogin() : void {
     
-    if (this.loginForm.invalid) {
-      //this.alert.show(this.language.validateDataError, ColorClass.danger);
+    this.begin.emit();
+    if (this.form.invalid) {
+      this.error.emit({code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger});
       return;
     }
     this.loading = true;
 
     let formUser = new User();
-    formUser.username = form.value.username;
-    formUser.password = form.value.password;
-    if(form.value.socialMedia == ""){
-      form.value.socialMedia = SociaNetworkType.NONE;
+    formUser.username = this.form.value.username;
+    formUser.password = this.form.value.password;
+    if(this.form.value.socialMedia == ""){
+      this.form.value.socialMedia = SociaNetworkType.NONE;
     }
-    formUser.loginType = form.value.socialMedia;
-    /*
+    formUser.loginType = this.form.value.socialMedia;
+
     if(!this.requiredFieldsFilled(formUser)){
-      this.alert.show(this.language.requiredFields, ColorClass.danger);
+      this.error.emit({code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.requiredFields});
       this.loading = false;
+      this.done.emit();
       return;
-    }*/
-    
+    }
+ 
     let user : Observable<any> = this.userApi.login(formUser);
 
     (<any>window).httpUser = user;
@@ -64,18 +74,18 @@ export class SignInComponent extends AppBase implements ClickableComponent {
       this.loading = false;
 
       if(result.code == ReturnCode.SUCCESS){
-        this.success.emit();
-        LoginUtils.userInSession(result, this, form.value.password, LOGIN_PAGE.getAfterLoginPageRedirection());
+        LoginUtils.setUserInSession(result, this, this.form.value.password, null);
+        this.success.emit({code : result.code, color : ColorClass.success});
       }
       else {
-        this.error.emit();
-        //this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
+        this.error.emit({code : result.code, color : ColorClass.danger});
       }
+      this.done.emit();
     }, error => {
       console.log(error);
-      //this.alert.show(this.language.connectionError, ColorClass.danger);
-      this.error.emit();
+      this.error.emit({code : ReturnCode.CONNECTION_ERROR, color : ColorClass.danger});
       this.loading = false;
+      this.done.emit();
     });
   }
 
@@ -87,13 +97,24 @@ export class SignInComponent extends AppBase implements ClickableComponent {
 
   }
 
+  requiredFieldsFilled(user: User) : boolean {
+    return !(StringUtils.isEmpty(user.username)
+    || StringUtils.isEmpty(user.password));
+  }
+
 }
 
-interface ClickableComponent {
+export interface ClickableComponent {
   onClicked() : void;
 }
 
-interface ClickEventArgs {
+export interface ClickEventArgs {
   posX : number;
   posY : number;
+}
+
+export interface ReturnCodeEventArgs {
+  code : ReturnCode;
+  color : ColorClass;
+  message : string;
 }

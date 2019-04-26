@@ -1,12 +1,11 @@
 <div class="container">     
 <script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
 <div class="container text-center">
-    <form class="form-signin" #loginForm="ngForm" (ngSubmit)="doLogin(loginForm)">
+    <form class="form-signin" #loginForm="ngForm">
         <h2 class="form-signin-heading">{{language.signIn}}</h2>
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
         <br><br>
         <p>
-            
             <!-- <fb:login-button 
                 scope="public_profile,email"
                 onlogin="checkLoginState();">
@@ -28,7 +27,7 @@
             <span class="sr-only">Carregando...</span>
         </div>
         <app-alert></app-alert>
-        <button class="btn btn-lg btn-petlife btn-block btn-center" type="submit" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.login}}</button>
+        <login-button classes="btn btn-lg btn-petlife btn-block btn-center" [form]="loginForm" (error)="onLoginError($event)" (success)="onLoginSuccess($event)" (begin)="onLoginInit()" (done)="onLoginEnd()"></login-button>
         <br>
     </form>
     <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class="ember-view btn btn-sm btn-default" (click)="register()"> <b>{{language.register}} </b></button> </small>

@@ -122,7 +122,7 @@ export class RegisterUserComponent extends AppBase {
     formUser.username = form.value.username;
     formUser.password = form.value.password;
 
-    LoginUtils.userInSession(result, this, form.value.password, LOGIN_PAGE.getAfterLoginPageRedirection());
+    LoginUtils.setUserInSession(result, this, form.value.password, LOGIN_PAGE.getAfterLoginPageRedirection());
   }
 
   requiredFieldsFilled(user: User, confirmPassword : string) : boolean {
@@ -215,7 +215,7 @@ export class RegisterPetComponent extends AppBase {
       if(result.code == ReturnCode.SUCCESS){
         if (result && result.sid) {
           alert(this.language.registerSuccess);
-          LoginUtils.userInSession(result, this, formUser.password, HOME_PAGE);
+          LoginUtils.setUserInSession(result, this, formUser.password, HOME_PAGE);
         }
       }
       else if(result.code == ReturnCode.RESOURCE_EXISTS){
@@ -224,7 +224,7 @@ export class RegisterPetComponent extends AppBase {
       else {
         this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
       }
-    } ,error => {
+    }, error => {
       console.log(error);
       this.alert.show(this.language.connectionError, ColorClass.danger);
       this.loading = false;

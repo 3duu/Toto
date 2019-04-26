@@ -1,5 +1,6 @@
 import { AppBase } from './appbase';
 import { Type } from '@angular/core';
+import { User } from './entity/User';
 
 export class StringUtils {
 
@@ -23,7 +24,7 @@ export class FormUtils {
 
 export class LoginUtils {
   
-    static userInSession(result : any, baseApp : AppBase, password : string, redirection : Type<any>) : void {
+    static setUserInSession(result : any, baseApp : AppBase, password : string, redirection : Type<any>) : void {
         if (result && result.sid) {
           //store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem(SessionAttributes.CURRENT_USER, JSON.stringify(result.entity));
@@ -31,9 +32,11 @@ export class LoginUtils {
           localStorage.setItem(SessionAttributes.SESSION_ID, result.sid);
           localStorage.setItem(SessionAttributes.LOGIN_DATE, result.date);
           //localStorage.removeItem('currentUser');
-          baseApp.onLogged(redirection);
+          if(redirection != null && redirection != undefined){
+            baseApp.onLogged(redirection);
+          }
         }
-      }
+    }
 }
 
 export class ObjectUtils {

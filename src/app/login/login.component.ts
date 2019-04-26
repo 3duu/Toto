@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { StringUtils, LoginUtils } from '../utils';
 import { REGISTER_USER_PAGE, HOME_PAGE } from '../application';
 import { FacebookService, GoogleService, SociaNetworkType } from '../socialNetwork/socialNetworkServices';
+import { ReturnCodeEventArgs } from '../signin/signin.component';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -39,66 +40,36 @@ export class LoginComponent extends AppBase {
     this.onLogged(LoginComponent.getAfterLoginPageRedirection());
   }
 
-  doLogin(form: NgForm) : void {
-    console.log("login start");
-    this.alert.hide();
-    this.loginForm = form;
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      this.alert.show(this.language.validateDataError, ColorClass.danger);
-      return;
-    }
+  onLoginInit() {
     this.loading = true;
-
-    let formUser = new User();
-    formUser.username = form.value.username;
-    formUser.password = form.value.password;
-    if(form.value.socialMedia == ""){
-      form.value.socialMedia = SociaNetworkType.NONE;
-    }
-    formUser.loginType = form.value.socialMedia;
-
-    if(!this.requiredFieldsFilled(formUser)){
-      this.alert.show(this.language.requiredFields, ColorClass.danger);
-      this.loading = false;
-      return;
-    }
-    
-    let user : Observable<any> = this.api.login(formUser);
-
-    (<any>window).httpUser = user;
-
-    user.subscribe(result => {
-
-      console.log(result);
-      this.loading = false;
-
-      if(result.code == ReturnCode.SUCCESS){
-        LoginUtils.userInSession(result, this, form.value.password, LoginComponent.getAfterLoginPageRedirection());
-      }
-      else {
-        this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
-      }
-    }, error => {
-      console.log(error);
-      this.alert.show(this.language.connectionError, ColorClass.danger);
-      this.loading = false;
-    });
+    this.alert.hide();
   }
 
-  requiredFieldsFilled(user: User) : boolean {
-    return !(StringUtils.isEmpty(user.username)
-    || StringUtils.isEmpty(user.password));
+  onLoginEnd() {
+    this.loading = false;
+  }
+
+  onLoginSuccess(eventArgs : ReturnCodeEventArgs) {
+    this.onLogged(LoginComponent.afterLoginRedirectComponent);
+  }
+
+  onLoginError(eventArgs : ReturnCodeEventArgs) {
+    if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
+      this.alert.show(eventArgs.message, eventArgs.color);
+    }
+    else {
+      this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), eventArgs.color);
+    }
   }
 
   facebook() : void {
     console.log("submit login to facebook");
-    this.facebookService.login(this.doLogin);
+    //this.facebookService.login(this.doLogin);
   }
 
   google() : void {
     console.log("submit login to google");
-    this.googleService.login(this.doLogin);
+    //this.googleService.login(this.doLogin);
   }
 
   register() : void {
