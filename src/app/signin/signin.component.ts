@@ -39,12 +39,13 @@ export class SignInComponent extends AppBase implements ClickableComponent, Afte
   }
 
   //returnCodeArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger};
-
+  
   private doLogin() : void {
     
     this.begin.emit();
     if (this.form.invalid) {
-      this.error.emit({code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger});
+      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: ""};
+      this.error.emit(args);
       return;
     }
     this.loading = true;
@@ -58,7 +59,8 @@ export class SignInComponent extends AppBase implements ClickableComponent, Afte
     formUser.loginType = this.form.value.socialMedia;
 
     if(!this.requiredFieldsFilled(formUser)){
-      this.error.emit({code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.requiredFields});
+      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.requiredFields};
+      this.error.emit(args);
       this.loading = false;
       this.done.emit();
       return;
@@ -75,15 +77,18 @@ export class SignInComponent extends AppBase implements ClickableComponent, Afte
 
       if(result.code == ReturnCode.SUCCESS){
         LoginUtils.setUserInSession(result, this, this.form.value.password, null);
-        this.success.emit({code : result.code, color : ColorClass.success});
+        const args : ReturnCodeEventArgs = {code : result.code, color : ColorClass.success, message: ""};
+        this.success.emit(args);
       }
       else {
-        this.error.emit({code : result.code, color : ColorClass.danger});
+        const args : ReturnCodeEventArgs = {code : result.code, color : ColorClass.danger, message: ""};
+        this.error.emit(args);
       }
       this.done.emit();
     }, error => {
       console.log(error);
-      this.error.emit({code : ReturnCode.CONNECTION_ERROR, color : ColorClass.danger});
+      const args : ReturnCodeEventArgs = {code : ReturnCode.CONNECTION_ERROR, color : ColorClass.danger, message: ""};
+      this.error.emit(args);
       this.loading = false;
       this.done.emit();
     });
