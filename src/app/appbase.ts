@@ -1,10 +1,11 @@
-import { OnInit, Type } from '@angular/core';
+import { OnInit, Type, EventEmitter, Output, Input } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { Language } from './language/Language';
 import { User } from './entity/User';
 import { SessionAttributes } from './utils';
 import { HOME_PAGE } from './application';
+import { NgForm } from '@angular/forms';
 
 export class AppBase implements OnInit {
   

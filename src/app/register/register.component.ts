@@ -1,3 +1,4 @@
+import { ReturnCodeEventArgs } from './../signin/interfaces';
 import { LOGIN_PAGE } from './../application';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -9,7 +10,6 @@ import { ColorClass } from '../styles/styles';
 import { Observable } from 'rxjs';
 import { StringUtils, LoginUtils } from '../utils';
 import { environment } from 'src/environments/environment';
-import { HOME_PAGE } from '../application';
 import { FacebookService, GoogleService } from '../socialNetwork/socialNetworkServices';
 
 const passwordConfig = environment.passwordConfig;
@@ -36,76 +36,6 @@ export class RegisterUserComponent extends AppBase {
     this.googleService.config();
   }
 
-  doRegister(form: NgForm) : void {
-
-    this.alert.hide();
-    this.registerForm = form;
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      this.alert.show(this.language.validateDataError, ColorClass.danger);
-      return;
-    }
-    this.loading = true;
-
-    let formUser = new User();
-    formUser.username = (form.value.username);
-    formUser.password = (form.value.password);
-    formUser.name = (form.value.name);
-    console.log(form.value);
-
-    //Campos obrigaorios
-    if(!this.requiredFieldsFilled(formUser, form.value.confirmPassword)){
-      this.alert.show(this.language.requiredFields, ColorClass.danger);
-      this.loading = false;
-      return;
-    }
-
-    //Validar e-mail
-    if(!StringUtils.isEmail(formUser.username)){
-      this.alert.show(this.language.invalidEmailAddress, ColorClass.danger);
-      this.loading = false;
-      return;
-    }
-
-    //Validar senha
-    if(formUser.password.length < passwordConfig.min || (!StringUtils.isEmpty(passwordConfig.contains))){
-      this.alert.show(this.language.invalidPassword.replace(":min", passwordConfig.min), ColorClass.danger);
-      this.loading = false;
-      return;
-    }
-
-    //Corresponder senha
-    if(formUser.password != form.value.confirmPassword){
-      this.alert.show(this.language.passwordDoesntMatch, ColorClass.danger);
-      this.loading = false;
-      return;
-    }
-
-    let user : Observable<any> = this.api.save(formUser);
-
-    user.subscribe(result => {
-      console.log(result);
-      this.loading = false;
-
-      if(result.code == ReturnCode.SUCCESS){
-        if (result && result.sid) {
-          //alert(this.language.registerSuccess);
-          this.doLogin(form, result);
-        }
-      }
-      else if(result.code == ReturnCode.RESOURCE_EXISTS){
-        this.alert.show(this.language.usernameExists, ColorClass.danger);
-      }
-      else {
-        this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
-      }
-    } ,error => {
-      console.log(error);
-      this.alert.show(this.language.connectionError, ColorClass.danger);
-      this.loading = false;
-    });
-  }
-
   facebook() : void {
     console.log("submit login to facebook");
     this.facebookService.login(this.doLogin);
@@ -125,11 +55,48 @@ export class RegisterUserComponent extends AppBase {
     LoginUtils.setUserInSession(result, this, form.value.password, LOGIN_PAGE.getAfterLoginPageRedirection());
   }
 
-  requiredFieldsFilled(user: User, confirmPassword : string) : boolean {
-    return !(StringUtils.isEmpty(user.username)
-    || StringUtils.isEmpty(user.password)
-    || StringUtils.isEmpty(user.name)
-    || StringUtils.isEmpty(confirmPassword));
+  onRegisterInit() {
+    this.loading = true;
+    this.alert.hide();
+  }
+
+  onRegisterEnd() {
+    this.loading = false;
+  }
+
+  onRegisterSuccess(eventArgs : ReturnCodeEventArgs) {
+    this.onLogged(LOGIN_PAGE.getAfterLoginPageRedirection());
+  }
+
+  onRegisterError(eventArgs : ReturnCodeEventArgs) {
+    if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
+      this.alert.show(eventArgs.message, eventArgs.color);
+    }
+    else {
+      this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), eventArgs.color);
+    }
+  }
+
+  onLoginInit() {
+    this.loading = true;
+    this.alert.hide();
+  }
+
+  onLoginEnd() {
+    this.loading = false;
+  }
+
+  onLoginSuccess(eventArgs : ReturnCodeEventArgs) {
+    this.onLogged(LOGIN_PAGE.getAfterLoginPageRedirection());
+  }
+
+  onLoginError(eventArgs : ReturnCodeEventArgs) {
+    if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
+      this.alert.show(eventArgs.message, eventArgs.color);
+    }
+    else {
+      this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), eventArgs.color);
+    }
   }
 
   goBack() : void {
@@ -178,7 +145,7 @@ export class RegisterPetComponent extends AppBase {
     formUser.name = (form.value.name);
     console.log(form.value);
 
-    //Campos obrigaorios
+    //Campos obrigatorios
     if(!this.requiredFieldsFilled(formUser, form.value.confirmPassword)){
       this.alert.show(this.language.requiredFields, ColorClass.danger);
       this.loading = false;
@@ -215,7 +182,7 @@ export class RegisterPetComponent extends AppBase {
       if(result.code == ReturnCode.SUCCESS){
         if (result && result.sid) {
           alert(this.language.registerSuccess);
-          LoginUtils.setUserInSession(result, this, formUser.password, HOME_PAGE);
+          LoginUtils.setUserInSession(result, this, formUser.password, LOGIN_PAGE.getAfterLoginPageRedirection());
         }
       }
       else if(result.code == ReturnCode.RESOURCE_EXISTS){

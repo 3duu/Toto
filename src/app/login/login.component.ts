@@ -1,15 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from '../entity/User';
-import { UserApiService, ReturnCode } from '../service/services';
+import { ReturnCode, UserApiService } from '../service/services';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
-import { ColorClass } from '../styles/styles';
-import { Observable } from 'rxjs';
-import { StringUtils, LoginUtils } from '../utils';
+import { StringUtils } from '../utils';
 import { REGISTER_USER_PAGE, HOME_PAGE } from '../application';
-import { FacebookService, GoogleService, SociaNetworkType } from '../socialNetwork/socialNetworkServices';
-import { ReturnCodeEventArgs } from '../signin/signin.component';
+import { ReturnCodeEventArgs } from '../button/button-classes';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -28,15 +24,13 @@ export class LoginComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
-  constructor(private api: UserApiService, private facebookService : FacebookService, private googleService : GoogleService) {
+  constructor(private userApi : UserApiService) {
     super();
   } 
 
   ngOnInit() : void {
     this.getNavbarComponent().disableMenu = true;
     this.getNavbarComponent().disable = false;
-    this.facebookService.config();
-    this.googleService.config();
     this.onLogged(LoginComponent.getAfterLoginPageRedirection());
   }
 
@@ -58,18 +52,16 @@ export class LoginComponent extends AppBase {
       this.alert.show(eventArgs.message, eventArgs.color);
     }
     else {
-      this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), eventArgs.color);
+      this.alert.show(this.userApi.getErrorMessage(eventArgs.code, this.language), eventArgs.color);
     }
   }
 
   facebook() : void {
     console.log("submit login to facebook");
-    //this.facebookService.login(this.doLogin);
   }
 
   google() : void {
     console.log("submit login to google");
-    //this.googleService.login(this.doLogin);
   }
 
   register() : void {

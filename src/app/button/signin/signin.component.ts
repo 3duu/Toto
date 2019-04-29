@@ -1,28 +1,20 @@
-import { ColorClass } from './../styles/styles';
-import { UserApiService, ReturnCode } from './../service/services';
-import { AppBase } from './../appbase';
-import { Component, Output, EventEmitter, Input, AfterViewInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { User } from '../entity/User';
-import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
+import { ButtonComponent, ClickableComponent, ReturnCodeEventArgs } from './../button-classes';
+import { Component, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginUtils, StringUtils } from '../utils';
+import { UserApiService, ReturnCode } from 'src/app/service/services';
+import { StringUtils, LoginUtils } from 'src/app/utils';
+import { ColorClass } from 'src/app/styles/styles';
+import { User } from 'src/app/entity/User';
+import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
+
+
 
 @Component({
   selector: 'login-button',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SignInComponent extends AppBase implements ClickableComponent, AfterViewInit {
-
-  @Output() click = new EventEmitter();
-  @Output() success = new EventEmitter();
-  @Output() error = new EventEmitter();
-  @Output() begin = new EventEmitter();
-  @Output() done = new EventEmitter();
-  @Input() text = this.language.signIn;
-  @Input() classes : string;
-  @Input() form: NgForm;
+export class SignInComponent extends ButtonComponent implements ClickableComponent, AfterViewInit {
 
   constructor(private userApi : UserApiService) {
     super();
@@ -37,8 +29,6 @@ export class SignInComponent extends AppBase implements ClickableComponent, Afte
       this.classes = "btn btn-lg btn-petlife btn-block btn-center";
     }
   }
-
-  //returnCodeArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger};
   
   private doLogin() : void {
     
@@ -53,7 +43,7 @@ export class SignInComponent extends AppBase implements ClickableComponent, Afte
     let formUser = new User();
     formUser.username = this.form.value.username;
     formUser.password = this.form.value.password;
-    if(this.form.value.socialMedia == ""){
+    if(StringUtils.isEmpty(this.form.value.socialMedia)){
       this.form.value.socialMedia = SociaNetworkType.NONE;
     }
     formUser.loginType = this.form.value.socialMedia;
@@ -106,20 +96,4 @@ export class SignInComponent extends AppBase implements ClickableComponent, Afte
     return !(StringUtils.isEmpty(user.username)
     || StringUtils.isEmpty(user.password));
   }
-
-}
-
-export interface ClickableComponent {
-  onClicked() : void;
-}
-
-export interface ClickEventArgs {
-  posX : number;
-  posY : number;
-}
-
-export interface ReturnCodeEventArgs {
-  code : ReturnCode;
-  color : ColorClass;
-  message : string;
 }

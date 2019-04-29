@@ -2,7 +2,7 @@
 <script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
 
 <div class="container text-center">
-    <form class="form-signin" #registerForm="ngForm" (ngSubmit)="doRegister(registerForm)" autocomplete="off">
+    <form class="form-signin" #registerForm="ngForm" autocomplete="off">
         <h2 class="form-signin-heading" style="color: white !important">{{language.signUp}}</h2>
         <br>
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
@@ -26,7 +26,7 @@
         </div>
         <br>
         <app-alert></app-alert>
-        <button class="btn btn-lg btn-petlife btn-block btn-center" type="submit" [ngClass]="{ 'button-disabled': loading }" data-bindattr-3="3">{{language.createUser}}</button>
+        <register-button classes="btn btn-lg btn-petlife btn-block btn-center" [form]="registerForm" (error)="onRegisterError($event)" (success)="onRegisterSuccess($event)" (begin)="onRegisterInit()" (done)="onRegisterEnd()"></register-button>
         <br>
     </form>
     <small class="create-account text-muted"><button class="ember-view btn btn-sm btn-default" (click)="goBack()"> <b>{{language.back}} </b></button> </small>

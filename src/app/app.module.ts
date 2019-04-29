@@ -1,3 +1,5 @@
+import { SignUpComponent } from './button/facebook/signup.component';
+import { SignInComponent } from './button/signin/signin.component';
 import { UserApiService, PetApiService } from './service/services';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,7 +15,6 @@ import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 import { LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, WELCOME_PAGE, REGISTER_PET_PAGE, PETS_PAGE, MAPS_PAGE, ALERT_TEMPLATE } from './application';
 import { FacebookService, GoogleService } from './socialNetwork/socialNetworkServices';
-import { SignInComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SignInComponent } from './signin/signin.component';
     EditPetsComponent,
     PetPickerComponent,
     WELCOME_PAGE,
-    SignInComponent
+    SignInComponent,
+    SignUpComponent
   ],
   entryComponents: [
     LOGIN_PAGE,
@@ -42,7 +44,8 @@ import { SignInComponent } from './signin/signin.component';
     EditPetsComponent,
     PetPickerComponent,
     WELCOME_PAGE,
-    SignInComponent
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
