@@ -8,8 +8,8 @@
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
         <br><br>
         <p>
-            <a class="btn btn-primary social-login-btn social-facebook" (click)="facebook()" href="#"><i class="fab fa-facebook-f"></i></a>
-            <a class="btn btn-primary social-login-btn social-google"   (click)="google()" href="#"><i class="fab fa-google"></i></a>
+          <facebook-button></facebook-button>
+          <google-button></google-button>
         </p>
         <br>
         <small class="text-muted">{{language.createWithSomeInfo}}</small>
@@ -26,7 +26,7 @@
         </div>
         <br>
         <app-alert></app-alert>
-        <register-button classes="btn btn-lg btn-petlife btn-block btn-center" [form]="registerForm" (error)="onRegisterError($event)" (success)="onRegisterSuccess($event)" (begin)="onRegisterInit()" (done)="onRegisterEnd()"></register-button>
+        <register-button classes="btn btn-lg btn-petlife btn-block btn-center" [form]="registerForm" (error)="onRegisterError($event)" (success)="onRegisterSuccess($event)" (begin)="onRegisterInit()" (done)="onRegisterEnd()" text="{{language.signUp}}"></register-button>
         <br>
     </form>
     <small class="create-account text-muted"><button class="ember-view btn btn-sm btn-default" (click)="goBack()"> <b>{{language.back}} </b></button> </small>

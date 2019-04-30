@@ -2,12 +2,11 @@ import { ButtonComponent, ClickableComponent, ReturnCodeEventArgs } from './../b
 import { Component, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserApiService, ReturnCode } from 'src/app/service/services';
-import { StringUtils, LoginUtils } from 'src/app/utils';
+import { StringUtils, LoginUtils, ObjectUtils } from 'src/app/utils';
 import { ColorClass } from 'src/app/styles/styles';
 import { User } from 'src/app/entity/User';
 import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
-
-
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'login-button',
@@ -30,7 +29,11 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
     }
   }
   
-  private doLogin() : void {
+  doLogin(form: NgForm) : void {
+    
+    if(!ObjectUtils.isEmpty(form)){
+      this.form = form;
+    }
     
     this.begin.emit();
     if (this.form.invalid) {

@@ -1,5 +1,3 @@
-import { SignUpComponent } from './button/facebook/signup.component';
-import { SignInComponent } from './button/signin/signin.component';
 import { UserApiService, PetApiService } from './service/services';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,8 +11,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { EditPetsComponent, PetPickerComponent } from './pets/pets.component';
 import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
-import { LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, WELCOME_PAGE, REGISTER_PET_PAGE, PETS_PAGE, MAPS_PAGE, ALERT_TEMPLATE } from './application';
+import { LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, WELCOME_PAGE, PETS_PAGE, MAPS_PAGE, ALERT_TEMPLATE } from './application';
 import { FacebookService, GoogleService } from './socialNetwork/socialNetworkServices';
+import { FacebookComponent } from './button/facebook/facebook.component';
+import { SignUpComponent } from './button/signup/signup.component';
+import { SignInComponent } from './button/signin/signin.component';
+import { GoogleComponent } from './button/google/google.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,14 @@ import { FacebookService, GoogleService } from './socialNetwork/socialNetworkSer
     ALERT_TEMPLATE,
     HOME_PAGE,
     REGISTER_USER_PAGE,
-    REGISTER_PET_PAGE,
     PETS_PAGE,
     EditPetsComponent,
     PetPickerComponent,
     WELCOME_PAGE,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    FacebookComponent,
+    GoogleComponent
   ],
   entryComponents: [
     LOGIN_PAGE,
@@ -39,13 +42,14 @@ import { FacebookService, GoogleService } from './socialNetwork/socialNetworkSer
     MAPS_PAGE,
     HOME_PAGE,
     REGISTER_USER_PAGE,
-    REGISTER_PET_PAGE,
     PETS_PAGE,
     EditPetsComponent,
     PetPickerComponent,
     WELCOME_PAGE,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    FacebookComponent,
+    GoogleComponent
   ],
   imports: [
     BrowserModule,

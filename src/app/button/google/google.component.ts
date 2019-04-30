@@ -1,28 +1,28 @@
 import { ButtonComponent, ClickableComponent } from './../button-classes';
 import { Component } from '@angular/core';
 import { ObjectUtils } from '../../utils';
-import { SociaNetworkType, FacebookService } from '../../socialNetwork/socialNetworkServices';
+import { SociaNetworkType, GoogleService } from '../../socialNetwork/socialNetworkServices';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'facebook-button',
-  templateUrl: './facebook.component.html',
-  styleUrls: ['./facebook.component.css']
+  selector: 'google-button',
+  templateUrl: './google.component.html',
+  styleUrls: ['./google.component.css']
 })
-export class FacebookComponent extends ButtonComponent implements ClickableComponent {
+export class GoogleComponent extends ButtonComponent implements ClickableComponent {
 
-  constructor(private api : FacebookService) {
+  constructor(private api : GoogleService) {
     super();
   }
 
-  sociaNetworkType : SociaNetworkType = SociaNetworkType.FACEBOOK;
+  sociaNetworkType : SociaNetworkType = SociaNetworkType.GOOGLE;
 
   ngOnInit() {
     this.api.config();
   }
 
   private callback() : void {
-    alert("done");
+
   }
 
   do(form: NgForm) : void {

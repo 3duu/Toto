@@ -17,7 +17,7 @@ export class WelcomeComponent extends AppBase implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.getNavbarComponent().disableMenu = true;
+    //this.getNavbarComponent().disableMenu = true;
     this.getNavbarComponent().disable = true;
   }
 
