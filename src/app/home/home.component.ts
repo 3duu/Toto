@@ -24,6 +24,7 @@ export class HomeComponent extends AppBase implements AfterViewInit {
 
   private enableMenu() : void {
     this.getNavbarComponent().disableMenu = false;
+    this.getNavbarComponent().disable = false;
   }
 
   maps(): void {

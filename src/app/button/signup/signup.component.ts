@@ -7,7 +7,6 @@ import { ColorClass } from 'src/app/styles/styles';
 import { User } from 'src/app/entity/User';
 import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
 import { environment } from 'src/environments/environment';
-import { NgForm } from '@angular/forms';
 
 export const PASSWORD_CONFIG = environment.passwordConfig;
 
@@ -32,11 +31,8 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
     }
   }
 
-  doRegister(form: NgForm) : void {
+  doRegister() : void {
     
-    if(!ObjectUtils.isEmpty(form)){
-      this.form = form;
-    }
     this.begin.emit();
     if (this.form.invalid) {
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: ""};
@@ -48,11 +44,11 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
     let formUser = new User();
     formUser.username = this.form.value.username;
     formUser.password = this.form.value.password;
-    if(StringUtils.isEmpty(this.form.value.socialMedia)){
-      this.form.value.socialMedia = SociaNetworkType.NONE;
-    }
+    formUser.name = this.form.value.name;
+    this.form.value.socialMedia = SociaNetworkType.NONE;
     formUser.loginType = this.form.value.socialMedia;
 
+    //Campos obrigatorios
     if(!this.requiredFieldsFilled(formUser, this.form.value.confirmPassword)){
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.requiredFields};
       this.error.emit(args);
@@ -61,19 +57,12 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
       return;
     }
 
-    //Campos obrigatorios
-    if(!this.requiredFieldsFilled(formUser, this.form.value.confirmPassword)){
-      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.requiredFields};
-      this.error.emit(args);
-      this.loading = false;
-      return;
-    }
-
     //Validar e-mail
     if(!StringUtils.isEmail(formUser.username)){
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.invalidEmailAddress};
       this.error.emit(args);
       this.loading = false;
+      this.done.emit();
       return;
     }
 
@@ -82,6 +71,7 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.invalidPassword.replace(":min", PASSWORD_CONFIG.min)};
       this.error.emit(args);
       this.loading = false;
+      this.done.emit();
       return;
     }
 
@@ -90,10 +80,11 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.passwordDoesntMatch};
       this.error.emit(args);
       this.loading = false;
+      this.done.emit();
       return;
     }
  
-    let user : Observable<any> = this.userApi.login(formUser);
+    let user : Observable<any> = this.userApi.save(formUser);
 
     (<any>window).httpUser = user;
 

@@ -1,11 +1,11 @@
+import { SignInComponent } from './../button/signin/signin.component';
 import { LOGIN_PAGE } from './../application';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from '../entity/User';
 import { UserApiService, ReturnCode } from '../service/services';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
-import { StringUtils, LoginUtils } from '../utils';
+import { StringUtils } from '../utils';
 import { FacebookService, GoogleService } from '../socialNetwork/socialNetworkServices';
 import { ReturnCodeEventArgs } from '../button/button-classes';
 
@@ -20,6 +20,7 @@ export class RegisterUserComponent extends AppBase {
   registerForm: NgForm;
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
+  @ViewChild(SignInComponent) private login: SignInComponent;
   
   constructor(private api: UserApiService, private facebookService : FacebookService, private googleService : GoogleService) {
     super();
@@ -33,21 +34,12 @@ export class RegisterUserComponent extends AppBase {
 
   facebook() : void {
     console.log("submit login to facebook");
-    this.facebookService.login(this.doLogin);
+    this.facebookService.login(this.login.doLogin());
   }
 
   google() : void {
     console.log("submit login to google");
     this.googleService.login(undefined);
-  }
-
-  doLogin(form: NgForm, result) {
-
-    let formUser = new User();
-    formUser.username = form.value.username;
-    formUser.password = form.value.password;
-
-    LoginUtils.setUserInSession(result, this, form.value.password, LOGIN_PAGE.getAfterLoginPageRedirection());
   }
 
   onRegisterInit() {
@@ -60,7 +52,7 @@ export class RegisterUserComponent extends AppBase {
   }
 
   onRegisterSuccess(eventArgs : ReturnCodeEventArgs) {
-    this.onLogged(LOGIN_PAGE.getAfterLoginPageRedirection());
+    this.login.doLogin();
   }
 
   onRegisterError(eventArgs : ReturnCodeEventArgs) {

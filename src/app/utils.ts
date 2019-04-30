@@ -32,7 +32,7 @@ export class LoginUtils {
           localStorage.setItem(SessionAttributes.SESSION_ID, result.sid);
           localStorage.setItem(SessionAttributes.LOGIN_DATE, result.date);
           //localStorage.removeItem('currentUser');
-          if(redirection != null && redirection != undefined){
+          if(!ObjectUtils.isEmpty(redirection)){
             baseApp.onLogged(redirection);
           }
         }

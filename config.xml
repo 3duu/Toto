@@ -55,4 +55,5 @@
     <plugin name="cordova-plugin-device" spec="2.0.2" />
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
     <engine name="android" spec="^7.1.4" />
+    <plugin name="cordova-sqlite-storage" spec="3.2.0" />
 </widget>

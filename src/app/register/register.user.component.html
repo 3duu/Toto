@@ -4,29 +4,26 @@
 <div class="container text-center">
     <form class="form-signin" #registerForm="ngForm" autocomplete="off">
         <h2 class="form-signin-heading" style="color: white !important">{{language.signUp}}</h2>
-        <br>
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
-        <br><br>
+        <br>
         <p>
           <facebook-button></facebook-button>
           <google-button></google-button>
         </p>
-        <br>
         <small class="text-muted">{{language.createWithSomeInfo}}</small>
-        <br><br>
-        
+        <br>
         <input type="hidden" name="socialMedia" id="socialMedia" ngModel />
         <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.email}}" type="text" name="username" id="username" ngModel /><!-- required -->
         <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.name}}" type="text" name="name" id="name" ngModel />
         <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel />
         <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.confirmPassword}}" type="password" name="confirmPassword" id="confirmPassword" ngModel />
-
         <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
             <span class="sr-only">Carregando...</span>
         </div>
         <br>
         <app-alert></app-alert>
         <register-button classes="btn btn-lg btn-petlife btn-block btn-center" [form]="registerForm" (error)="onRegisterError($event)" (success)="onRegisterSuccess($event)" (begin)="onRegisterInit()" (done)="onRegisterEnd()">{{language.signUp}}</register-button>
+        <login-button classes="btn btn-lg btn-petlife btn-block btn-center" [form]="registerForm" hidden="true" (error)="onLoginError($event)" (success)="onLoginSuccess($event)" (begin)="onLoginInit()" (done)="onLoginEnd()"></login-button>
         <br>
     </form>
     <small class="create-account text-muted"><button class="ember-view btn btn-sm btn-default" (click)="goBack()"> <b>{{language.back}} </b></button> </small>

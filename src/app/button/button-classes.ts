@@ -27,9 +27,9 @@ export class ButtonComponent extends AppBase {
   @Output() error = new EventEmitter();
   @Output() begin = new EventEmitter();
   @Output() done = new EventEmitter();
-  @Input() text = this.language.signIn;
   @Input() classes : string;
   @Input() form: NgForm;
+  @Input() hidden: boolean = false;
 
   ngOnInit() {
 

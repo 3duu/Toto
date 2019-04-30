@@ -17,6 +17,7 @@ import { FacebookComponent } from './button/facebook/facebook.component';
 import { SignUpComponent } from './button/signup/signup.component';
 import { SignInComponent } from './button/signin/signin.component';
 import { GoogleComponent } from './button/google/google.component';
+import { LocalDatabaseService } from './database/database';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { GoogleComponent } from './button/google/google.component';
     ModalModule.forRoot(),
     BootstrapModalModule
   ],
-  providers: [CordovaService, UserApiService, PetApiService, FacebookService, GoogleService],
+  providers: [CordovaService, UserApiService, PetApiService, FacebookService, GoogleService, LocalDatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

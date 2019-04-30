@@ -2,11 +2,11 @@ import { ButtonComponent, ClickableComponent, ReturnCodeEventArgs } from './../b
 import { Component, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserApiService, ReturnCode } from 'src/app/service/services';
-import { StringUtils, LoginUtils, ObjectUtils } from 'src/app/utils';
+import { StringUtils, LoginUtils } from 'src/app/utils';
 import { ColorClass } from 'src/app/styles/styles';
 import { User } from 'src/app/entity/User';
 import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
-import { NgForm } from '@angular/forms';
+import { LocalDatabaseService } from 'src/app/database/database';
 
 @Component({
   selector: 'login-button',
@@ -15,12 +15,13 @@ import { NgForm } from '@angular/forms';
 })
 export class SignInComponent extends ButtonComponent implements ClickableComponent, AfterViewInit {
 
-  constructor(private userApi : UserApiService) {
+  constructor(private userApi : UserApiService, private sqlite : LocalDatabaseService) {
     super();
   }
 
   ngOnInit() {
-    
+    //this.sqlite.openDatabase();
+    //this.sqlite.createTables();
   }
 
   ngAfterViewInit(): void {
@@ -29,11 +30,7 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
     }
   }
   
-  doLogin(form: NgForm) : void {
-    
-    if(!ObjectUtils.isEmpty(form)){
-      this.form = form;
-    }
+  doLogin() : void {
     
     this.begin.emit();
     if (this.form.invalid) {
@@ -46,9 +43,7 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
     let formUser = new User();
     formUser.username = this.form.value.username;
     formUser.password = this.form.value.password;
-    if(StringUtils.isEmpty(this.form.value.socialMedia)){
-      this.form.value.socialMedia = SociaNetworkType.NONE;
-    }
+    this.form.value.socialMedia = SociaNetworkType.NONE;
     formUser.loginType = this.form.value.socialMedia;
 
     if(!this.requiredFieldsFilled(formUser)){
@@ -70,6 +65,7 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
 
       if(result.code == ReturnCode.SUCCESS){
         LoginUtils.setUserInSession(result, this, this.form.value.password, null);
+        this.sqlite.mergeUser(formUser);
         const args : ReturnCodeEventArgs = {code : result.code, color : ColorClass.success, message: ""};
         this.success.emit(args);
       }

@@ -34,6 +34,9 @@
     },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "br.com.duti.toppet"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "br.com.duti.toppet"
     }
   },
   "dependent_plugins": {}
