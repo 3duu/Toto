@@ -6,10 +6,6 @@
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
         <br><br>
         <p>
-            <!-- <fb:login-button 
-                scope="public_profile,email"
-                onlogin="checkLoginState();">
-            </fb:login-button> -->
             <facebook-button></facebook-button>
             <google-button></google-button>
             <!-- <a class="btn btn-primary social-login-btn social-facebook" (click)="facebook()" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -18,7 +14,7 @@
         <br>
 
         <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>
-        <br><br>
+        <br>
         
         <input type="hidden" name="socialMedia" id="socialMedia" value="0" ngModel>
         <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.username}}" type="text" name="username" id="username" ngModel><!-- required -->
@@ -29,7 +25,7 @@
             <span class="sr-only">Carregando...</span>
         </div>
         <app-alert></app-alert>
-        <login-button classes="btn btn-lg btn-petlife btn-block btn-center" [form]="loginForm" (error)="onLoginError($event)" (success)="onLoginSuccess($event)" (begin)="onLoginInit()" (done)="onLoginEnd()"></login-button>
+        <login-button classes="btn btn-lg btn-petlife btn-block btn-center" [form]="loginForm" (error)="onLoginError($event)" (success)="onLoginSuccess($event)" (begin)="onLoginInit()" (done)="onLoginEnd()">{{language.signIn}}</login-button>
         <br>
     </form>
     <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class="ember-view btn btn-sm btn-default" (click)="register()"> <b>{{language.register}} </b></button> </small>
