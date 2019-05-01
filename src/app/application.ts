@@ -15,12 +15,5 @@ export const REGISTER_USER_PAGE = RegisterUserComponent;
 //export const REGISTER_PET_PAGE = RegisterPetComponent;
 export const PETS_PAGE = PetsComponent;
 export const MAPS_PAGE = MapsComponent;
-
 export const ALERT_TEMPLATE = AlertComponent;
 
-/*
-export class Pages {
-    static WELCOME_PAGE : Type<any> = WelcomeComponent;
-    static LOGIN_PAGE : Type<any> = LoginComponent;
-    static HOME_PAGE : Type<any> = HomeComponent;
-}*/

@@ -1,7 +1,6 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { AppBase } from './../appbase';
 import { LOGIN_PAGE, REGISTER_USER_PAGE } from '../application';
-import { SignInComponent } from '../button/signin/signin.component';
 
 @Component({
   selector: 'app-welcome',
@@ -14,8 +13,6 @@ export class WelcomeComponent extends AppBase implements AfterViewInit {
     super();
   }
 
-  @ViewChild(SignInComponent) private signin: SignInComponent;
-
   ngOnInit() : void {
 
   }
@@ -23,7 +20,6 @@ export class WelcomeComponent extends AppBase implements AfterViewInit {
   ngAfterViewInit(): void {
     this.getNavbarComponent().disable = true;
   }
-
 
   login() : void {
     super.changeCurrentPage(this, LOGIN_PAGE);

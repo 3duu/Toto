@@ -55,7 +55,7 @@ export class SplashComponent extends AppBase implements AfterViewInit {
 
   notLogin() {
     //alert(222222222);
-    SplashComponent.instance.changeCurrentPage(this, WELCOME_PAGE);
+    SplashComponent.instance.changeCurrentPage(SplashComponent.instance, WELCOME_PAGE);
   }
 
   onLoginSuccess(eventArgs : ReturnCodeEventArgs) {
