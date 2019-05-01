@@ -10,6 +10,8 @@ export class LocalDatabaseService {
 	database : any;
 
 	constructor(private cordovaService : CordovaService) {
+		this.openDatabase();
+		this.createTables();
 		(<any>window).database = this;
 	}
 	
@@ -40,7 +42,7 @@ export class LocalDatabaseService {
 			});
 		};
 
-		this.database.transaction(transaction, this.error, this.success);
+		setTimeout(() => {this.database.transaction(transaction, this.error, this.success);});
 	}
 
 	mergeUser(user : User) {
@@ -101,8 +103,7 @@ export class LocalDatabaseService {
 				}
 			}
 		};
-
-		this.database.transaction(lookup, this.error, this.success);
+		setTimeout(() => {this.database.transaction(lookup, this.error, this.success);});
 	}
 
 	resetUsers() {

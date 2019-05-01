@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppBase } from './../appbase';
 import { LOGIN_PAGE, REGISTER_USER_PAGE } from '../application';
 
@@ -7,18 +7,15 @@ import { LOGIN_PAGE, REGISTER_USER_PAGE } from '../application';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent extends AppBase implements AfterViewInit {
+export class WelcomeComponent extends AppBase {
 
   constructor() {
     super();
+    (<any>window).welcome = this;
   }
 
   ngOnInit() : void {
-
-  }
-
-  ngAfterViewInit(): void {
-    this.getNavbarComponent().disable = true;
+    alert('gtt');
   }
 
   login() : void {

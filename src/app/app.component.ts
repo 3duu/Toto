@@ -1,9 +1,8 @@
 import { Language } from './language/Language';
-import { Component, ViewContainerRef, ComponentFactoryResolver, Type, AfterViewInit } from '@angular/core';
+import { Component, ViewContainerRef, ComponentFactoryResolver, Type } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { SessionAttributes } from './utils';
 import { SPLASH_PAGE } from './application';
-//import { Pages } from './application';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
@@ -12,7 +11,7 @@ import { SPLASH_PAGE } from './application';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
 
   static applicationName : string = environment.name;
   static language : Language = new Language();
@@ -22,9 +21,6 @@ export class AppComponent implements AfterViewInit {
   
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef) {
     AppComponent.appComponent = this;
-  }
-  
-  ngAfterViewInit(): void {
     setTimeout(() => this.startApp());
   }
 
@@ -73,7 +69,7 @@ export class AppComponent implements AfterViewInit {
       this.removeComponent(component.instance, true);
     });
     
-    this.addComponent(page);
+    setTimeout(() => {this.addComponent(page)});
   }
 
   changeCurrentPage(current: any, page: any) : any {

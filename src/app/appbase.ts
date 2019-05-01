@@ -4,11 +4,11 @@ import { AppComponent } from './app.component';
 import { Language } from './language/Language';
 import { User } from './entity/User';
 import { SessionAttributes } from './utils';
-import { HOME_PAGE } from './application';
+//import { HOME_PAGE } from './application';
 
 export class AppBase implements OnInit {
   
-    private static modules : AppBase[] = [];
+    //private static modules : AppBase[] = [];
     private static navbarComponent : NavbarComponent;
     lastComponent :Type<any>;
   
@@ -20,7 +20,7 @@ export class AppBase implements OnInit {
     protected loading = false;
   
     constructor(){
-      AppBase.addModule(this);
+      //AppBase.addModule(this);
     }
   
     ngOnInit(): void {
@@ -57,11 +57,11 @@ export class AppBase implements OnInit {
   
     protected static setNavbarComponent(navbarComponent : NavbarComponent) : void {
       if(this.navbarComponent == null){
-        AppBase.addModule(navbarComponent);
+        //AppBase.addModule(navbarComponent);
         this.navbarComponent = navbarComponent;
       }
     }
-  
+    /*
     protected static addModule(module : AppBase) : void {
       for(let m in AppBase.modules){
         if(module.constructor.name == m.constructor.name){
@@ -69,25 +69,26 @@ export class AppBase implements OnInit {
         }
       }
       AppBase.modules.push(module);
-    }
+    }*/
   
     onLogged(afterLoginRedirectComponent: Type<any>) : void {
       let user : User = this.getUser();
-      //(<any>window).user = user;
       if(user != null){
         this.getNavbarComponent().username = user.name;
         if(afterLoginRedirectComponent != null){
-          setTimeout(() => {this.getAppComponent().changePage(afterLoginRedirectComponent)});
+          this.getAppComponent().changePage(afterLoginRedirectComponent);
         }
         else{
-          setTimeout(() => {this.getAppComponent().changePage(HOME_PAGE)});
+          //this.getAppComponent().changePage(HOME_PAGE);
         }
       }
     }
 
-    public changeCurrentPage(current: any, page: Type<any>) : void {
-      let newPage = this.getAppComponent().changeCurrentPage(current, page);
-      newPage.lastComponent = current.constructor;
+    changeCurrentPage(current: any, page: Type<any>) : void {
+      setTimeout(() => { 
+        let newPage = this.getAppComponent().changeCurrentPage(current, page);
+        newPage.lastComponent = current.constructor;
+      });
     }
     
     goBack(lastComponent : any) : void {
