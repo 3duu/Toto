@@ -2,7 +2,6 @@ import { ObjectUtils } from './../utils';
 import { CordovaService } from './../cordova.service';
 import { User } from '../entity/User';
 import { Injectable } from '@angular/core';
-import { ObjectUnsubscribedError } from 'rxjs';
 
 //https://github.com/typeorm/cordova-example
 @Injectable()
@@ -11,7 +10,7 @@ export class LocalDatabaseService {
 	database : any;
 
 	constructor(private cordovaService : CordovaService) {
-		
+		(<any>window).database = this;
 	}
 	
 	private error(err) : boolean {
@@ -81,22 +80,37 @@ export class LocalDatabaseService {
 		this.database.transaction(lookup, this.error, this.success);
 	}
 
-	getCurrentUser(callback) {
+	getCurrentUser(success, error) {
 
 		let lookup = (tx) => {
 			tx.executeSql("SELECT * FROM user WHERE current = 1", [], result);
 		};
 
 		let result = (tx, res) => {
-			if(!ObjectUtils.isEmpty(res)){
+			if(res.rows.length > 0) {
 				for(var r in res.rows){
-					callback(res.rows[r]);
+					if(success != undefined){
+						success(res.rows[r]);
+					}
 					return;
+				}
+			}
+			else {
+				if(error != undefined){
+					error();
 				}
 			}
 		};
 
 		this.database.transaction(lookup, this.error, this.success);
+	}
+
+	resetUsers() {
+		let transaction = (tx) => {
+			tx.executeSql("DELETE FROM user");
+		};
+
+		this.database.transaction(transaction, this.error, this.success);
 	}
 	
 }

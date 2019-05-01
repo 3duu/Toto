@@ -2,7 +2,7 @@ import { ButtonComponent, ClickableComponent, ReturnCodeEventArgs } from './../b
 import { Component, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserApiService, ReturnCode } from 'src/app/service/services';
-import { StringUtils, LoginUtils, ObjectUtils } from 'src/app/utils';
+import { StringUtils, LoginUtils } from 'src/app/utils';
 import { ColorClass } from 'src/app/styles/styles';
 import { User } from 'src/app/entity/User';
 import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
@@ -27,7 +27,7 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
 
   ngAfterViewInit(): void {
     if(StringUtils.isEmpty(this.classes)){
-      this.classes = "btn btn-lg btn-petlife btn-block btn-center";
+      //this.classes = "btn btn-lg btn-petlife btn-block btn-center";
     }
   }
 

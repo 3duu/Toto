@@ -2,7 +2,7 @@ import { Language } from './language/Language';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Type, AfterViewInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { SessionAttributes } from './utils';
-import { WELCOME_PAGE } from './application';
+import { SPLASH_PAGE } from './application';
 //import { Pages } from './application';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
@@ -65,7 +65,7 @@ export class AppComponent implements AfterViewInit {
     values.forEach(attr => {
       localStorage.setItem(attr, null);
     });
-    this.changePage(WELCOME_PAGE);
+    this.changePage(SPLASH_PAGE);
   }
 
   changePage(page: Type<any>) : void {

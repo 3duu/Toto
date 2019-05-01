@@ -73,19 +73,19 @@ export class AppBase implements OnInit {
   
     onLogged(afterLoginRedirectComponent: Type<any>) : void {
       let user : User = this.getUser();
-      (<any>window).user = user;
+      //(<any>window).user = user;
       if(user != null){
         this.getNavbarComponent().username = user.name;
         if(afterLoginRedirectComponent != null){
           setTimeout(() => {this.getAppComponent().changePage(afterLoginRedirectComponent)});
         }
         else{
-          this.getAppComponent().changePage(HOME_PAGE);
+          setTimeout(() => {this.getAppComponent().changePage(HOME_PAGE)});
         }
       }
     }
 
-    protected changeCurrentPage(current: any, page: Type<any>) : void {
+    public changeCurrentPage(current: any, page: Type<any>) : void {
       let newPage = this.getAppComponent().changeCurrentPage(current, page);
       newPage.lastComponent = current.constructor;
     }

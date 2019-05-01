@@ -5,7 +5,9 @@ import { RegisterUserComponent } from './register/register.component';
 import { PetsComponent } from './pets/pets.component';
 import { AlertComponent } from './alert/alert.component';
 import { MapsComponent } from './maps/maps.component';
+import { SplashComponent } from './splash/splash.component';
 
+export const SPLASH_PAGE = SplashComponent;
 export const WELCOME_PAGE = WelcomeComponent;
 export const LOGIN_PAGE = LoginComponent;
 export const HOME_PAGE = HomeComponent;

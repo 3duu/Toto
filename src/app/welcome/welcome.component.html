@@ -5,12 +5,8 @@
     <h1 class="form-signin-heading" style="color: white !important">{{language.welcome}} <b>{{applicationName}}</b></h1>
     <br>
     <small class="text-muted">{{language.appDescription}}</small>
-    <div class="spinner-border text-toppet" role="status" [ngClass]="{ 'button-disabled': !loading }">
-      <span class="sr-only">Carregando...</span>
-    </div>
-    <login-button classes="btn btn-lg btn-petlife btn-block btn-center" hidden="true" (success)="onLoginSuccess($event)" (begin)="onLoginInit()" (done)="onLoginEnd()"></login-button>
-    <button class="btn btn-toppet btn-center btn-bottom-left btn-lg" [ngClass]="{ 'button-disabled': loading }" style="width: 40% !important;" (click)="login()">{{language.login}}</button>
-    <button class="btn btn-toppet btn-hollow btn-center btn-bottom-right btn-lg" [ngClass]="{ 'button-disabled': loading }" style="width: 40% !important;" (click)="register()">{{language.signUp}}</button>
+    <button class="btn btn-toppet btn-center btn-bottom-left btn-lg" style="width: 40% !important;" (click)="login()">{{language.login}}</button>
+    <button class="btn btn-toppet btn-hollow btn-center btn-bottom-right btn-lg" style="width: 40% !important;" (click)="register()">{{language.signUp}}</button>
 </div>
 <!-- Tasha Reign 
 http://juicygif.com/public/Gif/Sex-Blonde-done-doggystyle.gif-187463p.html/(mode)/search/(keyword)/couples-sex -->

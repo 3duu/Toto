@@ -11,7 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { EditPetsComponent, PetPickerComponent } from './pets/pets.component';
 import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
-import { LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, WELCOME_PAGE, PETS_PAGE, MAPS_PAGE, ALERT_TEMPLATE } from './application';
+import { LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, WELCOME_PAGE, PETS_PAGE, MAPS_PAGE, ALERT_TEMPLATE, SPLASH_PAGE } from './application';
 import { FacebookService, GoogleService } from './socialNetwork/socialNetworkServices';
 import { FacebookComponent } from './button/facebook/facebook.component';
 import { SignUpComponent } from './button/signup/signup.component';
@@ -31,6 +31,7 @@ import { LocalDatabaseService } from './database/database';
     PETS_PAGE,
     EditPetsComponent,
     PetPickerComponent,
+    SPLASH_PAGE,
     WELCOME_PAGE,
     SignInComponent,
     SignUpComponent,
@@ -46,6 +47,7 @@ import { LocalDatabaseService } from './database/database';
     PETS_PAGE,
     EditPetsComponent,
     PetPickerComponent,
+    SPLASH_PAGE,
     WELCOME_PAGE,
     SignInComponent,
     SignUpComponent,

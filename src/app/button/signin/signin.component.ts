@@ -26,7 +26,7 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
 
   ngAfterViewInit(): void {
     if(StringUtils.isEmpty(this.classes)){
-      this.classes = "btn btn-lg btn-petlife btn-block btn-center";
+      //this.classes = "btn btn-lg btn-petlife btn-block btn-center";
     }
   }
   
