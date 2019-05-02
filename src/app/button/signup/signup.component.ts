@@ -50,36 +50,32 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
     //Campos obrigatorios
     if(!this.requiredFieldsFilled(formUser, this.form.value.confirmPassword)){
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR,  message: this.language.requiredFields};
-      this.error.emit(args);
       this.loading = false;
-      this.done.emit();
+      this.done.emit(args);
       return;
     }
 
     //Validar e-mail
     if(!StringUtils.isEmail(formUser.username)){
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR,  message: this.language.invalidEmailAddress};
-      this.error.emit(args);
       this.loading = false;
-      this.done.emit();
+      this.done.emit(args);
       return;
     }
 
     //Validar senha
     if(formUser.password.length < PASSWORD_CONFIG.min || (!StringUtils.isEmpty(PASSWORD_CONFIG.contains))){
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR,  message: this.language.invalidPassword.replace(":min", PASSWORD_CONFIG.min)};
-      this.error.emit(args);
       this.loading = false;
-      this.done.emit();
+      this.done.emit(args);
       return;
     }
 
     //Corresponder senha
     if(formUser.password != this.form.value.confirmPassword){
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR,  message: this.language.passwordDoesntMatch};
-      this.error.emit(args);
       this.loading = false;
-      this.done.emit();
+      this.done.emit(args);
       return;
     }
  
@@ -95,17 +91,17 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
       if(result.code == ReturnCode.SUCCESS){
         LoginUtils.setUserInSession(result, this, this.form.value.password, null);
         const args : ReturnCodeEventArgs = {code : result.code, message: ""};
-        this.success.emit(args);
+        this.done.emit(args);
       }
       else {
         const args : ReturnCodeEventArgs = {code : result.code,  message: ""};
-        this.error.emit(args);
+        this.done.emit(args);
       }
       this.done.emit();
     }, error => {
       console.log(error);
       const args : ReturnCodeEventArgs = {code : ReturnCode.CONNECTION_ERROR,  message: ""};
-      this.error.emit(args);
+      this.done.emit(args);
       this.loading = false;
       this.done.emit();
     });

@@ -60,7 +60,7 @@ export class AppBase implements OnInit {
       }
       let user : User = this.getUser();
       if(user != null){
-        this.getNavbarComponent().username = user.name;
+        this.getNavbarComponent().user = user;
         this.getAppComponent().changePage(afterLoginRedirectComponent);
       }
     }

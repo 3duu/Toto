@@ -1,11 +1,9 @@
 import { ButtonComponent, ClickableComponent, ReturnCodeEventArgs } from './../button-classes';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { UserApiService, ReturnCode } from 'src/app/service/services';
+import { ReturnCode, AuthenticationService } from 'src/app/service/services';
 import { StringUtils, LoginUtils } from 'src/app/utils';
 import { User } from 'src/app/entity/User';
 import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
-import { LocalDatabaseService } from 'src/app/database/database';
 
 @Component({
   selector: 'login-button',
@@ -14,7 +12,7 @@ import { LocalDatabaseService } from 'src/app/database/database';
 })
 export class SignInComponent extends ButtonComponent implements ClickableComponent {
 
-  constructor(private userApi : UserApiService, private sqlite : LocalDatabaseService) {
+  constructor(private authenticationService : AuthenticationService) {
     super();
   }
 
@@ -27,7 +25,7 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
     this.begin.emit();
     if (this.form.invalid) {
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, message: ""};
-      this.error.emit(args);
+      this.done.emit(args);
       return;
     }
     this.loading = true;
@@ -40,39 +38,20 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
 
     if(!this.requiredFieldsFilled(formUser)){
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, message: this.language.requiredFields};
-      this.error.emit(args);
+      this.done.emit(args);
       this.loading = false;
       this.done.emit();
       return;
     }
  
-    let user : Observable<any> = this.userApi.login(formUser);
+    this.authenticationService.authenticate(formUser, this, this.loginDone);
+  }
 
-    (<any>window).httpUser = user;
-
-    user.subscribe(result => {
-
-      console.log(result);
-      this.loading = false;
-
-      if(result.code == ReturnCode.SUCCESS){
-        LoginUtils.setUserInSession(result, this, this.form.value.password, null);
-        this.sqlite.mergeUser(formUser);
-        const args : ReturnCodeEventArgs = {code : result.code, message: ""};
-        this.success.emit(args);
-      }
-      else {
-        const args : ReturnCodeEventArgs = {code : result.code, message: ""};
-        this.error.emit(args);
-      }
-      this.done.emit();
-    }, error => {
-      console.log(error);
-      const args : ReturnCodeEventArgs = {code : ReturnCode.CONNECTION_ERROR, message: ""};
-      this.error.emit(args);
-      this.loading = false;
-      this.done.emit();
-    });
+  loginDone = (args : ReturnCodeEventArgs) => {
+    this.done.emit(args);
+    if(args.code == ReturnCode.SUCCESS) {
+      
+    }
   }
 
   onClicked() : void {

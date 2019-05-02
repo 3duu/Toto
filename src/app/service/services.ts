@@ -1,3 +1,4 @@
+import { AppBase } from './../appbase';
 import { Pet } from './../entity/Pet';
 import { Language } from './../language/Language';
 import { environment } from 'src/environments/environment';
@@ -10,6 +11,9 @@ import {
 } from "@angular/common/http";
 import { catchError } from "rxjs/operators";
 import { User } from '../entity/User';
+import { LoginUtils } from '../utils';
+import { LocalDatabaseService } from '../database/database';
+import { ReturnCodeEventArgs } from '../button/button-classes';
 
 // Set the http options
 const httpOptions = {
@@ -148,6 +152,38 @@ export class PetApiService extends ApiService {
     .pipe(
       catchError(this.handleError)
     );
+  }
+}
+
+@Injectable()
+export class AuthenticationService {
+
+  constructor(private userApi : UserApiService, private sqlite : LocalDatabaseService) {
+
+  }
+
+  authenticate(entryUser : User, base : AppBase, callback) : void {
+ 
+    let user : Observable<any> = this.userApi.login(entryUser);
+
+    (<any>window).httpUser = user;
+
+    user.subscribe(result => {
+
+      console.log(result);
+
+      if(result.code == ReturnCode.SUCCESS){
+        LoginUtils.setUserInSession(result, base, entryUser.password, null);
+        this.sqlite.mergeUser(entryUser);
+        callback({code : result.code, message: ""});
+      }
+      else {
+        callback( {code : result.code, message: ""});
+      }
+    }, error => {
+      console.log(error);
+      callback( {code : ReturnCode.CONNECTION_ERROR, message: ""});
+    });
   }
 }
 

@@ -20,8 +20,6 @@ export interface ReturnCodeEventArgs {
 export class ButtonComponent extends AppBase {
     
   @Output() click = new EventEmitter();
-  @Output() success = new EventEmitter();
-  @Output() error = new EventEmitter();
   @Output() begin = new EventEmitter();
   @Output() done = new EventEmitter();
   @Input() classes : string;

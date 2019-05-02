@@ -20,7 +20,6 @@ export class RegisterUserComponent extends AppBase {
   registerForm: NgForm;
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
-  @ViewChild(SignInComponent) private login: SignInComponent;
   
   constructor(private api: UserApiService, private facebookService : FacebookService, private googleService : GoogleService) {
     super();
@@ -69,20 +68,17 @@ export class RegisterUserComponent extends AppBase {
     this.alert.hide();
   }
 
-  onLoginEnd() {
+  onLoginEnd(eventArgs : ReturnCodeEventArgs) {
     this.loading = false;
-  }
 
-  onLoginSuccess(eventArgs : ReturnCodeEventArgs) {
-    this.onLogged(null);
-  }
-
-  onLoginError(eventArgs : ReturnCodeEventArgs) {
     if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
       this.alert.show(eventArgs.message, ColorClass.danger);
     }
-    else {
+    else if(eventArgs.code == ReturnCode.VALIDATION_ERROR) {
       this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
+    }
+    else {
+      this.onLogged(null);
     }
   }
 

@@ -22,8 +22,7 @@
         </div>
         <br>
         <app-alert></app-alert>
-        <register-button classes="btn btn-lg btn-petlife btn-block btn-center" [form]="registerForm" (error)="onRegisterError($event)" (success)="onRegisterSuccess($event)" (begin)="onRegisterInit()" (done)="onRegisterEnd()">{{language.signUp}}</register-button>
-        <login-button classes="btn btn-lg btn-petlife btn-block btn-center" [form]="registerForm" hidden="true" (error)="onLoginError($event)" (success)="onLoginSuccess($event)" (begin)="onLoginInit()" (done)="onLoginEnd()"></login-button>
+        <register-button classes="btn btn-lg btn-petlife btn-block btn-center" [form]="registerForm" (begin)="onRegisterInit()" (done)="onRegisterEnd($event)">{{language.signUp}}</register-button>
         <br>
     </form>
     <small class="create-account text-muted"><button class="ember-view btn btn-sm btn-default" (click)="goBack()"> <b>{{language.back}} </b></button> </small>

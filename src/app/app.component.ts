@@ -1,12 +1,13 @@
 import { Language } from './language/Language';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Type, ViewChild, AfterContentInit, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { SessionAttributes, ObjectUtils } from './utils';
+import { SessionAttributes } from './utils';
 import { WELCOME_PAGE } from './application';
 import { LocalDatabaseService } from './database/database';
-import { SignInComponent } from './button/signin/signin.component';
-import { NgForm } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AuthenticationService, ReturnCode } from './service/services';
+import { User } from './entity/User';
+import { SociaNetworkType } from './socialNetwork/socialNetworkServices';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
@@ -20,13 +21,13 @@ export class AppComponent implements AfterContentInit, OnInit {
   static language : Language = new Language();
   // Keep track of list of generated components for removal purposes
   private components = [];
+
+  private static INSTANCE : AppComponent;
+
+  @ViewChild(NavbarComponent) private _menu: NavbarComponent;
   static menu: NavbarComponent;
-
-  static INSTANCE : AppComponent;
-
-  @ViewChild(SignInComponent) private signin: SignInComponent;
   
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private sqlite : LocalDatabaseService) {
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private sqlite : LocalDatabaseService, private authenticationService: AuthenticationService) {
     AppComponent.INSTANCE = this;
     (<any>window).splash = this;
   }
@@ -77,11 +78,9 @@ export class AppComponent implements AfterContentInit, OnInit {
     values.forEach(attr => {
       localStorage.setItem(attr, undefined);
     });
-
-    //Add NAVBAR
-    AppComponent.menu = this.addSingleComponent(NavbarComponent, false);
-    //this.sqlite.getCurrentUser(this.doLogin, this.notLogin);
-    this.changePage(WELCOME_PAGE);
+    AppComponent.menu = this._menu;
+    this.sqlite.getCurrentUser(this.doLogin, this.notLogin);
+    //this.changePage(WELCOME_PAGE);
   }
 
   changePage(page: Type<any>) : void {
@@ -107,35 +106,33 @@ export class AppComponent implements AfterContentInit, OnInit {
   }
 
   title = AppComponent.applicationName;
-
-  doLogin(result : any) {
-    
-    let sc : SignInComponent;
-    if(ObjectUtils.isEmpty(this)){
-      sc = AppComponent.INSTANCE.signin;
-    }
-    else {
-      sc = this.signin;
-    }
-    sc.form = new NgForm([],[]);
-    sc.form.value.username = result.username;
-    sc.form.value.password = result.password;
-    sc.doLogin();
+  
+  doLogin = (result : any) => {
+    const user : User = new User();
+    user.username = result.username;
+    user.password = result.password;
+    user.loginType = SociaNetworkType.NONE;
+    this.authenticationService.authenticate(user, this._menu, this.loginCallback);
   }
 
-  notLogin() {
-    AppComponent.INSTANCE.changeCurrentPage(AppComponent.INSTANCE, WELCOME_PAGE);
+  loginCallback = (args) => {
+    if(args.code == ReturnCode.SUCCESS){
+      this.login();
+    }
+    else {
+      this.notLogin();
+    }
+  }
+
+  login() {
+    AppComponent.menu.onLogged(null);
+  }
+
+  notLogin = () => {
+    this.changeCurrentPage(AppComponent.INSTANCE, WELCOME_PAGE);
   }
 
   test() {
     setTimeout(() => {this.changeCurrentPage(this, WELCOME_PAGE)});
-  }
-
-  onLoginSuccess(eventArgs) {
-    AppComponent.menu.onLogged(null);
-  }
-
-  onLoginError(eventArgs) {
-    this.notLogin();
   }
 }

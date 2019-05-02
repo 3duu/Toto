@@ -1,4 +1,4 @@
-import { UserApiService, PetApiService } from './service/services';
+import { UserApiService, PetApiService, AuthenticationService } from './service/services';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,7 @@ import { LocalDatabaseService } from './database/database';
   declarations: [
     AppComponent,
     NavbarComponent,
+    WELCOME_PAGE,
     MAPS_PAGE,
     LOGIN_PAGE,
     ALERT_TEMPLATE,
@@ -31,7 +32,6 @@ import { LocalDatabaseService } from './database/database';
     PETS_PAGE,
     EditPetsComponent,
     PetPickerComponent,
-    WELCOME_PAGE,
     SignInComponent,
     SignUpComponent,
     FacebookComponent,
@@ -39,6 +39,7 @@ import { LocalDatabaseService } from './database/database';
   ],
   entryComponents: [
     NavbarComponent,
+    WELCOME_PAGE,
     LOGIN_PAGE,
     ALERT_TEMPLATE,
     MAPS_PAGE,
@@ -47,7 +48,6 @@ import { LocalDatabaseService } from './database/database';
     PETS_PAGE,
     EditPetsComponent,
     PetPickerComponent,
-    WELCOME_PAGE,
     SignInComponent,
     SignUpComponent,
     FacebookComponent,
@@ -62,7 +62,7 @@ import { LocalDatabaseService } from './database/database';
     ModalModule.forRoot(),
     BootstrapModalModule
   ],
-  providers: [CordovaService, UserApiService, PetApiService, FacebookService, GoogleService, LocalDatabaseService],
+  providers: [CordovaService, LocalDatabaseService, UserApiService, PetApiService, FacebookService, GoogleService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

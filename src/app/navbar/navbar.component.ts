@@ -1,28 +1,25 @@
-import { Component, AfterContentInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserApiService } from '../service/services';
 import { AppBase } from '../appbase';
+import { User } from '../entity/User';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent extends AppBase implements AfterContentInit {
+export class NavbarComponent extends AppBase {
   
   constructor(private api: UserApiService) {
     super();
   }
 
-  disableMenu = true;
-  disable = false;
+  disableMenu = false;
+  disable = true;
   navbarOpen = false;
-  username : string;
+  user : User;
 
   ngOnInit() {
-    
-  }
-
-  ngAfterContentInit(): void {
     
   }
 
