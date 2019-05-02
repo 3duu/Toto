@@ -136,17 +136,6 @@ var AppRoutingModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/app.component.css":
-/*!***********************************!*\
-  !*** ./src/app/app.component.css ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"
-
-/***/ }),
-
 /***/ "./src/app/app.component.html":
 /*!************************************!*\
   !*** ./src/app/app.component.html ***!
@@ -154,7 +143,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<app-navbar></app-navbar>\r\n<!--<app-login></app-login>-->\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<login-button hidden=\"true\" (error)=\"onLoginError($event)\" (success)=\"onLoginSuccess($event)\"></login-button>\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -174,6 +163,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils */ "./src/app/utils.ts");
 /* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./application */ "./src/app/application.ts");
+/* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./database/database */ "./src/app/database/database.ts");
+/* harmony import */ var _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./button/signin/signin.component */ "./src/app/button/signin/signin.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
+
+
+
+
 
 
 
@@ -183,19 +180,23 @@ __webpack_require__.r(__webpack_exports__);
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
 var AppComponent = /** @class */ (function () {
-    function AppComponent(componentFactoryResolver, container) {
-        var _this = this;
+    function AppComponent(componentFactoryResolver, container, sqlite) {
         this.componentFactoryResolver = componentFactoryResolver;
         this.container = container;
+        this.sqlite = sqlite;
         // Keep track of list of generated components for removal purposes
         this.components = [];
         this.title = AppComponent_1.applicationName;
-        AppComponent_1.appComponent = this;
-        setTimeout(function () { return _this.startApp(); });
+        AppComponent_1.INSTANCE = this;
+        window.splash = this;
     }
     AppComponent_1 = AppComponent;
+    AppComponent.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.startApp(); });
+    };
     AppComponent.getAppComponent = function () {
-        return AppComponent_1.appComponent;
+        return AppComponent_1.INSTANCE;
     };
     AppComponent.prototype.addComponent = function (componentClass) {
         // Create component dynamically inside the ng-template
@@ -224,16 +225,20 @@ var AppComponent = /** @class */ (function () {
         //Apagar session values
         var values = Object.keys(_utils__WEBPACK_IMPORTED_MODULE_4__["SessionAttributes"]).map(function (k) { return _utils__WEBPACK_IMPORTED_MODULE_4__["SessionAttributes"][k]; });
         values.forEach(function (attr) {
-            localStorage.setItem(attr, null);
+            localStorage.setItem(attr, undefined);
         });
-        this.changePage(_application__WEBPACK_IMPORTED_MODULE_5__["SPLASH_PAGE"]);
+        //Add NAVBAR
+        AppComponent_1.menu = this.addSingleComponent(_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__["NavbarComponent"], false);
+        this.sqlite.getCurrentUser(this.doLogin, this.notLogin);
+        //this.changePage(WELCOME_PAGE);
     };
     AppComponent.prototype.changePage = function (page) {
         var _this = this;
         this.components.forEach(function (component) {
             _this.removeComponent(component.instance, true);
         });
-        setTimeout(function () { _this.addComponent(page); });
+        //setTimeout(() => {this.addComponent(page)});
+        this.addComponent(page);
     };
     AppComponent.prototype.changeCurrentPage = function (current, page) {
         this.removeComponent(current, true);
@@ -246,16 +251,45 @@ var AppComponent = /** @class */ (function () {
         }
         return component;
     };
+    AppComponent.prototype.doLogin = function (result) {
+        var sc;
+        if (_utils__WEBPACK_IMPORTED_MODULE_4__["ObjectUtils"].isEmpty(this)) {
+            sc = AppComponent_1.INSTANCE.signin;
+        }
+        else {
+            sc = this.signin;
+        }
+        sc.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_8__["NgForm"]([], []);
+        sc.form.value.username = result.username;
+        sc.form.value.password = result.password;
+        sc.doLogin();
+    };
+    AppComponent.prototype.notLogin = function () {
+        AppComponent_1.INSTANCE.changeCurrentPage(AppComponent_1.INSTANCE, _application__WEBPACK_IMPORTED_MODULE_5__["WELCOME_PAGE"]);
+    };
+    AppComponent.prototype.test = function () {
+        var _this = this;
+        setTimeout(function () { _this.changeCurrentPage(_this, _application__WEBPACK_IMPORTED_MODULE_5__["WELCOME_PAGE"]); });
+    };
+    AppComponent.prototype.onLoginSuccess = function (eventArgs) {
+        AppComponent_1.menu.onLogged(null);
+    };
+    AppComponent.prototype.onLoginError = function (eventArgs) {
+        this.notLogin();
+    };
     var AppComponent_1;
     AppComponent.applicationName = src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].name;
     AppComponent.language = new _language_Language__WEBPACK_IMPORTED_MODULE_1__["Language"]();
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_button_signin_signin_component__WEBPACK_IMPORTED_MODULE_7__["SignInComponent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_7__["SignInComponent"])
+    ], AppComponent.prototype, "signin", void 0);
     AppComponent = AppComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
-            styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
+            template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html")
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_2__["ComponentFactoryResolver"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewContainerRef"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_2__["ComponentFactoryResolver"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewContainerRef"], _database_database__WEBPACK_IMPORTED_MODULE_6__["LocalDatabaseService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -332,7 +366,6 @@ var AppModule = /** @class */ (function () {
                 _application__WEBPACK_IMPORTED_MODULE_14__["PETS_PAGE"],
                 _pets_pets_component__WEBPACK_IMPORTED_MODULE_11__["EditPetsComponent"],
                 _pets_pets_component__WEBPACK_IMPORTED_MODULE_11__["PetPickerComponent"],
-                _application__WEBPACK_IMPORTED_MODULE_14__["SPLASH_PAGE"],
                 _application__WEBPACK_IMPORTED_MODULE_14__["WELCOME_PAGE"],
                 _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_18__["SignInComponent"],
                 _button_signup_signup_component__WEBPACK_IMPORTED_MODULE_17__["SignUpComponent"],
@@ -340,6 +373,7 @@ var AppModule = /** @class */ (function () {
                 _button_google_google_component__WEBPACK_IMPORTED_MODULE_19__["GoogleComponent"]
             ],
             entryComponents: [
+                _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_10__["NavbarComponent"],
                 _application__WEBPACK_IMPORTED_MODULE_14__["LOGIN_PAGE"],
                 _application__WEBPACK_IMPORTED_MODULE_14__["ALERT_TEMPLATE"],
                 _application__WEBPACK_IMPORTED_MODULE_14__["MAPS_PAGE"],
@@ -348,7 +382,6 @@ var AppModule = /** @class */ (function () {
                 _application__WEBPACK_IMPORTED_MODULE_14__["PETS_PAGE"],
                 _pets_pets_component__WEBPACK_IMPORTED_MODULE_11__["EditPetsComponent"],
                 _pets_pets_component__WEBPACK_IMPORTED_MODULE_11__["PetPickerComponent"],
-                _application__WEBPACK_IMPORTED_MODULE_14__["SPLASH_PAGE"],
                 _application__WEBPACK_IMPORTED_MODULE_14__["WELCOME_PAGE"],
                 _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_18__["SignInComponent"],
                 _button_signup_signup_component__WEBPACK_IMPORTED_MODULE_17__["SignUpComponent"],
@@ -399,7 +432,6 @@ var AppBase = /** @class */ (function () {
         this.applicationName = _app_component__WEBPACK_IMPORTED_MODULE_0__["AppComponent"].applicationName;
         this.language = _app_component__WEBPACK_IMPORTED_MODULE_0__["AppComponent"].language;
         this.loading = false;
-        AppBase.addModule(this);
     }
     AppBase.prototype.ngOnInit = function () {
     };
@@ -422,45 +454,31 @@ var AppBase = /** @class */ (function () {
         return localStorage.getItem(_utils__WEBPACK_IMPORTED_MODULE_2__["SessionAttributes"].SESSION_ID) != undefined ? JSON.parse(localStorage.getItem(_utils__WEBPACK_IMPORTED_MODULE_2__["SessionAttributes"].SESSION_ID)) : null;
     };
     AppBase.prototype.getNavbarComponent = function () {
-        return AppBase.navbarComponent;
+        return _app_component__WEBPACK_IMPORTED_MODULE_0__["AppComponent"].menu;
     };
     AppBase.prototype.getAppComponent = function () {
         return _app_component__WEBPACK_IMPORTED_MODULE_0__["AppComponent"].getAppComponent();
     };
-    AppBase.setNavbarComponent = function (navbarComponent) {
-        if (this.navbarComponent == null) {
-            AppBase.addModule(navbarComponent);
-            this.navbarComponent = navbarComponent;
-        }
-    };
-    AppBase.addModule = function (module) {
-        for (var m in AppBase.modules) {
-            if (module.constructor.name == m.constructor.name) {
-                return;
-            }
-        }
-        AppBase.modules.push(module);
-    };
     AppBase.prototype.onLogged = function (afterLoginRedirectComponent) {
+        if (_utils__WEBPACK_IMPORTED_MODULE_2__["ObjectUtils"].isEmpty(afterLoginRedirectComponent)) {
+            afterLoginRedirectComponent = _application__WEBPACK_IMPORTED_MODULE_3__["HOME_PAGE"];
+        }
         var user = this.getUser();
         if (user != null) {
             this.getNavbarComponent().username = user.name;
-            if (afterLoginRedirectComponent != null) {
-                this.getAppComponent().changePage(afterLoginRedirectComponent);
-            }
-            else {
-                this.getAppComponent().changePage(_application__WEBPACK_IMPORTED_MODULE_3__["HOME_PAGE"]);
-            }
+            this.getAppComponent().changePage(afterLoginRedirectComponent);
         }
     };
     AppBase.prototype.changeCurrentPage = function (current, page) {
-        var newPage = this.getAppComponent().changeCurrentPage(current, page);
-        newPage.lastComponent = current.constructor;
+        var _this = this;
+        setTimeout(function () {
+            var newPage = _this.getAppComponent().changeCurrentPage(current, page);
+            newPage.lastComponent = current.constructor;
+        });
     };
     AppBase.prototype.goBack = function (lastComponent) {
         this.getAppComponent().changeCurrentPage(this, lastComponent);
     };
-    AppBase.modules = [];
     return AppBase;
 }());
 
@@ -472,12 +490,11 @@ var AppBase = /** @class */ (function () {
 /*!********************************!*\
   !*** ./src/app/application.ts ***!
   \********************************/
-/*! exports provided: SPLASH_PAGE, WELCOME_PAGE, LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, PETS_PAGE, MAPS_PAGE, ALERT_TEMPLATE */
+/*! exports provided: WELCOME_PAGE, LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, PETS_PAGE, MAPS_PAGE, ALERT_TEMPLATE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SPLASH_PAGE", function() { return SPLASH_PAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WELCOME_PAGE", function() { return WELCOME_PAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_PAGE", function() { return LOGIN_PAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOME_PAGE", function() { return HOME_PAGE; });
@@ -492,7 +509,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pets_pets_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pets/pets.component */ "./src/app/pets/pets.component.ts");
 /* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./alert/alert.component */ "./src/app/alert/alert.component.ts");
 /* harmony import */ var _maps_maps_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./maps/maps.component */ "./src/app/maps/maps.component.ts");
-/* harmony import */ var _splash_splash_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./splash/splash.component */ "./src/app/splash/splash.component.ts");
 
 
 
@@ -500,8 +516,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var SPLASH_PAGE = _splash_splash_component__WEBPACK_IMPORTED_MODULE_7__["SplashComponent"];
 var WELCOME_PAGE = _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_0__["WelcomeComponent"];
 var LOGIN_PAGE = _login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"];
 var HOME_PAGE = _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"];
@@ -1518,14 +1532,10 @@ var LoginComponent = /** @class */ (function (_super) {
         _this.userApi = userApi;
         return _this;
     }
-    LoginComponent_1 = LoginComponent;
-    LoginComponent.getAfterLoginPageRedirection = function () {
-        return LoginComponent_1.afterLoginRedirectComponent;
-    };
     LoginComponent.prototype.ngOnInit = function () {
         this.getNavbarComponent().disableMenu = true;
         this.getNavbarComponent().disable = false;
-        this.onLogged(LoginComponent_1.getAfterLoginPageRedirection());
+        this.onLogged(null);
     };
     LoginComponent.prototype.onLoginInit = function () {
         this.loading = true;
@@ -1535,7 +1545,7 @@ var LoginComponent = /** @class */ (function (_super) {
         this.loading = false;
     };
     LoginComponent.prototype.onLoginSuccess = function (eventArgs) {
-        this.onLogged(LoginComponent_1.afterLoginRedirectComponent);
+        this.onLogged(null);
     };
     LoginComponent.prototype.onLoginError = function (eventArgs) {
         if (eventArgs.code == _service_services__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].VALIDATION_ERROR && !_utils__WEBPACK_IMPORTED_MODULE_5__["StringUtils"].isEmpty(eventArgs.message)) {
@@ -1554,13 +1564,11 @@ var LoginComponent = /** @class */ (function (_super) {
     LoginComponent.prototype.register = function () {
         _super.prototype.changeCurrentPage.call(this, this, _application__WEBPACK_IMPORTED_MODULE_6__["REGISTER_USER_PAGE"]);
     };
-    var LoginComponent_1;
-    LoginComponent.afterLoginRedirectComponent = _application__WEBPACK_IMPORTED_MODULE_6__["HOME_PAGE"];
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_4__["AlertComponent"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_4__["AlertComponent"])
     ], LoginComponent.prototype, "alert", void 0);
-    LoginComponent = LoginComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-login',
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
@@ -1750,7 +1758,6 @@ var NavbarComponent = /** @class */ (function (_super) {
         return _this;
     }
     NavbarComponent.prototype.ngOnInit = function () {
-        _appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"].setNavbarComponent(this);
     };
     NavbarComponent.prototype.ngAfterContentInit = function () {
     };
@@ -1763,17 +1770,11 @@ var NavbarComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./navbar.component.html */ "./src/app/navbar/navbar.component.html"),
             styles: [__webpack_require__(/*! ./navbar.component.css */ "./src/app/navbar/navbar.component.css")]
         }),
-        Navbar,
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_2__["UserApiService"]])
     ], NavbarComponent);
     return NavbarComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
 
-function Navbar(constructor) {
-    //Object.seal(constructor);
-    //Object.seal(constructor.prototype);
-    //AppBase.setNavbarComponent(constructor.prototype);
-}
 
 
 /***/ }),
@@ -2202,14 +2203,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterUserComponent", function() { return RegisterUserComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../button/signin/signin.component */ "./src/app/button/signin/signin.component.ts");
-/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../application */ "./src/app/application.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
-/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
-/* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
-/* harmony import */ var _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
+/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
+/* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+/* harmony import */ var _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
 
 
 
@@ -2252,7 +2251,7 @@ var RegisterUserComponent = /** @class */ (function (_super) {
         this.login.doLogin();
     };
     RegisterUserComponent.prototype.onRegisterError = function (eventArgs) {
-        if (eventArgs.code == _service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].VALIDATION_ERROR && !_utils__WEBPACK_IMPORTED_MODULE_7__["StringUtils"].isEmpty(eventArgs.message)) {
+        if (eventArgs.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].VALIDATION_ERROR && !_utils__WEBPACK_IMPORTED_MODULE_6__["StringUtils"].isEmpty(eventArgs.message)) {
             this.alert.show(eventArgs.message, eventArgs.color);
         }
         else {
@@ -2267,10 +2266,10 @@ var RegisterUserComponent = /** @class */ (function (_super) {
         this.loading = false;
     };
     RegisterUserComponent.prototype.onLoginSuccess = function (eventArgs) {
-        this.onLogged(_application__WEBPACK_IMPORTED_MODULE_2__["LOGIN_PAGE"].getAfterLoginPageRedirection());
+        this.onLogged(null);
     };
     RegisterUserComponent.prototype.onLoginError = function (eventArgs) {
-        if (eventArgs.code == _service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].VALIDATION_ERROR && !_utils__WEBPACK_IMPORTED_MODULE_7__["StringUtils"].isEmpty(eventArgs.message)) {
+        if (eventArgs.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].VALIDATION_ERROR && !_utils__WEBPACK_IMPORTED_MODULE_6__["StringUtils"].isEmpty(eventArgs.message)) {
             this.alert.show(eventArgs.message, eventArgs.color);
         }
         else {
@@ -2283,23 +2282,23 @@ var RegisterUserComponent = /** @class */ (function (_super) {
         }
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_5__["AlertComponent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_5__["AlertComponent"])
     ], RegisterUserComponent.prototype, "alert", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"])(_button_signin_signin_component__WEBPACK_IMPORTED_MODULE_1__["SignInComponent"]),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_button_signin_signin_component__WEBPACK_IMPORTED_MODULE_1__["SignInComponent"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_1__["SignInComponent"])
     ], RegisterUserComponent.prototype, "login", void 0);
     RegisterUserComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-register',
             template: __webpack_require__(/*! ./register.user.component.html */ "./src/app/register/register.user.component.html"),
             styles: [__webpack_require__(/*! ./register.component.css */ "./src/app/register/register.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_4__["UserApiService"], _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_8__["FacebookService"], _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_8__["GoogleService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_3__["UserApiService"], _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_7__["FacebookService"], _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_7__["GoogleService"]])
     ], RegisterUserComponent);
     return RegisterUserComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_5__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
 
 ////////////////////////////////////////////////////////////////////
 /*
@@ -2619,107 +2618,6 @@ var SociaNetworkType;
 
 /***/ }),
 
-/***/ "./src/app/splash/splash.component.html":
-/*!**********************************************!*\
-  !*** ./src/app/splash/splash.component.html ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"welcome-background\"> \r\n  <div class=\"spinner-border text-toppet\"  role=\"status\">\r\n    <span class=\"sr-only\">Carregando...</span>\r\n  </div>\r\n  <!-- <login-button hidden=\"true\" (error)=\"onLoginError($event)\" (success)=\"onLoginSuccess($event)\"></login-button> -->\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/splash/splash.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/splash/splash.component.ts ***!
-  \********************************************/
-/*! exports provided: SplashComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SplashComponent", function() { return SplashComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../application */ "./src/app/application.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../utils */ "./src/app/utils.ts");
-/* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../database/database */ "./src/app/database/database.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
-/* harmony import */ var _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../button/signin/signin.component */ "./src/app/button/signin/signin.component.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-
-
-
-
-
-
-
-
-
-var SplashComponent = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SplashComponent, _super);
-    function SplashComponent(sqlite) {
-        var _this = _super.call(this) || this;
-        _this.sqlite = sqlite;
-        SplashComponent_1.INSTANCE = _this;
-        window.splash = _this;
-        return _this;
-    }
-    SplashComponent_1 = SplashComponent;
-    SplashComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        //setTimeout(() => {SplashComponent.INSTANCE.changeCurrentPage(SplashComponent.INSTANCE, WELCOME_PAGE)});
-        setTimeout(function () { _this.sqlite.getCurrentUser(_this.doLogin, _this.notLogin); });
-    };
-    SplashComponent.prototype.doLogin = function (result) {
-        var sc;
-        if (_utils__WEBPACK_IMPORTED_MODULE_2__["ObjectUtils"].isEmpty(this)) {
-            sc = SplashComponent_1.INSTANCE.signin;
-        }
-        else {
-            sc = this.signin;
-        }
-        sc.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["NgForm"]([], []);
-        sc.form.value.username = result.username;
-        sc.form.value.password = result.password;
-        sc.doLogin();
-    };
-    SplashComponent.prototype.notLogin = function () {
-        SplashComponent_1.INSTANCE.changeCurrentPage(SplashComponent_1.INSTANCE, _application__WEBPACK_IMPORTED_MODULE_1__["WELCOME_PAGE"]);
-        //SplashComponent.INSTANCE.changeCurrentPage(SplashComponent.INSTANCE, WELCOME_PAGE);
-    };
-    SplashComponent.prototype.test = function () {
-        var _this = this;
-        setTimeout(function () { _this.changeCurrentPage(_this, _application__WEBPACK_IMPORTED_MODULE_1__["WELCOME_PAGE"]); });
-    };
-    SplashComponent.prototype.onLoginSuccess = function (eventArgs) {
-        console.log(eventArgs);
-        this.onLogged(_application__WEBPACK_IMPORTED_MODULE_1__["LOGIN_PAGE"].getAfterLoginPageRedirection());
-    };
-    SplashComponent.prototype.onLoginError = function (eventArgs) {
-        console.log(eventArgs);
-        this.notLogin();
-    };
-    var SplashComponent_1;
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ViewChild"])(_button_signin_signin_component__WEBPACK_IMPORTED_MODULE_6__["SignInComponent"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_6__["SignInComponent"])
-    ], SplashComponent.prototype, "signin", void 0);
-    SplashComponent = SplashComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
-            selector: 'app-splash',
-            template: __webpack_require__(/*! ./splash.component.html */ "./src/app/splash/splash.component.html")
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_database_database__WEBPACK_IMPORTED_MODULE_3__["LocalDatabaseService"]])
-    ], SplashComponent);
-    return SplashComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_5__["AppBase"]));
-
-
-
-/***/ }),
-
 /***/ "./src/app/styles/styles.ts":
 /*!**********************************!*\
   !*** ./src/app/styles/styles.ts ***!
@@ -2863,9 +2761,12 @@ __webpack_require__.r(__webpack_exports__);
 var WelcomeComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WelcomeComponent, _super);
     function WelcomeComponent() {
-        return _super.call(this) || this;
+        var _this = _super.call(this) || this;
+        window.welcome = _this;
+        return _this;
     }
     WelcomeComponent.prototype.ngOnInit = function () {
+        alert('gtt');
     };
     WelcomeComponent.prototype.login = function () {
         _super.prototype.changeCurrentPage.call(this, this, _application__WEBPACK_IMPORTED_MODULE_3__["LOGIN_PAGE"]);

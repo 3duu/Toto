@@ -1,9 +1,8 @@
 import { ButtonComponent, ClickableComponent, ReturnCodeEventArgs } from './../button-classes';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserApiService, ReturnCode } from 'src/app/service/services';
 import { StringUtils, LoginUtils } from 'src/app/utils';
-import { ColorClass } from 'src/app/styles/styles';
 import { User } from 'src/app/entity/User';
 import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
 import { LocalDatabaseService } from 'src/app/database/database';
@@ -13,28 +12,21 @@ import { LocalDatabaseService } from 'src/app/database/database';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SignInComponent extends ButtonComponent implements ClickableComponent, AfterViewInit {
+export class SignInComponent extends ButtonComponent implements ClickableComponent {
 
   constructor(private userApi : UserApiService, private sqlite : LocalDatabaseService) {
     super();
   }
 
   ngOnInit() {
-    //this.sqlite.openDatabase();
-    //this.sqlite.createTables();
-  }
-
-  ngAfterViewInit(): void {
-    if(StringUtils.isEmpty(this.classes)){
-      //this.classes = "btn btn-lg btn-petlife btn-block btn-center";
-    }
+    
   }
   
   doLogin() : void {
     
     this.begin.emit();
     if (this.form.invalid) {
-      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: ""};
+      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, message: ""};
       this.error.emit(args);
       return;
     }
@@ -47,7 +39,7 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
     formUser.loginType = this.form.value.socialMedia;
 
     if(!this.requiredFieldsFilled(formUser)){
-      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.requiredFields};
+      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, message: this.language.requiredFields};
       this.error.emit(args);
       this.loading = false;
       this.done.emit();
@@ -66,17 +58,17 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
       if(result.code == ReturnCode.SUCCESS){
         LoginUtils.setUserInSession(result, this, this.form.value.password, null);
         this.sqlite.mergeUser(formUser);
-        const args : ReturnCodeEventArgs = {code : result.code, color : ColorClass.success, message: ""};
+        const args : ReturnCodeEventArgs = {code : result.code, message: ""};
         this.success.emit(args);
       }
       else {
-        const args : ReturnCodeEventArgs = {code : result.code, color : ColorClass.danger, message: ""};
+        const args : ReturnCodeEventArgs = {code : result.code, message: ""};
         this.error.emit(args);
       }
       this.done.emit();
     }, error => {
       console.log(error);
-      const args : ReturnCodeEventArgs = {code : ReturnCode.CONNECTION_ERROR, color : ColorClass.danger, message: ""};
+      const args : ReturnCodeEventArgs = {code : ReturnCode.CONNECTION_ERROR, message: ""};
       this.error.emit(args);
       this.loading = false;
       this.done.emit();

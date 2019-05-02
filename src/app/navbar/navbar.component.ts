@@ -7,7 +7,6 @@ import { AppBase } from '../appbase';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-@Navbar
 export class NavbarComponent extends AppBase implements AfterContentInit {
   
   constructor(private api: UserApiService) {
@@ -20,7 +19,7 @@ export class NavbarComponent extends AppBase implements AfterContentInit {
   username : string;
 
   ngOnInit() {
-    AppBase.setNavbarComponent(this);
+    
   }
 
   ngAfterContentInit(): void {
@@ -31,11 +30,4 @@ export class NavbarComponent extends AppBase implements AfterContentInit {
     this.navbarOpen = !this.navbarOpen;
   }
 
-}
-
-function Navbar(constructor: Function) {
-  //Object.seal(constructor);
-  //Object.seal(constructor.prototype);
-  
-  //AppBase.setNavbarComponent(constructor.prototype);
 }

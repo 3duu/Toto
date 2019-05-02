@@ -3,16 +3,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { Language } from './language/Language';
 import { User } from './entity/User';
-import { SessionAttributes } from './utils';
-//import { HOME_PAGE } from './application';
+import { SessionAttributes, ObjectUtils } from './utils';
+import { HOME_PAGE } from './application';
 
 export class AppBase implements OnInit {
   
-    //private static modules : AppBase[] = [];
-    private static navbarComponent : NavbarComponent;
     lastComponent :Type<any>;
-  
-    showNavMenu : boolean = true;
   
     applicationName : string = AppComponent.applicationName;
     language : Language = AppComponent.language;
@@ -20,7 +16,10 @@ export class AppBase implements OnInit {
     protected loading = false;
   
     constructor(){
-      //AppBase.addModule(this);
+      if((<any>window).components == undefined){
+        (<any>window).components = [];
+      }
+      (<any>window).components.push(this);
     }
   
     ngOnInit(): void {
@@ -47,45 +46,27 @@ export class AppBase implements OnInit {
         return localStorage.getItem(SessionAttributes.SESSION_ID) != undefined ? JSON.parse(localStorage.getItem(SessionAttributes.SESSION_ID)) : null;
     }
     
-    getNavbarComponent() : NavbarComponent {
-      return AppBase.navbarComponent;
+    protected getNavbarComponent() : NavbarComponent {
+      return AppComponent.menu;
     }
 
     protected getAppComponent() : AppComponent {
       return AppComponent.getAppComponent();
     }
   
-    protected static setNavbarComponent(navbarComponent : NavbarComponent) : void {
-      if(this.navbarComponent == null){
-        //AppBase.addModule(navbarComponent);
-        this.navbarComponent = navbarComponent;
-      }
-    }
-    /*
-    protected static addModule(module : AppBase) : void {
-      for(let m in AppBase.modules){
-        if(module.constructor.name == m.constructor.name){
-          return;
-        }
-      }
-      AppBase.modules.push(module);
-    }*/
-  
     onLogged(afterLoginRedirectComponent: Type<any>) : void {
+      if(ObjectUtils.isEmpty(afterLoginRedirectComponent)){
+        afterLoginRedirectComponent = HOME_PAGE;
+      }
       let user : User = this.getUser();
       if(user != null){
         this.getNavbarComponent().username = user.name;
-        if(afterLoginRedirectComponent != null){
-          this.getAppComponent().changePage(afterLoginRedirectComponent);
-        }
-        else{
-          //this.getAppComponent().changePage(HOME_PAGE);
-        }
+        this.getAppComponent().changePage(afterLoginRedirectComponent);
       }
     }
 
-    changeCurrentPage(current: any, page: Type<any>) : void {
-      setTimeout(() => { 
+    protected changeCurrentPage(current: any, page: Type<any>) : void {
+      setTimeout(() => {
         let newPage = this.getAppComponent().changeCurrentPage(current, page);
         newPage.lastComponent = current.constructor;
       });

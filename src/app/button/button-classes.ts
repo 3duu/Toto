@@ -1,8 +1,6 @@
 import { ReturnCode } from "../service/services";
-import { ColorClass } from "../styles/styles";
 import { AppBase } from '../appbase';
 import { Output, Input, EventEmitter } from '@angular/core';
-
 import { NgForm } from '@angular/forms';
 
 export interface ClickableComponent {
@@ -16,7 +14,6 @@ export interface ClickEventArgs {
 
 export interface ReturnCodeEventArgs {
     code : ReturnCode;
-    color : ColorClass;
     message : string;
 }
 

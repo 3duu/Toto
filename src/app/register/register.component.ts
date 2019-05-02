@@ -1,5 +1,4 @@
 import { SignInComponent } from './../button/signin/signin.component';
-import { LOGIN_PAGE } from './../application';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserApiService, ReturnCode } from '../service/services';
@@ -8,6 +7,7 @@ import { AlertComponent } from '../alert/alert.component';
 import { StringUtils } from '../utils';
 import { FacebookService, GoogleService } from '../socialNetwork/socialNetworkServices';
 import { ReturnCodeEventArgs } from '../button/button-classes';
+import { ColorClass } from '../styles/styles';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -57,10 +57,10 @@ export class RegisterUserComponent extends AppBase {
 
   onRegisterError(eventArgs : ReturnCodeEventArgs) {
     if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
-      this.alert.show(eventArgs.message, eventArgs.color);
+      this.alert.show(eventArgs.message, ColorClass.danger);
     }
     else {
-      this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), eventArgs.color);
+      this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
     }
   }
 
@@ -74,15 +74,15 @@ export class RegisterUserComponent extends AppBase {
   }
 
   onLoginSuccess(eventArgs : ReturnCodeEventArgs) {
-    this.onLogged(LOGIN_PAGE.getAfterLoginPageRedirection());
+    this.onLogged(null);
   }
 
   onLoginError(eventArgs : ReturnCodeEventArgs) {
     if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
-      this.alert.show(eventArgs.message, eventArgs.color);
+      this.alert.show(eventArgs.message, ColorClass.danger);
     }
     else {
-      this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), eventArgs.color);
+      this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
     }
   }
 

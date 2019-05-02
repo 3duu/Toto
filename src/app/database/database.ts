@@ -10,8 +10,6 @@ export class LocalDatabaseService {
 	database : any;
 
 	constructor(private cordovaService : CordovaService) {
-		this.openDatabase();
-		this.createTables();
 		(<any>window).database = this;
 	}
 	

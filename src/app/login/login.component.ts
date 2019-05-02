@@ -4,8 +4,9 @@ import { ReturnCode, UserApiService } from '../service/services';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
 import { StringUtils } from '../utils';
-import { REGISTER_USER_PAGE, HOME_PAGE } from '../application';
+import { REGISTER_USER_PAGE } from '../application';
 import { ReturnCodeEventArgs } from '../button/button-classes';
+import { ColorClass } from '../styles/styles';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -16,11 +17,6 @@ import { ReturnCodeEventArgs } from '../button/button-classes';
 export class LoginComponent extends AppBase {
 
   loginForm: NgForm;
-  private static afterLoginRedirectComponent = HOME_PAGE;
-
-  static getAfterLoginPageRedirection() {
-    return LoginComponent.afterLoginRedirectComponent;
-  }
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
@@ -31,7 +27,7 @@ export class LoginComponent extends AppBase {
   ngOnInit() : void {
     this.getNavbarComponent().disableMenu = true;
     this.getNavbarComponent().disable = false;
-    this.onLogged(LoginComponent.getAfterLoginPageRedirection());
+    this.onLogged(null);
   }
 
   onLoginInit() {
@@ -44,15 +40,15 @@ export class LoginComponent extends AppBase {
   }
 
   onLoginSuccess(eventArgs : ReturnCodeEventArgs) {
-    this.onLogged(LoginComponent.afterLoginRedirectComponent);
+    this.onLogged(null);
   }
 
   onLoginError(eventArgs : ReturnCodeEventArgs) {
     if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
-      this.alert.show(eventArgs.message, eventArgs.color);
+      this.alert.show(eventArgs.message, ColorClass.danger);
     }
     else {
-      this.alert.show(this.userApi.getErrorMessage(eventArgs.code, this.language), eventArgs.color);
+      this.alert.show(this.userApi.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
     }
   }
 

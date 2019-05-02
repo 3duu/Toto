@@ -3,7 +3,6 @@ import { Component, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserApiService, ReturnCode } from 'src/app/service/services';
 import { StringUtils, LoginUtils } from 'src/app/utils';
-import { ColorClass } from 'src/app/styles/styles';
 import { User } from 'src/app/entity/User';
 import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
 import { environment } from 'src/environments/environment';
@@ -35,7 +34,7 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
     
     this.begin.emit();
     if (this.form.invalid) {
-      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: ""};
+      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR,  message: ""};
       this.error.emit(args);
       return;
     }
@@ -50,7 +49,7 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
 
     //Campos obrigatorios
     if(!this.requiredFieldsFilled(formUser, this.form.value.confirmPassword)){
-      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.requiredFields};
+      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR,  message: this.language.requiredFields};
       this.error.emit(args);
       this.loading = false;
       this.done.emit();
@@ -59,7 +58,7 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
 
     //Validar e-mail
     if(!StringUtils.isEmail(formUser.username)){
-      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.invalidEmailAddress};
+      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR,  message: this.language.invalidEmailAddress};
       this.error.emit(args);
       this.loading = false;
       this.done.emit();
@@ -68,7 +67,7 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
 
     //Validar senha
     if(formUser.password.length < PASSWORD_CONFIG.min || (!StringUtils.isEmpty(PASSWORD_CONFIG.contains))){
-      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.invalidPassword.replace(":min", PASSWORD_CONFIG.min)};
+      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR,  message: this.language.invalidPassword.replace(":min", PASSWORD_CONFIG.min)};
       this.error.emit(args);
       this.loading = false;
       this.done.emit();
@@ -77,7 +76,7 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
 
     //Corresponder senha
     if(formUser.password != this.form.value.confirmPassword){
-      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, color : ColorClass.danger, message: this.language.passwordDoesntMatch};
+      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR,  message: this.language.passwordDoesntMatch};
       this.error.emit(args);
       this.loading = false;
       this.done.emit();
@@ -95,17 +94,17 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
 
       if(result.code == ReturnCode.SUCCESS){
         LoginUtils.setUserInSession(result, this, this.form.value.password, null);
-        const args : ReturnCodeEventArgs = {code : result.code, color : ColorClass.success, message: ""};
+        const args : ReturnCodeEventArgs = {code : result.code, message: ""};
         this.success.emit(args);
       }
       else {
-        const args : ReturnCodeEventArgs = {code : result.code, color : ColorClass.danger, message: ""};
+        const args : ReturnCodeEventArgs = {code : result.code,  message: ""};
         this.error.emit(args);
       }
       this.done.emit();
     }, error => {
       console.log(error);
-      const args : ReturnCodeEventArgs = {code : ReturnCode.CONNECTION_ERROR, color : ColorClass.danger, message: ""};
+      const args : ReturnCodeEventArgs = {code : ReturnCode.CONNECTION_ERROR,  message: ""};
       this.error.emit(args);
       this.loading = false;
       this.done.emit();
