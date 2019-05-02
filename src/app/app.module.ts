@@ -38,7 +38,6 @@ import { LocalDatabaseService } from './database/database';
     GoogleComponent
   ],
   entryComponents: [
-    NavbarComponent,
     WELCOME_PAGE,
     LOGIN_PAGE,
     ALERT_TEMPLATE,

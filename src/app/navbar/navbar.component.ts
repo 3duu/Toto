@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserApiService } from '../service/services';
 import { AppBase } from '../appbase';
 import { User } from '../entity/User';
 
@@ -10,7 +9,7 @@ import { User } from '../entity/User';
 })
 export class NavbarComponent extends AppBase {
   
-  constructor(private api: UserApiService) {
+  constructor() {
     super();
   }
 
@@ -20,7 +19,7 @@ export class NavbarComponent extends AppBase {
   user : User;
 
   ngOnInit() {
-    
+    //this.user = super.getUser();
   }
 
   toggleNavbar() {

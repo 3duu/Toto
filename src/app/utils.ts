@@ -1,6 +1,5 @@
 import { AppBase } from './appbase';
 import { Type } from '@angular/core';
-import { User } from './entity/User';
 
 export class StringUtils {
 
