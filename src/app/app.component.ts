@@ -3,11 +3,8 @@ import { Component, ViewContainerRef, ComponentFactoryResolver, Type, ViewChild,
 import { environment } from 'src/environments/environment';
 import { SessionAttributes } from './utils';
 import { WELCOME_PAGE } from './application';
-import { LocalDatabaseService } from './database/database';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthenticationService, ReturnCode } from './service/services';
-import { User } from './entity/User';
-import { SociaNetworkType } from './socialNetwork/socialNetworkServices';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
@@ -27,14 +24,13 @@ export class AppComponent implements AfterContentInit, OnInit {
   @ViewChild(NavbarComponent) private _menu: NavbarComponent;
   static menu: NavbarComponent;
   
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private sqlite : LocalDatabaseService, private authenticationService: AuthenticationService) {
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private authenticationService: AuthenticationService) {
     AppComponent.INSTANCE = this;
     (<any>window).splash = this;
   }
 
   ngOnInit(): void {
-    this.sqlite.openDatabase();
-		this.sqlite.createTables();
+    
   }
 
   ngAfterContentInit() : void {
@@ -79,7 +75,7 @@ export class AppComponent implements AfterContentInit, OnInit {
       localStorage.setItem(attr, undefined);
     });
     AppComponent.menu = this._menu;
-    this.sqlite.getCurrentUser(this.doLogin, this.notLogin);
+    this.authenticationService.authenticateLastUser(this.login);
     //this.changePage(WELCOME_PAGE);
   }
 
@@ -107,29 +103,13 @@ export class AppComponent implements AfterContentInit, OnInit {
 
   title = AppComponent.applicationName;
   
-  doLogin = (result : any) => {
-    const user : User = new User();
-    user.username = result.username;
-    user.password = result.password;
-    user.loginType = SociaNetworkType.NONE;
-    this.authenticationService.authenticate(user, this._menu, this.loginCallback);
-  }
-
-  loginCallback = (args) => {
+  login = (args) => {
     if(args.code == ReturnCode.SUCCESS){
-      this.login();
+      this._menu.onLogged(null);
     }
     else {
-      this.notLogin();
+      this.changeCurrentPage(this, WELCOME_PAGE);
     }
-  }
-
-  login() {
-    AppComponent.menu.onLogged(null);
-  }
-
-  notLogin = () => {
-    this.changeCurrentPage(AppComponent.INSTANCE, WELCOME_PAGE);
   }
 
   test() {

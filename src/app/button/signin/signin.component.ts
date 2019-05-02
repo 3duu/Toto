@@ -44,7 +44,7 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
       return;
     }
  
-    this.authenticationService.authenticate(formUser, this, this.loginDone);
+    this.authenticationService.authenticate(formUser, this.loginDone);
   }
 
   loginDone = (args : ReturnCodeEventArgs) => {

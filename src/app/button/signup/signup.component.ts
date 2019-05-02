@@ -35,7 +35,7 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
     this.begin.emit();
     if (this.form.invalid) {
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR,  message: ""};
-      this.error.emit(args);
+      this.done.emit(args);
       return;
     }
     this.loading = true;
@@ -89,7 +89,7 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
       this.loading = false;
 
       if(result.code == ReturnCode.SUCCESS){
-        LoginUtils.setUserInSession(result, this, this.form.value.password, null);
+        LoginUtils.setUserInSession(result, this.form.value.password);
         const args : ReturnCodeEventArgs = {code : result.code, message: ""};
         this.done.emit(args);
       }

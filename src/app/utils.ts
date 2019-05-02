@@ -1,6 +1,3 @@
-import { AppBase } from './appbase';
-import { Type } from '@angular/core';
-
 export class StringUtils {
 
     static isEmpty(str : string) : boolean {
@@ -23,7 +20,7 @@ export class FormUtils {
 
 export class LoginUtils {
   
-    static setUserInSession(result : any, baseApp : AppBase, password : string, redirection : Type<any>) : void {
+    static setUserInSession(result : any, password : string) : void {
         if (result && result.sid) {
           //store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem(SessionAttributes.CURRENT_USER, JSON.stringify(result.entity));
@@ -31,9 +28,9 @@ export class LoginUtils {
           localStorage.setItem(SessionAttributes.SESSION_ID, result.sid);
           localStorage.setItem(SessionAttributes.LOGIN_DATE, result.date);
           //localStorage.removeItem('currentUser');
-          if(!ObjectUtils.isEmpty(redirection)){
+          /*if(!ObjectUtils.isEmpty(redirection)){
             baseApp.onLogged(redirection);
-          }
+          }*/
         }
     }
 }

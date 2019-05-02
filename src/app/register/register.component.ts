@@ -33,7 +33,7 @@ export class RegisterUserComponent extends AppBase {
 
   facebook() : void {
     console.log("submit login to facebook");
-    this.facebookService.login(this.login.doLogin());
+    //this.facebookService.login(this.login.doLogin());
   }
 
   google() : void {
@@ -51,7 +51,7 @@ export class RegisterUserComponent extends AppBase {
   }
 
   onRegisterSuccess(eventArgs : ReturnCodeEventArgs) {
-    this.login.doLogin();
+    //this.login.doLogin();
   }
 
   onRegisterError(eventArgs : ReturnCodeEventArgs) {

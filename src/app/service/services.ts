@@ -14,6 +14,7 @@ import { User } from '../entity/User';
 import { LoginUtils } from '../utils';
 import { LocalDatabaseService } from '../database/database';
 import { ReturnCodeEventArgs } from '../button/button-classes';
+import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 
 // Set the http options
 const httpOptions = {
@@ -159,10 +160,11 @@ export class PetApiService extends ApiService {
 export class AuthenticationService {
 
   constructor(private userApi : UserApiService, private sqlite : LocalDatabaseService) {
-
+    this.sqlite.openDatabase();
+		this.sqlite.createTables();
   }
 
-  authenticate(entryUser : User, base : AppBase, callback) : void {
+  authenticate(entryUser : User, callback) : void {
  
     let user : Observable<any> = this.userApi.login(entryUser);
 
@@ -173,7 +175,7 @@ export class AuthenticationService {
       console.log(result);
 
       if(result.code == ReturnCode.SUCCESS){
-        LoginUtils.setUserInSession(result, base, entryUser.password, null);
+        LoginUtils.setUserInSession(result, entryUser.password);
         this.sqlite.mergeUser(entryUser);
         callback({code : result.code, message: ""});
       }
@@ -185,6 +187,26 @@ export class AuthenticationService {
       callback( {code : ReturnCode.CONNECTION_ERROR, message: ""});
     });
   }
+
+  authenticateLastUser(callback) : void {
+
+    let doLogin = (result : any) => {
+      const user : User = new User();
+      user.username = result.username;
+      user.password = result.password;
+      user.loginType = SociaNetworkType.NONE;
+      this.authenticate(user, callback);
+    }
+  
+    let notLogin = (y) => {
+      callback({code : ReturnCode.NOT_FOUND, message: ""});
+    }
+
+    this.sqlite.getCurrentUser(doLogin, notLogin);
+  }
+
+  
+
 }
 
 export enum ReturnCode {
