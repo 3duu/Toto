@@ -1,8 +1,10 @@
+import { WELCOME_PAGE } from './application';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Type, ViewChild, OnInit } from '@angular/core';
 import { SessionAttributes, LoginUtils } from './utils';
 import { AuthenticationService, ReturnCode } from './service/services';
 import { Router } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MenuService } from './navbar/menuService';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
@@ -17,7 +19,7 @@ export class AppComponent implements OnInit {
   private static components = [];
   @ViewChild(NavbarComponent) private menu: NavbarComponent;
   
-  constructor(private router: Router, private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private authenticationService: AuthenticationService) {
+  constructor(private router: Router, private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private authenticationService: AuthenticationService, private menuService : MenuService) {
   
   }
 
@@ -52,14 +54,25 @@ export class AppComponent implements OnInit {
     }
   }
 
+  login = (args) => {
+    if(args.code == ReturnCode.SUCCESS){
+      LoginUtils.onLogged(null, this.router, this.menu);
+    }
+    else {
+      this.router.navigateByUrl(WELCOME_PAGE);
+    }
+  }
+
   private startApp() : void {
     //Apagar session values
+    console.log(localStorage);
     let values = Object.keys(SessionAttributes).map(k => SessionAttributes[k as any]);
     values.forEach(attr => {
-      localStorage.setItem(attr, undefined);
+      localStorage.removeItem(attr);
     });
+
+    this.menuService.menu = this.menu;
     this.authenticationService.authenticateLastUser(this.login);
-    //this.changePage(WELCOME_PAGE);
   }
 
   changePage(page: Type<any>) : void {
@@ -85,14 +98,5 @@ export class AppComponent implements OnInit {
   }
 
   //title = AppComponent.applicationName;
-  
-  login = (args) => {
-    if(args.code == ReturnCode.SUCCESS){
-      LoginUtils.onLogged(null, this.router, this.menu);
-    }
-    else {
-      this.router.navigateByUrl("/welcome");
-    }
-  }
 
 }

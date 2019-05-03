@@ -9,6 +9,7 @@ import { ReturnCodeEventArgs } from '../button/button-classes';
 import { ColorClass } from '../styles/styles';
 import { Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { MenuService } from './../navbar/menuService';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -21,9 +22,12 @@ export class RegisterUserComponent extends AppBase {
   registerForm: NgForm;
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
-  @ViewChild(NavbarComponent) private menu: NavbarComponent;
+
+  private get menu(): NavbarComponent {
+    return this.menuService.menu;
+  }
   
-  constructor(public router: Router, private api: UserApiService, private facebookService : FacebookService, private googleService : GoogleService) {
+  constructor(public router: Router, private menuService : MenuService, private api: UserApiService, private facebookService : FacebookService, private googleService : GoogleService) {
     super();
   }
 

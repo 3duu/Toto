@@ -1,7 +1,7 @@
 import { NavbarComponent } from './navbar/navbar.component';
-import { Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from './entity/User';
+import { HOME_PAGE } from './application';
 
 export class StringUtils {
 
@@ -32,10 +32,6 @@ export class LoginUtils {
           localStorage.setItem(SessionAttributes.CURRENT_PASSWORD, password);
           localStorage.setItem(SessionAttributes.SESSION_ID, result.sid);
           localStorage.setItem(SessionAttributes.LOGIN_DATE, result.date);
-          //localStorage.removeItem('currentUser');
-          /*if(!ObjectUtils.isEmpty(redirection)){
-            baseApp.onLogged(redirection);
-          }*/
         }
     }
 
@@ -57,7 +53,7 @@ export class LoginUtils {
 
     static onLogged(afterLoginRedirectUrl: string, router : Router, menu : NavbarComponent) : void {
         if(StringUtils.isEmpty(afterLoginRedirectUrl)){
-            afterLoginRedirectUrl = "/home";
+            afterLoginRedirectUrl = HOME_PAGE;
         }
         let user : User = LoginUtils.getCurrentUser();
         if(user != null && !ObjectUtils.isEmpty(menu)){

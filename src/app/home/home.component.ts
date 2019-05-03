@@ -1,28 +1,26 @@
-import { PetsComponent } from './../pets/pets.component';
-import { MapsComponent } from './../maps/maps.component';
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { MenuService } from './../navbar/menuService';
+import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent extends AppBase implements AfterViewInit {
+export class HomeComponent extends AppBase {
 
-  constructor() {
+  constructor(private router: Router, private menuService : MenuService) {
     super();
   }
 
-  @ViewChild(NavbarComponent) private menu: NavbarComponent;
+  private get menu(): NavbarComponent {
+    return this.menuService.menu;
+  }
 
   ngOnInit() {
     this.enableMenu();
-  }
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {this.enableMenu()});
   }
 
   private enableMenu() : void {
@@ -31,7 +29,7 @@ export class HomeComponent extends AppBase implements AfterViewInit {
   }
 
   maps(): void {
-    super.changeCurrentPage(this, MapsComponent);
+    //super.changeCurrentPage(this, MapsComponent);
   }
 
   appointments(): void {
@@ -39,7 +37,7 @@ export class HomeComponent extends AppBase implements AfterViewInit {
   }
 
   pets(): void {
-    super.changeCurrentPage(this, PetsComponent);
+    //super.changeCurrentPage(this, PetsComponent);
   }
 
   donations(): void {

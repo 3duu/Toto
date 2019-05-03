@@ -1,3 +1,4 @@
+import { MenuService } from './../navbar/menuService';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ReturnCode, UserApiService } from '../service/services';
@@ -20,16 +21,19 @@ export class LoginComponent extends AppBase {
   loginForm: NgForm;
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
-  @ViewChild(NavbarComponent) private menu: NavbarComponent;
   
-  constructor(private router : Router, private userApi : UserApiService) {
+  constructor(private router : Router, private menuService : MenuService) {
     super();
   } 
+
+  private get menu(): NavbarComponent {
+    return this.menuService.menu;
+  }
 
   ngOnInit() : void {
     this.menu.disableMenu = true;
     this.menu.disable = false;
-    LoginUtils.onLogged(null, this.router, this.menu);
+    LoginUtils.onLogged(null, this.router, this.menuService.menu);
   }
 
   onLoginInit() {
@@ -40,15 +44,16 @@ export class LoginComponent extends AppBase {
   onLoginEnd(eventArgs) {
     this.loading = false;
 
-    if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
-      this.alert.show(eventArgs.message, ColorClass.danger);
-    }
-    else {
-      this.alert.show(this.userApi.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
-    }
-
     if(eventArgs.code == ReturnCode.SUCCESS){
       LoginUtils.onLogged(null, this.router, this.menu);
+    }
+    else {
+      if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
+        this.alert.show(eventArgs.message, ColorClass.danger);
+      }
+      else {
+        this.alert.show(this.userApi.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
+      }
     }
   }
 

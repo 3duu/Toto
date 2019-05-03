@@ -1,28 +1,30 @@
+import { AppBase } from './../appbase';
 import { Component } from '@angular/core';
-import { AppBase } from '../appbase';
 import { User } from '../entity/User';
+import { LoginUtils } from '../utils';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent extends AppBase {
+export class NavbarComponent extends AppBase  {
   
-  constructor() {
-    super();
-  }
-
   disableMenu = false;
   disable = true;
   navbarOpen = false;
   user : User;
 
   ngOnInit() {
-    //this.user = super.getUser();
+    this.updateUser();
+  }
+
+  updateUser() {
+    this.user = LoginUtils.getCurrentUser();
   }
 
   toggleNavbar() {
+    this.updateUser();
     this.navbarOpen = !this.navbarOpen;
   }
 

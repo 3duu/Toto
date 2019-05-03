@@ -1,17 +1,15 @@
-import { WelcomeComponent } from './welcome/welcome.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { RegisterUserComponent } from './register/register.component';
-import { PetsComponent } from './pets/pets.component';
-import { AlertComponent } from './alert/alert.component';
-import { MapsComponent } from './maps/maps.component';
+import { Type } from '@angular/core';
 
-export const WELCOME_PAGE = WelcomeComponent;
-export const LOGIN_PAGE = LoginComponent;
-export const HOME_PAGE = HomeComponent;
-export const REGISTER_USER_PAGE = RegisterUserComponent;
+export const WELCOME_PAGE = "welcome";
+export const LOGIN_PAGE = "signin";
+export const HOME_PAGE = "home";
+export const REGISTER_USER_PAGE = "signup";
 //export const REGISTER_PET_PAGE = RegisterPetComponent;
-export const PETS_PAGE = PetsComponent;
-export const MAPS_PAGE = MapsComponent;
-export const ALERT_TEMPLATE = AlertComponent;
+export const PETS_PAGE = "pets";
+export const MAPS_PAGE = "maps";
+
+export interface ApplicationRoute {
+    component : Type<any>;
+    url : string;
+}
 
