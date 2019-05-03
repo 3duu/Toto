@@ -1,10 +1,11 @@
+import { SessionService } from './../session/session.service';
 import { MenuService } from './../navbar/menuService';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, NgZone } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ReturnCode } from '../service/services';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
-import { StringUtils, LoginUtils } from '../utils';
+import { StringUtils } from '../utils';
 import { ColorClass } from '../styles/styles';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
@@ -21,7 +22,7 @@ export class LoginComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
-  constructor(private router : Router, private menuService : MenuService) {
+  constructor(private session : SessionService, private menuService : MenuService, private zone : NgZone, private router: Router) {
     super();
   } 
 
@@ -32,7 +33,7 @@ export class LoginComponent extends AppBase {
   ngOnInit() : void {
     this.menu.disableMenu = true;
     this.menu.disable = false;
-    LoginUtils.onLogged(null, null, this.router, this.menuService.menu);
+    this.session.onLogged(null, this.zone, this.router, this.menuService.menu);
   }
 
   onLoginInit() {
@@ -44,7 +45,7 @@ export class LoginComponent extends AppBase {
     this.loading = false;
 
     if(eventArgs.code == ReturnCode.SUCCESS){
-      LoginUtils.onLogged(null, null, this.router, this.menu);
+      this.session.onLogged(null, this.zone, this.router, this.menu);
     }
     else {
       if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){

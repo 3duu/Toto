@@ -9,7 +9,6 @@ import {
 } from "@angular/common/http";
 import { catchError } from "rxjs/operators";
 import { User } from '../entity/User';
-import { LoginUtils } from '../utils';
 import { LocalDatabaseService } from '../database/database';
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 import { LanguageService } from '../language/Language';
@@ -157,11 +156,15 @@ export class PetApiService extends ApiService {
 export class AuthenticationService {
 
   //https://jwt.io/introduction/
-  constructor(private userApi : UserApiService, private sqlite : LocalDatabaseService) {
+  constructor(private userApi : UserApiService, private _localDatabase : LocalDatabaseService) {
     
   }
 
-  authenticate(entryUser : User, callback) : void {
+  get localDatabase() : LocalDatabaseService {
+    return this._localDatabase;
+  }
+
+  authenticate(entryUser : User, callback, sessionCallback) : void {
  
     let user : Observable<any> = this.userApi.login(entryUser);
 
@@ -172,8 +175,11 @@ export class AuthenticationService {
       console.log(result);
 
       if(result.code == ReturnCode.SUCCESS){
-        LoginUtils.setUserInSession(result, entryUser.password);
-        this.sqlite.mergeUser(entryUser);
+        //LoginUtils.setUserInSession(result, entryUser.password);
+        this._localDatabase.mergeUser(entryUser);
+        if(sessionCallback != undefined) {
+          sessionCallback(result, entryUser.password);
+        }
         callback({code : result.code, message: ""});
       }
       else {
@@ -185,24 +191,22 @@ export class AuthenticationService {
     });
   }
 
-  authenticateLastUser(callback) : void {
+  authenticateLastUser(callback, sessionCallback) : void {
 
     let doLogin = (result : any) => {
       const user : User = new User();
       user.username = result.username;
       user.password = result.password;
       user.loginType = SociaNetworkType.NONE;
-      this.authenticate(user, callback);
+      this.authenticate(user, callback, sessionCallback);
     }
   
     let notLogin = (y) => {
       callback({code : ReturnCode.NOT_FOUND, message: ""});
     }
 
-    this.sqlite.getCurrentUser(doLogin, notLogin);
+    this._localDatabase.getCurrentUser(doLogin, notLogin);
   }
-
-  
 
 }
 

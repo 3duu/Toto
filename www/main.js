@@ -426,25 +426,27 @@ var AppModule = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppBase", function() { return AppBase; });
-/* harmony import */ var _language_Language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./language/Language */ "./src/app/language/Language.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./src/app/utils.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _language_Language__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./language/Language */ "./src/app/language/Language.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils */ "./src/app/utils.ts");
+
 
 
 //https://malcoded.com/posts/why-angular-not-works/
 var AppBase = /** @class */ (function () {
     function AppBase() {
-        this.applicationName = "TOPPET"; // environment.name;
+        this.applicationName = _environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].name;
         this.loading = false;
-        this.language = new _language_Language__WEBPACK_IMPORTED_MODULE_0__["LanguageService"]();
-        /*if((<any>window).components == undefined){
-          (<any>window).components = [];
+        this.language = new _language_Language__WEBPACK_IMPORTED_MODULE_1__["LanguageService"]();
+        if (window.components == undefined) {
+            window.components = [];
         }
-        (<any>window).components.push(this);*/
+        window.components.push(this);
     }
     AppBase.prototype.ngOnInit = function () {
     };
     AppBase.prototype.getSessionId = function () {
-        return localStorage.getItem(_utils__WEBPACK_IMPORTED_MODULE_1__["SessionAttributes"].SESSION_ID) != undefined ? JSON.parse(localStorage.getItem(_utils__WEBPACK_IMPORTED_MODULE_1__["SessionAttributes"].SESSION_ID)) : null;
+        return localStorage.getItem(_utils__WEBPACK_IMPORTED_MODULE_2__["SessionAttributes"].SESSION_ID) != undefined ? JSON.parse(localStorage.getItem(_utils__WEBPACK_IMPORTED_MODULE_2__["SessionAttributes"].SESSION_ID)) : null;
     };
     AppBase.prototype.goBack = function (lastComponent) {
         //this.getAppComponent().changeCurrentPage(this, lastComponent);

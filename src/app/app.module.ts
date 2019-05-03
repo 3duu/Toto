@@ -28,6 +28,7 @@ import { MapsComponent } from './maps/maps.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LanguageService } from './language/Language';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { SessionService } from './session/session.service';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { AuthGuardService } from './guards/auth-guard.service';
     AuthenticationService, 
     MenuService, 
     LanguageService,
-    AuthGuardService],
+    AuthGuardService,
+    SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

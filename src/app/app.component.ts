@@ -1,10 +1,11 @@
 import { WELCOME_PAGE } from './application';
-import { Component, ViewContainerRef, ComponentFactoryResolver, Type, ViewChild, OnInit, NgZone } from '@angular/core';
-import { SessionAttributes, LoginUtils } from './utils';
-import { AuthenticationService, ReturnCode } from './service/services';
-import { Router } from '@angular/router';
+import { Component, ComponentFactoryResolver, Type, ViewChild, OnInit, NgZone, ViewContainerRef } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MenuService } from './navbar/menuService';
+import { environment } from '../environments/environment';
+import { SessionService } from './session/session.service';
+import { ReturnCode } from './service/services';
+import { Router } from '@angular/router';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
@@ -17,14 +18,13 @@ export class AppComponent implements OnInit {
   //static language : Language = new Language();
   // Keep track of list of generated components for removal purposes
   private static components = [];
-  @ViewChild(NavbarComponent) private menu: NavbarComponent;
-  
-  constructor(private zone : NgZone, private router: Router, private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private authenticationService: AuthenticationService, private menuService : MenuService) {
+  @ViewChild(NavbarComponent) private menu : NavbarComponent;
+
+  constructor(private zone : NgZone, private router: Router, private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private session: SessionService, private menuService : MenuService) {
   
   }
 
   ngOnInit(): void {
-    (<any>window).appComponent = this;
     this.startApp();
   }
 
@@ -57,23 +57,18 @@ export class AppComponent implements OnInit {
 
   login = (args) => {
     if(args.code == ReturnCode.SUCCESS){
-      LoginUtils.onLogged(null, this.zone, this.router, this.menu);
+      this.session.onLogged(null, this.zone, this.router, this.menu);
     }
     else {
-      this.zone.run(() => this.router.navigateByUrl(WELCOME_PAGE));
+      this.session.zone.run(() => this.router.navigateByUrl(WELCOME_PAGE));
     }
   }
 
   private startApp() : void {
-    //Apagar session values
-    console.log(localStorage);
-    let values = Object.keys(SessionAttributes).map(k => SessionAttributes[k as any]);
-    values.forEach(attr => {
-      localStorage.removeItem(attr);
-    });
-
+    //Erase session values
+    this.session.resetSession();
     this.menuService.menu = this.menu;
-    this.authenticationService.authenticateLastUser(this.login);
+    this.session.authenticationService.authenticateLastUser(this.login, this.session.setUserInSession);
   }
 
   changePage(page: Type<any>) : void {
@@ -98,6 +93,6 @@ export class AppComponent implements OnInit {
     return component;
   }
 
-  //title = AppComponent.applicationName;
+  title = environment.name;
 
 }

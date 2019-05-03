@@ -1,9 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { SessionService } from './../session/session.service';
+import { Component, ViewChild, NgZone } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserApiService, ReturnCode } from '../service/services';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
-import { StringUtils, LoginUtils } from '../utils';
+import { StringUtils } from '../utils';
 import { FacebookService, GoogleService } from '../socialNetwork/socialNetworkServices';
 import { ReturnCodeEventArgs } from '../button/button-classes';
 import { ColorClass } from '../styles/styles';
@@ -27,7 +28,13 @@ export class RegisterUserComponent extends AppBase {
     return this.menuService.menu;
   }
   
-  constructor(private router: Router, private menuService : MenuService, private api: UserApiService, private facebookService : FacebookService, private googleService : GoogleService) {
+  constructor(private session: SessionService, 
+    private menuService : MenuService, 
+    private api: UserApiService, 
+    private facebookService : FacebookService, 
+    private googleService : GoogleService,
+    private zone : NgZone, 
+    private router: Router) {
     super();
   }
 
@@ -84,7 +91,7 @@ export class RegisterUserComponent extends AppBase {
       this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
     }
     else {
-      LoginUtils.onLogged(null, null, this.router, this.menu);
+      this.session.onLogged(null, this.zone, this.router, this.menu);
     }
   }
 

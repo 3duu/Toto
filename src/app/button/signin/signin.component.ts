@@ -1,7 +1,8 @@
+import { SessionService } from './../../session/session.service';
 import { ButtonComponent, ClickableComponent, ReturnCodeEventArgs } from './../button-classes';
 import { Component } from '@angular/core';
-import { ReturnCode, AuthenticationService } from 'src/app/service/services';
-import { StringUtils, LoginUtils } from 'src/app/utils';
+import { ReturnCode } from 'src/app/service/services';
+import { StringUtils } from 'src/app/utils';
 import { User } from 'src/app/entity/User';
 import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
 
@@ -12,7 +13,7 @@ import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
 })
 export class SignInComponent extends ButtonComponent implements ClickableComponent {
 
-  constructor(private authenticationService : AuthenticationService) {
+  constructor(private session : SessionService) {
     super();
   }
 
@@ -44,7 +45,7 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
       return;
     }
  
-    this.authenticationService.authenticate(formUser, this.loginDone);
+    this.session.authenticationService.authenticate(formUser, this.loginDone, this.session.setUserInSession);
   }
 
   loginDone = (args : ReturnCodeEventArgs) => {
