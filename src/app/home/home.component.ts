@@ -1,7 +1,8 @@
 import { PetsComponent } from './../pets/pets.component';
 import { MapsComponent } from './../maps/maps.component';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,8 @@ export class HomeComponent extends AppBase implements AfterViewInit {
     super();
   }
 
+  @ViewChild(NavbarComponent) private menu: NavbarComponent;
+
   ngOnInit() {
     this.enableMenu();
   }
@@ -23,8 +26,8 @@ export class HomeComponent extends AppBase implements AfterViewInit {
   }
 
   private enableMenu() : void {
-    this.getNavbarComponent().disableMenu = false;
-    this.getNavbarComponent().disable = false;
+    this.menu.disableMenu = false;
+    this.menu.disable = false;
   }
 
   maps(): void {

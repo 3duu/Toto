@@ -38,13 +38,13 @@ import { LocalDatabaseService } from './database/database';
     GoogleComponent
   ],
   entryComponents: [
-    WELCOME_PAGE,
+    /*WELCOME_PAGE,
     LOGIN_PAGE,
     ALERT_TEMPLATE,
     MAPS_PAGE,
     HOME_PAGE,
     REGISTER_USER_PAGE,
-    PETS_PAGE,
+    PETS_PAGE,*/
     EditPetsComponent,
     PetPickerComponent,
     SignInComponent,

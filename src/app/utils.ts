@@ -1,3 +1,8 @@
+import { NavbarComponent } from './navbar/navbar.component';
+import { Type } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from './entity/User';
+
 export class StringUtils {
 
     static isEmpty(str : string) : boolean {
@@ -33,6 +38,33 @@ export class LoginUtils {
           }*/
         }
     }
+
+    static getCurrentUser() : User {
+        let json = localStorage.getItem(SessionAttributes.CURRENT_USER) != undefined ? JSON.parse(localStorage.getItem(SessionAttributes.CURRENT_USER)) : null;
+        if(json != null){
+          let user : User = new User();
+          user.id = json.id;
+          user.name= json.name;
+          user.password = json.password;
+          user.username = json.username;
+          user.creationDate = json.creationDate;
+          user.admin = json.admin;
+          user.pets = json.pets;
+          return user;
+        }
+        return json;
+      }
+
+    static onLogged(afterLoginRedirectUrl: string, router : Router, menu : NavbarComponent) : void {
+        if(StringUtils.isEmpty(afterLoginRedirectUrl)){
+            afterLoginRedirectUrl = "/home";
+        }
+        let user : User = LoginUtils.getCurrentUser();
+        if(user != null && !ObjectUtils.isEmpty(menu)){
+            menu.user = user;
+            router.navigateByUrl(afterLoginRedirectUrl);
+        }
+      }
 }
 
 export class ObjectUtils {

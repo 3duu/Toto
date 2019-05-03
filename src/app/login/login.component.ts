@@ -3,9 +3,11 @@ import { NgForm } from '@angular/forms';
 import { ReturnCode, UserApiService } from '../service/services';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
-import { StringUtils } from '../utils';
-import { REGISTER_USER_PAGE } from '../application';
+import { StringUtils, LoginUtils } from '../utils';
+//import { REGISTER_USER_PAGE } from '../application';
 import { ColorClass } from '../styles/styles';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { Router } from '@angular/router';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -18,15 +20,16 @@ export class LoginComponent extends AppBase {
   loginForm: NgForm;
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
+  @ViewChild(NavbarComponent) private menu: NavbarComponent;
   
-  constructor(private userApi : UserApiService) {
+  constructor(private router : Router, private userApi : UserApiService) {
     super();
   } 
 
   ngOnInit() : void {
-    this.getNavbarComponent().disableMenu = true;
-    this.getNavbarComponent().disable = false;
-    this.onLogged(null);
+    this.menu.disableMenu = true;
+    this.menu.disable = false;
+    LoginUtils.onLogged(null, this.router, this.menu);
   }
 
   onLoginInit() {
@@ -45,7 +48,7 @@ export class LoginComponent extends AppBase {
     }
 
     if(eventArgs.code == ReturnCode.SUCCESS){
-      this.onLogged(null);
+      LoginUtils.onLogged(null, this.router, this.menu);
     }
   }
 
@@ -58,7 +61,7 @@ export class LoginComponent extends AppBase {
   }
 
   register() : void {
-    super.changeCurrentPage(this, REGISTER_USER_PAGE);
+    //super.changeCurrentPage(this, REGISTER_USER_PAGE);
   }
 
 }

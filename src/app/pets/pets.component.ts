@@ -9,6 +9,7 @@ import { StringUtils, ObjectUtils } from '../utils';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { CordovaService } from '../cordova.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 declare let Camera;
 
@@ -23,6 +24,8 @@ export class PetsComponent extends AppBase implements AfterViewInit {
     super();
   }
 
+  @ViewChild(NavbarComponent) private menu: NavbarComponent;
+
   private user : User;
   private title : string = "Pets";
   private dialog : boolean = false;
@@ -30,7 +33,7 @@ export class PetsComponent extends AppBase implements AfterViewInit {
 
   ngOnInit() {
     this.loading = true;
-    this.user = super.getUser();
+    this.user = this.menu.user;
   }
 
   ngAfterViewInit(): void {

@@ -10,16 +10,17 @@ export class LocalDatabaseService {
 	database : any;
 
 	constructor(private cordovaService : CordovaService) {
+		this.openDatabase();
+		this.createTables();
 		(<any>window).database = this;
 	}
 	
-	private error(err) : boolean {
+	private error = (err) : boolean => {
 		console.log("Error processing SQL: " + err.code + ": " + err.message);
-		//alert('Error when executing command - ' + err.code + ": " + err.message);
 		return true;
 	}
 	
-	private success() : void {
+	private success = () => {
 		console.log('SQL COMMAND EXECUTED');
 	}
 
@@ -27,7 +28,7 @@ export class LocalDatabaseService {
 		this.database = this.cordovaService.window.openDatabase("toppet", "2.0", "toppet", 1000000);
 	}
 
-	createTables() {
+	createTables = () => {
 		let transaction = (tx) => {
 
 			let tables = [

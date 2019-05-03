@@ -1,13 +1,14 @@
-import { SignInComponent } from './../button/signin/signin.component';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserApiService, ReturnCode } from '../service/services';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
-import { StringUtils } from '../utils';
+import { StringUtils, LoginUtils } from '../utils';
 import { FacebookService, GoogleService } from '../socialNetwork/socialNetworkServices';
 import { ReturnCodeEventArgs } from '../button/button-classes';
 import { ColorClass } from '../styles/styles';
+import { Router } from '@angular/router';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -20,13 +21,14 @@ export class RegisterUserComponent extends AppBase {
   registerForm: NgForm;
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
+  @ViewChild(NavbarComponent) private menu: NavbarComponent;
   
-  constructor(private api: UserApiService, private facebookService : FacebookService, private googleService : GoogleService) {
+  constructor(public router: Router, private api: UserApiService, private facebookService : FacebookService, private googleService : GoogleService) {
     super();
   }
 
   ngOnInit() : void {
-    this.getNavbarComponent().disableMenu = true;
+    this.menu.disableMenu = true;
     this.facebookService.config();
     this.googleService.config();
   }
@@ -78,7 +80,7 @@ export class RegisterUserComponent extends AppBase {
       this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
     }
     else {
-      this.onLogged(null);
+      LoginUtils.onLogged(null, this.router, this.menu);
     }
   }
 

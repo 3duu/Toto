@@ -1,10 +1,8 @@
-import { Language } from './language/Language';
-import { Component, ViewContainerRef, ComponentFactoryResolver, Type, ViewChild, AfterContentInit, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { SessionAttributes } from './utils';
-import { WELCOME_PAGE } from './application';
-import { NavbarComponent } from './navbar/navbar.component';
+import { Component, ViewContainerRef, ComponentFactoryResolver, Type, ViewChild, OnInit } from '@angular/core';
+import { SessionAttributes, LoginUtils } from './utils';
 import { AuthenticationService, ReturnCode } from './service/services';
+import { Router } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
@@ -12,33 +10,19 @@ import { AuthenticationService, ReturnCode } from './service/services';
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent implements AfterContentInit, OnInit {
+export class AppComponent implements OnInit {
 
-  static applicationName : string = environment.name;
-  static language : Language = new Language();
+  //static language : Language = new Language();
   // Keep track of list of generated components for removal purposes
-  private components = [];
-
-  private static INSTANCE : AppComponent;
-
-  @ViewChild(NavbarComponent) private _menu: NavbarComponent;
-  static menu: NavbarComponent;
+  private static components = [];
+  @ViewChild(NavbarComponent) private menu: NavbarComponent;
   
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private authenticationService: AuthenticationService) {
-    AppComponent.INSTANCE = this;
-    (<any>window).splash = this;
+  constructor(private router: Router, private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private authenticationService: AuthenticationService) {
+  
   }
 
   ngOnInit(): void {
-    
-  }
-
-  ngAfterContentInit() : void {
-    setTimeout(() => this.startApp());
-  }
-
-  static getAppComponent() : AppComponent {
-    return AppComponent.INSTANCE;
+    this.startApp();
   }
 
   private addComponent(componentClass: Type<any>) : any {
@@ -49,7 +33,7 @@ export class AppComponent implements AfterContentInit, OnInit {
       console.log("Adicionado: " + component.instance.constructor.name);
 
       // Push the component so that we can keep track of which components are created
-      this.components.push(component);
+      AppComponent.components.push(component);
 
       return component.instance;
     }
@@ -58,12 +42,12 @@ export class AppComponent implements AfterContentInit, OnInit {
 
   private removeComponent(componentClass: Type<any>, instance : boolean) : void {
     // Find the component
-    const component = this.components.find(component => instance ? (component.instance instanceof componentClass.constructor) : (component.instance instanceof componentClass));
-    const componentIndex = this.components.indexOf(component);
+    const component = AppComponent.components.find(component => instance ? (component.instance instanceof componentClass.constructor) : (component.instance instanceof componentClass));
+    const componentIndex = AppComponent.components.indexOf(component);
     if (componentIndex !== -1) {
       // Remove component from both view and array
       this.container.remove(this.container.indexOf(component));
-      this.components.splice(componentIndex, 1);
+      AppComponent.components.splice(componentIndex, 1);
       console.log("Removido: " + component.instance.constructor.name);
     }
   }
@@ -74,13 +58,12 @@ export class AppComponent implements AfterContentInit, OnInit {
     values.forEach(attr => {
       localStorage.setItem(attr, undefined);
     });
-    AppComponent.menu = this._menu;
     this.authenticationService.authenticateLastUser(this.login);
     //this.changePage(WELCOME_PAGE);
   }
 
   changePage(page: Type<any>) : void {
-    this.components.forEach(component => {
+    AppComponent.components.forEach(component => {
       this.removeComponent(component.instance, true);
     });
     
@@ -94,25 +77,22 @@ export class AppComponent implements AfterContentInit, OnInit {
   }
 
   addSingleComponent(page: any, instance : boolean) : any {
-    const component = instance ? page : this.components.find(component => component.instance instanceof page);
+    const component = instance ? page : AppComponent.components.find(component => component.instance instanceof page);
     if(component == null){
       return this.addComponent(page);
     }
     return component;
   }
 
-  title = AppComponent.applicationName;
+  //title = AppComponent.applicationName;
   
   login = (args) => {
     if(args.code == ReturnCode.SUCCESS){
-      this._menu.onLogged(null);
+      LoginUtils.onLogged(null, this.router, this.menu);
     }
     else {
-      this.changeCurrentPage(this, WELCOME_PAGE);
+      this.router.navigateByUrl("/welcome");
     }
   }
 
-  test() {
-    setTimeout(() => {this.changeCurrentPage(this, WELCOME_PAGE)});
-  }
 }

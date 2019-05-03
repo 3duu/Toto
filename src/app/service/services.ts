@@ -1,4 +1,3 @@
-import { AppBase } from './../appbase';
 import { Pet } from './../entity/Pet';
 import { Language } from './../language/Language';
 import { environment } from 'src/environments/environment';
@@ -13,13 +12,11 @@ import { catchError } from "rxjs/operators";
 import { User } from '../entity/User';
 import { LoginUtils } from '../utils';
 import { LocalDatabaseService } from '../database/database';
-import { ReturnCodeEventArgs } from '../button/button-classes';
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 
 // Set the http options
-const httpOptions = {
-  headers: new HttpHeaders({"Content-Type": "application/json",
-  "Access-Control-Allow-Origin": "*"})
+export const httpOptions = {
+  headers: new HttpHeaders({"Content-Type": "application/json","Access-Control-Allow-Origin": "*"})
 };
 
 const endpoints = environment.endpoint;
@@ -159,9 +156,9 @@ export class PetApiService extends ApiService {
 @Injectable()
 export class AuthenticationService {
 
+  //https://jwt.io/introduction/
   constructor(private userApi : UserApiService, private sqlite : LocalDatabaseService) {
-    this.sqlite.openDatabase();
-		this.sqlite.createTables();
+    
   }
 
   authenticate(entryUser : User, callback) : void {
