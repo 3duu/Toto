@@ -26,6 +26,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MapsComponent } from './maps/maps.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { LanguageService } from './language/Language';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,17 @@ import { WelcomeComponent } from './welcome/welcome.component';
     ModalModule.forRoot(),
     BootstrapModalModule
   ],
-  providers: [CordovaService, LocalDatabaseService, UserApiService, PetApiService, FacebookService, GoogleService, AuthenticationService, MenuService],
+  providers: [
+    CordovaService, 
+    LocalDatabaseService, 
+    UserApiService, 
+    PetApiService, 
+    FacebookService, 
+    GoogleService, 
+    AuthenticationService, 
+    MenuService, 
+    LanguageService,
+    AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

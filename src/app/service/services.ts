@@ -1,5 +1,4 @@
 import { Pet } from './../entity/Pet';
-import { Language } from './../language/Language';
 import { environment } from 'src/environments/environment';
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
@@ -13,6 +12,7 @@ import { User } from '../entity/User';
 import { LoginUtils } from '../utils';
 import { LocalDatabaseService } from '../database/database';
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
+import { LanguageService } from '../language/Language';
 
 // Set the http options
 export const httpOptions = {
@@ -59,7 +59,7 @@ class ApiService {
     return body || {};
   }
 
-  getErrorMessage(result : any, language : Language) : string {
+  getErrorMessage(result : any, language : LanguageService) : string {
     console.log('return code', result.code);
     if(result.code == ReturnCode.SUCCESS){
       if (result && result.sid) {

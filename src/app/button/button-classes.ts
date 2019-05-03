@@ -2,6 +2,7 @@ import { ReturnCode } from "../service/services";
 import { AppBase } from '../appbase';
 import { Output, Input, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { LanguageService } from "../language/Language";
 
 export interface ClickableComponent {
     onClicked() : void;
@@ -19,14 +20,14 @@ export interface ReturnCodeEventArgs {
 
 export class ButtonComponent extends AppBase {
     
-  @Output() click = new EventEmitter();
-  @Output() begin = new EventEmitter();
-  @Output() done = new EventEmitter();
-  @Input() classes : string;
-  @Input() form: NgForm;
-  @Input() hidden: boolean = false;
+    @Output() click = new EventEmitter();
+    @Output() begin = new EventEmitter();
+    @Output() done = new EventEmitter();
+    @Input() classes : string;
+    @Input() form: NgForm;
+    @Input() hidden: boolean = false;
 
-  ngOnInit() {
+    ngOnInit() {
 
-  }
+    }
 }

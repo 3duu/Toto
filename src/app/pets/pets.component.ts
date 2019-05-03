@@ -10,6 +10,7 @@ import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { CordovaService } from '../cordova.service';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { MenuService } from './../navbar/menuService';
 
 declare let Camera;
 
@@ -20,11 +21,13 @@ declare let Camera;
 })
 export class PetsComponent extends AppBase implements AfterViewInit {
 
-  constructor(private api : PetApiService, private modal: Modal) {
+  constructor(private api : PetApiService, private modal: Modal, private menuService : MenuService) {
     super();
   }
 
-  @ViewChild(NavbarComponent) private menu: NavbarComponent;
+  private get menu(): NavbarComponent {
+    return this.menuService.menu;
+  }
 
   private user : User;
   private title : string = "Pets";

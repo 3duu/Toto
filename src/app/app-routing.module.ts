@@ -5,9 +5,10 @@ import { LOGIN_PAGE, WELCOME_PAGE, HOME_PAGE, REGISTER_USER_PAGE } from './appli
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterUserComponent } from './register/register.component';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 const routes: Routes = [
-  { path: HOME_PAGE, component: HomeComponent},
+  { path: HOME_PAGE, component: HomeComponent, canActivateChild: [AuthGuardService]},
   { path: WELCOME_PAGE, component: WelcomeComponent},
   { path: LOGIN_PAGE, component: LoginComponent },
   { path: REGISTER_USER_PAGE, component: RegisterUserComponent },

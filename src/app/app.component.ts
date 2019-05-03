@@ -1,5 +1,5 @@
 import { WELCOME_PAGE } from './application';
-import { Component, ViewContainerRef, ComponentFactoryResolver, Type, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewContainerRef, ComponentFactoryResolver, Type, ViewChild, OnInit, NgZone } from '@angular/core';
 import { SessionAttributes, LoginUtils } from './utils';
 import { AuthenticationService, ReturnCode } from './service/services';
 import { Router } from '@angular/router';
@@ -19,11 +19,12 @@ export class AppComponent implements OnInit {
   private static components = [];
   @ViewChild(NavbarComponent) private menu: NavbarComponent;
   
-  constructor(private router: Router, private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private authenticationService: AuthenticationService, private menuService : MenuService) {
+  constructor(private zone : NgZone, private router: Router, private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private authenticationService: AuthenticationService, private menuService : MenuService) {
   
   }
 
   ngOnInit(): void {
+    (<any>window).appComponent = this;
     this.startApp();
   }
 
@@ -56,10 +57,10 @@ export class AppComponent implements OnInit {
 
   login = (args) => {
     if(args.code == ReturnCode.SUCCESS){
-      LoginUtils.onLogged(null, this.router, this.menu);
+      LoginUtils.onLogged(null, this.zone, this.router, this.menu);
     }
     else {
-      this.router.navigateByUrl(WELCOME_PAGE);
+      this.zone.run(() => this.router.navigateByUrl(WELCOME_PAGE));
     }
   }
 

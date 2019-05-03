@@ -19,15 +19,15 @@ import { MenuService } from './../navbar/menuService';
 })
 export class RegisterUserComponent extends AppBase {
 
-  registerForm: NgForm;
-
   @ViewChild(AlertComponent) private alert: AlertComponent;
+
+  registerForm: NgForm;
 
   private get menu(): NavbarComponent {
     return this.menuService.menu;
   }
   
-  constructor(public router: Router, private menuService : MenuService, private api: UserApiService, private facebookService : FacebookService, private googleService : GoogleService) {
+  constructor(private router: Router, private menuService : MenuService, private api: UserApiService, private facebookService : FacebookService, private googleService : GoogleService) {
     super();
   }
 
@@ -65,7 +65,7 @@ export class RegisterUserComponent extends AppBase {
       this.alert.show(eventArgs.message, ColorClass.danger);
     }
     else {
-      this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
+      this.alert.show(eventArgs.message, ColorClass.danger);
     }
   }
 
@@ -84,13 +84,7 @@ export class RegisterUserComponent extends AppBase {
       this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
     }
     else {
-      LoginUtils.onLogged(null, this.router, this.menu);
-    }
-  }
-
-  goBack() : void {
-    if(this.lastComponent != undefined && this.lastComponent != null){
-      super.goBack(this.lastComponent);
+      LoginUtils.onLogged(null, null, this.router, this.menu);
     }
   }
 

@@ -1,6 +1,7 @@
+import { Injectable } from '@angular/core';
 
-export class Language {
-    constructor() { }
+@Injectable()
+export class LanguageService {
 
     adoptions : string = "Adoção";
     init : string = "Início";

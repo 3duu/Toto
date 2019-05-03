@@ -8,12 +8,16 @@ import { LoginUtils } from '../utils';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent extends AppBase  {
+export class NavbarComponent extends AppBase {
   
   disableMenu = false;
   disable = true;
   navbarOpen = false;
   user : User;
+
+  constructor() {
+    super();
+  }
 
   ngOnInit() {
     this.updateUser();

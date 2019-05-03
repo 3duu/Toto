@@ -1,16 +1,15 @@
 import { MenuService } from './../navbar/menuService';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ReturnCode, UserApiService } from '../service/services';
+import { ReturnCode } from '../service/services';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
 import { StringUtils, LoginUtils } from '../utils';
-//import { REGISTER_USER_PAGE } from '../application';
 import { ColorClass } from '../styles/styles';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
 
-//https://bootsnipp.com/snippets/kMdg
+//https://bootsnipp.com/snippets/kMd
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -33,7 +32,7 @@ export class LoginComponent extends AppBase {
   ngOnInit() : void {
     this.menu.disableMenu = true;
     this.menu.disable = false;
-    LoginUtils.onLogged(null, this.router, this.menuService.menu);
+    LoginUtils.onLogged(null, null, this.router, this.menuService.menu);
   }
 
   onLoginInit() {
@@ -45,14 +44,14 @@ export class LoginComponent extends AppBase {
     this.loading = false;
 
     if(eventArgs.code == ReturnCode.SUCCESS){
-      LoginUtils.onLogged(null, this.router, this.menu);
+      LoginUtils.onLogged(null, null, this.router, this.menu);
     }
     else {
       if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
         this.alert.show(eventArgs.message, ColorClass.danger);
       }
       else {
-        this.alert.show(this.userApi.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
+        this.alert.show(eventArgs.message, ColorClass.danger);
       }
     }
   }

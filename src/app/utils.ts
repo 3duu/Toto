@@ -2,6 +2,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { Router } from '@angular/router';
 import { User } from './entity/User';
 import { HOME_PAGE } from './application';
+import { NgZone } from '@angular/core';
 
 export class StringUtils {
 
@@ -51,14 +52,19 @@ export class LoginUtils {
         return json;
       }
 
-    static onLogged(afterLoginRedirectUrl: string, router : Router, menu : NavbarComponent) : void {
+    static onLogged(afterLoginRedirectUrl: string, zone : NgZone, router : Router, menu : NavbarComponent) : void {
         if(StringUtils.isEmpty(afterLoginRedirectUrl)){
             afterLoginRedirectUrl = HOME_PAGE;
         }
         let user : User = LoginUtils.getCurrentUser();
         if(user != null && !ObjectUtils.isEmpty(menu)){
             menu.user = user;
-            router.navigateByUrl(afterLoginRedirectUrl);
+            if(ObjectUtils.isEmpty(zone)){
+                router.navigateByUrl(afterLoginRedirectUrl);
+            }
+            else {
+                zone.run(() => router.navigateByUrl(afterLoginRedirectUrl));
+            }
         }
       }
 }

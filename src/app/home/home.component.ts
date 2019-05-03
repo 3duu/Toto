@@ -1,3 +1,4 @@
+import { MAPS_PAGE, PETS_PAGE } from './../application';
 import { MenuService } from './../navbar/menuService';
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
@@ -29,7 +30,7 @@ export class HomeComponent extends AppBase {
   }
 
   maps(): void {
-    //super.changeCurrentPage(this, MapsComponent);
+    this.router.navigateByUrl(MAPS_PAGE);
   }
 
   appointments(): void {
@@ -37,7 +38,7 @@ export class HomeComponent extends AppBase {
   }
 
   pets(): void {
-    //super.changeCurrentPage(this, PetsComponent);
+    this.router.navigateByUrl(PETS_PAGE);
   }
 
   donations(): void {
