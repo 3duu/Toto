@@ -49,6 +49,7 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
   }
 
   loginDone = (args : ReturnCodeEventArgs) => {
+    this.loading = false;
     this.done.emit(args);
     if(args.code == ReturnCode.SUCCESS) {
       

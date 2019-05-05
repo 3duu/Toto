@@ -30,7 +30,7 @@ class ApiService {
   protected endpoint : string;
 
   constructor() {
-    this.endpoint = endpoints.local;
+    this.endpoint = endpoints.home;
     console.log(window.location.origin);
   }
 
@@ -187,7 +187,7 @@ export class AuthenticationService {
       }
     }, error => {
       console.log(error);
-      callback( {code : ReturnCode.CONNECTION_ERROR, message: ""});
+      callback( {code : ReturnCode.CONNECTION_ERROR, message: this.userApi.getErrorMessage({code: ReturnCode.CONNECTION_ERROR}, new LanguageService())});
     });
   }
 

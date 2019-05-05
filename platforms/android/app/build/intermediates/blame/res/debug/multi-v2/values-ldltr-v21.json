@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -31,10 +31,10 @@
             ]
         },
         {
-            "outputFile": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -46,10 +46,25 @@
             ]
         },
         {
-            "outputFile": "C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "outputFile": "/home/eduardo/git/Toto/C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/eduardo/git/Toto/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/home/eduardo/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/eafa019109b698e660dff9c5f185a91a/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
