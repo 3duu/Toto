@@ -17,8 +17,8 @@ const routes: Routes = [
   { path: PETS_PAGE, component: PetsComponent },
   { path: AUTOLOGIN_PAGE, component: AutoLoginComponent },
  // { path: 'add-pet', component: REGISTER_PET_PAGE },
-  { path: '', redirectTo: AUTOLOGIN_PAGE, pathMatch: 'full'},
-  { path: '**', redirectTo: AUTOLOGIN_PAGE, pathMatch: 'full'}
+  //{ path: '', redirectTo: AUTOLOGIN_PAGE, pathMatch: 'full'},
+  //{ path: '**', redirectTo: AUTOLOGIN_PAGE, pathMatch: 'full'}
 ];
 
 @NgModule({

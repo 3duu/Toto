@@ -1,7 +1,11 @@
+import { WELCOME_PAGE } from './application';
 import { Component, ComponentFactoryResolver, Type, ViewChild, OnInit, NgZone, ViewContainerRef } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MenuService } from './navbar/menuService';
 import { environment } from '../environments/environment';
+import { SessionService } from './session/session.service';
+import { ReturnCode } from './service/services';
+import { Router } from '@angular/router';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true
@@ -16,7 +20,7 @@ export class AppComponent implements OnInit {
   private static components = [];
   @ViewChild(NavbarComponent) private menu : NavbarComponent;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private menuService : MenuService) {
+  constructor(private zone : NgZone, private router: Router, private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private session: SessionService, private menuService : MenuService) {
   
   }
 
@@ -51,9 +55,25 @@ export class AppComponent implements OnInit {
     }
   }
 
+  login = (args) => {
+    if(args.code == ReturnCode.SUCCESS){
+      this.session.onLogged(null, this.zone, this.router, this.menu);
+    }
+    else {
+      this.session.zone.run(() => this.router.navigateByUrl(WELCOME_PAGE));
+    }
+  }
+
   private startApp() : void {
+    //Erase session values
+    this.session.resetSession();
     this.menuService.menu = this.menu;
-    //TO-DO : verify session
+    if(this.router.url == "/"){
+      this.session.authenticationService.authenticateLastUser(this.login, this.session.setUserInSession);
+    }
+    else {
+      this.login({code : ReturnCode.NOT_FOUND});
+    }
   }
 
   changePage(page: Type<any>) : void {
