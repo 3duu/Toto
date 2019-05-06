@@ -175,16 +175,12 @@ export class AuthenticationService {
       console.log(result);
 
       if(result.code == ReturnCode.SUCCESS){
-        //LoginUtils.setUserInSession(result, entryUser.password);
         this._localDatabase.mergeUser(entryUser);
         if(sessionCallback != undefined) {
           sessionCallback(result, entryUser.password);
         }
-        callback({code : result.code, message: ""});
       }
-      else {
-        callback( {code : result.code, message: ""});
-      }
+      callback({code : result.code, message: ""});
     }, error => {
       console.log(error);
       callback( {code : ReturnCode.CONNECTION_ERROR, message: this.userApi.getErrorMessage({code: ReturnCode.CONNECTION_ERROR}, new LanguageService())});

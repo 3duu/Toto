@@ -84,7 +84,6 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
     user.subscribe(result => {
 
       console.log(result);
-      this.loading = false;
 
       if(result.code == ReturnCode.SUCCESS){
         this.session.setUserInSession(result, this.form.value.password);
@@ -92,16 +91,19 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
         this.done.emit(args);
       }
       else {
-        const args : ReturnCodeEventArgs = {code : result.code,  message: ""};
+        let message = "";
+        if(result.code == ReturnCode.RESOURCE_EXISTS){
+          message = this.language.usernameExists;
+        }
+        const args : ReturnCodeEventArgs = {code : result.code,  message: message};
         this.done.emit(args);
       }
-      this.done.emit();
+      this.loading = false;
     }, error => {
       console.log(error);
       const args : ReturnCodeEventArgs = {code : ReturnCode.CONNECTION_ERROR,  message: ""};
       this.done.emit(args);
       this.loading = false;
-      this.done.emit();
     });
   }
 

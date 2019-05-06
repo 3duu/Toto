@@ -85,7 +85,7 @@
     background: none !important;
 }
 
-.welcome-background {
+.default-background {
     background-image: url("src/assets/img/welcome-bg.jpg");
     background-color: #563d7c;
     background-repeat: round !important;
@@ -100,5 +100,10 @@
 
     width: 100%;
     height: 100%;
+}
+
+.text-muted {
+    color: #bbbbbb !important;
+    font-size: 100%;
 }
 

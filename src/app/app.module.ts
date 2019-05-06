@@ -29,7 +29,6 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LanguageService } from './language/Language';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { SessionService } from './session/session.service';
-import { AutoLoginComponent } from './auto-login/auto-login.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +46,7 @@ import { AutoLoginComponent } from './auto-login/auto-login.component';
     SignInComponent,
     SignUpComponent,
     FacebookComponent,
-    GoogleComponent,
-    AutoLoginComponent
+    GoogleComponent
   ],
   entryComponents: [
     EditPetsComponent,

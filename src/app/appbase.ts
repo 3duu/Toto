@@ -1,7 +1,7 @@
+import { PETS_PAGE, HOME_PAGE, WELCOME_PAGE, LOGIN_PAGE } from './application';
 import { environment } from './../environments/environment';
 import { OnInit } from '@angular/core';
 import { LanguageService } from './language/Language';
-import { SessionAttributes } from './utils';
 
 //https://malcoded.com/posts/why-angular-not-works/
 export class AppBase implements OnInit /** AfterContentInit */ {

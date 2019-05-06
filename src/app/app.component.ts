@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   private static components = [];
   @ViewChild(NavbarComponent) private menu : NavbarComponent;
 
-  constructor(private zone : NgZone, private router: Router, private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private session: SessionService, private menuService : MenuService) {
+  constructor(private router: Router, private componentFactoryResolver: ComponentFactoryResolver, private container: ViewContainerRef, private session: SessionService, private menuService : MenuService) {
   
   }
 
@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
 
   login = (args) => {
     if(args.code == ReturnCode.SUCCESS){
-      this.session.onLogged(null, this.zone, this.router, this.menu);
+      this.session.onLogged(null, this.router, this.menu);
     }
     else {
       this.session.zone.run(() => this.router.navigateByUrl(WELCOME_PAGE));

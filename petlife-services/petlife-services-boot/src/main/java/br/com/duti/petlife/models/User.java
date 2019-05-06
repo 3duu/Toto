@@ -72,7 +72,7 @@ public class User implements Serializable, UserDetails {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

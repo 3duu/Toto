@@ -1,4 +1,4 @@
-import { Injectable, ViewContainerRef, NgZone } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { AuthenticationService } from '../service/services';
 import { SessionAttributes, StringUtils, ObjectUtils } from '../utils';
 import { User } from '../entity/User';
@@ -50,10 +50,10 @@ export class SessionService {
     return json;
   }
 
-  onLogged(redirectUrl: string, zone : NgZone, router : Router, menu : NavbarComponent) : void {
+  onLogged(redirectUrl: string, router : Router, menu : NavbarComponent) : void {
 
     if(StringUtils.isEmpty(redirectUrl)){
-        redirectUrl = HOME_PAGE;
+      redirectUrl = HOME_PAGE;
     }
     const user : User = this.getCurrentUser();
     if(!ObjectUtils.isEmpty(user)){
@@ -61,11 +61,11 @@ export class SessionService {
         if(!ObjectUtils.isEmpty(menu)){
             menu.user = user;
         }
-        if(ObjectUtils.isEmpty(zone)){
+        if(ObjectUtils.isEmpty(this.zone)){
             router.navigateByUrl(redirectUrl);
         }
         else {
-            zone.run(() => router.navigateByUrl(redirectUrl));
+          this.zone.run(() => router.navigateByUrl(redirectUrl));
         }
     }
   }

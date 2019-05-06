@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { PETS_PAGE, HOME_PAGE, WELCOME_PAGE, LOGIN_PAGE } from '../application';
 
 @Injectable()
 export class LanguageService {
@@ -57,4 +58,13 @@ export class LanguageService {
     invalidEmailAddress : string = "Forneça um endereço de e-mail válido";
     invalidPassword : string = "Senha deve conter pelo menos :min caracteres";
     passwordDoesntMatch : string = "Confirmação de senha não corresponde com senha";
+
+    links : Links = new Links();
 }
+
+export class Links {
+    pets = PETS_PAGE;
+    home = HOME_PAGE;
+    welcome = WELCOME_PAGE;
+    login = LOGIN_PAGE;
+  }

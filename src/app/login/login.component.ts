@@ -9,6 +9,7 @@ import { StringUtils } from '../utils';
 import { ColorClass } from '../styles/styles';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
+import { REGISTER_USER_PAGE } from '../application';
 
 //https://bootsnipp.com/snippets/kMd
 @Component({
@@ -22,7 +23,7 @@ export class LoginComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
-  constructor(private session : SessionService, private menuService : MenuService, private zone : NgZone, private router: Router) {
+  constructor(private session : SessionService, private menuService : MenuService, private router: Router) {
     super();
   } 
 
@@ -33,7 +34,7 @@ export class LoginComponent extends AppBase {
   ngOnInit() : void {
     this.menu.disableMenu = true;
     this.menu.disable = false;
-    this.session.onLogged(null, this.zone, this.router, this.menuService.menu);
+    this.session.onLogged(null, this.router, this.menuService.menu);
   }
 
   onLoginInit() {
@@ -45,7 +46,7 @@ export class LoginComponent extends AppBase {
     this.loading = false;
 
     if(eventArgs.code == ReturnCode.SUCCESS){
-      this.session.onLogged(null, this.zone, this.router, this.menu);
+      this.session.onLogged(null, this.router, this.menu);
     }
     else {
       if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
@@ -66,7 +67,7 @@ export class LoginComponent extends AppBase {
   }
 
   register() : void {
-    //super.changeCurrentPage(this, REGISTER_USER_PAGE);
+    this.router.navigateByUrl(REGISTER_USER_PAGE);
   }
 
 }

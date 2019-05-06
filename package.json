@@ -1,7 +1,7 @@
 {
   "name": "br.com.toppet",
   "version": "1.0.0",
-  "displayName": "TOP-PET",
+  "displayName": "TOPPET",
   "endpoints": {
     "local": "http://localhost:9003",
     "indra": "http://192.168.137.1:9003/toppet",

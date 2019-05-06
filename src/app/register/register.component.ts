@@ -1,16 +1,18 @@
+import { SignUpComponent } from './../button/signup/signup.component';
+import { PETS_PAGE, LOGIN_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { Component, ViewChild, NgZone } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { UserApiService, ReturnCode } from '../service/services';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
 import { StringUtils } from '../utils';
-import { FacebookService, GoogleService } from '../socialNetwork/socialNetworkServices';
+import { FacebookService, GoogleService, SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 import { ReturnCodeEventArgs } from '../button/button-classes';
 import { ColorClass } from '../styles/styles';
 import { Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { MenuService } from './../navbar/menuService';
+import { User } from '../entity/User';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -21,8 +23,7 @@ import { MenuService } from './../navbar/menuService';
 export class RegisterUserComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
-
-  registerForm: NgForm;
+  @ViewChild(SignUpComponent) private submit: SignUpComponent;
 
   private get menu(): NavbarComponent {
     return this.menuService.menu;
@@ -33,7 +34,6 @@ export class RegisterUserComponent extends AppBase {
     private api: UserApiService, 
     private facebookService : FacebookService, 
     private googleService : GoogleService,
-    private zone : NgZone, 
     private router: Router) {
     super();
   }
@@ -46,7 +46,7 @@ export class RegisterUserComponent extends AppBase {
 
   facebook() : void {
     console.log("submit login to facebook");
-    //this.facebookService.login(this.login.doLogin());
+    this.facebookService.login(this.login);
   }
 
   google() : void {
@@ -59,40 +59,48 @@ export class RegisterUserComponent extends AppBase {
     this.alert.hide();
   }
 
-  onRegisterEnd() {
+  login = (args : ReturnCodeEventArgs) => {
     this.loading = false;
-  }
 
-  onRegisterSuccess(eventArgs : ReturnCodeEventArgs) {
-    //this.login.doLogin();
-  }
-
-  onRegisterError(eventArgs : ReturnCodeEventArgs) {
-    if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
-      this.alert.show(eventArgs.message, ColorClass.danger);
+    if(args.code == ReturnCode.SUCCESS) {
+      this.session.onLogged(PETS_PAGE, this.router, this.menu);
     }
     else {
-      this.alert.show(eventArgs.message, ColorClass.danger);
+     this.router.navigateByUrl(LOGIN_PAGE);
+    }
+  }
+
+  onRegisterEnd(eventArgs : ReturnCodeEventArgs) {
+    if(eventArgs.code == ReturnCode.SUCCESS) {
+
+      if(this.submit.form != undefined && this.submit.form.value.username != undefined && this.submit.form.value.password != undefined){
+        const user : User = new User();
+        user.username = this.submit.form.value.username;
+        user.password = this.submit.form.value.password;
+        user.loginType = SociaNetworkType.NONE;
+        this.session.authenticationService.authenticate(user, this.login, this.session.setUserInSession);
+      }
+      else {
+        this.router.navigateByUrl(LOGIN_PAGE);
+      }
+    }
+    else {
+      if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
+        this.alert.show(eventArgs.message, ColorClass.danger);
+      }
+      else if(eventArgs.code != ReturnCode.VALIDATION_ERROR  && StringUtils.isEmpty(eventArgs.message)) {
+        this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
+      }
+      else {
+        this.alert.show(eventArgs.message, ColorClass.danger);
+      }
+      this.loading = false;
     }
   }
 
   onLoginInit() {
     this.loading = true;
     this.alert.hide();
-  }
-
-  onLoginEnd(eventArgs : ReturnCodeEventArgs) {
-    this.loading = false;
-
-    if(eventArgs.code == ReturnCode.VALIDATION_ERROR && !StringUtils.isEmpty(eventArgs.message)){
-      this.alert.show(eventArgs.message, ColorClass.danger);
-    }
-    else if(eventArgs.code == ReturnCode.VALIDATION_ERROR) {
-      this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), ColorClass.danger);
-    }
-    else {
-      this.session.onLogged(null, this.zone, this.router, this.menu);
-    }
   }
 
 }

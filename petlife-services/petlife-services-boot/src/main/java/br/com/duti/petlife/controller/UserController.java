@@ -35,7 +35,7 @@ public class UserController {
 		ResponseEntity<User> response = null;
 		//Lidar com login de redes sociais
 		
-		if(SocialNetworkType.NONE.equals(user.getLoginType())) {
+		if(user.getLoginType() == null || SocialNetworkType.NONE.equals(user.getLoginType())) {
 			user.setLoginType(null);
 			user.setPassword(getEncryptedString(user.getPassword()));
 		}
@@ -78,8 +78,11 @@ public class UserController {
 				}
 			}
 			else {
-				if(userRepository.getSocialMediaUser(user) != null) {
-					return null;
+				final User foundUser = userRepository.getSocialMediaUser(user);
+				if(foundUser != null) {
+					response = new ResponseEntity<User>(null, RequestContextHolder.currentRequestAttributes().getSessionId());
+					response.setCode(ReturnCode.RESOURCE_EXISTS.getValue());
+					return response;
 				}
 			}
 			

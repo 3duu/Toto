@@ -37,6 +37,8 @@ export class PetsComponent extends AppBase implements AfterViewInit {
   ngOnInit() {
     this.loading = true;
     this.user = this.menu.user;
+    this.menu.disable = false;
+    this.menu.disableMenu = false;
   }
 
   ngAfterViewInit(): void {
