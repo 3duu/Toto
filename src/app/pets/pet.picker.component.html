@@ -4,6 +4,7 @@
 		  <h1>{{language.animal}}</h1>
     </div>
     <div class="container text-center">
+      <br>
       <p>
         <a *ngFor="let item of animals; let i= index ;trackBy: trackByFn" class="btn btn-toppet social-login-btn pet-icon" (click)="select(item)" href="javascript:;"><i class="fa fa-{{item.icon}}"></i></a>
       </p>

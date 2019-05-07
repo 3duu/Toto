@@ -9,5 +9,10 @@
         <img [src]="pet.img" class="card-img-top" [ngClass]="{ 'button-disabled': pet.img == null }">
         <a class="btn btn-light" [ngClass]="{ 'button-disabled': pet.img != null }" (click)="camera()" href="javascript:;" style="font-size: 450%;"><i class="fa fa-camera text-petlife"></i></a>
       </div>
+      <div class="slidecount">
+          <span class=""></span>
+          <span class=""></span>
+          <span class="selected"></span>
+      </div>
     </div> 
   </section>

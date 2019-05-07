@@ -113,9 +113,9 @@ export class PetsComponent extends AppBase {
 ///////////////////////////
 
 @Component({
-  selector: 'app-pet-info-wizard',
-  templateUrl: './pet.info.wizard.component.html',
-  styleUrls: ['./pet.wizard.component.css']
+  selector: 'app-pet-info',
+  templateUrl: './pet.info.component.html',
+  styleUrls: ['./pet.picker.component.css']
 })
 export class PetInfoComponent extends AppBase {
 
@@ -191,7 +191,8 @@ export class PetInfoComponent extends AppBase {
 
 @Component({
   selector: 'app-define-pets',
-  templateUrl: './pet.picker.component.html'
+  templateUrl: './pet.picker.component.html',
+  styleUrls: ["./pet.picker.component.css"]
 })
 export class PetPickerComponent extends AppBase {
 
