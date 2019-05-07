@@ -1,12 +1,17 @@
 <section class="body_section">
   <div class=interface_class>
     <div class="page-header">
-		  <h1>{{title}}</h1>
+		  <h1>{{language.animal}}</h1>
     </div>
     <div class="container text-center">
       <p>
-        <a *ngFor="let item of animals; let i= index ;trackBy: trackByFn" class="btn btn-petlife social-login-btn pet-icon" (click)="select(item)" href="javascript:;"><i class="fa fa-{{item.icon}}"></i></a>
+        <a *ngFor="let item of animals; let i= index ;trackBy: trackByFn" class="btn btn-toppet social-login-btn pet-icon" (click)="select(item)" href="javascript:;"><i class="fa fa-{{item.icon}}"></i></a>
       </p>
+    </div>
+    <div class="slidecount">
+      <span class="selected"></span>
+      <span class=""></span>
+      <span class=""></span>
     </div>
   </div> 
 </section>

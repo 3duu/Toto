@@ -1,4 +1,4 @@
-import { PETS_WIZARD_DEF_PAGE, PETS_PAGE } from './../application';
+import { PETS_WIZARD_DEF_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, ViewChild } from '@angular/core';
@@ -38,6 +38,7 @@ export class PetsComponent extends AppBase {
   private user : User;
   private title : string = "Pets";
   private dialog : boolean = false;
+  private active : boolean = true;
 
   ngOnInit() {
     this.loading = true;
@@ -101,7 +102,10 @@ export class PetsComponent extends AppBase {
   protected add() : void {
     (<any>window).activatedRoute = this.router;
     //this.router.navigateByUrl(this.router.url + "/" + PETS_WIZARD_DEF_PAGE);
-    this.session.zone.run(() => this.router.navigate([PETS_WIZARD_DEF_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute, queryParams: {id: ""}}));
+    this.session.zone.run(() => 
+      this.router.navigate([PETS_WIZARD_DEF_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute, queryParams: {id: ""}}).then(res =>{
+        this.active = false;
+      }));
     //, {replaceUrl: true, relativeTo: this.activatedRoute, queryParams: {id: ""}}
   }
 }
