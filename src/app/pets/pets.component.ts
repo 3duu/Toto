@@ -1,6 +1,6 @@
 import { AppBase } from './../appbase';
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
-import { PetApiService, ReturnCode } from '../service/services';
+import { PetApiService } from '../service/services';
 import { User } from '../entity/User';
 import { Pet, PetType } from '../entity/Pet';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
@@ -11,6 +11,7 @@ import { ColorClass } from '../styles/styles';
 import { CordovaService } from '../cordova.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { MenuService } from './../navbar/menuService';
+import { ReturnCode } from '../entity/system';
 
 declare let Camera;
 

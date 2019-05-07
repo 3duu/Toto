@@ -1,3 +1,4 @@
+import { ReturnCode } from './../entity/system';
 import { Pet } from './../entity/Pet';
 import { environment } from 'src/environments/environment';
 import { Injectable } from "@angular/core";
@@ -10,7 +11,6 @@ import {
 import { catchError } from "rxjs/operators";
 import { User } from '../entity/User';
 import { LocalDatabaseService } from '../database/database';
-import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 import { LanguageService } from '../language/Language';
 
 // Set the http options
@@ -193,7 +193,7 @@ export class AuthenticationService {
       const user : User = new User();
       user.username = result.username;
       user.password = result.password;
-      user.loginType = SociaNetworkType.NONE;
+      user.loginType = result.loginType;
       this.authenticate(user, callback, sessionCallback);
     }
   
@@ -204,13 +204,4 @@ export class AuthenticationService {
     this._localDatabase.getCurrentUser(doLogin, notLogin);
   }
 
-}
-
-export enum ReturnCode {
-  SUCCESS = 0,
-  NOT_FOUND = -1,
-  VALIDATION_ERROR = -2,
-  SERVER_ERROR = -3,
-  RESOURCE_EXISTS = -4,
-  CONNECTION_ERROR = -5,
 }

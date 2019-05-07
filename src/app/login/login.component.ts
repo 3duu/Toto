@@ -1,8 +1,7 @@
 import { SessionService } from './../session/session.service';
 import { MenuService } from './../navbar/menuService';
-import { Component, ViewChild, NgZone } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ReturnCode } from '../service/services';
 import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
 import { StringUtils } from '../utils';
@@ -10,6 +9,7 @@ import { ColorClass } from '../styles/styles';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
 import { REGISTER_USER_PAGE } from '../application';
+import { ReturnCode } from '../entity/system';
 
 //https://bootsnipp.com/snippets/kMd
 @Component({

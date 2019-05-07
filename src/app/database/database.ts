@@ -32,7 +32,7 @@ export class LocalDatabaseService {
 		let transaction = (tx) => {
 
 			let tables = [
-				'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement,  username text, password text, current boolean)',
+				'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement,  username text, password text, current boolean, loginType integer)',
 				'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement,  name text)'
 			];
 			//cria tabelas
@@ -46,14 +46,14 @@ export class LocalDatabaseService {
 
 	mergeUser(user : User) {
 		
-		const insertQuery = "INSERT INTO user (username, password, current) VALUES ('";
+		const insertQuery = "INSERT INTO user (username, password, current, loginType) VALUES ('";
 
 		let insertNew = (tx) => {
-			tx.executeSql(insertQuery +user.username+"','"+user.password+"', 1)");
+			tx.executeSql(insertQuery +user.username+"','"+user.password+"', 1, "+user.loginType+" )");
 		};
 
 		let lookup = (tx) => {
-			tx.executeSql("SELECT * FROM user WHERE username = '" + user.username+"'", [], result);
+			tx.executeSql("SELECT * FROM user WHERE username = '" + user.username+"' AND loginType = " + user.loginType , [], result);
 		};
 
 		let result = (tx, res) => {
@@ -68,7 +68,7 @@ export class LocalDatabaseService {
 						}
 	
 						let update = (tx) => {
-							tx.executeSql("UPDATE user SET current = 1 WHERE username = '" + user.username+"'");
+							tx.executeSql("UPDATE user SET current = 1 WHERE username = '" + user.username+"' AND loginType = " + user.loginType);
 						};
 
 						this.database.transaction(update, this.error, this.success);
@@ -106,8 +106,9 @@ export class LocalDatabaseService {
 	}
 
 	resetUsers() {
+		this.createTables();
 		let transaction = (tx) => {
-			tx.executeSql("DELETE FROM user");
+			tx.executeSql("DROP TABLE user");
 		};
 
 		this.database.transaction(transaction, this.error, this.success);

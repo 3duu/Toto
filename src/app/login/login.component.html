@@ -6,8 +6,8 @@
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
         <br><br>
         <p>
-            <facebook-button></facebook-button>
-            <google-button></google-button>
+            <facebook-button (begin)="onLoginInit()" (done)="onLoginEnd($event)"></facebook-button>
+            <google-button (begin)="onLoginInit()" (done)="onLoginEnd($event)"></google-button>
         </p>
         <br>
 

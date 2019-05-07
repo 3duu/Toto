@@ -1,8 +1,10 @@
+import { SessionService } from './../../session/session.service';
 import { ButtonComponent, ClickableComponent } from './../button-classes';
 import { Component } from '@angular/core';
 import { ObjectUtils } from '../../utils';
 import { SociaNetworkType, FacebookService } from '../../socialNetwork/socialNetworkServices';
 import { NgForm } from '@angular/forms';
+import { ReturnCode } from 'src/app/entity/system';
 
 @Component({
   selector: 'facebook-button',
@@ -11,7 +13,7 @@ import { NgForm } from '@angular/forms';
 })
 export class FacebookComponent extends ButtonComponent implements ClickableComponent {
 
-  constructor(private api : FacebookService) {
+  constructor(private api : FacebookService, private session : SessionService) {
     super();
   }
 
@@ -21,12 +23,26 @@ export class FacebookComponent extends ButtonComponent implements ClickableCompo
     this.api.config();
   }
 
-  private callback() : void {
-    alert("done");
+  private callback = (args) => {
+    console.log(args);
+    if(args.code == ReturnCode.SUCCESS){
+      this.session.authenticationService.authenticate(args.result, this.login, this.session.setUserInSession);
+    }
+    else {
+      this.loading = false;
+      this.done.emit(args);
+    }
+  }
+
+  private login = (args) => {
+    console.log(args);
+    this.done.emit(args);
+    this.loading = false;
   }
 
   do(form: NgForm) : void {
-    
+    this.loading = true;
+    this.begin.emit();
     if(!ObjectUtils.isEmpty(form)){
       this.form = form;
     }

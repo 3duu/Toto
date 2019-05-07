@@ -29,31 +29,34 @@ public class UserController {
 	private IUserRepository userRepository;
 	
 	//@CrossOrigin(origins = {Utils.HTTP, Utils.SMARTPHONE})
+	@Transactional
 	@PostMapping(value="/authenticate", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> doLogin(@RequestBody final User user) {
 		
 		ResponseEntity<User> response = null;
 		//Lidar com login de redes sociais
 		
-		if(user.getLoginType() == null || SocialNetworkType.NONE.equals(user.getLoginType())) {
+		if(SocialNetworkType.NONE.equals(user.getLoginType())) {
 			user.setLoginType(null);
-			user.setPassword(getEncryptedString(user.getPassword()));
 		}
 		
-		if(user.getLoginType() != null) {
-			response = register(user);
-		}
-
 		try {
+			user.setPassword(getEncryptedString(user.getPassword()));
+			final User foundUser = userRepository.getUser(user);
+			if(foundUser == null){
+				if(user.getLoginType() != null || SocialNetworkType.NONE.equals(user.getLoginType())) {
+					response = register(user);
+				}
+			}
+			
 			if(response == null) {
-				response = new ResponseEntity<User>(userRepository.getUser(user), RequestContextHolder.currentRequestAttributes().getSessionId());
-				if(response.getEntity() != null) {
+				response = new ResponseEntity<User>(foundUser, RequestContextHolder.currentRequestAttributes().getSessionId());
+				if(foundUser != null) {
 					response.setCode(ReturnCode.SUCCESS.getValue());
 				} else {
 					response.setCode(ReturnCode.NOT_FOUND.getValue());
 				}
 			}
-			
 		}
 		catch(Exception e){
 			response = new ResponseEntity<User>(user, RequestContextHolder.currentRequestAttributes().getSessionId());

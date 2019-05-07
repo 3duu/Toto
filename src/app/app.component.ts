@@ -4,8 +4,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MenuService } from './navbar/menuService';
 import { environment } from '../environments/environment';
 import { SessionService } from './session/session.service';
-import { ReturnCode } from './service/services';
 import { Router } from '@angular/router';
+import { ReturnCode } from './entity/system';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
 //ng generate component home --entryComponent=true

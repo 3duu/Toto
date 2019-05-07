@@ -7,8 +7,8 @@
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
         <br>
         <p>
-          <facebook-button></facebook-button>
-          <google-button></google-button>
+          <facebook-button (begin)="onRegisterInit()" (done)="onRegisterEnd($event, true)"></facebook-button>
+          <google-button (begin)="onRegisterInit()" (done)="onRegisterEnd($event, true)"></google-button>
         </p>
         <small class="text-muted">{{language.createWithSomeInfo}}</small>
         <br>
@@ -17,12 +17,12 @@
         <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.name}}" type="text" name="name" id="name" ngModel />
         <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel />
         <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.confirmPassword}}" type="password" name="confirmPassword" id="confirmPassword" ngModel />
-        <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
+        <div class="spinner-border text-toppet" role="status" [ngClass]="{ 'button-disabled': !loading }">
             <span class="sr-only">Carregando...</span>
         </div>
         <br>
         <app-alert></app-alert>
-        <register-button classes="btn btn-lg btn-toppet btn-block btn-center" [form]="registerForm" (begin)="onRegisterInit()" (done)="onRegisterEnd($event)">{{language.signUp}}</register-button>
+        <register-button classes="btn btn-lg btn-toppet btn-block btn-center" [form]="registerForm" (begin)="onRegisterInit()" (done)="onRegisterEnd($event, false)">{{language.signUp}}</register-button>
         <br>
     </form>
 </div>
