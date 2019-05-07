@@ -1,4 +1,4 @@
-<section class="body_section" *ngIf="active">
+<section class="body_section" *ngIf="outlet.isActivated == false">
   <div class=interface_class>
     <div class="page-header">
 		  <h1>{{title}} <small>{{user.pets.length}}</small></h1>
@@ -20,4 +20,4 @@
     </a>
   </div> 
 </section>
-<router-outlet></router-outlet>
+<router-outlet #outlet="outlet"></router-outlet>
