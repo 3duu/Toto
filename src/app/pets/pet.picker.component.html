@@ -1,17 +1,14 @@
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">{{language.animal}}</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeDialog()">
-        <span aria-hidden="true">&times;</span>
-      </button>
+<section class="body_section">
+  <div class=interface_class>
+    <div class="page-header">
+		  <h1>{{title}}</h1>
     </div>
-    <div class="modal-body">
-      <div class="container text-center">
-        <p>
-            <a *ngFor="let item of animals; let i= index ;trackBy: trackByFn" class="btn btn-petlife social-login-btn pet-icon" (click)="select(item)" href="#"><i class="fa fa-{{item.icon}}"></i></a>
-        </p>
-      </div> 
+    <div class="container text-center">
+      <p>
+        <a *ngFor="let item of animals; let i= index ;trackBy: trackByFn" class="btn btn-petlife social-login-btn pet-icon" (click)="select(item)" href="javascript:;"><i class="fa fa-{{item.icon}}"></i></a>
+      </p>
     </div>
-  </div>
-</div>
+  </div> 
+</section>
+
+

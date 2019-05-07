@@ -1,4 +1,3 @@
-import { WELCOME_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, NgZone } from '@angular/core';

@@ -14,16 +14,15 @@
         <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>
         <br>
         
-        <input type="hidden" name="socialMedia" id="socialMedia" value="0" ngModel>
         <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.username}}" type="text" name="username" id="username" ngModel><!-- required -->
         <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel>
 
         <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
-        <div class="spinner-border text-toppet" role="status" [ngClass]="{ 'button-disabled': !loading }">
+        <div *ngIf="loading" class="spinner-border text-toppet" role="status">
             <span class="sr-only">Carregando...</span>
         </div>
         <app-alert></app-alert>
-        <login-button classes="btn btn-lg btn-toppet btn-block btn-center" [form]="loginForm" (begin)="onLoginInit()" (done)="onLoginEnd($event)">{{language.signIn}}</login-button>
+        <login-button [hidden]="loading" classes="btn btn-lg btn-toppet btn-block btn-center" [form]="loginForm" (begin)="onLoginInit()" (done)="onLoginEnd($event)">{{language.signIn}}</login-button>
         <br>
     </form>
     <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class="ember-view btn btn-sm btn-default" (click)="register()"> <b>{{language.register}} </b></button> </small>

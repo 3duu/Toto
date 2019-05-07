@@ -12,6 +12,8 @@ import { catchError } from "rxjs/operators";
 import { User } from '../entity/User';
 import { LocalDatabaseService } from '../database/database';
 import { LanguageService } from '../language/Language';
+import { ObjectUtils } from '../utils';
+import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 
 // Set the http options
 export const httpOptions = {
@@ -165,8 +167,12 @@ export class AuthenticationService {
   }
 
   authenticate(entryUser : User, callback, sessionCallback) : void {
- 
-    let user : Observable<any> = this.userApi.login(entryUser);
+    
+    if(ObjectUtils.isEmpty(entryUser.loginType)){
+      entryUser.loginType = SociaNetworkType.NONE;
+    }
+
+    const user : Observable<any> = this.userApi.login(entryUser);
 
     (<any>window).httpUser = user;
 
@@ -180,7 +186,7 @@ export class AuthenticationService {
           sessionCallback(result, entryUser.password);
         }
       }
-      callback({code : result.code, message: ""});
+      callback({code : result.code});
     }, error => {
       console.log(error);
       callback( {code : ReturnCode.CONNECTION_ERROR, message: this.userApi.getErrorMessage({code: ReturnCode.CONNECTION_ERROR}, new LanguageService())});

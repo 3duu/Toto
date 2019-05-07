@@ -41,6 +41,10 @@ export class FacebookComponent extends ButtonComponent implements ClickableCompo
   }
 
   do(form: NgForm) : void {
+    
+    if(this.loading){
+      return;
+    }
     this.loading = true;
     this.begin.emit();
     if(!ObjectUtils.isEmpty(form)){

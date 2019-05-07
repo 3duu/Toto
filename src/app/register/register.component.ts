@@ -1,4 +1,3 @@
-import { ObjectUtils } from './../utils';
 import { SignUpComponent } from './../button/signup/signup.component';
 import { PETS_PAGE, LOGIN_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
@@ -19,7 +18,7 @@ import { ReturnCode } from '../entity/system';
 //https://bootsnipp.com/snippets/kMdg
 @Component({
   selector: 'app-register',
-  templateUrl: './register.user.component.html',
+  templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
 export class RegisterUserComponent extends AppBase {
@@ -49,7 +48,6 @@ export class RegisterUserComponent extends AppBase {
   onRegisterInit() {
     this.loading = true;
     this.alert.hide();
-    this.submit.hidden = true;
   }
 
   login = (args : ReturnCodeEventArgs) => {
@@ -64,8 +62,8 @@ export class RegisterUserComponent extends AppBase {
   }
 
   onRegisterEnd(eventArgs : ReturnCodeEventArgs, isNetwork : boolean) {
-    if(eventArgs.code == ReturnCode.SUCCESS) {
 
+    if(eventArgs.code == ReturnCode.SUCCESS) {
       if(isNetwork) {
         this.session.onLogged(PETS_PAGE, this.router, this.menu);
       }
@@ -94,7 +92,6 @@ export class RegisterUserComponent extends AppBase {
       }
       this.loading = false;
     }
-    this.submit.hidden = false;
   }
 
   onLoginInit() {
@@ -103,46 +100,3 @@ export class RegisterUserComponent extends AppBase {
   }
 
 }
-
-////////////////////////////////////////////////////////////////////
-/*
-@Component({
-  selector: 'app-pet-register',
-  templateUrl: './register.pet.component.html',
-  styleUrls: ['./register.component.css'],
-})
-export class RegisterPetComponent extends AppBase {
-
-  registerForm: NgForm;
-
-  @ViewChild(AlertComponent) private alert: AlertComponent;
-  
-  constructor(private api: PetApiService) {
-    super();
-  }
-
-  ngOnInit() : void {
-    this.getNavbarComponent().disableMenu = true;
-  }
-
-  doRegister(form: NgForm) : void {
-
-    this.alert.hide();
-    this.registerForm = form;
-    
-  }
-
-  requiredFieldsFilled(user: User, confirmPassword : string) : boolean {
-    return !(StringUtils.isEmpty(user.username)
-    || StringUtils.isEmpty(user.password)
-    || StringUtils.isEmpty(user.name)
-    || StringUtils.isEmpty(confirmPassword));
-  }
-
-  goBack() : void {
-    if(this.lastComponent != undefined && this.lastComponent != null){
-      super.goBack(this.lastComponent);
-    }
-  }
-
-}*/

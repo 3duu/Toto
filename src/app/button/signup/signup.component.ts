@@ -1,6 +1,6 @@
 import { SessionService, PASSWORD_CONFIG } from './../../session/session.service';
 import { ButtonComponent, ClickableComponent, ReturnCodeEventArgs } from './../button-classes';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserApiService } from 'src/app/service/services';
 import { StringUtils } from 'src/app/utils';
@@ -13,7 +13,7 @@ import { ReturnCode } from 'src/app/entity/system';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignUpComponent extends ButtonComponent implements ClickableComponent, AfterViewInit {
+export class SignUpComponent extends ButtonComponent implements ClickableComponent {
 
   constructor(private userApi : UserApiService, private session : SessionService) {
     super();
@@ -23,14 +23,11 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
     
   }
 
-  ngAfterViewInit(): void {
-    if(StringUtils.isEmpty(this.classes)){
-      //this.classes = "btn btn-lg btn-petlife btn-block btn-center";
-    }
-  }
-
   doRegister() : void {
     
+    if(this.loading){
+      return;
+    }
     this.begin.emit();
     if (this.form.invalid) {
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR,  message: "", result: this.form};

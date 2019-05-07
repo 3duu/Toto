@@ -14,8 +14,8 @@ export interface ClickEventArgs {
 
 export interface ReturnCodeEventArgs {
     code : ReturnCode;
-    message : string;
-    result : any;
+    message? : string | null;
+    result? : any | null;
 }
 
 export class ButtonComponent extends AppBase {
@@ -25,7 +25,7 @@ export class ButtonComponent extends AppBase {
     @Output() done = new EventEmitter();
     @Input() classes : string;
     @Input() form: NgForm;
-    @Input() hidden: boolean = false;
+    @Input() hidden : boolean;
 
     ngOnInit() {
 

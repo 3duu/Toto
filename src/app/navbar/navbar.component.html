@@ -1,4 +1,4 @@
-<nav class="navbar  navbar-dark bg-petlife" [ngClass]="{ 'button-disabled': disable }"><!-- navbar-expand-lg-->
+<nav class="navbar  navbar-dark bg-petlife" *ngIf="disable == false"><!-- navbar-expand-lg-->
     <a class="navbar-brand" href="#">{{applicationName}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" [ngClass]="{ 'button-disabled': disableMenu }" (click)="toggleNavbar()" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

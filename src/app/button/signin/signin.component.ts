@@ -23,6 +23,9 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
   
   doLogin() : void {
     
+    if(this.loading){
+      return;
+    }
     this.begin.emit();
     if (this.form.invalid) {
       const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, message: "", result : this.form};

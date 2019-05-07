@@ -1,10 +1,10 @@
+import { PETS_WIZARD_DEF_PAGE, PETS_PAGE } from './../application';
+import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PetApiService } from '../service/services';
 import { User } from '../entity/User';
 import { Pet, PetType } from '../entity/Pet';
-import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
-import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
 import { StringUtils, ObjectUtils } from '../utils';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
@@ -12,17 +12,22 @@ import { CordovaService } from '../cordova.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { MenuService } from './../navbar/menuService';
 import { ReturnCode } from '../entity/system';
+import { Router, ActivatedRoute } from '@angular/router';
 
-declare let Camera;
+declare const Camera;
 
 @Component({
   selector: 'app-pets',
   templateUrl: './pets.component.html',
   styleUrls: ['./pets.component.css']
 })
-export class PetsComponent extends AppBase implements AfterViewInit {
+export class PetsComponent extends AppBase {
 
-  constructor(private api : PetApiService, private modal: Modal, private menuService : MenuService) {
+  constructor(private api : PetApiService, 
+    private menuService : MenuService,
+    private session : SessionService,
+    private router : Router,
+    private activatedRoute: ActivatedRoute) {
     super();
   }
 
@@ -33,16 +38,12 @@ export class PetsComponent extends AppBase implements AfterViewInit {
   private user : User;
   private title : string = "Pets";
   private dialog : boolean = false;
-  static dialogRef : DialogRef<any>;
 
   ngOnInit() {
     this.loading = true;
     this.user = this.menu.user;
     this.menu.disable = false;
     this.menu.disableMenu = false;
-  }
-
-  ngAfterViewInit(): void {
     this.loadPets();
   }
 
@@ -97,65 +98,34 @@ export class PetsComponent extends AppBase implements AfterViewInit {
   }
 
   //https://mdbootstrap.com/docs/angular/modals/basic/
-  private openAddDialog() : void {
-    this.dialog = true;
-    const dialogRef = this.modal
-      .open(EditPetsComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
-    console.log(dialogRef);
-    console.log(this.modal);
-    // dialogRef.result
-    //   .then( result => this.save(result) );
-
-    dialogRef.onDestroy.subscribe(() => {
-      this.dialog = false;
-    });
-
-    PetsComponent.dialogRef = dialogRef;
-  }
-
   protected add() : void {
-    setTimeout(() => {this.openAddDialog()});
+    (<any>window).activatedRoute = this.router;
+    //this.router.navigateByUrl(this.router.url + "/" + PETS_WIZARD_DEF_PAGE);
+    this.session.zone.run(() => this.router.navigate([PETS_WIZARD_DEF_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute, queryParams: {id: ""}}));
+    //, {replaceUrl: true, relativeTo: this.activatedRoute, queryParams: {id: ""}}
   }
-
 }
 
 ///////////////////////////
 
 @Component({
-  selector: 'app-add-pets',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  selector: 'app-pet-info-wizard',
+  templateUrl: './pet.info.wizard.component.html',
+  styleUrls: ['./pet.wizard.component.css']
 })
-export class EditPetsComponent extends AppBase implements AfterViewInit {
+export class PetInfoComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   private pet : Pet;
-  private dialog : boolean = false;
-  static dialogRef : DialogRef<any>;
   animal : Animal = new Animal(PetType.OTHER);
-
-  cameraOptions : any;
   
-  constructor(private api : PetApiService, private modal: Modal, private phonegap : CordovaService){
+  constructor(private api : PetApiService, private session : SessionService, private router : Router){
     super();
   }
   
   ngOnInit() {
     this.pet = new Pet();
     this.animal.name = this.language.animal;
-
-    this.cameraOptions = {
-      quality: 100,
-      destinationType: Camera.DestinationType.FILE_URI,
-      sourceType: Camera.PictureSourceType.CAMERA,
-      allowEdit: false,
-      encodingType: Camera.EncodingType.JPEG,
-      saveToPhotoAlbum: false
-    };
-  }
-
-  ngAfterViewInit(): void {
-    
   }
 
   openPetType() {
@@ -183,7 +153,7 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
         if(result.entity){
           if(result.code == ReturnCode.SUCCESS){
             if(result && result.sid) {
-              this.closeDialog();
+              //SAVED
             }
           }
         }
@@ -197,10 +167,6 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
       });
   }
 
-  private closeDialog() : void {
-    PetsComponent.dialogRef.close();
-  }
-
   selectAnimal(selected : number) : void {
     this.pet.petType = selected;
     console.log(this.pet.petType);
@@ -208,65 +174,11 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
 
   requiredFieldsFilled(pet: Pet) : boolean {
     console.log(pet);
-    return !(StringUtils.isEmpty(pet.name)
-      || ObjectUtils.isEmpty(pet.age)
-      || ObjectUtils.isEmpty(pet.petType));
-  }
-
-  private openPetDialog() : void {
-
-    this.dialog = true;
-    const dialogRef = this.modal
-      .open(PetPickerComponent, overlayConfigFactory({ isBlocking: false }, BSModalContext));
-    
-    dialogRef.onDestroy.subscribe(() => {
-      this.dialog = false;
-    });
-    /*
-    const dialogRef = this.modal.confirm()
-        .size('lg')
-        .showClose(true)
-        .title(this.language.animal)
-        .body(`
-          <div class="container text-center">
-            <p>
-                <a *ngFor="let item of animals; let i= index ;trackBy: trackByFn" class="btn btn-petlife social-login-btn pet-icon" (click)="select(item)" href="#"><i class="fa fa-{{item.icon}}"></i></a>
-            </p>
-          </div> 
-      `)
-        .open();
-
-    dialogRef.result
-        .then( result => alert(`The result is: ${result}`) );*/
-
-    EditPetsComponent.dialogRef = dialogRef;
+    return !(StringUtils.isEmpty(pet.name) || ObjectUtils.isEmpty(pet.age) || ObjectUtils.isEmpty(pet.petType));
   }
 
   protected add() : void {
-    setTimeout(() => { this.openPetDialog() });
-  }
-
-  private browserPicture : any;
-
-  protected camera() : void {
-    /*this.phone.window.navigator.camera.getPicture(onSuccess, onFail, { quality: 70,
-        destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
-    });*/
-
-    let onCameraSuccess = (imageURL) => {
-      console.log(imageURL);
-      this.pet.img = imageURL;
-      if(this.phonegap.isBrowser){
-        this.pet.img = 'data:image/jpg;base64,' + this.pet.img;
-      }
-    }
-      
-    let onCameraFail = (message) => {
-      alert('Failed because: ' + message);
-    }
-
-    this.phonegap.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, this.cameraOptions);
+    //setTimeout(() => { this.openPetDialog() });
   }
 
 }
@@ -274,13 +186,16 @@ export class EditPetsComponent extends AppBase implements AfterViewInit {
 //////////////////////////////////////
 
 @Component({
-  selector: 'app-add-pets',
-  templateUrl: './pet.picker.component.html',
-  styleUrls: ['./pet.picker.component.css']
+  selector: 'app-define-pets',
+  templateUrl: './pet.picker.component.html'
 })
-export class PetPickerComponent extends AppBase implements AfterViewInit {
+export class PetPickerComponent extends AppBase {
 
   private animals : Animal[] = [];
+
+  constructor(private session : SessionService, private router : Router) {
+    super();
+  }
   
   ngOnInit() {
     //this.animals = Object.keys(PetType).map(k => PetType[k as any]);
@@ -292,21 +207,17 @@ export class PetPickerComponent extends AppBase implements AfterViewInit {
     });
     this.animals.push(new Animal(PetType.OTHER));
   }
-
-  ngAfterViewInit(): void {
-    
-  }
   
   select(selected : Animal) : void {
     //this.pet.petType = selected;
     console.log(selected);
-    EditPetsComponent.dialogRef
+    //PetInfoComponent.dialogRef
 
     this.closeDialog();
   }
 
   private closeDialog() : void {
-    EditPetsComponent.dialogRef.close();
+    //PetInfoComponent.dialogRef.close();
   }
 
 }
@@ -347,3 +258,51 @@ export class Animal {
     }
   }
 }
+
+//////////////////////////////////////
+
+@Component({
+  selector: 'app-pet-picture',
+  templateUrl: './pet.picture.component.html'
+})
+export class PetPictureComponent extends AppBase {
+
+  constructor(private phonegap : CordovaService){
+    super();
+  }
+  
+  ngOnInit() {
+    alert("fewf");
+  }
+
+  protected camera() : void {
+    /*this.phone.window.navigator.camera.getPicture(onSuccess, onFail, { quality: 70,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+    });*/
+
+    let onCameraSuccess = (imageURL) => {
+      console.log(imageURL);
+      //this.pet.img = imageURL;
+      if(this.phonegap.isBrowser){
+        //this.pet.img = 'data:image/jpg;base64,' + this.pet.img;
+      }
+    }
+      
+    let onCameraFail = (message) => {
+      alert('Failed because: ' + message);
+    }
+
+    const cameraOptions = {
+      quality: 100,
+      destinationType: Camera.DestinationType.FILE_URI,
+      sourceType: Camera.PictureSourceType.CAMERA,
+      allowEdit: false,
+      encodingType: Camera.EncodingType.JPEG,
+      saveToPhotoAlbum: false
+    };
+
+    this.phonegap.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, cameraOptions);
+  }
+}
+

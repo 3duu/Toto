@@ -1,0 +1,13 @@
+
+
+<section class="body_section">
+    <div class=interface_class>
+      <div class="page-header">
+        <h1>{{title}}</h1>
+      </div>
+      <div class="card">
+        <img [src]="pet.img" class="card-img-top" [ngClass]="{ 'button-disabled': pet.img == null }">
+        <a class="btn btn-light" [ngClass]="{ 'button-disabled': pet.img != null }" (click)="camera()" href="javascript:;" style="font-size: 450%;"><i class="fa fa-camera text-petlife"></i></a>
+      </div>
+    </div> 
+  </section>

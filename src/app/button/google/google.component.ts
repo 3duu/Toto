@@ -27,6 +27,12 @@ export class GoogleComponent extends ButtonComponent implements ClickableCompone
 
   do(form: NgForm) : void {
     
+    if(this.loading){
+      return;
+    }
+
+    this.loading = true;
+    
     if(!ObjectUtils.isEmpty(form)){
       this.form = form;
     }

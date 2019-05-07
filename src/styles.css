@@ -107,3 +107,58 @@
     font-size: 100%;
 }
 
+.slidecount {
+    opacity: 1;
+}
+
+.slidecount {
+    height: .6rem;
+    bottom: 1.7rem;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.unselectable, .unselectable * {
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.ip, .sip {
+    position: relative;
+    box-sizing: content-box;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.ip, .sip {
+    position: relative;
+    box-sizing: content-box;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.slidecount span {
+    background: rgba(255,255,255,.4);
+    border-radius: 50%;
+    height: .6rem;
+    width: .6rem;
+    display: inline-block;
+    line-height: .6rem;
+    margin: 0 .5rem;
+}
+
+.slidecount span.selected {
+    background: #fff;
+}
+

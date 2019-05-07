@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { CordovaService } from './cordova.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
-import { EditPetsComponent, PetPickerComponent, PetsComponent } from './pets/pets.component';
+import { PetPickerComponent, PetsComponent, PetInfoComponent, PetPictureComponent } from './pets/pets.component';
 import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 import { FacebookService, GoogleService } from './socialNetwork/socialNetworkServices';
@@ -41,15 +41,15 @@ import { SessionService } from './session/session.service';
     HomeComponent,
     RegisterUserComponent,
     PetsComponent,
-    EditPetsComponent,
+    PetInfoComponent,
     PetPickerComponent,
+    PetPictureComponent,
     SignInComponent,
     SignUpComponent,
     FacebookComponent,
     GoogleComponent
   ],
   entryComponents: [
-    EditPetsComponent,
     PetPickerComponent,
     SignInComponent,
     SignUpComponent,
