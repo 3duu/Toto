@@ -10,20 +10,11 @@
       <div class="container">
         <div class="row">
           <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-            <ul class="event-list">
-              <li *ngFor="let b of type.breeds" (click)="select(b)">
-                <!-- <img src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" /> -->
-                <div class="info">
-                  <h2 class="title">{{b.description}}</h2>
-                  <p class="desc">United States Holiday</p>
-                </div>
-                <!-- <div class="social">
-                  <ul>
-                    <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
-                    <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
-                    <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
-                  </ul>
-                </div> -->
+            <ul class="event-list" style="width: 115% !important; margin-left: -8% !important;">
+              <li *ngFor="let b of type.breeds" (click)="select(b)" style="height: 65px !important; line-height:65px;">
+                  <div style="display:inline-block; vertical-align:middle; line-height:1.25em; text-align: center; width: 100%;">
+                    <h2 class="new-title" >{{b.description}}</h2>
+                  </div>
               </li>
             </ul>
           </div>

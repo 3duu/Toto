@@ -102,7 +102,7 @@ export class PetsComponent extends AppBase {
 })
 export class PetTypeComponent extends AppBase {
 
-  private animals : PetType[] = [];
+  private types : PetType[] = [];
   private dialog : boolean = false;
 
   constructor(private router : Router, private api : PetApiService, private modal: Modal) {
@@ -122,7 +122,7 @@ export class PetTypeComponent extends AppBase {
       if(result.code == ReturnCode.SUCCESS){
         if (result && result.sid) {
           if(result.entity){
-            this.animals = result.entity;
+            this.types = result.entity;
           }
         }
       }
