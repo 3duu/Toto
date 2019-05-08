@@ -1,3 +1,4 @@
+import { Breed } from './../entity/Pet';
 import { PETS_WIZARD_DEF_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
@@ -13,6 +14,8 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { MenuService } from './../navbar/menuService';
 import { ReturnCode } from '../entity/system';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
+import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
 
 declare const Camera;
 
@@ -42,7 +45,7 @@ export class PetsComponent extends AppBase {
 
   ngOnInit() {
     this.loading = true;
-    this.user = this.menu.user;
+    this.user = this.session.getCurrentUser();
     this.menu.disable = false;
     this.menu.disableMenu = false;
     this.loadPets();
@@ -59,28 +62,15 @@ export class PetsComponent extends AppBase {
         //this.user.pets = result;
         this.loading = false;
 
-        if(result.entity){
-
-          result.entity.forEach(p => {
-            let pet : Pet = new Pet();
-            pet.id = p.id;
-            pet.name = p.name;
-            //pet.age = p.birthDate;
-            pet.user = this.user;
-            pet.appointments = [];
-            this.user.pets.push(pet);
-          });
-
-          if(result.code == ReturnCode.SUCCESS){
-            if (result && result.sid) {
-              
+        if(result.code == ReturnCode.SUCCESS){
+          if (result && result.sid) {
+            if(result.entity){
+              this.user.pets = result.entity;
             }
           }
-
         }
-
-        if(result.code != ReturnCode.SUCCESS) {
-          alert(this.api.getErrorMessage(result, this.language));
+        else  {
+          //alert(this.api.getErrorMessage(result, this.language));
         }
       } ,error => {
         console.log(error);
@@ -94,23 +84,111 @@ export class PetsComponent extends AppBase {
     alert("Visualizar");
   }
 
-  public save(pet : Pet) : void {
-    alert("Salvar");
-  }
-
   //https://mdbootstrap.com/docs/angular/modals/basic/
   protected add() : void {
-    (<any>window).activatedRoute = this.router;
-    //this.router.navigateByUrl(this.router.url + "/" + PETS_WIZARD_DEF_PAGE);
     this.session.zone.run(() => 
       this.router.navigate([PETS_WIZARD_DEF_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute, queryParams: {id: ""}}).then(res =>{
         this.active = false;
-      }));
-    //, {replaceUrl: true, relativeTo: this.activatedRoute, queryParams: {id: ""}}
+    }));
   }
 }
 
 ///////////////////////////
+
+@Component({
+  selector: 'app-define-pets',
+  templateUrl: './pet.type.component.html',
+  styleUrls: ["./pet.picker.component.css"]
+})
+export class PetTypeComponent extends AppBase {
+
+  private animals : PetType[] = [];
+  private dialog : boolean = false;
+
+  constructor(private router : Router, private api : PetApiService, private modal: Modal) {
+    super();
+  }
+  
+  ngOnInit() {
+
+    this.loading = true;
+    const types = this.api.getAllPetTypes();
+
+    types.subscribe(result => {
+
+      console.log(result);
+      
+      this.loading = false;
+      if(result.code == ReturnCode.SUCCESS){
+        if (result && result.sid) {
+          if(result.entity){
+            this.animals = result.entity;
+          }
+        }
+      }
+      else {
+        //alert(this.api.getErrorMessage(result, this.language));
+      }
+    } ,error => {
+      console.log(error);
+      this.loading = false;
+    });
+  }
+  
+  select(selected : PetType) : void {
+
+    console.log(selected);
+
+    if(selected.breeds != undefined && selected.breeds.length > 0){
+      this.dialog = true;
+      const dialogRef = this.modal
+        .open(BreedPickerComponent, overlayConfigFactory({ isBlocking: false , data : {type : selected} }, BSModalContext));
+      // dialogRef.result
+      //   .then( result => this.save(result) );
+      (<any>window).dialogRef = dialogRef;
+      dialogRef.onDestroy.subscribe(() => {
+        this.dialog = false;
+      });
+    }
+  }
+
+}
+
+///////////////////////////////////////////////
+
+@Component({
+  selector: 'app-breeds',
+  templateUrl: './pet.breeds.component.html',
+  styleUrls: ["./pet.picker.component.css"]
+})
+export class BreedPickerComponent extends AppBase {
+
+  private type : PetType;
+
+  constructor(private dialogRef : DialogRef<any>) {
+    super();
+    const data = this.dialogRef.context.data;
+    if(data != undefined){
+      this.type = data.type;
+    }
+  }
+  
+  ngOnInit() {
+    
+  }
+  
+  select(selected : Breed) : void {
+    console.log(selected);
+    this.closeDialog();
+  }
+
+  private closeDialog() : void {
+    this.dialogRef.close();
+  }
+
+}
+
+///////////////////////////////////////////////
 
 @Component({
   selector: 'app-pet-info',
@@ -121,7 +199,7 @@ export class PetInfoComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   private pet : Pet;
-  animal : Animal = new Animal(PetType.OTHER);
+  //animal : Animal = new Animal(new PetType());
   
   constructor(private api : PetApiService, private session : SessionService, private router : Router){
     super();
@@ -129,7 +207,7 @@ export class PetInfoComponent extends AppBase {
   
   ngOnInit() {
     this.pet = new Pet();
-    this.animal.name = this.language.animal;
+    //this.animal.name = this.language.animal;
   }
 
   openPetType() {
@@ -189,82 +267,6 @@ export class PetInfoComponent extends AppBase {
 
 //////////////////////////////////////
 
-@Component({
-  selector: 'app-define-pets',
-  templateUrl: './pet.picker.component.html',
-  styleUrls: ["./pet.picker.component.css"]
-})
-export class PetPickerComponent extends AppBase {
-
-  private animals : Animal[] = [];
-
-  constructor(private session : SessionService, private router : Router) {
-    super();
-  }
-  
-  ngOnInit() {
-    //this.animals = Object.keys(PetType).map(k => PetType[k as any]);
-    Object.keys(PetType).map(k => PetType[k as any]).forEach( attr => {
-      const animal = new Animal(PetType[attr]);
-      if(!ObjectUtils.isEmpty(animal.id) && animal.id != 0){
-        this.animals.push(animal);
-      }
-    });
-    this.animals.push(new Animal(PetType.OTHER));
-  }
-  
-  select(selected : Animal) : void {
-    //this.pet.petType = selected;
-    console.log(selected);
-    //PetInfoComponent.dialogRef
-
-    this.closeDialog();
-  }
-
-  private closeDialog() : void {
-    //PetInfoComponent.dialogRef.close();
-  }
-
-}
-
-///////////////////////////
-
-export class Animal {
-
-  id : number;
-  name : string;
-  icon : string;
-
-  constructor(petType : PetType) {
-    if(petType == PetType.OTHER){
-      this.id = 0;
-      this.name = "Outro";
-      this.icon = "paw";
-    }
-    else if(petType == PetType.DOG){
-      this.id = 1;
-      this.name = "Cachorro";
-      this.icon = "dog";
-    }
-    else if(petType == PetType.CAT){
-      this.id = 2;
-      this.name = "Gato";
-      this.icon = "cat";
-    }
-    else if(petType == PetType.BIRD){
-      this.id = 3;
-      this.name = "Pássaro";
-      this.icon = "dove";
-    }
-    else if(petType == PetType.FISH){
-      this.id = 4;
-      this.name = "Peixe";
-      this.icon = "fish";
-    }
-  }
-}
-
-//////////////////////////////////////
 
 @Component({
   selector: 'app-pet-picture',

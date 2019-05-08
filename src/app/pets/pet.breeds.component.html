@@ -1,0 +1,33 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">{{language.animal}}</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeDialog()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container">
+        <div class="row">
+          <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+            <ul class="event-list">
+              <li *ngFor="let b of type.breeds" (click)="select(b)">
+                <!-- <img src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" /> -->
+                <div class="info">
+                  <h2 class="title">{{b.description}}</h2>
+                  <p class="desc">United States Holiday</p>
+                </div>
+                <!-- <div class="social">
+                  <ul>
+                    <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
+                    <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+                    <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
+                  </ul>
+                </div> -->
+              </li>
+            </ul>
+          </div>
+        </div> 
+    </div>
+  </div>
+</div>

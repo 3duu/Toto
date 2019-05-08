@@ -1,4 +1,4 @@
-<section class="body_section" *ngIf="outlet.isActivated == false">
+<!-- <section class="body_section" *ngIf="outlet.isActivated == false">
   <div class=interface_class>
     <div class="page-header">
 		  <h1>{{title}} <small>{{user.pets.length}}</small></h1>
@@ -19,5 +19,34 @@
       <i class="fa fa-plus my-float"></i>
     </a>
   </div> 
+</section>
+<router-outlet #outlet="outlet"></router-outlet> -->
+
+<section id="team" class="pb-5" *ngIf="outlet.isActivated == false">
+  <div class="container" style="background-color: white;">
+      <h5 class="section-title h1">{{title}}</h5>
+      <div class="row">
+          <!-- Team member -->
+          <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let pet of user.pets">
+              <div class="image-flip">
+                  <div class="mainflip">
+                      <div class="frontside">
+                          <div class="card">
+                              <div class="card-body text-center">
+                                  <p><img class=" img-fluid" src="{{pet.img}}" alt=""></p>
+                                  <h4 class="card-title">{{pet.name}}</h4>
+                                  <p class="card-text">{{pet.description}}</p>
+                                  <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <a href="javascript:;" class="float bg-toppet" (click)="add()" [ngClass]="{ 'button-disabled': dialog }">
+    <i class="fa fa-plus my-float"></i>
+  </a>
 </section>
 <router-outlet #outlet="outlet"></router-outlet>

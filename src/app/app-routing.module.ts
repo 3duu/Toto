@@ -1,4 +1,4 @@
-import { PetsComponent, PetPickerComponent, PetInfoComponent, PetPictureComponent } from './pets/pets.component';
+import { PetsComponent, PetTypeComponent, PetInfoComponent, PetPictureComponent } from './pets/pets.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: LOGIN_PAGE, component: LoginComponent },
   { path: REGISTER_USER_PAGE, component: RegisterUserComponent },
   { path: PETS_PAGE, component: PetsComponent, children : [
-    { path: PETS_WIZARD_DEF_PAGE, component: PetPickerComponent},
+    { path: PETS_WIZARD_DEF_PAGE, component: PetTypeComponent},
     { path: PETS_WIZARD_INFO_PAGE, component: PetInfoComponent},
     { path: PETS_WIZARD_PIC_PAGE, component: PetPictureComponent},
     //{ path: '', component: PetsComponent},

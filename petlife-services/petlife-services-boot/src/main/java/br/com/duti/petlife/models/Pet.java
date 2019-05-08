@@ -5,8 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,9 +36,12 @@ public class Pet implements Serializable {
 	@Column(name="img", length=250, nullable=true)
 	private String img;
 	
-	@Column(name="pet_type", nullable=false)
-	@Enumerated(EnumType.ORDINAL)
+	@JoinColumn(name="pet_type_id")
+	@ManyToOne(fetch=FetchType.EAGER)
 	private PetType petType;
+	
+	@Column(name="other_pet", length=22, nullable=true)
+	private String otherPet;
 	
 	@Column(name="description", length=100, nullable=true)
 	private String description;
@@ -111,10 +112,6 @@ public class Pet implements Serializable {
 		this.description = description;
 	}
 
-	public PetType getPetType() {
-		return petType;
-	}
-
 	public void setPetType(PetType petType) {
 		this.petType = petType;
 	}
@@ -126,7 +123,5 @@ public class Pet implements Serializable {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	
-	
 
 }
