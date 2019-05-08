@@ -1,8 +1,7 @@
-import { ReturnCode } from "../service/services";
 import { AppBase } from '../appbase';
 import { Output, Input, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { LanguageService } from "../language/Language";
+import { ReturnCode } from '../entity/system';
 
 export interface ClickableComponent {
     onClicked() : void;
@@ -15,7 +14,8 @@ export interface ClickEventArgs {
 
 export interface ReturnCodeEventArgs {
     code : ReturnCode;
-    message : string;
+    message? : string | null;
+    result? : any | null;
 }
 
 export class ButtonComponent extends AppBase {
@@ -25,7 +25,7 @@ export class ButtonComponent extends AppBase {
     @Output() done = new EventEmitter();
     @Input() classes : string;
     @Input() form: NgForm;
-    @Input() hidden: boolean = false;
+    @Input() hidden : boolean;
 
     ngOnInit() {
 

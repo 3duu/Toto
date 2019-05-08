@@ -1,3 +1,4 @@
+import { ReturnCode } from './../entity/system';
 import { Pet } from './../entity/Pet';
 import { environment } from 'src/environments/environment';
 import { Injectable } from "@angular/core";
@@ -5,18 +6,18 @@ import { Observable, throwError } from "rxjs";
 import {
   HttpClient,
   HttpHeaders,
-  HttpErrorResponse
+  HttpErrorResponse,
+  HttpParams
 } from "@angular/common/http";
 import { catchError } from "rxjs/operators";
 import { User } from '../entity/User';
 import { LocalDatabaseService } from '../database/database';
-import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 import { LanguageService } from '../language/Language';
+import { ObjectUtils } from '../utils';
+import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 
 // Set the http options
-export const httpOptions = {
-  headers: new HttpHeaders({"Content-Type": "application/json","Access-Control-Allow-Origin": "*"})
-};
+export const httpHeaders =new HttpHeaders({"Content-Type": "application/json","Access-Control-Allow-Origin": "*"});
 
 const endpoints = environment.endpoint;
 
@@ -91,7 +92,9 @@ export class UserApiService extends ApiService {
   public login(user: User): Observable<any> {
     console.log(this.authenticate);
     console.log(user);
-
+    const httpOptions = {
+      headers: httpHeaders
+    };
     return this.http.post<User>(this.authenticate, user, httpOptions)
     .pipe(
       catchError(this.handleError)
@@ -103,6 +106,9 @@ export class UserApiService extends ApiService {
     console.log(this.register);
     console.log(user);
     
+    const httpOptions = {
+      headers: httpHeaders
+    };
     return this.http.post<User>(this.register, user, httpOptions)
     .pipe(
       catchError(this.handleError)
@@ -116,6 +122,8 @@ export class PetApiService extends ApiService {
   private controller = this.endpoint+"/pet";
   private retrieve = this.controller+"/retrieve";
   private register = this.controller+"/register";
+  private types = this.controller+"/types";
+  private breeds = this.controller+"/breeds";
 
   constructor(private http: HttpClient) {
     super();
@@ -124,7 +132,10 @@ export class PetApiService extends ApiService {
   public get(pet: Pet): Observable<any> {
     console.log(this.retrieve);
     console.log(pet);
-
+    
+    const httpOptions = {
+      headers: httpHeaders
+    };
     return this.http.post<Pet>(this.retrieve, pet, httpOptions)
     .pipe(
       catchError(this.handleError)
@@ -135,7 +146,24 @@ export class PetApiService extends ApiService {
     console.log(this.retrieve);
     console.log(user);
 
-    return this.http.post<number>(this.retrieve, user.id, httpOptions)
+    const parameters = new HttpParams().set("userId", user.id.toString());
+    const httpOptions = {
+      headers: httpHeaders,
+      params: parameters
+    };
+    return this.http.get(this.retrieve, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public getAllPetTypes(): Observable<any> {
+    console.log(this.types);
+
+    const httpOptions = {
+      headers: httpHeaders
+    };
+    return this.http.get(this.types, httpOptions)
     .pipe(
       catchError(this.handleError)
     );
@@ -145,6 +173,9 @@ export class PetApiService extends ApiService {
     console.log(this.register);
     console.log(pet);
     
+    const httpOptions = {
+      headers: httpHeaders
+    };
     return this.http.post<User>(this.register, pet, httpOptions)
     .pipe(
       catchError(this.handleError)
@@ -165,8 +196,12 @@ export class AuthenticationService {
   }
 
   authenticate(entryUser : User, callback, sessionCallback) : void {
- 
-    let user : Observable<any> = this.userApi.login(entryUser);
+    
+    if(ObjectUtils.isEmpty(entryUser.loginType)){
+      entryUser.loginType = SociaNetworkType.NONE;
+    }
+
+    const user : Observable<any> = this.userApi.login(entryUser);
 
     (<any>window).httpUser = user;
 
@@ -180,7 +215,7 @@ export class AuthenticationService {
           sessionCallback(result, entryUser.password);
         }
       }
-      callback({code : result.code, message: ""});
+      callback({code : result.code});
     }, error => {
       console.log(error);
       callback( {code : ReturnCode.CONNECTION_ERROR, message: this.userApi.getErrorMessage({code: ReturnCode.CONNECTION_ERROR}, new LanguageService())});
@@ -193,7 +228,7 @@ export class AuthenticationService {
       const user : User = new User();
       user.username = result.username;
       user.password = result.password;
-      user.loginType = SociaNetworkType.NONE;
+      user.loginType = result.loginType;
       this.authenticate(user, callback, sessionCallback);
     }
   
@@ -204,13 +239,4 @@ export class AuthenticationService {
     this._localDatabase.getCurrentUser(doLogin, notLogin);
   }
 
-}
-
-export enum ReturnCode {
-  SUCCESS = 0,
-  NOT_FOUND = -1,
-  VALIDATION_ERROR = -2,
-  SERVER_ERROR = -3,
-  RESOURCE_EXISTS = -4,
-  CONNECTION_ERROR = -5,
 }

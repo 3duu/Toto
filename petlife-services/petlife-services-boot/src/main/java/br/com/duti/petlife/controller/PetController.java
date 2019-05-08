@@ -8,16 +8,20 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 
 import br.com.duti.petlife.models.Pet;
+import br.com.duti.petlife.models.PetType;
 import br.com.duti.petlife.models.ResponseEntity;
 import br.com.duti.petlife.repository.interfaces.IPetRepository;
+import br.com.duti.petlife.repository.interfaces.IPetTypeRepository;
 import br.com.duti.utils.ReturnCode;
 
 @RequestMapping("/pet")
@@ -27,11 +31,13 @@ public class PetController {
 	@Autowired
 	private IPetRepository petRepository;
 	
-	@PostMapping(value="/retrieve", produces=MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<List<Pet>> getPets(@RequestBody final Long userId) {
+	@Autowired
+	private IPetTypeRepository petTypeRepository;
+	
+	@GetMapping(value="/retrieve", produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<List<Pet>> getPets(@RequestParam(value="userId") final Long userId) {
 		
 		ResponseEntity<List<Pet>> response = null;
-		//Lidar com login de redes sociais
 
 		try {
 			if(response == null) {
@@ -76,5 +82,33 @@ public class PetController {
 		
         return response;
     }
+	
+	@GetMapping(value="/types", produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<List<PetType>> getPetTypes() {
+		
+		ResponseEntity<List<PetType>> response = null;
+		
+		try {
+			final List<PetType> list = petTypeRepository.getAll();
+//			list.stream().forEach( type -> {
+//				type.getBreeds().stream().forEach( breed -> {
+//					breed.setPetType(null);
+//				});
+//			});
+			response = new ResponseEntity<List<PetType>>(list, RequestContextHolder.currentRequestAttributes().getSessionId());
+			if(response.getEntity() != null) {
+				response.setCode(ReturnCode.SUCCESS.getValue());
+			} else {
+				response.setCode(ReturnCode.NOT_FOUND.getValue());
+			}
+		
+		}
+		catch(Exception e){
+			response = new ResponseEntity<List<PetType>>(new ArrayList<PetType>(), RequestContextHolder.currentRequestAttributes().getSessionId());
+			response.setCode(ReturnCode.SERVER_ERROR.getValue());
+			e.printStackTrace();
+		}
+        return response;
+	}
 
 }

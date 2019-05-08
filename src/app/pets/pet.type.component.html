@@ -1,0 +1,47 @@
+<!-- <section class="body_section">
+  <div class=interface_class>
+    <div class="page-header">
+		  <h1>{{language.animal}}</h1>
+    </div>
+    <div class="container text-center">
+      <br>
+      <div *ngIf="loading" class="spinner-border text-toppet" role="status">
+        <span class="sr-only">Carregando...</span>
+      </div>
+      <p>
+        <a *ngFor="let item of animals; let i= index ;trackBy: trackByFn" class="btn btn-toppet social-login-btn pet-icon" (click)="select(item)" href="javascript:;"><i class="fa fa-{{item.icon}}"></i></a>
+      </p>
+    </div>
+    <div class="slidecount">
+      <span class="selected"></span>
+      <span class=""></span>
+      <span class=""></span>
+    </div>
+  </div> 
+</section> -->
+
+<div class="container">
+  <div *ngIf="loading" class="spinner-border text-toppet" role="status">
+    <span class="sr-only">Carregando...</span>
+  </div>
+  <div class="row">
+    <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+      <ul class="event-list" style="height: 100% !important;">
+        <li *ngFor="let t of types"  (click)="select(t)" style="height: 82px;">
+            <i class="icon fa fa-{{t.icon}}" style="padding-top: 14px;"></i>
+          <div class="info">
+            <h2 class="title">{{t.description}}</h2>
+            <p class="desc">{{t.icon}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="slidecount">
+    <span class="selected"></span>
+    <span class=""></span>
+    <span class=""></span>
+  </div>
+</div>
+
+

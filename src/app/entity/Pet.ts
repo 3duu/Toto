@@ -26,12 +26,17 @@ export class Pet {
     constructor() { }
 }
 
-export enum PetType {
-    OTHER,
-	DOG,
-	CAT,
-	BIRD,
-	FISH,
-	/*RABBIT = "Coelho",
-	HAMSTER = "Hamster",*/
+export class PetType {
+
+    id : number;
+    description : string;
+    icon : string;
+	breeds : Breed[];
+}
+
+export class Breed {
+	
+    id : number;
+	description : string;
+	petType : PetType;
 }

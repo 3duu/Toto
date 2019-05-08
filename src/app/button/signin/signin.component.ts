@@ -1,10 +1,10 @@
 import { SessionService } from './../../session/session.service';
 import { ButtonComponent, ClickableComponent, ReturnCodeEventArgs } from './../button-classes';
 import { Component } from '@angular/core';
-import { ReturnCode } from 'src/app/service/services';
 import { StringUtils } from 'src/app/utils';
 import { User } from 'src/app/entity/User';
 import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
+import { ReturnCode } from 'src/app/entity/system';
 
 @Component({
   selector: 'login-button',
@@ -23,9 +23,12 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
   
   doLogin() : void {
     
+    if(this.loading){
+      return;
+    }
     this.begin.emit();
     if (this.form.invalid) {
-      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, message: ""};
+      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, message: "", result : this.form};
       this.done.emit(args);
       return;
     }
@@ -38,7 +41,7 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
     formUser.loginType = this.form.value.socialMedia;
 
     if(!this.requiredFieldsFilled(formUser)){
-      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, message: this.language.requiredFields};
+      const args : ReturnCodeEventArgs = {code : ReturnCode.VALIDATION_ERROR, message: this.language.requiredFields, result : this.form};
       this.done.emit(args);
       this.loading = false;
       this.done.emit();

@@ -1,5 +1,8 @@
 import { Injectable } from "@angular/core";
 import { NgForm } from '@angular/forms';
+import { ReturnCodeEventArgs } from '../button/button-classes';
+import { ReturnCode } from '../entity/system';
+import { User } from '../entity/User';
 
 interface SocialNetworkService {
   config() : void;
@@ -19,21 +22,23 @@ export class FacebookService implements SocialNetworkService {
   login(callback): void {
       //Chave Secreta do Aplicativo
       //b4a49157bf9ba2cc4b7b085c0ba13ad3
-      // FB.login();
       (<any>FB).login((response)=>
           {
             console.log('submitLogin', response);
+            const returnCodeEventArgs : ReturnCodeEventArgs = {code: ReturnCode.SUCCESS, message: "", result : undefined};
+            const user : User = new User();
             if (response.authResponse && response.status == "connected") {
               (<any>window).facebook = response;
-              let form : NgForm = new NgForm([],[]);
-              (<any>form).value.username = response.authResponse.userID;
-              (<any>form).value.password = response.authResponse.userID;
-              (<any>form).value.socialMedia = SociaNetworkType.FACEBOOK;
-              callback(form);
+              user.username = response.authResponse.userID;
+              user.password = response.authResponse.userID;
+              user.loginType = SociaNetworkType.FACEBOOK;
             }
             else {
               console.log('User login failed');
+              returnCodeEventArgs.code = ReturnCode.CONNECTION_ERROR;
             }
+            returnCodeEventArgs.result = user;
+            callback(returnCodeEventArgs);
         });
         /*(<any>FB).getLoginStatus(function(response) {
           statusChangeCallback(response);
