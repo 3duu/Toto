@@ -17,7 +17,7 @@ import { ObjectUtils } from '../utils';
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 
 // Set the http options
-export const httpHeaders =new HttpHeaders({"Content-Type": "application/json","Access-Control-Allow-Origin": "*"});
+export const httpHeaders = new HttpHeaders({"Content-Type": "application/json","Access-Control-Allow-Origin": "*"});
 
 const endpoints = environment.endpoint;
 
@@ -31,8 +31,8 @@ class ApiService {
   protected endpoint : string;
 
   constructor() {
-    this.endpoint = endpoints.local;
-    console.log(window.location.origin);
+    this.endpoint = endpoints.home;
+    console.log(this.endpoint);
   }
 
   protected handleError(error: HttpErrorResponse) {

@@ -136,7 +136,11 @@ var routes = [
     { path: _application__WEBPACK_IMPORTED_MODULE_5__["WELCOME_PAGE"], component: _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_3__["WelcomeComponent"] },
     { path: _application__WEBPACK_IMPORTED_MODULE_5__["LOGIN_PAGE"], component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
     { path: _application__WEBPACK_IMPORTED_MODULE_5__["REGISTER_USER_PAGE"], component: _register_register_component__WEBPACK_IMPORTED_MODULE_8__["RegisterUserComponent"] },
-    { path: _application__WEBPACK_IMPORTED_MODULE_5__["PETS_PAGE"], component: _pets_pets_component__WEBPACK_IMPORTED_MODULE_1__["PetsComponent"] },
+    { path: _application__WEBPACK_IMPORTED_MODULE_5__["PETS_PAGE"], component: _pets_pets_component__WEBPACK_IMPORTED_MODULE_1__["PetsComponent"], children: [
+            { path: _application__WEBPACK_IMPORTED_MODULE_5__["PETS_WIZARD_DEF_PAGE"], component: _pets_pets_component__WEBPACK_IMPORTED_MODULE_1__["PetTypeComponent"] },
+            { path: _application__WEBPACK_IMPORTED_MODULE_5__["PETS_WIZARD_INFO_PAGE"], component: _pets_pets_component__WEBPACK_IMPORTED_MODULE_1__["PetInfoComponent"] },
+            { path: _application__WEBPACK_IMPORTED_MODULE_5__["PETS_WIZARD_PIC_PAGE"], component: _pets_pets_component__WEBPACK_IMPORTED_MODULE_1__["PetPictureComponent"] },
+        ] },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -182,8 +186,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _navbar_menuService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./navbar/menuService */ "./src/app/navbar/menuService.ts");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session/session.service */ "./src/app/session/session.service.ts");
-/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./service/services */ "./src/app/service/services.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./entity/system */ "./src/app/entity/system.ts");
 
 
 
@@ -204,7 +208,7 @@ var AppComponent = /** @class */ (function () {
         this.session = session;
         this.menuService = menuService;
         this.login = function (args) {
-            if (args.code == _service_services__WEBPACK_IMPORTED_MODULE_7__["ReturnCode"].SUCCESS) {
+            if (args.code == _entity_system__WEBPACK_IMPORTED_MODULE_8__["ReturnCode"].SUCCESS) {
                 _this.session.onLogged(null, _this.router, _this.menu);
             }
             else {
@@ -248,7 +252,7 @@ var AppComponent = /** @class */ (function () {
             this.session.authenticationService.authenticateLastUser(this.login, this.session.setUserInSession);
         }
         else {
-            this.login({ code: _service_services__WEBPACK_IMPORTED_MODULE_7__["ReturnCode"].NOT_FOUND });
+            this.login({ code: _entity_system__WEBPACK_IMPORTED_MODULE_8__["ReturnCode"].NOT_FOUND });
         }
     };
     AppComponent.prototype.changePage = function (page) {
@@ -283,7 +287,7 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html")
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ComponentFactoryResolver"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewContainerRef"], _session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _navbar_menuService__WEBPACK_IMPORTED_MODULE_4__["MenuService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ComponentFactoryResolver"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewContainerRef"], _session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _navbar_menuService__WEBPACK_IMPORTED_MODULE_4__["MenuService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -332,6 +336,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _language_Language__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./language/Language */ "./src/app/language/Language.ts");
 /* harmony import */ var _guards_auth_guard_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./guards/auth-guard.service */ "./src/app/guards/auth-guard.service.ts");
 /* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./session/session.service */ "./src/app/session/session.service.ts");
+/* harmony import */ var _appointments_appointments_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./appointments/appointments.component */ "./src/app/appointments/appointments.component.ts");
+
 
 
 
@@ -377,20 +383,22 @@ var AppModule = /** @class */ (function () {
                 _home_home_component__WEBPACK_IMPORTED_MODULE_23__["HomeComponent"],
                 _register_register_component__WEBPACK_IMPORTED_MODULE_22__["RegisterUserComponent"],
                 _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["PetsComponent"],
-                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["EditPetsComponent"],
-                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["PetPickerComponent"],
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["PetInfoComponent"],
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["PetTypeComponent"],
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["PetPictureComponent"],
                 _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_18__["SignInComponent"],
                 _button_signup_signup_component__WEBPACK_IMPORTED_MODULE_17__["SignUpComponent"],
                 _button_facebook_facebook_component__WEBPACK_IMPORTED_MODULE_16__["FacebookComponent"],
-                _button_google_google_component__WEBPACK_IMPORTED_MODULE_19__["GoogleComponent"]
+                _button_google_google_component__WEBPACK_IMPORTED_MODULE_19__["GoogleComponent"],
+                _appointments_appointments_component__WEBPACK_IMPORTED_MODULE_30__["AppointmentsComponent"],
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["BreedPickerComponent"]
             ],
             entryComponents: [
-                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["EditPetsComponent"],
-                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["PetPickerComponent"],
                 _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_18__["SignInComponent"],
                 _button_signup_signup_component__WEBPACK_IMPORTED_MODULE_17__["SignUpComponent"],
                 _button_facebook_facebook_component__WEBPACK_IMPORTED_MODULE_16__["FacebookComponent"],
-                _button_google_google_component__WEBPACK_IMPORTED_MODULE_19__["GoogleComponent"]
+                _button_google_google_component__WEBPACK_IMPORTED_MODULE_19__["GoogleComponent"],
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["BreedPickerComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
@@ -465,7 +473,7 @@ var AppBase = /** @class */ (function () {
 /*!********************************!*\
   !*** ./src/app/application.ts ***!
   \********************************/
-/*! exports provided: WELCOME_PAGE, LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, PETS_PAGE, MAPS_PAGE, AUTOLOGIN_PAGE */
+/*! exports provided: WELCOME_PAGE, LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, MAPS_PAGE, PETS_PAGE, PETS_WIZARD_DEF_PAGE, PETS_WIZARD_INFO_PAGE, PETS_WIZARD_PIC_PAGE, PETS_VIEW_PAGE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -474,17 +482,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_PAGE", function() { return LOGIN_PAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOME_PAGE", function() { return HOME_PAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REGISTER_USER_PAGE", function() { return REGISTER_USER_PAGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PETS_PAGE", function() { return PETS_PAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MAPS_PAGE", function() { return MAPS_PAGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AUTOLOGIN_PAGE", function() { return AUTOLOGIN_PAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PETS_PAGE", function() { return PETS_PAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PETS_WIZARD_DEF_PAGE", function() { return PETS_WIZARD_DEF_PAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PETS_WIZARD_INFO_PAGE", function() { return PETS_WIZARD_INFO_PAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PETS_WIZARD_PIC_PAGE", function() { return PETS_WIZARD_PIC_PAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PETS_VIEW_PAGE", function() { return PETS_VIEW_PAGE; });
 var WELCOME_PAGE = "welcome";
 var LOGIN_PAGE = "signin";
 var HOME_PAGE = "home";
 var REGISTER_USER_PAGE = "signup";
 //export const REGISTER_PET_PAGE = RegisterPetComponent;
-var PETS_PAGE = "pets";
 var MAPS_PAGE = "maps";
-var AUTOLOGIN_PAGE = "login";
+//export const AUTOLOGIN_PAGE = "login";
+var PETS_PAGE = "pets";
+var PETS_WIZARD_DEF_PAGE = "definition";
+var PETS_WIZARD_INFO_PAGE = "info";
+var PETS_WIZARD_PIC_PAGE = "picture";
+var PETS_VIEW_PAGE = "view";
+
+
+/***/ }),
+
+/***/ "./src/app/appointments/appointments.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/appointments/appointments.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".float{\n\tposition:fixed;\n\twidth:60px;\n\theight:60px;\n\tbottom:40px;\n\tright:40px;\n\t/* background-color:#0C9; */\n\tcolor:#FFF;\n\tborder-radius:50px;\n\ttext-align:center;\n\tbox-shadow: 2px 2px 3px #999;\n}\n\n.my-float{\n\tmargin-top:22px;\n}\n\nbody {\n\tpadding: 60px 0px;\n\tbackground-color: rgb(220, 220, 220);\n}\n\n.event-list {\n\tlist-style: none;\n\tfont-family: 'Lato', sans-serif;\n\tmargin: 0px;\n\tpadding: 0px;\n}\n\n.event-list > li {\n\tbackground-color: rgb(255, 255, 255);\n\tbox-shadow: 0px 0px 5px rgb(51, 51, 51);\n\tbox-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);\n\tpadding: 0px;\n\tmargin: 0px 0px 20px;\n}\n\n.event-list > li > time {\n\tdisplay: inline-block;\n\twidth: 100%;\n\tcolor: rgb(255, 255, 255);\n\tbackground-color: rgb(197, 44, 102);\n\tpadding: 5px;\n\ttext-align: center;\n\ttext-transform: uppercase;\n}\n\n.event-list > li:nth-child(even) > time {\n\tbackground-color: rgb(165, 82, 167);\n}\n\n.event-list > li > time > span {\n\tdisplay: none;\n}\n\n.event-list > li > time > .day {\n\tdisplay: block;\n\tfont-size: 56pt;\n\tfont-weight: 100;\n\tline-height: 1;\n}\n\n.event-list > li time > .month {\n\tdisplay: block;\n\tfont-size: 24pt;\n\tfont-weight: 900;\n\tline-height: 1;\n}\n\n.event-list > li > img {\n\twidth: 100%;\n}\n\n.event-list > li > .info {\n\tpadding-top: 5px;\n\ttext-align: center;\n}\n\n.event-list > li > .info > .title {\n\tfont-size: 17pt;\n\tfont-weight: 700;\n\tmargin: 0px;\n}\n\n.event-list > li > .info > .desc {\n\tfont-size: 13pt;\n\tfont-weight: 300;\n\tmargin: 0px;\n}\n\n.event-list > li > .info > ul,\n.event-list > li > .social > ul {\n\tdisplay: table;\n\tlist-style: none;\n\tmargin: 10px 0px 0px;\n\tpadding: 0px;\n\twidth: 100%;\n\ttext-align: center;\n}\n\n.event-list > li > .social > ul {\n\tmargin: 0px;\n}\n\n.event-list > li > .info > ul > li,\n.event-list > li > .social > ul > li {\n\tdisplay: table-cell;\n\tcursor: pointer;\n\tcolor: rgb(30, 30, 30);\n\tfont-size: 11pt;\n\tfont-weight: 300;\n\tpadding: 3px 0px;\n}\n\n.event-list > li > .info > ul > li > a {\n\tdisplay: block;\n\twidth: 100%;\n\tcolor: rgb(30, 30, 30);\n\ttext-decoration: none;\n}\n\n.event-list > li > .social > ul > li {    \n\tpadding: 0px;\n}\n\n.event-list > li > .social > ul > li > a {\n\tpadding: 3px 0px;\n}\n\n.event-list > li > .info > ul > li:hover,\n.event-list > li > .social > ul > li:hover {\n\tcolor: rgb(30, 30, 30);\n\tbackground-color: rgb(200, 200, 200);\n}\n\n.facebook a,\n.twitter a,\n.google-plus a {\n\tdisplay: block;\n\twidth: 100%;\n\tcolor: rgb(75, 110, 168) !important;\n}\n\n.twitter a {\n\tcolor: rgb(79, 213, 248) !important;\n}\n\n.google-plus a {\n\tcolor: rgb(221, 75, 57) !important;\n}\n\n.facebook:hover a {\n\tcolor: rgb(255, 255, 255) !important;\n\tbackground-color: rgb(75, 110, 168) !important;\n}\n\n.twitter:hover a {\n\tcolor: rgb(255, 255, 255) !important;\n\tbackground-color: rgb(79, 213, 248) !important;\n}\n\n.google-plus:hover a {\n\tcolor: rgb(255, 255, 255) !important;\n\tbackground-color: rgb(221, 75, 57) !important;\n}\n\n@media (min-width: 768px) {\n\t.event-list > li {\n\t\tposition: relative;\n\t\tdisplay: block;\n\t\twidth: 100%;\n\t\theight: 120px;\n\t\tpadding: 0px;\n\t}\n\t.event-list > li > time,\n\t.event-list > li > img  {\n\t\tdisplay: inline-block;\n\t}\n\t.event-list > li > time,\n\t.event-list > li > img {\n\t\twidth: 120px;\n\t\tfloat: left;\n\t}\n\t.event-list > li > .info {\n\t\tbackground-color: rgb(245, 245, 245);\n\t\toverflow: hidden;\n\t}\n\t.event-list > li > time,\n\t.event-list > li > img {\n\t\twidth: 120px;\n\t\theight: 120px;\n\t\tpadding: 0px;\n\t\tmargin: 0px;\n\t}\n\t.event-list > li > .info {\n\t\tposition: relative;\n\t\theight: 120px;\n\t\ttext-align: left;\n\t\tpadding-right: 40px;\n\t}\t\n\t.event-list > li > .info > .title, \n\t.event-list > li > .info > .desc {\n\t\tpadding: 0px 10px;\n\t}\n\t.event-list > li > .info > ul {\n\t\tposition: absolute;\n\t\tleft: 0px;\n\t\tbottom: 0px;\n\t}\n\t.event-list > li > .social {\n\t\tposition: absolute;\n\t\ttop: 0px;\n\t\tright: 0px;\n\t\tdisplay: block;\n\t\twidth: 40px;\n\t}\n\t.event-list > li > .social > ul {\n\t\tborder-left: 1px solid rgb(230, 230, 230);\n\t}\n\t.event-list > li > .social > ul > li {\t\t\t\n\t\tdisplay: block;\n\t\tpadding: 0px;\n\t}\n\t.event-list > li > .social > ul > li > a {\n\t\tdisplay: block;\n\t\twidth: 40px;\n\t\tpadding: 10px 0px 9px;\n\t}\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwb2ludG1lbnRzL2FwcG9pbnRtZW50cy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0NBQ0MsY0FBYztDQUNkLFVBQVU7Q0FDVixXQUFXO0NBQ1gsV0FBVztDQUNYLFVBQVU7Q0FDViwyQkFBMkI7Q0FDM0IsVUFBVTtDQUNWLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsNEJBQTRCO0FBQzdCOztBQUVBO0NBQ0MsZUFBZTtBQUNoQjs7QUFFQTtDQUNDLGlCQUFpQjtDQUNqQixvQ0FBb0M7QUFDckM7O0FBRUE7Q0FDQyxnQkFBZ0I7Q0FDaEIsK0JBQStCO0NBQy9CLFdBQVc7Q0FDWCxZQUFZO0FBQ2I7O0FBQ0E7Q0FDQyxvQ0FBb0M7Q0FDcEMsdUNBQXVDO0NBQ3ZDLDZDQUE2QztDQUM3QyxZQUFZO0NBQ1osb0JBQW9CO0FBQ3JCOztBQUNBO0NBQ0MscUJBQXFCO0NBQ3JCLFdBQVc7Q0FDWCx5QkFBeUI7Q0FDekIsbUNBQW1DO0NBQ25DLFlBQVk7Q0FDWixrQkFBa0I7Q0FDbEIseUJBQXlCO0FBQzFCOztBQUNBO0NBQ0MsbUNBQW1DO0FBQ3BDOztBQUNBO0NBQ0MsYUFBYTtBQUNkOztBQUNBO0NBQ0MsY0FBYztDQUNkLGVBQWU7Q0FDZixnQkFBZ0I7Q0FDaEIsY0FBYztBQUNmOztBQUNBO0NBQ0MsY0FBYztDQUNkLGVBQWU7Q0FDZixnQkFBZ0I7Q0FDaEIsY0FBYztBQUNmOztBQUNBO0NBQ0MsV0FBVztBQUNaOztBQUNBO0NBQ0MsZ0JBQWdCO0NBQ2hCLGtCQUFrQjtBQUNuQjs7QUFDQTtDQUNDLGVBQWU7Q0FDZixnQkFBZ0I7Q0FDaEIsV0FBVztBQUNaOztBQUNBO0NBQ0MsZUFBZTtDQUNmLGdCQUFnQjtDQUNoQixXQUFXO0FBQ1o7O0FBQ0E7O0NBRUMsY0FBYztDQUNkLGdCQUFnQjtDQUNoQixvQkFBb0I7Q0FDcEIsWUFBWTtDQUNaLFdBQVc7Q0FDWCxrQkFBa0I7QUFDbkI7O0FBQ0E7Q0FDQyxXQUFXO0FBQ1o7O0FBQ0E7O0NBRUMsbUJBQW1CO0NBQ25CLGVBQWU7Q0FDZixzQkFBc0I7Q0FDdEIsZUFBZTtDQUNmLGdCQUFnQjtDQUNoQixnQkFBZ0I7QUFDakI7O0FBQ0E7Q0FDQyxjQUFjO0NBQ2QsV0FBVztDQUNYLHNCQUFzQjtDQUN0QixxQkFBcUI7QUFDdEI7O0FBQ0E7Q0FDQyxZQUFZO0FBQ2I7O0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7O0FBQ0E7O0NBRUMsc0JBQXNCO0NBQ3RCLG9DQUFvQztBQUNyQzs7QUFDQTs7O0NBR0MsY0FBYztDQUNkLFdBQVc7Q0FDWCxtQ0FBbUM7QUFDcEM7O0FBQ0E7Q0FDQyxtQ0FBbUM7QUFDcEM7O0FBQ0E7Q0FDQyxrQ0FBa0M7QUFDbkM7O0FBQ0E7Q0FDQyxvQ0FBb0M7Q0FDcEMsOENBQThDO0FBQy9DOztBQUNBO0NBQ0Msb0NBQW9DO0NBQ3BDLDhDQUE4QztBQUMvQzs7QUFDQTtDQUNDLG9DQUFvQztDQUNwQyw2Q0FBNkM7QUFDOUM7O0FBRUE7Q0FDQztFQUNDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLGFBQWE7RUFDYixZQUFZO0NBQ2I7Q0FDQTs7RUFFQyxxQkFBcUI7Q0FDdEI7Q0FDQTs7RUFFQyxZQUFZO0VBQ1osV0FBVztDQUNaO0NBQ0E7RUFDQyxvQ0FBb0M7RUFDcEMsZ0JBQWdCO0NBQ2pCO0NBQ0E7O0VBRUMsWUFBWTtFQUNaLGFBQWE7RUFDYixZQUFZO0VBQ1osV0FBVztDQUNaO0NBQ0E7RUFDQyxrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixtQkFBbUI7Q0FDcEI7Q0FDQTs7RUFFQyxpQkFBaUI7Q0FDbEI7Q0FDQTtFQUNDLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsV0FBVztDQUNaO0NBQ0E7RUFDQyxrQkFBa0I7RUFDbEIsUUFBUTtFQUNSLFVBQVU7RUFDVixjQUFjO0VBQ2QsV0FBVztDQUNaO0NBQ0E7RUFDQyx5Q0FBeUM7Q0FDMUM7Q0FDQTtFQUNDLGNBQWM7RUFDZCxZQUFZO0NBQ2I7Q0FDQTtFQUNDLGNBQWM7RUFDZCxXQUFXO0VBQ1gscUJBQXFCO0NBQ3RCO0FBQ0QiLCJmaWxlIjoic3JjL2FwcC9hcHBvaW50bWVudHMvYXBwb2ludG1lbnRzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZmxvYXR7XG5cdHBvc2l0aW9uOmZpeGVkO1xuXHR3aWR0aDo2MHB4O1xuXHRoZWlnaHQ6NjBweDtcblx0Ym90dG9tOjQwcHg7XG5cdHJpZ2h0OjQwcHg7XG5cdC8qIGJhY2tncm91bmQtY29sb3I6IzBDOTsgKi9cblx0Y29sb3I6I0ZGRjtcblx0Ym9yZGVyLXJhZGl1czo1MHB4O1xuXHR0ZXh0LWFsaWduOmNlbnRlcjtcblx0Ym94LXNoYWRvdzogMnB4IDJweCAzcHggIzk5OTtcbn1cblxuLm15LWZsb2F0e1xuXHRtYXJnaW4tdG9wOjIycHg7XG59XG5cbmJvZHkge1xuXHRwYWRkaW5nOiA2MHB4IDBweDtcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDIyMCwgMjIwLCAyMjApO1xufVxuXG4uZXZlbnQtbGlzdCB7XG5cdGxpc3Qtc3R5bGU6IG5vbmU7XG5cdGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG5cdG1hcmdpbjogMHB4O1xuXHRwYWRkaW5nOiAwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpIHtcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpO1xuXHRib3gtc2hhZG93OiAwcHggMHB4IDVweCByZ2IoNTEsIDUxLCA1MSk7XG5cdGJveC1zaGFkb3c6IDBweCAwcHggNXB4IHJnYmEoNTEsIDUxLCA1MSwgMC43KTtcblx0cGFkZGluZzogMHB4O1xuXHRtYXJnaW46IDBweCAwcHggMjBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiB0aW1lIHtcblx0ZGlzcGxheTogaW5saW5lLWJsb2NrO1xuXHR3aWR0aDogMTAwJTtcblx0Y29sb3I6IHJnYigyNTUsIDI1NSwgMjU1KTtcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDE5NywgNDQsIDEwMik7XG5cdHBhZGRpbmc6IDVweDtcblx0dGV4dC1hbGlnbjogY2VudGVyO1xuXHR0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xufVxuLmV2ZW50LWxpc3QgPiBsaTpudGgtY2hpbGQoZXZlbikgPiB0aW1lIHtcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDE2NSwgODIsIDE2Nyk7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gdGltZSA+IHNwYW4ge1xuXHRkaXNwbGF5OiBub25lO1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IHRpbWUgPiAuZGF5IHtcblx0ZGlzcGxheTogYmxvY2s7XG5cdGZvbnQtc2l6ZTogNTZwdDtcblx0Zm9udC13ZWlnaHQ6IDEwMDtcblx0bGluZS1oZWlnaHQ6IDE7XG59XG4uZXZlbnQtbGlzdCA+IGxpIHRpbWUgPiAubW9udGgge1xuXHRkaXNwbGF5OiBibG9jaztcblx0Zm9udC1zaXplOiAyNHB0O1xuXHRmb250LXdlaWdodDogOTAwO1xuXHRsaW5lLWhlaWdodDogMTtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiBpbWcge1xuXHR3aWR0aDogMTAwJTtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyB7XG5cdHBhZGRpbmctdG9wOiA1cHg7XG5cdHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC50aXRsZSB7XG5cdGZvbnQtc2l6ZTogMTdwdDtcblx0Zm9udC13ZWlnaHQ6IDcwMDtcblx0bWFyZ2luOiAwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiAuZGVzYyB7XG5cdGZvbnQtc2l6ZTogMTNwdDtcblx0Zm9udC13ZWlnaHQ6IDMwMDtcblx0bWFyZ2luOiAwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCxcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwge1xuXHRkaXNwbGF5OiB0YWJsZTtcblx0bGlzdC1zdHlsZTogbm9uZTtcblx0bWFyZ2luOiAxMHB4IDBweCAwcHg7XG5cdHBhZGRpbmc6IDBweDtcblx0d2lkdGg6IDEwMCU7XG5cdHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwge1xuXHRtYXJnaW46IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsID4gbGksXG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGkge1xuXHRkaXNwbGF5OiB0YWJsZS1jZWxsO1xuXHRjdXJzb3I6IHBvaW50ZXI7XG5cdGNvbG9yOiByZ2IoMzAsIDMwLCAzMCk7XG5cdGZvbnQtc2l6ZTogMTFwdDtcblx0Zm9udC13ZWlnaHQ6IDMwMDtcblx0cGFkZGluZzogM3B4IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsID4gbGkgPiBhIHtcblx0ZGlzcGxheTogYmxvY2s7XG5cdHdpZHRoOiAxMDAlO1xuXHRjb2xvcjogcmdiKDMwLCAzMCwgMzApO1xuXHR0ZXh0LWRlY29yYXRpb246IG5vbmU7XG59IFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpIHsgICAgXG5cdHBhZGRpbmc6IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSA+IGEge1xuXHRwYWRkaW5nOiAzcHggMHB4O1xufSBcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsID4gbGk6aG92ZXIsXG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGk6aG92ZXIge1xuXHRjb2xvcjogcmdiKDMwLCAzMCwgMzApO1xuXHRiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjAwLCAyMDAsIDIwMCk7XG59XG4uZmFjZWJvb2sgYSxcbi50d2l0dGVyIGEsXG4uZ29vZ2xlLXBsdXMgYSB7XG5cdGRpc3BsYXk6IGJsb2NrO1xuXHR3aWR0aDogMTAwJTtcblx0Y29sb3I6IHJnYig3NSwgMTEwLCAxNjgpICFpbXBvcnRhbnQ7XG59XG4udHdpdHRlciBhIHtcblx0Y29sb3I6IHJnYig3OSwgMjEzLCAyNDgpICFpbXBvcnRhbnQ7XG59XG4uZ29vZ2xlLXBsdXMgYSB7XG5cdGNvbG9yOiByZ2IoMjIxLCA3NSwgNTcpICFpbXBvcnRhbnQ7XG59XG4uZmFjZWJvb2s6aG92ZXIgYSB7XG5cdGNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSkgIWltcG9ydGFudDtcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDc1LCAxMTAsIDE2OCkgIWltcG9ydGFudDtcbn1cbi50d2l0dGVyOmhvdmVyIGEge1xuXHRjb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpICFpbXBvcnRhbnQ7XG5cdGJhY2tncm91bmQtY29sb3I6IHJnYig3OSwgMjEzLCAyNDgpICFpbXBvcnRhbnQ7XG59XG4uZ29vZ2xlLXBsdXM6aG92ZXIgYSB7XG5cdGNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSkgIWltcG9ydGFudDtcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDIyMSwgNzUsIDU3KSAhaW1wb3J0YW50O1xufVxuXG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcblx0LmV2ZW50LWxpc3QgPiBsaSB7XG5cdFx0cG9zaXRpb246IHJlbGF0aXZlO1xuXHRcdGRpc3BsYXk6IGJsb2NrO1xuXHRcdHdpZHRoOiAxMDAlO1xuXHRcdGhlaWdodDogMTIwcHg7XG5cdFx0cGFkZGluZzogMHB4O1xuXHR9XG5cdC5ldmVudC1saXN0ID4gbGkgPiB0aW1lLFxuXHQuZXZlbnQtbGlzdCA+IGxpID4gaW1nICB7XG5cdFx0ZGlzcGxheTogaW5saW5lLWJsb2NrO1xuXHR9XG5cdC5ldmVudC1saXN0ID4gbGkgPiB0aW1lLFxuXHQuZXZlbnQtbGlzdCA+IGxpID4gaW1nIHtcblx0XHR3aWR0aDogMTIwcHg7XG5cdFx0ZmxvYXQ6IGxlZnQ7XG5cdH1cblx0LmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvIHtcblx0XHRiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjQ1LCAyNDUsIDI0NSk7XG5cdFx0b3ZlcmZsb3c6IGhpZGRlbjtcblx0fVxuXHQuZXZlbnQtbGlzdCA+IGxpID4gdGltZSxcblx0LmV2ZW50LWxpc3QgPiBsaSA+IGltZyB7XG5cdFx0d2lkdGg6IDEyMHB4O1xuXHRcdGhlaWdodDogMTIwcHg7XG5cdFx0cGFkZGluZzogMHB4O1xuXHRcdG1hcmdpbjogMHB4O1xuXHR9XG5cdC5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyB7XG5cdFx0cG9zaXRpb246IHJlbGF0aXZlO1xuXHRcdGhlaWdodDogMTIwcHg7XG5cdFx0dGV4dC1hbGlnbjogbGVmdDtcblx0XHRwYWRkaW5nLXJpZ2h0OiA0MHB4O1xuXHR9XHRcblx0LmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gLnRpdGxlLCBcblx0LmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gLmRlc2Mge1xuXHRcdHBhZGRpbmc6IDBweCAxMHB4O1xuXHR9XG5cdC5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsIHtcblx0XHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdFx0bGVmdDogMHB4O1xuXHRcdGJvdHRvbTogMHB4O1xuXHR9XG5cdC5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsIHtcblx0XHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdFx0dG9wOiAwcHg7XG5cdFx0cmlnaHQ6IDBweDtcblx0XHRkaXNwbGF5OiBibG9jaztcblx0XHR3aWR0aDogNDBweDtcblx0fVxuXHQuZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsIHtcblx0XHRib3JkZXItbGVmdDogMXB4IHNvbGlkIHJnYigyMzAsIDIzMCwgMjMwKTtcblx0fVxuXHQuZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGkge1x0XHRcdFxuXHRcdGRpc3BsYXk6IGJsb2NrO1xuXHRcdHBhZGRpbmc6IDBweDtcblx0fVxuXHQuZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGkgPiBhIHtcblx0XHRkaXNwbGF5OiBibG9jaztcblx0XHR3aWR0aDogNDBweDtcblx0XHRwYWRkaW5nOiAxMHB4IDBweCA5cHg7XG5cdH1cbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/appointments/appointments.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/appointments/appointments.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\n      <ul class=\"event-list\">\n        <li>\n          <time datetime=\"2014-07-20\">\n            <span class=\"day\">4</span>\n            <span class=\"month\">Jul</span>\n            <span class=\"year\">2014</span>\n            <span class=\"time\">ALL DAY</span>\n          </time>\n          <img alt=\"Independence Day\" src=\"https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg\" />\n          <div class=\"info\">\n            <h2 class=\"title\">Independence Day</h2>\n            <p class=\"desc\">United States Holiday</p>\n          </div>\n          <div class=\"social\">\n            <ul>\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"#facebook\"><span class=\"fa fa-facebook\"></span></a></li>\n              <li class=\"twitter\" style=\"width:34%;\"><a href=\"#twitter\"><span class=\"fa fa-twitter\"></span></a></li>\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"#google-plus\"><span class=\"fa fa-google-plus\"></span></a></li>\n            </ul>\n          </div>\n        </li>\n\n        <li>\n          <time datetime=\"2014-07-20 0000\">\n            <span class=\"day\">8</span>\n            <span class=\"month\">Jul</span>\n            <span class=\"year\">2014</span>\n            <span class=\"time\">12:00 AM</span>\n          </time>\n          <div class=\"info\">\n            <h2 class=\"title\">One Piece Unlimited World Red</h2>\n            <p class=\"desc\">PS Vita</p>\n            <ul>\n              <li style=\"width:50%;\"><a href=\"#website\"><span class=\"fa fa-globe\"></span> Website</a></li>\n              <li style=\"width:50%;\"><span class=\"fa fa-money\"></span> $39.99</li>\n            </ul>\n          </div>\n          <div class=\"social\">\n            <ul>\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"#facebook\"><span class=\"fa fa-facebook\"></span></a></li>\n              <li class=\"twitter\" style=\"width:34%;\"><a href=\"#twitter\"><span class=\"fa fa-twitter\"></span></a></li>\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"#google-plus\"><span class=\"fa fa-google-plus\"></span></a></li>\n            </ul>\n          </div>\n        </li>\n\n        <li>\n          <time datetime=\"2014-07-20 2000\">\n            <span class=\"day\">20</span>\n            <span class=\"month\">Jan</span>\n            <span class=\"year\">2014</span>\n            <span class=\"time\">8:00 PM</span>\n          </time>\n          <img alt=\"My 24th Birthday!\" src=\"https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg\" />\n          <div class=\"info\">\n            <h2 class=\"title\">Mouse0270's 24th Birthday!</h2>\n            <p class=\"desc\">Bar Hopping in Erie, Pa.</p>\n            <ul>\n              <li style=\"width:33%;\">1 <span class=\"glyphicon glyphicon-ok\"></span></li>\n              <li style=\"width:34%;\">3 <span class=\"fa fa-question\"></span></li>\n              <li style=\"width:33%;\">103 <span class=\"fa fa-envelope\"></span></li>\n            </ul>\n          </div>\n          <div class=\"social\">\n            <ul>\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"#facebook\"><span class=\"fa fa-facebook\"></span></a></li>\n              <li class=\"twitter\" style=\"width:34%;\"><a href=\"#twitter\"><span class=\"fa fa-twitter\"></span></a></li>\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"#google-plus\"><span class=\"fa fa-google-plus\"></span></a></li>\n            </ul>\n          </div>\n        </li>\n\n        <li>\n          <time datetime=\"2014-07-31 1600\">\n            <span class=\"day\">31</span>\n            <span class=\"month\">Jan</span>\n            <span class=\"year\">2014</span>\n            <span class=\"time\">4:00 PM</span>\n          </time>\n          <img alt=\"Disney Junior Live On Tour!\" src=\"http://www.thechaifetzarena.com/images/main/DL13_PiratePrincess_thumb.jpg\" />\n          <div class=\"info\">\n            <h2 class=\"title\">Disney Junior Live On Tour!</h2>\n            <p class=\"desc\"> Pirate and Princess Adventure</p>\n            <ul>\n              <li style=\"width:33%;\">$49.99 <span class=\"fa fa-male\"></span></li>\n              <li style=\"width:34%;\">$29.99 <span class=\"fa fa-child\"></span></li>\n            </ul>\n          </div>\n          <div class=\"social\">\n            <ul>\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"#facebook\"><span class=\"fa fa-facebook\"></span></a></li>\n              <li class=\"twitter\" style=\"width:34%;\"><a href=\"#twitter\"><span class=\"fa fa-twitter\"></span></a></li>\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"#google-plus\"><span class=\"fa fa-google-plus\"></span></a></li>\n            </ul>\n          </div>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\" [ngClass]=\"{ 'button-disabled': dialog }\">\n    <i class=\"fa fa-plus my-float\"></i>\n  </a>"
+
+/***/ }),
+
+/***/ "./src/app/appointments/appointments.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/appointments/appointments.component.ts ***!
+  \********************************************************/
+/*! exports provided: AppointmentsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentsComponent", function() { return AppointmentsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AppointmentsComponent = /** @class */ (function () {
+    function AppointmentsComponent() {
+    }
+    AppointmentsComponent.prototype.ngOnInit = function () {
+    };
+    AppointmentsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-appointments',
+            template: __webpack_require__(/*! ./appointments.component.html */ "./src/app/appointments/appointments.component.html"),
+            styles: [__webpack_require__(/*! ./appointments.component.css */ "./src/app/appointments/appointments.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AppointmentsComponent);
+    return AppointmentsComponent;
+}());
+
 
 
 /***/ }),
@@ -514,7 +585,6 @@ var ButtonComponent = /** @class */ (function (_super) {
         _this.click = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
         _this.begin = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
         _this.done = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
-        _this.hidden = false;
         return _this;
     }
     ButtonComponent.prototype.ngOnInit = function () {
@@ -583,10 +653,14 @@ module.exports = "<a class=\"btn btn-primary social-login-btn social\" (click)=\
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FacebookComponent", function() { return FacebookComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _button_classes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../button-classes */ "./src/app/button/button-classes.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./src/app/utils.ts");
-/* harmony import */ var _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
+/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../session/session.service */ "./src/app/session/session.service.ts");
+/* harmony import */ var _button_classes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../button-classes */ "./src/app/button/button-classes.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils */ "./src/app/utils.ts");
+/* harmony import */ var _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
+/* harmony import */ var src_app_entity_system__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/entity/system */ "./src/app/entity/system.ts");
+
+
 
 
 
@@ -594,20 +668,38 @@ __webpack_require__.r(__webpack_exports__);
 
 var FacebookComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](FacebookComponent, _super);
-    function FacebookComponent(api) {
+    function FacebookComponent(api, session) {
         var _this = _super.call(this) || this;
         _this.api = api;
-        _this.sociaNetworkType = _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_4__["SociaNetworkType"].FACEBOOK;
+        _this.session = session;
+        _this.sociaNetworkType = _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_5__["SociaNetworkType"].FACEBOOK;
+        _this.callback = function (args) {
+            console.log(args);
+            if (args.code == src_app_entity_system__WEBPACK_IMPORTED_MODULE_6__["ReturnCode"].SUCCESS) {
+                _this.session.authenticationService.authenticate(args.result, _this.login, _this.session.setUserInSession);
+            }
+            else {
+                _this.loading = false;
+                _this.done.emit(args);
+            }
+        };
+        _this.login = function (args) {
+            console.log(args);
+            _this.done.emit(args);
+            _this.loading = false;
+        };
         return _this;
     }
     FacebookComponent.prototype.ngOnInit = function () {
         this.api.config();
     };
-    FacebookComponent.prototype.callback = function () {
-        alert("done");
-    };
     FacebookComponent.prototype.do = function (form) {
-        if (!_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(form)) {
+        if (this.loading) {
+            return;
+        }
+        this.loading = true;
+        this.begin.emit();
+        if (!_utils__WEBPACK_IMPORTED_MODULE_4__["ObjectUtils"].isEmpty(form)) {
             this.form = form;
         }
         this.api.login(this.callback);
@@ -615,15 +707,15 @@ var FacebookComponent = /** @class */ (function (_super) {
     FacebookComponent.prototype.onClicked = function () {
     };
     FacebookComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'facebook-button',
             template: __webpack_require__(/*! ./facebook.component.html */ "./src/app/button/facebook/facebook.component.html"),
             styles: [__webpack_require__(/*! ./facebook.component.css */ "./src/app/button/facebook/facebook.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_4__["FacebookService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_5__["FacebookService"], _session_session_service__WEBPACK_IMPORTED_MODULE_1__["SessionService"]])
     ], FacebookComponent);
     return FacebookComponent;
-}(_button_classes__WEBPACK_IMPORTED_MODULE_1__["ButtonComponent"]));
+}(_button_classes__WEBPACK_IMPORTED_MODULE_2__["ButtonComponent"]));
 
 
 
@@ -685,6 +777,10 @@ var GoogleComponent = /** @class */ (function (_super) {
     GoogleComponent.prototype.callback = function () {
     };
     GoogleComponent.prototype.do = function (form) {
+        if (this.loading) {
+            return;
+        }
+        this.loading = true;
         if (!_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(form)) {
             this.form = form;
         }
@@ -725,7 +821,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button [class]=\"classes\" [ngClass]=\"{ 'button-disabled': loading || hidden }\" (click)=\"doLogin()\" ><ng-content></ng-content></button>\n"
+module.exports = "<button [class]=\"classes\" [ngClass]=\"{ 'button-disabled': hidden }\" (click)=\"doLogin()\" ><ng-content></ng-content></button>\n"
 
 /***/ }),
 
@@ -743,10 +839,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../session/session.service */ "./src/app/session/session.service.ts");
 /* harmony import */ var _button_classes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../button-classes */ "./src/app/button/button-classes.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_service_services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/service/services */ "./src/app/service/services.ts");
-/* harmony import */ var src_app_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/utils */ "./src/app/utils.ts");
-/* harmony import */ var src_app_entity_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/entity/User */ "./src/app/entity/User.ts");
-/* harmony import */ var src_app_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
+/* harmony import */ var src_app_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/utils */ "./src/app/utils.ts");
+/* harmony import */ var src_app_entity_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var src_app_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
+/* harmony import */ var src_app_entity_system__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/entity/system */ "./src/app/entity/system.ts");
 
 
 
@@ -763,7 +859,7 @@ var SignInComponent = /** @class */ (function (_super) {
         _this.loginDone = function (args) {
             _this.loading = false;
             _this.done.emit(args);
-            if (args.code == src_app_service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].SUCCESS) {
+            if (args.code == src_app_entity_system__WEBPACK_IMPORTED_MODULE_7__["ReturnCode"].SUCCESS) {
             }
         };
         return _this;
@@ -771,20 +867,23 @@ var SignInComponent = /** @class */ (function (_super) {
     SignInComponent.prototype.ngOnInit = function () {
     };
     SignInComponent.prototype.doLogin = function () {
+        if (this.loading) {
+            return;
+        }
         this.begin.emit();
         if (this.form.invalid) {
-            var args = { code: src_app_service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].VALIDATION_ERROR, message: "" };
+            var args = { code: src_app_entity_system__WEBPACK_IMPORTED_MODULE_7__["ReturnCode"].VALIDATION_ERROR, message: "", result: this.form };
             this.done.emit(args);
             return;
         }
         this.loading = true;
-        var formUser = new src_app_entity_User__WEBPACK_IMPORTED_MODULE_6__["User"]();
+        var formUser = new src_app_entity_User__WEBPACK_IMPORTED_MODULE_5__["User"]();
         formUser.username = this.form.value.username;
         formUser.password = this.form.value.password;
-        this.form.value.socialMedia = src_app_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_7__["SociaNetworkType"].NONE;
+        this.form.value.socialMedia = src_app_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_6__["SociaNetworkType"].NONE;
         formUser.loginType = this.form.value.socialMedia;
         if (!this.requiredFieldsFilled(formUser)) {
-            var args = { code: src_app_service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].VALIDATION_ERROR, message: this.language.requiredFields };
+            var args = { code: src_app_entity_system__WEBPACK_IMPORTED_MODULE_7__["ReturnCode"].VALIDATION_ERROR, message: this.language.requiredFields, result: this.form };
             this.done.emit(args);
             this.loading = false;
             this.done.emit();
@@ -797,8 +896,8 @@ var SignInComponent = /** @class */ (function (_super) {
     SignInComponent.prototype.onSignedIn = function () {
     };
     SignInComponent.prototype.requiredFieldsFilled = function (user) {
-        return !(src_app_utils__WEBPACK_IMPORTED_MODULE_5__["StringUtils"].isEmpty(user.username)
-            || src_app_utils__WEBPACK_IMPORTED_MODULE_5__["StringUtils"].isEmpty(user.password));
+        return !(src_app_utils__WEBPACK_IMPORTED_MODULE_4__["StringUtils"].isEmpty(user.username)
+            || src_app_utils__WEBPACK_IMPORTED_MODULE_4__["StringUtils"].isEmpty(user.password));
     };
     SignInComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -833,7 +932,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button [class]=\"classes\" [ngClass]=\"{ 'button-disabled': loading || hidden }\" (click)=\"doRegister()\"><ng-content></ng-content></button>\n"
+module.exports = "<button [class]=\"classes\" [ngClass]=\"{ 'button-disabled': hidden }\" (click)=\"doRegister()\"><ng-content></ng-content></button>\n"
 
 /***/ }),
 
@@ -855,6 +954,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/utils */ "./src/app/utils.ts");
 /* harmony import */ var src_app_entity_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/entity/User */ "./src/app/entity/User.ts");
 /* harmony import */ var src_app_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
+/* harmony import */ var src_app_entity_system__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/entity/system */ "./src/app/entity/system.ts");
+
 
 
 
@@ -873,16 +974,14 @@ var SignUpComponent = /** @class */ (function (_super) {
     }
     SignUpComponent.prototype.ngOnInit = function () {
     };
-    SignUpComponent.prototype.ngAfterViewInit = function () {
-        if (src_app_utils__WEBPACK_IMPORTED_MODULE_5__["StringUtils"].isEmpty(this.classes)) {
-            //this.classes = "btn btn-lg btn-petlife btn-block btn-center";
-        }
-    };
     SignUpComponent.prototype.doRegister = function () {
         var _this = this;
+        if (this.loading) {
+            return;
+        }
         this.begin.emit();
         if (this.form.invalid) {
-            var args = { code: src_app_service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].VALIDATION_ERROR, message: "" };
+            var args = { code: src_app_entity_system__WEBPACK_IMPORTED_MODULE_8__["ReturnCode"].VALIDATION_ERROR, message: "", result: this.form };
             this.done.emit(args);
             return;
         }
@@ -895,28 +994,28 @@ var SignUpComponent = /** @class */ (function (_super) {
         formUser.loginType = this.form.value.socialMedia;
         //Campos obrigatorios
         if (!this.requiredFieldsFilled(formUser, this.form.value.confirmPassword)) {
-            var args = { code: src_app_service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].VALIDATION_ERROR, message: this.language.requiredFields };
+            var args = { code: src_app_entity_system__WEBPACK_IMPORTED_MODULE_8__["ReturnCode"].VALIDATION_ERROR, message: this.language.requiredFields, result: this.form };
             this.loading = false;
             this.done.emit(args);
             return;
         }
         //Validar e-mail
         if (!src_app_utils__WEBPACK_IMPORTED_MODULE_5__["StringUtils"].isEmail(formUser.username)) {
-            var args = { code: src_app_service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].VALIDATION_ERROR, message: this.language.invalidEmailAddress };
+            var args = { code: src_app_entity_system__WEBPACK_IMPORTED_MODULE_8__["ReturnCode"].VALIDATION_ERROR, message: this.language.invalidEmailAddress, result: this.form };
             this.loading = false;
             this.done.emit(args);
             return;
         }
         //Validar senha
         if (formUser.password.length < _session_session_service__WEBPACK_IMPORTED_MODULE_1__["PASSWORD_CONFIG"].min || (!src_app_utils__WEBPACK_IMPORTED_MODULE_5__["StringUtils"].isEmpty(_session_session_service__WEBPACK_IMPORTED_MODULE_1__["PASSWORD_CONFIG"].contains))) {
-            var args = { code: src_app_service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].VALIDATION_ERROR, message: this.language.invalidPassword.replace(":min", _session_session_service__WEBPACK_IMPORTED_MODULE_1__["PASSWORD_CONFIG"].min) };
+            var args = { code: src_app_entity_system__WEBPACK_IMPORTED_MODULE_8__["ReturnCode"].VALIDATION_ERROR, message: this.language.invalidPassword.replace(":min", _session_session_service__WEBPACK_IMPORTED_MODULE_1__["PASSWORD_CONFIG"].min), result: this.form };
             this.loading = false;
             this.done.emit(args);
             return;
         }
         //Corresponder senha
         if (formUser.password != this.form.value.confirmPassword) {
-            var args = { code: src_app_service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].VALIDATION_ERROR, message: this.language.passwordDoesntMatch };
+            var args = { code: src_app_entity_system__WEBPACK_IMPORTED_MODULE_8__["ReturnCode"].VALIDATION_ERROR, message: this.language.passwordDoesntMatch, result: this.form };
             this.loading = false;
             this.done.emit(args);
             return;
@@ -925,23 +1024,23 @@ var SignUpComponent = /** @class */ (function (_super) {
         window.httpUser = user;
         user.subscribe(function (result) {
             console.log(result);
-            if (result.code == src_app_service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].SUCCESS) {
+            if (result.code == src_app_entity_system__WEBPACK_IMPORTED_MODULE_8__["ReturnCode"].SUCCESS) {
                 _this.session.setUserInSession(result, _this.form.value.password);
-                var args = { code: result.code, message: "" };
+                var args = { code: result.code, message: "", result: _this.form };
                 _this.done.emit(args);
             }
             else {
                 var message = "";
-                if (result.code == src_app_service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].RESOURCE_EXISTS) {
+                if (result.code == src_app_entity_system__WEBPACK_IMPORTED_MODULE_8__["ReturnCode"].RESOURCE_EXISTS) {
                     message = _this.language.usernameExists;
                 }
-                var args = { code: result.code, message: message };
+                var args = { code: result.code, message: message, result: _this.form };
                 _this.done.emit(args);
             }
             _this.loading = false;
         }, function (error) {
             console.log(error);
-            var args = { code: src_app_service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].CONNECTION_ERROR, message: "" };
+            var args = { code: src_app_entity_system__WEBPACK_IMPORTED_MODULE_8__["ReturnCode"].CONNECTION_ERROR, message: "", result: _this.form };
             _this.done.emit(args);
             _this.loading = false;
         });
@@ -1101,7 +1200,7 @@ var LocalDatabaseService = /** @class */ (function () {
         this.createTables = function () {
             var transaction = function (tx) {
                 var tables = [
-                    'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement,  username text, password text, current boolean)',
+                    'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement,  username text, password text, current boolean, loginType integer)',
                     'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement,  name text)'
                 ];
                 //cria tabelas
@@ -1120,12 +1219,12 @@ var LocalDatabaseService = /** @class */ (function () {
     };
     LocalDatabaseService.prototype.mergeUser = function (user) {
         var _this = this;
-        var insertQuery = "INSERT INTO user (username, password, current) VALUES ('";
+        var insertQuery = "INSERT INTO user (username, password, current, loginType) VALUES ('";
         var insertNew = function (tx) {
-            tx.executeSql(insertQuery + user.username + "','" + user.password + "', 1)");
+            tx.executeSql(insertQuery + user.username + "','" + user.password + "', 1, " + user.loginType + " )");
         };
         var lookup = function (tx) {
-            tx.executeSql("SELECT * FROM user WHERE username = '" + user.username + "'", [], result);
+            tx.executeSql("SELECT * FROM user WHERE username = '" + user.username + "' AND loginType = " + user.loginType, [], result);
         };
         var result = function (tx, res) {
             if (res.rows.length == 0) {
@@ -1138,7 +1237,7 @@ var LocalDatabaseService = /** @class */ (function () {
                             return;
                         }
                         var update = function (tx) {
-                            tx.executeSql("UPDATE user SET current = 1 WHERE username = '" + user.username + "'");
+                            tx.executeSql("UPDATE user SET current = 1 WHERE username = '" + user.username + "' AND loginType = " + user.loginType);
                         };
                         _this.database.transaction(update, _this.error, _this.success);
                         return;
@@ -1171,8 +1270,9 @@ var LocalDatabaseService = /** @class */ (function () {
         setTimeout(function () { _this.database.transaction(lookup, _this.error, _this.success); });
     };
     LocalDatabaseService.prototype.resetUsers = function () {
+        this.createTables();
         var transaction = function (tx) {
-            tx.executeSql("DELETE FROM user");
+            tx.executeSql("DROP TABLE user");
         };
         this.database.transaction(transaction, this.error, this.success);
     };
@@ -1191,29 +1291,32 @@ var LocalDatabaseService = /** @class */ (function () {
 /*!*******************************!*\
   !*** ./src/app/entity/Pet.ts ***!
   \*******************************/
-/*! exports provided: Pet, PetType */
+/*! exports provided: Pet, PetType, Breed */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Pet", function() { return Pet; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetType", function() { return PetType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Breed", function() { return Breed; });
 var Pet = /** @class */ (function () {
     function Pet() {
     }
     return Pet;
 }());
 
-var PetType;
-(function (PetType) {
-    PetType[PetType["OTHER"] = 0] = "OTHER";
-    PetType[PetType["DOG"] = 1] = "DOG";
-    PetType[PetType["CAT"] = 2] = "CAT";
-    PetType[PetType["BIRD"] = 3] = "BIRD";
-    PetType[PetType["FISH"] = 4] = "FISH";
-    /*RABBIT = "Coelho",
-    HAMSTER = "Hamster",*/
-})(PetType || (PetType = {}));
+var PetType = /** @class */ (function () {
+    function PetType() {
+    }
+    return PetType;
+}());
+
+var Breed = /** @class */ (function () {
+    function Breed() {
+    }
+    return Breed;
+}());
+
 
 
 /***/ }),
@@ -1234,6 +1337,29 @@ var User = /** @class */ (function () {
     return User;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/entity/system.ts":
+/*!**********************************!*\
+  !*** ./src/app/entity/system.ts ***!
+  \**********************************/
+/*! exports provided: ReturnCode */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReturnCode", function() { return ReturnCode; });
+var ReturnCode;
+(function (ReturnCode) {
+    ReturnCode[ReturnCode["SUCCESS"] = 0] = "SUCCESS";
+    ReturnCode[ReturnCode["NOT_FOUND"] = -1] = "NOT_FOUND";
+    ReturnCode[ReturnCode["VALIDATION_ERROR"] = -2] = "VALIDATION_ERROR";
+    ReturnCode[ReturnCode["SERVER_ERROR"] = -3] = "SERVER_ERROR";
+    ReturnCode[ReturnCode["RESOURCE_EXISTS"] = -4] = "RESOURCE_EXISTS";
+    ReturnCode[ReturnCode["CONNECTION_ERROR"] = -5] = "CONNECTION_ERROR";
+})(ReturnCode || (ReturnCode = {}));
 
 
 /***/ }),
@@ -1477,7 +1603,7 @@ module.exports = "/* brandico */\n[class*=\"brandico-\"]:before {\n  font-family
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n<div class=\"container text-center default-background\">\n    <form class=\"form-signin\" #loginForm=\"ngForm\">\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br><br>\n        <p>\n            <facebook-button></facebook-button>\n            <google-button></google-button>\n        </p>\n        <br>\n\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\n        <br>\n        \n        <input type=\"hidden\" name=\"socialMedia\" id=\"socialMedia\" value=\"0\" ngModel>\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.username}}\" type=\"text\" name=\"username\" id=\"username\" ngModel><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel>\n\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\n        <div class=\"spinner-border text-toppet\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n            <span class=\"sr-only\">Carregando...</span>\n        </div>\n        <app-alert></app-alert>\n        <login-button classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"loginForm\" (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\">{{language.signIn}}</login-button>\n        <br>\n    </form>\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.register}} </b></button> </small>\n</div>"
+module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n<div class=\"container text-center default-background\">\n    <form class=\"form-signin\" #loginForm=\"ngForm\">\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br><br>\n        <p>\n            <facebook-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></facebook-button>\n            <google-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></google-button>\n        </p>\n        <br>\n\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\n        <br>\n        \n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.username}}\" type=\"text\" name=\"username\" id=\"username\" ngModel><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel>\n\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\n        <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\n            <span class=\"sr-only\">Carregando...</span>\n        </div>\n        <app-alert></app-alert>\n        <login-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"loginForm\" (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\">{{language.signIn}}</login-button>\n        <br>\n    </form>\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.register}} </b></button> </small>\n</div>"
 
 /***/ }),
 
@@ -1495,13 +1621,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
 /* harmony import */ var _navbar_menuService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../navbar/menuService */ "./src/app/navbar/menuService.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
-/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
-/* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
-/* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../application */ "./src/app/application.ts");
+/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
+/* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+/* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../application */ "./src/app/application.ts");
+/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
 
 
 
@@ -1541,15 +1667,15 @@ var LoginComponent = /** @class */ (function (_super) {
     };
     LoginComponent.prototype.onLoginEnd = function (eventArgs) {
         this.loading = false;
-        if (eventArgs.code == _service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].SUCCESS) {
+        if (eventArgs.code == _entity_system__WEBPACK_IMPORTED_MODULE_10__["ReturnCode"].SUCCESS) {
             this.session.onLogged(null, this.router, this.menu);
         }
         else {
-            if (eventArgs.code == _service_services__WEBPACK_IMPORTED_MODULE_4__["ReturnCode"].VALIDATION_ERROR && !_utils__WEBPACK_IMPORTED_MODULE_7__["StringUtils"].isEmpty(eventArgs.message)) {
-                this.alert.show(eventArgs.message, _styles_styles__WEBPACK_IMPORTED_MODULE_8__["ColorClass"].danger);
+            if (eventArgs.code == _entity_system__WEBPACK_IMPORTED_MODULE_10__["ReturnCode"].VALIDATION_ERROR && !_utils__WEBPACK_IMPORTED_MODULE_6__["StringUtils"].isEmpty(eventArgs.message)) {
+                this.alert.show(eventArgs.message, _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             }
             else {
-                this.alert.show(eventArgs.message, _styles_styles__WEBPACK_IMPORTED_MODULE_8__["ColorClass"].danger);
+                this.alert.show(eventArgs.message, _styles_styles__WEBPACK_IMPORTED_MODULE_7__["ColorClass"].danger);
             }
         }
     };
@@ -1560,11 +1686,11 @@ var LoginComponent = /** @class */ (function (_super) {
         console.log("submit login to google");
     };
     LoginComponent.prototype.register = function () {
-        this.router.navigateByUrl(_application__WEBPACK_IMPORTED_MODULE_10__["REGISTER_USER_PAGE"]);
+        this.router.navigateByUrl(_application__WEBPACK_IMPORTED_MODULE_9__["REGISTER_USER_PAGE"]);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_6__["AlertComponent"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_5__["AlertComponent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_5__["AlertComponent"])
     ], LoginComponent.prototype, "alert", void 0);
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -1572,10 +1698,10 @@ var LoginComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_1__["SessionService"], _navbar_menuService__WEBPACK_IMPORTED_MODULE_2__["MenuService"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_1__["SessionService"], _navbar_menuService__WEBPACK_IMPORTED_MODULE_2__["MenuService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]])
     ], LoginComponent);
     return LoginComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_5__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
 
 
 
@@ -1765,7 +1891,7 @@ module.exports = "mat-navbar-container {\n    width: 100% !important;\n    heigh
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar  navbar-dark bg-petlife\" [ngClass]=\"{ 'button-disabled': disable }\"><!-- navbar-expand-lg-->\n    <a class=\"navbar-brand\" href=\"#\">{{applicationName}}</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" [ngClass]=\"{ 'button-disabled': disableMenu }\" (click)=\"toggleNavbar()\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" [ngClass]=\"{ 'show': navbarOpen }\" id=\"navbarColor02\">\n        <ul class=\"navbar-nav mr-auto\">\n            <li class=\"nav-item active\">\n                <a class=\"nav-link\" href=\"javascript:;\"><i class=\"fa fa-user\">&nbsp;&nbsp;</i>{{user.name}}</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" routerLink=\"/{{language.links.pets}}\" (click)=\"toggleNavbar()\"><i class=\"fa fa-paw\">&nbsp;&nbsp;</i>{{language.myPet}}</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-hands-helping\">&nbsp;&nbsp;</i>{{language.adoptions}}</a><!--hands-helping -->\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-calendar\">&nbsp;&nbsp;</i>{{language.appointments}}</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-question-circle\">&nbsp;&nbsp;</i>{{language.about}}</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" (click)=\"logout()\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-times-circle\">&nbsp;&nbsp;</i>{{language.logout}}</a>\n            </li>\n        </ul>\n    </div>\n</nav>"
+module.exports = "<nav class=\"navbar  navbar-dark bg-petlife\" *ngIf=\"disable == false\"><!-- navbar-expand-lg-->\n    <a class=\"navbar-brand\" href=\"#\">{{applicationName}}</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" [ngClass]=\"{ 'button-disabled': disableMenu }\" (click)=\"toggleNavbar()\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" [ngClass]=\"{ 'show': navbarOpen }\" id=\"navbarColor02\">\n        <ul class=\"navbar-nav mr-auto\">\n            <li class=\"nav-item active\">\n                <a class=\"nav-link\" href=\"javascript:;\"><i class=\"fa fa-user\">&nbsp;&nbsp;</i>{{user.name}}</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" routerLink=\"/{{language.links.pets}}\" (click)=\"toggleNavbar()\"><i class=\"fa fa-paw\">&nbsp;&nbsp;</i>{{language.myPet}}</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-hands-helping\">&nbsp;&nbsp;</i>{{language.adoptions}}</a><!--hands-helping -->\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-calendar\">&nbsp;&nbsp;</i>{{language.appointments}}</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-question-circle\">&nbsp;&nbsp;</i>{{language.about}}</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" (click)=\"logout()\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-times-circle\">&nbsp;&nbsp;</i>{{language.logout}}</a>\n            </li>\n        </ul>\n    </div>\n</nav>"
 
 /***/ }),
 
@@ -1837,25 +1963,25 @@ var NavbarComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "./src/app/pets/add.component.css":
-/*!****************************************!*\
-  !*** ./src/app/pets/add.component.css ***!
-  \****************************************/
+/***/ "./src/app/pets/pet.breeds.component.html":
+/*!************************************************!*\
+  !*** ./src/app/pets/pet.breeds.component.html ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* .form-input {\n    display: block;\n    width: 100%;\n    height: calc(1.5em + .75rem + 2px);\n    padding: .375rem .75rem;\n    font-size: 1rem;\n    font-weight: 400;\n    line-height: 1.5;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: .25rem;\n    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;\n} */\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9hZGQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7R0FjRyIsImZpbGUiOiJzcmMvYXBwL3BldHMvYWRkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiAuZm9ybS1pbnB1dCB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiBjYWxjKDEuNWVtICsgLjc1cmVtICsgMnB4KTtcbiAgICBwYWRkaW5nOiAuMzc1cmVtIC43NXJlbTtcbiAgICBmb250LXNpemU6IDFyZW07XG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgICBsaW5lLWhlaWdodDogMS41O1xuICAgIGNvbG9yOiAjNDk1MDU3O1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmY7XG4gICAgYmFja2dyb3VuZC1jbGlwOiBwYWRkaW5nLWJveDtcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjY2VkNGRhO1xuICAgIGJvcmRlci1yYWRpdXM6IC4yNXJlbTtcbiAgICB0cmFuc2l0aW9uOiBib3JkZXItY29sb3IgLjE1cyBlYXNlLWluLW91dCxib3gtc2hhZG93IC4xNXMgZWFzZS1pbi1vdXQ7XG59ICovIl19 */"
+module.exports = "<div class=\"modal-dialog\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.animal}}</h5>\n      <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeDialog()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\n            <ul class=\"event-list\" style=\"width: 115% !important; margin-left: -8% !important;\">\n              <li *ngFor=\"let b of type.breeds\" (click)=\"select(b)\" style=\"height: 65px !important; line-height:65px;\">\n                  <div style=\"display:inline-block; vertical-align:middle; line-height:1.25em; text-align: center; width: 100%;\">\n                    <h2 class=\"new-title\" >{{b.description}}</h2>\n                  </div>\n              </li>\n            </ul>\n          </div>\n        </div> \n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/pets/add.component.html":
-/*!*****************************************!*\
-  !*** ./src/app/pets/add.component.html ***!
-  \*****************************************/
+/***/ "./src/app/pets/pet.info.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/pets/pet.info.component.html ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- https://yespornplease.com/v/100046849\nhttps://yespornplease.com/v/956831015 \nhttps://yespornplease.com/v/383223747-->\n<div class=\"modal-dialog\" role=\"document\" id=\"addPet\" (keypress)=\"browserKeyPress($event)\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.addNewPet}}</h5>\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeDialog()\">\n                <span aria-hidden=\"true\">&times;</span>\n            </button>\n        </div>\n        <div class=\"modal-body\">\n            <div class=\"card\">\n                <img [src]=\"pet.img\" class=\"card-img-top\" [ngClass]=\"{ 'button-disabled': pet.img == null }\">\n                <a class=\"btn btn-light\" [ngClass]=\"{ 'button-disabled': pet.img != null }\" (click)=\"camera()\" href=\"#\" style=\"font-size: 450%;\"><i class=\"fa fa-camera text-petlife\"></i></a>\n            </div>\n            <button class=\"btn btn-petlife btn-block btn-center\"  type=\"button\" (click)=\"openPetType()\">\n                {{animal.name}}\n                <i [ngClass]=\"'fa fa-' + animal.icon\" style=\"float: right; font-size: 125%;\"></i>\n            </button>\n            <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl />\n            <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.age\" placeholder=\"{{language.age}}\" type=\"text\" ngDefaultControl />\n            <input class=\"ember-view ember-text-field form-control login-input-pass\" [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl />       \n        </div>\n        <app-alert></app-alert>\n        <div class=\"modal-footer\">\n            <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n                <span class=\"sr-only\">Carregando...</span>\n            </div>\n            <button class=\"btn btn-petlife btn-block btn-center\" type=\"button\" (click)=\"createPet()\" [ngClass]=\"{ 'button-disabled': loading }\" data-bindattr-3=\"3\">{{language.createUser}}</button>\n        </div>\n    </div>\n</div>\n      "
+module.exports = "<!-- https://yespornplease.com/v/100046849\nhttps://yespornplease.com/v/956831015 \nhttps://yespornplease.com/v/383223747-->\n<section class=\"body_section\">\n    <div class=interface_class>\n        <div class=\"page-header\">\n            <h1>{{language.addNewPet}}</h1>\n        </div>\n        \n        <div class=\"card\">\n            <img [src]=\"pet.img\" class=\"card-img-top\" [ngClass]=\"{ 'button-disabled': pet.img == null }\">\n            <a class=\"btn btn-light\" [ngClass]=\"{ 'button-disabled': pet.img != null }\" (click)=\"camera()\" href=\"javascript:;\" style=\"font-size: 450%;\"><i class=\"fa fa-camera text-petlife\"></i></a>\n        </div>\n        <button class=\"btn btn-petlife btn-block btn-center\"  type=\"button\" (click)=\"openPetType()\">\n            {{animal.name}}\n            <i [ngClass]=\"'fa fa-' + animal.icon\" style=\"float: right; font-size: 125%;\"></i>\n        </button>\n        <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl />\n        <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.age\" placeholder=\"{{language.age}}\" type=\"text\" ngDefaultControl />\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl />\n        <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\n            <span class=\"sr-only\">Carregando...</span>\n        </div>\n        <app-alert></app-alert>\n        <div class=\"slidecount\">\n            <span class=\"\"></span>\n            <span class=\"selected\"></span>\n            <span class=\"\"></span>\n        </div>\n    </div> \n</section>\n  \n  \n  \n      "
 
 /***/ }),
 
@@ -1866,18 +1992,29 @@ module.exports = "<!-- https://yespornplease.com/v/100046849\nhttps://yespornple
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".pet-icon {\n    margin: 5px;\n    width: 20%;\n    font-size: 265%;\n    padding: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9wZXQucGlja2VyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0lBQ1gsVUFBVTtJQUNWLGVBQWU7SUFDZixVQUFVO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9wZXRzL3BldC5waWNrZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5wZXQtaWNvbiB7XG4gICAgbWFyZ2luOiA1cHg7XG4gICAgd2lkdGg6IDIwJTtcbiAgICBmb250LXNpemU6IDI2NSU7XG4gICAgcGFkZGluZzogMDtcbn0iXX0= */"
+module.exports = "body {\n    padding: 4px 0px;\n    background-color: rgb(220, 220, 220);\n}\n\n.event-list {\n    list-style: none;\n    /* font-family: 'Lato', sans-serif; */\n    margin: 0px;\n    padding: 0px;\n}\n\n.event-list > li {\n    background-color: rgb(255, 255, 255);\n    box-shadow: 0px 0px 5px rgb(51, 51, 51);\n    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);\n    padding: 0px;\n    margin: 0px 0px 20px;\n}\n\n.event-list > li > .icon {\n    display: inline-block;\n    width: 100%;\n    color: rgb(255, 255, 255);\n    background-color: rgb(197, 44, 102);\n    padding: 5px;\n    text-align: center;\n    font-size: 370%;\n}\n\n.event-list > li:nth-child(even) > .icon {\n    background-color: rgb(165, 82, 167);\n}\n\n.event-list > li > .icon > span {\n    display: none;\n}\n\n.event-list > li > img {\n    width: 100%;\n}\n\n.event-list > li > .info {\n    padding-top: 5px;\n    text-align: center;\n}\n\n.event-list > li > .info > .title {\n    font-size: 17pt;\n    font-weight: 700;\n    margin: 0px;\n}\n\n.event-list > li > .info > .desc {\n    font-size: 13pt;\n    font-weight: 300;\n    margin: 0px;\n}\n\n.event-list > li > .info > ul,\n.event-list > li > .social > ul {\n    display: table;\n    list-style: none;\n    margin: 10px 0px 0px;\n    padding: 0px;\n    width: 100%;\n    text-align: center;\n}\n\n.event-list > li > .social > ul {\n    margin: 0px;\n}\n\n.event-list > li > .info > ul > li,\n.event-list > li > .social > ul > li {\n    display: table-cell;\n    cursor: pointer;\n    color: rgb(30, 30, 30);\n    font-size: 11pt;\n    font-weight: 300;\n    padding: 3px 0px;\n}\n\n.event-list > li > .info > ul > li > a {\n    display: block;\n    width: 100%;\n    color: rgb(30, 30, 30);\n    text-decoration: none;\n}\n\n.event-list > li > .social > ul > li {    \n    padding: 0px;\n}\n\n.event-list > li > .social > ul > li > a {\n    padding: 3px 0px;\n}\n\n.event-list > li > .info > ul > li:hover,\n.event-list > li > .social > ul > li:hover {\n    color: rgb(30, 30, 30);\n    background-color: rgb(200, 200, 200);\n}\n\n.event-list > li {\n    position: relative;\n    display: block;\n    width: 100%;\n    height: 93px;\n    padding: 0px;\n}\n\n.event-list > li > .icon,\n.event-list > li > img  {\n    display: inline-block;\n}\n\n.event-list > li > .icon,\n.event-list > li > img {\n    width: 93px;\n    float: left;\n}\n\n.event-list > li > .info {\n    background-color: rgb(245, 245, 245);\n    overflow: hidden;\n}\n\n.event-list > li > .icon,\n.event-list > li > img {\n    width: 93px;\n    height: 93px;\n    padding: 0px;\n    margin: 0px;\n}\n\n.event-list > li > .info {\n    position: relative;\n    height: 93px;\n    text-align: left;\n    padding-right: 40px;\n}\n\n.event-list > li > .info > .title, \n.event-list > li > .info > .desc {\n    padding: 0px 10px;\n}\n\n.event-list > li > .info > ul {\n    position: absolute;\n    left: 0px;\n    bottom: 0px;\n}\n\n.event-list > li > .social {\n    position: absolute;\n    top: 0px;\n    right: 0px;\n    display: block;\n    width: 40px;\n}\n\n.event-list > li > .social > ul {\n    border-left: 1px solid rgb(230, 230, 230);\n}\n\n.event-list > li > .social > ul > li {\t\t\t\n    display: block;\n    padding: 0px;\n}\n\n.event-list > li > .social > ul > li > a {\n    display: block;\n    width: 40px;\n    padding: 10px 0px 9px;\n}\n\n.new-title {\n    font-size: 17pt;\n    font-weight: 600;\n    margin: 0px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9wZXQucGlja2VyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnQkFBZ0I7SUFDaEIsb0NBQW9DO0FBQ3hDOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLHFDQUFxQztJQUNyQyxXQUFXO0lBQ1gsWUFBWTtBQUNoQjs7QUFDQTtJQUNJLG9DQUFvQztJQUNwQyx1Q0FBdUM7SUFDdkMsNkNBQTZDO0lBQzdDLFlBQVk7SUFDWixvQkFBb0I7QUFDeEI7O0FBQ0E7SUFDSSxxQkFBcUI7SUFDckIsV0FBVztJQUNYLHlCQUF5QjtJQUN6QixtQ0FBbUM7SUFDbkMsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixlQUFlO0FBQ25COztBQUNBO0lBQ0ksbUNBQW1DO0FBQ3ZDOztBQUNBO0lBQ0ksYUFBYTtBQUNqQjs7QUFFQTtJQUNJLFdBQVc7QUFDZjs7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixrQkFBa0I7QUFDdEI7O0FBQ0E7SUFDSSxlQUFlO0lBQ2YsZ0JBQWdCO0lBQ2hCLFdBQVc7QUFDZjs7QUFFQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsV0FBVztBQUNmOztBQUNBOztJQUVJLGNBQWM7SUFDZCxnQkFBZ0I7SUFDaEIsb0JBQW9CO0lBQ3BCLFlBQVk7SUFDWixXQUFXO0lBQ1gsa0JBQWtCO0FBQ3RCOztBQUNBO0lBQ0ksV0FBVztBQUNmOztBQUNBOztJQUVJLG1CQUFtQjtJQUNuQixlQUFlO0lBQ2Ysc0JBQXNCO0lBQ3RCLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsZ0JBQWdCO0FBQ3BCOztBQUNBO0lBQ0ksY0FBYztJQUNkLFdBQVc7SUFDWCxzQkFBc0I7SUFDdEIscUJBQXFCO0FBQ3pCOztBQUNBO0lBQ0ksWUFBWTtBQUNoQjs7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFDQTs7SUFFSSxzQkFBc0I7SUFDdEIsb0NBQW9DO0FBQ3hDOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLGNBQWM7SUFDZCxXQUFXO0lBQ1gsWUFBWTtJQUNaLFlBQVk7QUFDaEI7O0FBRUE7O0lBRUkscUJBQXFCO0FBQ3pCOztBQUNBOztJQUVJLFdBQVc7SUFDWCxXQUFXO0FBQ2Y7O0FBQ0E7SUFDSSxvQ0FBb0M7SUFDcEMsZ0JBQWdCO0FBQ3BCOztBQUNBOztJQUVJLFdBQVc7SUFDWCxZQUFZO0lBQ1osWUFBWTtJQUNaLFdBQVc7QUFDZjs7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2Qjs7QUFDQTs7SUFFSSxpQkFBaUI7QUFDckI7O0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsU0FBUztJQUNULFdBQVc7QUFDZjs7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixRQUFRO0lBQ1IsVUFBVTtJQUNWLGNBQWM7SUFDZCxXQUFXO0FBQ2Y7O0FBQ0E7SUFDSSx5Q0FBeUM7QUFDN0M7O0FBQ0E7SUFDSSxjQUFjO0lBQ2QsWUFBWTtBQUNoQjs7QUFDQTtJQUNJLGNBQWM7SUFDZCxXQUFXO0lBQ1gscUJBQXFCO0FBQ3pCOztBQUdBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixXQUFXO0FBQ2YiLCJmaWxlIjoic3JjL2FwcC9wZXRzL3BldC5waWNrZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICAgIHBhZGRpbmc6IDRweCAwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDIyMCwgMjIwLCAyMjApO1xufVxuXG4uZXZlbnQtbGlzdCB7XG4gICAgbGlzdC1zdHlsZTogbm9uZTtcbiAgICAvKiBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmOyAqL1xuICAgIG1hcmdpbjogMHB4O1xuICAgIHBhZGRpbmc6IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyNTUsIDI1NSwgMjU1KTtcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDVweCByZ2IoNTEsIDUxLCA1MSk7XG4gICAgYm94LXNoYWRvdzogMHB4IDBweCA1cHggcmdiYSg1MSwgNTEsIDUxLCAwLjcpO1xuICAgIHBhZGRpbmc6IDBweDtcbiAgICBtYXJnaW46IDBweCAwcHggMjBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaWNvbiB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDE5NywgNDQsIDEwMik7XG4gICAgcGFkZGluZzogNXB4O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmb250LXNpemU6IDM3MCU7XG59XG4uZXZlbnQtbGlzdCA+IGxpOm50aC1jaGlsZChldmVuKSA+IC5pY29uIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMTY1LCA4MiwgMTY3KTtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaWNvbiA+IHNwYW4ge1xuICAgIGRpc3BsYXk6IG5vbmU7XG59XG5cbi5ldmVudC1saXN0ID4gbGkgPiBpbWcge1xuICAgIHdpZHRoOiAxMDAlO1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvIHtcbiAgICBwYWRkaW5nLXRvcDogNXB4O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC50aXRsZSB7XG4gICAgZm9udC1zaXplOiAxN3B0O1xuICAgIGZvbnQtd2VpZ2h0OiA3MDA7XG4gICAgbWFyZ2luOiAwcHg7XG59XG5cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC5kZXNjIHtcbiAgICBmb250LXNpemU6IDEzcHQ7XG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgICBtYXJnaW46IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsLFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCB7XG4gICAgZGlzcGxheTogdGFibGU7XG4gICAgbGlzdC1zdHlsZTogbm9uZTtcbiAgICBtYXJnaW46IDEwcHggMHB4IDBweDtcbiAgICBwYWRkaW5nOiAwcHg7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCB7XG4gICAgbWFyZ2luOiAwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCA+IGxpLFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpIHtcbiAgICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBjb2xvcjogcmdiKDMwLCAzMCwgMzApO1xuICAgIGZvbnQtc2l6ZTogMTFwdDtcbiAgICBmb250LXdlaWdodDogMzAwO1xuICAgIHBhZGRpbmc6IDNweCAwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCA+IGxpID4gYSB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgY29sb3I6IHJnYigzMCwgMzAsIDMwKTtcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG59IFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpIHsgICAgXG4gICAgcGFkZGluZzogMHB4O1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpID4gYSB7XG4gICAgcGFkZGluZzogM3B4IDBweDtcbn0gXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCA+IGxpOmhvdmVyLFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpOmhvdmVyIHtcbiAgICBjb2xvcjogcmdiKDMwLCAzMCwgMzApO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyMDAsIDIwMCwgMjAwKTtcbn1cblxuLmV2ZW50LWxpc3QgPiBsaSB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogOTNweDtcbiAgICBwYWRkaW5nOiAwcHg7XG59XG5cbi5ldmVudC1saXN0ID4gbGkgPiAuaWNvbixcbi5ldmVudC1saXN0ID4gbGkgPiBpbWcgIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24sXG4uZXZlbnQtbGlzdCA+IGxpID4gaW1nIHtcbiAgICB3aWR0aDogOTNweDtcbiAgICBmbG9hdDogbGVmdDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI0NSwgMjQ1LCAyNDUpO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24sXG4uZXZlbnQtbGlzdCA+IGxpID4gaW1nIHtcbiAgICB3aWR0aDogOTNweDtcbiAgICBoZWlnaHQ6IDkzcHg7XG4gICAgcGFkZGluZzogMHB4O1xuICAgIG1hcmdpbjogMHB4O1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgaGVpZ2h0OiA5M3B4O1xuICAgIHRleHQtYWxpZ246IGxlZnQ7XG4gICAgcGFkZGluZy1yaWdodDogNDBweDtcbn1cdFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gLnRpdGxlLCBcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC5kZXNjIHtcbiAgICBwYWRkaW5nOiAwcHggMTBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgbGVmdDogMHB4O1xuICAgIGJvdHRvbTogMHB4O1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDBweDtcbiAgICByaWdodDogMHB4O1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiA0MHB4O1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCB7XG4gICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCByZ2IoMjMwLCAyMzAsIDIzMCk7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGkge1x0XHRcdFxuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHBhZGRpbmc6IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSA+IGEge1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiA0MHB4O1xuICAgIHBhZGRpbmc6IDEwcHggMHB4IDlweDtcbn1cblxuXG4ubmV3LXRpdGxlIHtcbiAgICBmb250LXNpemU6IDE3cHQ7XG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgICBtYXJnaW46IDBweDtcbn1cbiJdfQ== */"
 
 /***/ }),
 
-/***/ "./src/app/pets/pet.picker.component.html":
-/*!************************************************!*\
-  !*** ./src/app/pets/pet.picker.component.html ***!
-  \************************************************/
+/***/ "./src/app/pets/pet.picture.component.html":
+/*!*************************************************!*\
+  !*** ./src/app/pets/pet.picture.component.html ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal-dialog\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.animal}}</h5>\n      <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeDialog()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"container text-center\">\n        <p>\n            <a *ngFor=\"let item of animals; let i= index ;trackBy: trackByFn\" class=\"btn btn-petlife social-login-btn pet-icon\" (click)=\"select(item)\" href=\"#\"><i class=\"fa fa-{{item.icon}}\"></i></a>\n        </p>\n      </div> \n    </div>\n  </div>\n</div>\n"
+module.exports = "\n\n<section class=\"body_section\">\n    <div class=interface_class>\n      <div class=\"page-header\">\n        <h1>{{title}}</h1>\n      </div>\n      <div class=\"card\">\n        <img [src]=\"pet.img\" class=\"card-img-top\" [ngClass]=\"{ 'button-disabled': pet.img == null }\">\n        <a class=\"btn btn-light\" [ngClass]=\"{ 'button-disabled': pet.img != null }\" (click)=\"camera()\" href=\"javascript:;\" style=\"font-size: 450%;\"><i class=\"fa fa-camera text-petlife\"></i></a>\n      </div>\n      <div class=\"slidecount\">\n          <span class=\"\"></span>\n          <span class=\"\"></span>\n          <span class=\"selected\"></span>\n      </div>\n    </div> \n  </section>"
+
+/***/ }),
+
+/***/ "./src/app/pets/pet.type.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/pets/pet.type.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- <section class=\"body_section\">\n  <div class=interface_class>\n    <div class=\"page-header\">\n\t\t  <h1>{{language.animal}}</h1>\n    </div>\n    <div class=\"container text-center\">\n      <br>\n      <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\n        <span class=\"sr-only\">Carregando...</span>\n      </div>\n      <p>\n        <a *ngFor=\"let item of animals; let i= index ;trackBy: trackByFn\" class=\"btn btn-toppet social-login-btn pet-icon\" (click)=\"select(item)\" href=\"javascript:;\"><i class=\"fa fa-{{item.icon}}\"></i></a>\n      </p>\n    </div>\n    <div class=\"slidecount\">\n      <span class=\"selected\"></span>\n      <span class=\"\"></span>\n      <span class=\"\"></span>\n    </div>\n  </div> \n</section> -->\n\n<div class=\"container\">\n  <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\n    <span class=\"sr-only\">Carregando...</span>\n  </div>\n  <div class=\"row\">\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\n      <ul class=\"event-list\" style=\"height: 100% !important;\">\n        <li *ngFor=\"let t of types\"  (click)=\"select(t)\" style=\"height: 82px;\">\n            <i class=\"icon fa fa-{{t.icon}}\" style=\"padding-top: 14px;\"></i>\n          <div class=\"info\">\n            <h2 class=\"title\">{{t.description}}</h2>\n            <p class=\"desc\">{{t.icon}}</p>\n          </div>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"slidecount\">\n    <span class=\"selected\"></span>\n    <span class=\"\"></span>\n    <span class=\"\"></span>\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1888,7 +2025,7 @@ module.exports = "<div class=\"modal-dialog\" role=\"document\">\n  <div class=\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "*{padding:0;margin:0;}\n\nbody{\n\tfont-family:Verdana, Geneva, sans-serif;\n\tfont-size:18px;\n\tbackground-color:#CCC;\n}\n\n.float{\n\tposition:fixed;\n\twidth:60px;\n\theight:60px;\n\tbottom:40px;\n\tright:40px;\n\t/* background-color:#0C9; */\n\tcolor:#FFF;\n\tborder-radius:50px;\n\ttext-align:center;\n\tbox-shadow: 2px 2px 3px #999;\n}\n\n.my-float{\n\tmargin-top:22px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9wZXRzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsRUFBRSxTQUFTLENBQUMsUUFBUSxDQUFDOztBQUVyQjtDQUNDLHVDQUF1QztDQUN2QyxjQUFjO0NBQ2QscUJBQXFCO0FBQ3RCOztBQUVBO0NBQ0MsY0FBYztDQUNkLFVBQVU7Q0FDVixXQUFXO0NBQ1gsV0FBVztDQUNYLFVBQVU7Q0FDViwyQkFBMkI7Q0FDM0IsVUFBVTtDQUNWLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsNEJBQTRCO0FBQzdCOztBQUVBO0NBQ0MsZUFBZTtBQUNoQiIsImZpbGUiOiJzcmMvYXBwL3BldHMvcGV0cy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiKntwYWRkaW5nOjA7bWFyZ2luOjA7fVxuXG5ib2R5e1xuXHRmb250LWZhbWlseTpWZXJkYW5hLCBHZW5ldmEsIHNhbnMtc2VyaWY7XG5cdGZvbnQtc2l6ZToxOHB4O1xuXHRiYWNrZ3JvdW5kLWNvbG9yOiNDQ0M7XG59XG5cbi5mbG9hdHtcblx0cG9zaXRpb246Zml4ZWQ7XG5cdHdpZHRoOjYwcHg7XG5cdGhlaWdodDo2MHB4O1xuXHRib3R0b206NDBweDtcblx0cmlnaHQ6NDBweDtcblx0LyogYmFja2dyb3VuZC1jb2xvcjojMEM5OyAqL1xuXHRjb2xvcjojRkZGO1xuXHRib3JkZXItcmFkaXVzOjUwcHg7XG5cdHRleHQtYWxpZ246Y2VudGVyO1xuXHRib3gtc2hhZG93OiAycHggMnB4IDNweCAjOTk5O1xufVxuXG4ubXktZmxvYXR7XG5cdG1hcmdpbi10b3A6MjJweDtcbn0iXX0= */"
+module.exports = "*{padding:0;margin:0;}\n\nbody{\n\tfont-family:Verdana, Geneva, sans-serif;\n\tfont-size:18px;\n\tbackground-color:#CCC;\n}\n\n.float{\n\tposition:fixed;\n\twidth:60px;\n\theight:60px;\n\tbottom:40px;\n\tright:40px;\n\t/* background-color:#0C9; */\n\tcolor:#FFF;\n\tborder-radius:50px;\n\ttext-align:center;\n\tbox-shadow: 2px 2px 3px rgb(60, 31, 90);\n}\n\n.my-float{\n\tmargin-top:22px;\n}\n\n/* PET TYPE */\n\nsection {\n    padding: 60px 0;\n}\n\nsection .section-title {\n    text-align: center;\n    color: #007b5e;\n    margin-bottom: 50px;\n    text-transform: uppercase;\n}\n\n#team .card {\n    border: none;\n    background: #ffffff;\n}\n\n.frontside {\n    position: relative;\n    -webkit-transform: rotateY(0deg);\n    -ms-transform: rotateY(0deg);\n    z-index: 2;\n    margin-bottom: 30px;\n}\n\n.backside {\n    position: absolute;\n    top: 0;\n    left: 0;\n    background: white;\n    -webkit-transform: rotateY(-180deg);\n    transform: rotateY(-180deg);\n    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);\n}\n\n.frontside,\n.backside {\n    -webkit-backface-visibility: hidden;\n    backface-visibility: hidden;\n    -webkit-transition: 1s;\n    -webkit-transform-style: preserve-3d;\n    -moz-transition: 1s;\n    -moz-transform-style: preserve-3d;\n    -o-transition: 1s;\n    -o-transform-style: preserve-3d;\n    -ms-transition: 1s;\n    -ms-transform-style: preserve-3d;\n    transition: 1s;\n    transform-style: preserve-3d;\n}\n\n.frontside .card,\n.backside .card {\n    min-height: 312px;\n}\n\n.backside .card a {\n    font-size: 18px;\n    color: #007b5e !important;\n}\n\n.frontside .card .card-title,\n.backside .card .card-title {\n    color: #007b5e !important;\n}\n\n.frontside .card .card-body img {\n    width: 120px;\n    height: 120px;\n    border-radius: 50%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9wZXRzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsRUFBRSxTQUFTLENBQUMsUUFBUSxDQUFDOztBQUVyQjtDQUNDLHVDQUF1QztDQUN2QyxjQUFjO0NBQ2QscUJBQXFCO0FBQ3RCOztBQUVBO0NBQ0MsY0FBYztDQUNkLFVBQVU7Q0FDVixXQUFXO0NBQ1gsV0FBVztDQUNYLFVBQVU7Q0FDViwyQkFBMkI7Q0FDM0IsVUFBVTtDQUNWLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsdUNBQXVDO0FBQ3hDOztBQUVBO0NBQ0MsZUFBZTtBQUNoQjs7QUFFQSxhQUFhOztBQUViO0lBQ0ksZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixjQUFjO0lBQ2QsbUJBQW1CO0lBQ25CLHlCQUF5QjtBQUM3Qjs7QUFFQTtJQUNJLFlBQVk7SUFDWixtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsZ0NBQWdDO0lBQ2hDLDRCQUE0QjtJQUM1QixVQUFVO0lBQ1YsbUJBQW1CO0FBQ3ZCOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLE1BQU07SUFDTixPQUFPO0lBQ1AsaUJBQWlCO0lBQ2pCLG1DQUFtQztJQUluQywyQkFBMkI7SUFHM0IsK0NBQStDO0FBQ25EOztBQUVBOztJQUVJLG1DQUFtQztJQUduQywyQkFBMkI7SUFDM0Isc0JBQXNCO0lBQ3RCLG9DQUFvQztJQUNwQyxtQkFBbUI7SUFDbkIsaUNBQWlDO0lBQ2pDLGlCQUFpQjtJQUNqQiwrQkFBK0I7SUFDL0Isa0JBQWtCO0lBQ2xCLGdDQUFnQztJQUNoQyxjQUFjO0lBQ2QsNEJBQTRCO0FBQ2hDOztBQUVBOztJQUVJLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLGVBQWU7SUFDZix5QkFBeUI7QUFDN0I7O0FBRUE7O0lBRUkseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksWUFBWTtJQUNaLGFBQWE7SUFDYixrQkFBa0I7QUFDdEIiLCJmaWxlIjoic3JjL2FwcC9wZXRzL3BldHMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIip7cGFkZGluZzowO21hcmdpbjowO31cblxuYm9keXtcblx0Zm9udC1mYW1pbHk6VmVyZGFuYSwgR2VuZXZhLCBzYW5zLXNlcmlmO1xuXHRmb250LXNpemU6MThweDtcblx0YmFja2dyb3VuZC1jb2xvcjojQ0NDO1xufVxuXG4uZmxvYXR7XG5cdHBvc2l0aW9uOmZpeGVkO1xuXHR3aWR0aDo2MHB4O1xuXHRoZWlnaHQ6NjBweDtcblx0Ym90dG9tOjQwcHg7XG5cdHJpZ2h0OjQwcHg7XG5cdC8qIGJhY2tncm91bmQtY29sb3I6IzBDOTsgKi9cblx0Y29sb3I6I0ZGRjtcblx0Ym9yZGVyLXJhZGl1czo1MHB4O1xuXHR0ZXh0LWFsaWduOmNlbnRlcjtcblx0Ym94LXNoYWRvdzogMnB4IDJweCAzcHggcmdiKDYwLCAzMSwgOTApO1xufVxuXG4ubXktZmxvYXR7XG5cdG1hcmdpbi10b3A6MjJweDtcbn1cblxuLyogUEVUIFRZUEUgKi9cblxuc2VjdGlvbiB7XG4gICAgcGFkZGluZzogNjBweCAwO1xufVxuXG5zZWN0aW9uIC5zZWN0aW9uLXRpdGxlIHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgY29sb3I6ICMwMDdiNWU7XG4gICAgbWFyZ2luLWJvdHRvbTogNTBweDtcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xufVxuXG4jdGVhbSAuY2FyZCB7XG4gICAgYm9yZGVyOiBub25lO1xuICAgIGJhY2tncm91bmQ6ICNmZmZmZmY7XG59XG5cbi5mcm9udHNpZGUge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAtd2Via2l0LXRyYW5zZm9ybTogcm90YXRlWSgwZGVnKTtcbiAgICAtbXMtdHJhbnNmb3JtOiByb3RhdGVZKDBkZWcpO1xuICAgIHotaW5kZXg6IDI7XG4gICAgbWFyZ2luLWJvdHRvbTogMzBweDtcbn1cblxuLmJhY2tzaWRlIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiAwO1xuICAgIGxlZnQ6IDA7XG4gICAgYmFja2dyb3VuZDogd2hpdGU7XG4gICAgLXdlYmtpdC10cmFuc2Zvcm06IHJvdGF0ZVkoLTE4MGRlZyk7XG4gICAgLW1vei10cmFuc2Zvcm06IHJvdGF0ZVkoLTE4MGRlZyk7XG4gICAgLW8tdHJhbnNmb3JtOiByb3RhdGVZKC0xODBkZWcpO1xuICAgIC1tcy10cmFuc2Zvcm06IHJvdGF0ZVkoLTE4MGRlZyk7XG4gICAgdHJhbnNmb3JtOiByb3RhdGVZKC0xODBkZWcpO1xuICAgIC13ZWJraXQtYm94LXNoYWRvdzogNXB4IDdweCA5cHggLTRweCByZ2IoMTU4LCAxNTgsIDE1OCk7XG4gICAgLW1vei1ib3gtc2hhZG93OiA1cHggN3B4IDlweCAtNHB4IHJnYigxNTgsIDE1OCwgMTU4KTtcbiAgICBib3gtc2hhZG93OiA1cHggN3B4IDlweCAtNHB4IHJnYigxNTgsIDE1OCwgMTU4KTtcbn1cblxuLmZyb250c2lkZSxcbi5iYWNrc2lkZSB7XG4gICAgLXdlYmtpdC1iYWNrZmFjZS12aXNpYmlsaXR5OiBoaWRkZW47XG4gICAgLW1vei1iYWNrZmFjZS12aXNpYmlsaXR5OiBoaWRkZW47XG4gICAgLW1zLWJhY2tmYWNlLXZpc2liaWxpdHk6IGhpZGRlbjtcbiAgICBiYWNrZmFjZS12aXNpYmlsaXR5OiBoaWRkZW47XG4gICAgLXdlYmtpdC10cmFuc2l0aW9uOiAxcztcbiAgICAtd2Via2l0LXRyYW5zZm9ybS1zdHlsZTogcHJlc2VydmUtM2Q7XG4gICAgLW1vei10cmFuc2l0aW9uOiAxcztcbiAgICAtbW96LXRyYW5zZm9ybS1zdHlsZTogcHJlc2VydmUtM2Q7XG4gICAgLW8tdHJhbnNpdGlvbjogMXM7XG4gICAgLW8tdHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDtcbiAgICAtbXMtdHJhbnNpdGlvbjogMXM7XG4gICAgLW1zLXRyYW5zZm9ybS1zdHlsZTogcHJlc2VydmUtM2Q7XG4gICAgdHJhbnNpdGlvbjogMXM7XG4gICAgdHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDtcbn1cblxuLmZyb250c2lkZSAuY2FyZCxcbi5iYWNrc2lkZSAuY2FyZCB7XG4gICAgbWluLWhlaWdodDogMzEycHg7XG59XG5cbi5iYWNrc2lkZSAuY2FyZCBhIHtcbiAgICBmb250LXNpemU6IDE4cHg7XG4gICAgY29sb3I6ICMwMDdiNWUgIWltcG9ydGFudDtcbn1cblxuLmZyb250c2lkZSAuY2FyZCAuY2FyZC10aXRsZSxcbi5iYWNrc2lkZSAuY2FyZCAuY2FyZC10aXRsZSB7XG4gICAgY29sb3I6ICMwMDdiNWUgIWltcG9ydGFudDtcbn1cblxuLmZyb250c2lkZSAuY2FyZCAuY2FyZC1ib2R5IGltZyB7XG4gICAgd2lkdGg6IDEyMHB4O1xuICAgIGhlaWdodDogMTIwcHg7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -1899,7 +2036,7 @@ module.exports = "*{padding:0;margin:0;}\n\nbody{\n\tfont-family:Verdana, Geneva
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"body_section\">\n  <div class=interface_class>\n    <div class=\"page-header\">\n\t\t  <h1>{{title}} <small>{{user.pets.length}}</small></h1>\n    </div>\n    <div *ngFor=\"let pet of user.pets\" class=\"card\" style=\"width: 18rem;\">\n      <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n        <span class=\"sr-only\">Carregando...</span>\n      </div>\n      <img src=\"{{pet.img}}\" class=\"card-img-top\" alt=\"...\">\n      <div class=\"card-body\">\n        <h5 class=\"card-title\">{{pet.name}}</h5>\n        <p class=\"card-text\">{{pet.description}}</p>\n        <a href=\"#\" class=\"btn btn-petlife\">{{language.view}}</a>\n      </div>\n    </div>\n\n    <a href=\"#\" class=\"float bg-toppet\" (click)=\"add()\" [ngClass]=\"{ 'button-disabled': dialog }\">\n      <i class=\"fa fa-plus my-float\"></i>\n    </a>\n  </div> \n</section>\n\n"
+module.exports = "<!-- <section class=\"body_section\" *ngIf=\"outlet.isActivated == false\">\n  <div class=interface_class>\n    <div class=\"page-header\">\n\t\t  <h1>{{title}} <small>{{user.pets.length}}</small></h1>\n    </div>\n    <div *ngFor=\"let pet of user.pets\" class=\"card\" style=\"width: 18rem;\">\n      <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n        <span class=\"sr-only\">Carregando...</span>\n      </div>\n      <img src=\"{{pet.img}}\" class=\"card-img-top\" alt=\"...\">\n      <div class=\"card-body\">\n        <h5 class=\"card-title\">{{pet.name}}</h5>\n        <p class=\"card-text\">{{pet.description}}</p>\n        <a href=\"#\" class=\"btn btn-petlife\">{{language.view}}</a>\n      </div>\n    </div>\n\n    <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\" [ngClass]=\"{ 'button-disabled': dialog }\">\n      <i class=\"fa fa-plus my-float\"></i>\n    </a>\n  </div> \n</section>\n<router-outlet #outlet=\"outlet\"></router-outlet> -->\n\n<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated == false\">\n  <div class=\"container\" style=\"background-color: white;\">\n      <h5 class=\"section-title h1\">{{title}}</h5>\n      <div class=\"row\">\n          <!-- Team member -->\n          <div class=\"col-xs-12 col-sm-6 col-md-4\" *ngFor=\"let pet of user.pets\">\n              <div class=\"image-flip\">\n                  <div class=\"mainflip\">\n                      <div class=\"frontside\">\n                          <div class=\"card\">\n                              <div class=\"card-body text-center\">\n                                  <p><img class=\" img-fluid\" src=\"{{pet.img}}\" alt=\"\"></p>\n                                  <h4 class=\"card-title\">{{pet.name}}</h4>\n                                  <p class=\"card-text\">{{pet.description}}</p>\n                                  <a href=\"#\" class=\"btn btn-primary btn-sm\"><i class=\"fa fa-plus\"></i></a>\n                              </div>\n                          </div>\n                      </div>\n                  </div>\n              </div>\n          </div>\n      </div>\n  </div>\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\" [ngClass]=\"{ 'button-disabled': dialog }\">\n    <i class=\"fa fa-plus my-float\"></i>\n  </a>\n</section>\n<router-outlet #outlet=\"outlet\"></router-outlet>\n"
 
 /***/ }),
 
@@ -1907,27 +2044,36 @@ module.exports = "<section class=\"body_section\">\n  <div class=interface_class
 /*!****************************************!*\
   !*** ./src/app/pets/pets.component.ts ***!
   \****************************************/
-/*! exports provided: PetsComponent, EditPetsComponent, PetPickerComponent, Animal */
+/*! exports provided: PetsComponent, PetTypeComponent, BreedPickerComponent, PetInfoComponent, PetPictureComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetsComponent", function() { return PetsComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditPetsComponent", function() { return EditPetsComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetPickerComponent", function() { return PetPickerComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Animal", function() { return Animal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetTypeComponent", function() { return PetTypeComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BreedPickerComponent", function() { return BreedPickerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetInfoComponent", function() { return PetInfoComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetPictureComponent", function() { return PetPictureComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
-/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entity/Pet */ "./src/app/entity/Pet.ts");
-/* harmony import */ var ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-modialog/plugins/bootstrap */ "./node_modules/ngx-modialog/plugins/bootstrap/fesm5/ngx-modialog-plugins-bootstrap.js");
-/* harmony import */ var ngx_modialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-modialog */ "./node_modules/ngx-modialog/fesm5/ngx-modialog.js");
+/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../application */ "./src/app/application.ts");
+/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
+/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
+/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../entity/Pet */ "./src/app/entity/Pet.ts");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
 /* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
 /* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
 /* harmony import */ var _cordova_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../cordova.service */ "./src/app/cordova.service.ts");
 /* harmony import */ var _navbar_menuService__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../navbar/menuService */ "./src/app/navbar/menuService.ts");
+/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ngx-modialog/plugins/bootstrap */ "./node_modules/ngx-modialog/plugins/bootstrap/fesm5/ngx-modialog-plugins-bootstrap.js");
+/* harmony import */ var ngx_modialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-modialog */ "./node_modules/ngx-modialog/fesm5/ngx-modialog.js");
+
+
+
+
 
 
 
@@ -1942,16 +2088,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var PetsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetsComponent, _super);
-    function PetsComponent(api, modal, menuService) {
+    function PetsComponent(api, menuService, session, router, activatedRoute) {
         var _this = _super.call(this) || this;
         _this.api = api;
-        _this.modal = modal;
         _this.menuService = menuService;
+        _this.session = session;
+        _this.router = router;
+        _this.activatedRoute = activatedRoute;
         _this.title = "Pets";
         _this.dialog = false;
+        _this.active = true;
         return _this;
     }
-    PetsComponent_1 = PetsComponent;
     Object.defineProperty(PetsComponent.prototype, "menu", {
         get: function () {
             return this.menuService.menu;
@@ -1961,11 +2109,9 @@ var PetsComponent = /** @class */ (function (_super) {
     });
     PetsComponent.prototype.ngOnInit = function () {
         this.loading = true;
-        this.user = this.menu.user;
+        this.user = this.session.getCurrentUser();
         this.menu.disable = false;
         this.menu.disableMenu = false;
-    };
-    PetsComponent.prototype.ngAfterViewInit = function () {
         this.loadPets();
     };
     PetsComponent.prototype.loadPets = function () {
@@ -1977,23 +2123,15 @@ var PetsComponent = /** @class */ (function (_super) {
                 console.log(result);
                 //this.user.pets = result;
                 _this.loading = false;
-                if (result.entity) {
-                    result.entity.forEach(function (p) {
-                        var pet = new _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["Pet"]();
-                        pet.id = p.id;
-                        pet.name = p.name;
-                        //pet.age = p.birthDate;
-                        pet.user = _this.user;
-                        pet.appointments = [];
-                        _this.user.pets.push(pet);
-                    });
-                    if (result.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS) {
-                        if (result && result.sid) {
+                if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_12__["ReturnCode"].SUCCESS) {
+                    if (result && result.sid) {
+                        if (result.entity) {
+                            _this.user.pets = result.entity;
                         }
                     }
                 }
-                if (result.code != _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS) {
-                    alert(_this.api.getErrorMessage(result, _this.language));
+                else {
+                    //alert(this.api.getErrorMessage(result, this.language));
                 }
             }, function (error) {
                 console.log(error);
@@ -2005,71 +2143,141 @@ var PetsComponent = /** @class */ (function (_super) {
     PetsComponent.prototype.view = function (pet) {
         alert("Visualizar");
     };
-    PetsComponent.prototype.save = function (pet) {
-        alert("Salvar");
-    };
     //https://mdbootstrap.com/docs/angular/modals/basic/
-    PetsComponent.prototype.openAddDialog = function () {
-        var _this = this;
-        this.dialog = true;
-        var dialogRef = this.modal
-            .open(EditPetsComponent, Object(ngx_modialog__WEBPACK_IMPORTED_MODULE_6__["overlayConfigFactory"])({ isBlocking: false }, ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__["BSModalContext"]));
-        console.log(dialogRef);
-        console.log(this.modal);
-        // dialogRef.result
-        //   .then( result => this.save(result) );
-        dialogRef.onDestroy.subscribe(function () {
-            _this.dialog = false;
-        });
-        PetsComponent_1.dialogRef = dialogRef;
-    };
     PetsComponent.prototype.add = function () {
         var _this = this;
-        setTimeout(function () { _this.openAddDialog(); });
+        this.session.zone.run(function () {
+            return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_1__["PETS_WIZARD_DEF_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute, queryParams: { id: "" } }).then(function (res) {
+                _this.active = false;
+            });
+        });
     };
-    var PetsComponent_1;
-    PetsComponent = PetsComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+    PetsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
             selector: 'app-pets',
             template: __webpack_require__(/*! ./pets.component.html */ "./src/app/pets/pets.component.html"),
             styles: [__webpack_require__(/*! ./pets.component.css */ "./src/app/pets/pets.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_3__["PetApiService"], ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Modal"], _navbar_menuService__WEBPACK_IMPORTED_MODULE_11__["MenuService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_5__["PetApiService"],
+            _navbar_menuService__WEBPACK_IMPORTED_MODULE_11__["MenuService"],
+            _session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_13__["ActivatedRoute"]])
     ], PetsComponent);
     return PetsComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_1__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
 
 ///////////////////////////
-var EditPetsComponent = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](EditPetsComponent, _super);
-    function EditPetsComponent(api, modal, phonegap) {
+var PetTypeComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetTypeComponent, _super);
+    function PetTypeComponent(router, api, modal) {
         var _this = _super.call(this) || this;
+        _this.router = router;
         _this.api = api;
         _this.modal = modal;
-        _this.phonegap = phonegap;
+        _this.types = [];
         _this.dialog = false;
-        _this.animal = new Animal(_entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"].OTHER);
         return _this;
     }
-    EditPetsComponent_1 = EditPetsComponent;
-    EditPetsComponent.prototype.ngOnInit = function () {
-        this.pet = new _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["Pet"]();
-        this.animal.name = this.language.animal;
-        this.cameraOptions = {
-            quality: 100,
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.CAMERA,
-            allowEdit: false,
-            encodingType: Camera.EncodingType.JPEG,
-            saveToPhotoAlbum: false
-        };
+    PetTypeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.loading = true;
+        var types = this.api.getAllPetTypes();
+        types.subscribe(function (result) {
+            console.log(result);
+            _this.loading = false;
+            if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_12__["ReturnCode"].SUCCESS) {
+                if (result && result.sid) {
+                    if (result.entity) {
+                        _this.types = result.entity;
+                    }
+                }
+            }
+            else {
+                //alert(this.api.getErrorMessage(result, this.language));
+            }
+        }, function (error) {
+            console.log(error);
+            _this.loading = false;
+        });
     };
-    EditPetsComponent.prototype.ngAfterViewInit = function () {
+    PetTypeComponent.prototype.select = function (selected) {
+        var _this = this;
+        console.log(selected);
+        if (selected.breeds != undefined && selected.breeds.length > 0) {
+            this.dialog = true;
+            var dialogRef = this.modal
+                .open(BreedPickerComponent, Object(ngx_modialog__WEBPACK_IMPORTED_MODULE_15__["overlayConfigFactory"])({ isBlocking: false, data: { type: selected } }, ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__["BSModalContext"]));
+            // dialogRef.result
+            //   .then( result => this.save(result) );
+            window.dialogRef = dialogRef;
+            dialogRef.onDestroy.subscribe(function () {
+                _this.dialog = false;
+            });
+        }
     };
-    EditPetsComponent.prototype.openPetType = function () {
+    PetTypeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+            selector: 'app-define-pets',
+            template: __webpack_require__(/*! ./pet.type.component.html */ "./src/app/pets/pet.type.component.html"),
+            styles: [__webpack_require__(/*! ./pet.picker.component.css */ "./src/app/pets/pet.picker.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"], _service_services__WEBPACK_IMPORTED_MODULE_5__["PetApiService"], ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__["Modal"]])
+    ], PetTypeComponent);
+    return PetTypeComponent;
+}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+
+///////////////////////////////////////////////
+var BreedPickerComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BreedPickerComponent, _super);
+    function BreedPickerComponent(dialogRef) {
+        var _this = _super.call(this) || this;
+        _this.dialogRef = dialogRef;
+        var data = _this.dialogRef.context.data;
+        if (data != undefined) {
+            _this.type = data.type;
+        }
+        return _this;
+    }
+    BreedPickerComponent.prototype.ngOnInit = function () {
+    };
+    BreedPickerComponent.prototype.select = function (selected) {
+        console.log(selected);
+        this.closeDialog();
+    };
+    BreedPickerComponent.prototype.closeDialog = function () {
+        this.dialogRef.close();
+    };
+    BreedPickerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+            selector: 'app-breeds',
+            template: __webpack_require__(/*! ./pet.breeds.component.html */ "./src/app/pets/pet.breeds.component.html"),
+            styles: [__webpack_require__(/*! ./pet.picker.component.css */ "./src/app/pets/pet.picker.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [ngx_modialog__WEBPACK_IMPORTED_MODULE_15__["DialogRef"]])
+    ], BreedPickerComponent);
+    return BreedPickerComponent;
+}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+
+///////////////////////////////////////////////
+var PetInfoComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetInfoComponent, _super);
+    //animal : Animal = new Animal(new PetType());
+    function PetInfoComponent(api, session, router) {
+        var _this = _super.call(this) || this;
+        _this.api = api;
+        _this.session = session;
+        _this.router = router;
+        return _this;
+    }
+    PetInfoComponent.prototype.ngOnInit = function () {
+        this.pet = new _entity_Pet__WEBPACK_IMPORTED_MODULE_6__["Pet"]();
+        //this.animal.name = this.language.animal;
+    };
+    PetInfoComponent.prototype.openPetType = function () {
         this.add();
     };
-    EditPetsComponent.prototype.createPet = function () {
+    PetInfoComponent.prototype.createPet = function () {
         var _this = this;
         this.loading = true;
         //Campos obrigatorios
@@ -2083,13 +2291,13 @@ var EditPetsComponent = /** @class */ (function (_super) {
             console.log(result);
             _this.loading = false;
             if (result.entity) {
-                if (result.code == _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS) {
+                if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_12__["ReturnCode"].SUCCESS) {
                     if (result && result.sid) {
-                        _this.closeDialog();
+                        //SAVED
                     }
                 }
             }
-            if (result.code != _service_services__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS) {
+            if (result.code != _entity_system__WEBPACK_IMPORTED_MODULE_12__["ReturnCode"].SUCCESS) {
                 _this.alert.show(_this.api.getErrorMessage(result, _this.language), _styles_styles__WEBPACK_IMPORTED_MODULE_9__["ColorClass"].danger);
             }
         }, function (error) {
@@ -2097,50 +2305,44 @@ var EditPetsComponent = /** @class */ (function (_super) {
             console.log(error);
         });
     };
-    EditPetsComponent.prototype.closeDialog = function () {
-        PetsComponent.dialogRef.close();
-    };
-    EditPetsComponent.prototype.selectAnimal = function (selected) {
+    PetInfoComponent.prototype.selectAnimal = function (selected) {
         this.pet.petType = selected;
         console.log(this.pet.petType);
     };
-    EditPetsComponent.prototype.requiredFieldsFilled = function (pet) {
+    PetInfoComponent.prototype.requiredFieldsFilled = function (pet) {
         console.log(pet);
-        return !(_utils__WEBPACK_IMPORTED_MODULE_7__["StringUtils"].isEmpty(pet.name)
-            || _utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(pet.age)
-            || _utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(pet.petType));
+        return !(_utils__WEBPACK_IMPORTED_MODULE_7__["StringUtils"].isEmpty(pet.name) || _utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(pet.age) || _utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(pet.petType));
     };
-    EditPetsComponent.prototype.openPetDialog = function () {
-        var _this = this;
-        this.dialog = true;
-        var dialogRef = this.modal
-            .open(PetPickerComponent, Object(ngx_modialog__WEBPACK_IMPORTED_MODULE_6__["overlayConfigFactory"])({ isBlocking: false }, ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__["BSModalContext"]));
-        dialogRef.onDestroy.subscribe(function () {
-            _this.dialog = false;
-        });
-        /*
-        const dialogRef = this.modal.confirm()
-            .size('lg')
-            .showClose(true)
-            .title(this.language.animal)
-            .body(`
-              <div class="container text-center">
-                <p>
-                    <a *ngFor="let item of animals; let i= index ;trackBy: trackByFn" class="btn btn-petlife social-login-btn pet-icon" (click)="select(item)" href="#"><i class="fa fa-{{item.icon}}"></i></a>
-                </p>
-              </div>
-          `)
-            .open();
-    
-        dialogRef.result
-            .then( result => alert(`The result is: ${result}`) );*/
-        EditPetsComponent_1.dialogRef = dialogRef;
+    PetInfoComponent.prototype.add = function () {
+        //setTimeout(() => { this.openPetDialog() });
     };
-    EditPetsComponent.prototype.add = function () {
-        var _this = this;
-        setTimeout(function () { _this.openPetDialog(); });
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_8__["AlertComponent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_8__["AlertComponent"])
+    ], PetInfoComponent.prototype, "alert", void 0);
+    PetInfoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+            selector: 'app-pet-info',
+            template: __webpack_require__(/*! ./pet.info.component.html */ "./src/app/pets/pet.info.component.html"),
+            styles: [__webpack_require__(/*! ./pet.picker.component.css */ "./src/app/pets/pet.picker.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_5__["PetApiService"], _session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"]])
+    ], PetInfoComponent);
+    return PetInfoComponent;
+}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+
+//////////////////////////////////////
+var PetPictureComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetPictureComponent, _super);
+    function PetPictureComponent(phonegap) {
+        var _this = _super.call(this) || this;
+        _this.phonegap = phonegap;
+        return _this;
+    }
+    PetPictureComponent.prototype.ngOnInit = function () {
+        alert("fewf");
     };
-    EditPetsComponent.prototype.camera = function () {
+    PetPictureComponent.prototype.camera = function () {
         /*this.phone.window.navigator.camera.getPicture(onSuccess, onFail, { quality: 70,
             destinationType: Camera.DestinationType.DATA_URL,
             sourceType: Camera.PictureSourceType.PHOTOLIBRARY
@@ -2148,103 +2350,33 @@ var EditPetsComponent = /** @class */ (function (_super) {
         var _this = this;
         var onCameraSuccess = function (imageURL) {
             console.log(imageURL);
-            _this.pet.img = imageURL;
+            //this.pet.img = imageURL;
             if (_this.phonegap.isBrowser) {
-                _this.pet.img = 'data:image/jpg;base64,' + _this.pet.img;
+                //this.pet.img = 'data:image/jpg;base64,' + this.pet.img;
             }
         };
         var onCameraFail = function (message) {
             alert('Failed because: ' + message);
         };
-        this.phonegap.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, this.cameraOptions);
+        var cameraOptions = {
+            quality: 100,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            allowEdit: false,
+            encodingType: Camera.EncodingType.JPEG,
+            saveToPhotoAlbum: false
+        };
+        this.phonegap.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, cameraOptions);
     };
-    var EditPetsComponent_1;
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_8__["AlertComponent"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_8__["AlertComponent"])
-    ], EditPetsComponent.prototype, "alert", void 0);
-    EditPetsComponent = EditPetsComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
-            selector: 'app-add-pets',
-            template: __webpack_require__(/*! ./add.component.html */ "./src/app/pets/add.component.html"),
-            styles: [__webpack_require__(/*! ./add.component.css */ "./src/app/pets/add.component.css")]
+    PetPictureComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+            selector: 'app-pet-picture',
+            template: __webpack_require__(/*! ./pet.picture.component.html */ "./src/app/pets/pet.picture.component.html")
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_3__["PetApiService"], ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Modal"], _cordova_service__WEBPACK_IMPORTED_MODULE_10__["CordovaService"]])
-    ], EditPetsComponent);
-    return EditPetsComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_1__["AppBase"]));
-
-//////////////////////////////////////
-var PetPickerComponent = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetPickerComponent, _super);
-    function PetPickerComponent() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.animals = [];
-        return _this;
-    }
-    PetPickerComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        //this.animals = Object.keys(PetType).map(k => PetType[k as any]);
-        Object.keys(_entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"]).map(function (k) { return _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"][k]; }).forEach(function (attr) {
-            var animal = new Animal(_entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"][attr]);
-            if (!_utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(animal.id) && animal.id != 0) {
-                _this.animals.push(animal);
-            }
-        });
-        this.animals.push(new Animal(_entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"].OTHER));
-    };
-    PetPickerComponent.prototype.ngAfterViewInit = function () {
-    };
-    PetPickerComponent.prototype.select = function (selected) {
-        //this.pet.petType = selected;
-        console.log(selected);
-        EditPetsComponent.dialogRef;
-        this.closeDialog();
-    };
-    PetPickerComponent.prototype.closeDialog = function () {
-        EditPetsComponent.dialogRef.close();
-    };
-    PetPickerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
-            selector: 'app-add-pets',
-            template: __webpack_require__(/*! ./pet.picker.component.html */ "./src/app/pets/pet.picker.component.html"),
-            styles: [__webpack_require__(/*! ./pet.picker.component.css */ "./src/app/pets/pet.picker.component.css")]
-        })
-    ], PetPickerComponent);
-    return PetPickerComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_1__["AppBase"]));
-
-///////////////////////////
-var Animal = /** @class */ (function () {
-    function Animal(petType) {
-        if (petType == _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"].OTHER) {
-            this.id = 0;
-            this.name = "Outro";
-            this.icon = "paw";
-        }
-        else if (petType == _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"].DOG) {
-            this.id = 1;
-            this.name = "Cachorro";
-            this.icon = "dog";
-        }
-        else if (petType == _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"].CAT) {
-            this.id = 2;
-            this.name = "Gato";
-            this.icon = "cat";
-        }
-        else if (petType == _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"].BIRD) {
-            this.id = 3;
-            this.name = "Pássaro";
-            this.icon = "dove";
-        }
-        else if (petType == _entity_Pet__WEBPACK_IMPORTED_MODULE_4__["PetType"].FISH) {
-            this.id = 4;
-            this.name = "Peixe";
-            this.icon = "fish";
-        }
-    }
-    return Animal;
-}());
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cordova_service__WEBPACK_IMPORTED_MODULE_10__["CordovaService"]])
+    ], PetPictureComponent);
+    return PetPictureComponent;
+}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
 
 
 
@@ -2258,6 +2390,17 @@ var Animal = /** @class */ (function () {
 /***/ (function(module, exports) {
 
 module.exports = "/* brandico */\n[class*=\"brandico-\"]:before {\n  font-family: 'brandico', sans-serif;\n}\n/* entypo */\n[class*=\"entypo-\"]:before {\n  font-family: 'entypo', sans-serif;\n}\n/* openwebicons */\n[class*=\"openwebicons-\"]:before {\n  font-family: 'OpenWeb Icons', sans-serif;\n}\n/* zocial */\n[class*=\"zocial-\"]:before {\n  font-family: 'zocial', sans-serif;\n}\n.form-signin{\n  max-width: 330px;\n  padding: 15px;\n  margin: 0 auto;\n}\n.login-input {\n  margin-bottom: -1px;\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n}\n.login-input-pass {\n  margin-bottom: 10px;\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n}\n.signup-input {\n  margin-bottom: -1px;\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n}\n.signup-input-confirm {\n  margin-bottom: 10px;\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n}\n.create-account {\n  text-align: center;\n  width: 100%;\n  display: block;\n}\n.form-signin .form-control {\n  position: relative;\n  font-size: 16px;\n  height: auto;\n  padding: 10px;\n  box-sizing: border-box;\n}\n.btn-center{\n  width: 50%;\n  text-align: center;\n  margin: inherit;\n}\n.social-login-btn {\n  margin: 5px;\n  width: 20%;\n  font-size: 250%;\n  padding: 0;\n}\n.social-login-more {\n  width: 45%;\n}\n.social-google {\n  background-color: #da573b;\n  border-color: #be5238;\n}\n.social-google:hover{\n  background-color: #be5238;\n  border-color: #9b4631;\n}\n.social-facebook {\n  background-color: #4c699e;\n  border-color: #47618d;\n}\n.social-facebook:hover {\n  background-color: #47618d;\n  border-color: #3c5173;\n}\n.text-muted {\n  color: #a3a7aa !important;\n  font-size: 94%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxhQUFhO0FBQ2I7RUFDRSxtQ0FBbUM7QUFDckM7QUFFQSxXQUFXO0FBQ1g7RUFDRSxpQ0FBaUM7QUFDbkM7QUFFQSxpQkFBaUI7QUFDakI7RUFDRSx3Q0FBd0M7QUFDMUM7QUFFQSxXQUFXO0FBQ1g7RUFDRSxpQ0FBaUM7QUFDbkM7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsY0FBYztBQUNoQjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLDRCQUE0QjtFQUM1Qiw2QkFBNkI7QUFDL0I7QUFDQTtFQUNFLG1CQUFtQjtFQUNuQix5QkFBeUI7RUFDekIsMEJBQTBCO0FBQzVCO0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsNEJBQTRCO0VBQzVCLDZCQUE2QjtBQUMvQjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLHlCQUF5QjtFQUN6QiwwQkFBMEI7QUFDNUI7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsY0FBYztBQUNoQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGVBQWU7RUFDZixZQUFZO0VBQ1osYUFBYTtFQUdiLHNCQUFzQjtBQUN4QjtBQUVBO0VBQ0UsVUFBVTtFQUNWLGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCO0FBRUE7RUFDRSxXQUFXO0VBQ1gsVUFBVTtFQUNWLGVBQWU7RUFDZixVQUFVO0FBQ1o7QUFFQTtFQUNFLFVBQVU7QUFDWjtBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QjtBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QjtBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLGNBQWM7QUFDaEIiLCJmaWxlIjoic3JjL2FwcC9yZWdpc3Rlci9yZWdpc3Rlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogYnJhbmRpY28gKi9cbltjbGFzcyo9XCJicmFuZGljby1cIl06YmVmb3JlIHtcbiAgZm9udC1mYW1pbHk6ICdicmFuZGljbycsIHNhbnMtc2VyaWY7XG59XG5cbi8qIGVudHlwbyAqL1xuW2NsYXNzKj1cImVudHlwby1cIl06YmVmb3JlIHtcbiAgZm9udC1mYW1pbHk6ICdlbnR5cG8nLCBzYW5zLXNlcmlmO1xufVxuXG4vKiBvcGVud2ViaWNvbnMgKi9cbltjbGFzcyo9XCJvcGVud2ViaWNvbnMtXCJdOmJlZm9yZSB7XG4gIGZvbnQtZmFtaWx5OiAnT3BlbldlYiBJY29ucycsIHNhbnMtc2VyaWY7XG59XG5cbi8qIHpvY2lhbCAqL1xuW2NsYXNzKj1cInpvY2lhbC1cIl06YmVmb3JlIHtcbiAgZm9udC1mYW1pbHk6ICd6b2NpYWwnLCBzYW5zLXNlcmlmO1xufVxuXG4uZm9ybS1zaWduaW57XG4gIG1heC13aWR0aDogMzMwcHg7XG4gIHBhZGRpbmc6IDE1cHg7XG4gIG1hcmdpbjogMCBhdXRvO1xufVxuXG4ubG9naW4taW5wdXQge1xuICBtYXJnaW4tYm90dG9tOiAtMXB4O1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcbn1cbi5sb2dpbi1pbnB1dC1wYXNzIHtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDA7XG59XG5cbi5zaWdudXAtaW5wdXQge1xuICBtYXJnaW4tYm90dG9tOiAtMXB4O1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcbn1cblxuLnNpZ251cC1pbnB1dC1jb25maXJtIHtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDA7XG59XG5cbi5jcmVhdGUtYWNjb3VudCB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgd2lkdGg6IDEwMCU7XG4gIGRpc3BsYXk6IGJsb2NrO1xufVxuXG4uZm9ybS1zaWduaW4gLmZvcm0tY29udHJvbCB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZm9udC1zaXplOiAxNnB4O1xuICBoZWlnaHQ6IGF1dG87XG4gIHBhZGRpbmc6IDEwcHg7XG4gIC13ZWJraXQtYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgLW1vei1ib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xufVxuXG4uYnRuLWNlbnRlcntcbiAgd2lkdGg6IDUwJTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW46IGluaGVyaXQ7XG59XG5cbi5zb2NpYWwtbG9naW4tYnRuIHtcbiAgbWFyZ2luOiA1cHg7XG4gIHdpZHRoOiAyMCU7XG4gIGZvbnQtc2l6ZTogMjUwJTtcbiAgcGFkZGluZzogMDtcbn1cblxuLnNvY2lhbC1sb2dpbi1tb3JlIHtcbiAgd2lkdGg6IDQ1JTtcbn1cblxuLnNvY2lhbC1nb29nbGUge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZGE1NzNiO1xuICBib3JkZXItY29sb3I6ICNiZTUyMzg7XG59XG4uc29jaWFsLWdvb2dsZTpob3ZlcntcbiAgYmFja2dyb3VuZC1jb2xvcjogI2JlNTIzODtcbiAgYm9yZGVyLWNvbG9yOiAjOWI0NjMxO1xufVxuXG4uc29jaWFsLWZhY2Vib29rIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzRjNjk5ZTtcbiAgYm9yZGVyLWNvbG9yOiAjNDc2MThkO1xufVxuLnNvY2lhbC1mYWNlYm9vazpob3ZlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM0NzYxOGQ7XG4gIGJvcmRlci1jb2xvcjogIzNjNTE3Mztcbn1cblxuLnRleHQtbXV0ZWQge1xuICBjb2xvcjogI2EzYTdhYSAhaW1wb3J0YW50O1xuICBmb250LXNpemU6IDk0JTtcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/register/register.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/register/register.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container default-background\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n\n<div class=\"container text-center\">\n    <form class=\"form-signin\" #registerForm=\"ngForm\" autocomplete=\"off\">\n        <h2 class=\"form-signin-heading\" style=\"color: white !important\">{{language.signUp}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br>\n        <p>\n          <facebook-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></facebook-button>\n          <google-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></google-button>\n        </p>\n        <small class=\"text-muted\">{{language.createWithSomeInfo}}</small>\n        <br>\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.email}}\" type=\"text\" name=\"username\" id=\"username\" ngModel /><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.name}}\" type=\"text\" name=\"name\" id=\"name\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.confirmPassword}}\" type=\"password\" name=\"confirmPassword\" id=\"confirmPassword\" ngModel />\n        <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\n            <span class=\"sr-only\">Carregando...</span>\n        </div>\n        <br>\n        <app-alert></app-alert>\n        <register-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"registerForm\" (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, false)\">{{language.signUp}}</register-button>\n        <br>\n    </form>\n</div>"
 
 /***/ }),
 
@@ -2285,6 +2428,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _navbar_menuService__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../navbar/menuService */ "./src/app/navbar/menuService.ts");
 /* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
+
 
 
 
@@ -2302,17 +2447,15 @@ __webpack_require__.r(__webpack_exports__);
 //https://bootsnipp.com/snippets/kMdg
 var RegisterUserComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RegisterUserComponent, _super);
-    function RegisterUserComponent(session, menuService, api, facebookService, googleService, router) {
+    function RegisterUserComponent(session, menuService, api, router) {
         var _this = _super.call(this) || this;
         _this.session = session;
         _this.menuService = menuService;
         _this.api = api;
-        _this.facebookService = facebookService;
-        _this.googleService = googleService;
         _this.router = router;
         _this.login = function (args) {
             _this.loading = false;
-            if (args.code == _service_services__WEBPACK_IMPORTED_MODULE_5__["ReturnCode"].SUCCESS) {
+            if (args.code == _entity_system__WEBPACK_IMPORTED_MODULE_14__["ReturnCode"].SUCCESS) {
                 _this.session.onLogged(_application__WEBPACK_IMPORTED_MODULE_2__["PETS_PAGE"], _this.router, _this.menu);
             }
             else {
@@ -2330,39 +2473,37 @@ var RegisterUserComponent = /** @class */ (function (_super) {
     });
     RegisterUserComponent.prototype.ngOnInit = function () {
         this.menu.disableMenu = true;
-        this.facebookService.config();
-        this.googleService.config();
-    };
-    RegisterUserComponent.prototype.facebook = function () {
-        console.log("submit login to facebook");
-        this.facebookService.login(this.login);
     };
     RegisterUserComponent.prototype.google = function () {
         console.log("submit login to google");
-        this.googleService.login(undefined);
     };
     RegisterUserComponent.prototype.onRegisterInit = function () {
         this.loading = true;
         this.alert.hide();
     };
-    RegisterUserComponent.prototype.onRegisterEnd = function (eventArgs) {
-        if (eventArgs.code == _service_services__WEBPACK_IMPORTED_MODULE_5__["ReturnCode"].SUCCESS) {
-            if (this.submit.form != undefined && this.submit.form.value.username != undefined && this.submit.form.value.password != undefined) {
-                var user = new _entity_User__WEBPACK_IMPORTED_MODULE_13__["User"]();
-                user.username = this.submit.form.value.username;
-                user.password = this.submit.form.value.password;
-                user.loginType = _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_9__["SociaNetworkType"].NONE;
-                this.session.authenticationService.authenticate(user, this.login, this.session.setUserInSession);
+    RegisterUserComponent.prototype.onRegisterEnd = function (eventArgs, isNetwork) {
+        if (eventArgs.code == _entity_system__WEBPACK_IMPORTED_MODULE_14__["ReturnCode"].SUCCESS) {
+            if (isNetwork) {
+                this.session.onLogged(_application__WEBPACK_IMPORTED_MODULE_2__["PETS_PAGE"], this.router, this.menu);
             }
             else {
-                this.router.navigateByUrl(_application__WEBPACK_IMPORTED_MODULE_2__["LOGIN_PAGE"]);
+                if (this.submit.form != undefined && this.submit.form.value.username != undefined && this.submit.form.value.password != undefined) {
+                    var user = new _entity_User__WEBPACK_IMPORTED_MODULE_13__["User"]();
+                    user.username = this.submit.form.value.username;
+                    user.password = this.submit.form.value.password;
+                    user.loginType = _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_9__["SociaNetworkType"].NONE;
+                    this.session.authenticationService.authenticate(user, this.login, this.session.setUserInSession);
+                }
+                else {
+                    this.router.navigateByUrl(_application__WEBPACK_IMPORTED_MODULE_2__["LOGIN_PAGE"]);
+                }
             }
         }
         else {
-            if (eventArgs.code == _service_services__WEBPACK_IMPORTED_MODULE_5__["ReturnCode"].VALIDATION_ERROR && !_utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(eventArgs.message)) {
+            if (eventArgs.code == _entity_system__WEBPACK_IMPORTED_MODULE_14__["ReturnCode"].VALIDATION_ERROR && !_utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(eventArgs.message)) {
                 this.alert.show(eventArgs.message, _styles_styles__WEBPACK_IMPORTED_MODULE_10__["ColorClass"].danger);
             }
-            else if (eventArgs.code != _service_services__WEBPACK_IMPORTED_MODULE_5__["ReturnCode"].VALIDATION_ERROR && _utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(eventArgs.message)) {
+            else if (eventArgs.code != _entity_system__WEBPACK_IMPORTED_MODULE_14__["ReturnCode"].VALIDATION_ERROR && _utils__WEBPACK_IMPORTED_MODULE_8__["StringUtils"].isEmpty(eventArgs.message)) {
                 this.alert.show(this.api.getErrorMessage(eventArgs.code, this.language), _styles_styles__WEBPACK_IMPORTED_MODULE_10__["ColorClass"].danger);
             }
             else {
@@ -2386,73 +2527,18 @@ var RegisterUserComponent = /** @class */ (function (_super) {
     RegisterUserComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
             selector: 'app-register',
-            template: __webpack_require__(/*! ./register.user.component.html */ "./src/app/register/register.user.component.html"),
+            template: __webpack_require__(/*! ./register.component.html */ "./src/app/register/register.component.html"),
             styles: [__webpack_require__(/*! ./register.component.css */ "./src/app/register/register.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"],
             _navbar_menuService__WEBPACK_IMPORTED_MODULE_12__["MenuService"],
             _service_services__WEBPACK_IMPORTED_MODULE_5__["UserApiService"],
-            _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_9__["FacebookService"],
-            _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_9__["GoogleService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"]])
     ], RegisterUserComponent);
     return RegisterUserComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_6__["AppBase"]));
 
-////////////////////////////////////////////////////////////////////
-/*
-@Component({
-  selector: 'app-pet-register',
-  templateUrl: './register.pet.component.html',
-  styleUrls: ['./register.component.css'],
-})
-export class RegisterPetComponent extends AppBase {
 
-  registerForm: NgForm;
-
-  @ViewChild(AlertComponent) private alert: AlertComponent;
-  
-  constructor(private api: PetApiService) {
-    super();
-  }
-
-  ngOnInit() : void {
-    this.getNavbarComponent().disableMenu = true;
-  }
-
-  doRegister(form: NgForm) : void {
-
-    this.alert.hide();
-    this.registerForm = form;
-    
-  }
-
-  requiredFieldsFilled(user: User, confirmPassword : string) : boolean {
-    return !(StringUtils.isEmpty(user.username)
-    || StringUtils.isEmpty(user.password)
-    || StringUtils.isEmpty(user.name)
-    || StringUtils.isEmpty(confirmPassword));
-  }
-
-  goBack() : void {
-    if(this.lastComponent != undefined && this.lastComponent != null){
-      super.goBack(this.lastComponent);
-    }
-  }
-
-}*/ 
-
-
-/***/ }),
-
-/***/ "./src/app/register/register.user.component.html":
-/*!*******************************************************!*\
-  !*** ./src/app/register/register.user.component.html ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container default-background\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n\n<div class=\"container text-center\">\n    <form class=\"form-signin\" #registerForm=\"ngForm\" autocomplete=\"off\">\n        <h2 class=\"form-signin-heading\" style=\"color: white !important\">{{language.signUp}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br>\n        <p>\n          <facebook-button></facebook-button>\n          <google-button></google-button>\n        </p>\n        <small class=\"text-muted\">{{language.createWithSomeInfo}}</small>\n        <br>\n        <input type=\"hidden\" name=\"socialMedia\" id=\"socialMedia\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.email}}\" type=\"text\" name=\"username\" id=\"username\" ngModel /><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.name}}\" type=\"text\" name=\"name\" id=\"name\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.confirmPassword}}\" type=\"password\" name=\"confirmPassword\" id=\"confirmPassword\" ngModel />\n        <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n            <span class=\"sr-only\">Carregando...</span>\n        </div>\n        <br>\n        <app-alert></app-alert>\n        <register-button classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"registerForm\" (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event)\">{{language.signUp}}</register-button>\n        <br>\n    </form>\n</div>"
 
 /***/ }),
 
@@ -2460,26 +2546,29 @@ module.exports = "<div class=\"container default-background\">     \n<script id=
 /*!*************************************!*\
   !*** ./src/app/service/services.ts ***!
   \*************************************/
-/*! exports provided: httpOptions, UserApiService, PetApiService, AuthenticationService, ReturnCode */
+/*! exports provided: httpHeaders, UserApiService, PetApiService, AuthenticationService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "httpOptions", function() { return httpOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "httpHeaders", function() { return httpHeaders; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserApiService", function() { return UserApiService; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetApiService", function() { return PetApiService; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationService", function() { return AuthenticationService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReturnCode", function() { return ReturnCode; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
-/* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../database/database */ "./src/app/database/database.ts");
-/* harmony import */ var _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
+/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../entity/system */ "./src/app/entity/system.ts");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../database/database */ "./src/app/database/database.ts");
 /* harmony import */ var _language_Language__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../language/Language */ "./src/app/language/Language.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+/* harmony import */ var _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
+
+
 
 
 
@@ -2491,14 +2580,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Set the http options
-var httpOptions = {
-    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({ "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" })
-};
-var endpoints = src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].endpoint;
+var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]({ "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" });
+var endpoints = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].endpoint;
 var ApiService = /** @class */ (function () {
     function ApiService() {
-        this.endpoint = endpoints.local;
-        console.log(window.location.origin);
+        this.endpoint = endpoints.home;
+        console.log(this.endpoint);
     }
     ApiService.prototype.handleError = function (error) {
         if (error.error instanceof ErrorEvent) {
@@ -2509,7 +2596,7 @@ var ApiService = /** @class */ (function () {
             // The backend returned an unsuccessful response code. The response body may contain clues as to what went wrong,
             console.error("Backend returned code " + error.status + ", " + ("body was: " + error.error));
         }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["throwError"])(error);
     };
     /**
     * Function to extract the data when the server return some
@@ -2522,15 +2609,15 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getErrorMessage = function (result, language) {
         console.log('return code', result.code);
-        if (result.code == ReturnCode.SUCCESS) {
+        if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
             if (result && result.sid) {
                 return language.registerSuccess;
             }
         }
-        else if (result.code == ReturnCode.NOT_FOUND) {
+        else if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].NOT_FOUND) {
             return language.invalidUserPassword;
         }
-        else if (result.code == ReturnCode.SERVER_ERROR) {
+        else if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SERVER_ERROR) {
             return language.serverError;
         }
         else {
@@ -2552,18 +2639,24 @@ var UserApiService = /** @class */ (function (_super) {
     UserApiService.prototype.login = function (user) {
         console.log(this.authenticate);
         console.log(user);
+        var httpOptions = {
+            headers: httpHeaders
+        };
         return this.http.post(this.authenticate, user, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
     };
     UserApiService.prototype.save = function (user) {
         console.log(this.register);
         console.log(user);
+        var httpOptions = {
+            headers: httpHeaders
+        };
         return this.http.post(this.register, user, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
     };
     UserApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
     ], UserApiService);
     return UserApiService;
 }(ApiService));
@@ -2576,29 +2669,50 @@ var PetApiService = /** @class */ (function (_super) {
         _this.controller = _this.endpoint + "/pet";
         _this.retrieve = _this.controller + "/retrieve";
         _this.register = _this.controller + "/register";
+        _this.types = _this.controller + "/types";
+        _this.breeds = _this.controller + "/breeds";
         return _this;
     }
     PetApiService.prototype.get = function (pet) {
         console.log(this.retrieve);
         console.log(pet);
+        var httpOptions = {
+            headers: httpHeaders
+        };
         return this.http.post(this.retrieve, pet, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
     };
     PetApiService.prototype.getByUser = function (user) {
         console.log(this.retrieve);
         console.log(user);
-        return this.http.post(this.retrieve, user.id, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.handleError));
+        var parameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpParams"]().set("userId", user.id.toString());
+        var httpOptions = {
+            headers: httpHeaders,
+            params: parameters
+        };
+        return this.http.get(this.retrieve, httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+    };
+    PetApiService.prototype.getAllPetTypes = function () {
+        console.log(this.types);
+        var httpOptions = {
+            headers: httpHeaders
+        };
+        return this.http.get(this.types, httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
     };
     PetApiService.prototype.save = function (pet) {
         console.log(this.register);
         console.log(pet);
+        var httpOptions = {
+            headers: httpHeaders
+        };
         return this.http.post(this.register, pet, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
     };
     PetApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
     ], PetApiService);
     return PetApiService;
 }(ApiService));
@@ -2618,52 +2732,46 @@ var AuthenticationService = /** @class */ (function () {
     });
     AuthenticationService.prototype.authenticate = function (entryUser, callback, sessionCallback) {
         var _this = this;
+        if (_utils__WEBPACK_IMPORTED_MODULE_10__["ObjectUtils"].isEmpty(entryUser.loginType)) {
+            entryUser.loginType = _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_11__["SociaNetworkType"].NONE;
+        }
         var user = this.userApi.login(entryUser);
         window.httpUser = user;
         user.subscribe(function (result) {
             console.log(result);
-            if (result.code == ReturnCode.SUCCESS) {
+            if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
                 _this._localDatabase.mergeUser(entryUser);
                 if (sessionCallback != undefined) {
                     sessionCallback(result, entryUser.password);
                 }
             }
-            callback({ code: result.code, message: "" });
+            callback({ code: result.code });
         }, function (error) {
             console.log(error);
-            callback({ code: ReturnCode.CONNECTION_ERROR, message: _this.userApi.getErrorMessage({ code: ReturnCode.CONNECTION_ERROR }, new _language_Language__WEBPACK_IMPORTED_MODULE_9__["LanguageService"]()) });
+            callback({ code: _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].CONNECTION_ERROR, message: _this.userApi.getErrorMessage({ code: _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].CONNECTION_ERROR }, new _language_Language__WEBPACK_IMPORTED_MODULE_9__["LanguageService"]()) });
         });
     };
     AuthenticationService.prototype.authenticateLastUser = function (callback, sessionCallback) {
         var _this = this;
         var doLogin = function (result) {
-            var user = new _entity_User__WEBPACK_IMPORTED_MODULE_6__["User"]();
+            var user = new _entity_User__WEBPACK_IMPORTED_MODULE_7__["User"]();
             user.username = result.username;
             user.password = result.password;
-            user.loginType = _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_8__["SociaNetworkType"].NONE;
+            user.loginType = result.loginType;
             _this.authenticate(user, callback, sessionCallback);
         };
         var notLogin = function (y) {
-            callback({ code: ReturnCode.NOT_FOUND, message: "" });
+            callback({ code: _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].NOT_FOUND, message: "" });
         };
         this._localDatabase.getCurrentUser(doLogin, notLogin);
     };
     AuthenticationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [UserApiService, _database_database__WEBPACK_IMPORTED_MODULE_7__["LocalDatabaseService"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [UserApiService, _database_database__WEBPACK_IMPORTED_MODULE_8__["LocalDatabaseService"]])
     ], AuthenticationService);
     return AuthenticationService;
 }());
 
-var ReturnCode;
-(function (ReturnCode) {
-    ReturnCode[ReturnCode["SUCCESS"] = 0] = "SUCCESS";
-    ReturnCode[ReturnCode["NOT_FOUND"] = -1] = "NOT_FOUND";
-    ReturnCode[ReturnCode["VALIDATION_ERROR"] = -2] = "VALIDATION_ERROR";
-    ReturnCode[ReturnCode["SERVER_ERROR"] = -3] = "SERVER_ERROR";
-    ReturnCode[ReturnCode["RESOURCE_EXISTS"] = -4] = "RESOURCE_EXISTS";
-    ReturnCode[ReturnCode["CONNECTION_ERROR"] = -5] = "CONNECTION_ERROR";
-})(ReturnCode || (ReturnCode = {}));
 
 
 /***/ }),
@@ -2780,7 +2888,8 @@ var SessionService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
     ], SessionService);
     return SessionService;
 }());
@@ -2803,7 +2912,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SociaNetworkType", function() { return SociaNetworkType; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
+/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+
 
 
 
@@ -2814,20 +2925,22 @@ var FacebookService = /** @class */ (function () {
     FacebookService.prototype.login = function (callback) {
         //Chave Secreta do Aplicativo
         //b4a49157bf9ba2cc4b7b085c0ba13ad3
-        // FB.login();
         FB.login(function (response) {
             console.log('submitLogin', response);
+            var returnCodeEventArgs = { code: _entity_system__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].SUCCESS, message: "", result: undefined };
+            var user = new _entity_User__WEBPACK_IMPORTED_MODULE_3__["User"]();
             if (response.authResponse && response.status == "connected") {
                 window.facebook = response;
-                var form = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"]([], []);
-                form.value.username = response.authResponse.userID;
-                form.value.password = response.authResponse.userID;
-                form.value.socialMedia = SociaNetworkType.FACEBOOK;
-                callback(form);
+                user.username = response.authResponse.userID;
+                user.password = response.authResponse.userID;
+                user.loginType = SociaNetworkType.FACEBOOK;
             }
             else {
                 console.log('User login failed');
+                returnCodeEventArgs.code = _entity_system__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].CONNECTION_ERROR;
             }
+            returnCodeEventArgs.result = user;
+            callback(returnCodeEventArgs);
         });
         /*(<any>FB).getLoginStatus(function(response) {
           statusChangeCallback(response);
@@ -2997,7 +3110,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container default-background\">\n  <div class=\"container text-center\">\n    <br>\n    <h1 class=\"form-signin-heading\" style=\"color: white !important\">{{language.welcome}} <b>{{applicationName}}</b></h1>\n    <br>\n    <small class=\"text-muted\">{{language.appDescription}}</small>\n    <a routerLink=\"/signin\"><button class=\"btn btn-toppet btn-center btn-bottom-left btn-lg\" style=\"width: 40% !important;\">{{language.login}}</button></a>\n    <a routerLink=\"/signup\"><button class=\"btn btn-toppet btn-hollow btn-center btn-bottom-right btn-lg\" style=\"width: 40% !important;\">{{language.signUp}}</button></a>\n  </div>\n</div>\n<!-- Tasha Reign\nhttp://juicygif.com/public/Gif/Sex-Blonde-done-doggystyle.gif-187463p.html/(mode)/search/(keyword)/couples-sex -->"
+module.exports = "<div class=\"container default-background\">\n  <div class=\"container text-center\">\n    <br>\n    <h1 class=\"form-signin-heading\" style=\"color: white !important\">{{language.welcome}} <b>{{applicationName}}</b></h1>\n    <br>\n    <small class=\"text-muted\">{{language.appDescription}}</small>\n    <div class=\"slidecount\" style=\"bottom:15%\">\n      <span class=\"selected\"></span>\n      <span class=\"\"></span>\n      <span class=\"\"></span>\n    </div>\n    <a routerLink=\"/signin\"><button class=\"btn btn-toppet btn-center btn-bottom-left btn-lg\" style=\"width: 40% !important;\">{{language.login}}</button></a>\n    <a routerLink=\"/signup\"><button class=\"btn btn-toppet btn-hollow btn-center btn-bottom-right btn-lg\" style=\"width: 40% !important;\">{{language.signUp}}</button></a>\n  </div>\n</div>\n<!-- Tasha Reign\nhttp://juicygif.com/public/Gif/Sex-Blonde-done-doggystyle.gif-187463p.html/(mode)/search/(keyword)/couples-sex -->"
 
 /***/ }),
 

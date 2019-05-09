@@ -17,7 +17,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         final HttpServletRequest request, 
         final HttpServletResponse response, 
         final AuthenticationException authException) throws IOException {
-         
+		//response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, Content-Length, X-Requested-With");
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, 
           "Unauthorized");
     }

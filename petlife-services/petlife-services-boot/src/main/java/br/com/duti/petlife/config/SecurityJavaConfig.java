@@ -1,7 +1,5 @@
 package br.com.duti.petlife.config;
 
-import java.util.Arrays;
-
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +9,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -51,48 +45,51 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
 		if(http == null)
 			return;
 		
-		http
-			.cors().disable()
-	    .csrf()
-	        .disable()
-	   .exceptionHandling()
-	       .authenticationEntryPoint(restAuthenticationEntryPoint)
-	       .and()
-	   .sessionManagement()
-	       .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-	       .and()
-	   .authorizeRequests()
-	       .antMatchers("/",
-	           "/favicon.ico",
-	           "/**/*.png",
-	           "/**/*.gif",
-	           "/**/*.svg",
-	           "/**/*.jpg",
-	           "/**/*.html",
-	           "/**/*.css",
-	           "/**/*.js")
-	           .permitAll()
-	        .antMatchers("/user/**")
-	           .permitAll()
-	        .antMatchers("/user/autheticate")
-	           .permitAll()
-	           .antMatchers("/pet/**")
-	           .permitAll()
-	        .antMatchers("/pet/retrieve")
-	           .permitAll()    
-	       .antMatchers("/permissions")
-	           .permitAll()
-	       .anyRequest()
-	           .authenticated();
+//		http
+//	    .csrf()
+//	        .disable()
+//	   .exceptionHandling()
+//	       .authenticationEntryPoint(restAuthenticationEntryPoint)
+//	       .and()
+//	   .sessionManagement()
+//	       .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//	       .and()
+//	   .authorizeRequests()
+//	       .antMatchers("/",
+//	           "/favicon.ico",
+//	           "/**/*.png",
+//	           "/**/*.gif",
+//	           "/**/*.svg",
+//	           "/**/*.jpg",
+//	           "/**/*.html",
+//	           "/**/*.css",
+//	           "/**/*.js")
+//	           .permitAll()
+//	        .antMatchers("/user/**")
+//	           .permitAll()
+//	        .antMatchers("/user/authenticate")
+//	           .permitAll()
+//	           .antMatchers("/pet/**")
+//	           .permitAll()
+//	        .antMatchers("/pet/retrieve")
+//	           .permitAll()    
+//	       .antMatchers("/permissions")
+//	           .permitAll()
+//	       .anyRequest()
+//	           .authenticated();
 		
 		//http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+		
+		http.cors();
+		
+		//http.authorizeRequests().antMatchers("/user/autheticate").authenticated().and().httpBasic().and().csrf().disable();
 	}
 	 
 	@Bean
 	public PasswordEncoder encoder() {
 	    return new BCryptPasswordEncoder();
 	}
-	
+	/*
 	@Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -101,5 +98,7 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
-   }
+   }*/
+	
+	
 }

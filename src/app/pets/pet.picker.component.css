@@ -45,12 +45,6 @@ body {
     margin: 0px;
 }
 
-.new-title {
-    font-size: 17pt;
-    font-weight: 600;
-    margin: 0px;
-}
-
 .event-list > li > .info > .desc {
     font-size: 13pt;
     font-weight: 300;
@@ -156,4 +150,11 @@ body {
     display: block;
     width: 40px;
     padding: 10px 0px 9px;
+}
+
+
+.new-title {
+    font-size: 17pt;
+    font-weight: 600;
+    margin: 0px;
 }
