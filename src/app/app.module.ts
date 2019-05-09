@@ -30,6 +30,7 @@ import { LanguageService } from './language/Language';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { SessionService } from './session/session.service';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AppointmentsComponent } from './appointments/appointments.component';
     FacebookComponent,
     GoogleComponent,
     AppointmentsComponent,
-    BreedPickerComponent
+    BreedPickerComponent,
+    LoadingComponent
   ],
   entryComponents: [
     SignInComponent,

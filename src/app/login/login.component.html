@@ -18,10 +18,8 @@
         <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel>
 
         <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
-        <div *ngIf="loading" class="spinner-border text-toppet" role="status">
-            <span class="sr-only">Carregando...</span>
-        </div>
         <app-alert></app-alert>
+        <!-- <app-loading *ngIf="loading"></app-loading> -->
         <login-button [hidden]="loading" classes="btn btn-lg btn-toppet btn-block btn-center" [form]="loginForm" (begin)="onLoginInit()" (done)="onLoginEnd($event)">{{language.signIn}}</login-button>
         <br>
     </form>

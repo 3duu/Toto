@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -45,42 +46,30 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
 		if(http == null)
 			return;
 		
-//		http
-//	    .csrf()
-//	        .disable()
-//	   .exceptionHandling()
-//	       .authenticationEntryPoint(restAuthenticationEntryPoint)
-//	       .and()
-//	   .sessionManagement()
-//	       .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//	       .and()
-//	   .authorizeRequests()
-//	       .antMatchers("/",
-//	           "/favicon.ico",
-//	           "/**/*.png",
-//	           "/**/*.gif",
-//	           "/**/*.svg",
-//	           "/**/*.jpg",
-//	           "/**/*.html",
-//	           "/**/*.css",
-//	           "/**/*.js")
-//	           .permitAll()
-//	        .antMatchers("/user/**")
-//	           .permitAll()
-//	        .antMatchers("/user/authenticate")
-//	           .permitAll()
-//	           .antMatchers("/pet/**")
-//	           .permitAll()
-//	        .antMatchers("/pet/retrieve")
-//	           .permitAll()    
-//	       .antMatchers("/permissions")
-//	           .permitAll()
-//	       .anyRequest()
-//	           .authenticated();
+		http
+	    .csrf()
+	        .disable()
+	   .exceptionHandling()
+	       .authenticationEntryPoint(restAuthenticationEntryPoint)
+	       .and()
+	   .sessionManagement()
+	       .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+	       .and()
+	   .authorizeRequests()
+	        .antMatchers("/user/register")
+	           .permitAll()
+	        .antMatchers("/user/authenticate")
+	           .permitAll()
+	           .antMatchers("/pet/**")
+	           .permitAll()    
+	       .antMatchers("/permissions")
+	           .permitAll()
+	       .anyRequest()
+	           .authenticated();
 		
 		//http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 		
-		http.cors();
+		//http.cors();
 		
 		//http.authorizeRequests().antMatchers("/user/autheticate").authenticated().and().httpBasic().and().csrf().disable();
 	}

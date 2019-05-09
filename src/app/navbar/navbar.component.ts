@@ -1,6 +1,6 @@
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
-import { Component, NgZone } from '@angular/core';
+import { Component, NgZone, ElementRef } from '@angular/core';
 import { User } from '../entity/User';
 import { ObjectUtils } from '../utils';
 import { Router } from '@angular/router';
@@ -16,13 +16,22 @@ export class NavbarComponent extends AppBase {
   disable = true;
   navbarOpen = false;
   user : User;
+  private _height : number;
 
-  constructor(private session: SessionService, private zone : NgZone, private router: Router) {
+  constructor(private session: SessionService, 
+    private zone : NgZone, 
+    private router: Router, 
+    private element : ElementRef) {
     super();
+  }
+
+  get height() : number {
+    return this._height;
   }
 
   ngOnInit() {
     this.updateUser();
+    this._height = this.element.nativeElement.offsetHeight;
   }
 
   updateUser() {

@@ -34,6 +34,7 @@ export class LanguageService {
     createYourAccount : string = "Crie sua conta no ";
     age : string = "Idade";
     petType : string = "Animal";
+    breed : string = "Qual a raça?";
     description : string = "Descrição";
     view : string = "Visualizar";
     animal : string = "Qual o Pet?";

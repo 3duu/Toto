@@ -1,8 +1,8 @@
 import { Breed } from './../entity/Pet';
-import { PETS_WIZARD_DEF_PAGE } from './../application';
+import { PETS_WIZARD_DEF_PAGE, PETS_WIZARD_INFO_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { PetApiService } from '../service/services';
 import { User } from '../entity/User';
 import { Pet, PetType } from '../entity/Pet';
@@ -41,7 +41,6 @@ export class PetsComponent extends AppBase {
   private user : User;
   private title : string = "Pets";
   private dialog : boolean = false;
-  private active : boolean = true;
 
   ngOnInit() {
     this.loading = true;
@@ -87,9 +86,7 @@ export class PetsComponent extends AppBase {
   //https://mdbootstrap.com/docs/angular/modals/basic/
   protected add() : void {
     this.session.zone.run(() => 
-      this.router.navigate([PETS_WIZARD_DEF_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute, queryParams: {id: ""}}).then(res =>{
-        this.active = false;
-    }));
+      this.router.navigate([PETS_WIZARD_DEF_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute, queryParams: {id: ""}}));
   }
 }
 
@@ -105,7 +102,11 @@ export class PetTypeComponent extends AppBase {
   private types : PetType[] = [];
   private dialog : boolean = false;
 
-  constructor(private router : Router, private api : PetApiService, private modal: Modal) {
+  constructor(private session : SessionService, 
+    private router : Router, 
+    private api : PetApiService, 
+    private modal: Modal, 
+    private activatedRoute: ActivatedRoute) {
     super();
   }
   
@@ -113,13 +114,19 @@ export class PetTypeComponent extends AppBase {
 
     this.loading = true;
     const types = this.api.getAllPetTypes();
-
+    
     types.subscribe(result => {
 
       console.log(result);
       
       this.loading = false;
       if(result.code == ReturnCode.SUCCESS){
+
+        // const petTypeClass : any = document.getElementsByClassName("pet-type")[0];
+        // if(petTypeClass != undefined) {
+        //   petTypeClass.style.maxHeight = (window.innerHeight - 30) - (this.menuService.menu.height) + "px";
+        // }
+
         if (result && result.sid) {
           if(result.entity){
             this.types = result.entity;
@@ -137,19 +144,30 @@ export class PetTypeComponent extends AppBase {
   
   select(selected : PetType) : void {
 
-    console.log(selected);
-
     if(selected.breeds != undefined && selected.breeds.length > 0){
+      
       this.dialog = true;
       const dialogRef = this.modal
         .open(BreedPickerComponent, overlayConfigFactory({ isBlocking: false , data : {type : selected} }, BSModalContext));
-      // dialogRef.result
-      //   .then( result => this.save(result) );
-      (<any>window).dialogRef = dialogRef;
+
+      dialogRef.result
+        .then( result => this.selectPetType(selected, result));
+
       dialogRef.onDestroy.subscribe(() => {
         this.dialog = false;
       });
     }
+  }
+
+  selectPetType = (type : PetType, breed : Breed) => {
+    console.log(type);
+    console.log(breed);
+    this.next();
+  }
+
+  next() : void {
+    this.session.zone.run(() => 
+      this.router.navigate([PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));
   }
 
 }
@@ -165,25 +183,29 @@ export class BreedPickerComponent extends AppBase {
 
   private type : PetType;
 
-  constructor(private dialogRef : DialogRef<any>) {
+  constructor(private dialogRef : DialogRef<any>, private menuService : MenuService, private element : ElementRef) {
     super();
     const data = this.dialogRef.context.data;
     if(data != undefined){
       this.type = data.type;
     }
+    (<any>window).breedPickerComponent = element;
   }
   
   ngOnInit() {
-    
+    const modalBody = this.element.nativeElement.children[0].children[0].children[1];
+    modalBody.style.overflowY = "auto";
+    modalBody.style.overflowX = "hidden";
+    const maxHeight = ((window.innerHeight - 30) + "px");
+    modalBody.style.maxHeight = maxHeight;
   }
   
   select(selected : Breed) : void {
-    console.log(selected);
-    this.closeDialog();
+    this.closeDialog(selected);
   }
 
-  private closeDialog() : void {
-    this.dialogRef.close();
+  private closeDialog(selected) : void {
+    this.dialogRef.close(selected);
   }
 
 }

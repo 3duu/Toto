@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +31,7 @@ public class UserController {
 	
 	//@CrossOrigin(origins = {Utils.HTTP, Utils.SMARTPHONE})
 	@Transactional
+	@CrossOrigin
 	@PostMapping(value="/authenticate", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> doLogin(@RequestBody final User user) {
 		

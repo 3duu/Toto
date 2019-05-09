@@ -27,6 +27,7 @@
       <h5 class="section-title h1">{{title}}</h5>
       <div class="row">
           <!-- Team member -->
+          <app-loading *ngIf="loading"></app-loading>
           <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let pet of user.pets">
               <div class="image-flip">
                   <div class="mainflip">
