@@ -7,7 +7,7 @@
 /*! exports provided: name, version, displayName, endpoints, passwordConfig, cordova, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indra":"http://192.168.137.1:9003/toppet","indraLocal":"http://192.168.137.1:9003","home":"http://192.168.1.3:9003/toppet","home2":"http://192.168.1.3:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","braces":"^2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"^1.0.2","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-plugin-camera":"4.0.3","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","jquery":"^3.3.1","lodash":"^4.17.11","ngx-bootstrap":"^3.2.0","ngx-modialog":"^5.0.1","phonegap":"^8.2.2","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
+module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indra":"http://192.168.137.1:9003/toppet","indraLocal":"http://192.168.137.1:9003","home2":"http://192.168.1.3:9003/toppet","home":"http://192.168.1.3:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"~7.2.0","@angular/common":"~7.2.0","@angular/compiler":"~7.2.0","@angular/core":"~7.2.0","@angular/forms":"~7.2.0","@angular/platform-browser":"~7.2.0","@angular/platform-browser-dynamic":"~7.2.0","@angular/router":"~7.2.0","ansi-escapes":"^3.2.0","base64-js":"^1.3.0","bootstrap":"^4.3.1","braces":"^2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"^1.0.2","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-plugin-camera":"4.0.3","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","jquery":"^3.3.1","lodash":"^4.17.11","ngx-bootstrap":"^3.2.0","ngx-modialog":"^5.0.1","phonegap":"^8.2.2","rxjs":"^6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"~7.3.3","@angular/compiler-cli":"~7.2.0","@angular/language-service":"~7.2.0","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.2"}};
 
 /***/ }),
 
@@ -337,6 +337,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _guards_auth_guard_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./guards/auth-guard.service */ "./src/app/guards/auth-guard.service.ts");
 /* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./session/session.service */ "./src/app/session/session.service.ts");
 /* harmony import */ var _appointments_appointments_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./appointments/appointments.component */ "./src/app/appointments/appointments.component.ts");
+/* harmony import */ var _loading_loading_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./loading/loading.component */ "./src/app/loading/loading.component.ts");
+
 
 
 
@@ -391,7 +393,8 @@ var AppModule = /** @class */ (function () {
                 _button_facebook_facebook_component__WEBPACK_IMPORTED_MODULE_16__["FacebookComponent"],
                 _button_google_google_component__WEBPACK_IMPORTED_MODULE_19__["GoogleComponent"],
                 _appointments_appointments_component__WEBPACK_IMPORTED_MODULE_30__["AppointmentsComponent"],
-                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["BreedPickerComponent"]
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["BreedPickerComponent"],
+                _loading_loading_component__WEBPACK_IMPORTED_MODULE_31__["LoadingComponent"]
             ],
             entryComponents: [
                 _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_18__["SignInComponent"],
@@ -821,7 +824,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button [class]=\"classes\" [ngClass]=\"{ 'button-disabled': hidden }\" (click)=\"doLogin()\" ><ng-content></ng-content></button>\n"
+module.exports = "<button *ngIf=\"loading == false\" [class]=\"classes\" [ngClass]=\"{ 'button-disabled': hidden }\" (click)=\"doLogin()\" ><ng-content></ng-content></button>\n<app-loading *ngIf=\"loading\"></app-loading>"
 
 /***/ }),
 
@@ -932,7 +935,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button [class]=\"classes\" [ngClass]=\"{ 'button-disabled': hidden }\" (click)=\"doRegister()\"><ng-content></ng-content></button>\n"
+module.exports = "<button *ngIf=\"loading == false\" [class]=\"classes\" [ngClass]=\"{ 'button-disabled': hidden }\" (click)=\"doRegister()\"><ng-content></ng-content></button>\n<app-loading *ngIf=\"loading\"></app-loading>"
 
 /***/ }),
 
@@ -1540,6 +1543,7 @@ var LanguageService = /** @class */ (function () {
         this.createYourAccount = "Crie sua conta no ";
         this.age = "Idade";
         this.petType = "Animal";
+        this.breed = "Qual a raça?";
         this.description = "Descrição";
         this.view = "Visualizar";
         this.animal = "Qual o Pet?";
@@ -1585,6 +1589,50 @@ var Links = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/loading/loading.component.html":
+/*!************************************************!*\
+  !*** ./src/app/loading/loading.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"spinner-border text-toppet\" role=\"status\">\n  <span class=\"sr-only\">Carregando...</span>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/loading/loading.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/loading/loading.component.ts ***!
+  \**********************************************/
+/*! exports provided: LoadingComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadingComponent", function() { return LoadingComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var LoadingComponent = /** @class */ (function () {
+    function LoadingComponent() {
+    }
+    LoadingComponent.prototype.ngOnInit = function () {
+    };
+    LoadingComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-loading',
+            template: __webpack_require__(/*! ./loading.component.html */ "./src/app/loading/loading.component.html")
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], LoadingComponent);
+    return LoadingComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/login/login.component.css":
 /*!*******************************************!*\
   !*** ./src/app/login/login.component.css ***!
@@ -1603,7 +1651,7 @@ module.exports = "/* brandico */\n[class*=\"brandico-\"]:before {\n  font-family
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n<div class=\"container text-center default-background\">\n    <form class=\"form-signin\" #loginForm=\"ngForm\">\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br><br>\n        <p>\n            <facebook-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></facebook-button>\n            <google-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></google-button>\n        </p>\n        <br>\n\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\n        <br>\n        \n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.username}}\" type=\"text\" name=\"username\" id=\"username\" ngModel><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel>\n\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\n        <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\n            <span class=\"sr-only\">Carregando...</span>\n        </div>\n        <app-alert></app-alert>\n        <login-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"loginForm\" (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\">{{language.signIn}}</login-button>\n        <br>\n    </form>\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.register}} </b></button> </small>\n</div>"
+module.exports = "<div class=\"container\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n<div class=\"container text-center default-background\">\n    <form class=\"form-signin\" #loginForm=\"ngForm\">\n        <h2 class=\"form-signin-heading\">{{language.signIn}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br><br>\n        <p>\n            <facebook-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></facebook-button>\n            <google-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></google-button>\n        </p>\n        <br>\n\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\n        <br>\n        \n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.username}}\" type=\"text\" name=\"username\" id=\"username\" ngModel><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel>\n\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\n        <app-alert></app-alert>\n        <!-- <app-loading *ngIf=\"loading\"></app-loading> -->\n        <login-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"loginForm\" (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\">{{language.signIn}}</login-button>\n        <br>\n    </form>\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.register}} </b></button> </small>\n</div>"
 
 /***/ }),
 
@@ -1921,18 +1969,27 @@ __webpack_require__.r(__webpack_exports__);
 
 var NavbarComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](NavbarComponent, _super);
-    function NavbarComponent(session, zone, router) {
+    function NavbarComponent(session, zone, router, element) {
         var _this = _super.call(this) || this;
         _this.session = session;
         _this.zone = zone;
         _this.router = router;
+        _this.element = element;
         _this.disableMenu = false;
         _this.disable = true;
         _this.navbarOpen = false;
         return _this;
     }
+    Object.defineProperty(NavbarComponent.prototype, "height", {
+        get: function () {
+            return this._height;
+        },
+        enumerable: true,
+        configurable: true
+    });
     NavbarComponent.prototype.ngOnInit = function () {
         this.updateUser();
+        this._height = this.element.nativeElement.offsetHeight;
     };
     NavbarComponent.prototype.updateUser = function () {
         this.user = this.session.getCurrentUser();
@@ -1954,7 +2011,10 @@ var NavbarComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./navbar.component.html */ "./src/app/navbar/navbar.component.html"),
             styles: [__webpack_require__(/*! ./navbar.component.css */ "./src/app/navbar/navbar.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_1__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_1__["SessionService"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"]])
     ], NavbarComponent);
     return NavbarComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_2__["AppBase"]));
@@ -1970,7 +2030,7 @@ var NavbarComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal-dialog\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.animal}}</h5>\n      <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeDialog()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\n            <ul class=\"event-list\" style=\"width: 115% !important; margin-left: -8% !important;\">\n              <li *ngFor=\"let b of type.breeds\" (click)=\"select(b)\" style=\"height: 65px !important; line-height:65px;\">\n                  <div style=\"display:inline-block; vertical-align:middle; line-height:1.25em; text-align: center; width: 100%;\">\n                    <h2 class=\"new-title\" >{{b.description}}</h2>\n                  </div>\n              </li>\n            </ul>\n          </div>\n        </div> \n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"modal-dialog breeds-container\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.breed}}</h5>\n      <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeDialog()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body breeds-modal-body\">\n      <div class=\"\">\n        <div class=\"row\">\n          <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\n            <ul class=\"event-list\">\n              <li *ngFor=\"let b of type.breeds\" (click)=\"select(b)\" style=\"height: 65px !important; line-height:65px;\">\n                  <div style=\"display:inline-block; vertical-align:middle; line-height:1.25em; text-align: center; width: 100%;\">\n                    <h2 class=\"new-title\" >{{b.description}}</h2>\n                  </div>\n              </li>\n            </ul>\n          </div>\n        </div> \n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1992,7 +2052,7 @@ module.exports = "<!-- https://yespornplease.com/v/100046849\nhttps://yespornple
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "body {\n    padding: 4px 0px;\n    background-color: rgb(220, 220, 220);\n}\n\n.event-list {\n    list-style: none;\n    /* font-family: 'Lato', sans-serif; */\n    margin: 0px;\n    padding: 0px;\n}\n\n.event-list > li {\n    background-color: rgb(255, 255, 255);\n    box-shadow: 0px 0px 5px rgb(51, 51, 51);\n    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);\n    padding: 0px;\n    margin: 0px 0px 20px;\n}\n\n.event-list > li > .icon {\n    display: inline-block;\n    width: 100%;\n    color: rgb(255, 255, 255);\n    background-color: rgb(197, 44, 102);\n    padding: 5px;\n    text-align: center;\n    font-size: 370%;\n}\n\n.event-list > li:nth-child(even) > .icon {\n    background-color: rgb(165, 82, 167);\n}\n\n.event-list > li > .icon > span {\n    display: none;\n}\n\n.event-list > li > img {\n    width: 100%;\n}\n\n.event-list > li > .info {\n    padding-top: 5px;\n    text-align: center;\n}\n\n.event-list > li > .info > .title {\n    font-size: 17pt;\n    font-weight: 700;\n    margin: 0px;\n}\n\n.event-list > li > .info > .desc {\n    font-size: 13pt;\n    font-weight: 300;\n    margin: 0px;\n}\n\n.event-list > li > .info > ul,\n.event-list > li > .social > ul {\n    display: table;\n    list-style: none;\n    margin: 10px 0px 0px;\n    padding: 0px;\n    width: 100%;\n    text-align: center;\n}\n\n.event-list > li > .social > ul {\n    margin: 0px;\n}\n\n.event-list > li > .info > ul > li,\n.event-list > li > .social > ul > li {\n    display: table-cell;\n    cursor: pointer;\n    color: rgb(30, 30, 30);\n    font-size: 11pt;\n    font-weight: 300;\n    padding: 3px 0px;\n}\n\n.event-list > li > .info > ul > li > a {\n    display: block;\n    width: 100%;\n    color: rgb(30, 30, 30);\n    text-decoration: none;\n}\n\n.event-list > li > .social > ul > li {    \n    padding: 0px;\n}\n\n.event-list > li > .social > ul > li > a {\n    padding: 3px 0px;\n}\n\n.event-list > li > .info > ul > li:hover,\n.event-list > li > .social > ul > li:hover {\n    color: rgb(30, 30, 30);\n    background-color: rgb(200, 200, 200);\n}\n\n.event-list > li {\n    position: relative;\n    display: block;\n    width: 100%;\n    height: 93px;\n    padding: 0px;\n}\n\n.event-list > li > .icon,\n.event-list > li > img  {\n    display: inline-block;\n}\n\n.event-list > li > .icon,\n.event-list > li > img {\n    width: 93px;\n    float: left;\n}\n\n.event-list > li > .info {\n    background-color: rgb(245, 245, 245);\n    overflow: hidden;\n}\n\n.event-list > li > .icon,\n.event-list > li > img {\n    width: 93px;\n    height: 93px;\n    padding: 0px;\n    margin: 0px;\n}\n\n.event-list > li > .info {\n    position: relative;\n    height: 93px;\n    text-align: left;\n    padding-right: 40px;\n}\n\n.event-list > li > .info > .title, \n.event-list > li > .info > .desc {\n    padding: 0px 10px;\n}\n\n.event-list > li > .info > ul {\n    position: absolute;\n    left: 0px;\n    bottom: 0px;\n}\n\n.event-list > li > .social {\n    position: absolute;\n    top: 0px;\n    right: 0px;\n    display: block;\n    width: 40px;\n}\n\n.event-list > li > .social > ul {\n    border-left: 1px solid rgb(230, 230, 230);\n}\n\n.event-list > li > .social > ul > li {\t\t\t\n    display: block;\n    padding: 0px;\n}\n\n.event-list > li > .social > ul > li > a {\n    display: block;\n    width: 40px;\n    padding: 10px 0px 9px;\n}\n\n.new-title {\n    font-size: 17pt;\n    font-weight: 600;\n    margin: 0px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9wZXQucGlja2VyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnQkFBZ0I7SUFDaEIsb0NBQW9DO0FBQ3hDOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLHFDQUFxQztJQUNyQyxXQUFXO0lBQ1gsWUFBWTtBQUNoQjs7QUFDQTtJQUNJLG9DQUFvQztJQUNwQyx1Q0FBdUM7SUFDdkMsNkNBQTZDO0lBQzdDLFlBQVk7SUFDWixvQkFBb0I7QUFDeEI7O0FBQ0E7SUFDSSxxQkFBcUI7SUFDckIsV0FBVztJQUNYLHlCQUF5QjtJQUN6QixtQ0FBbUM7SUFDbkMsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixlQUFlO0FBQ25COztBQUNBO0lBQ0ksbUNBQW1DO0FBQ3ZDOztBQUNBO0lBQ0ksYUFBYTtBQUNqQjs7QUFFQTtJQUNJLFdBQVc7QUFDZjs7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixrQkFBa0I7QUFDdEI7O0FBQ0E7SUFDSSxlQUFlO0lBQ2YsZ0JBQWdCO0lBQ2hCLFdBQVc7QUFDZjs7QUFFQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsV0FBVztBQUNmOztBQUNBOztJQUVJLGNBQWM7SUFDZCxnQkFBZ0I7SUFDaEIsb0JBQW9CO0lBQ3BCLFlBQVk7SUFDWixXQUFXO0lBQ1gsa0JBQWtCO0FBQ3RCOztBQUNBO0lBQ0ksV0FBVztBQUNmOztBQUNBOztJQUVJLG1CQUFtQjtJQUNuQixlQUFlO0lBQ2Ysc0JBQXNCO0lBQ3RCLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsZ0JBQWdCO0FBQ3BCOztBQUNBO0lBQ0ksY0FBYztJQUNkLFdBQVc7SUFDWCxzQkFBc0I7SUFDdEIscUJBQXFCO0FBQ3pCOztBQUNBO0lBQ0ksWUFBWTtBQUNoQjs7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFDQTs7SUFFSSxzQkFBc0I7SUFDdEIsb0NBQW9DO0FBQ3hDOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLGNBQWM7SUFDZCxXQUFXO0lBQ1gsWUFBWTtJQUNaLFlBQVk7QUFDaEI7O0FBRUE7O0lBRUkscUJBQXFCO0FBQ3pCOztBQUNBOztJQUVJLFdBQVc7SUFDWCxXQUFXO0FBQ2Y7O0FBQ0E7SUFDSSxvQ0FBb0M7SUFDcEMsZ0JBQWdCO0FBQ3BCOztBQUNBOztJQUVJLFdBQVc7SUFDWCxZQUFZO0lBQ1osWUFBWTtJQUNaLFdBQVc7QUFDZjs7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2Qjs7QUFDQTs7SUFFSSxpQkFBaUI7QUFDckI7O0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsU0FBUztJQUNULFdBQVc7QUFDZjs7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixRQUFRO0lBQ1IsVUFBVTtJQUNWLGNBQWM7SUFDZCxXQUFXO0FBQ2Y7O0FBQ0E7SUFDSSx5Q0FBeUM7QUFDN0M7O0FBQ0E7SUFDSSxjQUFjO0lBQ2QsWUFBWTtBQUNoQjs7QUFDQTtJQUNJLGNBQWM7SUFDZCxXQUFXO0lBQ1gscUJBQXFCO0FBQ3pCOztBQUdBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixXQUFXO0FBQ2YiLCJmaWxlIjoic3JjL2FwcC9wZXRzL3BldC5waWNrZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICAgIHBhZGRpbmc6IDRweCAwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDIyMCwgMjIwLCAyMjApO1xufVxuXG4uZXZlbnQtbGlzdCB7XG4gICAgbGlzdC1zdHlsZTogbm9uZTtcbiAgICAvKiBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmOyAqL1xuICAgIG1hcmdpbjogMHB4O1xuICAgIHBhZGRpbmc6IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyNTUsIDI1NSwgMjU1KTtcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDVweCByZ2IoNTEsIDUxLCA1MSk7XG4gICAgYm94LXNoYWRvdzogMHB4IDBweCA1cHggcmdiYSg1MSwgNTEsIDUxLCAwLjcpO1xuICAgIHBhZGRpbmc6IDBweDtcbiAgICBtYXJnaW46IDBweCAwcHggMjBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaWNvbiB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDE5NywgNDQsIDEwMik7XG4gICAgcGFkZGluZzogNXB4O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmb250LXNpemU6IDM3MCU7XG59XG4uZXZlbnQtbGlzdCA+IGxpOm50aC1jaGlsZChldmVuKSA+IC5pY29uIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMTY1LCA4MiwgMTY3KTtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaWNvbiA+IHNwYW4ge1xuICAgIGRpc3BsYXk6IG5vbmU7XG59XG5cbi5ldmVudC1saXN0ID4gbGkgPiBpbWcge1xuICAgIHdpZHRoOiAxMDAlO1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvIHtcbiAgICBwYWRkaW5nLXRvcDogNXB4O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC50aXRsZSB7XG4gICAgZm9udC1zaXplOiAxN3B0O1xuICAgIGZvbnQtd2VpZ2h0OiA3MDA7XG4gICAgbWFyZ2luOiAwcHg7XG59XG5cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC5kZXNjIHtcbiAgICBmb250LXNpemU6IDEzcHQ7XG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgICBtYXJnaW46IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsLFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCB7XG4gICAgZGlzcGxheTogdGFibGU7XG4gICAgbGlzdC1zdHlsZTogbm9uZTtcbiAgICBtYXJnaW46IDEwcHggMHB4IDBweDtcbiAgICBwYWRkaW5nOiAwcHg7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCB7XG4gICAgbWFyZ2luOiAwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCA+IGxpLFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpIHtcbiAgICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBjb2xvcjogcmdiKDMwLCAzMCwgMzApO1xuICAgIGZvbnQtc2l6ZTogMTFwdDtcbiAgICBmb250LXdlaWdodDogMzAwO1xuICAgIHBhZGRpbmc6IDNweCAwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCA+IGxpID4gYSB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgY29sb3I6IHJnYigzMCwgMzAsIDMwKTtcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG59IFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpIHsgICAgXG4gICAgcGFkZGluZzogMHB4O1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpID4gYSB7XG4gICAgcGFkZGluZzogM3B4IDBweDtcbn0gXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCA+IGxpOmhvdmVyLFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpOmhvdmVyIHtcbiAgICBjb2xvcjogcmdiKDMwLCAzMCwgMzApO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyMDAsIDIwMCwgMjAwKTtcbn1cblxuLmV2ZW50LWxpc3QgPiBsaSB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogOTNweDtcbiAgICBwYWRkaW5nOiAwcHg7XG59XG5cbi5ldmVudC1saXN0ID4gbGkgPiAuaWNvbixcbi5ldmVudC1saXN0ID4gbGkgPiBpbWcgIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24sXG4uZXZlbnQtbGlzdCA+IGxpID4gaW1nIHtcbiAgICB3aWR0aDogOTNweDtcbiAgICBmbG9hdDogbGVmdDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI0NSwgMjQ1LCAyNDUpO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24sXG4uZXZlbnQtbGlzdCA+IGxpID4gaW1nIHtcbiAgICB3aWR0aDogOTNweDtcbiAgICBoZWlnaHQ6IDkzcHg7XG4gICAgcGFkZGluZzogMHB4O1xuICAgIG1hcmdpbjogMHB4O1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgaGVpZ2h0OiA5M3B4O1xuICAgIHRleHQtYWxpZ246IGxlZnQ7XG4gICAgcGFkZGluZy1yaWdodDogNDBweDtcbn1cdFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gLnRpdGxlLCBcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC5kZXNjIHtcbiAgICBwYWRkaW5nOiAwcHggMTBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgbGVmdDogMHB4O1xuICAgIGJvdHRvbTogMHB4O1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDBweDtcbiAgICByaWdodDogMHB4O1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiA0MHB4O1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCB7XG4gICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCByZ2IoMjMwLCAyMzAsIDIzMCk7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGkge1x0XHRcdFxuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHBhZGRpbmc6IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSA+IGEge1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiA0MHB4O1xuICAgIHBhZGRpbmc6IDEwcHggMHB4IDlweDtcbn1cblxuXG4ubmV3LXRpdGxlIHtcbiAgICBmb250LXNpemU6IDE3cHQ7XG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgICBtYXJnaW46IDBweDtcbn1cbiJdfQ== */"
+module.exports = "body {\n    /* padding: 4px 0px; */\n    background-color: white;\n}\n.event-list {\n    list-style: none;\n    margin: 0px;\n    padding: 0px;\n}\n.event-list > li {\n    background-color: rgb(255, 255, 255);\n    box-shadow: 0px 0px 5px rgb(51, 51, 51);\n    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);\n    padding: 0px;\n    margin: 0px 0px 20px;\n}\n.event-list > li > .icon {\n    display: inline-block;\n    width: 100%;\n    color: rgb(255, 255, 255);\n    background-color: rgb(197, 44, 102);\n    padding: 5px;\n    text-align: center;\n    font-size: 370%;\n}\n.event-list > li:nth-child(even) > .icon {\n    background-color: rgb(165, 82, 167);\n}\n.event-list > li > .icon > span {\n    display: none;\n}\n.event-list > li > img {\n    width: 100%;\n}\n.event-list > li > .info {\n    padding-top: 5px;\n    text-align: center;\n}\n.event-list > li > .info > .title {\n    font-size: 17pt;\n    font-weight: 700;\n    margin: 0px;\n}\n.event-list > li > .info > .desc {\n    font-size: 13pt;\n    font-weight: 300;\n    margin: 0px;\n}\n.event-list > li > .info > ul,\n.event-list > li > .social > ul {\n    display: table;\n    list-style: none;\n    margin: 10px 0px 0px;\n    padding: 0px;\n    width: 100%;\n    text-align: center;\n}\n.event-list > li > .social > ul {\n    margin: 0px;\n}\n.event-list > li > .info > ul > li,\n.event-list > li > .social > ul > li {\n    display: table-cell;\n    cursor: pointer;\n    color: rgb(30, 30, 30);\n    font-size: 11pt;\n    font-weight: 300;\n    padding: 3px 0px;\n}\n.event-list > li > .info > ul > li > a {\n    display: block;\n    width: 100%;\n    color: rgb(30, 30, 30);\n    text-decoration: none;\n}\n.event-list > li > .social > ul > li {    \n    padding: 0px;\n}\n.event-list > li > .social > ul > li > a {\n    padding: 3px 0px;\n}\n.event-list > li > .info > ul > li:hover,\n.event-list > li > .social > ul > li:hover {\n    color: rgb(30, 30, 30);\n    background-color: rgb(200, 200, 200);\n}\n.event-list > li {\n    position: relative;\n    display: block;\n    width: 100%;\n    height: 93px;\n    padding: 0px;\n}\n.event-list > li > .icon,\n.event-list > li > img  {\n    display: inline-block;\n}\n.event-list > li > .icon,\n.event-list > li > img {\n    width: 93px;\n    float: left;\n}\n.event-list > li > .info {\n    background-color: rgb(245, 245, 245);\n    overflow: hidden;\n}\n.event-list > li > .icon,\n.event-list > li > img {\n    width: 93px;\n    height: 93px;\n    padding: 0px;\n    margin: 0px;\n}\n.event-list > li > .info {\n    position: relative;\n    height: 93px;\n    text-align: left;\n    padding-right: 40px;\n}\n.event-list > li > .info > .title, \n.event-list > li > .info > .desc {\n    padding: 0px 10px;\n}\n.event-list > li > .info > ul {\n    position: absolute;\n    left: 0px;\n    bottom: 0px;\n}\n.event-list > li > .social {\n    position: absolute;\n    top: 0px;\n    right: 0px;\n    display: block;\n    width: 40px;\n}\n.event-list > li > .social > ul {\n    border-left: 1px solid rgb(230, 230, 230);\n}\n.event-list > li > .social > ul > li {\t\t\t\n    display: block;\n    padding: 0px;\n}\n.event-list > li > .social > ul > li > a {\n    display: block;\n    width: 40px;\n    padding: 10px 0px 9px;\n}\n.new-title {\n    font-size: 17pt;\n    font-weight: 600;\n    margin: 0px;\n}\n/* .modal-body {\n    overflow-y: scroll;\n    height: 200px;\n} */\n/* .breeds-modal-body {\n    max-height: 500px;\n    overflow: auto;\n    overflow-x: hidden;\n}  */\n.modal-overlay {\n    right: 15px !important;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9wZXQucGlja2VyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxzQkFBc0I7SUFDdEIsdUJBQXVCO0FBQzNCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsV0FBVztJQUNYLFlBQVk7QUFDaEI7QUFDQTtJQUNJLG9DQUFvQztJQUNwQyx1Q0FBdUM7SUFDdkMsNkNBQTZDO0lBQzdDLFlBQVk7SUFDWixvQkFBb0I7QUFDeEI7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixXQUFXO0lBQ1gseUJBQXlCO0lBQ3pCLG1DQUFtQztJQUNuQyxZQUFZO0lBQ1osa0JBQWtCO0lBQ2xCLGVBQWU7QUFDbkI7QUFDQTtJQUNJLG1DQUFtQztBQUN2QztBQUNBO0lBQ0ksYUFBYTtBQUNqQjtBQUVBO0lBQ0ksV0FBVztBQUNmO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxlQUFlO0lBQ2YsZ0JBQWdCO0lBQ2hCLFdBQVc7QUFDZjtBQUVBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixXQUFXO0FBQ2Y7QUFDQTs7SUFFSSxjQUFjO0lBQ2QsZ0JBQWdCO0lBQ2hCLG9CQUFvQjtJQUNwQixZQUFZO0lBQ1osV0FBVztJQUNYLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksV0FBVztBQUNmO0FBQ0E7O0lBRUksbUJBQW1CO0lBQ25CLGVBQWU7SUFDZixzQkFBc0I7SUFDdEIsZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGNBQWM7SUFDZCxXQUFXO0lBQ1gsc0JBQXNCO0lBQ3RCLHFCQUFxQjtBQUN6QjtBQUNBO0lBQ0ksWUFBWTtBQUNoQjtBQUNBO0lBQ0ksZ0JBQWdCO0FBQ3BCO0FBQ0E7O0lBRUksc0JBQXNCO0lBQ3RCLG9DQUFvQztBQUN4QztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLGNBQWM7SUFDZCxXQUFXO0lBQ1gsWUFBWTtJQUNaLFlBQVk7QUFDaEI7QUFFQTs7SUFFSSxxQkFBcUI7QUFDekI7QUFDQTs7SUFFSSxXQUFXO0lBQ1gsV0FBVztBQUNmO0FBQ0E7SUFDSSxvQ0FBb0M7SUFDcEMsZ0JBQWdCO0FBQ3BCO0FBQ0E7O0lBRUksV0FBVztJQUNYLFlBQVk7SUFDWixZQUFZO0lBQ1osV0FBVztBQUNmO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsWUFBWTtJQUNaLGdCQUFnQjtJQUNoQixtQkFBbUI7QUFDdkI7QUFDQTs7SUFFSSxpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixTQUFTO0lBQ1QsV0FBVztBQUNmO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsUUFBUTtJQUNSLFVBQVU7SUFDVixjQUFjO0lBQ2QsV0FBVztBQUNmO0FBQ0E7SUFDSSx5Q0FBeUM7QUFDN0M7QUFDQTtJQUNJLGNBQWM7SUFDZCxZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsV0FBVztJQUNYLHFCQUFxQjtBQUN6QjtBQUVBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixXQUFXO0FBQ2Y7QUFFQTs7O0dBR0c7QUFFRjs7OztJQUlHO0FBRUo7SUFDSSxzQkFBc0I7QUFDMUIiLCJmaWxlIjoic3JjL2FwcC9wZXRzL3BldC5waWNrZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICAgIC8qIHBhZGRpbmc6IDRweCAwcHg7ICovXG4gICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG59XG4uZXZlbnQtbGlzdCB7XG4gICAgbGlzdC1zdHlsZTogbm9uZTtcbiAgICBtYXJnaW46IDBweDtcbiAgICBwYWRkaW5nOiAwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7XG4gICAgYm94LXNoYWRvdzogMHB4IDBweCA1cHggcmdiKDUxLCA1MSwgNTEpO1xuICAgIGJveC1zaGFkb3c6IDBweCAwcHggNXB4IHJnYmEoNTEsIDUxLCA1MSwgMC43KTtcbiAgICBwYWRkaW5nOiAwcHg7XG4gICAgbWFyZ2luOiAwcHggMHB4IDIwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24ge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICB3aWR0aDogMTAwJTtcbiAgICBjb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigxOTcsIDQ0LCAxMDIpO1xuICAgIHBhZGRpbmc6IDVweDtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgZm9udC1zaXplOiAzNzAlO1xufVxuLmV2ZW50LWxpc3QgPiBsaTpudGgtY2hpbGQoZXZlbikgPiAuaWNvbiB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDE2NSwgODIsIDE2Nyk7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24gPiBzcGFuIHtcbiAgICBkaXNwbGF5OiBub25lO1xufVxuXG4uZXZlbnQtbGlzdCA+IGxpID4gaW1nIHtcbiAgICB3aWR0aDogMTAwJTtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyB7XG4gICAgcGFkZGluZy10b3A6IDVweDtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiAudGl0bGUge1xuICAgIGZvbnQtc2l6ZTogMTdwdDtcbiAgICBmb250LXdlaWdodDogNzAwO1xuICAgIG1hcmdpbjogMHB4O1xufVxuXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiAuZGVzYyB7XG4gICAgZm9udC1zaXplOiAxM3B0O1xuICAgIGZvbnQtd2VpZ2h0OiAzMDA7XG4gICAgbWFyZ2luOiAwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCxcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwge1xuICAgIGRpc3BsYXk6IHRhYmxlO1xuICAgIGxpc3Qtc3R5bGU6IG5vbmU7XG4gICAgbWFyZ2luOiAxMHB4IDBweCAwcHg7XG4gICAgcGFkZGluZzogMHB4O1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwge1xuICAgIG1hcmdpbjogMHB4O1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gdWwgPiBsaSxcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSB7XG4gICAgZGlzcGxheTogdGFibGUtY2VsbDtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgY29sb3I6IHJnYigzMCwgMzAsIDMwKTtcbiAgICBmb250LXNpemU6IDExcHQ7XG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgICBwYWRkaW5nOiAzcHggMHB4O1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gdWwgPiBsaSA+IGEge1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGNvbG9yOiByZ2IoMzAsIDMwLCAzMCk7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xufSBcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSB7ICAgIFxuICAgIHBhZGRpbmc6IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSA+IGEge1xuICAgIHBhZGRpbmc6IDNweCAwcHg7XG59IFxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gdWwgPiBsaTpob3Zlcixcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaTpob3ZlciB7XG4gICAgY29sb3I6IHJnYigzMCwgMzAsIDMwKTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjAwLCAyMDAsIDIwMCk7XG59XG5cbi5ldmVudC1saXN0ID4gbGkge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDkzcHg7XG4gICAgcGFkZGluZzogMHB4O1xufVxuXG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24sXG4uZXZlbnQtbGlzdCA+IGxpID4gaW1nICB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pY29uLFxuLmV2ZW50LWxpc3QgPiBsaSA+IGltZyB7XG4gICAgd2lkdGg6IDkzcHg7XG4gICAgZmxvYXQ6IGxlZnQ7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8ge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyNDUsIDI0NSwgMjQ1KTtcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pY29uLFxuLmV2ZW50LWxpc3QgPiBsaSA+IGltZyB7XG4gICAgd2lkdGg6IDkzcHg7XG4gICAgaGVpZ2h0OiA5M3B4O1xuICAgIHBhZGRpbmc6IDBweDtcbiAgICBtYXJnaW46IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIGhlaWdodDogOTNweDtcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xuICAgIHBhZGRpbmctcmlnaHQ6IDQwcHg7XG59XHRcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC50aXRsZSwgXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiAuZGVzYyB7XG4gICAgcGFkZGluZzogMHB4IDEwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIGxlZnQ6IDBweDtcbiAgICBib3R0b206IDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiAwcHg7XG4gICAgcmlnaHQ6IDBweDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICB3aWR0aDogNDBweDtcbn1cbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwge1xuICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgcmdiKDIzMCwgMjMwLCAyMzApO1xufVxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpIHtcdFx0XHRcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBwYWRkaW5nOiAwcHg7XG59XG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGkgPiBhIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICB3aWR0aDogNDBweDtcbiAgICBwYWRkaW5nOiAxMHB4IDBweCA5cHg7XG59XG5cbi5uZXctdGl0bGUge1xuICAgIGZvbnQtc2l6ZTogMTdwdDtcbiAgICBmb250LXdlaWdodDogNjAwO1xuICAgIG1hcmdpbjogMHB4O1xufVxuXG4vKiAubW9kYWwtYm9keSB7XG4gICAgb3ZlcmZsb3cteTogc2Nyb2xsO1xuICAgIGhlaWdodDogMjAwcHg7XG59ICovXG5cbiAvKiAuYnJlZWRzLW1vZGFsLWJvZHkge1xuICAgIG1heC1oZWlnaHQ6IDUwMHB4O1xuICAgIG92ZXJmbG93OiBhdXRvO1xuICAgIG92ZXJmbG93LXg6IGhpZGRlbjtcbn0gICovXG5cbi5tb2RhbC1vdmVybGF5IHtcbiAgICByaWdodDogMTVweCAhaW1wb3J0YW50O1xufVxuIl19 */"
 
 /***/ }),
 
@@ -2014,7 +2074,7 @@ module.exports = "\n\n<section class=\"body_section\">\n    <div class=interface
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <section class=\"body_section\">\n  <div class=interface_class>\n    <div class=\"page-header\">\n\t\t  <h1>{{language.animal}}</h1>\n    </div>\n    <div class=\"container text-center\">\n      <br>\n      <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\n        <span class=\"sr-only\">Carregando...</span>\n      </div>\n      <p>\n        <a *ngFor=\"let item of animals; let i= index ;trackBy: trackByFn\" class=\"btn btn-toppet social-login-btn pet-icon\" (click)=\"select(item)\" href=\"javascript:;\"><i class=\"fa fa-{{item.icon}}\"></i></a>\n      </p>\n    </div>\n    <div class=\"slidecount\">\n      <span class=\"selected\"></span>\n      <span class=\"\"></span>\n      <span class=\"\"></span>\n    </div>\n  </div> \n</section> -->\n\n<div class=\"container\">\n  <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\n    <span class=\"sr-only\">Carregando...</span>\n  </div>\n  <div class=\"row\">\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\n      <ul class=\"event-list\" style=\"height: 100% !important;\">\n        <li *ngFor=\"let t of types\"  (click)=\"select(t)\" style=\"height: 82px;\">\n            <i class=\"icon fa fa-{{t.icon}}\" style=\"padding-top: 14px;\"></i>\n          <div class=\"info\">\n            <h2 class=\"title\">{{t.description}}</h2>\n            <p class=\"desc\">{{t.icon}}</p>\n          </div>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"slidecount\">\n    <span class=\"selected\"></span>\n    <span class=\"\"></span>\n    <span class=\"\"></span>\n  </div>\n</div>\n\n\n"
+module.exports = "<!-- <section class=\"body_section\">\n  <div class=interface_class>\n    <div class=\"page-header\">\n\t\t  <h1>{{language.animal}}</h1>\n    </div>\n    <div class=\"container text-center\">\n      <br>\n      <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\n        <span class=\"sr-only\">Carregando...</span>\n      </div>\n      <p>\n        <a *ngFor=\"let item of animals; let i= index ;trackBy: trackByFn\" class=\"btn btn-toppet social-login-btn pet-icon\" (click)=\"select(item)\" href=\"javascript:;\"><i class=\"fa fa-{{item.icon}}\"></i></a>\n      </p>\n    </div>\n    <div class=\"slidecount\">\n      <span class=\"selected\"></span>\n      <span class=\"\"></span>\n      <span class=\"\"></span>\n    </div>\n  </div> \n</section> -->\n\n<div class=\"container pet-type\">\n  <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\n    <span class=\"sr-only\">Carregando...</span>\n  </div>\n  <div class=\"row\">\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\n      <ul class=\"event-list\" style=\"height: 100% !important;\">\n        <li *ngFor=\"let t of types\"  (click)=\"select(t)\" style=\"height: 82px;\">\n          <i class=\"icon fa fa-{{t.icon}}\" style=\"padding-top: 14px;\"></i>\n          <div class=\"info\">\n            <h2 class=\"title\">{{t.description}}</h2>\n            <p class=\"desc\">{{t.icon}}</p>\n          </div>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n<div class=\"slidecount\"z>\n  <span class=\"selected\"></span>\n  <span class=\"\"></span>\n  <span class=\"\"></span>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -2036,7 +2096,7 @@ module.exports = "*{padding:0;margin:0;}\n\nbody{\n\tfont-family:Verdana, Geneva
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <section class=\"body_section\" *ngIf=\"outlet.isActivated == false\">\n  <div class=interface_class>\n    <div class=\"page-header\">\n\t\t  <h1>{{title}} <small>{{user.pets.length}}</small></h1>\n    </div>\n    <div *ngFor=\"let pet of user.pets\" class=\"card\" style=\"width: 18rem;\">\n      <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n        <span class=\"sr-only\">Carregando...</span>\n      </div>\n      <img src=\"{{pet.img}}\" class=\"card-img-top\" alt=\"...\">\n      <div class=\"card-body\">\n        <h5 class=\"card-title\">{{pet.name}}</h5>\n        <p class=\"card-text\">{{pet.description}}</p>\n        <a href=\"#\" class=\"btn btn-petlife\">{{language.view}}</a>\n      </div>\n    </div>\n\n    <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\" [ngClass]=\"{ 'button-disabled': dialog }\">\n      <i class=\"fa fa-plus my-float\"></i>\n    </a>\n  </div> \n</section>\n<router-outlet #outlet=\"outlet\"></router-outlet> -->\n\n<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated == false\">\n  <div class=\"container\" style=\"background-color: white;\">\n      <h5 class=\"section-title h1\">{{title}}</h5>\n      <div class=\"row\">\n          <!-- Team member -->\n          <div class=\"col-xs-12 col-sm-6 col-md-4\" *ngFor=\"let pet of user.pets\">\n              <div class=\"image-flip\">\n                  <div class=\"mainflip\">\n                      <div class=\"frontside\">\n                          <div class=\"card\">\n                              <div class=\"card-body text-center\">\n                                  <p><img class=\" img-fluid\" src=\"{{pet.img}}\" alt=\"\"></p>\n                                  <h4 class=\"card-title\">{{pet.name}}</h4>\n                                  <p class=\"card-text\">{{pet.description}}</p>\n                                  <a href=\"#\" class=\"btn btn-primary btn-sm\"><i class=\"fa fa-plus\"></i></a>\n                              </div>\n                          </div>\n                      </div>\n                  </div>\n              </div>\n          </div>\n      </div>\n  </div>\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\" [ngClass]=\"{ 'button-disabled': dialog }\">\n    <i class=\"fa fa-plus my-float\"></i>\n  </a>\n</section>\n<router-outlet #outlet=\"outlet\"></router-outlet>\n"
+module.exports = "<!-- <section class=\"body_section\" *ngIf=\"outlet.isActivated == false\">\n  <div class=interface_class>\n    <div class=\"page-header\">\n\t\t  <h1>{{title}} <small>{{user.pets.length}}</small></h1>\n    </div>\n    <div *ngFor=\"let pet of user.pets\" class=\"card\" style=\"width: 18rem;\">\n      <div class=\"spinner-border text-petlife\" role=\"status\" [ngClass]=\"{ 'button-disabled': !loading }\">\n        <span class=\"sr-only\">Carregando...</span>\n      </div>\n      <img src=\"{{pet.img}}\" class=\"card-img-top\" alt=\"...\">\n      <div class=\"card-body\">\n        <h5 class=\"card-title\">{{pet.name}}</h5>\n        <p class=\"card-text\">{{pet.description}}</p>\n        <a href=\"#\" class=\"btn btn-petlife\">{{language.view}}</a>\n      </div>\n    </div>\n\n    <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\" [ngClass]=\"{ 'button-disabled': dialog }\">\n      <i class=\"fa fa-plus my-float\"></i>\n    </a>\n  </div> \n</section>\n<router-outlet #outlet=\"outlet\"></router-outlet> -->\n\n<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated == false\">\n  <div class=\"container\" style=\"background-color: white;\">\n      <h5 class=\"section-title h1\">{{title}}</h5>\n      <div class=\"row\">\n          <!-- Team member -->\n          <app-loading *ngIf=\"loading\"></app-loading>\n          <div class=\"col-xs-12 col-sm-6 col-md-4\" *ngFor=\"let pet of user.pets\">\n              <div class=\"image-flip\">\n                  <div class=\"mainflip\">\n                      <div class=\"frontside\">\n                          <div class=\"card\">\n                              <div class=\"card-body text-center\">\n                                  <p><img class=\" img-fluid\" src=\"{{pet.img}}\" alt=\"\"></p>\n                                  <h4 class=\"card-title\">{{pet.name}}</h4>\n                                  <p class=\"card-text\">{{pet.description}}</p>\n                                  <a href=\"#\" class=\"btn btn-primary btn-sm\"><i class=\"fa fa-plus\"></i></a>\n                              </div>\n                          </div>\n                      </div>\n                  </div>\n              </div>\n          </div>\n      </div>\n  </div>\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\" [ngClass]=\"{ 'button-disabled': dialog }\">\n    <i class=\"fa fa-plus my-float\"></i>\n  </a>\n</section>\n<router-outlet #outlet=\"outlet\"></router-outlet>\n"
 
 /***/ }),
 
@@ -2097,7 +2157,6 @@ var PetsComponent = /** @class */ (function (_super) {
         _this.activatedRoute = activatedRoute;
         _this.title = "Pets";
         _this.dialog = false;
-        _this.active = true;
         return _this;
     }
     Object.defineProperty(PetsComponent.prototype, "menu", {
@@ -2147,9 +2206,7 @@ var PetsComponent = /** @class */ (function (_super) {
     PetsComponent.prototype.add = function () {
         var _this = this;
         this.session.zone.run(function () {
-            return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_1__["PETS_WIZARD_DEF_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute, queryParams: { id: "" } }).then(function (res) {
-                _this.active = false;
-            });
+            return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_1__["PETS_WIZARD_DEF_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute, queryParams: { id: "" } });
         });
     };
     PetsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2170,13 +2227,20 @@ var PetsComponent = /** @class */ (function (_super) {
 ///////////////////////////
 var PetTypeComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetTypeComponent, _super);
-    function PetTypeComponent(router, api, modal) {
+    function PetTypeComponent(session, router, api, modal, activatedRoute) {
         var _this = _super.call(this) || this;
+        _this.session = session;
         _this.router = router;
         _this.api = api;
         _this.modal = modal;
+        _this.activatedRoute = activatedRoute;
         _this.types = [];
         _this.dialog = false;
+        _this.selectPetType = function (type, breed) {
+            console.log(type);
+            console.log(breed);
+            _this.next();
+        };
         return _this;
     }
     PetTypeComponent.prototype.ngOnInit = function () {
@@ -2187,6 +2251,10 @@ var PetTypeComponent = /** @class */ (function (_super) {
             console.log(result);
             _this.loading = false;
             if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_12__["ReturnCode"].SUCCESS) {
+                // const petTypeClass : any = document.getElementsByClassName("pet-type")[0];
+                // if(petTypeClass != undefined) {
+                //   petTypeClass.style.maxHeight = (window.innerHeight - 30) - (this.menuService.menu.height) + "px";
+                // }
                 if (result && result.sid) {
                     if (result.entity) {
                         _this.types = result.entity;
@@ -2203,18 +2271,22 @@ var PetTypeComponent = /** @class */ (function (_super) {
     };
     PetTypeComponent.prototype.select = function (selected) {
         var _this = this;
-        console.log(selected);
         if (selected.breeds != undefined && selected.breeds.length > 0) {
             this.dialog = true;
             var dialogRef = this.modal
                 .open(BreedPickerComponent, Object(ngx_modialog__WEBPACK_IMPORTED_MODULE_15__["overlayConfigFactory"])({ isBlocking: false, data: { type: selected } }, ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__["BSModalContext"]));
-            // dialogRef.result
-            //   .then( result => this.save(result) );
-            window.dialogRef = dialogRef;
+            dialogRef.result
+                .then(function (result) { return _this.selectPetType(selected, result); });
             dialogRef.onDestroy.subscribe(function () {
                 _this.dialog = false;
             });
         }
+    };
+    PetTypeComponent.prototype.next = function () {
+        var _this = this;
+        this.session.zone.run(function () {
+            return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_1__["PETS_WIZARD_INFO_PAGE"]], { replaceUrl: true, queryParams: { id: "" } });
+        });
     };
     PetTypeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
@@ -2222,7 +2294,11 @@ var PetTypeComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./pet.type.component.html */ "./src/app/pets/pet.type.component.html"),
             styles: [__webpack_require__(/*! ./pet.picker.component.css */ "./src/app/pets/pet.picker.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"], _service_services__WEBPACK_IMPORTED_MODULE_5__["PetApiService"], ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__["Modal"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"],
+            _service_services__WEBPACK_IMPORTED_MODULE_5__["PetApiService"],
+            ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__["Modal"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_13__["ActivatedRoute"]])
     ], PetTypeComponent);
     return PetTypeComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
@@ -2230,23 +2306,30 @@ var PetTypeComponent = /** @class */ (function (_super) {
 ///////////////////////////////////////////////
 var BreedPickerComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BreedPickerComponent, _super);
-    function BreedPickerComponent(dialogRef) {
+    function BreedPickerComponent(dialogRef, menuService, element) {
         var _this = _super.call(this) || this;
         _this.dialogRef = dialogRef;
+        _this.menuService = menuService;
+        _this.element = element;
         var data = _this.dialogRef.context.data;
         if (data != undefined) {
             _this.type = data.type;
         }
+        window.breedPickerComponent = element;
         return _this;
     }
     BreedPickerComponent.prototype.ngOnInit = function () {
+        var modalBody = this.element.nativeElement.children[0].children[0].children[1];
+        modalBody.style.overflowY = "auto";
+        modalBody.style.overflowX = "hidden";
+        var maxHeight = ((window.innerHeight - 30) + "px");
+        modalBody.style.maxHeight = maxHeight;
     };
     BreedPickerComponent.prototype.select = function (selected) {
-        console.log(selected);
-        this.closeDialog();
+        this.closeDialog(selected);
     };
-    BreedPickerComponent.prototype.closeDialog = function () {
-        this.dialogRef.close();
+    BreedPickerComponent.prototype.closeDialog = function (selected) {
+        this.dialogRef.close(selected);
     };
     BreedPickerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
@@ -2254,7 +2337,7 @@ var BreedPickerComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./pet.breeds.component.html */ "./src/app/pets/pet.breeds.component.html"),
             styles: [__webpack_require__(/*! ./pet.picker.component.css */ "./src/app/pets/pet.picker.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [ngx_modialog__WEBPACK_IMPORTED_MODULE_15__["DialogRef"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [ngx_modialog__WEBPACK_IMPORTED_MODULE_15__["DialogRef"], _navbar_menuService__WEBPACK_IMPORTED_MODULE_11__["MenuService"], _angular_core__WEBPACK_IMPORTED_MODULE_4__["ElementRef"]])
     ], BreedPickerComponent);
     return BreedPickerComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
@@ -2400,7 +2483,7 @@ module.exports = "/* brandico */\n[class*=\"brandico-\"]:before {\n  font-family
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container default-background\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n\n<div class=\"container text-center\">\n    <form class=\"form-signin\" #registerForm=\"ngForm\" autocomplete=\"off\">\n        <h2 class=\"form-signin-heading\" style=\"color: white !important\">{{language.signUp}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br>\n        <p>\n          <facebook-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></facebook-button>\n          <google-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></google-button>\n        </p>\n        <small class=\"text-muted\">{{language.createWithSomeInfo}}</small>\n        <br>\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.email}}\" type=\"text\" name=\"username\" id=\"username\" ngModel /><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.name}}\" type=\"text\" name=\"name\" id=\"name\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.confirmPassword}}\" type=\"password\" name=\"confirmPassword\" id=\"confirmPassword\" ngModel />\n        <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\n            <span class=\"sr-only\">Carregando...</span>\n        </div>\n        <br>\n        <app-alert></app-alert>\n        <register-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"registerForm\" (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, false)\">{{language.signUp}}</register-button>\n        <br>\n    </form>\n</div>"
+module.exports = "<div class=\"container default-background\">     \n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\n\n<div class=\"container text-center\">\n    <form class=\"form-signin\" #registerForm=\"ngForm\" autocomplete=\"off\">\n        <h2 class=\"form-signin-heading\" style=\"color: white !important\">{{language.signUp}}</h2>\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\n        <br>\n        <p>\n          <facebook-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></facebook-button>\n          <google-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></google-button>\n        </p>\n        <small class=\"text-muted\">{{language.createWithSomeInfo}}</small>\n        <br>\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.email}}\" type=\"text\" name=\"username\" id=\"username\" ngModel /><!-- required -->\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.name}}\" type=\"text\" name=\"name\" id=\"name\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel />\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.confirmPassword}}\" type=\"password\" name=\"confirmPassword\" id=\"confirmPassword\" ngModel />\n        <br>\n        <app-alert></app-alert>\n        <!-- <app-loading *ngIf=\"loading\"></app-loading> -->\n        <register-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"registerForm\" (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, false)\">{{language.signUp}}</register-button>\n        <br>\n    </form>\n</div>"
 
 /***/ }),
 
@@ -2580,7 +2663,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Set the http options
-var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]({ "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" });
+var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]({ "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept" });
+var httpDefaultOptions = {
+    headers: httpHeaders
+};
 var endpoints = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].endpoint;
 var ApiService = /** @class */ (function () {
     function ApiService() {
@@ -2639,19 +2726,13 @@ var UserApiService = /** @class */ (function (_super) {
     UserApiService.prototype.login = function (user) {
         console.log(this.authenticate);
         console.log(user);
-        var httpOptions = {
-            headers: httpHeaders
-        };
-        return this.http.post(this.authenticate, user, httpOptions)
+        return this.http.post(this.authenticate, user, httpDefaultOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
     };
     UserApiService.prototype.save = function (user) {
         console.log(this.register);
         console.log(user);
-        var httpOptions = {
-            headers: httpHeaders
-        };
-        return this.http.post(this.register, user, httpOptions)
+        return this.http.post(this.register, user, httpDefaultOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
     };
     UserApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2676,10 +2757,7 @@ var PetApiService = /** @class */ (function (_super) {
     PetApiService.prototype.get = function (pet) {
         console.log(this.retrieve);
         console.log(pet);
-        var httpOptions = {
-            headers: httpHeaders
-        };
-        return this.http.post(this.retrieve, pet, httpOptions)
+        return this.http.post(this.retrieve, pet, httpDefaultOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
     };
     PetApiService.prototype.getByUser = function (user) {
@@ -2695,19 +2773,13 @@ var PetApiService = /** @class */ (function (_super) {
     };
     PetApiService.prototype.getAllPetTypes = function () {
         console.log(this.types);
-        var httpOptions = {
-            headers: httpHeaders
-        };
-        return this.http.get(this.types, httpOptions)
+        return this.http.get(this.types, httpDefaultOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
     };
     PetApiService.prototype.save = function (pet) {
         console.log(this.register);
         console.log(pet);
-        var httpOptions = {
-            headers: httpHeaders
-        };
-        return this.http.post(this.register, pet, httpOptions)
+        return this.http.post(this.register, pet, httpDefaultOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
     };
     PetApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

@@ -24,6 +24,7 @@ import br.com.duti.utils.ReturnCode;
 
 @RequestMapping("/user")
 @RestController
+@CrossOrigin
 public class UserController {
 	
 	@Autowired
@@ -31,7 +32,6 @@ public class UserController {
 	
 	//@CrossOrigin(origins = {Utils.HTTP, Utils.SMARTPHONE})
 	@Transactional
-	@CrossOrigin
 	@PostMapping(value="/authenticate", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<User> doLogin(@RequestBody final User user) {
 		

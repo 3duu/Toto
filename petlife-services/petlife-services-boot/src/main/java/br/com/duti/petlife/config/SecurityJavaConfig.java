@@ -67,6 +67,8 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
 	       .anyRequest()
 	           .authenticated();
 		
+		////http.csrf().disable().authorizeRequests().anyRequest().permitAll().and().httpBasic();
+		
 		//http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 		
 		//http.cors();

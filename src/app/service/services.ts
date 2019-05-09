@@ -17,7 +17,13 @@ import { ObjectUtils } from '../utils';
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 
 // Set the http options
-export const httpHeaders = new HttpHeaders({"Content-Type": "application/json","Access-Control-Allow-Origin": "*"});
+export const httpHeaders = new HttpHeaders({"Content-Type": 
+"application/json","Access-Control-Allow-Origin": "*",
+"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"});
+
+const httpDefaultOptions = {
+  headers: httpHeaders
+};
 
 const endpoints = environment.endpoint;
 
@@ -31,7 +37,7 @@ class ApiService {
   protected endpoint : string;
 
   constructor() {
-    this.endpoint = endpoints.local;
+    this.endpoint = endpoints.home;
     console.log(this.endpoint);
   }
 
@@ -92,10 +98,8 @@ export class UserApiService extends ApiService {
   public login(user: User): Observable<any> {
     console.log(this.authenticate);
     console.log(user);
-    const httpOptions = {
-      headers: httpHeaders
-    };
-    return this.http.post<User>(this.authenticate, user, httpOptions)
+
+    return this.http.post<User>(this.authenticate, user, httpDefaultOptions)
     .pipe(
       catchError(this.handleError)
     );
@@ -106,10 +110,7 @@ export class UserApiService extends ApiService {
     console.log(this.register);
     console.log(user);
     
-    const httpOptions = {
-      headers: httpHeaders
-    };
-    return this.http.post<User>(this.register, user, httpOptions)
+    return this.http.post<User>(this.register, user, httpDefaultOptions)
     .pipe(
       catchError(this.handleError)
     );
@@ -133,10 +134,7 @@ export class PetApiService extends ApiService {
     console.log(this.retrieve);
     console.log(pet);
     
-    const httpOptions = {
-      headers: httpHeaders
-    };
-    return this.http.post<Pet>(this.retrieve, pet, httpOptions)
+    return this.http.post<Pet>(this.retrieve, pet, httpDefaultOptions)
     .pipe(
       catchError(this.handleError)
     );
@@ -160,10 +158,8 @@ export class PetApiService extends ApiService {
   public getAllPetTypes(): Observable<any> {
     console.log(this.types);
 
-    const httpOptions = {
-      headers: httpHeaders
-    };
-    return this.http.get(this.types, httpOptions)
+
+    return this.http.get(this.types, httpDefaultOptions)
     .pipe(
       catchError(this.handleError)
     );
@@ -173,10 +169,8 @@ export class PetApiService extends ApiService {
     console.log(this.register);
     console.log(pet);
     
-    const httpOptions = {
-      headers: httpHeaders
-    };
-    return this.http.post<User>(this.register, pet, httpOptions)
+
+    return this.http.post<User>(this.register, pet, httpDefaultOptions)
     .pipe(
       catchError(this.handleError)
     );
