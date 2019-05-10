@@ -32,7 +32,6 @@ export class PetsComponent extends AppBase {
 
   private user : User;
   private pets : Pet[];
-  private title : string = "Pets";
   private dialog : boolean = false;
 
   constructor(private api : PetApiService, 
@@ -101,9 +100,40 @@ export class PetsComponent extends AppBase {
 ///////////////////////////
 
 @Component({
-  selector: 'app-define-pets',
-  templateUrl: './pet.type.component.html',
-  styleUrls: ["./pet.picker.component.css"]
+  selector: 'app-pets-wizard',
+  templateUrl: './pets.wizard.component.html'
+})
+export class PetsWizardComponent extends AppBase {
+
+  private get menu(): NavbarComponent {
+    return this.menuService.menu;
+  }
+
+  private user : User;
+  
+  private dialog : boolean = false;
+
+  constructor(private api : PetApiService, 
+    private menuService : MenuService,
+    private session : SessionService,
+    private router : Router) {
+    super();
+  }
+
+  ngOnInit() {
+    this.loading = true;
+    this.menu.disable = false;
+    this.menu.disableMenu = false;
+    this.user = this.session.getCurrentUser();
+  }
+}
+
+/////////////////////////////
+
+@Component({
+  selector: 'app-pets-type',
+  templateUrl: './pets.type.component.html',
+  styleUrls: ["./pets.picker.component.css"]
 })
 export class PetTypeComponent extends AppBase {
 
@@ -193,9 +223,9 @@ export class PetTypeComponent extends AppBase {
 ///////////////////////////////////////////////
 
 @Component({
-  selector: 'app-breeds',
-  templateUrl: './pet.breeds.component.html',
-  styleUrls: ["./pet.picker.component.css"]
+  selector: 'app-pets-breeds',
+  templateUrl: './pets.breeds.component.html',
+  styleUrls: ["./pets.picker.component.css"]
 })
 export class BreedPickerComponent extends AppBase {
 
@@ -230,9 +260,9 @@ export class BreedPickerComponent extends AppBase {
 ///////////////////////////////////////////////
 
 @Component({
-  selector: 'app-pet-info',
-  templateUrl: './pet.info.component.html',
-  styleUrls: ['./pet.picker.component.css']
+  selector: 'app-pets-info',
+  templateUrl: './pets.info.component.html',
+  styleUrls: ['./pets.info.component.css']
 })
 export class PetInfoComponent extends AppBase {
 
@@ -293,8 +323,8 @@ export class PetInfoComponent extends AppBase {
 
 
 @Component({
-  selector: 'app-pet-picture',
-  templateUrl: './pet.picture.component.html'
+  selector: 'app-pets-picture',
+  templateUrl: './pets.picture.component.html'
 })
 export class PetPictureComponent extends AppBase {
 

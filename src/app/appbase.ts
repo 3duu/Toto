@@ -8,6 +8,7 @@ export class AppBase implements OnInit /** AfterContentInit */ {
     protected applicationName : string = environment.name;
     private static _language : LanguageService = new LanguageService();
     protected loading = false;
+    protected title : string;
 
     get language() {
       return AppBase._language;
