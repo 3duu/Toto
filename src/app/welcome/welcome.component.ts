@@ -1,3 +1,4 @@
+import { MenuService } from './../navbar/menuService';
 import { Component } from '@angular/core';
 import { AppBase } from './../appbase';
 import { Router } from '@angular/router';
@@ -9,12 +10,12 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent extends AppBase {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private menuService : MenuService) {
     super();
   }
 
   ngOnInit() : void {
-    //alert('gtt');
+    this.menuService.menu.disable = true;
   }
 
 }

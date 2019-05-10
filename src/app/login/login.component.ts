@@ -38,8 +38,7 @@ export class LoginComponent extends AppBase {
   }
 
   ngOnInit() : void {
-    this.menu.disableMenu = true;
-    this.menu.disable = false;
+    this.menu.disable = true;
     this.session.onLogged(null, this.router, this.menuService.menu);
   }
 

@@ -21,6 +21,8 @@ export class HomeComponent extends AppBase {
   }
 
   ngOnInit() {
+    this.title = this.applicationName;
+    this.setTitle(this.menuService);
     this.enableMenu();
   }
 

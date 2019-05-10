@@ -29,6 +29,10 @@ export class NavbarComponent extends AppBase {
     return this._height;
   }
 
+  set menuTitle(value) {
+    this.title = value;
+  }
+
   ngOnInit() {
     this.updateUser();
     this._height = this.element.nativeElement.offsetHeight;

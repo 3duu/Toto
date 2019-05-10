@@ -8,6 +8,7 @@ export class LanguageService {
     init : string = "Início";
     login : string = "Entrar";
     myPet : string = "Meus Pets";
+    petInfo : string = "Dados do pet";
     about : string = "Ajuda";
     appointments : string = "Agenda";
     remindPassword : string = "Lembrar";

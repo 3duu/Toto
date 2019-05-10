@@ -1,6 +1,7 @@
 import { environment } from './../environments/environment';
 import { OnInit } from '@angular/core';
 import { LanguageService } from './language/Language';
+import { MenuService } from './navbar/menuService';
 
 //https://malcoded.com/posts/why-angular-not-works/
 export class AppBase implements OnInit /** AfterContentInit */ {
@@ -8,10 +9,14 @@ export class AppBase implements OnInit /** AfterContentInit */ {
     protected applicationName : string = environment.name;
     private static _language : LanguageService = new LanguageService();
     protected loading = false;
-    protected title : string;
+    title : string = this.applicationName;
 
     get language() {
       return AppBase._language;
+    }
+
+    setTitle(menuService : MenuService) {
+      menuService.menu.title = this.title;
     }
   
     constructor(){

@@ -46,6 +46,8 @@ export class PetsComponent extends AppBase {
     this.loading = true;
     this.menu.disable = false;
     this.menu.disableMenu = false;
+    this.title = this.language.myPet;
+    this.setTitle(this.menuService);
     this.user = this.session.getCurrentUser();
     this.setPets();  
     this.loadPets();
