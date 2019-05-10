@@ -1,5 +1,5 @@
 import { Breed } from './../entity/Pet';
-import { PETS_WIZARD_DEF_PAGE, PETS_WIZARD_INFO_PAGE } from './../application';
+import { PETS_WIZARD_DEF_PAGE, PETS_WIZARD_INFO_PAGE, PETS_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, ViewChild, ElementRef } from '@angular/core';
@@ -26,6 +26,15 @@ declare const Camera;
 })
 export class PetsComponent extends AppBase {
 
+  private get menu(): NavbarComponent {
+    return this.menuService.menu;
+  }
+
+  private user : User;
+  private pets : Pet[];
+  private title : string = "Pets";
+  private dialog : boolean = false;
+
   constructor(private api : PetApiService, 
     private menuService : MenuService,
     private session : SessionService,
@@ -34,24 +43,23 @@ export class PetsComponent extends AppBase {
     super();
   }
 
-  private get menu(): NavbarComponent {
-    return this.menuService.menu;
-  }
-
-  private user : User;
-  private title : string = "Pets";
-  private dialog : boolean = false;
-
   ngOnInit() {
     this.loading = true;
-    this.user = this.session.getCurrentUser();
     this.menu.disable = false;
     this.menu.disableMenu = false;
+    this.user = this.session.getCurrentUser();
+    this.setPets();  
     this.loadPets();
   }
 
+  private setPets() {
+    if(!ObjectUtils.isEmpty(this.user)){
+      this.pets = this.user.pets;
+    }
+  }
+
   private loadPets() : void {
-    if(this.user != null && this.user != undefined){
+    if(!ObjectUtils.isEmpty(this.user)){
       const pets = this.api.getByUser(this.user);
       this.user.pets = [];
 
@@ -65,6 +73,7 @@ export class PetsComponent extends AppBase {
           if (result && result.sid) {
             if(result.entity){
               this.user.pets = result.entity;
+              this.setPets();
             }
           }
         }
@@ -73,7 +82,6 @@ export class PetsComponent extends AppBase {
         }
       } ,error => {
         console.log(error);
-        alert(error);
         this.loading = false;
       });
     }
@@ -167,7 +175,7 @@ export class PetTypeComponent extends AppBase {
 
   next() : void {
     this.session.zone.run(() => 
-      this.router.navigate([PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));
+      this.router.navigate([PETS_PAGE,PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));
   }
 
 }
@@ -189,7 +197,6 @@ export class BreedPickerComponent extends AppBase {
     if(data != undefined){
       this.type = data.type;
     }
-    (<any>window).breedPickerComponent = element;
   }
   
   ngOnInit() {
@@ -232,10 +239,6 @@ export class PetInfoComponent extends AppBase {
     //this.animal.name = this.language.animal;
   }
 
-  openPetType() {
-    this.add();
-  }
-
   protected createPet() : void {
 
     this.loading = true;
@@ -271,18 +274,8 @@ export class PetInfoComponent extends AppBase {
       });
   }
 
-  selectAnimal(selected : number) : void {
-    this.pet.petType = selected;
-    console.log(this.pet.petType);
-  }
-
   requiredFieldsFilled(pet: Pet) : boolean {
-    console.log(pet);
     return !(StringUtils.isEmpty(pet.name) || ObjectUtils.isEmpty(pet.age) || ObjectUtils.isEmpty(pet.petType));
-  }
-
-  protected add() : void {
-    //setTimeout(() => { this.openPetDialog() });
   }
 
 }

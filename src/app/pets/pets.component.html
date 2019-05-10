@@ -1,34 +1,10 @@
-<!-- <section class="body_section" *ngIf="outlet.isActivated == false">
-  <div class=interface_class>
-    <div class="page-header">
-		  <h1>{{title}} <small>{{user.pets.length}}</small></h1>
-    </div>
-    <div *ngFor="let pet of user.pets" class="card" style="width: 18rem;">
-      <div class="spinner-border text-petlife" role="status" [ngClass]="{ 'button-disabled': !loading }">
-        <span class="sr-only">Carregando...</span>
-      </div>
-      <img src="{{pet.img}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{pet.name}}</h5>
-        <p class="card-text">{{pet.description}}</p>
-        <a href="#" class="btn btn-petlife">{{language.view}}</a>
-      </div>
-    </div>
-
-    <a href="javascript:;" class="float bg-toppet" (click)="add()" [ngClass]="{ 'button-disabled': dialog }">
-      <i class="fa fa-plus my-float"></i>
-    </a>
-  </div> 
-</section>
-<router-outlet #outlet="outlet"></router-outlet> -->
-
 <section id="team" class="pb-5" *ngIf="outlet.isActivated == false">
-  <div class="container" style="background-color: white;">
+  <div class="container">
       <h5 class="section-title h1">{{title}}</h5>
       <div class="row">
           <!-- Team member -->
           <app-loading *ngIf="loading"></app-loading>
-          <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let pet of user.pets">
+          <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let pet of pets">
               <div class="image-flip">
                   <div class="mainflip">
                       <div class="frontside">

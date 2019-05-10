@@ -2,32 +2,23 @@
 https://yespornplease.com/v/956831015 
 https://yespornplease.com/v/383223747-->
 <section class="body_section">
-    <div class=interface_class>
-        <div class="page-header">
-            <h1>{{language.addNewPet}}</h1>
+    <div class="container text-center">
+        <div class=interface_class>
+            <div class="page-header">
+                <h1>{{language.addNewPet}}</h1>
+            </div>
+            <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl />
+            <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.age" placeholder="{{language.age}}" type="text" ngDefaultControl />
+            <input class="ember-view ember-text-field form-control login-input-pass" [(ngModel)]="pet.description" placeholder="{{language.description}}" type="text" ngDefaultControl />
+            <app-loading *ngIf="loading"></app-loading>
+            <app-alert></app-alert>
         </div>
-        
-        <div class="card">
-            <img [src]="pet.img" class="card-img-top" [ngClass]="{ 'button-disabled': pet.img == null }">
-            <a class="btn btn-light" [ngClass]="{ 'button-disabled': pet.img != null }" (click)="camera()" href="javascript:;" style="font-size: 450%;"><i class="fa fa-camera text-petlife"></i></a>
-        </div>
-        <button class="btn btn-petlife btn-block btn-center"  type="button" (click)="openPetType()">
-            {{animal.name}}
-            <i [ngClass]="'fa fa-' + animal.icon" style="float: right; font-size: 125%;"></i>
-        </button>
-        <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl />
-        <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.age" placeholder="{{language.age}}" type="text" ngDefaultControl />
-        <input class="ember-view ember-text-field form-control login-input-pass" [(ngModel)]="pet.description" placeholder="{{language.description}}" type="text" ngDefaultControl />
-        <div *ngIf="loading" class="spinner-border text-toppet" role="status">
-            <span class="sr-only">Carregando...</span>
-        </div>
-        <app-alert></app-alert>
-        <div class="slidecount">
-            <span class=""></span>
-            <span class="selected"></span>
-            <span class=""></span>
-        </div>
-    </div> 
+    </div>
+    <div class="slidecount">
+        <span class=""></span>
+        <span class="selected"></span>
+        <span class=""></span>
+    </div>
 </section>
   
   
