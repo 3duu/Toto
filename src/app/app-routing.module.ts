@@ -17,16 +17,12 @@ const routes: Routes = [
     { path: PETS_WIZARD_DEF_PAGE, component: PetTypeComponent},
     { path: PETS_WIZARD_INFO_PAGE, component: PetInfoComponent},
     { path: PETS_WIZARD_PIC_PAGE, component: PetPictureComponent},
-    //{ path: '', component: PetsComponent},
-    //{ path: '', redirectTo: PETS_WIZARD_DEF_PAGE, pathMatch: 'full' },
   ] },
- // { path: 'add-pet', component: REGISTER_PET_PAGE },
-  //{ path: '', redirectTo: AUTOLOGIN_PAGE, pathMatch: 'full'},
-  //{ path: '**', redirectTo: AUTOLOGIN_PAGE, pathMatch: 'full'}
+  {path: '**', redirectTo: WELCOME_PAGE}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash : true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

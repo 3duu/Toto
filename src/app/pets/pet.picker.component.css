@@ -156,17 +156,6 @@ body {
     margin: 0px;
 }
 
-/* .modal-body {
-    overflow-y: scroll;
-    height: 200px;
-} */
-
- /* .breeds-modal-body {
-    max-height: 500px;
-    overflow: auto;
-    overflow-x: hidden;
-}  */
-
 .modal-overlay {
     right: 15px !important;
 }
