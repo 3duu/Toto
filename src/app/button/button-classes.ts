@@ -30,4 +30,8 @@ export class ButtonComponent extends AppBase {
     ngOnInit() {
 
     }
+
+    stopLoading() {
+        this.loading = false;
+    }
 }

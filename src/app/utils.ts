@@ -1,10 +1,3 @@
-import { AuthenticationService } from './service/services';
-import { NavbarComponent } from './navbar/navbar.component';
-import { Router } from '@angular/router';
-import { User } from './entity/User';
-import { HOME_PAGE, WELCOME_PAGE } from './application';
-import { NgZone } from '@angular/core';
-
 export class StringUtils {
 
     static isEmpty(str : string) : boolean {
@@ -36,5 +29,6 @@ export enum SessionAttributes {
     CURRENT_USER = "currentUser",
     CURRENT_PASSWORD = "currentPassword",
     SESSION_ID = "sessionId",
-    LOGIN_DATE = "loginDate"
+    LOGIN_DATE = "loginDate",
+    EDITING_PET = "editingPet"
 }

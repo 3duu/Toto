@@ -8,7 +8,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +23,6 @@ import br.com.duti.utils.ReturnCode;
 
 @RequestMapping("/user")
 @RestController
-@CrossOrigin
 public class UserController {
 	
 	@Autowired
@@ -85,8 +83,8 @@ public class UserController {
 			else {
 				final User foundUser = userRepository.getSocialMediaUser(user);
 				if(foundUser != null) {
-					response = new ResponseEntity<User>(null, RequestContextHolder.currentRequestAttributes().getSessionId());
-					response.setCode(ReturnCode.RESOURCE_EXISTS.getValue());
+					response = new ResponseEntity<User>(foundUser, RequestContextHolder.currentRequestAttributes().getSessionId());
+					response.setCode(ReturnCode.SUCCESS.getValue());
 					return response;
 				}
 			}

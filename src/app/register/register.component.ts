@@ -1,3 +1,4 @@
+import { FacebookComponent } from './../button/facebook/facebook.component';
 import { SignUpComponent } from './../button/signup/signup.component';
 import { PETS_PAGE, LOGIN_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
@@ -14,6 +15,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { MenuService } from './../navbar/menuService';
 import { User } from '../entity/User';
 import { ReturnCode } from '../entity/system';
+import { GoogleComponent } from '../button/google/google.component';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({
@@ -25,6 +27,8 @@ export class RegisterUserComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   @ViewChild(SignUpComponent) private submit: SignUpComponent;
+  @ViewChild(FacebookComponent) private facebook: FacebookComponent;
+  @ViewChild(GoogleComponent) private google : GoogleComponent;
 
   private get menu(): NavbarComponent {
     return this.menuService.menu;
@@ -41,10 +45,6 @@ export class RegisterUserComponent extends AppBase {
     this.menu.disableMenu = true;
   }
 
-  google() : void {
-    console.log("submit login to google");
-  }
-
   onRegisterInit() {
     this.loading = true;
     this.alert.hide();
@@ -52,6 +52,9 @@ export class RegisterUserComponent extends AppBase {
 
   login = (args : ReturnCodeEventArgs) => {
     this.loading = false;
+    this.facebook.stopLoading();
+    this.google.stopLoading();
+    this.submit.stopLoading();
 
     if(args.code == ReturnCode.SUCCESS) {
       this.session.onLogged(PETS_PAGE, this.router, this.menu);
@@ -91,6 +94,9 @@ export class RegisterUserComponent extends AppBase {
         this.alert.show(eventArgs.message, ColorClass.danger);
       }
       this.loading = false;
+      this.facebook.stopLoading();
+      this.google.stopLoading();
+      this.submit.stopLoading();
     }
   }
 

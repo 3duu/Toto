@@ -15,7 +15,7 @@ export class Pet {
 
     img : string;
 	
-	petType: number
+	petType: PetType
 	
 	description: string;
 

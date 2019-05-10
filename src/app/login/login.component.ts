@@ -10,6 +10,9 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
 import { REGISTER_USER_PAGE } from '../application';
 import { ReturnCode } from '../entity/system';
+import { FacebookComponent } from '../button/facebook/facebook.component';
+import { GoogleComponent } from '../button/google/google.component';
+import { SignInComponent } from '../button/signin/signin.component';
 
 //https://bootsnipp.com/snippets/kMd
 @Component({
@@ -22,6 +25,9 @@ export class LoginComponent extends AppBase {
   loginForm: NgForm;
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
+  @ViewChild(FacebookComponent) private facebook: FacebookComponent;
+  @ViewChild(GoogleComponent) private google : GoogleComponent;
+  @ViewChild(SignInComponent) private signin : SignInComponent;
   
   constructor(private session : SessionService, private menuService : MenuService, private router: Router) {
     super();
@@ -44,6 +50,9 @@ export class LoginComponent extends AppBase {
 
   onLoginEnd(eventArgs) {
     this.loading = false;
+    this.facebook.stopLoading();
+    this.google.stopLoading();
+    this.signin.stopLoading();
 
     if(eventArgs.code == ReturnCode.SUCCESS){
       this.session.onLogged(null, this.router, this.menu);
@@ -56,14 +65,6 @@ export class LoginComponent extends AppBase {
         this.alert.show(eventArgs.message, ColorClass.danger);
       }
     }
-  }
-
-  facebook() : void {
-    console.log("submit login to facebook");
-  }
-
-  google() : void {
-    console.log("submit login to google");
   }
 
   register() : void {

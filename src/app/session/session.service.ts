@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { HOME_PAGE, WELCOME_PAGE } from '../application';
 import { environment } from 'src/environments/environment';
+import { Pet } from '../entity/Pet';
 
 export const PASSWORD_CONFIG = environment.passwordConfig;
 
@@ -28,27 +29,43 @@ export class SessionService {
   setUserInSession = (result : any, password : string) : void => {
     if (result && result.sid) {
       //store user details and jwt token in local storage to keep user logged in between page refreshes
-      localStorage.setItem(SessionAttributes.CURRENT_USER, JSON.stringify(result.entity));
-      localStorage.setItem(SessionAttributes.CURRENT_PASSWORD, password);
-      localStorage.setItem(SessionAttributes.SESSION_ID, result.sid);
-      localStorage.setItem(SessionAttributes.LOGIN_DATE, result.date);
+      this.setAttribute(SessionAttributes.CURRENT_USER, JSON.stringify(result.entity));
+      this.setAttribute(SessionAttributes.CURRENT_PASSWORD, password);
+      this.setAttribute(SessionAttributes.SESSION_ID, result.sid);
+      this.setAttribute(SessionAttributes.LOGIN_DATE, result.date);
     }
   }
 
   getCurrentUser() : User {
-    let json = localStorage.getItem(SessionAttributes.CURRENT_USER) != undefined ? JSON.parse(localStorage.getItem(SessionAttributes.CURRENT_USER)) : null;
+    let json = this.getAttribute(SessionAttributes.CURRENT_USER) != undefined ? JSON.parse(this.getAttribute(SessionAttributes.CURRENT_USER)) : null;
     if(json != null){
-      let user : User = new User();
-      user.id = json.id;
-      user.name= json.name;
-      user.password = json.password;
-      user.username = json.username;
-      user.creationDate = json.creationDate;
-      user.admin = json.admin;
-      user.pets = json.pets;
+      let user : User = json;
       return user;
     }
     return json;
+  }
+
+  setEditingPet = (pet : Pet) : void => {
+    if(!ObjectUtils.isEmpty(pet)) {
+      this.setAttribute(SessionAttributes.EDITING_PET, JSON.stringify(pet));
+    }
+  }
+
+  getEditingPet = () : Pet => {
+    let json = this.getAttribute(SessionAttributes.EDITING_PET) != undefined ? JSON.parse(this.getAttribute(SessionAttributes.EDITING_PET)) : null;
+    if(json != null){
+      let pet : Pet = json;
+      return pet;
+    }
+    return json;
+  }
+
+  setAttribute(sttr : string, object : any) {
+    localStorage.setItem(sttr, object);
+  }
+
+  getAttribute(sttr : string) {
+    return localStorage.getItem(sttr);
   }
 
   onLogged(redirectUrl: string, router : Router, menu : NavbarComponent) : void {

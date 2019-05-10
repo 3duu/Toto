@@ -1,4 +1,3 @@
-import { PETS_PAGE, HOME_PAGE, WELCOME_PAGE, LOGIN_PAGE } from './application';
 import { environment } from './../environments/environment';
 import { OnInit } from '@angular/core';
 import { LanguageService } from './language/Language';
@@ -7,9 +6,12 @@ import { LanguageService } from './language/Language';
 export class AppBase implements OnInit /** AfterContentInit */ {
   
     protected applicationName : string = environment.name;
+    private static _language : LanguageService = new LanguageService();
     protected loading = false;
 
-    protected language : LanguageService = new LanguageService();
+    get language() {
+      return AppBase._language;
+    }
   
     constructor(){
       if((<any>window).components == undefined){
@@ -20,10 +22,6 @@ export class AppBase implements OnInit /** AfterContentInit */ {
   
     ngOnInit(): void {
       
-    }
-  
-    goBack(lastComponent : any) : void {
-      //this.getAppComponent().changeCurrentPage(this, lastComponent);
     }
     
   }

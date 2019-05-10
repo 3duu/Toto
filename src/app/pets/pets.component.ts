@@ -159,7 +159,10 @@ export class PetTypeComponent extends AppBase {
         .open(BreedPickerComponent, overlayConfigFactory({ isBlocking: false , data : {type : selected} }, BSModalContext));
 
       dialogRef.result
-        .then( result => this.selectPetType(selected, result));
+        .then( res => {
+          if(res.result)
+            this.selectPetType(selected, res.breed)
+          });
 
       dialogRef.onDestroy.subscribe(() => {
         this.dialog = false;
@@ -170,7 +173,14 @@ export class PetTypeComponent extends AppBase {
   selectPetType = (type : PetType, breed : Breed) => {
     console.log(type);
     console.log(breed);
-    this.next();
+    if(!ObjectUtils.isEmpty(breed)) {
+      const pet : Pet = new Pet();
+      pet.petType = type;
+      pet.petType.breeds = [];
+      pet.petType.breeds.push(breed);
+      this.session.setEditingPet(pet);
+      this.next();
+    }
   }
 
   next() : void {
@@ -208,7 +218,7 @@ export class BreedPickerComponent extends AppBase {
   }
   
   select(selected : Breed) : void {
-    this.closeDialog(selected);
+    this.closeDialog({result : true, breed: selected});
   }
 
   private closeDialog(selected) : void {
@@ -235,8 +245,7 @@ export class PetInfoComponent extends AppBase {
   }
   
   ngOnInit() {
-    this.pet = new Pet();
-    //this.animal.name = this.language.animal;
+    this.pet = this.session.getEditingPet();
   }
 
   protected createPet() : void {
