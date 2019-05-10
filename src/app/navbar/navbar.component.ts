@@ -40,11 +40,6 @@ export class NavbarComponent extends AppBase {
       this.user = new User();
     }
   }
-
-  toggleNavbar() {
-    this.updateUser();
-    this.navbarOpen = !this.navbarOpen;
-  }
   
   logout() {
     console.log("loging out...");

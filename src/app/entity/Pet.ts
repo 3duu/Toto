@@ -15,9 +15,11 @@ export class Pet {
 
     img : string;
 	
-	petType: PetType
+    petType : PetType;
+    
+    breed : Breed;
 	
-	description: string;
+	description : string;
 
     user : User;
 

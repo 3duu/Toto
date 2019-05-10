@@ -1,13 +1,13 @@
-<div class="container text-center">
+<div class="text-center">
     <div class="form-signin">
         <h2 class="form-signin-heading" style="color: white !important">{{language.addNewPet}}</h2>
         <br>
 
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" *ngIf="pet.breed.id">
             <div class="input-group-prepend">
                 <span class="input-group-text"><i [ngClass]="'fa fa-' + pet.petType.icon" style="float: right; font-size: 235%;"></i></span>
             </div>
-            <input type="text" style="height: auto; font-size: 22px; background-color: transparent; color: white;" class="form-control" value="{{pet.petType.breeds[0].description}}" aria-describedby="basic-addon1">
+            <input type="text" style="height: auto; font-size: 22px; background-color: transparent; color: white;" class="form-control" value="{{pet.breed.description}}" aria-describedby="basic-addon1">
         </div>
 
         <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl />
@@ -18,11 +18,11 @@
 
     </div>
 </div>
-<div class="slidecount">
+<!-- <div class="slidecount">
     <span class=""></span>
     <span class="selected"></span>
     <span class=""></span>
-</div>
+</div> -->
 
   
   

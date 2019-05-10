@@ -45,7 +45,9 @@ export class LanguageService {
     quickAndEasy : string = "é rápido e fácil!";
     next : string = "Próximo";
     createWithSomeInfo = "Ou forneça apenas algumas informações";
-    appDescription = "O jeito mais fácil e completo de cuidar do seu pet.";
+    appDescription1 = "O jeito mais fácil e completo de cuidar do seu pet.";
+    appDescription2 = "Cuide da agenda do seu pet para não perder nenhum compromisso.";
+    appDescription3 = "Encontre os melhores serviços com os melhores preços para a sua região.";
 
     //Messages
     connectionError : string = "Algo deu errado! \n Verifique se o dispositivo está conectado ou tente novamente mais tarde";

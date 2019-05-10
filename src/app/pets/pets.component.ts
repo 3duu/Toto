@@ -1,5 +1,5 @@
 import { Breed } from './../entity/Pet';
-import { PETS_WIZARD_DEF_PAGE, PETS_WIZARD_INFO_PAGE, PETS_PAGE } from './../application';
+import { PETS_WIZARD_INFO_PAGE, PETS_PAGE, PETS_WIZARD_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, ViewChild, ElementRef } from '@angular/core';
@@ -93,42 +93,11 @@ export class PetsComponent extends AppBase {
   //https://mdbootstrap.com/docs/angular/modals/basic/
   protected add() : void {
     this.session.zone.run(() => 
-      this.router.navigate([PETS_WIZARD_DEF_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute, queryParams: {id: ""}}));
+      this.router.navigate([PETS_WIZARD_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute}));
   }
 }
 
 ///////////////////////////
-
-@Component({
-  selector: 'app-pets-wizard',
-  templateUrl: './pets.wizard.component.html'
-})
-export class PetsWizardComponent extends AppBase {
-
-  private get menu(): NavbarComponent {
-    return this.menuService.menu;
-  }
-
-  private user : User;
-  
-  private dialog : boolean = false;
-
-  constructor(private api : PetApiService, 
-    private menuService : MenuService,
-    private session : SessionService,
-    private router : Router) {
-    super();
-  }
-
-  ngOnInit() {
-    this.loading = true;
-    this.menu.disable = false;
-    this.menu.disableMenu = false;
-    this.user = this.session.getCurrentUser();
-  }
-}
-
-/////////////////////////////
 
 @Component({
   selector: 'app-pets-type',
@@ -137,33 +106,27 @@ export class PetsWizardComponent extends AppBase {
 })
 export class PetTypeComponent extends AppBase {
 
-  private types : PetType[] = [];
   private dialog : boolean = false;
+  pet : Pet;
+  types : PetType[] = [];
 
-  constructor(private session : SessionService, 
-    private router : Router, 
-    private api : PetApiService, 
-    private modal: Modal, 
-    private activatedRoute: ActivatedRoute) {
+  constructor(private api : PetApiService, 
+    private modal: Modal) {
     super();
   }
   
   ngOnInit() {
 
     this.loading = true;
-    const types = this.api.getAllPetTypes();
+
+    const response = this.api.getAllPetTypes();
     
-    types.subscribe(result => {
+    response.subscribe(result => {
 
       console.log(result);
       
       this.loading = false;
       if(result.code == ReturnCode.SUCCESS){
-
-        // const petTypeClass : any = document.getElementsByClassName("pet-type")[0];
-        // if(petTypeClass != undefined) {
-        //   petTypeClass.style.maxHeight = (window.innerHeight - 30) - (this.menuService.menu.height) + "px";
-        // }
 
         if (result && result.sid) {
           if(result.entity){
@@ -190,7 +153,7 @@ export class PetTypeComponent extends AppBase {
 
       dialogRef.result
         .then( res => {
-          if(res.result)
+          if(!ObjectUtils.isEmpty(res) &&  res.result)
             this.selectPetType(selected, res.breed)
           });
 
@@ -204,18 +167,15 @@ export class PetTypeComponent extends AppBase {
     console.log(type);
     console.log(breed);
     if(!ObjectUtils.isEmpty(breed)) {
-      const pet : Pet = new Pet();
-      pet.petType = type;
-      pet.petType.breeds = [];
-      pet.petType.breeds.push(breed);
-      this.session.setEditingPet(pet);
+      this.pet.petType = type;
+      this.pet.breed = breed;
       this.next();
     }
   }
 
   next() : void {
-    this.session.zone.run(() => 
-      this.router.navigate([PETS_PAGE,PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));
+    /*this.session.zone.run(() => 
+      this.router.navigate([PETS_PAGE,PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));*/
   }
 
 }
@@ -267,15 +227,15 @@ export class BreedPickerComponent extends AppBase {
 export class PetInfoComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
-  private pet : Pet;
-  //animal : Animal = new Animal(new PetType());
   
   constructor(private api : PetApiService, private session : SessionService, private router : Router){
     super();
   }
+
+  pet : Pet;
   
   ngOnInit() {
-    this.pet = this.session.getEditingPet();
+    console.log(this.pet);
   }
 
   protected createPet() : void {
@@ -331,9 +291,11 @@ export class PetPictureComponent extends AppBase {
   constructor(private phonegap : CordovaService){
     super();
   }
+
+  pet : Pet;
   
   ngOnInit() {
-    alert("fewf");
+    
   }
 
   protected camera() : void {
@@ -366,4 +328,52 @@ export class PetPictureComponent extends AppBase {
     this.phonegap.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, cameraOptions);
   }
 }
+
+////////////////////////////////////////////////////
+
+@Component({
+  selector: 'app-pets-wizard',
+  templateUrl: './pets.wizard.component.html'
+})
+export class PetsWizardComponent extends AppBase {
+
+  private get menu(): NavbarComponent {
+    return this.menuService.menu;
+  }
+
+  @ViewChild(PetTypeComponent) private petTypeComponent : PetTypeComponent;
+  @ViewChild(PetInfoComponent) private petInfoComponent : PetInfoComponent;
+  @ViewChild(PetPictureComponent) private petPictureComponent : PetPictureComponent;
+
+  private user : User;
+  private pet : Pet;
+  
+  private dialog : boolean = false;
+
+  constructor(private api : PetApiService, 
+    private menuService : MenuService,
+    private session : SessionService) {
+    super();
+  }
+
+  ngOnInit() {
+    this.loading = true;
+    this.menu.disable = false;
+    this.menu.disableMenu = false;
+    this.user = this.session.getCurrentUser();
+    this.pet = this.session.getEditingPet();
+    if(ObjectUtils.isEmpty(this.pet)){
+      this.pet = new Pet();
+      this.pet.petType = new PetType();
+      this.pet.breed = new Breed();
+    }
+    this.petInfoComponent.pet = this.pet;
+    this.petPictureComponent.pet = this.pet;
+    this.petTypeComponent.pet = this.pet;
+  }
+}
+
+/////////////////////////////
+
+
 

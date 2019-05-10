@@ -137,6 +137,7 @@ var routes = [
     { path: _application__WEBPACK_IMPORTED_MODULE_5__["LOGIN_PAGE"], component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
     { path: _application__WEBPACK_IMPORTED_MODULE_5__["REGISTER_USER_PAGE"], component: _register_register_component__WEBPACK_IMPORTED_MODULE_8__["RegisterUserComponent"] },
     { path: _application__WEBPACK_IMPORTED_MODULE_5__["PETS_PAGE"], component: _pets_pets_component__WEBPACK_IMPORTED_MODULE_1__["PetsComponent"], children: [
+            { path: _application__WEBPACK_IMPORTED_MODULE_5__["PETS_WIZARD_PAGE"], component: _pets_pets_component__WEBPACK_IMPORTED_MODULE_1__["PetsWizardComponent"] },
             { path: _application__WEBPACK_IMPORTED_MODULE_5__["PETS_WIZARD_DEF_PAGE"], component: _pets_pets_component__WEBPACK_IMPORTED_MODULE_1__["PetTypeComponent"] },
             { path: _application__WEBPACK_IMPORTED_MODULE_5__["PETS_WIZARD_INFO_PAGE"], component: _pets_pets_component__WEBPACK_IMPORTED_MODULE_1__["PetInfoComponent"] },
             { path: _application__WEBPACK_IMPORTED_MODULE_5__["PETS_WIZARD_PIC_PAGE"], component: _pets_pets_component__WEBPACK_IMPORTED_MODULE_1__["PetPictureComponent"] },
@@ -346,7 +347,8 @@ var AppModule = /** @class */ (function () {
                 _button_google_google_component__WEBPACK_IMPORTED_MODULE_19__["GoogleComponent"],
                 _appointments_appointments_component__WEBPACK_IMPORTED_MODULE_30__["AppointmentsComponent"],
                 _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["BreedPickerComponent"],
-                _loading_loading_component__WEBPACK_IMPORTED_MODULE_31__["LoadingComponent"]
+                _loading_loading_component__WEBPACK_IMPORTED_MODULE_31__["LoadingComponent"],
+                _pets_pets_component__WEBPACK_IMPORTED_MODULE_12__["PetsWizardComponent"]
             ],
             entryComponents: [
                 _button_signin_signin_component__WEBPACK_IMPORTED_MODULE_18__["SignInComponent"],
@@ -432,7 +434,7 @@ var AppBase = /** @class */ (function () {
 /*!********************************!*\
   !*** ./src/app/application.ts ***!
   \********************************/
-/*! exports provided: WELCOME_PAGE, LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, MAPS_PAGE, PETS_PAGE, PETS_WIZARD_DEF_PAGE, PETS_WIZARD_INFO_PAGE, PETS_WIZARD_PIC_PAGE, PETS_VIEW_PAGE */
+/*! exports provided: WELCOME_PAGE, LOGIN_PAGE, HOME_PAGE, REGISTER_USER_PAGE, MAPS_PAGE, PETS_PAGE, PETS_WIZARD_DEF_PAGE, PETS_WIZARD_INFO_PAGE, PETS_WIZARD_PIC_PAGE, PETS_VIEW_PAGE, PETS_WIZARD_PAGE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -447,6 +449,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PETS_WIZARD_INFO_PAGE", function() { return PETS_WIZARD_INFO_PAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PETS_WIZARD_PIC_PAGE", function() { return PETS_WIZARD_PIC_PAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PETS_VIEW_PAGE", function() { return PETS_VIEW_PAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PETS_WIZARD_PAGE", function() { return PETS_WIZARD_PAGE; });
 var WELCOME_PAGE = "welcome";
 var LOGIN_PAGE = "signin";
 var HOME_PAGE = "home";
@@ -459,6 +462,7 @@ var PETS_WIZARD_DEF_PAGE = "definition";
 var PETS_WIZARD_INFO_PAGE = "info";
 var PETS_WIZARD_PIC_PAGE = "picture";
 var PETS_VIEW_PAGE = "view";
+var PETS_WIZARD_PAGE = "wizard";
 
 
 /***/ }),
@@ -1513,7 +1517,9 @@ var LanguageService = /** @class */ (function () {
         this.quickAndEasy = "é rápido e fácil!";
         this.next = "Próximo";
         this.createWithSomeInfo = "Ou forneça apenas algumas informações";
-        this.appDescription = "O jeito mais fácil e completo de cuidar do seu pet.";
+        this.appDescription1 = "O jeito mais fácil e completo de cuidar do seu pet.";
+        this.appDescription2 = "Cuide da agenda do seu pet para não perder nenhum compromisso.";
+        this.appDescription3 = "Encontre os melhores serviços com os melhores preços para a sua região.";
         //Messages
         this.connectionError = "Algo deu errado! \n Verifique se o dispositivo está conectado ou tente novamente mais tarde";
         this.serverError = "Algo inesperado aconteceu! \n Se o problema persistir reporte o problema";
@@ -1913,7 +1919,7 @@ module.exports = "mat-navbar-container {\r\n    width: 100% !important;\r\n    h
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar  navbar-dark bg-petlife\" *ngIf=\"disable == false\"><!-- navbar-expand-lg-->\r\n    <a class=\"navbar-brand\" href=\"#\">{{applicationName}}</a>\r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" [ngClass]=\"{ 'button-disabled': disableMenu }\" (click)=\"toggleNavbar()\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n\r\n    <div class=\"collapse navbar-collapse\" [ngClass]=\"{ 'show': navbarOpen }\" id=\"navbarColor02\">\r\n        <ul class=\"navbar-nav mr-auto\">\r\n            <li class=\"nav-item active\">\r\n                <a class=\"nav-link\" href=\"javascript:;\"><i class=\"fa fa-user\">&nbsp;&nbsp;</i>{{user.name}}</a>\r\n            </li>\r\n            <!-- <li class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLink=\"/{{language.links.pets}}\" (click)=\"toggleNavbar()\"><i class=\"fa fa-paw\">&nbsp;&nbsp;</i>{{language.myPet}}</a>\r\n            </li> -->\r\n            <!-- <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-hands-helping\">&nbsp;&nbsp;</i>{{language.adoptions}}</a>\r\n            </li> -->\r\n            <!-- <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-calendar\">&nbsp;&nbsp;</i>{{language.appointments}}</a>\r\n            </li> -->\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-question-circle\">&nbsp;&nbsp;</i>{{language.about}}</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"logout()\" (click)=\"toggleNavbar()\"><i class=\"fa fa-times-circle\">&nbsp;&nbsp;</i>{{language.logout}}</a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n<br>"
+module.exports = "<nav class=\"navbar  navbar-dark bg-petlife\" *ngIf=\"disable == false\">\r\n    <span class=\"navbar-brand\">{{applicationName}}</span>\r\n    <button style=\"z-index: 9999;\" class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n\r\n    <div class=\"collapse navbar-collapse\" [ngClass]=\"{ 'show': navbarOpen }\" id=\"navbarColor02\">\r\n        <ul class=\"navbar-nav mr-auto\">\r\n            <li class=\"nav-item active\">\r\n                <a class=\"nav-link\" href=\"javascript:;\"><i class=\"fa fa-user\">&nbsp;&nbsp;</i>{{user.name}}</a>\r\n            </li>\r\n            <!-- <li class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLink=\"/{{language.links.pets}}\" (click)=\"toggleNavbar()\"><i class=\"fa fa-paw\">&nbsp;&nbsp;</i>{{language.myPet}}</a>\r\n            </li> -->\r\n            <!-- <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-hands-helping\">&nbsp;&nbsp;</i>{{language.adoptions}}</a>\r\n            </li> -->\r\n            <!-- <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"toggleNavbar()\"><i class=\"fa fa-calendar\">&nbsp;&nbsp;</i>{{language.appointments}}</a>\r\n            </li> -->\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"javascript:;\"><i class=\"fa fa-question-circle\">&nbsp;&nbsp;</i>{{language.about}}</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"javascript:;\" (click)=\"logout()\"><i class=\"fa fa-times-circle\">&nbsp;&nbsp;</i>{{language.logout}}</a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n<br>"
 
 /***/ }),
 
@@ -1971,10 +1977,6 @@ var NavbarComponent = /** @class */ (function (_super) {
             this.user = new _entity_User__WEBPACK_IMPORTED_MODULE_4__["User"]();
         }
     };
-    NavbarComponent.prototype.toggleNavbar = function () {
-        this.updateUser();
-        this.navbarOpen = !this.navbarOpen;
-    };
     NavbarComponent.prototype.logout = function () {
         console.log("loging out...");
         this.session.onLogout(null, this.zone, this.router, this, this.session.authenticationService);
@@ -1997,58 +1999,14 @@ var NavbarComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "./src/app/pets/pet.breeds.component.html":
-/*!************************************************!*\
-  !*** ./src/app/pets/pet.breeds.component.html ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"modal-dialog breeds-container\" role=\"document\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.breed}}</h5>\r\n      <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeDialog()\">\r\n        <span aria-hidden=\"true\">&times;</span>\r\n      </button>\r\n    </div>\r\n    <div class=\"modal-body breeds-modal-body\">\r\n        <div class=\"row\">\r\n            <ul class=\"list-group\">\r\n              <li class=\"list-group-item\" *ngFor=\"let b of type.breeds\" (click)=\"select(b)\" style=\"height: 65px !important; line-height:65px;\">\r\n                  <div style=\"text-align: center; width: 100%;\">\r\n                    <h2 class=\"new-title\" >{{b.description}}</h2>\r\n                  </div>\r\n              </li>\r\n            </ul>\r\n        </div> \r\n  </div>\r\n</div>\r\n\r\n<!-- <div class=\"container\">\r\n    <div class=\"row\">\r\n      <ul class=\"list-group\">\r\n            <li class=\"list-group-item\"><a href=\"https://frikinow.com\" target=\"_blank\">regalos frikis</a></li> -->"
-
-/***/ }),
-
-/***/ "./src/app/pets/pet.info.component.html":
-/*!**********************************************!*\
-  !*** ./src/app/pets/pet.info.component.html ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container text-center\">\r\n    <div class=\"form-signin\">\r\n        <h2 class=\"form-signin-heading\" style=\"color: white !important\">{{language.addNewPet}}</h2>\r\n        <br>\r\n\r\n        <div class=\"input-group mb-3\">\r\n            <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text\"><i [ngClass]=\"'fa fa-' + pet.petType.icon\" style=\"float: right; font-size: 235%;\"></i></span>\r\n            </div>\r\n            <input type=\"text\" style=\"height: auto; font-size: 22px; background-color: transparent; color: white;\" class=\"form-control\" value=\"{{pet.petType.breeds[0].description}}\" aria-describedby=\"basic-addon1\">\r\n        </div>\r\n\r\n        <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl />\r\n        <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.age\" placeholder=\"{{language.age}}\" type=\"text\" ngDefaultControl />\r\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl />\r\n        <app-loading *ngIf=\"loading\"></app-loading>\r\n        <app-alert></app-alert>\r\n\r\n    </div>\r\n</div>\r\n<div class=\"slidecount\">\r\n    <span class=\"\"></span>\r\n    <span class=\"selected\"></span>\r\n    <span class=\"\"></span>\r\n</div>\r\n\r\n  \r\n  \r\n  \r\n      "
-
-/***/ }),
-
-/***/ "./src/app/pets/pet.picker.component.css":
-/*!***********************************************!*\
-  !*** ./src/app/pets/pet.picker.component.css ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "body {\r\n    /* padding: 4px 0px; */\r\n    background-color: white;\r\n}\r\n.event-list {\r\n    list-style: none;\r\n    margin: 0px;\r\n    padding: 0px;\r\n}\r\n.event-list > li {\r\n    background-color: rgb(255, 255, 255);\r\n    box-shadow: 0px 0px 5px rgb(51, 51, 51);\r\n    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);\r\n    padding: 0px;\r\n    margin: 0px 0px 20px;\r\n}\r\n.event-list > li > .icon {\r\n    display: inline-block;\r\n    width: 100%;\r\n    color: rgb(255, 255, 255);\r\n    background-color: rgb(197, 44, 102);\r\n    padding: 5px;\r\n    text-align: center;\r\n    font-size: 370%;\r\n}\r\n.event-list > li:nth-child(even) > .icon {\r\n    background-color: rgb(165, 82, 167);\r\n}\r\n.event-list > li > .icon > span {\r\n    display: none;\r\n}\r\n.event-list > li > img {\r\n    width: 100%;\r\n}\r\n.event-list > li > .info {\r\n    padding-top: 5px;\r\n    text-align: center;\r\n}\r\n.event-list > li > .info > .title {\r\n    font-size: 17pt;\r\n    font-weight: 700;\r\n    margin: 0px;\r\n}\r\n.event-list > li > .info > .desc {\r\n    font-size: 13pt;\r\n    font-weight: 300;\r\n    margin: 0px;\r\n}\r\n.event-list > li > .info > ul,\r\n.event-list > li > .social > ul {\r\n    display: table;\r\n    list-style: none;\r\n    margin: 10px 0px 0px;\r\n    padding: 0px;\r\n    width: 100%;\r\n    text-align: center;\r\n}\r\n.event-list > li > .social > ul {\r\n    margin: 0px;\r\n}\r\n.event-list > li > .info > ul > li,\r\n.event-list > li > .social > ul > li {\r\n    display: table-cell;\r\n    cursor: pointer;\r\n    color: rgb(30, 30, 30);\r\n    font-size: 11pt;\r\n    font-weight: 300;\r\n    padding: 3px 0px;\r\n}\r\n.event-list > li > .info > ul > li > a {\r\n    display: block;\r\n    width: 100%;\r\n    color: rgb(30, 30, 30);\r\n    text-decoration: none;\r\n}\r\n.event-list > li > .social > ul > li {    \r\n    padding: 0px;\r\n}\r\n.event-list > li > .social > ul > li > a {\r\n    padding: 3px 0px;\r\n}\r\n.event-list > li > .info > ul > li:hover,\r\n.event-list > li > .social > ul > li:hover {\r\n    color: rgb(30, 30, 30);\r\n    background-color: rgb(200, 200, 200);\r\n}\r\n.event-list > li {\r\n    position: relative;\r\n    display: block;\r\n    width: 100%;\r\n    height: 93px;\r\n    padding: 0px;\r\n}\r\n.event-list > li > .icon,\r\n.event-list > li > img  {\r\n    display: inline-block;\r\n}\r\n.event-list > li > .icon,\r\n.event-list > li > img {\r\n    width: 93px;\r\n    float: left;\r\n}\r\n.event-list > li > .info {\r\n    background-color: rgb(245, 245, 245);\r\n    overflow: hidden;\r\n}\r\n.event-list > li > .icon,\r\n.event-list > li > img {\r\n    width: 93px;\r\n    height: 93px;\r\n    padding: 0px;\r\n    margin: 0px;\r\n}\r\n.event-list > li > .info {\r\n    position: relative;\r\n    height: 93px;\r\n    text-align: left;\r\n    padding-right: 40px;\r\n}\r\n.event-list > li > .info > .title, \r\n.event-list > li > .info > .desc {\r\n    padding: 0px 10px;\r\n}\r\n.event-list > li > .info > ul {\r\n    position: absolute;\r\n    left: 0px;\r\n    bottom: 0px;\r\n}\r\n.event-list > li > .social {\r\n    position: absolute;\r\n    top: 0px;\r\n    right: 0px;\r\n    display: block;\r\n    width: 40px;\r\n}\r\n.event-list > li > .social > ul {\r\n    border-left: 1px solid rgb(230, 230, 230);\r\n}\r\n.event-list > li > .social > ul > li {\t\t\t\r\n    display: block;\r\n    padding: 0px;\r\n}\r\n.event-list > li > .social > ul > li > a {\r\n    display: block;\r\n    width: 40px;\r\n    padding: 10px 0px 9px;\r\n}\r\n.new-title {\r\n    font-size: 17pt;\r\n    font-weight: 600;\r\n    margin: 0px;\r\n}\r\n.modal-overlay {\r\n    right: 15px !important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9wZXQucGlja2VyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxzQkFBc0I7SUFDdEIsdUJBQXVCO0FBQzNCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsV0FBVztJQUNYLFlBQVk7QUFDaEI7QUFDQTtJQUNJLG9DQUFvQztJQUNwQyx1Q0FBdUM7SUFDdkMsNkNBQTZDO0lBQzdDLFlBQVk7SUFDWixvQkFBb0I7QUFDeEI7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixXQUFXO0lBQ1gseUJBQXlCO0lBQ3pCLG1DQUFtQztJQUNuQyxZQUFZO0lBQ1osa0JBQWtCO0lBQ2xCLGVBQWU7QUFDbkI7QUFDQTtJQUNJLG1DQUFtQztBQUN2QztBQUNBO0lBQ0ksYUFBYTtBQUNqQjtBQUVBO0lBQ0ksV0FBVztBQUNmO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxlQUFlO0lBQ2YsZ0JBQWdCO0lBQ2hCLFdBQVc7QUFDZjtBQUVBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixXQUFXO0FBQ2Y7QUFDQTs7SUFFSSxjQUFjO0lBQ2QsZ0JBQWdCO0lBQ2hCLG9CQUFvQjtJQUNwQixZQUFZO0lBQ1osV0FBVztJQUNYLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksV0FBVztBQUNmO0FBQ0E7O0lBRUksbUJBQW1CO0lBQ25CLGVBQWU7SUFDZixzQkFBc0I7SUFDdEIsZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGNBQWM7SUFDZCxXQUFXO0lBQ1gsc0JBQXNCO0lBQ3RCLHFCQUFxQjtBQUN6QjtBQUNBO0lBQ0ksWUFBWTtBQUNoQjtBQUNBO0lBQ0ksZ0JBQWdCO0FBQ3BCO0FBQ0E7O0lBRUksc0JBQXNCO0lBQ3RCLG9DQUFvQztBQUN4QztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLGNBQWM7SUFDZCxXQUFXO0lBQ1gsWUFBWTtJQUNaLFlBQVk7QUFDaEI7QUFFQTs7SUFFSSxxQkFBcUI7QUFDekI7QUFDQTs7SUFFSSxXQUFXO0lBQ1gsV0FBVztBQUNmO0FBQ0E7SUFDSSxvQ0FBb0M7SUFDcEMsZ0JBQWdCO0FBQ3BCO0FBQ0E7O0lBRUksV0FBVztJQUNYLFlBQVk7SUFDWixZQUFZO0lBQ1osV0FBVztBQUNmO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsWUFBWTtJQUNaLGdCQUFnQjtJQUNoQixtQkFBbUI7QUFDdkI7QUFDQTs7SUFFSSxpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixTQUFTO0lBQ1QsV0FBVztBQUNmO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsUUFBUTtJQUNSLFVBQVU7SUFDVixjQUFjO0lBQ2QsV0FBVztBQUNmO0FBQ0E7SUFDSSx5Q0FBeUM7QUFDN0M7QUFDQTtJQUNJLGNBQWM7SUFDZCxZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsV0FBVztJQUNYLHFCQUFxQjtBQUN6QjtBQUVBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixXQUFXO0FBQ2Y7QUFFQTtJQUNJLHNCQUFzQjtBQUMxQiIsImZpbGUiOiJzcmMvYXBwL3BldHMvcGV0LnBpY2tlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XHJcbiAgICAvKiBwYWRkaW5nOiA0cHggMHB4OyAqL1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbn1cclxuLmV2ZW50LWxpc3Qge1xyXG4gICAgbGlzdC1zdHlsZTogbm9uZTtcclxuICAgIG1hcmdpbjogMHB4O1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpO1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDBweCA1cHggcmdiKDUxLCA1MSwgNTEpO1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDBweCA1cHggcmdiYSg1MSwgNTEsIDUxLCAwLjcpO1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG4gICAgbWFyZ2luOiAwcHggMHB4IDIwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pY29uIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgY29sb3I6IHJnYigyNTUsIDI1NSwgMjU1KTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigxOTcsIDQ0LCAxMDIpO1xyXG4gICAgcGFkZGluZzogNXB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgZm9udC1zaXplOiAzNzAlO1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGk6bnRoLWNoaWxkKGV2ZW4pID4gLmljb24ge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDE2NSwgODIsIDE2Nyk7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pY29uID4gc3BhbiB7XHJcbiAgICBkaXNwbGF5OiBub25lO1xyXG59XHJcblxyXG4uZXZlbnQtbGlzdCA+IGxpID4gaW1nIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyB7XHJcbiAgICBwYWRkaW5nLXRvcDogNXB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC50aXRsZSB7XHJcbiAgICBmb250LXNpemU6IDE3cHQ7XHJcbiAgICBmb250LXdlaWdodDogNzAwO1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbn1cclxuXHJcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC5kZXNjIHtcclxuICAgIGZvbnQtc2l6ZTogMTNwdDtcclxuICAgIGZvbnQtd2VpZ2h0OiAzMDA7XHJcbiAgICBtYXJnaW46IDBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCxcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCB7XHJcbiAgICBkaXNwbGF5OiB0YWJsZTtcclxuICAgIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbiAgICBtYXJnaW46IDEwcHggMHB4IDBweDtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwge1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gdWwgPiBsaSxcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpIHtcclxuICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBjb2xvcjogcmdiKDMwLCAzMCwgMzApO1xyXG4gICAgZm9udC1zaXplOiAxMXB0O1xyXG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcclxuICAgIHBhZGRpbmc6IDNweCAwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gdWwgPiBsaSA+IGEge1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGNvbG9yOiByZ2IoMzAsIDMwLCAzMCk7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbn0gXHJcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSB7ICAgIFxyXG4gICAgcGFkZGluZzogMHB4O1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSA+IGEge1xyXG4gICAgcGFkZGluZzogM3B4IDBweDtcclxufSBcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gdWwgPiBsaTpob3ZlcixcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpOmhvdmVyIHtcclxuICAgIGNvbG9yOiByZ2IoMzAsIDMwLCAzMCk7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjAwLCAyMDAsIDIwMCk7XHJcbn1cclxuXHJcbi5ldmVudC1saXN0ID4gbGkge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogOTNweDtcclxuICAgIHBhZGRpbmc6IDBweDtcclxufVxyXG5cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pY29uLFxyXG4uZXZlbnQtbGlzdCA+IGxpID4gaW1nICB7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pY29uLFxyXG4uZXZlbnQtbGlzdCA+IGxpID4gaW1nIHtcclxuICAgIHdpZHRoOiA5M3B4O1xyXG4gICAgZmxvYXQ6IGxlZnQ7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyNDUsIDI0NSwgMjQ1KTtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pY29uLFxyXG4uZXZlbnQtbGlzdCA+IGxpID4gaW1nIHtcclxuICAgIHdpZHRoOiA5M3B4O1xyXG4gICAgaGVpZ2h0OiA5M3B4O1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGhlaWdodDogOTNweDtcclxuICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiA0MHB4O1xyXG59XHRcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gLnRpdGxlLCBcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gLmRlc2Mge1xyXG4gICAgcGFkZGluZzogMHB4IDEwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gdWwge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgbGVmdDogMHB4O1xyXG4gICAgYm90dG9tOiAwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiAwcHg7XHJcbiAgICByaWdodDogMHB4O1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICB3aWR0aDogNDBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsIHtcclxuICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgcmdiKDIzMCwgMjMwLCAyMzApO1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSB7XHRcdFx0XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIHBhZGRpbmc6IDBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGkgPiBhIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgd2lkdGg6IDQwcHg7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDBweCA5cHg7XHJcbn1cclxuXHJcbi5uZXctdGl0bGUge1xyXG4gICAgZm9udC1zaXplOiAxN3B0O1xyXG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcclxuICAgIG1hcmdpbjogMHB4O1xyXG59XHJcblxyXG4ubW9kYWwtb3ZlcmxheSB7XHJcbiAgICByaWdodDogMTVweCAhaW1wb3J0YW50O1xyXG59XHJcbiJdfQ== */"
-
-/***/ }),
-
-/***/ "./src/app/pets/pet.picture.component.html":
+/***/ "./src/app/pets/pets.breeds.component.html":
 /*!*************************************************!*\
-  !*** ./src/app/pets/pet.picture.component.html ***!
+  !*** ./src/app/pets/pets.breeds.component.html ***!
   \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<section class=\"body_section\">\r\n    <div class=interface_class>\r\n      <div class=\"page-header\">\r\n        <h1>{{title}}</h1>\r\n      </div>\r\n      <div class=\"card\">\r\n        <img [src]=\"pet.img\" class=\"card-img-top\" [ngClass]=\"{ 'button-disabled': pet.img == null }\">\r\n        <a class=\"btn btn-light\" [ngClass]=\"{ 'button-disabled': pet.img != null }\" (click)=\"camera()\" href=\"javascript:;\" style=\"font-size: 450%;\"><i class=\"fa fa-camera text-petlife\"></i></a>\r\n      </div>\r\n      <div class=\"slidecount\">\r\n          <span class=\"\"></span>\r\n          <span class=\"\"></span>\r\n          <span class=\"selected\"></span>\r\n      </div>\r\n    </div> \r\n  </section>"
-
-/***/ }),
-
-/***/ "./src/app/pets/pet.type.component.html":
-/*!**********************************************!*\
-  !*** ./src/app/pets/pet.type.component.html ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!-- <section class=\"body_section\">\r\n  <div class=interface_class>\r\n    <div class=\"page-header\">\r\n\t\t  <h1>{{language.animal}}</h1>\r\n    </div>\r\n    <div class=\"container text-center\">\r\n      <br>\r\n      <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\r\n        <span class=\"sr-only\">Carregando...</span>\r\n      </div>\r\n      <p>\r\n        <a *ngFor=\"let item of animals; let i= index ;trackBy: trackByFn\" class=\"btn btn-toppet social-login-btn pet-icon\" (click)=\"select(item)\" href=\"javascript:;\"><i class=\"fa fa-{{item.icon}}\"></i></a>\r\n      </p>\r\n    </div>\r\n    <div class=\"slidecount\">\r\n      <span class=\"selected\"></span>\r\n      <span class=\"\"></span>\r\n      <span class=\"\"></span>\r\n    </div>\r\n  </div> \r\n</section> -->\r\n\r\n<div class=\"container pet-type\">\r\n  <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\r\n    <span class=\"sr-only\">Carregando...</span>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\" style=\"height: 100% !important;\">\r\n        <li *ngFor=\"let t of types\"  (click)=\"select(t)\" style=\"height: 82px;\">\r\n          <i class=\"icon fa fa-{{t.icon}}\" style=\"padding-top: 14px;\"></i>\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">{{t.description}}</h2>\r\n            <p class=\"desc\">{{t.icon}}</p>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"slidecount\"z>\r\n  <span class=\"selected\"></span>\r\n  <span class=\"\"></span>\r\n  <span class=\"\"></span>\r\n</div>\r\n\r\n\r\n"
+module.exports = "<div class=\"modal-dialog breeds-container\" role=\"document\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{language.breed}}</h5>\r\n      <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeDialog()\">\r\n        <span aria-hidden=\"true\">&times;</span>\r\n      </button>\r\n    </div>\r\n    <div class=\"modal-body breeds-modal-body\">\r\n        <div class=\"row\">\r\n            <ul class=\"list-group\">\r\n              <li class=\"list-group-item\" *ngFor=\"let b of type.breeds\" (click)=\"select(b)\" style=\"height: 65px !important; line-height:65px;\">\r\n                  <div style=\"text-align: center; width: 100%;\">\r\n                    <h2 class=\"new-title\" >{{b.description}}</h2>\r\n                  </div>\r\n              </li>\r\n            </ul>\r\n        </div> \r\n  </div>\r\n</div>\r\n\r\n<!-- <div class=\"container\">\r\n    <div class=\"row\">\r\n      <ul class=\"list-group\">\r\n            <li class=\"list-group-item\"><a href=\"https://frikinow.com\" target=\"_blank\">regalos frikis</a></li> -->"
 
 /***/ }),
 
@@ -2059,7 +2017,7 @@ module.exports = "<!-- <section class=\"body_section\">\r\n  <div class=interfac
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "*{padding:0;margin:0;}\r\n\r\nbody{\r\n\tfont-family:Verdana, Geneva, sans-serif;\r\n\tfont-size:18px;\r\n}\r\n\r\n.float{\r\n\tposition:fixed;\r\n\twidth:60px;\r\n\theight:60px;\r\n\tbottom:40px;\r\n\tright:40px;\r\n\t/* background-color:#0C9; */\r\n\tcolor:#FFF;\r\n\tborder-radius:50px;\r\n\ttext-align:center;\r\n\tbox-shadow: 2px 2px 3px rgb(60, 31, 90);\r\n}\r\n\r\n.my-float{\r\n\tmargin-top:22px;\r\n}\r\n\r\n/* PET TYPE */\r\n\r\nsection {\r\n    padding: 60px 0;\r\n}\r\n\r\nsection .section-title {\r\n    text-align: center;\r\n    color: white;\r\n    margin-bottom: 50px;\r\n    text-transform: uppercase;\r\n}\r\n\r\n#team .card {\r\n    border: none;\r\n    background: #ffffff;\r\n}\r\n\r\n.frontside {\r\n    position: relative;\r\n    -webkit-transform: rotateY(0deg);\r\n    -ms-transform: rotateY(0deg);\r\n    z-index: 2;\r\n    margin-bottom: 30px;\r\n}\r\n\r\n.backside {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    background: white;\r\n    -webkit-transform: rotateY(-180deg);\r\n    transform: rotateY(-180deg);\r\n    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);\r\n}\r\n\r\n.frontside,\r\n.backside {\r\n    -webkit-backface-visibility: hidden;\r\n    backface-visibility: hidden;\r\n    -webkit-transition: 1s;\r\n    -webkit-transform-style: preserve-3d;\r\n    -moz-transition: 1s;\r\n    -moz-transform-style: preserve-3d;\r\n    -o-transition: 1s;\r\n    -o-transform-style: preserve-3d;\r\n    -ms-transition: 1s;\r\n    -ms-transform-style: preserve-3d;\r\n    transition: 1s;\r\n    transform-style: preserve-3d;\r\n}\r\n\r\n.frontside .card,\r\n.backside .card {\r\n    min-height: 312px;\r\n}\r\n\r\n.backside .card a {\r\n    font-size: 18px;\r\n    color: #007b5e !important;\r\n}\r\n\r\n.frontside .card .card-title,\r\n.backside .card .card-title {\r\n    color: #007b5e !important;\r\n}\r\n\r\n.frontside .card .card-body img {\r\n    width: 120px;\r\n    height: 120px;\r\n    border-radius: 50%;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9wZXRzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsRUFBRSxTQUFTLENBQUMsUUFBUSxDQUFDOztBQUVyQjtDQUNDLHVDQUF1QztDQUN2QyxjQUFjO0FBQ2Y7O0FBRUE7Q0FDQyxjQUFjO0NBQ2QsVUFBVTtDQUNWLFdBQVc7Q0FDWCxXQUFXO0NBQ1gsVUFBVTtDQUNWLDJCQUEyQjtDQUMzQixVQUFVO0NBQ1Ysa0JBQWtCO0NBQ2xCLGlCQUFpQjtDQUNqQix1Q0FBdUM7QUFDeEM7O0FBRUE7Q0FDQyxlQUFlO0FBQ2hCOztBQUVBLGFBQWE7O0FBRWI7SUFDSSxlQUFlO0FBQ25COztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixtQkFBbUI7SUFDbkIseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksWUFBWTtJQUNaLG1CQUFtQjtBQUN2Qjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixnQ0FBZ0M7SUFDaEMsNEJBQTRCO0lBQzVCLFVBQVU7SUFDVixtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsTUFBTTtJQUNOLE9BQU87SUFDUCxpQkFBaUI7SUFDakIsbUNBQW1DO0lBSW5DLDJCQUEyQjtJQUczQiwrQ0FBK0M7QUFDbkQ7O0FBRUE7O0lBRUksbUNBQW1DO0lBR25DLDJCQUEyQjtJQUMzQixzQkFBc0I7SUFDdEIsb0NBQW9DO0lBQ3BDLG1CQUFtQjtJQUNuQixpQ0FBaUM7SUFDakMsaUJBQWlCO0lBQ2pCLCtCQUErQjtJQUMvQixrQkFBa0I7SUFDbEIsZ0NBQWdDO0lBQ2hDLGNBQWM7SUFDZCw0QkFBNEI7QUFDaEM7O0FBRUE7O0lBRUksaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksZUFBZTtJQUNmLHlCQUF5QjtBQUM3Qjs7QUFFQTs7SUFFSSx5QkFBeUI7QUFDN0I7O0FBRUE7SUFDSSxZQUFZO0lBQ1osYUFBYTtJQUNiLGtCQUFrQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL3BldHMvcGV0cy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiKntwYWRkaW5nOjA7bWFyZ2luOjA7fVxyXG5cclxuYm9keXtcclxuXHRmb250LWZhbWlseTpWZXJkYW5hLCBHZW5ldmEsIHNhbnMtc2VyaWY7XHJcblx0Zm9udC1zaXplOjE4cHg7XHJcbn1cclxuXHJcbi5mbG9hdHtcclxuXHRwb3NpdGlvbjpmaXhlZDtcclxuXHR3aWR0aDo2MHB4O1xyXG5cdGhlaWdodDo2MHB4O1xyXG5cdGJvdHRvbTo0MHB4O1xyXG5cdHJpZ2h0OjQwcHg7XHJcblx0LyogYmFja2dyb3VuZC1jb2xvcjojMEM5OyAqL1xyXG5cdGNvbG9yOiNGRkY7XHJcblx0Ym9yZGVyLXJhZGl1czo1MHB4O1xyXG5cdHRleHQtYWxpZ246Y2VudGVyO1xyXG5cdGJveC1zaGFkb3c6IDJweCAycHggM3B4IHJnYig2MCwgMzEsIDkwKTtcclxufVxyXG5cclxuLm15LWZsb2F0e1xyXG5cdG1hcmdpbi10b3A6MjJweDtcclxufVxyXG5cclxuLyogUEVUIFRZUEUgKi9cclxuXHJcbnNlY3Rpb24ge1xyXG4gICAgcGFkZGluZzogNjBweCAwO1xyXG59XHJcblxyXG5zZWN0aW9uIC5zZWN0aW9uLXRpdGxlIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIG1hcmdpbi1ib3R0b206IDUwcHg7XHJcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG59XHJcblxyXG4jdGVhbSAuY2FyZCB7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZmZmZmZmO1xyXG59XHJcblxyXG4uZnJvbnRzaWRlIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIC13ZWJraXQtdHJhbnNmb3JtOiByb3RhdGVZKDBkZWcpO1xyXG4gICAgLW1zLXRyYW5zZm9ybTogcm90YXRlWSgwZGVnKTtcclxuICAgIHotaW5kZXg6IDI7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xyXG59XHJcblxyXG4uYmFja3NpZGUge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgbGVmdDogMDtcclxuICAgIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gICAgLXdlYmtpdC10cmFuc2Zvcm06IHJvdGF0ZVkoLTE4MGRlZyk7XHJcbiAgICAtbW96LXRyYW5zZm9ybTogcm90YXRlWSgtMTgwZGVnKTtcclxuICAgIC1vLXRyYW5zZm9ybTogcm90YXRlWSgtMTgwZGVnKTtcclxuICAgIC1tcy10cmFuc2Zvcm06IHJvdGF0ZVkoLTE4MGRlZyk7XHJcbiAgICB0cmFuc2Zvcm06IHJvdGF0ZVkoLTE4MGRlZyk7XHJcbiAgICAtd2Via2l0LWJveC1zaGFkb3c6IDVweCA3cHggOXB4IC00cHggcmdiKDE1OCwgMTU4LCAxNTgpO1xyXG4gICAgLW1vei1ib3gtc2hhZG93OiA1cHggN3B4IDlweCAtNHB4IHJnYigxNTgsIDE1OCwgMTU4KTtcclxuICAgIGJveC1zaGFkb3c6IDVweCA3cHggOXB4IC00cHggcmdiKDE1OCwgMTU4LCAxNTgpO1xyXG59XHJcblxyXG4uZnJvbnRzaWRlLFxyXG4uYmFja3NpZGUge1xyXG4gICAgLXdlYmtpdC1iYWNrZmFjZS12aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgICAtbW96LWJhY2tmYWNlLXZpc2liaWxpdHk6IGhpZGRlbjtcclxuICAgIC1tcy1iYWNrZmFjZS12aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgICBiYWNrZmFjZS12aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgICAtd2Via2l0LXRyYW5zaXRpb246IDFzO1xyXG4gICAgLXdlYmtpdC10cmFuc2Zvcm0tc3R5bGU6IHByZXNlcnZlLTNkO1xyXG4gICAgLW1vei10cmFuc2l0aW9uOiAxcztcclxuICAgIC1tb3otdHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDtcclxuICAgIC1vLXRyYW5zaXRpb246IDFzO1xyXG4gICAgLW8tdHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDtcclxuICAgIC1tcy10cmFuc2l0aW9uOiAxcztcclxuICAgIC1tcy10cmFuc2Zvcm0tc3R5bGU6IHByZXNlcnZlLTNkO1xyXG4gICAgdHJhbnNpdGlvbjogMXM7XHJcbiAgICB0cmFuc2Zvcm0tc3R5bGU6IHByZXNlcnZlLTNkO1xyXG59XHJcblxyXG4uZnJvbnRzaWRlIC5jYXJkLFxyXG4uYmFja3NpZGUgLmNhcmQge1xyXG4gICAgbWluLWhlaWdodDogMzEycHg7XHJcbn1cclxuXHJcbi5iYWNrc2lkZSAuY2FyZCBhIHtcclxuICAgIGZvbnQtc2l6ZTogMThweDtcclxuICAgIGNvbG9yOiAjMDA3YjVlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5mcm9udHNpZGUgLmNhcmQgLmNhcmQtdGl0bGUsXHJcbi5iYWNrc2lkZSAuY2FyZCAuY2FyZC10aXRsZSB7XHJcbiAgICBjb2xvcjogIzAwN2I1ZSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uZnJvbnRzaWRlIC5jYXJkIC5jYXJkLWJvZHkgaW1nIHtcclxuICAgIHdpZHRoOiAxMjBweDtcclxuICAgIGhlaWdodDogMTIwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn0iXX0= */"
+module.exports = "*{padding:0;margin:0;}\r\n\r\nbody{\r\n\tfont-family:Verdana, Geneva, sans-serif;\r\n\tfont-size:18px;\r\n}\r\n\r\n.float{\r\n\tposition:fixed;\r\n\twidth:60px;\r\n\theight:60px;\r\n\tbottom:40px;\r\n\tright:40px;\r\n\t/* background-color:#0C9; */\r\n\tcolor:#FFF;\r\n\tborder-radius:50px;\r\n\ttext-align:center;\r\n\tbox-shadow: 2px 2px 3px rgb(60, 31, 90);\r\n}\r\n\r\n.my-float{\r\n\tmargin-top:22px;\r\n}\r\n\r\n/* PET TYPE */\r\n\r\nsection {\r\n    padding: 60px 0;\r\n}\r\n\r\nsection .section-title {\r\n    text-align: center;\r\n    color: white;\r\n    margin-bottom: 50px;\r\n    text-transform: uppercase;\r\n}\r\n\r\n#team .card {\r\n    border: none;\r\n    background: #ffffff;\r\n}\r\n\r\n.frontside {\r\n    position: relative;\r\n    -webkit-transform: rotateY(0deg);\r\n    -ms-transform: rotateY(0deg);\r\n    z-index: 2;\r\n    margin-bottom: 30px;\r\n}\r\n\r\n.frontside {\r\n    -webkit-backface-visibility: hidden;\r\n    backface-visibility: hidden;\r\n    -webkit-transition: 1s;\r\n    -webkit-transform-style: preserve-3d;\r\n    -moz-transition: 1s;\r\n    -moz-transform-style: preserve-3d;\r\n    -o-transition: 1s;\r\n    -o-transform-style: preserve-3d;\r\n    -ms-transition: 1s;\r\n    -ms-transform-style: preserve-3d;\r\n    transition: 1s;\r\n    transform-style: preserve-3d;\r\n}\r\n\r\n.frontside .card{\r\n    min-height: 312px;\r\n}\r\n\r\n.frontside .card .card-title{\r\n    color: #007b5e !important;\r\n}\r\n\r\n.frontside .card .card-body img {\r\n    width: 120px;\r\n    height: 120px;\r\n    border-radius: 50%;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9wZXRzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsRUFBRSxTQUFTLENBQUMsUUFBUSxDQUFDOztBQUVyQjtDQUNDLHVDQUF1QztDQUN2QyxjQUFjO0FBQ2Y7O0FBRUE7Q0FDQyxjQUFjO0NBQ2QsVUFBVTtDQUNWLFdBQVc7Q0FDWCxXQUFXO0NBQ1gsVUFBVTtDQUNWLDJCQUEyQjtDQUMzQixVQUFVO0NBQ1Ysa0JBQWtCO0NBQ2xCLGlCQUFpQjtDQUNqQix1Q0FBdUM7QUFDeEM7O0FBRUE7Q0FDQyxlQUFlO0FBQ2hCOztBQUVBLGFBQWE7O0FBRWI7SUFDSSxlQUFlO0FBQ25COztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixtQkFBbUI7SUFDbkIseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksWUFBWTtJQUNaLG1CQUFtQjtBQUN2Qjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixnQ0FBZ0M7SUFDaEMsNEJBQTRCO0lBQzVCLFVBQVU7SUFDVixtQkFBbUI7QUFDdkI7O0FBR0E7SUFDSSxtQ0FBbUM7SUFHbkMsMkJBQTJCO0lBQzNCLHNCQUFzQjtJQUN0QixvQ0FBb0M7SUFDcEMsbUJBQW1CO0lBQ25CLGlDQUFpQztJQUNqQyxpQkFBaUI7SUFDakIsK0JBQStCO0lBQy9CLGtCQUFrQjtJQUNsQixnQ0FBZ0M7SUFDaEMsY0FBYztJQUNkLDRCQUE0QjtBQUNoQzs7QUFFQTtJQUNJLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLHlCQUF5QjtBQUM3Qjs7QUFFQTtJQUNJLFlBQVk7SUFDWixhQUFhO0lBQ2Isa0JBQWtCO0FBQ3RCIiwiZmlsZSI6InNyYy9hcHAvcGV0cy9wZXRzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqe3BhZGRpbmc6MDttYXJnaW46MDt9XHJcblxyXG5ib2R5e1xyXG5cdGZvbnQtZmFtaWx5OlZlcmRhbmEsIEdlbmV2YSwgc2Fucy1zZXJpZjtcclxuXHRmb250LXNpemU6MThweDtcclxufVxyXG5cclxuLmZsb2F0e1xyXG5cdHBvc2l0aW9uOmZpeGVkO1xyXG5cdHdpZHRoOjYwcHg7XHJcblx0aGVpZ2h0OjYwcHg7XHJcblx0Ym90dG9tOjQwcHg7XHJcblx0cmlnaHQ6NDBweDtcclxuXHQvKiBiYWNrZ3JvdW5kLWNvbG9yOiMwQzk7ICovXHJcblx0Y29sb3I6I0ZGRjtcclxuXHRib3JkZXItcmFkaXVzOjUwcHg7XHJcblx0dGV4dC1hbGlnbjpjZW50ZXI7XHJcblx0Ym94LXNoYWRvdzogMnB4IDJweCAzcHggcmdiKDYwLCAzMSwgOTApO1xyXG59XHJcblxyXG4ubXktZmxvYXR7XHJcblx0bWFyZ2luLXRvcDoyMnB4O1xyXG59XHJcblxyXG4vKiBQRVQgVFlQRSAqL1xyXG5cclxuc2VjdGlvbiB7XHJcbiAgICBwYWRkaW5nOiA2MHB4IDA7XHJcbn1cclxuXHJcbnNlY3Rpb24gLnNlY3Rpb24tdGl0bGUge1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogNTBweDtcclxuICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbn1cclxuXHJcbiN0ZWFtIC5jYXJkIHtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJhY2tncm91bmQ6ICNmZmZmZmY7XHJcbn1cclxuXHJcbi5mcm9udHNpZGUge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgLXdlYmtpdC10cmFuc2Zvcm06IHJvdGF0ZVkoMGRlZyk7XHJcbiAgICAtbXMtdHJhbnNmb3JtOiByb3RhdGVZKDBkZWcpO1xyXG4gICAgei1pbmRleDogMjtcclxuICAgIG1hcmdpbi1ib3R0b206IDMwcHg7XHJcbn1cclxuXHJcblxyXG4uZnJvbnRzaWRlIHtcclxuICAgIC13ZWJraXQtYmFja2ZhY2UtdmlzaWJpbGl0eTogaGlkZGVuO1xyXG4gICAgLW1vei1iYWNrZmFjZS12aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgICAtbXMtYmFja2ZhY2UtdmlzaWJpbGl0eTogaGlkZGVuO1xyXG4gICAgYmFja2ZhY2UtdmlzaWJpbGl0eTogaGlkZGVuO1xyXG4gICAgLXdlYmtpdC10cmFuc2l0aW9uOiAxcztcclxuICAgIC13ZWJraXQtdHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDtcclxuICAgIC1tb3otdHJhbnNpdGlvbjogMXM7XHJcbiAgICAtbW96LXRyYW5zZm9ybS1zdHlsZTogcHJlc2VydmUtM2Q7XHJcbiAgICAtby10cmFuc2l0aW9uOiAxcztcclxuICAgIC1vLXRyYW5zZm9ybS1zdHlsZTogcHJlc2VydmUtM2Q7XHJcbiAgICAtbXMtdHJhbnNpdGlvbjogMXM7XHJcbiAgICAtbXMtdHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDtcclxuICAgIHRyYW5zaXRpb246IDFzO1xyXG4gICAgdHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDtcclxufVxyXG5cclxuLmZyb250c2lkZSAuY2FyZHtcclxuICAgIG1pbi1oZWlnaHQ6IDMxMnB4O1xyXG59XHJcblxyXG4uZnJvbnRzaWRlIC5jYXJkIC5jYXJkLXRpdGxle1xyXG4gICAgY29sb3I6ICMwMDdiNWUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmZyb250c2lkZSAuY2FyZCAuY2FyZC1ib2R5IGltZyB7XHJcbiAgICB3aWR0aDogMTIwcHg7XHJcbiAgICBoZWlnaHQ6IDEyMHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG59Il19 */"
 
 /***/ }),
 
@@ -2078,7 +2036,7 @@ module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated
 /*!****************************************!*\
   !*** ./src/app/pets/pets.component.ts ***!
   \****************************************/
-/*! exports provided: PetsComponent, PetTypeComponent, BreedPickerComponent, PetInfoComponent, PetPictureComponent */
+/*! exports provided: PetsComponent, PetTypeComponent, BreedPickerComponent, PetInfoComponent, PetPictureComponent, PetsWizardComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2088,13 +2046,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BreedPickerComponent", function() { return BreedPickerComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetInfoComponent", function() { return PetInfoComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetPictureComponent", function() { return PetPictureComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetsWizardComponent", function() { return PetsWizardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../application */ "./src/app/application.ts");
-/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
-/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
-/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../entity/Pet */ "./src/app/entity/Pet.ts");
+/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../entity/Pet */ "./src/app/entity/Pet.ts");
+/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../application */ "./src/app/application.ts");
+/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
+/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
 /* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../alert/alert.component */ "./src/app/alert/alert.component.ts");
 /* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
@@ -2120,6 +2079,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var PetsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetsComponent, _super);
     function PetsComponent(api, menuService, session, router, activatedRoute) {
@@ -2129,7 +2089,6 @@ var PetsComponent = /** @class */ (function (_super) {
         _this.session = session;
         _this.router = router;
         _this.activatedRoute = activatedRoute;
-        _this.title = "Pets";
         _this.dialog = false;
         return _this;
     }
@@ -2186,45 +2145,39 @@ var PetsComponent = /** @class */ (function (_super) {
     PetsComponent.prototype.add = function () {
         var _this = this;
         this.session.zone.run(function () {
-            return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_1__["PETS_WIZARD_DEF_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute, queryParams: { id: "" } });
+            return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_2__["PETS_WIZARD_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute });
         });
     };
     PetsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
             selector: 'app-pets',
             template: __webpack_require__(/*! ./pets.component.html */ "./src/app/pets/pets.component.html"),
             styles: [__webpack_require__(/*! ./pets.component.css */ "./src/app/pets/pets.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_5__["PetApiService"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_6__["PetApiService"],
             _navbar_menuService__WEBPACK_IMPORTED_MODULE_11__["MenuService"],
-            _session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
+            _session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"],
             _angular_router__WEBPACK_IMPORTED_MODULE_13__["ActivatedRoute"]])
     ], PetsComponent);
     return PetsComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
 
 ///////////////////////////
 var PetTypeComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetTypeComponent, _super);
-    function PetTypeComponent(session, router, api, modal, activatedRoute) {
+    function PetTypeComponent(api, modal) {
         var _this = _super.call(this) || this;
-        _this.session = session;
-        _this.router = router;
         _this.api = api;
         _this.modal = modal;
-        _this.activatedRoute = activatedRoute;
-        _this.types = [];
         _this.dialog = false;
+        _this.types = [];
         _this.selectPetType = function (type, breed) {
             console.log(type);
             console.log(breed);
             if (!_utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(breed)) {
-                var pet = new _entity_Pet__WEBPACK_IMPORTED_MODULE_6__["Pet"]();
-                pet.petType = type;
-                pet.petType.breeds = [];
-                pet.petType.breeds.push(breed);
-                _this.session.setEditingPet(pet);
+                _this.pet.petType = type;
+                _this.pet.breed = breed;
                 _this.next();
             }
         };
@@ -2233,15 +2186,11 @@ var PetTypeComponent = /** @class */ (function (_super) {
     PetTypeComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.loading = true;
-        var types = this.api.getAllPetTypes();
-        types.subscribe(function (result) {
+        var response = this.api.getAllPetTypes();
+        response.subscribe(function (result) {
             console.log(result);
             _this.loading = false;
             if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_12__["ReturnCode"].SUCCESS) {
-                // const petTypeClass : any = document.getElementsByClassName("pet-type")[0];
-                // if(petTypeClass != undefined) {
-                //   petTypeClass.style.maxHeight = (window.innerHeight - 30) - (this.menuService.menu.height) + "px";
-                // }
                 if (result && result.sid) {
                     if (result.entity) {
                         _this.types = result.entity;
@@ -2264,7 +2213,7 @@ var PetTypeComponent = /** @class */ (function (_super) {
                 .open(BreedPickerComponent, Object(ngx_modialog__WEBPACK_IMPORTED_MODULE_15__["overlayConfigFactory"])({ isBlocking: false, data: { type: selected } }, ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__["BSModalContext"]));
             dialogRef.result
                 .then(function (res) {
-                if (res.result)
+                if (!_utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(res) && res.result)
                     _this.selectPetType(selected, res.breed);
             });
             dialogRef.onDestroy.subscribe(function () {
@@ -2273,25 +2222,20 @@ var PetTypeComponent = /** @class */ (function (_super) {
         }
     };
     PetTypeComponent.prototype.next = function () {
-        var _this = this;
-        this.session.zone.run(function () {
-            return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_1__["PETS_PAGE"], _application__WEBPACK_IMPORTED_MODULE_1__["PETS_WIZARD_INFO_PAGE"]], { replaceUrl: true, queryParams: { id: "" } });
-        });
+        /*this.session.zone.run(() =>
+          this.router.navigate([PETS_PAGE,PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));*/
     };
     PetTypeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
-            selector: 'app-define-pets',
-            template: __webpack_require__(/*! ./pet.type.component.html */ "./src/app/pets/pet.type.component.html"),
-            styles: [__webpack_require__(/*! ./pet.picker.component.css */ "./src/app/pets/pet.picker.component.css")]
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
+            selector: 'app-pets-type',
+            template: __webpack_require__(/*! ./pets.type.component.html */ "./src/app/pets/pets.type.component.html"),
+            styles: [__webpack_require__(/*! ./pets.picker.component.css */ "./src/app/pets/pets.picker.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"],
-            _service_services__WEBPACK_IMPORTED_MODULE_5__["PetApiService"],
-            ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__["Modal"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_13__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_6__["PetApiService"],
+            ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__["Modal"]])
     ], PetTypeComponent);
     return PetTypeComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
 
 ///////////////////////////////////////////////
 var BreedPickerComponent = /** @class */ (function (_super) {
@@ -2321,20 +2265,19 @@ var BreedPickerComponent = /** @class */ (function (_super) {
         this.dialogRef.close(selected);
     };
     BreedPickerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
-            selector: 'app-breeds',
-            template: __webpack_require__(/*! ./pet.breeds.component.html */ "./src/app/pets/pet.breeds.component.html"),
-            styles: [__webpack_require__(/*! ./pet.picker.component.css */ "./src/app/pets/pet.picker.component.css")]
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
+            selector: 'app-pets-breeds',
+            template: __webpack_require__(/*! ./pets.breeds.component.html */ "./src/app/pets/pets.breeds.component.html"),
+            styles: [__webpack_require__(/*! ./pets.picker.component.css */ "./src/app/pets/pets.picker.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [ngx_modialog__WEBPACK_IMPORTED_MODULE_15__["DialogRef"], _navbar_menuService__WEBPACK_IMPORTED_MODULE_11__["MenuService"], _angular_core__WEBPACK_IMPORTED_MODULE_4__["ElementRef"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [ngx_modialog__WEBPACK_IMPORTED_MODULE_15__["DialogRef"], _navbar_menuService__WEBPACK_IMPORTED_MODULE_11__["MenuService"], _angular_core__WEBPACK_IMPORTED_MODULE_5__["ElementRef"]])
     ], BreedPickerComponent);
     return BreedPickerComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
 
 ///////////////////////////////////////////////
 var PetInfoComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetInfoComponent, _super);
-    //animal : Animal = new Animal(new PetType());
     function PetInfoComponent(api, session, router) {
         var _this = _super.call(this) || this;
         _this.api = api;
@@ -2343,7 +2286,7 @@ var PetInfoComponent = /** @class */ (function (_super) {
         return _this;
     }
     PetInfoComponent.prototype.ngOnInit = function () {
-        this.pet = this.session.getEditingPet();
+        console.log(this.pet);
     };
     PetInfoComponent.prototype.createPet = function () {
         var _this = this;
@@ -2377,19 +2320,19 @@ var PetInfoComponent = /** @class */ (function (_super) {
         return !(_utils__WEBPACK_IMPORTED_MODULE_7__["StringUtils"].isEmpty(pet.name) || _utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(pet.age) || _utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(pet.petType));
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_8__["AlertComponent"]),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ViewChild"])(_alert_alert_component__WEBPACK_IMPORTED_MODULE_8__["AlertComponent"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _alert_alert_component__WEBPACK_IMPORTED_MODULE_8__["AlertComponent"])
     ], PetInfoComponent.prototype, "alert", void 0);
     PetInfoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
-            selector: 'app-pet-info',
-            template: __webpack_require__(/*! ./pet.info.component.html */ "./src/app/pets/pet.info.component.html"),
-            styles: [__webpack_require__(/*! ./pet.picker.component.css */ "./src/app/pets/pet.picker.component.css")]
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
+            selector: 'app-pets-info',
+            template: __webpack_require__(/*! ./pets.info.component.html */ "./src/app/pets/pets.info.component.html"),
+            styles: [__webpack_require__(/*! ./pets.info.component.css */ "./src/app/pets/pets.info.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_5__["PetApiService"], _session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_6__["PetApiService"], _session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"]])
     ], PetInfoComponent);
     return PetInfoComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
 
 //////////////////////////////////////
 var PetPictureComponent = /** @class */ (function (_super) {
@@ -2400,7 +2343,6 @@ var PetPictureComponent = /** @class */ (function (_super) {
         return _this;
     }
     PetPictureComponent.prototype.ngOnInit = function () {
-        alert("fewf");
     };
     PetPictureComponent.prototype.camera = function () {
         /*this.phone.window.navigator.camera.getPicture(onSuccess, onFail, { quality: 70,
@@ -2429,16 +2371,140 @@ var PetPictureComponent = /** @class */ (function (_super) {
         this.phonegap.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, cameraOptions);
     };
     PetPictureComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
-            selector: 'app-pet-picture',
-            template: __webpack_require__(/*! ./pet.picture.component.html */ "./src/app/pets/pet.picture.component.html")
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
+            selector: 'app-pets-picture',
+            template: __webpack_require__(/*! ./pets.picture.component.html */ "./src/app/pets/pets.picture.component.html")
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cordova_service__WEBPACK_IMPORTED_MODULE_10__["CordovaService"]])
     ], PetPictureComponent);
     return PetPictureComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
+
+////////////////////////////////////////////////////
+var PetsWizardComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetsWizardComponent, _super);
+    function PetsWizardComponent(api, menuService, session) {
+        var _this = _super.call(this) || this;
+        _this.api = api;
+        _this.menuService = menuService;
+        _this.session = session;
+        _this.dialog = false;
+        return _this;
+    }
+    Object.defineProperty(PetsWizardComponent.prototype, "menu", {
+        get: function () {
+            return this.menuService.menu;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    PetsWizardComponent.prototype.ngOnInit = function () {
+        this.loading = true;
+        this.menu.disable = false;
+        this.menu.disableMenu = false;
+        this.user = this.session.getCurrentUser();
+        this.pet = this.session.getEditingPet();
+        if (_utils__WEBPACK_IMPORTED_MODULE_7__["ObjectUtils"].isEmpty(this.pet)) {
+            this.pet = new _entity_Pet__WEBPACK_IMPORTED_MODULE_1__["Pet"]();
+            this.pet.petType = new _entity_Pet__WEBPACK_IMPORTED_MODULE_1__["PetType"]();
+            this.pet.breed = new _entity_Pet__WEBPACK_IMPORTED_MODULE_1__["Breed"]();
+        }
+        this.petInfoComponent.pet = this.pet;
+        this.petPictureComponent.pet = this.pet;
+        this.petTypeComponent.pet = this.pet;
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ViewChild"])(PetTypeComponent),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", PetTypeComponent)
+    ], PetsWizardComponent.prototype, "petTypeComponent", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ViewChild"])(PetInfoComponent),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", PetInfoComponent)
+    ], PetsWizardComponent.prototype, "petInfoComponent", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ViewChild"])(PetPictureComponent),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", PetPictureComponent)
+    ], PetsWizardComponent.prototype, "petPictureComponent", void 0);
+    PetsWizardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
+            selector: 'app-pets-wizard',
+            template: __webpack_require__(/*! ./pets.wizard.component.html */ "./src/app/pets/pets.wizard.component.html")
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_6__["PetApiService"],
+            _navbar_menuService__WEBPACK_IMPORTED_MODULE_11__["MenuService"],
+            _session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])
+    ], PetsWizardComponent);
+    return PetsWizardComponent;
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
+
+/////////////////////////////
 
 
+/***/ }),
+
+/***/ "./src/app/pets/pets.info.component.css":
+/*!**********************************************!*\
+  !*** ./src/app/pets/pets.info.component.css ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BldHMvcGV0cy5pbmZvLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pets/pets.info.component.html":
+/*!***********************************************!*\
+  !*** ./src/app/pets/pets.info.component.html ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"text-center\">\r\n    <div class=\"form-signin\">\r\n        <h2 class=\"form-signin-heading\" style=\"color: white !important\">{{language.addNewPet}}</h2>\r\n        <br>\r\n\r\n        <div class=\"input-group mb-3\" *ngIf=\"pet.breed.id\">\r\n            <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text\"><i [ngClass]=\"'fa fa-' + pet.petType.icon\" style=\"float: right; font-size: 235%;\"></i></span>\r\n            </div>\r\n            <input type=\"text\" style=\"height: auto; font-size: 22px; background-color: transparent; color: white;\" class=\"form-control\" value=\"{{pet.breed.description}}\" aria-describedby=\"basic-addon1\">\r\n        </div>\r\n\r\n        <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl />\r\n        <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.age\" placeholder=\"{{language.age}}\" type=\"text\" ngDefaultControl />\r\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl />\r\n        <app-loading *ngIf=\"loading\"></app-loading>\r\n        <app-alert></app-alert>\r\n\r\n    </div>\r\n</div>\r\n<!-- <div class=\"slidecount\">\r\n    <span class=\"\"></span>\r\n    <span class=\"selected\"></span>\r\n    <span class=\"\"></span>\r\n</div> -->\r\n\r\n  \r\n  \r\n  \r\n      "
+
+/***/ }),
+
+/***/ "./src/app/pets/pets.picker.component.css":
+/*!************************************************!*\
+  !*** ./src/app/pets/pets.picker.component.css ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "body {\r\n    /* padding: 4px 0px; */\r\n    background-color: white;\r\n}\r\n.event-list {\r\n    list-style: none;\r\n    margin: 0px;\r\n    padding: 0px;\r\n}\r\n.event-list > li {\r\n    background-color: rgb(255, 255, 255);\r\n    box-shadow: 0px 0px 5px rgb(51, 51, 51);\r\n    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);\r\n    padding: 0px;\r\n    margin: 0px 0px 20px;\r\n}\r\n.event-list > li > .icon {\r\n    display: inline-block;\r\n    width: 100%;\r\n    color: rgb(255, 255, 255);\r\n    background-color: rgb(197, 44, 102);\r\n    padding: 5px;\r\n    text-align: center;\r\n    font-size: 370%;\r\n}\r\n.event-list > li:nth-child(even) > .icon {\r\n    background-color: rgb(165, 82, 167);\r\n}\r\n.event-list > li > .icon > span {\r\n    display: none;\r\n}\r\n.event-list > li > img {\r\n    width: 100%;\r\n}\r\n.event-list > li > .info {\r\n    padding-top: 5px;\r\n    text-align: center;\r\n}\r\n.event-list > li > .info > .title {\r\n    font-size: 17pt;\r\n    font-weight: 700;\r\n    margin: 0px;\r\n}\r\n.event-list > li > .info > .desc {\r\n    font-size: 13pt;\r\n    font-weight: 300;\r\n    margin: 0px;\r\n}\r\n.event-list > li > .info > ul,\r\n.event-list > li > .social > ul {\r\n    display: table;\r\n    list-style: none;\r\n    margin: 10px 0px 0px;\r\n    padding: 0px;\r\n    width: 100%;\r\n    text-align: center;\r\n}\r\n.event-list > li > .social > ul {\r\n    margin: 0px;\r\n}\r\n.event-list > li > .info > ul > li,\r\n.event-list > li > .social > ul > li {\r\n    display: table-cell;\r\n    cursor: pointer;\r\n    color: rgb(30, 30, 30);\r\n    font-size: 11pt;\r\n    font-weight: 300;\r\n    padding: 3px 0px;\r\n}\r\n.event-list > li > .info > ul > li > a {\r\n    display: block;\r\n    width: 100%;\r\n    color: rgb(30, 30, 30);\r\n    text-decoration: none;\r\n}\r\n.event-list > li > .social > ul > li {    \r\n    padding: 0px;\r\n}\r\n.event-list > li > .social > ul > li > a {\r\n    padding: 3px 0px;\r\n}\r\n.event-list > li > .info > ul > li:hover,\r\n.event-list > li > .social > ul > li:hover {\r\n    color: rgb(30, 30, 30);\r\n    background-color: rgb(200, 200, 200);\r\n}\r\n.event-list > li {\r\n    position: relative;\r\n    display: block;\r\n    width: 100%;\r\n    height: 93px;\r\n    padding: 0px;\r\n}\r\n.event-list > li > .icon,\r\n.event-list > li > img  {\r\n    display: inline-block;\r\n}\r\n.event-list > li > .icon,\r\n.event-list > li > img {\r\n    width: 93px;\r\n    float: left;\r\n}\r\n.event-list > li > .info {\r\n    background-color: rgb(245, 245, 245);\r\n    overflow: hidden;\r\n}\r\n.event-list > li > .icon,\r\n.event-list > li > img {\r\n    width: 93px;\r\n    height: 93px;\r\n    padding: 0px;\r\n    margin: 0px;\r\n}\r\n.event-list > li > .info {\r\n    position: relative;\r\n    height: 93px;\r\n    text-align: left;\r\n    padding-right: 40px;\r\n}\r\n.event-list > li > .info > .title, \r\n.event-list > li > .info > .desc {\r\n    padding: 0px 10px;\r\n}\r\n.event-list > li > .info > ul {\r\n    position: absolute;\r\n    left: 0px;\r\n    bottom: 0px;\r\n}\r\n.event-list > li > .social {\r\n    position: absolute;\r\n    top: 0px;\r\n    right: 0px;\r\n    display: block;\r\n    width: 40px;\r\n}\r\n.event-list > li > .social > ul {\r\n    border-left: 1px solid rgb(230, 230, 230);\r\n}\r\n.event-list > li > .social > ul > li {\t\t\t\r\n    display: block;\r\n    padding: 0px;\r\n}\r\n.event-list > li > .social > ul > li > a {\r\n    display: block;\r\n    width: 40px;\r\n    padding: 10px 0px 9px;\r\n}\r\n.new-title {\r\n    font-size: 17pt;\r\n    font-weight: 600;\r\n    margin: 0px;\r\n}\r\n.modal-overlay {\r\n    right: 15px !important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGV0cy9wZXRzLnBpY2tlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksc0JBQXNCO0lBQ3RCLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLFdBQVc7SUFDWCxZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxvQ0FBb0M7SUFDcEMsdUNBQXVDO0lBQ3ZDLDZDQUE2QztJQUM3QyxZQUFZO0lBQ1osb0JBQW9CO0FBQ3hCO0FBQ0E7SUFDSSxxQkFBcUI7SUFDckIsV0FBVztJQUNYLHlCQUF5QjtJQUN6QixtQ0FBbUM7SUFDbkMsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixlQUFlO0FBQ25CO0FBQ0E7SUFDSSxtQ0FBbUM7QUFDdkM7QUFDQTtJQUNJLGFBQWE7QUFDakI7QUFFQTtJQUNJLFdBQVc7QUFDZjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixXQUFXO0FBQ2Y7QUFFQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsV0FBVztBQUNmO0FBQ0E7O0lBRUksY0FBYztJQUNkLGdCQUFnQjtJQUNoQixvQkFBb0I7SUFDcEIsWUFBWTtJQUNaLFdBQVc7SUFDWCxrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLFdBQVc7QUFDZjtBQUNBOztJQUVJLG1CQUFtQjtJQUNuQixlQUFlO0lBQ2Ysc0JBQXNCO0lBQ3RCLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsV0FBVztJQUNYLHNCQUFzQjtJQUN0QixxQkFBcUI7QUFDekI7QUFDQTtJQUNJLFlBQVk7QUFDaEI7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjtBQUNBOztJQUVJLHNCQUFzQjtJQUN0QixvQ0FBb0M7QUFDeEM7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixjQUFjO0lBQ2QsV0FBVztJQUNYLFlBQVk7SUFDWixZQUFZO0FBQ2hCO0FBRUE7O0lBRUkscUJBQXFCO0FBQ3pCO0FBQ0E7O0lBRUksV0FBVztJQUNYLFdBQVc7QUFDZjtBQUNBO0lBQ0ksb0NBQW9DO0lBQ3BDLGdCQUFnQjtBQUNwQjtBQUNBOztJQUVJLFdBQVc7SUFDWCxZQUFZO0lBQ1osWUFBWTtJQUNaLFdBQVc7QUFDZjtBQUNBO0lBQ0ksa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixnQkFBZ0I7SUFDaEIsbUJBQW1CO0FBQ3ZCO0FBQ0E7O0lBRUksaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsU0FBUztJQUNULFdBQVc7QUFDZjtBQUNBO0lBQ0ksa0JBQWtCO0lBQ2xCLFFBQVE7SUFDUixVQUFVO0lBQ1YsY0FBYztJQUNkLFdBQVc7QUFDZjtBQUNBO0lBQ0kseUNBQXlDO0FBQzdDO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsWUFBWTtBQUNoQjtBQUNBO0lBQ0ksY0FBYztJQUNkLFdBQVc7SUFDWCxxQkFBcUI7QUFDekI7QUFFQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsV0FBVztBQUNmO0FBRUE7SUFDSSxzQkFBc0I7QUFDMUIiLCJmaWxlIjoic3JjL2FwcC9wZXRzL3BldHMucGlja2VyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcclxuICAgIC8qIHBhZGRpbmc6IDRweCAwcHg7ICovXHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxufVxyXG4uZXZlbnQtbGlzdCB7XHJcbiAgICBsaXN0LXN0eWxlOiBub25lO1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7XHJcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDVweCByZ2IoNTEsIDUxLCA1MSk7XHJcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDVweCByZ2JhKDUxLCA1MSwgNTEsIDAuNyk7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICBtYXJnaW46IDBweCAwcHggMjBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24ge1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBjb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDE5NywgNDQsIDEwMik7XHJcbiAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBmb250LXNpemU6IDM3MCU7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaTpudGgtY2hpbGQoZXZlbikgPiAuaWNvbiB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMTY1LCA4MiwgMTY3KTtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24gPiBzcGFuIHtcclxuICAgIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuXHJcbi5ldmVudC1saXN0ID4gbGkgPiBpbWcge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvIHtcclxuICAgIHBhZGRpbmctdG9wOiA1cHg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gLnRpdGxlIHtcclxuICAgIGZvbnQtc2l6ZTogMTdwdDtcclxuICAgIGZvbnQtd2VpZ2h0OiA3MDA7XHJcbiAgICBtYXJnaW46IDBweDtcclxufVxyXG5cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gLmRlc2Mge1xyXG4gICAgZm9udC1zaXplOiAxM3B0O1xyXG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcclxuICAgIG1hcmdpbjogMHB4O1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsLFxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsIHtcclxuICAgIGRpc3BsYXk6IHRhYmxlO1xyXG4gICAgbGlzdC1zdHlsZTogbm9uZTtcclxuICAgIG1hcmdpbjogMTBweCAwcHggMHB4O1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCB7XHJcbiAgICBtYXJnaW46IDBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCA+IGxpLFxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGkge1xyXG4gICAgZGlzcGxheTogdGFibGUtY2VsbDtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIGNvbG9yOiByZ2IoMzAsIDMwLCAzMCk7XHJcbiAgICBmb250LXNpemU6IDExcHQ7XHJcbiAgICBmb250LXdlaWdodDogMzAwO1xyXG4gICAgcGFkZGluZzogM3B4IDBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCA+IGxpID4gYSB7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgY29sb3I6IHJnYigzMCwgMzAsIDMwKTtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxufSBcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpIHsgICAgXHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpID4gYSB7XHJcbiAgICBwYWRkaW5nOiAzcHggMHB4O1xyXG59IFxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCA+IGxpOmhvdmVyLFxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGk6aG92ZXIge1xyXG4gICAgY29sb3I6IHJnYigzMCwgMzAsIDMwKTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyMDAsIDIwMCwgMjAwKTtcclxufVxyXG5cclxuLmV2ZW50LWxpc3QgPiBsaSB7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiA5M3B4O1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG59XHJcblxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24sXHJcbi5ldmVudC1saXN0ID4gbGkgPiBpbWcgIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24sXHJcbi5ldmVudC1saXN0ID4gbGkgPiBpbWcge1xyXG4gICAgd2lkdGg6IDkzcHg7XHJcbiAgICBmbG9hdDogbGVmdDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8ge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI0NSwgMjQ1LCAyNDUpO1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmljb24sXHJcbi5ldmVudC1saXN0ID4gbGkgPiBpbWcge1xyXG4gICAgd2lkdGg6IDkzcHg7XHJcbiAgICBoZWlnaHQ6IDkzcHg7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICBtYXJnaW46IDBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8ge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgaGVpZ2h0OiA5M3B4O1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDQwcHg7XHJcbn1cdFxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiAudGl0bGUsIFxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiAuZGVzYyB7XHJcbiAgICBwYWRkaW5nOiAwcHggMTBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBsZWZ0OiAwcHg7XHJcbiAgICBib3R0b206IDBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDBweDtcclxuICAgIHJpZ2h0OiAwcHg7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIHdpZHRoOiA0MHB4O1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwge1xyXG4gICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCByZ2IoMjMwLCAyMzAsIDIzMCk7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpIHtcdFx0XHRcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSA+IGEge1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICB3aWR0aDogNDBweDtcclxuICAgIHBhZGRpbmc6IDEwcHggMHB4IDlweDtcclxufVxyXG5cclxuLm5ldy10aXRsZSB7XHJcbiAgICBmb250LXNpemU6IDE3cHQ7XHJcbiAgICBmb250LXdlaWdodDogNjAwO1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbn1cclxuXHJcbi5tb2RhbC1vdmVybGF5IHtcclxuICAgIHJpZ2h0OiAxNXB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/pets/pets.picture.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/pets/pets.picture.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\r\n\r\n<section class=\"body_section\">\r\n    <div class=interface_class>\r\n      <div class=\"page-header\">\r\n        <h1>{{title}}</h1>\r\n      </div>\r\n      <div class=\"card\">\r\n        <img [src]=\"pet.img\" class=\"card-img-top\" [ngClass]=\"{ 'button-disabled': pet.img == null }\">\r\n        <a class=\"btn btn-light\" [ngClass]=\"{ 'button-disabled': pet.img != null }\" (click)=\"camera()\" href=\"javascript:;\" style=\"font-size: 450%;\"><i class=\"fa fa-camera text-petlife\"></i></a>\r\n      </div>\r\n      <div class=\"slidecount\">\r\n          <span class=\"\"></span>\r\n          <span class=\"\"></span>\r\n          <span class=\"selected\"></span>\r\n      </div>\r\n    </div> \r\n  </section>"
+
+/***/ }),
+
+/***/ "./src/app/pets/pets.type.component.html":
+/*!***********************************************!*\
+  !*** ./src/app/pets/pets.type.component.html ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"pet-type\">\r\n  <div *ngIf=\"loading\" class=\"spinner-border text-toppet\" role=\"status\">\r\n    <span class=\"sr-only\">Carregando...</span>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\" style=\"height: 100% !important;\">\r\n        <li *ngFor=\"let t of types\"  (click)=\"select(t)\" style=\"height: 82px;\">\r\n          <i class=\"icon fa fa-{{t.icon}}\" style=\"padding-top: 14px;\"></i>\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">{{t.description}}</h2>\r\n            <p class=\"desc\">{{t.icon}}</p>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n<!-- <div class=\"slidecount\"z>\r\n  <span class=\"selected\"></span>\r\n  <span class=\"\"></span>\r\n  <span class=\"\"></span>\r\n</div> -->\r\n\r\n\r\n"
+
+/***/ }),
+
+/***/ "./src/app/pets/pets.wizard.component.html":
+/*!*************************************************!*\
+  !*** ./src/app/pets/pets.wizard.component.html ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\r\n    <div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"carousel\">\r\n        <ol class=\"carousel-indicators\" style=\"position: fixed;\">\r\n            <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"0\" class=\"active\"></li>\r\n            <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"1\"></li>\r\n            <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"2\"></li>\r\n        </ol>\r\n        <div class=\"carousel-inner\">\r\n            <div class=\"carousel-item active\" data-interval=\"false\">\r\n                <app-pets-type></app-pets-type>\r\n            </div>\r\n            <div class=\"carousel-item\" data-interval=\"false\">\r\n                <app-pets-info></app-pets-info>\r\n            </div>\r\n            <div class=\"carousel-item\" data-interval=\"false\">\r\n                <app-pets-picture></app-pets-picture>\r\n            </div>\r\n        </div>\r\n        <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" style=\"position: fixed;\" role=\"button\" data-slide=\"prev\">\r\n            <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\r\n        </a>\r\n        <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" style=\"position: fixed;\" role=\"button\" data-slide=\"next\">\r\n            <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\r\n        </a>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -3186,7 +3252,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container default-background\">\r\n  <div class=\"container text-center\">\r\n    <br>\r\n    <h1 class=\"form-signin-heading\" style=\"color: white !important\">{{language.welcome}} <b>{{applicationName}}</b></h1>\r\n    <br>\r\n\r\n    <div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"carousel\">\r\n      <ol class=\"carousel-indicators\">\r\n        <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"0\" class=\"active\"></li>\r\n        <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"1\"></li>\r\n        <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"2\"></li>\r\n      </ol>\r\n      <div class=\"carousel-inner\">\r\n        <div class=\"carousel-item active\">\r\n          <small class=\"text-muted\">{{language.appDescription}}</small>\r\n        </div>\r\n        <div class=\"carousel-item\">\r\n          <small class=\"text-muted\">{{language.appDescription}}</small>\r\n        </div>\r\n        <div class=\"carousel-item\">\r\n          <small class=\"text-muted\">{{language.appDescription}}</small>\r\n        </div>\r\n      </div>\r\n      <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"prev\">\r\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\r\n      </a>\r\n      <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"next\">\r\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\r\n      </a>\r\n    </div>\r\n\r\n    <!-- <div class=\"slidecount\" style=\"bottom:15%\">\r\n      <span class=\"selected\"></span>\r\n      <span class=\"\"></span>\r\n      <span class=\"\"></span>\r\n    </div> -->\r\n    <a routerLink=\"/signin\"><button class=\"btn btn-toppet btn-bottom-left btn-lg\" style=\"width: 40% !important;\">{{language.login}}</button></a>\r\n    <a routerLink=\"/signup\"><button class=\"btn btn-toppet btn-hollow btn-bottom-right btn-lg\" style=\"width: 40% !important;\">{{language.signUp}}</button></a>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container default-background\">\r\n  <div class=\"container text-center\">\r\n    <br>\r\n    <h1 class=\"form-signin-heading\" style=\"color: white !important\">{{language.welcome}} <b>{{applicationName}}</b></h1>\r\n    <br>\r\n\r\n    <div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"carousel\">\r\n      <ol class=\"carousel-indicators\" style=\"position: fixed; bottom: 9%;\">\r\n        <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"0\" class=\"active\"></li>\r\n        <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"1\"></li>\r\n        <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"2\"></li>\r\n      </ol>\r\n      <div class=\"carousel-inner\">\r\n        <div class=\"carousel-item active\">\r\n          <small class=\"text-muted\">{{language.appDescription1}}</small>\r\n        </div>\r\n        <div class=\"carousel-item\">\r\n          <small class=\"text-muted\">{{language.appDescription2}}</small>\r\n        </div>\r\n        <div class=\"carousel-item\">\r\n          <small class=\"text-muted\">{{language.appDescription3}}</small>\r\n        </div>\r\n      </div>\r\n      <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" style=\"position: fixed;\" role=\"button\" data-slide=\"prev\">\r\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\r\n      </a>\r\n      <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" style=\"position: fixed;\" role=\"button\" data-slide=\"next\">\r\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\r\n      </a>\r\n    </div>\r\n\r\n    <!-- <div class=\"slidecount\" style=\"bottom:15%\">\r\n      <span class=\"selected\"></span>\r\n      <span class=\"\"></span>\r\n      <span class=\"\"></span>\r\n    </div> -->\r\n    <a routerLink=\"/signin\"><button class=\"btn btn-toppet btn-bottom-left btn-lg\" style=\"width: 40% !important;\">{{language.login}}</button></a>\r\n    <a routerLink=\"/signup\"><button class=\"btn btn-toppet btn-hollow btn-bottom-right btn-lg\" style=\"width: 40% !important;\">{{language.signUp}}</button></a>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
