@@ -7,18 +7,19 @@
       </button>
     </div>
     <div class="modal-body breeds-modal-body">
-      <div class="">
         <div class="row">
-          <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-            <ul class="event-list">
-              <li *ngFor="let b of type.breeds" (click)="select(b)" style="height: 65px !important; line-height:65px;">
-                  <div style="display:inline-block; vertical-align:middle; line-height:1.25em; text-align: center; width: 100%;">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let b of type.breeds" (click)="select(b)" style="height: 65px !important; line-height:65px;">
+                  <div style="text-align: center; width: 100%;">
                     <h2 class="new-title" >{{b.description}}</h2>
                   </div>
               </li>
             </ul>
-          </div>
         </div> 
-    </div>
   </div>
 </div>
+
+<!-- <div class="container">
+    <div class="row">
+      <ul class="list-group">
+            <li class="list-group-item"><a href="https://frikinow.com" target="_blank">regalos frikis</a></li> -->
