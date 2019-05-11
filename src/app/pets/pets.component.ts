@@ -1,5 +1,5 @@
 import { Breed } from './../entity/Pet';
-import { PETS_WIZARD_INFO_PAGE, PETS_PAGE, PETS_WIZARD_PAGE } from './../application';
+import { PETS_WIZARD_PAGE, PETS_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, ViewChild, ElementRef } from '@angular/core';
@@ -31,7 +31,7 @@ export class PetsComponent extends AppBase {
   }
 
   private user : User;
-  private pets : Pet[];
+  private _pets : Pet[];
   private dialog : boolean = false;
 
   constructor(private api : PetApiService, 
@@ -40,6 +40,10 @@ export class PetsComponent extends AppBase {
     private router : Router,
     private activatedRoute: ActivatedRoute) {
     super();
+  }
+
+  get pets() : Pet[] {
+    return this._pets;
   }
 
   ngOnInit() {
@@ -55,7 +59,7 @@ export class PetsComponent extends AppBase {
 
   private setPets() {
     if(!ObjectUtils.isEmpty(this.user)){
-      this.pets = this.user.pets;
+      this._pets = this.user.pets;
     }
   }
 
@@ -109,8 +113,11 @@ export class PetsComponent extends AppBase {
 export class PetTypeComponent extends AppBase {
 
   private dialog : boolean = false;
-  pet : Pet;
+  
   types : PetType[] = [];
+  pet : Pet;
+  nextInput : ElementRef;
+  previousInput : ElementRef;
 
   constructor(private api : PetApiService, 
     private modal: Modal) {
@@ -178,6 +185,7 @@ export class PetTypeComponent extends AppBase {
   next() : void {
     /*this.session.zone.run(() => 
       this.router.navigate([PETS_PAGE,PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));*/
+    this.nextInput.nativeElement.click();
   }
 
 }
@@ -230,49 +238,31 @@ export class PetInfoComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
-  constructor(private api : PetApiService, private session : SessionService, private router : Router){
+  constructor(){
     super();
   }
 
   pet : Pet;
+  nextInput : ElementRef;
+  previousInput : ElementRef;
   
   ngOnInit() {
     console.log(this.pet);
   }
 
-  protected createPet() : void {
-
-    this.loading = true;
+  protected next() : void {
 
     //Campos obrigatorios
     if(!this.requiredFieldsFilled(this.pet)){
       this.alert.show(this.language.requiredFields, ColorClass.danger);
-      this.loading = false;
       return;
     }
 
-    const pets = this.api.save(this.pet);
+    this.nextInput.nativeElement.click();
+  }
 
-      pets.subscribe(result => {
-        console.log(result);
-
-        this.loading = false;
-
-        if(result.entity){
-          if(result.code == ReturnCode.SUCCESS){
-            if(result && result.sid) {
-              //SAVED
-            }
-          }
-        }
-
-        if(result.code != ReturnCode.SUCCESS) {
-          this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
-        }
-      }, error => {
-        this.loading = false;
-        console.log(error);
-      });
+  protected back() : void {
+    this.previousInput.nativeElement.click();
   }
 
   requiredFieldsFilled(pet: Pet) : boolean {
@@ -295,9 +285,13 @@ export class PetPictureComponent extends AppBase {
   }
 
   pet : Pet;
+  nextInput : ElementRef;
+  previousInput : ElementRef;
+
+  callback : any;
   
   ngOnInit() {
-    
+    this.title = this.language.takePicture;
   }
 
   protected camera() : void {
@@ -308,9 +302,12 @@ export class PetPictureComponent extends AppBase {
 
     let onCameraSuccess = (imageURL) => {
       console.log(imageURL);
-      //this.pet.img = imageURL;
+      this.pet.img = imageURL;
       if(this.phonegap.isBrowser){
-        //this.pet.img = 'data:image/jpg;base64,' + this.pet.img;
+        this.pet.img = 'data:image/jpg;base64,' + this.pet.img;
+      }
+      if(this.callback != undefined){
+        this.callback(this.pet);
       }
     }
       
@@ -346,15 +343,16 @@ export class PetsWizardComponent extends AppBase {
   @ViewChild(PetTypeComponent) private petTypeComponent : PetTypeComponent;
   @ViewChild(PetInfoComponent) private petInfoComponent : PetInfoComponent;
   @ViewChild(PetPictureComponent) private petPictureComponent : PetPictureComponent;
-
-  private user : User;
+  @ViewChild("nextInput") private nextInput;
+  @ViewChild("previousInput") private previousInput;
   private pet : Pet;
   
   private dialog : boolean = false;
 
-  constructor(private api : PetApiService, 
-    private menuService : MenuService,
-    private session : SessionService) {
+  constructor(private menuService : MenuService,
+    private session : SessionService,
+    private api : PetApiService,
+    private router : Router) {
     super();
   }
 
@@ -362,7 +360,6 @@ export class PetsWizardComponent extends AppBase {
     this.loading = true;
     this.menu.disable = false;
     this.menu.disableMenu = false;
-    this.user = this.session.getCurrentUser();
     this.pet = this.session.getEditingPet();
     if(ObjectUtils.isEmpty(this.pet)){
       this.pet = new Pet();
@@ -372,6 +369,41 @@ export class PetsWizardComponent extends AppBase {
     this.petInfoComponent.pet = this.pet;
     this.petPictureComponent.pet = this.pet;
     this.petTypeComponent.pet = this.pet;
+    this.petInfoComponent.nextInput = this.nextInput;
+    this.petPictureComponent.nextInput = this.nextInput;
+    this.petTypeComponent.nextInput = this.nextInput;
+    this.petInfoComponent.previousInput = this.previousInput;
+    this.petPictureComponent.previousInput = this.previousInput;
+    this.petTypeComponent.previousInput = this.previousInput;
+    (<any>window).nextInput = this.nextInput;
+
+    this.petPictureComponent.callback = this.save;
+  }
+
+  protected save = (pet : Pet) => {
+    const pets = this.api.save(pet);
+
+    pets.subscribe(result => {
+      console.log(result);
+
+      this.loading = false;
+
+      if(result.entity){
+        if(result.code == ReturnCode.SUCCESS){
+          if(result && result.sid) {
+            this.session.zone.run(() => 
+            this.router.navigateByUrl(PETS_PAGE));
+          }
+        }
+      }
+
+      if(result.code != ReturnCode.SUCCESS) {
+        //this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
+      }
+    }, error => {
+      this.loading = false;
+      console.log(error);
+    });
   }
 }
 

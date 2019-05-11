@@ -1,9 +1,10 @@
-<div class="container">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div class="container default-background">
+    <div id="carouselExampleIndicators" class="carousel slide">
         <ol class="carousel-indicators" style="position: fixed;">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-slide-to="0" class="active"></li>
+            <li data-slide-to="1"></li>
+            <li data-slide-to="2"></li>
+            <!-- data-target="#carouselExampleIndicators" -->
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active" data-interval="false">
@@ -16,10 +17,10 @@
                 <app-pets-picture></app-pets-picture>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" style="position: fixed;" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" #previousInput style="position: fixed; display: none;" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" style="position: fixed;" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carouselExampleIndicators" #nextInput style="position: fixed; display: none;" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </a>
     </div>

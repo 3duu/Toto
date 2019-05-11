@@ -34,8 +34,10 @@ export class LanguageService {
     back : string = "Voltar";
     createYourAccount : string = "Crie sua conta no ";
     age : string = "Idade";
+    ok : string = "OK";
     petType : string = "Animal";
     breed : string = "Qual a raça?";
+    takePicture : string = "Tire uma foto do seu pet";
     description : string = "Descrição";
     view : string = "Visualizar";
     animal : string = "Qual o Pet?";

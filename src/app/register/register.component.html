@@ -1,25 +1,25 @@
 <div class="container default-background">     
-<script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
-
-<div class="container text-center">
-    <form class="form-signin" #registerForm="ngForm" autocomplete="off">
-        <h2 class="form-signin-heading" style="color: white !important">{{language.signUp}}</h2>
-        <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
-        <br>
-        <p>
-          <facebook-button (begin)="onRegisterInit()" (done)="onRegisterEnd($event, true)"></facebook-button>
-          <google-button (begin)="onRegisterInit()" (done)="onRegisterEnd($event, true)"></google-button>
-        </p>
-        <small class="text-muted">{{language.createWithSomeInfo}}</small>
-        <br>
-        <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.email}}" type="text" name="username" id="username" ngModel /><!-- required -->
-        <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.name}}" type="text" name="name" id="name" ngModel />
-        <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel />
-        <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.confirmPassword}}" type="password" name="confirmPassword" id="confirmPassword" ngModel />
-        <br>
-        <app-alert></app-alert>
-        <!-- <app-loading *ngIf="loading"></app-loading> -->
-        <register-button [hidden]="loading" classes="btn btn-lg btn-toppet btn-block btn-center" [form]="registerForm" (begin)="onRegisterInit()" (done)="onRegisterEnd($event, false)">{{language.signUp}}</register-button>
-        <br>
-    </form>
+  <script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
+  <div class="text-center">
+      <form class="form-signin" #registerForm="ngForm" autocomplete="off">
+          <h2 class="form-signin-heading" style="color: white !important">{{language.signUp}}</h2>
+          <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
+          <br>
+          <p>
+            <facebook-button (begin)="onRegisterInit()" (done)="onRegisterEnd($event, true)"></facebook-button>
+            <google-button (begin)="onRegisterInit()" (done)="onRegisterEnd($event, true)"></google-button>
+          </p>
+          <small class="text-muted">{{language.createWithSomeInfo}}</small>
+          <br>
+          <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.email}}" type="text" name="username" id="username" ngModel /><!-- required -->
+          <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.name}}" type="text" name="name" id="name" ngModel />
+          <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel />
+          <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.confirmPassword}}" type="password" name="confirmPassword" id="confirmPassword" ngModel />
+          <br>
+          <app-alert></app-alert>
+          <!-- <app-loading *ngIf="loading"></app-loading> -->
+          <register-button [hidden]="loading" classes="btn btn-lg btn-toppet btn-block btn-center" [form]="registerForm" (begin)="onRegisterInit()" (done)="onRegisterEnd($event, false)">{{language.signUp}}</register-button>
+          <br>
+      </form>
+  </div>
 </div>
