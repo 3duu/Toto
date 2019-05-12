@@ -92,27 +92,10 @@
 }
 
 body {
-    background-image: url("src/assets/img/welcome-bg.jpg");
+    background-image: url("assets/img/bg.jpg");
     background-color: #563d7c;
-    background-repeat: round !important;
-    background-size: cover !important;
-
-    position:fixed;
-    padding:0;
-    margin:0;
-
-    top:0;
-    left:0;
-
-    width: 100%;
-    height: 100%;
-}
-
-.default-background {
-    background-image: url("src/assets/img/welcome-bg.jpg");
-    background-color: #563d7c;
-    background-repeat: round !important;
-    background-size: cover !important;
+    background-repeat: round;
+    background-size: cover;
 
     position:fixed;
     padding:0;
