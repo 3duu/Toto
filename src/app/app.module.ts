@@ -1,4 +1,4 @@
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { UserApiService, PetApiService, AuthenticationService } from './service/services';
 import { MenuService } from './navbar/menuService';
@@ -31,10 +31,15 @@ import { AuthGuardService } from './guards/auth-guard.service';
 import { SessionService } from './session/session.service';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { LoadingComponent } from './loading/loading.component';
+import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { Overlay } from '@angular/cdk/overlay';
+import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
+    //NoopAnimationsModule,
     NavbarComponent,
     WelcomeComponent,
     MapsComponent,
@@ -53,7 +58,7 @@ import { LoadingComponent } from './loading/loading.component';
     AppointmentsComponent,
     BreedPickerComponent,
     LoadingComponent,
-    PetsWizardComponent
+    PetsWizardComponent,
   ],
   entryComponents: [
     SignInComponent,
@@ -63,13 +68,17 @@ import { LoadingComponent } from './loading/loading.component';
     BreedPickerComponent
   ],
   imports: [
-    BrowserModule,
     FormsModule,
     AppRoutingModule,
     TooltipModule.forRoot(),
     HttpClientModule,
     ModalModule.forRoot(),
-    BootstrapModalModule
+    BootstrapModalModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
   providers: [
     CordovaService, 
@@ -82,7 +91,11 @@ import { LoadingComponent } from './loading/loading.component';
     MenuService, 
     LanguageService,
     AuthGuardService,
-    SessionService],
+    SessionService, 
+    MatDialog,
+    Overlay,
+    MatNativeDateModule,
+    MatDatepicker,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,6 +16,8 @@ import { ReturnCode } from '../entity/system';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
 import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
+import $ from 'jquery';
+//import { writeFile } from 'fs';
 
 declare const Camera;
 
@@ -32,7 +34,6 @@ export class PetsComponent extends AppBase {
 
   private user : User;
   private _pets : Pet[];
-  private dialog : boolean = false;
 
   constructor(private api : PetApiService, 
     private menuService : MenuService,
@@ -78,15 +79,15 @@ export class PetsComponent extends AppBase {
           if (result && result.sid) {
             if(result.entity){
               this.user.pets = result.entity;
-              this.setPets();
+              //this.setPets();
             }
           }
         }
         else  {
           //alert(this.api.getErrorMessage(result, this.language));
         }
-      } ,error => {
-        console.log(error);
+      }, error => {
+        console.error(error);
         this.loading = false;
       });
     }
@@ -304,8 +305,10 @@ export class PetPictureComponent extends AppBase {
       console.log(imageURL);
       this.pet.img = imageURL;
       if(this.phonegap.isBrowser){
-        this.pet.img = 'data:image/jpg;base64,' + this.pet.img;
+        //this.pet.img = 'data:image/jpg;base64,' + this.pet.img;
+        this.pet.img = "assets/img/rottweiler-sample.jpg";
       }
+      //this.saveImage(imageURL);
       if(this.callback != undefined){
         this.callback(this.pet);
       }
@@ -315,17 +318,35 @@ export class PetPictureComponent extends AppBase {
       alert('Failed because: ' + message);
     }
 
-    const cameraOptions = {
-      quality: 100,
-      destinationType: Camera.DestinationType.FILE_URI,
-      sourceType: Camera.PictureSourceType.CAMERA,
-      allowEdit: false,
-      encodingType: Camera.EncodingType.JPEG,
-      saveToPhotoAlbum: false
-    };
-
-    this.phonegap.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, cameraOptions);
+    if(!this.phonegap.isBrowser && !ObjectUtils.isEmpty(this.phonegap.window.navigator.camera)){
+      const cameraOptions = {
+        quality: 100,
+        destinationType: Camera.DestinationType.FILE_URI,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: false,
+        encodingType: Camera.EncodingType.JPEG,
+        saveToPhotoAlbum: false
+      };
+      this.phonegap.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, cameraOptions);
+    }
+    else {
+      onCameraSuccess(undefined);
+    }
   }
+  /*
+  saveImage = (dataString) => {
+    var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+    const response : any = {};
+
+    if (matches.length !== 3) {
+      return new Error('Invalid input string');
+    }
+    response.type = matches[1];
+    response.data = new Buffer(matches[2], 'base64');
+    writeFile('test.jpg', response.data, function(err) { console.error(err) });
+
+    return response;
+  }*/
 }
 
 ////////////////////////////////////////////////////
@@ -377,11 +398,17 @@ export class PetsWizardComponent extends AppBase {
     this.petTypeComponent.previousInput = this.previousInput;
     (<any>window).nextInput = this.nextInput;
 
+    const carousel = $('.carousel').carousel;
+    if(carousel != undefined){
+      carousel("pause");
+    }
+
     this.petPictureComponent.callback = this.save;
   }
 
   protected save = (pet : Pet) => {
     const pets = this.api.save(pet);
+    pet.user = this.session.getCurrentUser();
 
     pets.subscribe(result => {
       console.log(result);
@@ -408,6 +435,4 @@ export class PetsWizardComponent extends AppBase {
 }
 
 /////////////////////////////
-
-
 

@@ -9,7 +9,7 @@ export class Pet {
 
     creationDate : Date;
 
-	//birthDate : Date;
+	birthDate : Date;
 	
 	age : number;
 

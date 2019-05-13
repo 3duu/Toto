@@ -24,6 +24,8 @@ import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Table(name="user")
 @Entity
 public class User implements Serializable, UserDetails {
@@ -55,7 +57,8 @@ public class User implements Serializable, UserDetails {
 	@Column(name="birth_date", nullable=true)
 	private Date birthDate;
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.EAGER, mappedBy="user")
+	@JsonManagedReference
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.LAZY, mappedBy="user")
 	private List<Pet> pets;
 	
 	@OneToOne(fetch=FetchType.EAGER)

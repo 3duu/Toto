@@ -1,6 +1,7 @@
 import { Injectable,NgZone } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { fromEvent } from 'rxjs';
+import { ObjectUtils } from './utils';
 
 function _window(): any {
  // return the global native browser window object
@@ -44,7 +45,13 @@ export class CordovaService {
    }
 
    get isBrowser() : boolean {
-      return device == undefined || device.platform == "browser";
+      try {
+         return !ObjectUtils.isEmpty(device) && device.platform == "browser";
+      }
+      catch(e){
+         console.error(e);
+         return true;
+      }
    }
 
    public openLinkInBrowser(url: string) {

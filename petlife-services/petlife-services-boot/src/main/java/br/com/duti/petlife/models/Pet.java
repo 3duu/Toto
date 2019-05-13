@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Table(name="pet")
 @Entity
 public class Pet implements Serializable {
@@ -49,6 +51,7 @@ public class Pet implements Serializable {
 	@Column(name="birth_date", nullable=true)
 	private Date birthDate;
 	
+	@JsonBackReference
 	@JoinColumn(name="user_id")
 	@ManyToOne(fetch=FetchType.LAZY)
 	private User user;
