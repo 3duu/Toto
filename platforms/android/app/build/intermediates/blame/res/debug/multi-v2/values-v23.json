@@ -1,10 +1,45 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\9e205538492303079cea77120e48a545\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "2646",
+                        "endLines": "39",
+                        "endColumns": "12",
+                        "endOffsets": "2791"
+                    }
+                },
+                {
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,19,32,33,34,35,36",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1277,2079,2206,2311,2426,2533",
+                        "endLines": "2,3,4,5,18,31,32,33,34,35,36",
+                        "endColumns": "134,134,74,86,12,12,126,104,114,106,112",
+                        "endOffsets": "185,320,395,482,1272,2074,2201,2306,2421,2528,2641"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "map": [
+                {
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +50,7 @@
                     }
                 },
                 {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\fb7ab0b6ae798df4489324910eee7a22\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\9e205538492303079cea77120e48a545\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -36,10 +71,10 @@
             ]
         },
         {
-            "outputFile": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -50,7 +85,7 @@
                     }
                 },
                 {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\9e205538492303079cea77120e48a545\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\fb7ab0b6ae798df4489324910eee7a22\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -71,10 +106,10 @@
             ]
         },
         {
-            "outputFile": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -85,7 +120,7 @@
                     }
                 },
                 {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\9e205538492303079cea77120e48a545\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\fb7ab0b6ae798df4489324910eee7a22\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -106,10 +141,10 @@
             ]
         },
         {
-            "outputFile": "C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\fb7ab0b6ae798df4489324910eee7a22\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\fb7ab0b6ae798df4489324910eee7a22\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -128,7 +163,7 @@
                     }
                 },
                 {
-                    "source": "C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -141,80 +176,10 @@
             ]
         },
         {
-            "outputFile": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\fb7ab0b6ae798df4489324910eee7a22\\res\\values-v23\\values-v23.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "4",
-                        "endColumns": "12",
-                        "endOffsets": "200"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "2646",
-                        "endLines": "39",
-                        "endColumns": "12",
-                        "endOffsets": "2791"
-                    }
-                },
-                {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-v23\\values-v23.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,19,32,33,34,35,36",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,190,325,400,487,1277,2079,2206,2311,2426,2533",
-                        "endLines": "2,3,4,5,18,31,32,33,34,35,36",
-                        "endColumns": "134,134,74,86,12,12,126,104,114,106,112",
-                        "endOffsets": "185,320,395,482,1272,2074,2201,2306,2421,2528,2641"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
-            "map": [
-                {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\9e205538492303079cea77120e48a545\\res\\values-v23\\values-v23.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "4",
-                        "endColumns": "12",
-                        "endOffsets": "200"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "2646",
-                        "endLines": "39",
-                        "endColumns": "12",
-                        "endOffsets": "2791"
-                    }
-                },
-                {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-v23\\values-v23.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,19,32,33,34,35,36",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,190,325,400,487,1277,2079,2206,2311,2426,2533",
-                        "endLines": "2,3,4,5,18,31,32,33,34,35,36",
-                        "endColumns": "134,134,74,86,12,12,126,104,114,106,112",
-                        "endOffsets": "185,320,395,482,1272,2074,2201,2306,2421,2528,2641"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
-            "map": [
-                {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -225,7 +190,7 @@
                     }
                 },
                 {
-                    "source": "C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\fb7ab0b6ae798df4489324910eee7a22\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\fb7ab0b6ae798df4489324910eee7a22\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -246,10 +211,45 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "/home/eduardo/git/Toto/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\9e205538492303079cea77120e48a545\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/eafa019109b698e660dff9c5f185a91a/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,19,32,33,34,35,36",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1277,2079,2206,2311,2426,2533",
+                        "endLines": "2,3,4,5,18,31,32,33,34,35,36",
+                        "endColumns": "134,134,74,86,12,12,126,104,114,106,112",
+                        "endOffsets": "185,320,395,482,1272,2074,2201,2306,2421,2528,2641"
+                    }
+                },
+                {
+                    "source": "/home/eduardo/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.2.aar/fb7ab0b6ae798df4489324910eee7a22/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "2646",
+                        "endLines": "39",
+                        "endColumns": "12",
+                        "endOffsets": "2791"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "map": [
+                {
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\9e205538492303079cea77120e48a545\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -268,7 +268,42 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/eduardo/git/Toto/C:\\home\\eduardo\\git\\Toto\\C:\\home\\eduardo\\git\\Toto\\C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,19,32,33,34,35,36",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1277,2079,2206,2311,2426,2533",
+                        "endLines": "2,3,4,5,18,31,32,33,34,35,36",
+                        "endColumns": "134,134,74,86,12,12,126,104,114,106,112",
+                        "endOffsets": "185,320,395,482,1272,2074,2201,2306,2421,2528,2641"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/eduardo/git/Toto/C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "map": [
+                {
+                    "source": "/home/eduardo/git/Toto/C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\9e205538492303079cea77120e48a545\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "2646",
+                        "endLines": "39",
+                        "endColumns": "12",
+                        "endOffsets": "2791"
+                    }
+                },
+                {
+                    "source": "/home/eduardo/git/Toto/C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
