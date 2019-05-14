@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+//phonegap plugin add cordova-plugin-context-menu --save
 export class HomeComponent extends AppBase {
 
   constructor(private router: Router, private menuService : MenuService) {
