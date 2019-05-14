@@ -239,16 +239,44 @@ export class PetInfoComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
-  constructor(){
+  constructor(private session : SessionService){
     super();
   }
 
   pet : Pet;
+  age : string;
   nextInput : ElementRef;
   previousInput : ElementRef;
+  protected currentDate : Date;
   
   ngOnInit() {
-    console.log(this.pet);
+    this.setDate();
+  }
+
+  private setDate() {
+
+    const ping = this.session.authenticationService.infoService.doPing();
+
+    ping.subscribe(result => {
+
+      if(result.code == ReturnCode.SUCCESS) {
+        this.currentDate = new Date(result.date);
+      }
+    });
+
+  }
+
+  protected updateAge() {
+
+    if(!ObjectUtils.isEmpty(this.currentDate) && !ObjectUtils.isEmpty(this.pet.birthDate)) {
+      const timeDiff = Math.abs(this.currentDate.getTime() - this.pet.birthDate.getTime());
+      const age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25);
+      if(age > 0) {
+        this.age = age + " " + (age > 1 ? this.language.years : this.language.year);
+      }
+      
+      console.log(age);
+    }
   }
 
   protected next() : void {
@@ -267,7 +295,7 @@ export class PetInfoComponent extends AppBase {
   }
 
   requiredFieldsFilled(pet: Pet) : boolean {
-    return !(StringUtils.isEmpty(pet.name) || ObjectUtils.isEmpty(pet.age) || ObjectUtils.isEmpty(pet.petType));
+    return !(StringUtils.isEmpty(pet.name) || ObjectUtils.isEmpty(pet.birthDate) || ObjectUtils.isEmpty(pet.petType));
   }
 
 }
@@ -333,20 +361,7 @@ export class PetPictureComponent extends AppBase {
       onCameraSuccess(undefined);
     }
   }
-  /*
-  saveImage = (dataString) => {
-    var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
-    const response : any = {};
 
-    if (matches.length !== 3) {
-      return new Error('Invalid input string');
-    }
-    response.type = matches[1];
-    response.data = new Buffer(matches[2], 'base64');
-    writeFile('test.jpg', response.data, function(err) { console.error(err) });
-
-    return response;
-  }*/
 }
 
 ////////////////////////////////////////////////////
@@ -366,9 +381,8 @@ export class PetsWizardComponent extends AppBase {
   @ViewChild(PetPictureComponent) private petPictureComponent : PetPictureComponent;
   @ViewChild("nextInput") private nextInput;
   @ViewChild("previousInput") private previousInput;
+
   private pet : Pet;
-  
-  private dialog : boolean = false;
 
   constructor(private menuService : MenuService,
     private session : SessionService,
@@ -401,6 +415,7 @@ export class PetsWizardComponent extends AppBase {
     const carousel = $('.carousel').carousel;
     if(carousel != undefined){
       carousel("pause");
+      alert("paused");
     }
 
     this.petPictureComponent.callback = this.save;

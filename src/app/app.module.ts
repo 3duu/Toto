@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { UserApiService, PetApiService, AuthenticationService } from './service/services';
+import { UserApiService, PetApiService, AuthenticationService, InfoService } from './service/services';
 import { MenuService } from './navbar/menuService';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -87,11 +87,12 @@ import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
     PetApiService, 
     FacebookService, 
     GoogleService, 
+    InfoService,
     AuthenticationService, 
     MenuService, 
     LanguageService,
     AuthGuardService,
-    SessionService, 
+    SessionService,
     MatDialog,
     Overlay,
     MatNativeDateModule,

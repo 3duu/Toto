@@ -37,7 +37,7 @@ class ApiService {
   protected endpoint : string;
 
   constructor() {
-    this.endpoint = endpoints.home;
+    this.endpoint = endpoints.local;
     console.log(this.endpoint);
   }
 
@@ -60,7 +60,7 @@ class ApiService {
   *
   * @param res
   */
-  private extractData(res: Response) {
+  protected extractData(res: Response) {
     let body = res;
     return body || {};
   }
@@ -178,15 +178,45 @@ export class PetApiService extends ApiService {
 }
 
 @Injectable()
+export class InfoService extends ApiService {
+
+  private controller = this.endpoint+"/info";
+  private ping = this.controller+"/ping";
+
+  constructor(private http: HttpClient) {
+    super();
+  }
+
+  public doPing(): Observable<any> {
+    console.log(this.ping);
+
+    const httpOptions = {
+      headers: httpHeaders
+    };
+    return this.http.get(this.ping, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+}
+
+@Injectable()
 export class AuthenticationService {
 
   //https://jwt.io/introduction/
-  constructor(private userApi : UserApiService, private _localDatabase : LocalDatabaseService) {
-    
+  constructor(
+    private userApi : UserApiService, 
+    private _localDatabase : LocalDatabaseService,
+    private _infoService : InfoService) {
   }
 
   get localDatabase() : LocalDatabaseService {
     return this._localDatabase;
+  }
+
+  get infoService() : InfoService {
+    return this._infoService;
   }
 
   authenticate(entryUser : User, callback, sessionCallback) : void {

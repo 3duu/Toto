@@ -40,6 +40,8 @@ export class LanguageService {
     takePicture : string = "Tire uma foto do seu pet";
     description : string = "Descrição";
     view : string = "Visualizar";
+    years : string = "anos";
+    year : string = "ano";
     animal : string = "Qual o Pet?";
     addNewPet : string = "Adicionar Pet";
     welcome : string = "Bem vindo ao ";
