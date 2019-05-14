@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+//import { TextMaskModule } from 'angular2-text-mask';
 import { UserApiService, PetApiService, AuthenticationService, InfoService } from './service/services';
 import { MenuService } from './navbar/menuService';
 import { BrowserModule } from '@angular/platform-browser';
@@ -35,11 +35,12 @@ import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
+import { MatInputModule } from '@angular/material';
+import { DateFormat } from './utils';
 
 @NgModule({
   declarations: [
     AppComponent,
-    //NoopAnimationsModule,
     NavbarComponent,
     WelcomeComponent,
     MapsComponent,
@@ -75,10 +76,16 @@ import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
     ModalModule.forRoot(),
     BootstrapModalModule,
     BrowserModule,
+    //TextMaskModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatInputModule,
+    // MatMenuModule,
+    MatNativeDateModule,
+    // MatPaginatorModule,
+    // MatToolbarModule
   ],
   providers: [
     CordovaService, 
@@ -89,14 +96,19 @@ import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
     GoogleService, 
     InfoService,
     AuthenticationService, 
-    MenuService, 
+    MenuService,
+    { provide: DateAdapter, useClass: DateFormat },
     LanguageService,
     AuthGuardService,
     SessionService,
     MatDialog,
     Overlay,
     MatNativeDateModule,
-    MatDatepicker,],
+    MatDatepicker],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private dateAdapter : DateAdapter<Date>) {
+		dateAdapter.setLocale('en-in'); // DD/MM/YYYY
+	}
+}

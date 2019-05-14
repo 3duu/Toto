@@ -36,12 +36,17 @@ export class LanguageService {
     age : string = "Idade";
     ok : string = "OK";
     petType : string = "Animal";
+    birthDate : string = "Data de Nascimento";
     breed : string = "Qual a raça?";
     takePicture : string = "Tire uma foto do seu pet";
     description : string = "Descrição";
     view : string = "Visualizar";
     years : string = "anos";
     year : string = "ano";
+    month : string = "mês";
+    months : string = "meses";
+    day : string = "dia";
+    days : string = "dias";
     animal : string = "Qual o Pet?";
     addNewPet : string = "Adicionar Pet";
     welcome : string = "Bem vindo ao ";

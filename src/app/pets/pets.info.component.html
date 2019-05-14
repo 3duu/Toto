@@ -12,10 +12,12 @@
             </div>
     
             <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl />
+            <!-- <mat-form-field> -->
+                <input matInput class="ember-view ember-text-field form-control login-input" [max]="currentDate" [matDatepicker]="myDatepicker" (dateInput)="updateAge()" placeholder="{{language.birthDate}}" [(ngModel)]="pet.birthDate" ngDefaultControl>
+                <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #myDatepicker></mat-datepicker>
+            <!-- </mat-form-field> -->
             
-            <input class="ember-view ember-text-field form-control login-input" matInput [max]="currentDate" [matDatepicker]="myDatepicker" (dateChange)="updateAge()" (input)="updateAge()" [(ngModel)]="pet.birthDate">
-            <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
-            <mat-datepicker #myDatepicker></mat-datepicker>
             <input class="ember-view ember-text-field form-control login-input" value="{{age}}" placeholder="{{language.age}}" type="text" disabled="true" />
             <input class="ember-view ember-text-field form-control login-input-pass" [(ngModel)]="pet.description" placeholder="{{language.description}}" type="text" ngDefaultControl />
             <app-alert></app-alert>

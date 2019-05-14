@@ -1,12 +1,12 @@
 import { Breed } from './../entity/Pet';
-import { PETS_WIZARD_PAGE, PETS_PAGE } from './../application';
+import { PETS_WIZARD_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, Inject } from '@angular/core';
 import { PetApiService } from '../service/services';
 import { User } from '../entity/User';
 import { Pet, PetType } from '../entity/Pet';
-import { StringUtils, ObjectUtils } from '../utils';
+import { StringUtils, ObjectUtils, DateUtils } from '../utils';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { CordovaService } from '../cordova.service';
@@ -16,7 +16,6 @@ import { ReturnCode } from '../entity/system';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
 import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
-import $ from 'jquery';
 //import { writeFile } from 'fs';
 
 declare const Camera;
@@ -31,7 +30,7 @@ export class PetsComponent extends AppBase {
   private get menu(): NavbarComponent {
     return this.menuService.menu;
   }
-
+  
   private user : User;
   private _pets : Pet[];
 
@@ -48,14 +47,12 @@ export class PetsComponent extends AppBase {
   }
 
   ngOnInit() {
-    this.loading = true;
     this.menu.disable = false;
     this.menu.disableMenu = false;
     this.title = this.language.myPet;
     this.setTitle(this.menuService);
     this.user = this.session.getCurrentUser();
     this.setPets();  
-    this.loadPets();
   }
 
   private setPets() {
@@ -64,11 +61,12 @@ export class PetsComponent extends AppBase {
     }
   }
 
-  private loadPets() : void {
+  public loadPets() : void {
+
     if(!ObjectUtils.isEmpty(this.user)){
       const pets = this.api.getByUser(this.user);
       this.user.pets = [];
-
+      this.loading = true;
       pets.subscribe(result => {
         console.log(result);
         
@@ -248,6 +246,7 @@ export class PetInfoComponent extends AppBase {
   nextInput : ElementRef;
   previousInput : ElementRef;
   protected currentDate : Date;
+  protected mask = DateUtils.mask;
   
   ngOnInit() {
     this.setDate();
@@ -268,14 +267,29 @@ export class PetInfoComponent extends AppBase {
 
   protected updateAge() {
 
+    if(this.pet.birthDate > this.currentDate){
+      this.age = "";
+      return;
+    }
+
     if(!ObjectUtils.isEmpty(this.currentDate) && !ObjectUtils.isEmpty(this.pet.birthDate)) {
+
       const timeDiff = Math.abs(this.currentDate.getTime() - this.pet.birthDate.getTime());
       const age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25);
+
       if(age > 0) {
         this.age = age + " " + (age > 1 ? this.language.years : this.language.year);
       }
-      
-      console.log(age);
+      else {
+        const age = Math.floor((timeDiff / (1000 * 3600 * 24))/30);
+        if(age > 0){
+          this.age = age + " " + (age > 1 ? this.language.months : this.language.month).replace("-", "");
+        }
+        else {
+          const age = Math.floor((timeDiff / (1000 * 3600 * 24)));
+          this.age = age + " " + (age > 1 ? this.language.days : this.language.day).replace("-", "");
+        }
+      }
     }
   }
 
@@ -387,11 +401,15 @@ export class PetsWizardComponent extends AppBase {
   constructor(private menuService : MenuService,
     private session : SessionService,
     private api : PetApiService,
-    private router : Router) {
+    private router : Router,
+    private element : ElementRef,
+    private activatedRoute: ActivatedRoute,
+    @Inject(PetsComponent) private petsComponent: PetsComponent) {
     super();
   }
 
   ngOnInit() {
+
     this.loading = true;
     this.menu.disable = false;
     this.menu.disableMenu = false;
@@ -411,39 +429,38 @@ export class PetsWizardComponent extends AppBase {
     this.petPictureComponent.previousInput = this.previousInput;
     this.petTypeComponent.previousInput = this.previousInput;
     (<any>window).nextInput = this.nextInput;
-
-    const carousel = $('.carousel').carousel;
-    if(carousel != undefined){
-      carousel("pause");
-      alert("paused");
-    }
-
     this.petPictureComponent.callback = this.save;
+    console.log(this.petsComponent);
   }
 
   protected save = (pet : Pet) => {
     const pets = this.api.save(pet);
     pet.user = this.session.getCurrentUser();
+    this.loading = true;
+    this.element.nativeElement.hidden = this.loading;
 
     pets.subscribe(result => {
       console.log(result);
-
       this.loading = false;
+      this.element.nativeElement.hidden = this.loading;
 
       if(result.entity){
         if(result.code == ReturnCode.SUCCESS){
           if(result && result.sid) {
             this.session.zone.run(() => 
-            this.router.navigateByUrl(PETS_PAGE));
+            //this.router.navigateByUrl(PETS_PAGE));
+            this.router.navigate(['.'], { relativeTo: this.activatedRoute.parent }));
+            this.petsComponent.loadPets();
           }
         }
       }
-
+      
       if(result.code != ReturnCode.SUCCESS) {
         //this.alert.show(this.api.getErrorMessage(result, this.language), ColorClass.danger);
       }
     }, error => {
       this.loading = false;
+      this.element.nativeElement.hidden = this.loading;
       console.log(error);
     });
   }

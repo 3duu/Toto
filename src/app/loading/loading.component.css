@@ -1,0 +1,7 @@
+.center-loading {
+  position: fixed;
+  top: 50%;
+  left: 45%;
+  /* bring your own prefixes */
+  /* transform: translate(-50%, -50%); */
+}

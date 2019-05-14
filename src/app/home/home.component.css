@@ -1,10 +1,17 @@
 .index-icon {
     margin: 5px;
-    width: 26%;
-    font-size: 350%;
-    padding: 0;
+    width: 22%;
+    font-size: 315%;
 }
 
-.index-background {
-    background-color: rgb(232, 240, 254);
+.button-group {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.buttons {
+    max-width: 130%;
+    display: inline-block;
 }

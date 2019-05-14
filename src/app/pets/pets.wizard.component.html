@@ -1,5 +1,5 @@
-<div class="container default-background">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="false">
+<div class="container">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="false" data-interval="false">
         <ol class="carousel-indicators" style="position: fixed;">
             <li data-slide-to="0" class="active"></li>
             <li data-slide-to="1"></li>
@@ -7,17 +7,18 @@
             <!-- data-target="#carouselExampleIndicators" -->
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active" data-interval="false">
+            <div class="carousel-item active">
                 <app-pets-type></app-pets-type>
             </div>
-            <div class="carousel-item" data-interval="false">
+            <div class="carousel-item">
                 <app-pets-info></app-pets-info>
             </div>
-            <div class="carousel-item" data-interval="false">
+            <div class="carousel-item">
                 <app-pets-picture></app-pets-picture>
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" #previousInput style="position: fixed; display: none;" role="button" data-slide="prev"></a>
         <a class="carousel-control-next" href="#carouselExampleIndicators" #nextInput style="position: fixed; display: none;" role="button" data-slide="next"></a>
     </div>
+    <app-loading *ngIf="loading" [center]="true"></app-loading>
 </div>

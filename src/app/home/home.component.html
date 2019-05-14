@@ -1,16 +1,37 @@
-<div class="container text-center">
+<div class="container">
   <br>
   <br>
-  <div>
-    <p>
-      <a class="btn btn-primary index-icon" href="javascript:;" (click)="maps()"><i class="fas fa-shopping-basket"></i></a>&nbsp;
-      <a class="btn btn-toppet index-icon" href="javascript:;" (click)="appointments()"><i class="fa fa-calendar"></i></a>
-    </p>
-    <p>
-      <a class="btn btn-orange index-icon" href="javascript:;" (click)="pets()"><i class="fa fa-paw"></i></a>&nbsp;
-      <a class="btn btn-pink index-icon" href="javascript:;" (click)="donations()"><i class="fa fa-hands-helping"></i></a>
-    </p>
-  </div>
+  <div></div>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="false" data-interval="false">
+        <ol class="carousel-indicators" style="position: fixed;">
+            <li data-slide-to="0" class="active"></li>
+            <li data-slide-to="1"></li>
+            <li data-slide-to="2"></li>
+            <!-- data-target="#carouselExampleIndicators" -->
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+
+            </div>
+            <div class="carousel-item">
+
+            </div>
+            <div class="carousel-item">
+              
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" #previousInput style="position: fixed; display: none;" role="button" data-slide="prev"></a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" #nextInput style="position: fixed; display: none;" role="button" data-slide="next"></a>
+    </div>
+    <div class="button-group">
+      <div class="buttons">
+          <a class="btn btn-toppet index-icon" href="javascript:;" (click)="appointments()"><i class="fa fa-calendar"></i></a>
+          <a class="btn btn-toppet index-icon" href="javascript:;" (click)="maps()"><i class="fas fa-shopping-basket"></i></a>&nbsp;
+          <a class="btn btn-toppet index-icon" href="javascript:;" (click)="pets()"><i class="fa fa-paw"></i></a>&nbsp;
+          <a class="btn btn-toppet index-icon" href="javascript:;" (click)="donations()"><i class="fa fa-hands-helping"></i></a>
+      </div>
+    </div>
+    <app-loading *ngIf="loading" [center]="true"></app-loading>
   <br>
   <br>
 </div>
