@@ -1,5 +1,5 @@
 import { Breed } from './../entity/Pet';
-import { PETS_WIZARD_PAGE } from './../application';
+import { PETS_WIZARD_PAGE, APPOINTMENTS_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, ViewChild, ElementRef, Inject } from '@angular/core';
@@ -92,7 +92,7 @@ export class PetsComponent extends AppBase {
   }
 
   protected view(pet : Pet) : void {
-    alert("Visualizar");
+    this.router.navigateByUrl(APPOINTMENTS_PAGE);
   }
 
   //https://mdbootstrap.com/docs/angular/modals/basic/

@@ -9,14 +9,14 @@
                         <p><img class="img-fluid" src="{{pet.img}}"></p>
                         <h4 class="card-title">{{pet.name}}</h4>
                         <p class="card-text">{{pet.description}}</p>
-                        <a href="javascript:;" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                        <a href="javascript:;" (click)="view(pet)" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
                     </div>
                 </div>
             </div>
           </div>
       </div>
   </div>
-  <a href="javascript:;" class="float bg-toppet" (click)="add()" [ngClass]="{ 'button-disabled': dialog }">
+  <a href="javascript:;" class="float bg-toppet" (click)="add()">
     <i class="fa fa-plus my-float" styles="z-index:9999;"></i>
   </a>
 </section>
