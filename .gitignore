@@ -10,7 +10,6 @@
 # dependencies
 /node_modules/*
 !/node_modules/.bin
-!/node_modules/typeorm
 !/node_modules/bootstrap
 !/node_modules/font-awesome
 !/node_modules/tls
@@ -24,13 +23,12 @@
 !/node_modules/cordova-sqlite-storage-dependencies
 !/node_modules/ansi-escapes
 !/node_modules/browserify-zlib
-!/node_modules/base64-js
 !/node_modules/path
 !/node_modules/stream
-!/node_modules/sqlite3
 !/node_modules/angular-cordova
 !/node_modules/ngx-modialog
 !/node_modules/ng-bootstrap
+!/node_modules/popper.js
 
 # profiling files
 chrome-profiler-events.json
