@@ -26,7 +26,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MapsComponent } from './maps/maps.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { LanguageService } from './language/Language';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { SessionService } from './session/session.service';
 import { AppointmentsComponent } from './appointments/appointments.component';
@@ -37,6 +36,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
 import { MatInputModule } from '@angular/material';
 import { DateFormat } from './utils';
+import { TutorialComponent } from './tutorial/tutorial.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +60,7 @@ import { DateFormat } from './utils';
     BreedPickerComponent,
     LoadingComponent,
     PetsWizardComponent,
+    TutorialComponent,
   ],
   entryComponents: [
     SignInComponent,
@@ -98,7 +99,6 @@ import { DateFormat } from './utils';
     AuthenticationService, 
     MenuService,
     { provide: DateAdapter, useClass: DateFormat },
-    LanguageService,
     AuthGuardService,
     SessionService,
     MatDialog,

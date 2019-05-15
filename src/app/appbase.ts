@@ -1,33 +1,44 @@
 import { environment } from './../environments/environment';
-import { OnInit } from '@angular/core';
+import { OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
 import { LanguageService } from './language/Language';
 import { MenuService } from './navbar/menuService';
 
 //https://malcoded.com/posts/why-angular-not-works/
-export class AppBase implements OnInit /** AfterContentInit */ {
-  
-    protected applicationName : string = environment.name;
-    private static _language : LanguageService = new LanguageService();
-    protected loading = false;
-    title : string = this.applicationName;
+export class AppBase implements OnInit, AfterContentInit, AfterViewInit {
 
-    get language() {
-      return AppBase._language;
-    }
+  protected applicationName : string = environment.name;
+  private static _language : LanguageService = new LanguageService();
+  protected loading = false;
+  title : string = this.applicationName;
 
-    setTitle(menuService : MenuService) {
-      menuService.menu.title = this.title;
+  get language() {
+    return AppBase._language;
+  }
+
+  setTitle(menuService : MenuService) {
+    menuService.menu.title = this.title;
+  }
+
+  constructor(){
+    if((<any>window).components == undefined){
+      (<any>window).components = [];
     }
-  
-    constructor(){
-      if((<any>window).components == undefined){
-        (<any>window).components = [];
-      }
-      (<any>window).components.push(this);
-    }
-  
-    ngOnInit(): void {
-      
-    }
+    (<any>window).components.push(this);
+  }
+
+  protected removeTutorials() {
+    $(".tooltip").remove();
+  }
+
+  ngOnInit(): void {
+    this.removeTutorials();
+  }
+
+  ngAfterViewInit(): void {
     
   }
+  ngAfterContentInit(): void {
+    
+  }
+    
+}

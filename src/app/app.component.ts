@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   // Keep track of list of generated components for removal purposes
   @ViewChild(NavbarComponent) private menu : NavbarComponent;
 
-  constructor(private router: Router, private session: SessionService, private menuService : MenuService) {
+  constructor(private router : Router, private session : SessionService, private menuService : MenuService) {
   
   }
 

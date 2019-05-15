@@ -1,0 +1,8 @@
+button, .mat-icon-button {
+    color: #563d7c;
+}
+
+.mat-icon-button, svg {
+    color: gray;
+}
+

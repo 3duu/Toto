@@ -90,11 +90,6 @@ public class PetController {
 		
 		try {
 			final List<PetType> list = petTypeRepository.getAll();
-//			list.stream().forEach( type -> {
-//				type.getBreeds().stream().forEach( breed -> {
-//					breed.setPetType(null);
-//				});
-//			});
 			response = new ResponseEntity<List<PetType>>(list, RequestContextHolder.currentRequestAttributes().getSessionId());
 			if(response.getEntity() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
@@ -110,5 +105,25 @@ public class PetController {
 		}
         return response;
 	}
+	
+	@Transactional
+	@PostMapping(value="/remove", produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<Pet> remove(@RequestBody final Pet pet) {
+		final ResponseEntity<Pet> response = new ResponseEntity<Pet>(null, RequestContextHolder.currentRequestAttributes().getSessionId());
+		try {
+			petRepository.delete(pet);
+			if(response.getEntity() != null) {
+				response.setCode(ReturnCode.SUCCESS.getValue());
+			} else {
+				response.setCode(ReturnCode.SERVER_ERROR.getValue());
+			}
+		}
+		catch(Exception e){
+			response.setCode(ReturnCode.SERVER_ERROR.getValue());
+			e.printStackTrace();
+		}
+		
+        return response;
+    }
 
 }

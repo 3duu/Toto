@@ -10,4 +10,6 @@ public interface IPetRepository {
 
 	Pet insert(Pet pet);
 
+	void delete(Pet pet);
+
 }

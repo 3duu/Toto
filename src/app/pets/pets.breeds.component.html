@@ -6,7 +6,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body breeds-modal-body">
+    <div class="modal-body breeds-modal-body" #modalBody>
         <div class="row">
             <ul class="list-group">
               <li class="list-group-item" *ngFor="let b of type.breeds" (click)="select(b)" style="height: 65px !important; line-height:65px;">

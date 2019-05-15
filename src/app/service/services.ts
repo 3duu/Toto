@@ -125,6 +125,7 @@ export class PetApiService extends ApiService {
   private register = this.controller+"/register";
   private types = this.controller+"/types";
   private breeds = this.controller+"/breeds";
+  private remove = this.controller+"/remove";
 
   constructor(private http: HttpClient) {
     super();
@@ -171,6 +172,17 @@ export class PetApiService extends ApiService {
     
 
     return this.http.post<User>(this.register, pet, httpDefaultOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public delete(pet: Pet): Observable<any> {
+
+    console.log(this.remove);
+    console.log(pet);
+    
+    return this.http.post<User>(this.remove, pet, httpDefaultOptions)
     .pipe(
       catchError(this.handleError)
     );

@@ -1,3 +1,4 @@
+import { TutorialComponent } from './../tutorial/tutorial.component';
 import { Breed } from './../entity/Pet';
 import { PETS_WIZARD_PAGE, APPOINTMENTS_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
@@ -16,7 +17,6 @@ import { ReturnCode } from '../entity/system';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
 import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
-//import { writeFile } from 'fs';
 
 @Component({
   selector: 'app-pets',
@@ -24,6 +24,15 @@ import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
   styleUrls: ['./pets.component.css']
 })
 export class PetsComponent extends AppBase {
+
+  constructor(private api : PetApiService, 
+    private menuService : MenuService,
+    private session : SessionService,
+    private router : Router,
+    private activatedRoute : ActivatedRoute,
+    private cordova : CordovaService) {
+    super();
+  }
 
   private get menu(): NavbarComponent {
     return this.menuService.menu;
@@ -34,17 +43,28 @@ export class PetsComponent extends AppBase {
   protected menuEntries = [];
   private contextMenu : any;
 
-  constructor(private api : PetApiService, 
-    private menuService : MenuService,
-    private session : SessionService,
-    private router : Router,
-    private activatedRoute: ActivatedRoute,
-    private cordova : CordovaService) {
-    super();
-  }
+  @ViewChild("addButton") private addButton;
+  @ViewChild(TutorialComponent) tutorialComponent : TutorialComponent;
 
   get pets() : Pet[] {
     return this._pets;
+  }
+
+  ngOnInit() {
+    this.menu.disable = false;
+    this.menu.disableMenu = false;
+    this.title = this.language.myPet;
+    this.setTitle(this.menuService);
+    this.user = this.session.getCurrentUser();
+    this.createContextMenu();
+    this.setPets();
+  }
+
+  ngAfterViewInit() {
+    this.cordova.window.float = this.addButton.nativeElement;
+    if(!this.loading && (this.user == undefined || this.user.pets == undefined || this.user.pets.length == 0)){
+      setTimeout(() => this.tutorialComponent.show());
+    }
   }
 
   private createContextMenu() {
@@ -85,16 +105,6 @@ export class PetsComponent extends AppBase {
     console.log('You clicked the entry with an id of ' + ele);
   }
 
-  ngOnInit() {
-    this.menu.disable = false;
-    this.menu.disableMenu = false;
-    this.title = this.language.myPet;
-    this.setTitle(this.menuService);
-    this.user = this.session.getCurrentUser();
-    this.createContextMenu();
-    this.setPets();  
-  }
-
   private setPets() {
     if(!ObjectUtils.isEmpty(this.user)){
       this._pets = this.user.pets;
@@ -104,39 +114,62 @@ export class PetsComponent extends AppBase {
   public loadPets() : void {
 
     if(!ObjectUtils.isEmpty(this.user)){
+
       const pets = this.api.getByUser(this.user);
       this.user.pets = [];
       this.loading = true;
       pets.subscribe(result => {
+
         console.log(result);
-        
-        //this.user.pets = result;
         this.loading = false;
 
         if(result.code == ReturnCode.SUCCESS){
           if (result && result.sid) {
             if(result.entity){
               this.user.pets = result.entity;
-              //this.setPets();
             }
           }
         }
         else  {
-          //alert(this.api.getErrorMessage(result, this.language));
         }
-      }, error => {
+      } ,error => {
         console.error(error);
         this.loading = false;
       });
     }
   }
 
-  protected view(pet : Pet) : void {
-    this.router.navigateByUrl(APPOINTMENTS_PAGE);
+  public removePet(pet : Pet) {
+    const res = this.api.delete(pet);
+
+    res.subscribe(result => {
+
+      console.log(result);
+      this.loading = false;
+
+      if(result.code == ReturnCode.SUCCESS){
+        for(let i = 0; i < this.user.pets.length; i++) {
+          if(this.user.pets[0].id == pet.id){
+            this.user.pets.splice(i,i);
+            return;
+          }
+        }
+      }
+    }, error => {
+      console.error(error);
+      this.loading = false;
+    });
   }
 
-  //https://mdbootstrap.com/docs/angular/modals/basic/
+  protected view(pet : Pet) : void {
+    if(!ObjectUtils.isEmpty(pet.id)){
+      this.router.navigateByUrl(APPOINTMENTS_PAGE);
+    }
+  }
+
   protected add() : void {
+    //this.setTutorial(this.hide);
+    this.removeTutorials();
     this.session.zone.run(() => 
       this.router.navigate([PETS_WIZARD_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute}));
   }
@@ -151,8 +184,6 @@ export class PetsComponent extends AppBase {
 })
 export class PetTypeComponent extends AppBase {
 
-  private dialog : boolean = false;
-  
   types : PetType[] = [];
   pet : Pet;
   nextInput : ElementRef;
@@ -195,18 +226,18 @@ export class PetTypeComponent extends AppBase {
 
     if(selected.breeds != undefined && selected.breeds.length > 0){
       
-      this.dialog = true;
+      //this.dialog = true;
       const dialogRef = this.modal
         .open(BreedPickerComponent, overlayConfigFactory({ isBlocking: false , data : {type : selected} }, BSModalContext));
 
       dialogRef.result
-        .then( res => {
+        .then(res => {
           if(!ObjectUtils.isEmpty(res) &&  res.result)
             this.selectPetType(selected, res.breed)
           });
 
       dialogRef.onDestroy.subscribe(() => {
-        this.dialog = false;
+        //this.dialog = false;
       });
     }
   }
@@ -236,24 +267,25 @@ export class PetTypeComponent extends AppBase {
   templateUrl: './pets.breeds.component.html',
   styleUrls: ["./pets.picker.component.css"]
 })
-export class BreedPickerComponent extends AppBase {
+export class BreedPickerComponent extends AppBase  {
 
   private type : PetType;
 
-  constructor(private dialogRef : DialogRef<any>, private menuService : MenuService, private element : ElementRef) {
+  constructor(private dialogRef : DialogRef<any>) {
     super();
     const data = this.dialogRef.context.data;
     if(data != undefined){
       this.type = data.type;
     }
   }
-  
-  ngOnInit() {
-    const modalBody = this.element.nativeElement.children[0].children[0].children[1];
-    modalBody.style.overflowY = "auto";
-    modalBody.style.overflowX = "hidden";
+
+  @ViewChild("modalBody") private modalBody;
+
+  ngAfterViewInit(): void {
+    this.modalBody.nativeElement.style.overflowY = "auto";
+    this.modalBody.nativeElement.style.overflowX = "hidden";
     const maxHeight = ((window.innerHeight - 30) + "px");
-    modalBody.style.maxHeight = maxHeight;
+    this.modalBody.nativeElement.style.maxHeight = maxHeight;
   }
   
   select(selected : Breed) : void {
@@ -277,7 +309,7 @@ export class PetInfoComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
-  constructor(private session : SessionService, private cordova : CordovaService){
+  constructor(private session : SessionService/*, private cordova : CordovaService*/){
     super();
   }
 
@@ -295,14 +327,12 @@ export class PetInfoComponent extends AppBase {
   private setDate() {
 
     const ping = this.session.authenticationService.infoService.doPing();
-
     ping.subscribe(result => {
 
       if(result.code == ReturnCode.SUCCESS) {
         this.currentDate = new Date(result.date);
       }
     });
-
   }
 
   protected updateAge() {
@@ -470,10 +500,10 @@ export class PetsWizardComponent extends AppBase {
     this.petTypeComponent.previousInput = this.previousInput;
     (<any>window).nextInput = this.nextInput;
     this.petPictureComponent.callback = this.save;
-    console.log(this.petsComponent);
   }
 
   protected save = (pet : Pet) => {
+
     const pets = this.api.save(pet);
     pet.user = this.session.getCurrentUser();
     this.loading = true;
