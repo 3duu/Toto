@@ -16,9 +16,15 @@
           </div>
       </div>
   </div>
-  <a href="javascript:;" class="float bg-toppet" (click)="add()">
-    <i class="fa fa-plus my-float" styles="z-index:9999;"></i>
+  <a href="javascript:;" data-toggle="tooltip" data-placement="top" title="{{language.addPetTutotial}}" class="float bg-toppet" (click)="add()">
+    <i class="fa fa-plus my-float"></i>
   </a>
+  <!-- <div class="tooltip bs-tooltip-top" role="tooltip">
+    <div class="arrow"></div>
+    <div class="tooltip-inner">
+      {{language.addPetTutotial}}
+    </div>
+  </div> -->
+  <app-loading *ngIf="loading" [center]="true"></app-loading>
 </section>
-<app-loading *ngIf="loading" [center]="true"></app-loading>
 <router-outlet #outlet="outlet"></router-outlet>

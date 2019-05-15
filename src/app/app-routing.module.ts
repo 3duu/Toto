@@ -21,7 +21,7 @@ const routes: Routes = [
     { path: PETS_WIZARD_INFO_PAGE, component: PetInfoComponent},
     { path: PETS_WIZARD_PIC_PAGE, component: PetPictureComponent},
   ] },
-  {path: '**', redirectTo: WELCOME_PAGE}
+  {path: '**', redirectTo: LOGIN_PAGE}
 ];
 
 @NgModule({

@@ -395,6 +395,22 @@ module.exports = [
         "clobbers": [
             "SQLitePlugin"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-context-menu/www/ContextMenu.js",
+        "id": "cordova-plugin-context-menu.ContextMenu",
+        "pluginId": "cordova-plugin-context-menu",
+        "clobbers": [
+            "ContextMenu"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-context-menu/src/browser/ContextMenuProxy.js",
+        "id": "cordova-plugin-context-menu.ContextMenuProxy",
+        "pluginId": "cordova-plugin-context-menu",
+        "merges": [
+            ""
+        ]
     }
 ];
 module.exports.metadata = 
@@ -408,7 +424,8 @@ module.exports.metadata =
     "cordova-plugin-safariviewcontroller": "1.5.4",
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-camera": "4.0.3",
-    "cordova-sqlite-storage": "3.2.0"
+    "cordova-sqlite-storage": "3.2.0",
+    "cordova-plugin-context-menu": "0.1.1"
 }
 // BOTTOM OF METADATA
 });

@@ -8,7 +8,9 @@ function _window(): any {
  return window;
 }
 
-declare let device;
+declare const device;
+declare const ContextMenu;
+declare const Camera;
 
 //https://medium.com/@EliaPalme/how-to-wrap-an-angular-app-with-apache-cordova-909024a25d79
 @Injectable()
@@ -33,6 +35,18 @@ export class CordovaService {
       return _window();
    }
 
+   get Camera() {
+      return Camera;
+   }
+
+   get ContextMenu() {
+      return ContextMenu;
+   }
+
+   get device() {
+      return device;
+   }
+
    get onCordova(): boolean {
     return !!_window().cordova;
     }
@@ -41,12 +55,12 @@ export class CordovaService {
    }
 
    get devicePlatform() : string {
-      return device.platform;
+      return device != undefined ? device.platform : "browser";
    }
 
    get isBrowser() : boolean {
       try {
-         return !ObjectUtils.isEmpty(device) && device.platform == "browser";
+         return this.devicePlatform == "browser";
       }
       catch(e){
          console.error(e);

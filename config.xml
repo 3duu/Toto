@@ -56,4 +56,5 @@
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
     <plugin name="cordova-sqlite-storage" spec="3.2.0" />
     <engine name="android" spec="^7.1.4" />
+    <plugin name="cordova-plugin-context-menu" spec="0.1.1" />
 </widget>

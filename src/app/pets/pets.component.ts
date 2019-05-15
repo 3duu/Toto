@@ -18,8 +18,6 @@ import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
 import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
 //import { writeFile } from 'fs';
 
-declare const Camera;
-
 @Component({
   selector: 'app-pets',
   templateUrl: './pets.component.html',
@@ -33,17 +31,58 @@ export class PetsComponent extends AppBase {
   
   private user : User;
   private _pets : Pet[];
+  protected menuEntries = [];
+  private contextMenu : any;
 
   constructor(private api : PetApiService, 
     private menuService : MenuService,
     private session : SessionService,
     private router : Router,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    private cordova : CordovaService) {
     super();
   }
 
   get pets() : Pet[] {
     return this._pets;
+  }
+
+  private createContextMenu() {
+
+    this.menuEntries = [];
+
+    this.menuEntries.push({
+        title: 'Entry 1',
+        id: 'test'
+    });
+    this.menuEntries.push({
+        title: 'Entry 2',
+        id: 'foo'
+    });
+    this.menuEntries.push({
+        title: '',
+        id: '',
+        isSeparator: true
+    });
+    this.menuEntries.push({
+        title: 'Entry 3',
+        id: 'bar'
+    });
+ 
+    this.contextMenu = {
+      title: 'Pet',
+      items: this.menuEntries,
+      x: 0,
+      y: 0
+    }
+  }
+
+  openContextMenu() {
+    this.cordova.ContextMenu.open(this.contextMenu, this.onMenu);
+  }
+
+  private onMenu = (ele) => {
+    console.log('You clicked the entry with an id of ' + ele);
   }
 
   ngOnInit() {
@@ -52,6 +91,7 @@ export class PetsComponent extends AppBase {
     this.title = this.language.myPet;
     this.setTitle(this.menuService);
     this.user = this.session.getCurrentUser();
+    this.createContextMenu();
     this.setPets();  
   }
 
@@ -132,8 +172,7 @@ export class PetTypeComponent extends AppBase {
     response.subscribe(result => {
 
       console.log(result);
-      
-      this.loading = false;
+
       if(result.code == ReturnCode.SUCCESS){
 
         if (result && result.sid) {
@@ -145,6 +184,7 @@ export class PetTypeComponent extends AppBase {
       else {
         //alert(this.api.getErrorMessage(result, this.language));
       }
+      this.loading = false;
     } ,error => {
       console.log(error);
       this.loading = false;
@@ -237,7 +277,7 @@ export class PetInfoComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
-  constructor(private session : SessionService){
+  constructor(private session : SessionService, private cordova : CordovaService){
     super();
   }
 
@@ -363,10 +403,10 @@ export class PetPictureComponent extends AppBase {
     if(!this.phonegap.isBrowser && !ObjectUtils.isEmpty(this.phonegap.window.navigator.camera)){
       const cameraOptions = {
         quality: 100,
-        destinationType: Camera.DestinationType.FILE_URI,
-        sourceType: Camera.PictureSourceType.CAMERA,
+        destinationType: this.phonegap.Camera.DestinationType.FILE_URI,
+        sourceType: this.phonegap.Camera.PictureSourceType.CAMERA,
         allowEdit: false,
-        encodingType: Camera.EncodingType.JPEG,
+        encodingType: this.phonegap.Camera.EncodingType.JPEG,
         saveToPhotoAlbum: false
       };
       this.phonegap.window.navigator.camera.getPicture(onCameraSuccess, onCameraFail, cameraOptions);

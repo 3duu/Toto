@@ -72,6 +72,10 @@ export class LanguageService {
     invalidPassword : string = "Senha deve conter pelo menos :min caracteres";
     passwordDoesntMatch : string = "Confirmação de senha não corresponde com senha";
 
+    //Tutotial
+
+    addPetTutotial : string = "Clique aqui para começar a cuidar o seu pet!";
+
     links : Links = new Links();
 }
 

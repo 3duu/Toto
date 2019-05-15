@@ -42,7 +42,8 @@
         "FACEBOOK_ANDROID_SDK_VERSION": "4.40.0"
       },
       "cordova-plugin-camera": {},
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-context-menu": {}
     },
     "platforms": [
       "android"
@@ -77,6 +78,7 @@
     "cordova-android": "^7.1.4",
     "cordova-browser": "^5.0.4",
     "cordova-plugin-camera": "4.0.3",
+    "cordova-plugin-context-menu": "0.1.1",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-facebook4": "4.2.1",
     "cordova-plugin-geolocation": "4.0.1",
@@ -92,6 +94,7 @@
     "ngx-bootstrap": "^3.2.0",
     "ngx-modialog": "^5.0.1",
     "phonegap": "^8.2.2",
+    "popper.js": "^1.15.0",
     "rxjs": "^6.4.0",
     "stream": "0.0.2",
     "tls": "0.0.1",

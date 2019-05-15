@@ -87,5 +87,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-context-menu": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-context-menu"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }
