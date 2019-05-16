@@ -407,11 +407,11 @@ export class PetPictureComponent extends AppBase {
     this.title = this.language.takePicture;
   }
 
-  protected camera() : void {
-    /*this.phone.window.navigator.camera.getPicture(onSuccess, onFail, { quality: 70,
-        destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
-    });*/
+  protected camera() {
+
+    if(this.loading){
+      return;
+    }
 
     let onCameraSuccess = (imageURL) => {
       console.log(imageURL);
@@ -419,10 +419,6 @@ export class PetPictureComponent extends AppBase {
       if(this.phonegap.isBrowser){
         //this.pet.img = 'data:image/jpg;base64,' + this.pet.img;
         this.pet.img = "assets/img/rottweiler-sample.jpg";
-      }
-      //this.saveImage(imageURL);
-      if(this.callback != undefined){
-        this.callback(this.pet);
       }
     }
       
@@ -446,6 +442,15 @@ export class PetPictureComponent extends AppBase {
     }
   }
 
+  protected submit() {
+    if(this.loading){
+      return;
+    }
+    this.loading = true;
+    if(this.callback != undefined){
+      this.callback(this.pet);
+    }
+  }
 }
 
 ////////////////////////////////////////////////////

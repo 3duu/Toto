@@ -1,4 +1,4 @@
-import { MAPS_PAGE, PETS_PAGE } from './../application';
+import { MAPS_PAGE, PETS_PAGE, APPOINTMENTS_PAGE } from './../application';
 import { MenuService } from './../navbar/menuService';
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
@@ -37,7 +37,7 @@ export class HomeComponent extends AppBase {
   }
 
   appointments(): void {
-    alert("Agenda");
+    this.router.navigateByUrl(APPOINTMENTS_PAGE);
   }
 
   pets(): void {

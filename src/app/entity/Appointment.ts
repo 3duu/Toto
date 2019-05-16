@@ -7,23 +7,14 @@ export class Appointment {
 
     date : Date;
 
-    appointmentType : AppointmentType;
+    //appointmentType : AppointmentType;
 
     time : string;
     
-    pets: Pet[];
+    pet : Pet;
+
+    user : User;
 
     constructor() { }
-  
-    ngOnInit() {
-    }
-
-    getUser() : User {
-        if(this.pets != null && this.pets != undefined){
-            return this.pets[0].user;
-        }
-       
-        return null;
-    }
   
 }
