@@ -1,8 +1,4 @@
-button, .mat-icon-button {
-    color: #563d7c;
-}
-
-.mat-icon-button, svg {
-    color: gray;
+.input-group-date {
+    background-color: #563d7c;
 }
 

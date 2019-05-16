@@ -1,31 +1,28 @@
-<div class="container text-center">
+<div class="container text-center" style="height: 90%">
     <div class="form-signin">
         <!-- <h2 class="form-signin-heading" style="color: white !important">{{language.addNewPet}}</h2> -->
         <br>
         <div class="input-group mb-3" *ngIf="pet.breed.id">
             <div class="input-group-prepend">
-                <span class="input-group-text"><a href="javascript:;" (click)="back()"><i [ngClass]="'fa fa-' + pet.petType.icon" style="float: right; font-size: 235%;"></i></a></span>
+                <span class="input-group-text bg-toppet"><a href="javascript:;" class="btn-toppet" (click)="back()"><i [ngClass]="'fa fa-' + pet.petType.icon" style="float: right; font-size: 235%;"></i></a></span>
             </div>
             <input type="text" style="height: auto; font-size: 22px; background-color: transparent; color: white;" disabled="true" class="form-control" value="{{pet.breed.description}}" aria-describedby="basic-addon1">
         </div>
         <input class="ember-view ember-text-field form-control login-input" [(ngModel)]="pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl />
-        <div class="input-group mb-3">
-            <input matInput style="height: auto;" aria-describedby="basic-addon1" class="form-control" [max]="currentDate" [matDatepicker]="myDatepicker" (dateInput)="updateAge()" placeholder="{{language.birthDate}}" [(ngModel)]="pet.birthDate" ngDefaultControl>
+        <div class="input-group" style="height: 47px; margin-bottom: -2px;">
+            <input matInput style="height: auto;" style="height: 47px;" aria-describedby="basic-addon1" class="ember-view ember-text-field form-control login-input" [max]="currentDate" [matDatepicker]="myDatepicker" (dateInput)="updateAge()" placeholder="{{language.birthDate}}" [(ngModel)]="pet.birthDate" ngDefaultControl>
             <div class="input-group-append">
-                <span class="input-group-text">
+                <span class="input-group-text input-group-date" style="height: 47px;">
                     <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
                 </span>
             </div>
         </div>
         <mat-datepicker #myDatepicker></mat-datepicker>
-        <!-- <mat-form-field> -->
-            
-        <!-- </mat-form-field> -->
         <input class="ember-view ember-text-field form-control login-input" value="{{age}}" placeholder="{{language.age}}" type="text" disabled="true" />
         <input class="ember-view ember-text-field form-control login-input-pass" [(ngModel)]="pet.description" placeholder="{{language.description}}" type="text" ngDefaultControl />
         <app-alert></app-alert>
     </div>
-    <button class="btn btn-toppet btn-lg" (click)="next()">{{language.ok}}</button>
+    <a href="javascript:;" class="btn btn-toppet btn-bottom btn-round" style="position: fixed; margin-bottom: 16%; right: 40%;" (click)="next()"><i class="fa fa-check"></i></a>
 </div>
 
   
