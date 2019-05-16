@@ -26,12 +26,8 @@ export class AppBase implements OnInit, AfterContentInit, AfterViewInit {
     (<any>window).components.push(this);
   }
 
-  protected removeTutorials() {
-    $(".tooltip").remove();
-  }
-
   ngOnInit(): void {
-    this.removeTutorials();
+
   }
 
   ngAfterViewInit(): void {

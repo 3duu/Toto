@@ -168,8 +168,6 @@ export class PetsComponent extends AppBase {
   }
 
   protected add() : void {
-    //this.setTutorial(this.hide);
-    this.removeTutorials();
     this.session.zone.run(() => 
       this.router.navigate([PETS_WIZARD_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute}));
   }

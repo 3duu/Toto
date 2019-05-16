@@ -37,7 +37,7 @@ class ApiService {
   protected endpoint : string;
 
   constructor() {
-    this.endpoint = endpoints.local;
+    this.endpoint = endpoints.home;
     console.log(this.endpoint);
   }
 
