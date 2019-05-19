@@ -53,7 +53,11 @@ export class LoginComponent extends AppBase {
     this.google.stopLoading();
     this.signin.stopLoading();
 
-    if(eventArgs.code == ReturnCode.SUCCESS){
+    if(eventArgs == undefined) {
+      return;
+    }
+
+    if(eventArgs != undefined && eventArgs.code == ReturnCode.SUCCESS){
       this.session.onLogged(null, this.router, this.menu);
     }
     else {

@@ -34,7 +34,7 @@ import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatInput, MatSuffix, MatIconModule, MatIcon } from '@angular/material';
 import { DateFormat } from './utils';
 import { TutorialComponent } from './tutorial/tutorial.component';
 
@@ -85,6 +85,8 @@ import { TutorialComponent } from './tutorial/tutorial.component';
     MatInputModule,
     // MatMenuModule,
     MatNativeDateModule,
+    MatInputModule,
+    MatIconModule
     // MatPaginatorModule,
     // MatToolbarModule
   ],
@@ -104,7 +106,10 @@ import { TutorialComponent } from './tutorial/tutorial.component';
     MatDialog,
     Overlay,
     MatNativeDateModule,
-    MatDatepicker],
+    MatDatepicker,
+    MatInput,
+    MatIcon,
+    MatSuffix],
   bootstrap: [AppComponent]
 })
 export class AppModule {

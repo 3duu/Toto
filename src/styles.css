@@ -1,7 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-/* @import '~assets/font-awesome/css/all.min.css'; */
-@import "~@angular/material/prebuilt-themes/purple-green.css";
-
 .button-disabled {
     display: none !important;
 }
@@ -115,12 +111,10 @@
 }
 
 .default-background {
-    background-image: url("assets/img/bg.jpg");
-    background-repeat: round;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
+    background: url("assets/img/bg.jpg");
     background-color: #563d7c;
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
 .text-muted {
@@ -295,8 +289,6 @@ input {
 }
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body { font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

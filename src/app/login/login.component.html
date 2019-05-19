@@ -2,7 +2,7 @@
 <script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
 <div class="container text-center default-background">
     <form class="form-signin" #loginForm="ngForm">
-        <h2 class="form-signin-heading">{{language.signIn}}</h2>
+        <h2 class="form-signin-heading" style="color: white;">{{language.signIn}}</h2>
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
         <br><br>
         <p>
@@ -14,8 +14,15 @@
         <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>
         <br>
         
-        <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.username}}" type="text" name="username" id="username" ngModel><!-- required -->
-        <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel>
+        <mat-form-field>
+            <input matInput placeholder="{{language.username}}" name="username" id="username" ngModel>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="{{language.password}}" [type]="hide ? 'password' : 'text'" name="password" id="password" ngModel>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+        <!-- <input class="ember-view ember-text-field form-control login-input" placeholder="{{language.username}}" type="text" name="username" id="username" ngModel>
+        <input class="ember-view ember-text-field form-control login-input-pass" placeholder="{{language.password}}" type="password" name="password" id="password" ngModel> -->
 
         <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
         <app-alert></app-alert>
@@ -23,5 +30,5 @@
         <login-button [hidden]="loading" classes="btn btn-lg btn-toppet btn-block btn-center" [form]="loginForm" (begin)="onLoginInit()" (done)="onLoginEnd($event)">{{language.signIn}}</login-button>
         <br>
     </form>
-    <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button class="ember-view btn btn-sm btn-default" (click)="register()"> <b>{{language.register}} </b></button> </small>
+    <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button style="color: white;" class="ember-view btn btn-sm btn-default" (click)="register()"> <b>{{language.register}} </b></button> </small>
 </div>
