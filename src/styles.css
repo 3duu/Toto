@@ -292,3 +292,12 @@ input {
 html,
 body { font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 56px;
+}
+

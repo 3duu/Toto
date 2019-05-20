@@ -66,6 +66,8 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
            		.permitAll()
            .antMatchers("/info/**")
 	           .permitAll()
+           .antMatchers("/appointments/**")
+           .permitAll()
 	       .antMatchers("/permissions")
 	           .permitAll()
 	       .anyRequest()

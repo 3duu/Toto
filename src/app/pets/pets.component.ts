@@ -121,15 +121,16 @@ export class PetsComponent extends AppBase {
         console.log(result);
         this.loading = false;
 
-        if(result.code == ReturnCode.SUCCESS){
-          if (result && result.sid) {
+        if (result && result.sid) {
+          if(result.code == ReturnCode.SUCCESS){
             if(result.entity){
               this.user.pets = result.entity;
             }
           }
+          else  {
+          }
         }
-        else  {
-        }
+        
       }, error => {
         console.error(error);
         this.loading = false;
@@ -145,7 +146,7 @@ export class PetsComponent extends AppBase {
       console.log(result);
       this.loading = false;
 
-      if(result.code == ReturnCode.SUCCESS){
+      if(result && result.code == ReturnCode.SUCCESS){
         for(let i = 0; i < this.user.pets.length; i++) {
           if(this.user.pets[0].id == pet.id){
             this.user.pets.splice(i,i);

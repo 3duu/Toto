@@ -17,7 +17,9 @@ export const PASSWORD_CONFIG = environment.passwordConfig;
 export class SessionService {
 
   constructor(private _authenticationService: AuthenticationService, 
-    private _zone : NgZone, private _menuService : MenuService) { }
+    private _zone : NgZone, private _menuService : MenuService) { 
+      (<any>window).session = this;
+    }
 
   get zone() : NgZone {
     return this._zone;

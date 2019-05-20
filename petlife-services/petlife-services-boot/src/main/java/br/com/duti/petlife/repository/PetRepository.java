@@ -13,7 +13,7 @@ import br.com.duti.petlife.repository.interfaces.IPetRepository;
 @Repository
 public class PetRepository extends GenericRepository<Pet> implements IPetRepository {
 
-	private final String GET_PETS_QUERY = "SELECT p FROM Pet p WHERE p.id = :id";
+	private final String GET_PETS_QUERY = "SELECT p FROM Pet p WHERE p.user.id = :id";
 	
 	@Override
 	public List<Pet> getByUser(final Long userId) {

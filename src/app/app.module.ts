@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { TextMaskModule } from 'angular2-text-mask';
-import { UserApiService, PetApiService, AuthenticationService, InfoService } from './service/services';
+import { UserApiService, PetApiService, AuthenticationService, InfoService, AppointmentsApiService } from './service/services';
 import { MenuService } from './navbar/menuService';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -28,7 +28,7 @@ import { MapsComponent } from './maps/maps.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { SessionService } from './session/session.service';
-import { AppointmentsComponent, AppointmentsWizardComponent } from './appointments/appointments.component';
+import { AppointmentsComponent, AppointmentsWizardComponent, AppointmentsThumbComponent } from './appointments/appointments.component';
 import { LoadingComponent } from './loading/loading.component';
 import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -61,7 +61,8 @@ import { TutorialComponent } from './tutorial/tutorial.component';
     LoadingComponent,
     PetsWizardComponent,
     TutorialComponent,
-    AppointmentsWizardComponent
+    AppointmentsWizardComponent,
+    AppointmentsThumbComponent
   ],
   entryComponents: [
     SignInComponent,
@@ -99,7 +100,8 @@ import { TutorialComponent } from './tutorial/tutorial.component';
     FacebookService, 
     GoogleService, 
     InfoService,
-    AuthenticationService, 
+    AppointmentsApiService,
+    AuthenticationService,
     MenuService,
     { provide: DateAdapter, useClass: DateFormat },
     AuthGuardService,

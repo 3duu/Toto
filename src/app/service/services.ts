@@ -15,6 +15,7 @@ import { LocalDatabaseService } from '../database/database';
 import { LanguageService } from '../language/Language';
 import { ObjectUtils } from '../utils';
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
+import { Appointment } from '../entity/Appointment';
 
 // Set the http options
 export const httpHeaders = new HttpHeaders({"Content-Type": 
@@ -171,7 +172,7 @@ export class PetApiService extends ApiService {
     console.log(pet);
     
 
-    return this.http.post<User>(this.register, pet, httpDefaultOptions)
+    return this.http.post<Pet>(this.register, pet, httpDefaultOptions)
     .pipe(
       catchError(this.handleError)
     );
@@ -273,6 +274,65 @@ export class AuthenticationService {
     }
 
     this._localDatabase.getCurrentUser(doLogin, notLogin);
+  }
+}
+
+@Injectable()
+export class AppointmentsApiService extends ApiService {
+
+  private controller = this.endpoint+"/appointments";
+  private retrieve = this.controller+"/retrieve";
+  private register = this.controller+"/register";
+  private remove = this.controller+"/remove";
+
+  constructor(private http: HttpClient) {
+    super();
+  }
+
+  public get(appointment: Appointment): Observable<any> {
+    console.log(this.retrieve);
+    console.log(appointment);
+    
+    return this.http.post<Pet>(this.retrieve, appointment, httpDefaultOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public getByUser(user: User): Observable<any> {
+    console.log(this.retrieve);
+    console.log(user);
+
+    const parameters = new HttpParams().set("userId", user.id.toString());
+    const httpOptions = {
+      headers: httpHeaders,
+      params: parameters
+    };
+    return this.http.get(this.retrieve, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public save(appointment: Appointment): Observable<any> {
+    console.log(this.register);
+    console.log(appointment);
+    
+    return this.http.post<Appointment>(this.register, appointment, httpDefaultOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public delete(appointment: Appointment): Observable<any> {
+
+    console.log(this.remove);
+    console.log(appointment);
+    
+    return this.http.post<User>(this.remove, appointment, httpDefaultOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
   }
 
 }

@@ -1,4 +1,5 @@
-<div class="container" *ngIf="outlet.isActivated == false">
+<section id="team" class="pb-5" *ngIf="outlet.isActivated == false">
+<div class="container">
   <div class="row">
     <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
       <ul class="event-list">
@@ -24,9 +25,11 @@
         </li>
       </ul>
   </div>
+  </div>
   <app-loading *ngIf="loading" [center]="true"></app-loading>
   <a href="javascript:;" class="float bg-toppet" (click)="add()">
     <i class="fa fa-plus my-float"></i>
   </a>
 </div>
+</section>
 <router-outlet #outlet="outlet"></router-outlet>

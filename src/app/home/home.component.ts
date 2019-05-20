@@ -4,6 +4,7 @@ import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
+import { AppointmentsThumbComponent } from '../appointments/appointments.component';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,8 @@ export class HomeComponent extends AppBase {
     super();
   }
 
+  @ViewChild(AppointmentsThumbComponent) appointmentsComponent : AppointmentsThumbComponent;
+
   private get menu(): NavbarComponent {
     return this.session.menuService.menu;
   }
@@ -25,6 +28,7 @@ export class HomeComponent extends AppBase {
     this.title = this.applicationName;
     this.setTitle(this.session.menuService);
     this.enableMenu();
+    this.appointmentsComponent.user = this.session.getCurrentUser();
   }
 
   private enableMenu() : void {

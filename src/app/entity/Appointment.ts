@@ -4,17 +4,21 @@ import { User } from './User';
 export class Appointment {
 
     id : number;
-
     date : Date;
-
-    //appointmentType : AppointmentType;
-
-    time : string;
-    
+    appointmentType : AppointmentType;
     pet : Pet;
-
     user : User;
 
     constructor() { }
+  
+}
+
+export enum AppointmentType {
+
+    OTHER,
+	VACCINE,
+	CONSULTING,
+	BATH,
+	WALK
   
 }
