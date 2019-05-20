@@ -112,9 +112,9 @@
 
 .default-background {
     background: url("assets/img/bg.jpg");
-    background-color: #563d7c;
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: auto; 
+    background-color: #563d7c;
 }
 
 .text-muted {
