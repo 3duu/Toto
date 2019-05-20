@@ -1,6 +1,10 @@
+import { SessionService } from './../session/session.service';
+import { MenuService } from './../navbar/menuService';
 import { Appointment } from './../entity/Appointment';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppBase } from '../appbase';
+import { Router, ActivatedRoute } from '@angular/router';
+import { APPOINTMENTS_WIZARD_PAGE } from '../application';
 
 @Component({
   selector: 'app-appointments',
@@ -9,13 +13,40 @@ import { AppBase } from '../appbase';
 })
 export class AppointmentsComponent extends AppBase {
 
-  constructor() {
+  constructor(private session : SessionService, private router : Router, private activatedRoute : ActivatedRoute) {
     super();
   }
 
-  private appointments : Appointment[] = [];
+  protected appointments : Appointment[] = [];
 
   ngOnInit() {
+    this.title = this.language.appointments;
+    this.setTitle(this.session.menuService);
   }
+
+  add() {
+    this.session.zone.run(() => 
+      this.router.navigate([APPOINTMENTS_WIZARD_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute}));
+  }
+
+}
+
+@Component({
+  selector: 'app-appointments-wizard',
+  templateUrl: './appointments.wizard.component.html',
+  styleUrls: ['./appointments.wizard.component.css']
+})
+export class AppointmentsWizardComponent extends AppBase {
+
+  constructor(private session : SessionService) {
+    super();
+  }
+
+  protected appointment : Appointment;
+
+  ngOnInit() {
+    
+  }
+
 
 }

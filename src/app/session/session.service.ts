@@ -7,6 +7,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { HOME_PAGE, WELCOME_PAGE } from '../application';
 import { environment } from 'src/environments/environment';
 import { Pet } from '../entity/Pet';
+import { MenuService } from '../navbar/menuService';
 
 export const PASSWORD_CONFIG = environment.passwordConfig;
 
@@ -16,10 +17,14 @@ export const PASSWORD_CONFIG = environment.passwordConfig;
 export class SessionService {
 
   constructor(private _authenticationService: AuthenticationService, 
-    private _zone : NgZone) { }
+    private _zone : NgZone, private _menuService : MenuService) { }
 
   get zone() : NgZone {
     return this._zone;
+  }
+
+  get menuService() : MenuService {
+    return this._menuService;
   }
 
   get authenticationService() : AuthenticationService {

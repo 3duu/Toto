@@ -12,7 +12,6 @@ import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { CordovaService } from '../cordova.service';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { MenuService } from './../navbar/menuService';
 import { ReturnCode } from '../entity/system';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
@@ -26,7 +25,6 @@ import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
 export class PetsComponent extends AppBase {
 
   constructor(private api : PetApiService, 
-    private menuService : MenuService,
     private session : SessionService,
     private router : Router,
     private activatedRoute : ActivatedRoute,
@@ -35,7 +33,7 @@ export class PetsComponent extends AppBase {
   }
 
   private get menu(): NavbarComponent {
-    return this.menuService.menu;
+    return this.session.menuService.menu;
   }
   
   private user : User;
@@ -54,7 +52,7 @@ export class PetsComponent extends AppBase {
     this.menu.disable = false;
     this.menu.disableMenu = false;
     this.title = this.language.myPet;
-    this.setTitle(this.menuService);
+    this.setTitle(this.session.menuService);
     this.user = this.session.getCurrentUser();
     this.createContextMenu();
     this.setPets();
@@ -132,7 +130,7 @@ export class PetsComponent extends AppBase {
         }
         else  {
         }
-      } ,error => {
+      }, error => {
         console.error(error);
         this.loading = false;
       });
@@ -161,13 +159,13 @@ export class PetsComponent extends AppBase {
     });
   }
 
-  protected view(pet : Pet) : void {
+  protected view(pet : Pet) {
     if(!ObjectUtils.isEmpty(pet.id)){
       this.router.navigateByUrl(APPOINTMENTS_PAGE);
     }
   }
 
-  protected add() : void {
+  protected add() {
     this.session.zone.run(() => 
       this.router.navigate([PETS_WIZARD_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute}));
   }
@@ -460,7 +458,7 @@ export class PetPictureComponent extends AppBase {
 export class PetsWizardComponent extends AppBase {
 
   private get menu(): NavbarComponent {
-    return this.menuService.menu;
+    return this.session.menuService.menu;
   }
 
   @ViewChild(PetTypeComponent) private petTypeComponent : PetTypeComponent;
@@ -471,8 +469,7 @@ export class PetsWizardComponent extends AppBase {
 
   private pet : Pet;
 
-  constructor(private menuService : MenuService,
-    private session : SessionService,
+  constructor(private session : SessionService,
     private api : PetApiService,
     private router : Router,
     private element : ElementRef,

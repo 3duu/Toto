@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="outlet.isActivated == false">
   <div class="row">
     <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
       <ul class="event-list">
@@ -24,8 +24,9 @@
         </li>
       </ul>
   </div>
+  <app-loading *ngIf="loading" [center]="true"></app-loading>
+  <a href="javascript:;" class="float bg-toppet" (click)="add()">
+    <i class="fa fa-plus my-float"></i>
+  </a>
 </div>
-<app-loading *ngIf="loading" [center]="true"></app-loading>
-<a href="javascript:;" class="float bg-toppet" (click)="add()">
-  <i class="fa fa-plus my-float"></i>
-</a>
+<router-outlet #outlet="outlet"></router-outlet>

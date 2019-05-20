@@ -1,9 +1,9 @@
-import { AppointmentsComponent } from './appointments/appointments.component';
+import { AppointmentsComponent, AppointmentsWizardComponent } from './appointments/appointments.component';
 import { PetsComponent, PetTypeComponent, PetInfoComponent, PetPictureComponent, PetsWizardComponent } from './pets/pets.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
-import { LOGIN_PAGE, WELCOME_PAGE, HOME_PAGE, REGISTER_USER_PAGE, PETS_PAGE, PETS_WIZARD_DEF_PAGE, PETS_WIZARD_INFO_PAGE, PETS_WIZARD_PIC_PAGE, PETS_WIZARD_PAGE, APPOINTMENTS_PAGE } from './application';
+import { LOGIN_PAGE, WELCOME_PAGE, HOME_PAGE, REGISTER_USER_PAGE, PETS_PAGE, PETS_WIZARD_DEF_PAGE, PETS_WIZARD_INFO_PAGE, PETS_WIZARD_PIC_PAGE, PETS_WIZARD_PAGE, APPOINTMENTS_PAGE, APPOINTMENTS_WIZARD_PAGE } from './application';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterUserComponent } from './register/register.component';
@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: WELCOME_PAGE, component: WelcomeComponent},
   { path: LOGIN_PAGE, component: LoginComponent },
   { path: REGISTER_USER_PAGE, component: RegisterUserComponent },
-  { path : APPOINTMENTS_PAGE, component: AppointmentsComponent },
+  { path : APPOINTMENTS_PAGE, component: AppointmentsComponent, children : [
+    { path: APPOINTMENTS_WIZARD_PAGE, component: AppointmentsWizardComponent},] },
   { path: PETS_PAGE, component: PetsComponent, children : [
     { path: PETS_WIZARD_PAGE, component: PetsWizardComponent},
     { path: PETS_WIZARD_DEF_PAGE, component: PetTypeComponent},

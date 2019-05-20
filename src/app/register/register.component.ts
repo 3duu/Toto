@@ -30,15 +30,14 @@ export class RegisterUserComponent extends AppBase {
   @ViewChild(FacebookComponent) private facebook: FacebookComponent;
   @ViewChild(GoogleComponent) private google : GoogleComponent;
 
-  private get menu(): NavbarComponent {
-    return this.menuService.menu;
-  }
-  
-  constructor(private session: SessionService, 
-    private menuService : MenuService, 
+  constructor(private session: SessionService,
     private api: UserApiService,
     private router: Router) {
     super();
+  }
+
+  private get menu(): NavbarComponent {
+    return this.session.menuService.menu;
   }
 
   ngOnInit() : void {

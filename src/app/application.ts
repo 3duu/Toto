@@ -14,6 +14,7 @@ export const PETS_WIZARD_PIC_PAGE = "picture";
 export const PETS_VIEW_PAGE = "view";
 export const PETS_WIZARD_PAGE = "wizard";
 export const APPOINTMENTS_PAGE = "appointments";
+export const APPOINTMENTS_WIZARD_PAGE = "wizard";
 
 export interface ApplicationRoute {
     component : Type<any>;

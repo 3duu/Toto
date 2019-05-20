@@ -10,7 +10,7 @@ export class LanguageService {
     myPet : string = "Meus Pets";
     petInfo : string = "Dados do pet";
     about : string = "Ajuda";
-    appointments : string = "Agenda";
+    appointments : string = "Compromissos";
     remindPassword : string = "Lembrar";
     haveAnAccount : string = "Já possui conta?";
     forgotPassword : string = "Esqueceu a senha?";

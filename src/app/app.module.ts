@@ -28,7 +28,7 @@ import { MapsComponent } from './maps/maps.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { SessionService } from './session/session.service';
-import { AppointmentsComponent } from './appointments/appointments.component';
+import { AppointmentsComponent, AppointmentsWizardComponent } from './appointments/appointments.component';
 import { LoadingComponent } from './loading/loading.component';
 import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -61,6 +61,7 @@ import { TutorialComponent } from './tutorial/tutorial.component';
     LoadingComponent,
     PetsWizardComponent,
     TutorialComponent,
+    AppointmentsWizardComponent
   ],
   entryComponents: [
     SignInComponent,

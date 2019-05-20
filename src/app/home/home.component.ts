@@ -1,5 +1,5 @@
+import { SessionService } from './../session/session.service';
 import { MAPS_PAGE, PETS_PAGE, APPOINTMENTS_PAGE } from './../application';
-import { MenuService } from './../navbar/menuService';
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
 import { NavbarComponent } from '../navbar/navbar.component';
@@ -13,17 +13,17 @@ import { Router } from '@angular/router';
 //phonegap plugin add cordova-plugin-context-menu --save
 export class HomeComponent extends AppBase {
 
-  constructor(private router: Router, private menuService : MenuService) {
+  constructor(private router: Router, private session : SessionService) {
     super();
   }
 
   private get menu(): NavbarComponent {
-    return this.menuService.menu;
+    return this.session.menuService.menu;
   }
 
   ngOnInit() {
     this.title = this.applicationName;
-    this.setTitle(this.menuService);
+    this.setTitle(this.session.menuService);
     this.enableMenu();
   }
 

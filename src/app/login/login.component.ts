@@ -1,5 +1,4 @@
 import { SessionService } from './../session/session.service';
-import { MenuService } from './../navbar/menuService';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppBase } from '../appbase';
@@ -29,17 +28,17 @@ export class LoginComponent extends AppBase {
   @ViewChild(GoogleComponent) private google : GoogleComponent;
   @ViewChild(SignInComponent) private signin : SignInComponent;
   
-  constructor(private session : SessionService, private menuService : MenuService, private router: Router) {
+  constructor(private session : SessionService, private router: Router) {
     super();
   } 
 
   private get menu(): NavbarComponent {
-    return this.menuService.menu;
+    return this.session.menuService.menu;
   }
 
   ngOnInit() : void {
     this.menu.disable = true;
-    this.session.onLogged(null, this.router, this.menuService.menu);
+    this.session.onLogged(null, this.router, this.session.menuService.menu);
   }
 
   onLoginInit() {
