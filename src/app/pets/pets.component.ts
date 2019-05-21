@@ -140,19 +140,17 @@ export class PetsComponent extends AppBase {
 
   public removePet(pet : Pet) {
     const res = this.api.delete(pet);
-
+    const index = this.user.pets.indexOf(pet);
+    if(index > -1) {
+      this.user.pets.splice(index, 1);
+    }
     res.subscribe(result => {
 
       console.log(result);
       this.loading = false;
 
       if(result && result.code == ReturnCode.SUCCESS){
-        for(let i = 0; i < this.user.pets.length; i++) {
-          if(this.user.pets[0].id == pet.id){
-            this.user.pets.splice(i,i);
-            return;
-          }
-        }
+
       }
     }, error => {
       console.error(error);
