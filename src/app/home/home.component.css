@@ -1,7 +1,7 @@
 .index-icon {
     margin: 5px;
     width: 22%;
-    font-size: 315%;
+    font-size: 295%;
 }
 
 .button-group {
@@ -9,6 +9,9 @@
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    bottom: 2%;
+    position: fixed;
+    left: 2.5%;
 }
 
 .buttons {

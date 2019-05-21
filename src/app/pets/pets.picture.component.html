@@ -1,15 +1,13 @@
-
-
 <section class="body_section">
-    <div class=interface_class>
-      <div class="page-header" style="color: white;">
-        <h1>{{language.takePicture}}</h1>
-      </div>
-      <div class="card" *ngIf="!loading">
-        <img [src]="pet.img" class="card-img-top" [ngClass]="{ 'button-disabled': pet.img == null }">
-        <a class="btn btn-light" [ngClass]="{ 'button-disabled': pet.img != null }" (click)="camera()" href="javascript:;" style="font-size: 450%;"><i class="fa fa-camera text-petlife"></i></a>
-      </div>
+  <div class=interface_class>
+    <div class="page-header" style="color: white;">
+      <h1>{{language.takePicture}}</h1>
     </div>
-    <app-loading *ngIf="loading" [center]="true"></app-loading>
-    <a href="javascript:;" class="btn btn-toppet btn-bottom btn-round" style="position: fixed; margin-bottom: 16%; right: 40%;" (click)="submit()"><i class="fa fa-check"></i></a>
-  </section>
+    <div class="card" *ngIf="!loading">
+      <img [src]="pet.img" class="card-img-top" [ngClass]="{ 'button-disabled': pet.img == null }"/>
+      <a class="btn btn-light" [ngClass]="{ 'button-disabled': pet.img != null }" (click)="camera()" href="javascript:;" style="font-size: 450%;"><i class="fa fa-camera text-petlife"></i></a>
+    </div>
+  </div>
+  <app-loading *ngIf="loading" [center]="true"></app-loading>
+  <a href="javascript:;" class="btn btn-toppet btn-bottom btn-round" style="position: fixed; margin-bottom: 16%; right: 40%;" (click)="submit()"><i class="fa fa-check"></i></a>
+</section>

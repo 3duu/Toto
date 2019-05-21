@@ -40,6 +40,7 @@ export class LanguageService {
     breed : string = "Qual a raça?";
     takePicture : string = "Tire uma foto do seu pet";
     description : string = "Descrição";
+    noAppointmentsClick : string = "Sem compromissos.";
     view : string = "Visualizar";
     years : string = "anos";
     year : string = "ano";

@@ -1,13 +1,13 @@
 <div class="container">
     <div id="carouselExampleIndicators" class="carousel slide">
-      <ol class="carousel-indicators" style="position: fixed;">
+      <ol class="carousel-indicators" style="position: fixed; bottom: 18%;">
           <li data-slide-to="0" data-target="#carouselExampleIndicators" class="active"></li>
           <li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
           <li data-slide-to="2" data-target="#carouselExampleIndicators"></li>
           <!-- data-target="#carouselExampleIndicators" -->
       </ol>
       <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item active" style="border-radius:50px;">
             <app-appointments-thumb></app-appointments-thumb>
           </div>
           <div class="carousel-item">
@@ -22,11 +22,21 @@
   </div>
   <div class="button-group">
     <div class="buttons">
+      <p>
         <a class="btn btn-toppet index-icon" href="javascript:;" (click)="appointments()"><i class="fa fa-calendar"></i></a>
-        <a class="btn btn-toppet index-icon" href="javascript:;" (click)="maps()"><i class="fas fa-shopping-basket"></i></a>&nbsp;
-        <a class="btn btn-toppet index-icon" href="javascript:;" (click)="pets()"><i class="fa fa-paw"></i></a>&nbsp;
+        <a class="btn btn-toppet index-icon" href="javascript:;" (click)="maps()"><i class="fas fa-shopping-basket"></i></a>
+        <a class="btn btn-toppet index-icon" href="javascript:;" (click)="pets()"><i class="fa fa-paw"></i></a>
         <a class="btn btn-toppet index-icon" href="javascript:;" (click)="donations()"><i class="fa fa-hands-helping"></i></a>
+      </p>
     </div>
   </div>
+  <!-- <div class="btn-toolbar mb-3 button-group" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group mr-2 buttons" role="group">
+        <a class="btn btn-toppet index-icon" href="javascript:;" (click)="appointments()"><i class="fa fa-calendar"></i></a>
+        <a class="btn btn-toppet index-icon" href="javascript:;" (click)="maps()"><i class="fas fa-shopping-basket"></i></a>;
+        <a class="btn btn-toppet index-icon" href="javascript:;" (click)="pets()"><i class="fa fa-paw"></i></a>
+        <a class="btn btn-toppet index-icon" href="javascript:;" (click)="donations()"><i class="fa fa-hands-helping"></i></a>
+    </div>
+  </div> -->
   <app-loading *ngIf="loading" [center]="true"></app-loading>
 </div>

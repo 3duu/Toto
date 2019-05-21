@@ -122,6 +122,10 @@
     font-size: 100%;
 }
 
+.default-text {
+    font-size: 110%;
+}
+
 .slidecount {
     opacity: 1;
 }
@@ -299,5 +303,23 @@ body { font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-right: auto;
     margin-left: auto;
     margin-top: 56px;
+}
+
+.carousel-indicators li {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    border-radius: 45px;
+    width: 8px;
+    height: 8px;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-top: none;
+    border-bottom: none;
+    opacity: .5;
+    transition: opacity .6s ease;
 }
 

@@ -1,6 +1,6 @@
 import { SessionService } from './../session/session.service';
 import { Appointment } from './../entity/Appointment';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
 import { Router, ActivatedRoute } from '@angular/router';
 import { APPOINTMENTS_WIZARD_PAGE } from '../application';
@@ -81,6 +81,46 @@ export class AppointmentsThumbComponent extends AppBase {
     }
   }
     
+  protected isEmpty() : boolean {
+    return this.appointments == undefined || this.appointments.length == 0;
+  }
+
+}
+
+@Component({
+  selector: 'app-appointments-type',
+  templateUrl: './appointments.type.component.html',
+  styleUrls: ['./appointments.component.css']
+})
+export class AppointmentsTypeComponent extends AppBase {
+
+  types  = [];
+  appointment : Appointment;
+  nextInput : ElementRef;
+  previousInput : ElementRef;
+
+  constructor(private api : AppointmentsApiService) {
+    super();
+  }
+  
+  ngOnInit() {
+
+    this.loading = true;
+  }
+  
+  select(selected) {
+
+    if(selected){
+      
+      
+    }
+  }
+
+  next() : void {
+    /*this.session.zone.run(() => 
+      this.router.navigate([PETS_PAGE,PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));*/
+    this.nextInput.nativeElement.click();
+  }
 
 }
 
@@ -94,6 +134,10 @@ export class AppointmentsWizardComponent extends AppBase {
   constructor(private session : SessionService) {
     super();
   }
+
+  @ViewChild(AppointmentsTypeComponent) private appointmentsTypeComponent : AppointmentsTypeComponent;
+  @ViewChild("nextInput") private nextInput;
+  @ViewChild("previousInput") private previousInput;
 
   protected appointment : Appointment;
 
