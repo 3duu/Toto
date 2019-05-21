@@ -8,6 +8,7 @@
 /bazel-out
 
 # dependencies
+/www/*
 /node_modules/*
 !/node_modules/.bin
 !/node_modules/bootstrap
