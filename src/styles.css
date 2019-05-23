@@ -111,10 +111,15 @@
 }
 
 .default-background {
-    background: url("assets/img/bg.jpg");
-    background-repeat: no-repeat;
-    background-size: auto; 
-    background-color: #563d7c;
+    background: url("assets/img/bg.jpg") !important;
+    /* background-repeat: no-repeat;
+    background-size: auto; */
+    background-color: #563d7c !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
 }
 
 .text-muted {
@@ -303,6 +308,7 @@ body { font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-right: auto;
     margin-left: auto;
     margin-top: 56px;
+    background: none;
 }
 
 .carousel-indicators li {

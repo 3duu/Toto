@@ -1,4 +1,3 @@
-import 'hammerjs';
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
@@ -16,4 +15,3 @@ document.addEventListener('deviceready', onDeviceReady, false);
 if((<any>window).cordova == undefined){
 	onDeviceReady();
 }
-//onDeviceReady();
