@@ -1,2 +1,2 @@
 <button *ngIf="loading == false" [class]="classes" [ngClass]="{ 'button-disabled': hidden }" (click)="doLogin()" ><ng-content></ng-content></button>
-<app-loading *ngIf="loading"></app-loading>
+<app-loading [center]="false" *ngIf="loading"></app-loading>

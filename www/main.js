@@ -1035,7 +1035,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button *ngIf=\"loading == false\" [class]=\"classes\" [ngClass]=\"{ 'button-disabled': hidden }\" (click)=\"doLogin()\" ><ng-content></ng-content></button>\r\n<app-loading *ngIf=\"loading\"></app-loading>"
+module.exports = "<button *ngIf=\"loading == false\" [class]=\"classes\" [ngClass]=\"{ 'button-disabled': hidden }\" (click)=\"doLogin()\" ><ng-content></ng-content></button>\r\n<app-loading [center]=\"false\" *ngIf=\"loading\"></app-loading>"
 
 /***/ }),
 
@@ -1931,7 +1931,7 @@ module.exports = "/* brandico */\r\n[class*=\"brandico-\"]:before {\r\n  font-fa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" style=\"margin-top: 0 !important;\">     \r\n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\r\n<div class=\"text-center\">\r\n    <form class=\"form-signin\" #loginForm=\"ngForm\">\r\n        <h2 class=\"form-signin-heading\" style=\"color: white;\">{{language.signIn}}</h2>\r\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\r\n        <br><br>\r\n        <p>\r\n            <facebook-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></facebook-button>\r\n            <google-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></google-button>\r\n        </p>\r\n        <br>\r\n\r\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\r\n        <br>\r\n        \r\n        <mat-form-field >\r\n            <input matInput placeholder=\"{{language.username}}\" name=\"username\" id=\"username\" ngModel>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input matInput placeholder=\"{{language.password}}\" [type]=\"hide ? 'password' : 'text'\" name=\"password\" id=\"password\" ngModel>\r\n            <mat-icon color=\"accent\" matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n        </mat-form-field>\r\n        <!-- <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.username}}\" type=\"text\" name=\"username\" id=\"username\" ngModel>\r\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel> -->\r\n\r\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\r\n        <app-alert></app-alert>\r\n        <!-- <app-loading *ngIf=\"loading\"></app-loading> -->\r\n        <login-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"loginForm\" (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\">{{language.signIn}}</login-button>\r\n        <br>\r\n    </form>\r\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button style=\"color: white;\" class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.register}} </b></button> </small>\r\n</div>"
+module.exports = "<div class=\"container\" style=\"margin-top: 0 !important;\">     \r\n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\r\n<div class=\"text-center\">\r\n    <form class=\"form-signin\" #loginForm=\"ngForm\">\r\n        <h2 class=\"form-signin-heading\" style=\"color: white;\">{{language.signIn}}</h2>\r\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\r\n        <br><br>\r\n        <p>\r\n            <facebook-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></facebook-button>\r\n            <google-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></google-button>\r\n        </p>\r\n        <br>\r\n\r\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\r\n        <br>\r\n        \r\n        <mat-form-field >\r\n            <input matInput placeholder=\"{{language.username}}\" name=\"username\" id=\"username\" ngModel>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input matInput placeholder=\"{{language.password}}\" [type]=\"hide ? 'password' : 'text'\" name=\"password\" id=\"password\" ngModel>\r\n            <mat-icon color=\"accent\" matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n        </mat-form-field>\r\n        \r\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\r\n        <app-alert></app-alert>\r\n        <login-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"loginForm\" (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\">{{language.signIn}}</login-button>\r\n        <br>\r\n    </form>\r\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button style=\"color: white;\" class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.register}} </b></button> </small>\r\n</div>"
 
 /***/ }),
 
@@ -3621,61 +3621,86 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GoogleService", function() { return GoogleService; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SociaNetworkType", function() { return SociaNetworkType; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _cordova_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../cordova.service */ "./src/app/cordova.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
+/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+
 
 
 
 
 var facebookAppId = '389609115207477';
+var permits = {
+    appId: facebookAppId,
+    cookie: true,
+    xfbml: true,
+    version: 'v3.2'
+};
 var FacebookService = /** @class */ (function () {
-    function FacebookService() {
+    function FacebookService(cordova) {
+        this.cordova = cordova;
     }
     FacebookService.prototype.login = function (callback) {
         //Chave Secreta do Aplicativo
         //b4a49157bf9ba2cc4b7b085c0ba13ad3
-        FB.login(function (response) {
-            console.log('submitLogin', response);
-            var returnCodeEventArgs = { code: _entity_system__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].SUCCESS, message: "", result: undefined };
-            var user = new _entity_User__WEBPACK_IMPORTED_MODULE_3__["User"]();
-            if (response.authResponse && response.status == "connected") {
-                window.facebook = response;
-                user.username = response.authResponse.userID;
-                user.password = response.authResponse.userID;
-                user.loginType = SociaNetworkType.FACEBOOK;
-            }
-            else {
-                console.log('User login failed');
-                returnCodeEventArgs.code = _entity_system__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].CONNECTION_ERROR;
-            }
-            returnCodeEventArgs.result = user;
-            callback(returnCodeEventArgs);
-        });
-        /*(<any>FB).getLoginStatus(function(response) {
-          statusChangeCallback(response);
-        });*/
-        /**
-         * {
-                status: 'connected',
-                authResponse: {
-                    accessToken: '...',
-                    expiresIn:'...',
-                    signedRequest:'...',
-                    userID:'...'
+        if (!this.cordova.cordova) {
+            FB.login(function (response) {
+                console.log('submitLogin', response);
+                var returnCodeEventArgs = { code: _entity_system__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS, message: "", result: undefined };
+                var user = new _entity_User__WEBPACK_IMPORTED_MODULE_4__["User"]();
+                if (response.authResponse && response.status == "connected") {
+                    window.facebook = response;
+                    user.username = response.authResponse.userID;
+                    user.password = response.authResponse.userID;
+                    user.loginType = SociaNetworkType.FACEBOOK;
                 }
-            }
-         */
+                else {
+                    console.log('User login failed');
+                    returnCodeEventArgs.code = _entity_system__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].CONNECTION_ERROR;
+                }
+                returnCodeEventArgs.result = user;
+                callback(returnCodeEventArgs);
+            });
+            /*(<any>FB).getLoginStatus(function(response) {
+              statusChangeCallback(response);
+            });*/
+            /**
+             * {
+                    status: 'connected',
+                    authResponse: {
+                        accessToken: '...',
+                        expiresIn:'...',
+                        signedRequest:'...',
+                        userID:'...'
+                    }
+                }
+              */
+        }
+        else {
+            facebookConnectPlugin.login(function (response) {
+                console.log('submitLogin', response);
+                var returnCodeEventArgs = { code: _entity_system__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS, message: "", result: undefined };
+                var user = new _entity_User__WEBPACK_IMPORTED_MODULE_4__["User"]();
+                if (response.authResponse && response.status == "connected") {
+                    window.facebook = response;
+                    user.username = response.authResponse.userID;
+                    user.password = response.authResponse.userID;
+                    user.loginType = SociaNetworkType.FACEBOOK;
+                }
+                else {
+                    console.log('User login failed');
+                    returnCodeEventArgs.code = _entity_system__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].CONNECTION_ERROR;
+                }
+                returnCodeEventArgs.result = user;
+                callback(returnCodeEventArgs);
+            });
+        }
     };
     ////plugin add cordova-plugin-facebook4 --save --variable APP_ID="389609115207477" --variable APP_NAME="Toppet"
     FacebookService.prototype.config = function () {
         window.fbAsyncInit = function () {
-            FB.init({
-                appId: facebookAppId,
-                cookie: true,
-                xfbml: true,
-                version: 'v3.2'
-            });
+            FB.init(permits);
             FB.AppEvents.logPageView();
         };
         (function (d, s, id) {
@@ -3690,8 +3715,8 @@ var FacebookService = /** @class */ (function () {
         }(document, 'script', 'facebook-jssdk'));
     };
     FacebookService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cordova_service__WEBPACK_IMPORTED_MODULE_1__["CordovaService"]])
     ], FacebookService);
     return FacebookService;
 }());
@@ -3705,7 +3730,7 @@ var GoogleService = /** @class */ (function () {
     GoogleService.prototype.config = function () {
     };
     GoogleService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], GoogleService);
     return GoogleService;
