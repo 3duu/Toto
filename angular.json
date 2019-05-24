@@ -23,10 +23,10 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/assets/font-awesome/css/all.min.css",
               "src/assets/bootstrap/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/theme/purple-green.css"
             ],
             "es5BrowserSupport": true,
             "scripts": [

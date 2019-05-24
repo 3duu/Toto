@@ -329,3 +329,21 @@ body { font-family: Roboto, "Helvetica Neue", sans-serif; }
     transition: opacity .6s ease;
 }
 
+.mat-form-field {
+    display: block !important;
+}
+
+.mat-focused {
+    /* background-color: white !important;
+    border-color: white !important; */
+}
+/* 
+.mat-form-field-should-float {
+    color: white !important;
+} */
+
+.mat-input-element {
+    caret-color: white !important;
+}
+
+

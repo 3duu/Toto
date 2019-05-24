@@ -13,10 +13,10 @@
         <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>
         <br>
         <mat-form-field>
-            <input matInput placeholder="{{language.username}}" name="username" id="username" ngModel>
+            <input class="ember-view ember-text-field text-muted" matInput placeholder="{{language.username}}" name="username" id="username" ngModel>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="{{language.password}}" [type]="hide ? 'password' : 'text'" name="password" id="password" ngModel>
+            <input class="ember-view ember-text-field text-muted"  matInput placeholder="{{language.password}}" [type]="hide ? 'password' : 'text'" name="password" id="password" ngModel>
             <mat-icon color="accent" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
         
