@@ -10,11 +10,9 @@
             <google-button (begin)="onLoginInit()" (done)="onLoginEnd($event)"></google-button>
         </p>
         <br>
-
         <small class="text-muted">{{language.enterYourLogon}} {{applicationName}}</small>
         <br>
-        
-        <mat-form-field >
+        <mat-form-field>
             <input matInput placeholder="{{language.username}}" name="username" id="username" ngModel>
         </mat-form-field>
         <mat-form-field>
