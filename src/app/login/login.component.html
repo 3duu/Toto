@@ -1,10 +1,9 @@
-<div class="container" style="margin-top: 0 !important;">     
-<script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
+<div class="container" style="margin-top: 0 !important;">
 <div class="text-center">
     <form class="form-signin" #loginForm="ngForm">
         <h2 class="form-signin-heading" style="color: white;">{{language.signIn}}</h2>
         <small class="text-muted">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>
-        <br><br>
+        <br>
         <p>
             <facebook-button (begin)="onLoginInit()" (done)="onLoginEnd($event)"></facebook-button>
             <google-button (begin)="onLoginInit()" (done)="onLoginEnd($event)"></google-button>
