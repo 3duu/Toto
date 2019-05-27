@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri May 24 15:23:17 BRT 2019
+#Fri May 24 16:29:14 BRT 2019
 1670.baseType=DIRECTORY
 1511.path=www/assets/font-awesome/svgs/brands/cc-stripe.svg
 1391.set=ASSET
