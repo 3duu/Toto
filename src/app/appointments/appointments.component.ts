@@ -1,5 +1,5 @@
+import { Appointment, User } from './../entity/entities';
 import { SessionService } from './../session/session.service';
-import { Appointment } from './../entity/Appointment';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -7,7 +7,6 @@ import { APPOINTMENTS_WIZARD_PAGE } from '../application';
 import { AppointmentsApiService } from '../service/services';
 import { ReturnCode } from '../entity/system';
 import { ObjectUtils } from '../utils';
-import { User } from '../entity/User';
 
 @Component({
   selector: 'app-appointments',
@@ -28,6 +27,7 @@ export class AppointmentsComponent extends AppBase {
   ngOnInit() {
     this.title = this.language.appointments;
     this.setTitle(this.session.menuService);
+    (<any>window).date = new Date();
   }
 
   add() {

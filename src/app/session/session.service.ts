@@ -1,12 +1,11 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AuthenticationService } from '../service/services';
 import { SessionAttributes, StringUtils, ObjectUtils } from '../utils';
-import { User } from '../entity/User';
+import { User, Pet } from '../entity/entities';
 import { Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { HOME_PAGE, WELCOME_PAGE } from '../application';
 import { environment } from 'src/environments/environment';
-import { Pet } from '../entity/Pet';
 import { MenuService } from '../navbar/menuService';
 
 export const PASSWORD_CONFIG = environment.passwordConfig;

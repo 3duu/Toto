@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserApiService } from 'src/app/service/services';
 import { StringUtils } from 'src/app/utils';
-import { User } from 'src/app/entity/User';
+import { User } from 'src/app/entity/entities';
 import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
 import { ReturnCode } from 'src/app/entity/system';
 

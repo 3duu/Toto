@@ -2,7 +2,7 @@ import { CordovaService } from './../cordova.service';
 import { Injectable } from "@angular/core";
 import { ReturnCodeEventArgs } from '../button/button-classes';
 import { ReturnCode } from '../entity/system';
-import { User } from '../entity/User';
+import { User } from '../entity/entities';
 
 interface SocialNetworkService {
   config() : void;
@@ -12,6 +12,7 @@ interface SocialNetworkService {
 const facebookAppId = '389609115207477';
 declare const FB : any;
 declare const facebookConnectPlugin : any;
+
 const permits = {
   appId      : facebookAppId,
   cookie     : true,

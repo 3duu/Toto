@@ -1,12 +1,10 @@
 import { TutorialComponent } from './../tutorial/tutorial.component';
-import { Breed } from './../entity/Pet';
+import { Breed, User, Pet, PetType } from 'src/app/entity/entities';
 import { PETS_WIZARD_PAGE, APPOINTMENTS_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, ViewChild, ElementRef, Inject } from '@angular/core';
 import { PetApiService } from '../service/services';
-import { User } from '../entity/User';
-import { Pet, PetType } from '../entity/Pet';
 import { StringUtils, ObjectUtils, DateUtils } from '../utils';
 import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';

@@ -12,8 +12,7 @@ import { ReturnCodeEventArgs } from '../button/button-classes';
 import { ColorClass } from '../styles/styles';
 import { Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { MenuService } from './../navbar/menuService';
-import { User } from '../entity/User';
+import { User } from '../entity/entities';
 import { ReturnCode } from '../entity/system';
 import { GoogleComponent } from '../button/google/google.component';
 

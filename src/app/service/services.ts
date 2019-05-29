@@ -1,5 +1,5 @@
 import { ReturnCode } from './../entity/system';
-import { Pet } from './../entity/Pet';
+import { Pet, User, Appointment } from './../entity/entities';
 import { environment } from 'src/environments/environment';
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
@@ -10,12 +10,10 @@ import {
   HttpParams
 } from "@angular/common/http";
 import { catchError } from "rxjs/operators";
-import { User } from '../entity/User';
 import { LocalDatabaseService } from '../database/database';
 import { LanguageService } from '../language/Language';
 import { ObjectUtils } from '../utils';
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
-import { Appointment } from '../entity/Appointment';
 
 // Set the http options
 export const httpHeaders = new HttpHeaders({"Content-Type": 

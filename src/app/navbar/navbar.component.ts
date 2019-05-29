@@ -1,7 +1,7 @@
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, NgZone, ElementRef } from '@angular/core';
-import { User } from '../entity/User';
+import { User } from 'src/app/entity/entities';
 import { ObjectUtils } from '../utils';
 import { Router } from '@angular/router';
 

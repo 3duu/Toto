@@ -1,6 +1,6 @@
+import { User } from 'src/app/entity/entities';
 import { ObjectUtils } from './../utils';
 import { CordovaService } from './../cordova.service';
-import { User } from '../entity/User';
 import { Injectable } from '@angular/core';
 
 //https://github.com/typeorm/cordova-example
