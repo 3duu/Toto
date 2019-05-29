@@ -2,7 +2,6 @@ import { SessionService } from './../session/session.service';
 import { MAPS_PAGE, PETS_PAGE, APPOINTMENTS_PAGE } from './../application';
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
 import { AppointmentsThumbComponent } from '../appointments/appointments.component';
 

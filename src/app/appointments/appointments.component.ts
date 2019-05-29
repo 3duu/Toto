@@ -1,4 +1,4 @@
-import { Appointment, User, Pet } from './../entity/entities';
+import { Appointment, User, Pet, AppointmentType } from './../entity/entities';
 import { SessionService } from './../session/session.service';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
@@ -88,40 +88,6 @@ export class AppointmentsThumbComponent extends AppBase {
 }
 
 @Component({
-  selector: 'app-appointments-type',
-  templateUrl: './appointments.type.component.html',
-  styleUrls: ['./appointments.component.css']
-})
-export class AppointmentsTypeComponent extends AppBase {
-
-  types  = [];
-  appointment : Appointment;
-  nextInput : ElementRef;
-  previousInput : ElementRef;
-
-  constructor(private api : AppointmentsApiService, session : SessionService) {
-    super(session);
-  }
-  
-  ngOnInit() {
-
-    this.loading = true;
-  }
-  
-  select(selected) {
-
-    if(selected){
-      
-    }
-  }
-
-  next() : void {
-    this.nextInput.nativeElement.click();
-  }
-
-}
-
-@Component({
   selector: 'app-appointments-wizard',
   templateUrl: './appointments.wizard.component.html',
   styleUrls: ['./appointments.wizard.component.css']
@@ -132,7 +98,6 @@ export class AppointmentsWizardComponent extends AppBase {
     super(session);
   }
 
-  @ViewChild(AppointmentsTypeComponent) private appointmentsTypeComponent : AppointmentsTypeComponent;
   @ViewChild("nextInput") private nextInput;
   @ViewChild("previousInput") private previousInput;
 
@@ -140,7 +105,12 @@ export class AppointmentsWizardComponent extends AppBase {
 
   ngOnInit() {
     this.appointment = new Appointment();
-    this.appointment.pet = new Pet();
+    this.appointment.appointmentType = new AppointmentType();
+  }
+
+  selectPet(pet : Pet) {
+    this.appointment.pet = pet;
+    this.nextInput.nativeElement.click();
   }
 
 
