@@ -7,7 +7,7 @@
 /*! exports provided: name, version, displayName, endpoints, passwordConfig, cordova, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indra":"http://192.168.137.1:9003/toppet","indraLocal":"http://192.168.137.1:9003","home2":"http://192.168.1.3:9003/toppet","home":"http://192.168.1.3:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{},"cordova-plugin-context-menu":{}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"^7.2.15","@angular/cdk":"^7.3.7","@angular/common":"~7.2.15","@angular/compiler":"~7.2.15","@angular/core":"~7.2.15","@angular/forms":"~7.2.15","@angular/material":"^7.3.7","@angular/platform-browser":"~7.2.15","@angular/platform-browser-dynamic":"~7.2.15","@angular/router":"~7.2.15","@types/jquery":"^3.3.29","ansi-escapes":"^3.2.0","braces":"^2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"^1.0.2","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-plugin-camera":"4.0.3","cordova-plugin-context-menu":"0.1.1","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","hammerjs":"^2.0.8","jquery":"^3.3.1","lodash":"^4.17.11","ngx-bootstrap":"^3.2.0","ngx-modialog":"^5.0.1","phonegap":"^8.2.2","popper.js":"^1.15.0","rxjs":"^6.5.2","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"^7.3.9","@angular/compiler-cli":"~7.2.15","@angular/language-service":"~7.2.15","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.4"}};
+module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indra":"http://192.168.137.1:9003/toppet","indraLocal":"http://192.168.137.1:9003","home2":"http://192.168.1.3:9003/toppet","home":"http://192.168.1.3:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{},"cordova-plugin-context-menu":{},"cordova-plugin-listpicker":{}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"^7.2.15","@angular/cdk":"^7.3.7","@angular/common":"~7.2.15","@angular/compiler":"~7.2.15","@angular/core":"~7.2.15","@angular/forms":"~7.2.15","@angular/material":"^7.3.7","@angular/platform-browser":"~7.2.15","@angular/platform-browser-dynamic":"~7.2.15","@angular/router":"~7.2.15","@types/jquery":"^3.3.29","ansi-escapes":"^3.2.0","braces":"^2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"^1.0.2","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-plugin-camera":"4.0.3","cordova-plugin-context-menu":"0.1.1","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-listpicker":"2.2.2","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","hammerjs":"^2.0.8","jquery":"^3.3.1","lodash":"^4.17.11","ngx-bootstrap":"^3.2.0","ngx-modialog":"^5.0.1","phonegap":"^8.2.2","popper.js":"^1.15.0","rxjs":"^6.5.2","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"^7.3.9","@angular/compiler-cli":"~7.2.15","@angular/language-service":"~7.2.15","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.4"}};
 
 /***/ }),
 
@@ -452,7 +452,8 @@ __webpack_require__.r(__webpack_exports__);
 
 //https://malcoded.com/posts/why-angular-not-works/
 var AppBase = /** @class */ (function () {
-    function AppBase() {
+    function AppBase(session) {
+        this.session = session;
         this.applicationName = _environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].name;
         this.loading = false;
         this.title = this.applicationName;
@@ -461,6 +462,20 @@ var AppBase = /** @class */ (function () {
         }
         window.components.push(this);
     }
+    Object.defineProperty(AppBase.prototype, "user", {
+        get: function () {
+            return this.session.getCurrentUser();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AppBase.prototype, "menu", {
+        get: function () {
+            return this.session.menuService.menu;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(AppBase.prototype, "language", {
         get: function () {
             return AppBase._language;
@@ -468,8 +483,8 @@ var AppBase = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    AppBase.prototype.setTitle = function (menuService) {
-        menuService.menu.title = this.title;
+    AppBase.prototype.setTitle = function () {
+        this.menu.title = this.title;
     };
     AppBase.prototype.ngOnInit = function () {
     };
@@ -544,7 +559,7 @@ module.exports = ".float{\r\n\tposition:fixed;\r\n\twidth:60px;\r\n\theight:60px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated == false\">\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\">\r\n        <li *ngFor=\"let appointment of appointments\">\r\n          <time datetime=\"\">\r\n            <span class=\"day\">{{appointment.date.getDay()}}</span>\r\n            <span class=\"month\">{{appointment.date.getMonth()}}</span>\r\n            <span class=\"year\">{{appointment.date.getFullYear()}}</span>\r\n            <span class=\"time\">{{appointment.date.getTime()}}</span>\r\n          </time>\r\n          <img alt=\"Independence Day\" src=\"https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg\" />\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">Independence Day</h2>\r\n            <p class=\"desc\">United States Holiday</p>\r\n          </div>\r\n          <div class=\"social\">\r\n            <ul>\r\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-facebook\"></span></a></li>\r\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-google-plus\"></span></a></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n  </div>\r\n  </div>\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\">\r\n    <i class=\"fa fa-plus my-float\"></i>\r\n  </a>\r\n</div>\r\n</section>\r\n<router-outlet #outlet=\"outlet\"></router-outlet>"
+module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated == false\">\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\">\r\n        <li *ngFor=\"let appointment of appointments\">\r\n          <time datetime=\"\">\r\n            <span class=\"day\">{{appointment.date.getDay()}}</span>\r\n            <span class=\"month\">{{appointment.date.getMonth()}}</span>\r\n            <span class=\"year\">{{appointment.date.getFullYear()}}</span>\r\n            <span class=\"time\">{{appointment.date.getTime()}}</span>\r\n          </time>\r\n          <img src=\"{{appointment.pet?.img}}\" />\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">{{appointment.appointmentType?.name}}</h2>\r\n            <p class=\"desc\">{{appointment.pet?.name}}</p>\r\n          </div>\r\n          <!-- <div class=\"social\">\r\n            <ul>\r\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-facebook\"></span></a></li>\r\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-google-plus\"></span></a></li>\r\n            </ul>\r\n          </div> -->\r\n        </li>\r\n      </ul>\r\n  </div>\r\n  </div>\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\">\r\n    <i class=\"fa fa-plus my-float\"></i>\r\n  </a>\r\n</div>\r\n</section>\r\n<router-outlet #outlet=\"outlet\"></router-outlet>"
 
 /***/ }),
 
@@ -552,24 +567,25 @@ module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated
 /*!********************************************************!*\
   !*** ./src/app/appointments/appointments.component.ts ***!
   \********************************************************/
-/*! exports provided: AppointmentsComponent, AppointmentsThumbComponent, AppointmentsTypeComponent, AppointmentsWizardComponent */
+/*! exports provided: AppointmentsComponent, AppointmentsThumbComponent, AppointmentsWizardComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentsComponent", function() { return AppointmentsComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentsThumbComponent", function() { return AppointmentsThumbComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentsTypeComponent", function() { return AppointmentsTypeComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentsWizardComponent", function() { return AppointmentsWizardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../application */ "./src/app/application.ts");
-/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
-/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+/* harmony import */ var _entity_entities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../entity/entities */ "./src/app/entity/entities.ts");
+/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../application */ "./src/app/application.ts");
+/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../service/services */ "./src/app/service/services.ts");
+/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+
 
 
 
@@ -582,8 +598,7 @@ __webpack_require__.r(__webpack_exports__);
 var AppointmentsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AppointmentsComponent, _super);
     function AppointmentsComponent(session, router, activatedRoute, api) {
-        var _this = _super.call(this) || this;
-        _this.session = session;
+        var _this = _super.call(this, session) || this;
         _this.router = router;
         _this.activatedRoute = activatedRoute;
         _this.api = api;
@@ -592,32 +607,31 @@ var AppointmentsComponent = /** @class */ (function (_super) {
     }
     AppointmentsComponent.prototype.ngOnInit = function () {
         this.title = this.language.appointments;
-        this.setTitle(this.session.menuService);
+        this.setTitle();
         window.date = new Date();
     };
     AppointmentsComponent.prototype.add = function () {
         var _this = this;
-        this.session.zone.run(function () { return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_5__["APPOINTMENTS_WIZARD_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute }); });
+        this.session.zone.run(function () { return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_6__["APPOINTMENTS_WIZARD_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute }); });
     };
     AppointmentsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-appointments',
             template: __webpack_require__(/*! ./appointments.component.html */ "./src/app/appointments/appointments.component.html"),
             styles: [__webpack_require__(/*! ./appointments.component.css */ "./src/app/appointments/appointments.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_1__["SessionService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
-            _service_services__WEBPACK_IMPORTED_MODULE_6__["AppointmentsApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
+            _service_services__WEBPACK_IMPORTED_MODULE_7__["AppointmentsApiService"]])
     ], AppointmentsComponent);
     return AppointmentsComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
 
 var AppointmentsThumbComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AppointmentsThumbComponent, _super);
     function AppointmentsThumbComponent(session, api) {
-        var _this = _super.call(this) || this;
-        _this.session = session;
+        var _this = _super.call(this, session) || this;
         _this.api = api;
         _this.appointments = [];
         return _this;
@@ -627,13 +641,13 @@ var AppointmentsThumbComponent = /** @class */ (function (_super) {
     AppointmentsThumbComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
         this.loading = true;
-        if (!_utils__WEBPACK_IMPORTED_MODULE_8__["ObjectUtils"].isEmpty(this.user)) {
+        if (!_utils__WEBPACK_IMPORTED_MODULE_9__["ObjectUtils"].isEmpty(this.user)) {
             var apps = this.api.getByUser(this.session.getCurrentUser());
             apps.subscribe(function (result) {
                 console.log(result);
                 _this.loading = false;
                 if (result && result.sid) {
-                    if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_7__["ReturnCode"].SUCCESS) {
+                    if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_8__["ReturnCode"].SUCCESS) {
                         _this.appointments = result.entity;
                     }
                     else {
@@ -649,76 +663,47 @@ var AppointmentsThumbComponent = /** @class */ (function (_super) {
         return this.appointments == undefined || this.appointments.length == 0;
     };
     AppointmentsThumbComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-appointments-thumb',
             template: __webpack_require__(/*! ./appointments.thumb.component.html */ "./src/app/appointments/appointments.thumb.component.html"),
             styles: [__webpack_require__(/*! ./appointments.component.css */ "./src/app/appointments/appointments.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_1__["SessionService"], _service_services__WEBPACK_IMPORTED_MODULE_6__["AppointmentsApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], _service_services__WEBPACK_IMPORTED_MODULE_7__["AppointmentsApiService"]])
     ], AppointmentsThumbComponent);
     return AppointmentsThumbComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
-
-var AppointmentsTypeComponent = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AppointmentsTypeComponent, _super);
-    function AppointmentsTypeComponent(api) {
-        var _this = _super.call(this) || this;
-        _this.api = api;
-        _this.types = [];
-        return _this;
-    }
-    AppointmentsTypeComponent.prototype.ngOnInit = function () {
-        this.loading = true;
-    };
-    AppointmentsTypeComponent.prototype.select = function (selected) {
-        if (selected) {
-        }
-    };
-    AppointmentsTypeComponent.prototype.next = function () {
-        this.nextInput.nativeElement.click();
-    };
-    AppointmentsTypeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
-            selector: 'app-appointments-type',
-            template: __webpack_require__(/*! ./appointments.type.component.html */ "./src/app/appointments/appointments.type.component.html"),
-            styles: [__webpack_require__(/*! ./appointments.component.css */ "./src/app/appointments/appointments.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_6__["AppointmentsApiService"]])
-    ], AppointmentsTypeComponent);
-    return AppointmentsTypeComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
 
 var AppointmentsWizardComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AppointmentsWizardComponent, _super);
     function AppointmentsWizardComponent(session) {
-        var _this = _super.call(this) || this;
-        _this.session = session;
-        return _this;
+        return _super.call(this, session) || this;
     }
     AppointmentsWizardComponent.prototype.ngOnInit = function () {
+        this.appointment = new _entity_entities__WEBPACK_IMPORTED_MODULE_1__["Appointment"]();
+        this.appointment.appointmentType = new _entity_entities__WEBPACK_IMPORTED_MODULE_1__["AppointmentType"]();
+    };
+    AppointmentsWizardComponent.prototype.selectPet = function (pet) {
+        this.appointment.pet = pet;
+        this.nextInput.nativeElement.click();
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(AppointmentsTypeComponent),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", AppointmentsTypeComponent)
-    ], AppointmentsWizardComponent.prototype, "appointmentsTypeComponent", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])("nextInput"),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"])("nextInput"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], AppointmentsWizardComponent.prototype, "nextInput", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])("previousInput"),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"])("previousInput"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], AppointmentsWizardComponent.prototype, "previousInput", void 0);
     AppointmentsWizardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-appointments-wizard',
             template: __webpack_require__(/*! ./appointments.wizard.component.html */ "./src/app/appointments/appointments.wizard.component.html"),
             styles: [__webpack_require__(/*! ./appointments.wizard.component.css */ "./src/app/appointments/appointments.wizard.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_1__["SessionService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])
     ], AppointmentsWizardComponent);
     return AppointmentsWizardComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
 
 
 
@@ -732,17 +717,6 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
 /***/ (function(module, exports) {
 
 module.exports = "\r\n<div class=\"row\" style=\"height: 65%;\" style=\"background-color: white; height: 400px;\">\r\n  <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\" *ngIf=\"!isEmpty();\">\r\n    <ul class=\"event-list\">\r\n      <li *ngFor=\"let appointment of appointments\">\r\n        <time datetime=\"2014-07-20\">\r\n          <span class=\"day\">{{appointment.date.day}}</span>\r\n          <span class=\"month\">{{appointment.date.month}}</span>\r\n          <span class=\"year\">{{appointment.date.year}}</span>\r\n          <span class=\"time\">ALL DAY</span>\r\n        </time>\r\n        <img src=\"{{appointment.pet.img}}\" />\r\n        <div class=\"info\">\r\n          <h2 class=\"title\">{{appointment.appointmentType}}</h2>\r\n          <p class=\"desc\">United States Holiday</p>\r\n        </div>\r\n        <div class=\"social\">\r\n          <ul>\r\n            <li class=\"facebook\" style=\"width:33%;\"><a href=\"#facebook\"><span class=\"fa fa-facebook\"></span></a></li>\r\n            <li class=\"twitter\" style=\"width:34%;\"><a href=\"#twitter\"><span class=\"fa fa-twitter\"></span></a></li>\r\n            <li class=\"google-plus\" style=\"width:33%;\"><a href=\"#google-plus\"><span class=\"fa fa-google-plus\"></span></a></li>\r\n          </ul>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <section class=\"body_section\" *ngIf=\"isEmpty();\">\r\n    <div class=interface_class>\r\n      <small class=\"default-text text-petlife\" style=\"position: fixed;top: 42%;left: 26%;\">{{language.noAppointmentsClick}}</small>\r\n    </div>\r\n  </section>\r\n</div>\r\n\r\n"
-
-/***/ }),
-
-/***/ "./src/app/appointments/appointments.type.component.html":
-/*!***************************************************************!*\
-  !*** ./src/app/appointments/appointments.type.component.html ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div>\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\" style=\"height: 100% !important;\">\r\n        <li *ngFor=\"let t of types\"  (click)=\"select(t)\" style=\"height: 82px;\">\r\n          <i class=\"icon fa fa-{{t.icon}}\" style=\"padding-top: 14px;\"></i>\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">{{t.description}}</h2>\r\n            <!-- <p class=\"desc\">{{t.icon}}</p> -->\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -764,7 +738,7 @@ module.exports = "/* .form-input {\r\n    display: block;\r\n    width: 100%;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"false\" data-interval=\"false\">\r\n        <ol class=\"carousel-indicators\" style=\"position: fixed;\">\r\n            <li data-slide-to=\"0\" class=\"active\"></li>\r\n            <li data-slide-to=\"1\"></li>\r\n            <li data-slide-to=\"2\"></li>\r\n            <!-- data-target=\"#carouselExampleIndicators\" -->\r\n        </ol>\r\n        <div class=\"carousel-inner\">\r\n            <div class=\"carousel-item active\">\r\n                <!-- <app-pets-type></app-pets-type> -->\r\n            </div>\r\n            <div class=\"carousel-item\">\r\n                <!-- <app-pets-info></app-pets-info> -->\r\n            </div>\r\n            <div class=\"carousel-item\">\r\n                <!-- <app-pets-picture></app-pets-picture> -->\r\n            </div>\r\n        </div>\r\n        <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" #previousInput style=\"position: fixed; display: none;\" role=\"button\" data-slide=\"prev\"></a>\r\n        <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" #nextInput style=\"position: fixed; display: none;\" role=\"button\" data-slide=\"next\"></a>\r\n    </div>\r\n    <!-- <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading> -->\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n    <div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"false\" data-interval=\"false\">\r\n        <ol class=\"carousel-indicators\" style=\"position: fixed;\">\r\n            <li data-slide-to=\"0\" class=\"active\"></li>\r\n            <li data-slide-to=\"1\"></li>\r\n            <li data-slide-to=\"2\"></li>\r\n            <!-- data-target=\"#carouselExampleIndicators\" -->\r\n        </ol>\r\n        <div class=\"carousel-inner\">\r\n            <div class=\"carousel-item active\">\r\n                <div class=\"row\">\r\n                    <a href=\"javascript:;\" *ngFor=\"let pet of user.pets\" (click)=\"selectPet(pet)\">\r\n                        <div class=\"col-xs-12 col-sm-6 col-md-4\">\r\n                        <div class=\"frontside\">\r\n                            <div class=\"card\">\r\n                                <div class=\"card-body\">\r\n                                <p><img class=\"img-fluid\" src=\"{{pet.img}}\"></p>\r\n                                <h4 class=\"card-title\">{{pet.name}}</h4>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        </div>\r\n                    </a>\r\n                </div>\r\n            </div>\r\n            <div class=\"carousel-item\">\r\n                <div class=\"text-center\">\r\n                    <div class=\"form-signin\">\r\n                        <br>\r\n                        <mat-form-field>\r\n                            <mat-label>{{language.appointmentType}}</mat-label>\r\n                            <select matNativeControl>\r\n                                <option value=\"volvo\">Volvo</option>\r\n                                <option value=\"saab\">Saab</option>\r\n                                <option value=\"mercedes\">Mercedes</option>\r\n                                <option value=\"audi\">Audi</option>\r\n                            </select>\r\n                        </mat-form-field>\r\n                        <mat-form-field>\r\n                            <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl>\r\n                        </mat-form-field>\r\n                        <mat-form-field>\r\n                            <input matInput style=\"height: auto;height: 47px;\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [matDatepicker]=\"myDatepicker\" placeholder=\"{{language.birthDate}}\" [(ngModel)]=\"appointment.date\" ngDefaultControl>\r\n                            <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n                            <mat-datepicker #myDatepicker></mat-datepicker>\r\n                        </mat-form-field>\r\n                        <mat-form-field>\r\n                            <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                        </mat-form-field>\r\n                    </div>\r\n                    <a href=\"javascript:;\" class=\"btn btn-toppet btn-bottom btn-round\" style=\"position: fixed; margin-bottom: 16%; right: 40%;\" (click)=\"next()\"><i class=\"fa fa-chevron-right\"></i></a>\r\n                </div>\r\n            </div>\r\n            <div class=\"carousel-item\">\r\n                <!-- <app-pets-picture></app-pets-picture> -->\r\n            </div>\r\n        </div>\r\n        <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" #previousInput style=\"position: fixed; display: none;\" role=\"button\" data-slide=\"prev\"></a>\r\n        <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" #nextInput style=\"position: fixed; display: none;\" role=\"button\" data-slide=\"next\"></a>\r\n    </div>\r\n    <app-alert></app-alert>\r\n    <!-- <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading> -->\r\n</div>\r\n"
 
 /***/ }),
 
@@ -788,8 +762,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var ButtonComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ButtonComponent, _super);
-    function ButtonComponent() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    function ButtonComponent(session) {
+        var _this = _super.call(this, session) || this;
         _this.click = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
         _this.begin = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
         _this.done = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
@@ -880,9 +854,8 @@ __webpack_require__.r(__webpack_exports__);
 var FacebookComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](FacebookComponent, _super);
     function FacebookComponent(api, session) {
-        var _this = _super.call(this) || this;
+        var _this = _super.call(this, session) || this;
         _this.api = api;
-        _this.session = session;
         _this.sociaNetworkType = _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_5__["SociaNetworkType"].FACEBOOK;
         _this.callback = function (args) {
             console.log(args);
@@ -969,6 +942,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./src/app/utils.ts");
 /* harmony import */ var _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
+/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../session/session.service */ "./src/app/session/session.service.ts");
+
 
 
 
@@ -976,8 +951,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var GoogleComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](GoogleComponent, _super);
-    function GoogleComponent(api) {
-        var _this = _super.call(this) || this;
+    function GoogleComponent(api, session) {
+        var _this = _super.call(this, session) || this;
         _this.api = api;
         _this.sociaNetworkType = _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_4__["SociaNetworkType"].GOOGLE;
         return _this;
@@ -1005,7 +980,7 @@ var GoogleComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./google.component.html */ "./src/app/button/google/google.component.html"),
             styles: [__webpack_require__(/*! ./google.component.css */ "./src/app/button/google/google.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_4__["GoogleService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_4__["GoogleService"], _session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
     ], GoogleComponent);
     return GoogleComponent;
 }(_button_classes__WEBPACK_IMPORTED_MODULE_1__["ButtonComponent"]));
@@ -1065,8 +1040,7 @@ __webpack_require__.r(__webpack_exports__);
 var SignInComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SignInComponent, _super);
     function SignInComponent(session) {
-        var _this = _super.call(this) || this;
-        _this.session = session;
+        var _this = _super.call(this, session) || this;
         _this.loginDone = function (args) {
             _this.loading = false;
             _this.done.emit(args);
@@ -1178,9 +1152,8 @@ __webpack_require__.r(__webpack_exports__);
 var SignUpComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SignUpComponent, _super);
     function SignUpComponent(userApi, session) {
-        var _this = _super.call(this) || this;
+        var _this = _super.call(this, session) || this;
         _this.userApi = userApi;
-        _this.session = session;
         return _this;
     }
     SignUpComponent.prototype.ngOnInit = function () {
@@ -1622,14 +1595,12 @@ var Appointment = /** @class */ (function () {
     return Appointment;
 }());
 
-var AppointmentType;
-(function (AppointmentType) {
-    AppointmentType[AppointmentType["OTHER"] = 0] = "OTHER";
-    AppointmentType[AppointmentType["VACCINE"] = 1] = "VACCINE";
-    AppointmentType[AppointmentType["CONSULTING"] = 2] = "CONSULTING";
-    AppointmentType[AppointmentType["BATH"] = 3] = "BATH";
-    AppointmentType[AppointmentType["WALK"] = 4] = "WALK";
-})(AppointmentType || (AppointmentType = {}));
+var AppointmentType = /** @class */ (function () {
+    function AppointmentType() {
+    }
+    return AppointmentType;
+}());
+
 var PetService = /** @class */ (function () {
     function PetService() {
     }
@@ -1764,23 +1735,14 @@ __webpack_require__.r(__webpack_exports__);
 var HomeComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](HomeComponent, _super);
     function HomeComponent(router, session) {
-        var _this = _super.call(this) || this;
+        var _this = _super.call(this, session) || this;
         _this.router = router;
-        _this.session = session;
         return _this;
     }
-    Object.defineProperty(HomeComponent.prototype, "menu", {
-        get: function () {
-            return this.session.menuService.menu;
-        },
-        enumerable: true,
-        configurable: true
-    });
     HomeComponent.prototype.ngOnInit = function () {
         this.title = this.applicationName;
-        this.setTitle(this.session.menuService);
+        this.setTitle();
         this.enableMenu();
-        this.appointmentsComponent.user = this.session.getCurrentUser();
     };
     HomeComponent.prototype.enableMenu = function () {
         this.menu.disableMenu = false;
@@ -1875,6 +1837,7 @@ var LanguageService = /** @class */ (function () {
         this.takePicture = "Tire uma foto do seu pet";
         this.description = "Descrição";
         this.noAppointmentsClick = "Sem compromissos.";
+        this.appointmentType = "Tipo do Compromisso";
         this.view = "Visualizar";
         this.years = "anos";
         this.year = "ano";
@@ -2051,18 +2014,10 @@ __webpack_require__.r(__webpack_exports__);
 var LoginComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](LoginComponent, _super);
     function LoginComponent(session, router) {
-        var _this = _super.call(this) || this;
-        _this.session = session;
+        var _this = _super.call(this, session) || this;
         _this.router = router;
         return _this;
     }
-    Object.defineProperty(LoginComponent.prototype, "menu", {
-        get: function () {
-            return this.session.menuService.menu;
-        },
-        enumerable: true,
-        configurable: true
-    });
     LoginComponent.prototype.ngOnInit = function () {
         this.menu.disable = true;
         this.session.onLogged(null, this.router, this.session.menuService.menu);
@@ -2158,9 +2113,11 @@ module.exports = "<div id=\"map_canvas\" class=\"container\" style=\"width:90%;h
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapsComponent", function() { return MapsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _cordova_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../cordova.service */ "./src/app/cordova.service.ts");
-/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
+/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _cordova_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../cordova.service */ "./src/app/cordova.service.ts");
+/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
+
 
 
 
@@ -2171,8 +2128,8 @@ __webpack_require__.r(__webpack_exports__);
 //alternative https://github.com/ercobo/angular-cordova
 var MapsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MapsComponent, _super);
-    function MapsComponent(cordovaService) {
-        var _this = _super.call(this) || this;
+    function MapsComponent(cordovaService, session) {
+        var _this = _super.call(this, session) || this;
         _this.cordovaService = cordovaService;
         _this.options = {
             enableHighAccuracy: true,
@@ -2235,15 +2192,15 @@ var MapsComponent = /** @class */ (function (_super) {
         // Wait until the map is ready status.
     };
     MapsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-maps',
             template: __webpack_require__(/*! ./maps.component.html */ "./src/app/maps/maps.component.html"),
             styles: [__webpack_require__(/*! ./maps.component.css */ "./src/app/maps/maps.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cordova_service__WEBPACK_IMPORTED_MODULE_2__["CordovaService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cordova_service__WEBPACK_IMPORTED_MODULE_3__["CordovaService"], _session_session_service__WEBPACK_IMPORTED_MODULE_1__["SessionService"]])
     ], MapsComponent);
     return MapsComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_4__["AppBase"]));
 
 
 
@@ -2340,8 +2297,7 @@ __webpack_require__.r(__webpack_exports__);
 var NavbarComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](NavbarComponent, _super);
     function NavbarComponent(session, zone, router, element) {
-        var _this = _super.call(this) || this;
-        _this.session = session;
+        var _this = _super.call(this, session) || this;
         _this.zone = zone;
         _this.router = router;
         _this.element = element;
@@ -2425,7 +2381,7 @@ module.exports = ".my-float{\r\n\tmargin-top:22px;\r\n}\r\n\r\nsection .section-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet?.isActivated == false\">\r\n  <div class=\"container\">\r\n      <!-- <h5 class=\"section-title h1\">{{title}}</h5> -->\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-4\" *ngFor=\"let pet of pets\">\r\n          <div class=\"frontside\">\r\n              <div class=\"card\">\r\n                  <div class=\"card-body text-center\">\r\n                      <p><img class=\"img-fluid\" src=\"{{pet.img}}\"></p>\r\n                      <h4 class=\"card-title\">{{pet.name}}</h4>\r\n                      <p class=\"card-text\">{{pet.description}}</p>\r\n                      <a href=\"javascript:;\" (click)=\"view(pet)\" class=\"btn btn-primary btn-sm\"><i class=\"fa fa-eye\"></i></a>\r\n                      <a href=\"javascript:;\" (click)=\"removePet(pet)\" class=\"btn btn-danger btn-sm\"><i class=\"fa fa-trash-alt\"></i></a>\r\n                  </div>\r\n              </div>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n  <app-tutorial>{{language.addPetTutotial}}</app-tutorial>\r\n  <a href=\"javascript:;\" #addButton class=\"float bg-toppet\" (click)=\"add()\">\r\n    <i class=\"fa fa-plus my-float\"></i>\r\n  </a>\r\n  <!-- data-toggle=\"tooltip\" data-placement=\"top\" \r\n    data-animation=\"true\" data-trigger=\"manual\" \r\n    title=\"{{language.addPetTutotial}}\" -->\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n</section>\r\n<router-outlet #outlet=\"outlet\"></router-outlet>\r\n"
+module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet?.isActivated == false\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12 col-sm-6 col-md-4\" *ngFor=\"let pet of pets\">\r\n        <div class=\"frontside\">\r\n          <div class=\"card\">\r\n              <div class=\"card-body text-center\">\r\n                <p><img class=\"img-fluid\" src=\"{{pet.img}}\"></p>\r\n                <h4 class=\"card-title\">{{pet.name}}</h4>\r\n                <p class=\"card-text\">{{pet.description}}</p>\r\n                <a href=\"javascript:;\" (click)=\"view(pet)\" class=\"btn btn-primary btn-sm\"><i class=\"fa fa-eye\"></i></a>\r\n                <a href=\"javascript:;\" (click)=\"removePet(pet)\" class=\"btn btn-danger btn-sm\"><i class=\"fa fa-trash-alt\"></i></a>\r\n              </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <app-tutorial>{{language.addPetTutotial}}</app-tutorial>\r\n  <a href=\"javascript:;\" #addButton class=\"float bg-toppet\" (click)=\"add()\">\r\n    <i class=\"fa fa-plus my-float\"></i>\r\n  </a>\r\n  <!-- data-toggle=\"tooltip\" data-placement=\"top\" \r\n    data-animation=\"true\" data-trigger=\"manual\" \r\n    title=\"{{language.addPetTutotial}}\" -->\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n</section>\r\n<router-outlet #outlet=\"outlet\"></router-outlet>\r\n"
 
 /***/ }),
 
@@ -2479,9 +2435,8 @@ __webpack_require__.r(__webpack_exports__);
 var PetsComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetsComponent, _super);
     function PetsComponent(api, session, router, activatedRoute, cordova) {
-        var _this = _super.call(this) || this;
+        var _this = _super.call(this, session) || this;
         _this.api = api;
-        _this.session = session;
         _this.router = router;
         _this.activatedRoute = activatedRoute;
         _this.cordova = cordova;
@@ -2491,13 +2446,6 @@ var PetsComponent = /** @class */ (function (_super) {
         };
         return _this;
     }
-    Object.defineProperty(PetsComponent.prototype, "menu", {
-        get: function () {
-            return this.session.menuService.menu;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(PetsComponent.prototype, "pets", {
         get: function () {
             return this._pets;
@@ -2509,8 +2457,7 @@ var PetsComponent = /** @class */ (function (_super) {
         this.menu.disable = false;
         this.menu.disableMenu = false;
         this.title = this.language.myPet;
-        this.setTitle(this.session.menuService);
-        this.user = this.session.getCurrentUser();
+        this.setTitle();
         this.createContextMenu();
         this.setPets();
     };
@@ -2633,8 +2580,8 @@ var PetsComponent = /** @class */ (function (_super) {
 ///////////////////////////
 var PetTypeComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetTypeComponent, _super);
-    function PetTypeComponent(api, modal) {
-        var _this = _super.call(this) || this;
+    function PetTypeComponent(api, modal, session) {
+        var _this = _super.call(this, session) || this;
         _this.api = api;
         _this.modal = modal;
         _this.types = [];
@@ -2699,7 +2646,8 @@ var PetTypeComponent = /** @class */ (function (_super) {
             styles: [__webpack_require__(/*! ./pets.picker.component.css */ "./src/app/pets/pets.picker.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_7__["PetApiService"],
-            ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__["Modal"]])
+            ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__["Modal"],
+            _session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
     ], PetTypeComponent);
     return PetTypeComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_5__["AppBase"]));
@@ -2707,8 +2655,8 @@ var PetTypeComponent = /** @class */ (function (_super) {
 ///////////////////////////////////////////////
 var BreedPickerComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BreedPickerComponent, _super);
-    function BreedPickerComponent(dialogRef) {
-        var _this = _super.call(this) || this;
+    function BreedPickerComponent(dialogRef, session) {
+        var _this = _super.call(this, session) || this;
         _this.dialogRef = dialogRef;
         var data = _this.dialogRef.context.data;
         if (data != undefined) {
@@ -2738,7 +2686,7 @@ var BreedPickerComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./pets.breeds.component.html */ "./src/app/pets/pets.breeds.component.html"),
             styles: [__webpack_require__(/*! ./pets.picker.component.css */ "./src/app/pets/pets.picker.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [ngx_modialog__WEBPACK_IMPORTED_MODULE_15__["DialogRef"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [ngx_modialog__WEBPACK_IMPORTED_MODULE_15__["DialogRef"], _session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
     ], BreedPickerComponent);
     return BreedPickerComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_5__["AppBase"]));
@@ -2747,8 +2695,7 @@ var BreedPickerComponent = /** @class */ (function (_super) {
 var PetInfoComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetInfoComponent, _super);
     function PetInfoComponent(session /*, private cordova : CordovaService*/) {
-        var _this = _super.call(this) || this;
-        _this.session = session;
+        var _this = _super.call(this, session) || this;
         _this.mask = _utils__WEBPACK_IMPORTED_MODULE_8__["DateUtils"].mask;
         return _this;
     }
@@ -2819,8 +2766,8 @@ var PetInfoComponent = /** @class */ (function (_super) {
 //////////////////////////////////////
 var PetPictureComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetPictureComponent, _super);
-    function PetPictureComponent(phonegap) {
-        var _this = _super.call(this) || this;
+    function PetPictureComponent(phonegap, session) {
+        var _this = _super.call(this, session) || this;
         _this.phonegap = phonegap;
         return _this;
     }
@@ -2872,7 +2819,7 @@ var PetPictureComponent = /** @class */ (function (_super) {
             selector: 'app-pets-picture',
             template: __webpack_require__(/*! ./pets.picture.component.html */ "./src/app/pets/pets.picture.component.html")
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cordova_service__WEBPACK_IMPORTED_MODULE_11__["CordovaService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cordova_service__WEBPACK_IMPORTED_MODULE_11__["CordovaService"], _session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
     ], PetPictureComponent);
     return PetPictureComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_5__["AppBase"]));
@@ -2880,9 +2827,8 @@ var PetPictureComponent = /** @class */ (function (_super) {
 ////////////////////////////////////////////////////
 var PetsWizardComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PetsWizardComponent, _super);
-    function PetsWizardComponent(session, api, router, element, activatedRoute, petsComponent) {
-        var _this = _super.call(this) || this;
-        _this.session = session;
+    function PetsWizardComponent(api, router, element, activatedRoute, petsComponent, session) {
+        var _this = _super.call(this, session) || this;
         _this.api = api;
         _this.router = router;
         _this.element = element;
@@ -2919,13 +2865,6 @@ var PetsWizardComponent = /** @class */ (function (_super) {
         };
         return _this;
     }
-    Object.defineProperty(PetsWizardComponent.prototype, "menu", {
-        get: function () {
-            return this.session.menuService.menu;
-        },
-        enumerable: true,
-        configurable: true
-    });
     PetsWizardComponent.prototype.ngOnInit = function () {
         this.loading = true;
         this.menu.disable = false;
@@ -2973,13 +2912,12 @@ var PetsWizardComponent = /** @class */ (function (_super) {
             selector: 'app-pets-wizard',
             template: __webpack_require__(/*! ./pets.wizard.component.html */ "./src/app/pets/pets.wizard.component.html")
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](5, Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"])(PetsComponent)),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
-            _service_services__WEBPACK_IMPORTED_MODULE_7__["PetApiService"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"])(PetsComponent)),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_7__["PetApiService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"],
             _angular_core__WEBPACK_IMPORTED_MODULE_6__["ElementRef"],
             _angular_router__WEBPACK_IMPORTED_MODULE_13__["ActivatedRoute"],
-            PetsComponent])
+            PetsComponent, _session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
     ], PetsWizardComponent);
     return PetsWizardComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_5__["AppBase"]));
@@ -3123,8 +3061,7 @@ __webpack_require__.r(__webpack_exports__);
 var RegisterUserComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RegisterUserComponent, _super);
     function RegisterUserComponent(session, api, router) {
-        var _this = _super.call(this) || this;
-        _this.session = session;
+        var _this = _super.call(this, session) || this;
         _this.api = api;
         _this.router = router;
         _this.login = function (args) {
@@ -3141,13 +3078,6 @@ var RegisterUserComponent = /** @class */ (function (_super) {
         };
         return _this;
     }
-    Object.defineProperty(RegisterUserComponent.prototype, "menu", {
-        get: function () {
-            return this.session.menuService.menu;
-        },
-        enumerable: true,
-        configurable: true
-    });
     RegisterUserComponent.prototype.ngOnInit = function () {
         this.menu.disableMenu = true;
     };
@@ -3274,7 +3204,7 @@ var httpDefaultOptions = {
 var endpoints = src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].endpoint;
 var ApiService = /** @class */ (function () {
     function ApiService() {
-        this.endpoint = endpoints.indraLocal;
+        this.endpoint = endpoints.local;
         console.log(this.endpoint);
     }
     ApiService.prototype.handleError = function (error) {
@@ -3636,9 +3566,9 @@ var SessionService = /** @class */ (function () {
         }
         var user = this.getCurrentUser();
         if (!_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(user)) {
-            if (!_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(menu)) {
-                menu.user = user;
-            }
+            // if(!ObjectUtils.isEmpty(menu)){
+            //   menu.user = user;
+            // }
             if (_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(this.zone)) {
                 router.navigateByUrl(redirectUrl);
             }
@@ -4038,25 +3968,20 @@ module.exports = "<div class=\"container text-center\">\r\n  <h1 class=\"form-si
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WelcomeComponent", function() { return WelcomeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _navbar_menuService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../navbar/menuService */ "./src/app/navbar/menuService.ts");
+/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-
 
 
 
 
 var WelcomeComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WelcomeComponent, _super);
-    function WelcomeComponent(router, menuService) {
-        var _this = _super.call(this) || this;
-        _this.router = router;
-        _this.menuService = menuService;
-        return _this;
+    function WelcomeComponent(session) {
+        return _super.call(this, session) || this;
     }
     WelcomeComponent.prototype.ngOnInit = function () {
-        this.menuService.menu.disable = true;
+        this.menu.disable = true;
     };
     WelcomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -4064,7 +3989,7 @@ var WelcomeComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./welcome.component.html */ "./src/app/welcome/welcome.component.html"),
             styles: [__webpack_require__(/*! ./welcome.component.css */ "./src/app/welcome/welcome.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _navbar_menuService__WEBPACK_IMPORTED_MODULE_1__["MenuService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_1__["SessionService"]])
     ], WelcomeComponent);
     return WelcomeComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_3__["AppBase"]));

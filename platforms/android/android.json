@@ -115,6 +115,10 @@
             {
               "xml": "<feature name=\"SQLitePlugin\"><param name=\"android-package\" value=\"io.sqlc.SQLitePlugin\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"ListPicker\"><param name=\"android-package\" value=\"am.armsoft.plugins.ListPicker\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -299,6 +303,9 @@
       "PACKAGE_NAME": "br.com.duti.toppet"
     },
     "cordova-plugin-context-menu": {
+      "PACKAGE_NAME": "br.com.duti.toppet"
+    },
+    "cordova-plugin-listpicker": {
       "PACKAGE_NAME": "br.com.duti.toppet"
     }
   },
@@ -635,6 +642,14 @@
       "merges": [
         ""
       ]
+    },
+    {
+      "id": "cordova-plugin-listpicker.ListPicker",
+      "file": "plugins/cordova-plugin-listpicker/www/ListPicker.js",
+      "pluginId": "cordova-plugin-listpicker",
+      "clobbers": [
+        "window.plugins.listpicker"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -647,6 +662,7 @@
     "cordova-plugin-facebook4": "4.2.1",
     "cordova-plugin-camera": "4.0.3",
     "cordova-sqlite-storage": "3.2.0",
-    "cordova-plugin-context-menu": "0.1.1"
+    "cordova-plugin-context-menu": "0.1.1",
+    "cordova-plugin-listpicker": "2.2.2"
   }
 }

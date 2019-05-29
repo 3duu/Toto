@@ -41,6 +41,7 @@ export class LanguageService {
     takePicture : string = "Tire uma foto do seu pet";
     description : string = "Descrição";
     noAppointmentsClick : string = "Sem compromissos.";
+    appointmentType : string = "Tipo do Compromisso";
     view : string = "Visualizar";
     years : string = "anos";
     year : string = "ano";

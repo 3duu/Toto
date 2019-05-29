@@ -544,7 +544,7 @@ module.exports = ".float{\r\n\tposition:fixed;\r\n\twidth:60px;\r\n\theight:60px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated == false\">\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\">\r\n        <li *ngFor=\"let appointment of appointments\">\r\n          <time datetime=\"2014-07-20\">\r\n            <span class=\"day\">4</span>\r\n            <span class=\"month\">Jul</span>\r\n            <span class=\"year\">2014</span>\r\n            <span class=\"time\">ALL DAY</span>\r\n          </time>\r\n          <img alt=\"Independence Day\" src=\"https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg\" />\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">Independence Day</h2>\r\n            <p class=\"desc\">United States Holiday</p>\r\n          </div>\r\n          <div class=\"social\">\r\n            <ul>\r\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"#facebook\"><span class=\"fa fa-facebook\"></span></a></li>\r\n              <li class=\"twitter\" style=\"width:34%;\"><a href=\"#twitter\"><span class=\"fa fa-twitter\"></span></a></li>\r\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"#google-plus\"><span class=\"fa fa-google-plus\"></span></a></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n  </div>\r\n  </div>\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\">\r\n    <i class=\"fa fa-plus my-float\"></i>\r\n  </a>\r\n</div>\r\n</section>\r\n<router-outlet #outlet=\"outlet\"></router-outlet>"
+module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated == false\">\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\">\r\n        <li *ngFor=\"let appointment of appointments\">\r\n          <time datetime=\"\">\r\n            <span class=\"day\">{{appointment.date.getDay()}}</span>\r\n            <span class=\"month\">{{appointment.date.getMonth()}}</span>\r\n            <span class=\"year\">{{appointment.date.getFullYear()}}</span>\r\n            <span class=\"time\">{{appointment.date.getTime()}}</span>\r\n          </time>\r\n          <img alt=\"Independence Day\" src=\"https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg\" />\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">Independence Day</h2>\r\n            <p class=\"desc\">United States Holiday</p>\r\n          </div>\r\n          <div class=\"social\">\r\n            <ul>\r\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-facebook\"></span></a></li>\r\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-google-plus\"></span></a></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n  </div>\r\n  </div>\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\">\r\n    <i class=\"fa fa-plus my-float\"></i>\r\n  </a>\r\n</div>\r\n</section>\r\n<router-outlet #outlet=\"outlet\"></router-outlet>"
 
 /***/ }),
 
@@ -593,12 +593,11 @@ var AppointmentsComponent = /** @class */ (function (_super) {
     AppointmentsComponent.prototype.ngOnInit = function () {
         this.title = this.language.appointments;
         this.setTitle(this.session.menuService);
+        window.date = new Date();
     };
     AppointmentsComponent.prototype.add = function () {
         var _this = this;
-        this.session.zone.run(function () {
-            return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_5__["APPOINTMENTS_WIZARD_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute });
-        });
+        this.session.zone.run(function () { return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_5__["APPOINTMENTS_WIZARD_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute }); });
     };
     AppointmentsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -676,8 +675,6 @@ var AppointmentsTypeComponent = /** @class */ (function (_super) {
         }
     };
     AppointmentsTypeComponent.prototype.next = function () {
-        /*this.session.zone.run(() =>
-          this.router.navigate([PETS_PAGE,PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));*/
         this.nextInput.nativeElement.click();
     };
     AppointmentsTypeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1054,7 +1051,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _button_classes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../button-classes */ "./src/app/button/button-classes.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/utils */ "./src/app/utils.ts");
-/* harmony import */ var src_app_entity_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var src_app_entity_entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/entity/entities */ "./src/app/entity/entities.ts");
 /* harmony import */ var src_app_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
 /* harmony import */ var src_app_entity_system__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/entity/system */ "./src/app/entity/system.ts");
 
@@ -1091,7 +1088,7 @@ var SignInComponent = /** @class */ (function (_super) {
             return;
         }
         this.loading = true;
-        var formUser = new src_app_entity_User__WEBPACK_IMPORTED_MODULE_5__["User"]();
+        var formUser = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_5__["User"]();
         formUser.username = this.form.value.username;
         formUser.password = this.form.value.password;
         this.form.value.socialMedia = src_app_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_6__["SociaNetworkType"].NONE;
@@ -1166,7 +1163,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_service_services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/service/services */ "./src/app/service/services.ts");
 /* harmony import */ var src_app_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/utils */ "./src/app/utils.ts");
-/* harmony import */ var src_app_entity_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var src_app_entity_entities__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/entity/entities */ "./src/app/entity/entities.ts");
 /* harmony import */ var src_app_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
 /* harmony import */ var src_app_entity_system__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/entity/system */ "./src/app/entity/system.ts");
 
@@ -1200,7 +1197,7 @@ var SignUpComponent = /** @class */ (function (_super) {
             return;
         }
         this.loading = true;
-        var formUser = new src_app_entity_User__WEBPACK_IMPORTED_MODULE_6__["User"]();
+        var formUser = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_6__["User"]();
         formUser.username = this.form.value.username;
         formUser.password = this.form.value.password;
         formUser.name = this.form.value.name;
@@ -1528,18 +1525,117 @@ var LocalDatabaseService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/entity/Pet.ts":
-/*!*******************************!*\
-  !*** ./src/app/entity/Pet.ts ***!
-  \*******************************/
-/*! exports provided: Pet, PetType, Breed */
+/***/ "./src/app/entity/entities.ts":
+/*!************************************!*\
+  !*** ./src/app/entity/entities.ts ***!
+  \************************************/
+/*! exports provided: Rating, Bookmark, User, State, Address, PetServiceType, ServiceType, Appointment, AppointmentType, PetService, Pet, PetType, Breed */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Rating", function() { return Rating; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Bookmark", function() { return Bookmark; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "State", function() { return State; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Address", function() { return Address; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetServiceType", function() { return PetServiceType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServiceType", function() { return ServiceType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Appointment", function() { return Appointment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentType", function() { return AppointmentType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetService", function() { return PetService; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Pet", function() { return Pet; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetType", function() { return PetType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Breed", function() { return Breed; });
+var Rating = /** @class */ (function () {
+    function Rating() {
+    }
+    Rating.MAX_RATING = 5;
+    return Rating;
+}());
+
+var Bookmark = /** @class */ (function () {
+    function Bookmark() {
+    }
+    return Bookmark;
+}());
+
+var User = /** @class */ (function () {
+    function User() {
+    }
+    return User;
+}());
+
+var State;
+(function (State) {
+    State["SP"] = "S\u00E3o Paulo";
+    State["RJ"] = "Rio de Janeiro";
+    State["MG"] = "Minas Gerais";
+    State["PE"] = "Pernambuco";
+    State["BA"] = "Bahia";
+    State["SC"] = "Santa Catarina";
+    State["RS"] = "Rio Grande do Sul";
+    State["PR"] = "Paran\u00E1";
+    State["CE"] = "Cear\u00E1";
+    State["PI"] = "Piau\u00ED";
+    State["GO"] = "Gaoi\u00E1s";
+    State["MT"] = "Mato Grosso";
+    State["PA"] = "Par\u00E1";
+    State["AM"] = "Amazonas";
+    State["AP"] = "Amap\u00E1";
+    State["AL"] = "Alagoas";
+    State["PB"] = "Para\u00EDba";
+    State["RO"] = "Rond\u00F4nia";
+    State["RR"] = "Raraima";
+    State["RN"] = "Rio Grande do Norte";
+    State["ES"] = "Espirito Santo";
+    State["DF"] = "Distrito Federal";
+    State["AC"] = "Acre";
+    State["MA"] = "Maranh\u00E3o";
+    State["SE"] = "Sergipe";
+    State["TO"] = "Tocantins";
+    State["MS"] = "Mato Grosso do Sul";
+})(State || (State = {}));
+var Address = /** @class */ (function () {
+    function Address() {
+    }
+    return Address;
+}());
+
+var PetServiceType;
+(function (PetServiceType) {
+    PetServiceType[PetServiceType["PETSHOP"] = 1] = "PETSHOP";
+    PetServiceType[PetServiceType["DOG_WALKER"] = 2] = "DOG_WALKER";
+    PetServiceType[PetServiceType["VET"] = 3] = "VET";
+    PetServiceType[PetServiceType["PET_SHOWER"] = 4] = "PET_SHOWER";
+    PetServiceType[PetServiceType["KENNEL"] = 5] = "KENNEL";
+})(PetServiceType || (PetServiceType = {}));
+var ServiceType = /** @class */ (function () {
+    function ServiceType() {
+    }
+    return ServiceType;
+}());
+
+var Appointment = /** @class */ (function () {
+    function Appointment() {
+    }
+    return Appointment;
+}());
+
+var AppointmentType;
+(function (AppointmentType) {
+    AppointmentType[AppointmentType["OTHER"] = 0] = "OTHER";
+    AppointmentType[AppointmentType["VACCINE"] = 1] = "VACCINE";
+    AppointmentType[AppointmentType["CONSULTING"] = 2] = "CONSULTING";
+    AppointmentType[AppointmentType["BATH"] = 3] = "BATH";
+    AppointmentType[AppointmentType["WALK"] = 4] = "WALK";
+})(AppointmentType || (AppointmentType = {}));
+var PetService = /** @class */ (function () {
+    function PetService() {
+    }
+    return PetService;
+}());
+
 var Pet = /** @class */ (function () {
     function Pet() {
     }
@@ -1556,26 +1652,6 @@ var Breed = /** @class */ (function () {
     function Breed() {
     }
     return Breed;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/entity/User.ts":
-/*!********************************!*\
-  !*** ./src/app/entity/User.ts ***!
-  \********************************/
-/*! exports provided: User */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
-var User = /** @class */ (function () {
-    function User() {
-    }
-    return User;
 }());
 
 
@@ -1920,7 +1996,7 @@ var LoadingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* brandico */\r\n[class*=\"brandico-\"]:before {\r\n  font-family: 'brandico', sans-serif;\r\n}\r\n/* entypo */\r\n[class*=\"entypo-\"]:before {\r\n  font-family: 'entypo', sans-serif;\r\n}\r\n/* openwebicons */\r\n[class*=\"openwebicons-\"]:before {\r\n  font-family: 'OpenWeb Icons', sans-serif;\r\n}\r\n/* zocial */\r\n[class*=\"zocial-\"]:before {\r\n  font-family: 'zocial', sans-serif;\r\n}\r\n.form-signin{\r\n  max-width: 330px;\r\n  padding: 15px;\r\n  margin: 0 auto;\r\n}\r\n.login-input {\r\n  margin-bottom: -1px;\r\n  border-bottom-left-radius: 0;\r\n  border-bottom-right-radius: 0;\r\n}\r\n.login-input-pass {\r\n  margin-bottom: 10px;\r\n  border-top-left-radius: 0;\r\n  border-top-right-radius: 0;\r\n}\r\n.signup-input {\r\n  margin-bottom: -1px;\r\n  border-bottom-left-radius: 0;\r\n  border-bottom-right-radius: 0;\r\n}\r\n.signup-input-confirm {\r\n  margin-bottom: 10px;\r\n  border-top-left-radius: 0;\r\n  border-top-right-radius: 0;\r\n}\r\n.create-account {\r\n  text-align: center;\r\n  width: 100%;\r\n  display: block;\r\n}\r\n.form-signin .form-control {\r\n  position: relative;\r\n  font-size: 16px;\r\n  height: auto;\r\n  padding: 10px;\r\n  box-sizing: border-box;\r\n}\r\n.btn-center{\r\n  width: 50%;\r\n  text-align: center;\r\n  margin: inherit;\r\n}\r\n.social-login-btn {\r\n  margin: 5px;\r\n  width: 20%;\r\n  font-size: 250%;\r\n  padding: 0;\r\n}\r\n.social-login-more {\r\n  width: 45%;\r\n}\r\n.social-google {\r\n  background-color: #da573b;\r\n  border-color: #be5238;\r\n}\r\n.social-google:hover{\r\n  background-color: #be5238;\r\n  border-color: #9b4631;\r\n}\r\n.social-twitter {\r\n  background-color: #1daee3;\r\n  border-color: #3997ba;\r\n}\r\n.social-twitter:hover {\r\n  background-color: #3997ba;\r\n  border-color: #347b95;\r\n}\r\n.social-facebook {\r\n  background-color: #4c699e;\r\n  border-color: #47618d;\r\n}\r\n.social-facebook:hover {\r\n  background-color: #47618d;\r\n  border-color: #3c5173;\r\n}\r\n.social-linkedin {\r\n  background-color: #4875B4;\r\n  border-color: #466b99;\r\n}\r\n.social-linkedin:hover {\r\n  background-color: #466b99;\r\n  border-color: #3b5a7c;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxhQUFhO0FBQ2I7RUFDRSxtQ0FBbUM7QUFDckM7QUFFQSxXQUFXO0FBQ1g7RUFDRSxpQ0FBaUM7QUFDbkM7QUFFQSxpQkFBaUI7QUFDakI7RUFDRSx3Q0FBd0M7QUFDMUM7QUFFQSxXQUFXO0FBQ1g7RUFDRSxpQ0FBaUM7QUFDbkM7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsY0FBYztBQUNoQjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLDRCQUE0QjtFQUM1Qiw2QkFBNkI7QUFDL0I7QUFDQTtFQUNFLG1CQUFtQjtFQUNuQix5QkFBeUI7RUFDekIsMEJBQTBCO0FBQzVCO0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsNEJBQTRCO0VBQzVCLDZCQUE2QjtBQUMvQjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLHlCQUF5QjtFQUN6QiwwQkFBMEI7QUFDNUI7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsY0FBYztBQUNoQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGVBQWU7RUFDZixZQUFZO0VBQ1osYUFBYTtFQUdiLHNCQUFzQjtBQUN4QjtBQUVBO0VBQ0UsVUFBVTtFQUNWLGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCO0FBRUE7RUFDRSxXQUFXO0VBQ1gsVUFBVTtFQUNWLGVBQWU7RUFDZixVQUFVO0FBQ1o7QUFFQTtFQUNFLFVBQVU7QUFDWjtBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QjtBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QjtBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QjtBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UseUJBQXlCO0VBQ3pCLHFCQUFxQjtBQUN2QiIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBicmFuZGljbyAqL1xyXG5bY2xhc3MqPVwiYnJhbmRpY28tXCJdOmJlZm9yZSB7XHJcbiAgZm9udC1mYW1pbHk6ICdicmFuZGljbycsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi8qIGVudHlwbyAqL1xyXG5bY2xhc3MqPVwiZW50eXBvLVwiXTpiZWZvcmUge1xyXG4gIGZvbnQtZmFtaWx5OiAnZW50eXBvJywgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuLyogb3BlbndlYmljb25zICovXHJcbltjbGFzcyo9XCJvcGVud2ViaWNvbnMtXCJdOmJlZm9yZSB7XHJcbiAgZm9udC1mYW1pbHk6ICdPcGVuV2ViIEljb25zJywgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuLyogem9jaWFsICovXHJcbltjbGFzcyo9XCJ6b2NpYWwtXCJdOmJlZm9yZSB7XHJcbiAgZm9udC1mYW1pbHk6ICd6b2NpYWwnLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG4uZm9ybS1zaWduaW57XHJcbiAgbWF4LXdpZHRoOiAzMzBweDtcclxuICBwYWRkaW5nOiAxNXB4O1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG59XHJcblxyXG4ubG9naW4taW5wdXQge1xyXG4gIG1hcmdpbi1ib3R0b206IC0xcHg7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcclxuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcclxufVxyXG4ubG9naW4taW5wdXQtcGFzcyB7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAwO1xyXG59XHJcblxyXG4uc2lnbnVwLWlucHV0IHtcclxuICBtYXJnaW4tYm90dG9tOiAtMXB4O1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XHJcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDA7XHJcbn1cclxuXHJcbi5zaWdudXAtaW5wdXQtY29uZmlybSB7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAwO1xyXG59XHJcblxyXG4uY3JlYXRlLWFjY291bnQge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB3aWR0aDogMTAwJTtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG5cclxuLmZvcm0tc2lnbmluIC5mb3JtLWNvbnRyb2wge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHBhZGRpbmc6IDEwcHg7XHJcbiAgLXdlYmtpdC1ib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gIC1tb3otYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG59XHJcblxyXG4uYnRuLWNlbnRlcntcclxuICB3aWR0aDogNTAlO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBtYXJnaW46IGluaGVyaXQ7XHJcbn1cclxuXHJcbi5zb2NpYWwtbG9naW4tYnRuIHtcclxuICBtYXJnaW46IDVweDtcclxuICB3aWR0aDogMjAlO1xyXG4gIGZvbnQtc2l6ZTogMjUwJTtcclxuICBwYWRkaW5nOiAwO1xyXG59XHJcblxyXG4uc29jaWFsLWxvZ2luLW1vcmUge1xyXG4gIHdpZHRoOiA0NSU7XHJcbn1cclxuXHJcbi5zb2NpYWwtZ29vZ2xlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZGE1NzNiO1xyXG4gIGJvcmRlci1jb2xvcjogI2JlNTIzODtcclxufVxyXG4uc29jaWFsLWdvb2dsZTpob3ZlcntcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjYmU1MjM4O1xyXG4gIGJvcmRlci1jb2xvcjogIzliNDYzMTtcclxufVxyXG5cclxuLnNvY2lhbC10d2l0dGVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMWRhZWUzO1xyXG4gIGJvcmRlci1jb2xvcjogIzM5OTdiYTtcclxufVxyXG4uc29jaWFsLXR3aXR0ZXI6aG92ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMzOTk3YmE7XHJcbiAgYm9yZGVyLWNvbG9yOiAjMzQ3Yjk1O1xyXG59XHJcblxyXG4uc29jaWFsLWZhY2Vib29rIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNGM2OTllO1xyXG4gIGJvcmRlci1jb2xvcjogIzQ3NjE4ZDtcclxufVxyXG4uc29jaWFsLWZhY2Vib29rOmhvdmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDc2MThkO1xyXG4gIGJvcmRlci1jb2xvcjogIzNjNTE3MztcclxufVxyXG5cclxuLnNvY2lhbC1saW5rZWRpbiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQ4NzVCNDtcclxuICBib3JkZXItY29sb3I6ICM0NjZiOTk7XHJcbn1cclxuLnNvY2lhbC1saW5rZWRpbjpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQ2NmI5OTtcclxuICBib3JkZXItY29sb3I6ICMzYjVhN2M7XHJcbn0iXX0= */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -1931,7 +2007,7 @@ module.exports = "/* brandico */\r\n[class*=\"brandico-\"]:before {\r\n  font-fa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" style=\"margin-top: 0 !important;\">     \r\n<script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\r\n<div class=\"text-center\">\r\n    <form class=\"form-signin\" #loginForm=\"ngForm\">\r\n        <h2 class=\"form-signin-heading\" style=\"color: white;\">{{language.signIn}}</h2>\r\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\r\n        <br><br>\r\n        <p>\r\n            <facebook-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></facebook-button>\r\n            <google-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></google-button>\r\n        </p>\r\n        <br>\r\n\r\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\r\n        <br>\r\n        \r\n        <mat-form-field >\r\n            <input matInput placeholder=\"{{language.username}}\" name=\"username\" id=\"username\" ngModel>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input matInput placeholder=\"{{language.password}}\" [type]=\"hide ? 'password' : 'text'\" name=\"password\" id=\"password\" ngModel>\r\n            <mat-icon color=\"accent\" matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n        </mat-form-field>\r\n        \r\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\r\n        <app-alert></app-alert>\r\n        <login-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"loginForm\" (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\">{{language.signIn}}</login-button>\r\n        <br>\r\n    </form>\r\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button style=\"color: white;\" class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.register}} </b></button> </small>\r\n</div>"
+module.exports = "<div class=\"container\" style=\"margin-top: 0 !important;\">\r\n<div class=\"text-center\">\r\n    <form class=\"form-signin\" #loginForm=\"ngForm\">\r\n        <h2 class=\"form-signin-heading\" style=\"color: white;\">{{language.signIn}}</h2>\r\n        <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\r\n        <br>\r\n        <p>\r\n            <facebook-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></facebook-button>\r\n            <google-button (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\"></google-button>\r\n        </p>\r\n        <br>\r\n        <small class=\"text-muted\">{{language.enterYourLogon}} {{applicationName}}</small>\r\n        <br>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput placeholder=\"{{language.username}}\" name=\"username\" id=\"username\" ngModel>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\"  matInput placeholder=\"{{language.password}}\" [type]=\"hide ? 'password' : 'text'\" name=\"password\" id=\"password\" ngModel>\r\n            <mat-icon color=\"accent\" matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n        </mat-form-field>\r\n        \r\n        <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script>\r\n        <app-alert></app-alert>\r\n        <login-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block\" [form]=\"loginForm\" (begin)=\"onLoginInit()\" (done)=\"onLoginEnd($event)\">{{language.signIn}}</login-button>\r\n        <br>\r\n    </form>\r\n    <small class=\"create-account text-muted\">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button style=\"color: white;\" class=\"ember-view btn btn-sm btn-default\" (click)=\"register()\"> <b>{{language.register}} </b></button> </small>\r\n</div>"
 
 /***/ }),
 
@@ -2251,7 +2327,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
 /* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var src_app_entity_entities__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/entity/entities */ "./src/app/entity/entities.ts");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
@@ -2295,7 +2371,7 @@ var NavbarComponent = /** @class */ (function (_super) {
     NavbarComponent.prototype.updateUser = function () {
         this.user = this.session.getCurrentUser();
         if (_utils__WEBPACK_IMPORTED_MODULE_5__["ObjectUtils"].isEmpty(this.user)) {
-            this.user = new _entity_User__WEBPACK_IMPORTED_MODULE_4__["User"]();
+            this.user = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_4__["User"]();
         }
     };
     NavbarComponent.prototype.logout = function () {
@@ -2370,7 +2446,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetsWizardComponent", function() { return PetsWizardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _tutorial_tutorial_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../tutorial/tutorial.component */ "./src/app/tutorial/tutorial.component.ts");
-/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../entity/Pet */ "./src/app/entity/Pet.ts");
+/* harmony import */ var src_app_entity_entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/entity/entities */ "./src/app/entity/entities.ts");
 /* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../application */ "./src/app/application.ts");
 /* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
 /* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
@@ -2384,7 +2460,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ngx-modialog/plugins/bootstrap */ "./node_modules/ngx-modialog/plugins/bootstrap/fesm5/ngx-modialog-plugins-bootstrap.js");
 /* harmony import */ var ngx_modialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-modialog */ "./node_modules/ngx-modialog/fesm5/ngx-modialog.js");
-
 
 
 
@@ -2857,9 +2932,9 @@ var PetsWizardComponent = /** @class */ (function (_super) {
         this.menu.disableMenu = false;
         this.pet = this.session.getEditingPet();
         if (_utils__WEBPACK_IMPORTED_MODULE_8__["ObjectUtils"].isEmpty(this.pet)) {
-            this.pet = new _entity_Pet__WEBPACK_IMPORTED_MODULE_2__["Pet"]();
-            this.pet.petType = new _entity_Pet__WEBPACK_IMPORTED_MODULE_2__["PetType"]();
-            this.pet.breed = new _entity_Pet__WEBPACK_IMPORTED_MODULE_2__["Breed"]();
+            this.pet = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_2__["Pet"]();
+            this.pet.petType = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_2__["PetType"]();
+            this.pet.breed = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_2__["Breed"]();
         }
         this.petInfoComponent.pet = this.pet;
         this.petPictureComponent.pet = this.pet;
@@ -2932,7 +3007,7 @@ module.exports = ".input-group-date {\r\n    background-color: #563d7c;\r\n}\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container text-center\" style=\"height: 90%\">\r\n    <div class=\"form-signin\">\r\n        <!-- <h2 class=\"form-signin-heading\" style=\"color: white !important\">{{language.addNewPet}}</h2> -->\r\n        <br>\r\n        <div class=\"input-group mb-3\" *ngIf=\"pet.breed.id\">\r\n            <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text bg-toppet\"><a href=\"javascript:;\" class=\"btn-toppet\" (click)=\"back()\"><i [ngClass]=\"'fa fa-' + pet.petType.icon\" style=\"float: right; font-size: 235%;\"></i></a></span>\r\n            </div>\r\n            <input type=\"text\" style=\"height: auto; font-size: 22px; background-color: transparent; color: white;\" disabled=\"true\" class=\"form-control\" value=\"{{pet.breed.description}}\" aria-describedby=\"basic-addon1\">\r\n        </div>\r\n        <input class=\"ember-view ember-text-field form-control login-input\" [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl />\r\n        <div class=\"input-group\" style=\"height: 47px; margin-bottom: -2px;\">\r\n            <input matInput style=\"height: auto;\" style=\"height: 47px;\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field form-control login-input\" [max]=\"currentDate\" [matDatepicker]=\"myDatepicker\" (dateInput)=\"updateAge()\" placeholder=\"{{language.birthDate}}\" [(ngModel)]=\"pet.birthDate\" ngDefaultControl>\r\n            <div class=\"input-group-append\">\r\n                <span class=\"input-group-text input-group-date\" style=\"height: 47px;\">\r\n                    <mat-datepicker-toggle [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n                </span>\r\n            </div>\r\n        </div>\r\n        <mat-datepicker #myDatepicker></mat-datepicker>\r\n        <input class=\"ember-view ember-text-field form-control login-input\" value=\"{{age}}\" placeholder=\"{{language.age}}\" type=\"text\" disabled=\"true\" />\r\n        <input class=\"ember-view ember-text-field form-control login-input-pass\" [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl />\r\n        <app-alert></app-alert>\r\n    </div>\r\n    <a href=\"javascript:;\" class=\"btn btn-toppet btn-bottom btn-round\" style=\"position: fixed; margin-bottom: 16%; right: 40%;\" (click)=\"next()\"><i class=\"fa fa-chevron-right\"></i></a>\r\n</div>\r\n\r\n  \r\n  \r\n  \r\n      "
+module.exports = "<div class=\"container text-center\" style=\"height: 90%\">\r\n    <div class=\"form-signin\">\r\n        <br>\r\n        <div class=\"input-group mb-3\" *ngIf=\"pet.breed.id\">\r\n            <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text bg-toppet\"><a href=\"javascript:;\" class=\"btn-toppet\" (click)=\"back()\"><i [ngClass]=\"'fa fa-' + pet.petType.icon\" style=\"float: right; font-size: 235%;\"></i></a></span>\r\n            </div>\r\n            <input type=\"text\" style=\"height: auto; font-size: 22px; background-color: transparent; color: white;\" disabled=\"true\" class=\"form-control\" value=\"{{pet.breed.description}}\" aria-describedby=\"basic-addon1\">\r\n        </div>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input matInput style=\"height: auto;height: 47px;\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [max]=\"currentDate\" [matDatepicker]=\"myDatepicker\" (dateInput)=\"updateAge()\" placeholder=\"{{language.birthDate}}\" [(ngModel)]=\"pet.birthDate\" ngDefaultControl>\r\n            <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n            <mat-datepicker #myDatepicker></mat-datepicker>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput value=\"{{age}}\" placeholder=\"{{language.age}}\" disabled=\"true\">\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n        </mat-form-field>\r\n        <app-alert></app-alert>\r\n    </div>\r\n    <a href=\"javascript:;\" class=\"btn btn-toppet btn-bottom btn-round\" style=\"position: fixed; margin-bottom: 16%; right: 40%;\" (click)=\"next()\"><i class=\"fa fa-chevron-right\"></i></a>\r\n</div>\r\n\r\n  \r\n  \r\n  \r\n      "
 
 /***/ }),
 
@@ -2998,7 +3073,7 @@ module.exports = "/* brandico */\r\n[class*=\"brandico-\"]:before {\r\n  font-fa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" style=\"margin-top: 0 !important;\">     \r\n  <script id=\"metamorph-1-start\" type=\"text/x-placeholder\"></script><script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>\r\n  <div class=\"text-center\">\r\n      <form class=\"form-signin\" #registerForm=\"ngForm\" autocomplete=\"off\">\r\n          <h2 class=\"form-signin-heading\" style=\"color: white !important\">{{language.signUp}}</h2>\r\n          <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\r\n          <br>\r\n          <p>\r\n            <facebook-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></facebook-button>\r\n            <google-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></google-button>\r\n          </p>\r\n          <small class=\"text-muted\">{{language.createWithSomeInfo}}</small>\r\n          <br>\r\n          <mat-form-field>\r\n            <input matInput placeholder=\"{{language.username}}\" name=\"username\" id=\"username\" ngModel>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput placeholder=\"{{language.name}}\" name=\"name\" id=\"name\" ngModel>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput placeholder=\"{{language.password}}\" [type]=\"hide ? 'password' : 'text'\" name=\"password\" id=\"password\" ngModel>\r\n            <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput placeholder=\"{{language.confirmPassword}}\" [type]=\"hide ? 'password' : 'text'\" name=\"confirmPassword\" id=\"confirmPassword\" ngModel>\r\n            <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n          </mat-form-field>\r\n          <!-- <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.email}}\" type=\"text\" name=\"username\" id=\"username\" ngModel />\r\n          <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.name}}\" type=\"text\" name=\"name\" id=\"name\" ngModel />\r\n          <input class=\"ember-view ember-text-field form-control login-input\" placeholder=\"{{language.password}}\" type=\"password\" name=\"password\" id=\"password\" ngModel />\r\n          <input class=\"ember-view ember-text-field form-control login-input-pass\" placeholder=\"{{language.confirmPassword}}\" type=\"password\" name=\"confirmPassword\" id=\"confirmPassword\" ngModel /> -->\r\n          <br>\r\n          <app-alert></app-alert>\r\n          <!-- <app-loading *ngIf=\"loading\"></app-loading> -->\r\n          <register-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block btn-center\" [form]=\"registerForm\" (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, false)\">{{language.signUp}}</register-button>\r\n          <br>\r\n      </form>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"container\" style=\"margin-top: 0 !important;\">     \r\n  <div class=\"text-center\">\r\n      <form class=\"form-signin\" #registerForm=\"ngForm\" autocomplete=\"off\">\r\n          <h2 class=\"form-signin-heading\" style=\"color: white !important\">{{language.signUp}}</h2>\r\n          <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\r\n          <br>\r\n          <p>\r\n            <facebook-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></facebook-button>\r\n            <google-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></google-button>\r\n          </p>\r\n          <small class=\"text-muted\">{{language.createWithSomeInfo}}</small>\r\n          <br>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" placeholder=\"{{language.username}}\" name=\"username\" id=\"username\" ngModel>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" placeholder=\"{{language.name}}\" name=\"name\" id=\"name\" ngModel>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" placeholder=\"{{language.password}}\" [type]=\"hide ? 'password' : 'text'\" name=\"password\" id=\"password\" ngModel>\r\n            <mat-icon matSuffix color=\"accent\" (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" placeholder=\"{{language.confirmPassword}}\" [type]=\"hide ? 'password' : 'text'\" name=\"confirmPassword\" id=\"confirmPassword\" ngModel>\r\n            <mat-icon matSuffix color=\"accent\" (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n          </mat-form-field>\r\n          <br>\r\n          <app-alert></app-alert>\r\n          <register-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block\" [form]=\"registerForm\" (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, false)\">{{language.signUp}}</register-button>\r\n          <br>\r\n      </form>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -3025,7 +3100,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
 /* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _entity_entities__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../entity/entities */ "./src/app/entity/entities.ts");
 /* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
 /* harmony import */ var _button_google_google_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../button/google/google.component */ "./src/app/button/google/google.component.ts");
 
@@ -3087,7 +3162,7 @@ var RegisterUserComponent = /** @class */ (function (_super) {
             }
             else {
                 if (this.submit.form != undefined && this.submit.form.value.username != undefined && this.submit.form.value.password != undefined) {
-                    var user = new _entity_User__WEBPACK_IMPORTED_MODULE_13__["User"]();
+                    var user = new _entity_entities__WEBPACK_IMPORTED_MODULE_13__["User"]();
                     user.username = this.submit.form.value.username;
                     user.password = this.submit.form.value.password;
                     user.loginType = _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_10__["SociaNetworkType"].NONE;
@@ -3168,12 +3243,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentsApiService", function() { return AppointmentsApiService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../entity/system */ "./src/app/entity/system.ts");
-/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _entity_entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../entity/entities */ "./src/app/entity/entities.ts");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../database/database */ "./src/app/database/database.ts");
 /* harmony import */ var _language_Language__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../language/Language */ "./src/app/language/Language.ts");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
@@ -3191,12 +3266,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Set the http options
-var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]({ "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
+var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpHeaders"]({ "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept" });
 var httpDefaultOptions = {
     headers: httpHeaders
 };
-var endpoints = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].endpoint;
+var endpoints = src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].endpoint;
 var ApiService = /** @class */ (function () {
     function ApiService() {
         this.endpoint = endpoints.indraLocal;
@@ -3211,7 +3286,7 @@ var ApiService = /** @class */ (function () {
             // The backend returned an unsuccessful response code. The response body may contain clues as to what went wrong,
             console.error("Backend returned code " + error.status + ", " + ("body was: " + error.error));
         }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["throwError"])(error);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(error);
     };
     /**
     * Function to extract the data when the server return some
@@ -3255,17 +3330,17 @@ var UserApiService = /** @class */ (function (_super) {
         console.log(this.authenticate);
         console.log(user);
         return this.http.post(this.authenticate, user, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     UserApiService.prototype.save = function (user) {
         console.log(this.register);
         console.log(user);
         return this.http.post(this.register, user, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     UserApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]])
     ], UserApiService);
     return UserApiService;
 }(ApiService));
@@ -3287,39 +3362,39 @@ var PetApiService = /** @class */ (function (_super) {
         console.log(this.retrieve);
         console.log(pet);
         return this.http.post(this.retrieve, pet, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     PetApiService.prototype.getByUser = function (user) {
         console.log(this.retrieve);
         console.log(user);
-        var parameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpParams"]().set("userId", user.id.toString());
+        var parameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpParams"]().set("userId", user.id.toString());
         var httpOptions = {
             headers: httpHeaders,
             params: parameters
         };
         return this.http.get(this.retrieve, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     PetApiService.prototype.getAllPetTypes = function () {
         console.log(this.types);
         return this.http.get(this.types, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     PetApiService.prototype.save = function (pet) {
         console.log(this.register);
         console.log(pet);
         return this.http.post(this.register, pet, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     PetApiService.prototype.delete = function (pet) {
         console.log(this.remove);
         console.log(pet);
         return this.http.post(this.remove, pet, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     PetApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]])
     ], PetApiService);
     return PetApiService;
 }(ApiService));
@@ -3339,11 +3414,11 @@ var InfoService = /** @class */ (function (_super) {
             headers: httpHeaders
         };
         return this.http.get(this.ping, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     InfoService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]])
     ], InfoService);
     return InfoService;
 }(ApiService));
@@ -3393,7 +3468,7 @@ var AuthenticationService = /** @class */ (function () {
     AuthenticationService.prototype.authenticateLastUser = function (callback, sessionCallback) {
         var _this = this;
         var doLogin = function (result) {
-            var user = new _entity_User__WEBPACK_IMPORTED_MODULE_7__["User"]();
+            var user = new _entity_entities__WEBPACK_IMPORTED_MODULE_2__["User"]();
             user.username = result.username;
             user.password = result.password;
             user.loginType = result.loginType;
@@ -3405,7 +3480,7 @@ var AuthenticationService = /** @class */ (function () {
         this._localDatabase.getCurrentUser(doLogin, notLogin);
     };
     AuthenticationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [UserApiService,
             _database_database__WEBPACK_IMPORTED_MODULE_8__["LocalDatabaseService"],
             InfoService])
@@ -3428,34 +3503,34 @@ var AppointmentsApiService = /** @class */ (function (_super) {
         console.log(this.retrieve);
         console.log(appointment);
         return this.http.post(this.retrieve, appointment, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     AppointmentsApiService.prototype.getByUser = function (user) {
         console.log(this.retrieve);
         console.log(user);
-        var parameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpParams"]().set("userId", user.id.toString());
+        var parameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpParams"]().set("userId", user.id.toString());
         var httpOptions = {
             headers: httpHeaders,
             params: parameters
         };
         return this.http.get(this.retrieve, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     AppointmentsApiService.prototype.save = function (appointment) {
         console.log(this.register);
         console.log(appointment);
         return this.http.post(this.register, appointment, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     AppointmentsApiService.prototype.delete = function (appointment) {
         console.log(this.remove);
         console.log(appointment);
         return this.http.post(this.remove, appointment, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     AppointmentsApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]])
     ], AppointmentsApiService);
     return AppointmentsApiService;
 }(ApiService));
@@ -3624,7 +3699,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cordova_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../cordova.service */ "./src/app/cordova.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _entity_entities__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entity/entities */ "./src/app/entity/entities.ts");
 
 
 
@@ -3648,7 +3723,7 @@ var FacebookService = /** @class */ (function () {
             FB.login(function (response) {
                 console.log('submitLogin', response);
                 var returnCodeEventArgs = { code: _entity_system__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS, message: "", result: undefined };
-                var user = new _entity_User__WEBPACK_IMPORTED_MODULE_4__["User"]();
+                var user = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["User"]();
                 if (response.authResponse && response.status == "connected") {
                     window.facebook = response;
                     user.username = response.authResponse.userID;
@@ -3681,7 +3756,7 @@ var FacebookService = /** @class */ (function () {
             facebookConnectPlugin.login(function (response) {
                 console.log('submitLogin', response);
                 var returnCodeEventArgs = { code: _entity_system__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS, message: "", result: undefined };
-                var user = new _entity_User__WEBPACK_IMPORTED_MODULE_4__["User"]();
+                var user = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["User"]();
                 if (response.authResponse && response.status == "connected") {
                     window.facebook = response;
                     user.username = response.authResponse.userID;

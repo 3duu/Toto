@@ -411,6 +411,14 @@ module.exports = [
         "merges": [
             ""
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-listpicker/www/ListPicker.js",
+        "id": "cordova-plugin-listpicker.ListPicker",
+        "pluginId": "cordova-plugin-listpicker",
+        "clobbers": [
+            "window.plugins.listpicker"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -425,7 +433,8 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-camera": "4.0.3",
     "cordova-sqlite-storage": "3.2.0",
-    "cordova-plugin-context-menu": "0.1.1"
+    "cordova-plugin-context-menu": "0.1.1",
+    "cordova-plugin-listpicker": "2.2.2"
 }
 // BOTTOM OF METADATA
 });

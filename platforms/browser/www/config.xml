@@ -4,6 +4,7 @@
     <description>
         Manage you Pet Life
     </description>
+    <icon height="50" src="/tigela-de-cachorro.png" width="50" />
     <author email="eduu.porto@gmail.com" href="http://phonegap.com">
         DUTI
     </author>

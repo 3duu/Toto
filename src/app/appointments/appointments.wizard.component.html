@@ -28,6 +28,15 @@
                     <div class="form-signin">
                         <br>
                         <mat-form-field>
+                            <mat-label>{{language.appointmentType}}</mat-label>
+                            <select matNativeControl>
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                        </mat-form-field>
+                        <mat-form-field>
                             <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="appointment.appointmentType.description" placeholder="{{language.name}}" type="text" ngDefaultControl>
                         </mat-form-field>
                         <mat-form-field>
