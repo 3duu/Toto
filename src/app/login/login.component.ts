@@ -5,7 +5,6 @@ import { AppBase } from '../appbase';
 import { AlertComponent } from '../alert/alert.component';
 import { StringUtils } from '../utils';
 import { ColorClass } from '../styles/styles';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
 import { REGISTER_USER_PAGE } from '../application';
 import { ReturnCode } from '../entity/system';
@@ -28,13 +27,9 @@ export class LoginComponent extends AppBase {
   @ViewChild(GoogleComponent) private google : GoogleComponent;
   @ViewChild(SignInComponent) private signin : SignInComponent;
   
-  constructor(private session : SessionService, private router: Router) {
-    super();
+  constructor(session : SessionService, private router: Router) {
+    super(session);
   } 
-
-  private get menu(): NavbarComponent {
-    return this.session.menuService.menu;
-  }
 
   ngOnInit() : void {
     this.menu.disable = true;

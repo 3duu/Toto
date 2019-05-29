@@ -1,7 +1,8 @@
+import { SessionService } from './session/session.service';
 import { environment } from './../environments/environment';
 import { OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
 import { LanguageService } from './language/Language';
-import { MenuService } from './navbar/menuService';
+import { User } from './entity/entities';
 
 //https://malcoded.com/posts/why-angular-not-works/
 export class AppBase implements OnInit, AfterContentInit, AfterViewInit {
@@ -11,29 +12,37 @@ export class AppBase implements OnInit, AfterContentInit, AfterViewInit {
   protected loading = false;
   title : string = this.applicationName;
 
-  get language() {
+  get user() : User {
+    return this.session.getCurrentUser();
+  }
+
+  get menu() {
+    return this.session.menuService.menu;
+  }
+
+  get language() : LanguageService {
     return AppBase._language;
   }
 
-  setTitle(menuService : MenuService) {
-    menuService.menu.title = this.title;
+  setTitle() {
+    this.menu.title = this.title;
   }
 
-  constructor(){
+  constructor(protected session : SessionService){
     if((<any>window).components == undefined){
       (<any>window).components = [];
     }
     (<any>window).components.push(this);
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
 
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit() {
     
   }
-  ngAfterContentInit(): void {
+  ngAfterContentInit() {
     
   }
     

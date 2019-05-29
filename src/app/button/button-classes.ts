@@ -2,6 +2,7 @@ import { AppBase } from '../appbase';
 import { Output, Input, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ReturnCode } from '../entity/system';
+import { SessionService } from '../session/session.service';
 
 export interface ClickableComponent {
     onClicked() : void;
@@ -26,6 +27,10 @@ export class ButtonComponent extends AppBase {
     @Input() classes : string;
     @Input() form: NgForm;
     @Input() hidden : boolean;
+
+    constructor(session : SessionService) {
+        super(session);
+    }
 
     ngOnInit() {
 

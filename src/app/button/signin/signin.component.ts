@@ -13,8 +13,8 @@ import { ReturnCode } from 'src/app/entity/system';
 })
 export class SignInComponent extends ButtonComponent implements ClickableComponent {
 
-  constructor(private session : SessionService) {
-    super();
+  constructor(session : SessionService) {
+    super(session);
   }
 
   ngOnInit() {

@@ -18,11 +18,11 @@ export class NavbarComponent extends AppBase {
   user : User;
   private _height : number;
 
-  constructor(private session: SessionService, 
+  constructor(session: SessionService, 
     private zone : NgZone, 
     private router: Router, 
     private element : ElementRef) {
-    super();
+    super(session);
   }
 
   get height() : number {

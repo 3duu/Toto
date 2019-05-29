@@ -8,10 +8,40 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <!-- <app-pets-type></app-pets-type> -->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let pet of user.pets">
+                      <div class="frontside">
+                        <div class="card">
+                            <div class="card-body text-center">
+                              <p><img class="img-fluid" src="{{pet.img}}"></p>
+                              <h4 class="card-title">{{pet.name}}</h4>
+                              <p class="card-text">{{pet.description}}</p>
+                              <a href="javascript:;" (click)="view(pet)" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                              <a href="javascript:;" (click)="removePet(pet)" class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
             </div>
             <div class="carousel-item">
-                <!-- <app-pets-info></app-pets-info> -->
+                <div class="text-center">
+                    <div class="form-signin">
+                        <br>
+                        <mat-form-field>
+                            <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="appointment.pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput style="height: auto;height: 47px;" aria-describedby="basic-addon1" class="ember-view ember-text-field text-muted" [matDatepicker]="myDatepicker" placeholder="{{language.birthDate}}" [(ngModel)]="appointment.date" ngDefaultControl>
+                            <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                            <mat-datepicker #myDatepicker></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="appointment.pet.description" placeholder="{{language.description}}" type="text" ngDefaultControl>
+                        </mat-form-field>
+                    </div>
+                    <a href="javascript:;" class="btn btn-toppet btn-bottom btn-round" style="position: fixed; margin-bottom: 16%; right: 40%;" (click)="next()"><i class="fa fa-chevron-right"></i></a>
+                </div>
             </div>
             <div class="carousel-item">
                 <!-- <app-pets-picture></app-pets-picture> -->
@@ -20,5 +50,6 @@
         <a class="carousel-control-prev" href="#carouselExampleIndicators" #previousInput style="position: fixed; display: none;" role="button" data-slide="prev"></a>
         <a class="carousel-control-next" href="#carouselExampleIndicators" #nextInput style="position: fixed; display: none;" role="button" data-slide="next"></a>
     </div>
+    <app-alert></app-alert>
     <!-- <app-loading *ngIf="loading" [center]="true"></app-loading> -->
 </div>

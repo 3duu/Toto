@@ -1,4 +1,4 @@
-import { Appointment, User } from './../entity/entities';
+import { Appointment, User, Pet } from './../entity/entities';
 import { SessionService } from './../session/session.service';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
@@ -15,24 +15,23 @@ import { ObjectUtils } from '../utils';
 })
 export class AppointmentsComponent extends AppBase {
 
-  constructor(private session : SessionService, 
-    private router : Router, 
+  constructor(session : SessionService, 
+    private router : Router,
     private activatedRoute : ActivatedRoute,
     private api : AppointmentsApiService) {
-    super();
+    super(session);
   }
 
   protected appointments : Appointment[] = [];
 
   ngOnInit() {
     this.title = this.language.appointments;
-    this.setTitle(this.session.menuService);
+    this.setTitle();
     (<any>window).date = new Date();
   }
 
   add() {
-    this.session.zone.run(() => 
-      this.router.navigate([APPOINTMENTS_WIZARD_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute}));
+    this.session.zone.run(() => this.router.navigate([APPOINTMENTS_WIZARD_PAGE], {replaceUrl: true, relativeTo: this.activatedRoute}));
   }
 
 }
@@ -44,8 +43,8 @@ export class AppointmentsComponent extends AppBase {
 })
 export class AppointmentsThumbComponent extends AppBase {
 
-  constructor(private session : SessionService, private api : AppointmentsApiService) {
-    super();
+  constructor(session : SessionService, private api : AppointmentsApiService) {
+    super(session);
   }
 
   protected appointments : Appointment[] = [];
@@ -56,6 +55,7 @@ export class AppointmentsThumbComponent extends AppBase {
   }
 
   ngAfterViewInit() {
+
     this.loading = true;
     if(!ObjectUtils.isEmpty(this.user)){
 
@@ -68,7 +68,7 @@ export class AppointmentsThumbComponent extends AppBase {
 
         if (result && result.sid) {
           if(result.code == ReturnCode.SUCCESS){
-              this.appointments = result.entity;
+            this.appointments = result.entity;
           }
           else  {
           }
@@ -99,8 +99,8 @@ export class AppointmentsTypeComponent extends AppBase {
   nextInput : ElementRef;
   previousInput : ElementRef;
 
-  constructor(private api : AppointmentsApiService) {
-    super();
+  constructor(private api : AppointmentsApiService, session : SessionService) {
+    super(session);
   }
   
   ngOnInit() {
@@ -112,13 +112,10 @@ export class AppointmentsTypeComponent extends AppBase {
 
     if(selected){
       
-      
     }
   }
 
   next() : void {
-    /*this.session.zone.run(() => 
-      this.router.navigate([PETS_PAGE,PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));*/
     this.nextInput.nativeElement.click();
   }
 
@@ -131,8 +128,8 @@ export class AppointmentsTypeComponent extends AppBase {
 })
 export class AppointmentsWizardComponent extends AppBase {
 
-  constructor(private session : SessionService) {
-    super();
+  constructor(session : SessionService) {
+    super(session);
   }
 
   @ViewChild(AppointmentsTypeComponent) private appointmentsTypeComponent : AppointmentsTypeComponent;
@@ -142,7 +139,8 @@ export class AppointmentsWizardComponent extends AppBase {
   protected appointment : Appointment;
 
   ngOnInit() {
-    
+    this.appointment = new Appointment();
+    this.appointment.pet = new Pet();
   }
 
 

@@ -120,13 +120,10 @@ export class Appointment {
   
 }
 
-export enum AppointmentType {
+export class AppointmentType {
 
-    OTHER,
-	VACCINE,
-	CONSULTING,
-	BATH,
-	WALK
+    id : number;
+    name : string;
   
 }
 

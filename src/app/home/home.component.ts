@@ -14,21 +14,16 @@ import { AppointmentsThumbComponent } from '../appointments/appointments.compone
 //phonegap plugin add cordova-plugin-context-menu --save
 export class HomeComponent extends AppBase {
 
-  constructor(private router: Router, private session : SessionService) {
-    super();
+  constructor(private router: Router, session : SessionService) {
+    super(session);
   }
 
   @ViewChild(AppointmentsThumbComponent) appointmentsComponent : AppointmentsThumbComponent;
 
-  private get menu(): NavbarComponent {
-    return this.session.menuService.menu;
-  }
-
   ngOnInit() {
     this.title = this.applicationName;
-    this.setTitle(this.session.menuService);
+    this.setTitle();
     this.enableMenu();
-    this.appointmentsComponent.user = this.session.getCurrentUser();
   }
 
   private enableMenu() : void {

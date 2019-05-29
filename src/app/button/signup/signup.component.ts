@@ -15,8 +15,8 @@ import { ReturnCode } from 'src/app/entity/system';
 })
 export class SignUpComponent extends ButtonComponent implements ClickableComponent {
 
-  constructor(private userApi : UserApiService, private session : SessionService) {
-    super();
+  constructor(private userApi : UserApiService, session : SessionService) {
+    super(session);
   }
 
   ngOnInit() {

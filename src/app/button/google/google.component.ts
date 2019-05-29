@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ObjectUtils } from '../../utils';
 import { SociaNetworkType, GoogleService } from '../../socialNetwork/socialNetworkServices';
 import { NgForm } from '@angular/forms';
+import { SessionService } from '../../session/session.service';
 
 @Component({
   selector: 'google-button',
@@ -11,8 +12,8 @@ import { NgForm } from '@angular/forms';
 })
 export class GoogleComponent extends ButtonComponent implements ClickableComponent {
 
-  constructor(private api : GoogleService) {
-    super();
+  constructor(private api : GoogleService, session : SessionService) {
+    super(session);
   }
 
   sociaNetworkType : SociaNetworkType = SociaNetworkType.GOOGLE;

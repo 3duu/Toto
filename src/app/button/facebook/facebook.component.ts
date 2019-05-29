@@ -13,8 +13,8 @@ import { ReturnCode } from 'src/app/entity/system';
 })
 export class FacebookComponent extends ButtonComponent implements ClickableComponent {
 
-  constructor(private api : FacebookService, private session : SessionService) {
-    super();
+  constructor(private api : FacebookService, session : SessionService) {
+    super(session);
   }
 
   sociaNetworkType : SociaNetworkType = SociaNetworkType.FACEBOOK;

@@ -5,8 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,8 +31,8 @@ public class Appointment  implements Serializable {
 	@Column(name="date", nullable=false)
 	private Date date;
 	
-	@Column(name="appointmentType", nullable=false)
-	@Enumerated(EnumType.ORDINAL)
+	@JoinColumn(name="appointment_type", nullable=false)
+	@ManyToOne(fetch=FetchType.LAZY)
     private AppointmentType appointmentType;
     
 	@JoinColumn(name="pet_id")

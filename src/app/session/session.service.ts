@@ -82,9 +82,9 @@ export class SessionService {
     const user : User = this.getCurrentUser();
     if(!ObjectUtils.isEmpty(user)){
 
-        if(!ObjectUtils.isEmpty(menu)){
-            menu.user = user;
-        }
+        // if(!ObjectUtils.isEmpty(menu)){
+        //   menu.user = user;
+        // }
         if(ObjectUtils.isEmpty(this.zone)){
             router.navigateByUrl(redirectUrl);
         }

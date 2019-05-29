@@ -1,20 +1,19 @@
 <section id="team" class="pb-5" *ngIf="outlet?.isActivated == false">
   <div class="container">
-      <!-- <h5 class="section-title h1">{{title}}</h5> -->
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let pet of pets">
-          <div class="frontside">
-              <div class="card">
-                  <div class="card-body text-center">
-                      <p><img class="img-fluid" src="{{pet.img}}"></p>
-                      <h4 class="card-title">{{pet.name}}</h4>
-                      <p class="card-text">{{pet.description}}</p>
-                      <a href="javascript:;" (click)="view(pet)" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
-                      <a href="javascript:;" (click)="removePet(pet)" class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></a>
-                  </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let pet of pets">
+        <div class="frontside">
+          <div class="card">
+              <div class="card-body text-center">
+                <p><img class="img-fluid" src="{{pet.img}}"></p>
+                <h4 class="card-title">{{pet.name}}</h4>
+                <p class="card-text">{{pet.description}}</p>
+                <a href="javascript:;" (click)="view(pet)" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                <a href="javascript:;" (click)="removePet(pet)" class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></a>
               </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
   <app-tutorial>{{language.addPetTutotial}}</app-tutorial>

@@ -11,7 +11,6 @@ import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 import { ReturnCodeEventArgs } from '../button/button-classes';
 import { ColorClass } from '../styles/styles';
 import { Router } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { User } from '../entity/entities';
 import { ReturnCode } from '../entity/system';
 import { GoogleComponent } from '../button/google/google.component';
@@ -29,17 +28,13 @@ export class RegisterUserComponent extends AppBase {
   @ViewChild(FacebookComponent) private facebook: FacebookComponent;
   @ViewChild(GoogleComponent) private google : GoogleComponent;
 
-  constructor(private session: SessionService,
+  constructor(session: SessionService,
     private api: UserApiService,
     private router: Router) {
-    super();
+    super(session);
   }
 
-  private get menu(): NavbarComponent {
-    return this.session.menuService.menu;
-  }
-
-  ngOnInit() : void {
+  ngOnInit() {
     this.menu.disableMenu = true;
   }
 

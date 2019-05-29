@@ -1,7 +1,6 @@
-import { MenuService } from './../navbar/menuService';
+import { SessionService } from './../session/session.service';
 import { Component } from '@angular/core';
 import { AppBase } from './../appbase';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -10,12 +9,12 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent extends AppBase {
 
-  constructor(private router: Router, private menuService : MenuService) {
-    super();
+  constructor(session : SessionService) {
+    super(session);
   }
 
   ngOnInit() : void {
-    this.menuService.menu.disable = true;
+    this.menu.disable = true;
   }
 
 }

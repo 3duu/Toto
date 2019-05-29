@@ -1,3 +1,4 @@
+import { SessionService } from './../session/session.service';
 import { Component } from '@angular/core';
 import { CordovaService } from '../cordova.service';
 import { AppBase } from '../appbase';
@@ -21,8 +22,8 @@ export class MapsComponent extends AppBase {
     maximumAge: 3600000
   }
   
-  constructor(private cordovaService : CordovaService) {
-    super();
+  constructor(private cordovaService : CordovaService, session : SessionService) {
+    super(session);
   }
 
   ngOnInit() {

@@ -23,18 +23,13 @@ import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
 export class PetsComponent extends AppBase {
 
   constructor(private api : PetApiService, 
-    private session : SessionService,
+    session : SessionService,
     private router : Router,
     private activatedRoute : ActivatedRoute,
     private cordova : CordovaService) {
-    super();
-  }
-
-  private get menu(): NavbarComponent {
-    return this.session.menuService.menu;
+    super(session);
   }
   
-  private user : User;
   private _pets : Pet[];
   protected menuEntries = [];
   private contextMenu : any;
@@ -50,8 +45,7 @@ export class PetsComponent extends AppBase {
     this.menu.disable = false;
     this.menu.disableMenu = false;
     this.title = this.language.myPet;
-    this.setTitle(this.session.menuService);
-    this.user = this.session.getCurrentUser();
+    this.setTitle();
     this.createContextMenu();
     this.setPets();
   }
@@ -183,8 +177,9 @@ export class PetTypeComponent extends AppBase {
   previousInput : ElementRef;
 
   constructor(private api : PetApiService, 
-    private modal: Modal) {
-    super();
+    private modal: Modal,
+    session : SessionService) {
+      super(session);
   }
   
   ngOnInit() {
@@ -264,8 +259,8 @@ export class BreedPickerComponent extends AppBase  {
 
   private type : PetType;
 
-  constructor(private dialogRef : DialogRef<any>) {
-    super();
+  constructor(private dialogRef : DialogRef<any>, session : SessionService) {
+    super(session);
     const data = this.dialogRef.context.data;
     if(data != undefined){
       this.type = data.type;
@@ -302,8 +297,8 @@ export class PetInfoComponent extends AppBase {
 
   @ViewChild(AlertComponent) private alert: AlertComponent;
   
-  constructor(private session : SessionService/*, private cordova : CordovaService*/){
-    super();
+  constructor(session : SessionService/*, private cordova : CordovaService*/){
+    super(session);
   }
 
   pet : Pet;
@@ -386,8 +381,8 @@ export class PetInfoComponent extends AppBase {
 })
 export class PetPictureComponent extends AppBase {
 
-  constructor(private phonegap : CordovaService){
-    super();
+  constructor(private phonegap : CordovaService, session : SessionService){
+    super(session);
   }
 
   pet : Pet;
@@ -454,10 +449,6 @@ export class PetPictureComponent extends AppBase {
 })
 export class PetsWizardComponent extends AppBase {
 
-  private get menu(): NavbarComponent {
-    return this.session.menuService.menu;
-  }
-
   @ViewChild(PetTypeComponent) private petTypeComponent : PetTypeComponent;
   @ViewChild(PetInfoComponent) private petInfoComponent : PetInfoComponent;
   @ViewChild(PetPictureComponent) private petPictureComponent : PetPictureComponent;
@@ -466,13 +457,13 @@ export class PetsWizardComponent extends AppBase {
 
   private pet : Pet;
 
-  constructor(private session : SessionService,
+  constructor(
     private api : PetApiService,
     private router : Router,
     private element : ElementRef,
     private activatedRoute: ActivatedRoute,
-    @Inject(PetsComponent) private petsComponent: PetsComponent) {
-    super();
+    @Inject(PetsComponent) private petsComponent: PetsComponent, session : SessionService){
+      super(session);
   }
 
   ngOnInit() {

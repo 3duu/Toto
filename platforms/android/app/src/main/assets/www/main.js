@@ -544,7 +544,7 @@ module.exports = ".float{\r\n\tposition:fixed;\r\n\twidth:60px;\r\n\theight:60px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated == false\">\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\">\r\n        <li *ngFor=\"let appointment of appointments\">\r\n          <time datetime=\"2014-07-20\">\r\n            <span class=\"day\">4</span>\r\n            <span class=\"month\">Jul</span>\r\n            <span class=\"year\">2014</span>\r\n            <span class=\"time\">ALL DAY</span>\r\n          </time>\r\n          <img alt=\"Independence Day\" src=\"https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg\" />\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">Independence Day</h2>\r\n            <p class=\"desc\">United States Holiday</p>\r\n          </div>\r\n          <div class=\"social\">\r\n            <ul>\r\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"#facebook\"><span class=\"fa fa-facebook\"></span></a></li>\r\n              <li class=\"twitter\" style=\"width:34%;\"><a href=\"#twitter\"><span class=\"fa fa-twitter\"></span></a></li>\r\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"#google-plus\"><span class=\"fa fa-google-plus\"></span></a></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n  </div>\r\n  </div>\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\">\r\n    <i class=\"fa fa-plus my-float\"></i>\r\n  </a>\r\n</div>\r\n</section>\r\n<router-outlet #outlet=\"outlet\"></router-outlet>"
+module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated == false\">\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\">\r\n        <li *ngFor=\"let appointment of appointments\">\r\n          <time datetime=\"\">\r\n            <span class=\"day\">{{appointment.date.getDay()}}</span>\r\n            <span class=\"month\">{{appointment.date.getMonth()}}</span>\r\n            <span class=\"year\">{{appointment.date.getFullYear()}}</span>\r\n            <span class=\"time\">{{appointment.date.getTime()}}</span>\r\n          </time>\r\n          <img alt=\"Independence Day\" src=\"https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg\" />\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">Independence Day</h2>\r\n            <p class=\"desc\">United States Holiday</p>\r\n          </div>\r\n          <div class=\"social\">\r\n            <ul>\r\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-facebook\"></span></a></li>\r\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-google-plus\"></span></a></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n  </div>\r\n  </div>\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\">\r\n    <i class=\"fa fa-plus my-float\"></i>\r\n  </a>\r\n</div>\r\n</section>\r\n<router-outlet #outlet=\"outlet\"></router-outlet>"
 
 /***/ }),
 
@@ -593,12 +593,11 @@ var AppointmentsComponent = /** @class */ (function (_super) {
     AppointmentsComponent.prototype.ngOnInit = function () {
         this.title = this.language.appointments;
         this.setTitle(this.session.menuService);
+        window.date = new Date();
     };
     AppointmentsComponent.prototype.add = function () {
         var _this = this;
-        this.session.zone.run(function () {
-            return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_5__["APPOINTMENTS_WIZARD_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute });
-        });
+        this.session.zone.run(function () { return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_5__["APPOINTMENTS_WIZARD_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute }); });
     };
     AppointmentsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -676,8 +675,6 @@ var AppointmentsTypeComponent = /** @class */ (function (_super) {
         }
     };
     AppointmentsTypeComponent.prototype.next = function () {
-        /*this.session.zone.run(() =>
-          this.router.navigate([PETS_PAGE,PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));*/
         this.nextInput.nativeElement.click();
     };
     AppointmentsTypeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1054,7 +1051,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _button_classes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../button-classes */ "./src/app/button/button-classes.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/utils */ "./src/app/utils.ts");
-/* harmony import */ var src_app_entity_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var src_app_entity_entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/entity/entities */ "./src/app/entity/entities.ts");
 /* harmony import */ var src_app_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
 /* harmony import */ var src_app_entity_system__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/entity/system */ "./src/app/entity/system.ts");
 
@@ -1091,7 +1088,7 @@ var SignInComponent = /** @class */ (function (_super) {
             return;
         }
         this.loading = true;
-        var formUser = new src_app_entity_User__WEBPACK_IMPORTED_MODULE_5__["User"]();
+        var formUser = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_5__["User"]();
         formUser.username = this.form.value.username;
         formUser.password = this.form.value.password;
         this.form.value.socialMedia = src_app_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_6__["SociaNetworkType"].NONE;
@@ -1166,7 +1163,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_service_services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/service/services */ "./src/app/service/services.ts");
 /* harmony import */ var src_app_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/utils */ "./src/app/utils.ts");
-/* harmony import */ var src_app_entity_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var src_app_entity_entities__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/entity/entities */ "./src/app/entity/entities.ts");
 /* harmony import */ var src_app_socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
 /* harmony import */ var src_app_entity_system__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/entity/system */ "./src/app/entity/system.ts");
 
@@ -1200,7 +1197,7 @@ var SignUpComponent = /** @class */ (function (_super) {
             return;
         }
         this.loading = true;
-        var formUser = new src_app_entity_User__WEBPACK_IMPORTED_MODULE_6__["User"]();
+        var formUser = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_6__["User"]();
         formUser.username = this.form.value.username;
         formUser.password = this.form.value.password;
         formUser.name = this.form.value.name;
@@ -1528,18 +1525,117 @@ var LocalDatabaseService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/entity/Pet.ts":
-/*!*******************************!*\
-  !*** ./src/app/entity/Pet.ts ***!
-  \*******************************/
-/*! exports provided: Pet, PetType, Breed */
+/***/ "./src/app/entity/entities.ts":
+/*!************************************!*\
+  !*** ./src/app/entity/entities.ts ***!
+  \************************************/
+/*! exports provided: Rating, Bookmark, User, State, Address, PetServiceType, ServiceType, Appointment, AppointmentType, PetService, Pet, PetType, Breed */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Rating", function() { return Rating; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Bookmark", function() { return Bookmark; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "State", function() { return State; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Address", function() { return Address; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetServiceType", function() { return PetServiceType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServiceType", function() { return ServiceType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Appointment", function() { return Appointment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentType", function() { return AppointmentType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetService", function() { return PetService; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Pet", function() { return Pet; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetType", function() { return PetType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Breed", function() { return Breed; });
+var Rating = /** @class */ (function () {
+    function Rating() {
+    }
+    Rating.MAX_RATING = 5;
+    return Rating;
+}());
+
+var Bookmark = /** @class */ (function () {
+    function Bookmark() {
+    }
+    return Bookmark;
+}());
+
+var User = /** @class */ (function () {
+    function User() {
+    }
+    return User;
+}());
+
+var State;
+(function (State) {
+    State["SP"] = "S\u00E3o Paulo";
+    State["RJ"] = "Rio de Janeiro";
+    State["MG"] = "Minas Gerais";
+    State["PE"] = "Pernambuco";
+    State["BA"] = "Bahia";
+    State["SC"] = "Santa Catarina";
+    State["RS"] = "Rio Grande do Sul";
+    State["PR"] = "Paran\u00E1";
+    State["CE"] = "Cear\u00E1";
+    State["PI"] = "Piau\u00ED";
+    State["GO"] = "Gaoi\u00E1s";
+    State["MT"] = "Mato Grosso";
+    State["PA"] = "Par\u00E1";
+    State["AM"] = "Amazonas";
+    State["AP"] = "Amap\u00E1";
+    State["AL"] = "Alagoas";
+    State["PB"] = "Para\u00EDba";
+    State["RO"] = "Rond\u00F4nia";
+    State["RR"] = "Raraima";
+    State["RN"] = "Rio Grande do Norte";
+    State["ES"] = "Espirito Santo";
+    State["DF"] = "Distrito Federal";
+    State["AC"] = "Acre";
+    State["MA"] = "Maranh\u00E3o";
+    State["SE"] = "Sergipe";
+    State["TO"] = "Tocantins";
+    State["MS"] = "Mato Grosso do Sul";
+})(State || (State = {}));
+var Address = /** @class */ (function () {
+    function Address() {
+    }
+    return Address;
+}());
+
+var PetServiceType;
+(function (PetServiceType) {
+    PetServiceType[PetServiceType["PETSHOP"] = 1] = "PETSHOP";
+    PetServiceType[PetServiceType["DOG_WALKER"] = 2] = "DOG_WALKER";
+    PetServiceType[PetServiceType["VET"] = 3] = "VET";
+    PetServiceType[PetServiceType["PET_SHOWER"] = 4] = "PET_SHOWER";
+    PetServiceType[PetServiceType["KENNEL"] = 5] = "KENNEL";
+})(PetServiceType || (PetServiceType = {}));
+var ServiceType = /** @class */ (function () {
+    function ServiceType() {
+    }
+    return ServiceType;
+}());
+
+var Appointment = /** @class */ (function () {
+    function Appointment() {
+    }
+    return Appointment;
+}());
+
+var AppointmentType;
+(function (AppointmentType) {
+    AppointmentType[AppointmentType["OTHER"] = 0] = "OTHER";
+    AppointmentType[AppointmentType["VACCINE"] = 1] = "VACCINE";
+    AppointmentType[AppointmentType["CONSULTING"] = 2] = "CONSULTING";
+    AppointmentType[AppointmentType["BATH"] = 3] = "BATH";
+    AppointmentType[AppointmentType["WALK"] = 4] = "WALK";
+})(AppointmentType || (AppointmentType = {}));
+var PetService = /** @class */ (function () {
+    function PetService() {
+    }
+    return PetService;
+}());
+
 var Pet = /** @class */ (function () {
     function Pet() {
     }
@@ -1556,26 +1652,6 @@ var Breed = /** @class */ (function () {
     function Breed() {
     }
     return Breed;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/entity/User.ts":
-/*!********************************!*\
-  !*** ./src/app/entity/User.ts ***!
-  \********************************/
-/*! exports provided: User */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
-var User = /** @class */ (function () {
-    function User() {
-    }
-    return User;
 }());
 
 
@@ -2251,7 +2327,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
 /* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var src_app_entity_entities__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/entity/entities */ "./src/app/entity/entities.ts");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
@@ -2295,7 +2371,7 @@ var NavbarComponent = /** @class */ (function (_super) {
     NavbarComponent.prototype.updateUser = function () {
         this.user = this.session.getCurrentUser();
         if (_utils__WEBPACK_IMPORTED_MODULE_5__["ObjectUtils"].isEmpty(this.user)) {
-            this.user = new _entity_User__WEBPACK_IMPORTED_MODULE_4__["User"]();
+            this.user = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_4__["User"]();
         }
     };
     NavbarComponent.prototype.logout = function () {
@@ -2370,7 +2446,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetsWizardComponent", function() { return PetsWizardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _tutorial_tutorial_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../tutorial/tutorial.component */ "./src/app/tutorial/tutorial.component.ts");
-/* harmony import */ var _entity_Pet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../entity/Pet */ "./src/app/entity/Pet.ts");
+/* harmony import */ var src_app_entity_entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/entity/entities */ "./src/app/entity/entities.ts");
 /* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../application */ "./src/app/application.ts");
 /* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
 /* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
@@ -2384,7 +2460,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var ngx_modialog_plugins_bootstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ngx-modialog/plugins/bootstrap */ "./node_modules/ngx-modialog/plugins/bootstrap/fesm5/ngx-modialog-plugins-bootstrap.js");
 /* harmony import */ var ngx_modialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-modialog */ "./node_modules/ngx-modialog/fesm5/ngx-modialog.js");
-
 
 
 
@@ -2857,9 +2932,9 @@ var PetsWizardComponent = /** @class */ (function (_super) {
         this.menu.disableMenu = false;
         this.pet = this.session.getEditingPet();
         if (_utils__WEBPACK_IMPORTED_MODULE_8__["ObjectUtils"].isEmpty(this.pet)) {
-            this.pet = new _entity_Pet__WEBPACK_IMPORTED_MODULE_2__["Pet"]();
-            this.pet.petType = new _entity_Pet__WEBPACK_IMPORTED_MODULE_2__["PetType"]();
-            this.pet.breed = new _entity_Pet__WEBPACK_IMPORTED_MODULE_2__["Breed"]();
+            this.pet = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_2__["Pet"]();
+            this.pet.petType = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_2__["PetType"]();
+            this.pet.breed = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_2__["Breed"]();
         }
         this.petInfoComponent.pet = this.pet;
         this.petPictureComponent.pet = this.pet;
@@ -3025,7 +3100,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../socialNetwork/socialNetworkServices */ "./src/app/socialNetwork/socialNetworkServices.ts");
 /* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _entity_entities__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../entity/entities */ "./src/app/entity/entities.ts");
 /* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
 /* harmony import */ var _button_google_google_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../button/google/google.component */ "./src/app/button/google/google.component.ts");
 
@@ -3087,7 +3162,7 @@ var RegisterUserComponent = /** @class */ (function (_super) {
             }
             else {
                 if (this.submit.form != undefined && this.submit.form.value.username != undefined && this.submit.form.value.password != undefined) {
-                    var user = new _entity_User__WEBPACK_IMPORTED_MODULE_13__["User"]();
+                    var user = new _entity_entities__WEBPACK_IMPORTED_MODULE_13__["User"]();
                     user.username = this.submit.form.value.username;
                     user.password = this.submit.form.value.password;
                     user.loginType = _socialNetwork_socialNetworkServices__WEBPACK_IMPORTED_MODULE_10__["SociaNetworkType"].NONE;
@@ -3168,12 +3243,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentsApiService", function() { return AppointmentsApiService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../entity/system */ "./src/app/entity/system.ts");
-/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _entity_entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../entity/entities */ "./src/app/entity/entities.ts");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _database_database__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../database/database */ "./src/app/database/database.ts");
 /* harmony import */ var _language_Language__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../language/Language */ "./src/app/language/Language.ts");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
@@ -3191,12 +3266,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Set the http options
-var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]({ "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
+var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpHeaders"]({ "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept" });
 var httpDefaultOptions = {
     headers: httpHeaders
 };
-var endpoints = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].endpoint;
+var endpoints = src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].endpoint;
 var ApiService = /** @class */ (function () {
     function ApiService() {
         this.endpoint = endpoints.indraLocal;
@@ -3211,7 +3286,7 @@ var ApiService = /** @class */ (function () {
             // The backend returned an unsuccessful response code. The response body may contain clues as to what went wrong,
             console.error("Backend returned code " + error.status + ", " + ("body was: " + error.error));
         }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["throwError"])(error);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(error);
     };
     /**
     * Function to extract the data when the server return some
@@ -3255,17 +3330,17 @@ var UserApiService = /** @class */ (function (_super) {
         console.log(this.authenticate);
         console.log(user);
         return this.http.post(this.authenticate, user, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     UserApiService.prototype.save = function (user) {
         console.log(this.register);
         console.log(user);
         return this.http.post(this.register, user, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     UserApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]])
     ], UserApiService);
     return UserApiService;
 }(ApiService));
@@ -3287,39 +3362,39 @@ var PetApiService = /** @class */ (function (_super) {
         console.log(this.retrieve);
         console.log(pet);
         return this.http.post(this.retrieve, pet, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     PetApiService.prototype.getByUser = function (user) {
         console.log(this.retrieve);
         console.log(user);
-        var parameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpParams"]().set("userId", user.id.toString());
+        var parameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpParams"]().set("userId", user.id.toString());
         var httpOptions = {
             headers: httpHeaders,
             params: parameters
         };
         return this.http.get(this.retrieve, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     PetApiService.prototype.getAllPetTypes = function () {
         console.log(this.types);
         return this.http.get(this.types, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     PetApiService.prototype.save = function (pet) {
         console.log(this.register);
         console.log(pet);
         return this.http.post(this.register, pet, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     PetApiService.prototype.delete = function (pet) {
         console.log(this.remove);
         console.log(pet);
         return this.http.post(this.remove, pet, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     PetApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]])
     ], PetApiService);
     return PetApiService;
 }(ApiService));
@@ -3339,11 +3414,11 @@ var InfoService = /** @class */ (function (_super) {
             headers: httpHeaders
         };
         return this.http.get(this.ping, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     InfoService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]])
     ], InfoService);
     return InfoService;
 }(ApiService));
@@ -3393,7 +3468,7 @@ var AuthenticationService = /** @class */ (function () {
     AuthenticationService.prototype.authenticateLastUser = function (callback, sessionCallback) {
         var _this = this;
         var doLogin = function (result) {
-            var user = new _entity_User__WEBPACK_IMPORTED_MODULE_7__["User"]();
+            var user = new _entity_entities__WEBPACK_IMPORTED_MODULE_2__["User"]();
             user.username = result.username;
             user.password = result.password;
             user.loginType = result.loginType;
@@ -3405,7 +3480,7 @@ var AuthenticationService = /** @class */ (function () {
         this._localDatabase.getCurrentUser(doLogin, notLogin);
     };
     AuthenticationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [UserApiService,
             _database_database__WEBPACK_IMPORTED_MODULE_8__["LocalDatabaseService"],
             InfoService])
@@ -3428,34 +3503,34 @@ var AppointmentsApiService = /** @class */ (function (_super) {
         console.log(this.retrieve);
         console.log(appointment);
         return this.http.post(this.retrieve, appointment, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     AppointmentsApiService.prototype.getByUser = function (user) {
         console.log(this.retrieve);
         console.log(user);
-        var parameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpParams"]().set("userId", user.id.toString());
+        var parameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpParams"]().set("userId", user.id.toString());
         var httpOptions = {
             headers: httpHeaders,
             params: parameters
         };
         return this.http.get(this.retrieve, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     AppointmentsApiService.prototype.save = function (appointment) {
         console.log(this.register);
         console.log(appointment);
         return this.http.post(this.register, appointment, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     AppointmentsApiService.prototype.delete = function (appointment) {
         console.log(this.remove);
         console.log(appointment);
         return this.http.post(this.remove, appointment, httpDefaultOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(this.handleError));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError));
     };
     AppointmentsApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]])
     ], AppointmentsApiService);
     return AppointmentsApiService;
 }(ApiService));
@@ -3624,7 +3699,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cordova_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../cordova.service */ "./src/app/cordova.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../entity/system */ "./src/app/entity/system.ts");
-/* harmony import */ var _entity_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entity/User */ "./src/app/entity/User.ts");
+/* harmony import */ var _entity_entities__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../entity/entities */ "./src/app/entity/entities.ts");
 
 
 
@@ -3648,7 +3723,7 @@ var FacebookService = /** @class */ (function () {
             FB.login(function (response) {
                 console.log('submitLogin', response);
                 var returnCodeEventArgs = { code: _entity_system__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS, message: "", result: undefined };
-                var user = new _entity_User__WEBPACK_IMPORTED_MODULE_4__["User"]();
+                var user = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["User"]();
                 if (response.authResponse && response.status == "connected") {
                     window.facebook = response;
                     user.username = response.authResponse.userID;
@@ -3681,7 +3756,7 @@ var FacebookService = /** @class */ (function () {
             facebookConnectPlugin.login(function (response) {
                 console.log('submitLogin', response);
                 var returnCodeEventArgs = { code: _entity_system__WEBPACK_IMPORTED_MODULE_3__["ReturnCode"].SUCCESS, message: "", result: undefined };
-                var user = new _entity_User__WEBPACK_IMPORTED_MODULE_4__["User"]();
+                var user = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["User"]();
                 if (response.authResponse && response.status == "connected") {
                     window.facebook = response;
                     user.username = response.authResponse.userID;
