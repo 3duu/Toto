@@ -115,6 +115,7 @@ export class Appointment {
     appointmentType : AppointmentType;
     pet : Pet;
     user : User;
+    frequencyType : AppointmentExecutionFrequency;
 
     constructor() { }
   
@@ -124,7 +125,14 @@ export class AppointmentType {
 
     id : number;
     description : string;
-  
+}
+
+export enum AppointmentExecutionFrequency {
+
+    ONCE,
+    DAILY_BASIS,
+    WORKING_DAY,
+    WEEKEND
 }
 
 export class PetService {

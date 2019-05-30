@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PETS_PAGE, HOME_PAGE, WELCOME_PAGE, LOGIN_PAGE } from '../application';
+import { AppointmentExecutionFrequency } from '../entity/entities';
 
 @Injectable()
 export class LanguageService {
@@ -42,6 +43,7 @@ export class LanguageService {
     description : string = "Descrição";
     noAppointmentsClick : string = "Sem compromissos.";
     appointmentType : string = "Tipo do Compromisso";
+    appointmentFrequency : string = "Frequência";
     view : string = "Visualizar";
     years : string = "anos";
     year : string = "ano";
@@ -79,6 +81,24 @@ export class LanguageService {
     addPetTutotial : string = "Clique aqui para começar a cuidar o seu pet!";
 
     links : Links = new Links();
+
+    getAppointmentOften(often : AppointmentExecutionFrequency) : string {
+        if(often == AppointmentExecutionFrequency.DAILY_BASIS){
+            return "Diáriamente";
+        }
+        else if(often == AppointmentExecutionFrequency.ONCE){
+            return "Uma vez";
+        }
+        else if(often == AppointmentExecutionFrequency.WEEKEND){
+            return "Finais de Semanas";
+        }
+        else if(often == AppointmentExecutionFrequency.WORKING_DAY){
+            return "Durante a Semana";
+        }
+        else {
+            return this.getAppointmentOften(AppointmentExecutionFrequency.ONCE);
+        }
+    }
 }
 
 export class Links {

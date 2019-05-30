@@ -41,10 +41,7 @@
                 <mat-form-field>
                     <mat-label>{{language.appointmentType}}</mat-label>
                     <select matNativeControl class="ember-view ember-text-field text-muted">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
+                        <option *ngFor="let type of types" value="{{type.id}}">{{type.description}}</option>
                     </select>
                 </mat-form-field>
                 <mat-form-field>
@@ -54,6 +51,12 @@
                     <input matInput style="height: auto;height: 47px;" aria-describedby="basic-addon1" class="ember-view ember-text-field text-muted" [matDatepicker]="myDatepicker" placeholder="{{language.birthDate}}" [(ngModel)]="appointment.date" ngDefaultControl>
                     <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
                     <mat-datepicker #myDatepicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>{{language.appointmentFrequency}}</mat-label>
+                    <select matNativeControl class="ember-view ember-text-field text-muted">
+                        <option *ngFor="let type of types" value="{{type.id}}">{{type.description}}</option>
+                    </select>
                 </mat-form-field>
                 <mat-form-field>
                     <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="appointment.appointmentType.description" placeholder="{{language.description}}" type="text" ngDefaultControl>

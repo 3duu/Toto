@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,6 +45,10 @@ public class Appointment  implements Serializable {
 	@JoinColumn(name="user_id")
 	@ManyToOne(fetch=FetchType.LAZY)
     private User user;
+	
+	@Column(name="frequency_type", nullable=false, length=2)
+	@Enumerated(EnumType.ORDINAL)
+	private AppointmentExecutionFrequency frequencyType;
 
 	public Long getId() {
 		return id;
@@ -82,6 +88,14 @@ public class Appointment  implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public AppointmentExecutionFrequency getFrequencyType() {
+		return frequencyType;
+	}
+
+	public void setFrequencyType(AppointmentExecutionFrequency frequencyType) {
+		this.frequencyType = frequencyType;
 	}
 	
 	

@@ -1,10 +1,11 @@
+import { AppointmentsApiService } from './../service/services';
+import { CarouselComponent } from './../templates/carousel/carousel.component';
 import { Appointment, User, Pet, AppointmentType } from './../entity/entities';
 import { SessionService } from './../session/session.service';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
 import { Router, ActivatedRoute } from '@angular/router';
 import { APPOINTMENTS_WIZARD_PAGE } from '../application';
-import { AppointmentsApiService } from '../service/services';
 import { ReturnCode } from '../entity/system';
 import { ObjectUtils } from '../utils';
 
@@ -94,23 +95,40 @@ export class AppointmentsThumbComponent extends AppBase {
 })
 export class AppointmentsWizardComponent extends AppBase {
 
-  constructor(session : SessionService) {
+  constructor(session : SessionService, private api: AppointmentsApiService) {
     super(session);
   }
 
-  @ViewChild("nextInput") private nextInput;
-  @ViewChild("previousInput") private previousInput;
+  @ViewChild(CarouselComponent) private carouselComponent : CarouselComponent;
 
   protected appointment : Appointment;
+  protected types : AppointmentType[];
 
   ngOnInit() {
     this.appointment = new Appointment();
     this.appointment.appointmentType = new AppointmentType();
+    this.loading = true;
+    const types = this.api.getTypes();
+    types.subscribe(result => {
+
+      console.log(result);
+      this.loading = false;
+
+      if(result && result.sid) {
+        if(result.code == ReturnCode.SUCCESS){
+          this.types = result.entity;
+        }
+      }
+      
+    }, error => {
+      console.error(error);
+      this.loading = false;
+    });
   }
 
   selectPet(pet : Pet) {
     this.appointment.pet = pet;
-    this.nextInput.nativeElement.click();
+    this.carouselComponent.next();
   }
 
 

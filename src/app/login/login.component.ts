@@ -25,7 +25,7 @@ export class LoginComponent extends AppBase {
   @ViewChild(AlertComponent) private alert: AlertComponent;
   @ViewChild(FacebookComponent) private facebook: FacebookComponent;
   @ViewChild(GoogleComponent) private google : GoogleComponent;
-  @ViewChild(LoginComponent) private signin : SignInComponent;
+  @ViewChild(SignInComponent) private signin : SignInComponent;
   
   constructor(session : SessionService, private router: Router) {
     super(session);

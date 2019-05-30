@@ -282,6 +282,7 @@ export class AppointmentsApiService extends ApiService {
   private retrieve = this.controller+"/retrieve";
   private register = this.controller+"/register";
   private remove = this.controller+"/remove";
+  private types = this.controller+"/types";
 
   constructor(private http: HttpClient) {
     super();
@@ -307,6 +308,14 @@ export class AppointmentsApiService extends ApiService {
       params: parameters
     };
     return this.http.get(this.retrieve, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public getTypes(): Observable<any> {
+    console.log(this.types);
+    return this.http.get(this.types, httpDefaultOptions)
     .pipe(
       catchError(this.handleError)
     );
