@@ -1,6 +1,5 @@
 import { ReturnCode } from './../entity/system';
 import { Pet, User, Appointment } from './../entity/entities';
-import { environment } from 'src/environments/environment';
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import {
@@ -14,6 +13,7 @@ import { LocalDatabaseService } from '../database/database';
 import { LanguageService } from '../language/Language';
 import { ObjectUtils } from '../utils';
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
+import { environment } from '../../environments/environment';
 
 // Set the http options
 export const httpHeaders = new HttpHeaders({"Content-Type": 

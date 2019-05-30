@@ -1,6 +1,7 @@
+import { CarouselComponent } from './../templates/carousel/carousel.component';
 import { AlertComponent } from './../templates/alert/alert.component';
 import { TutorialComponent } from './../templates/tutorial/tutorial.component';
-import { Breed, Pet, PetType } from 'src/app/entity/entities';
+import { Breed, Pet, PetType } from '../entity/entities';
 import { PETS_WIZARD_PAGE, APPOINTMENTS_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
@@ -172,8 +173,7 @@ export class PetTypeComponent extends AppBase {
 
   types : PetType[] = [];
   pet : Pet;
-  nextInput : ElementRef;
-  previousInput : ElementRef;
+  carouselComponent : CarouselComponent;
 
   constructor(private api : PetApiService, 
     private modal: Modal,
@@ -242,7 +242,7 @@ export class PetTypeComponent extends AppBase {
   next() : void {
     /*this.session.zone.run(() => 
       this.router.navigate([PETS_PAGE,PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));*/
-    this.nextInput.nativeElement.click();
+      this.carouselComponent.next();
   }
 
 }
@@ -302,8 +302,7 @@ export class PetInfoComponent extends AppBase {
 
   pet : Pet;
   age : string;
-  nextInput : ElementRef;
-  previousInput : ElementRef;
+  carouselComponent : CarouselComponent;
   protected currentDate : Date;
   protected mask = DateUtils.mask;
   
@@ -358,11 +357,11 @@ export class PetInfoComponent extends AppBase {
       return;
     }
 
-    this.nextInput.nativeElement.click();
+    this.carouselComponent.next();
   }
 
   protected back() : void {
-    this.previousInput.nativeElement.click();
+    this.carouselComponent.back();
   }
 
   requiredFieldsFilled(pet: Pet) : boolean {
@@ -385,8 +384,7 @@ export class PetPictureComponent extends AppBase {
   }
 
   pet : Pet;
-  nextInput : ElementRef;
-  previousInput : ElementRef;
+  carouselComponent : CarouselComponent;
 
   callback : any;
   
@@ -451,8 +449,7 @@ export class PetsWizardComponent extends AppBase {
   @ViewChild(PetTypeComponent) private petTypeComponent : PetTypeComponent;
   @ViewChild(PetInfoComponent) private petInfoComponent : PetInfoComponent;
   @ViewChild(PetPictureComponent) private petPictureComponent : PetPictureComponent;
-  @ViewChild("nextInput") private nextInput;
-  @ViewChild("previousInput") private previousInput;
+  @ViewChild(CarouselComponent) private carouselComponent : CarouselComponent;
 
   private pet : Pet;
 
@@ -479,14 +476,10 @@ export class PetsWizardComponent extends AppBase {
     this.petInfoComponent.pet = this.pet;
     this.petPictureComponent.pet = this.pet;
     this.petTypeComponent.pet = this.pet;
-    this.petInfoComponent.nextInput = this.nextInput;
-    this.petPictureComponent.nextInput = this.nextInput;
-    this.petTypeComponent.nextInput = this.nextInput;
-    this.petInfoComponent.previousInput = this.previousInput;
-    this.petPictureComponent.previousInput = this.previousInput;
-    this.petTypeComponent.previousInput = this.previousInput;
-    (<any>window).nextInput = this.nextInput;
     this.petPictureComponent.callback = this.save;
+    this.petTypeComponent.carouselComponent = this.carouselComponent;
+    this.petInfoComponent.carouselComponent = this.carouselComponent;
+    this.petPictureComponent.carouselComponent = this.carouselComponent;
   }
 
   protected save = (pet : Pet) => {

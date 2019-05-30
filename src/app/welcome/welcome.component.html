@@ -1,36 +1,11 @@
 <div class="container text-center">
   <h1 class="form-signin-heading" style="color: white !important">{{language.welcome}} <b>{{applicationName}}</b></h1>
   <br>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators" style="position: fixed; bottom: 9%;">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <small class="text-muted">{{language.appDescription1}}</small>
-      </div>
-      <div class="carousel-item">
-        <small class="text-muted">{{language.appDescription2}}</small>
-      </div>
-      <div class="carousel-item">
-        <small class="text-muted">{{language.appDescription3}}</small>
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" style="position: fixed; display: none;" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" style="position: fixed; display: none;" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <!-- <div class="slidecount" style="bottom:15%">
-    <span class="selected"></span>
-    <span class=""></span>
-    <span class=""></span>
-  </div> -->
+  <app-carousel [indicator-bottom]="'9%'">
+    <small class="text-muted page1">{{language.appDescription1}}</small>
+    <small class="text-muted page2">{{language.appDescription2}}</small>
+    <small class="text-muted page3">{{language.appDescription3}}</small>
+  </app-carousel>
   <a routerLink="/signin"><button class="btn btn-toppet btn-bottom-left btn-lg" style="width: 40% !important;">{{language.login}}</button></a>
   <a routerLink="/signup"><button class="btn btn-toppet btn-hollow btn-bottom-right btn-lg" style="width: 40% !important;">{{language.signUp}}</button></a>
 </div>

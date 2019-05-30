@@ -1,10 +1,9 @@
 <div id="carouselExampleIndicators" class="carousel slide" [attr.data-ride]="dataRide" [attr.data-interval]="dataInterval">
-    <ol class="carousel-indicators" style="position: fixed;">
+    <ol class="carousel-indicators" #indicator style="position: fixed;"  [ngStyle]="{ 'bottom': indicatorBottom }">
       <li *ngFor="let content of contents; let i = index" [attr.data-slide-to]="i" [ngClass]="{ 'active': i == startsWith }" [attr.data-target]="disableControls ? '' : '#carouselExampleIndicators'"></li>
     </ol>
     <div class="carousel-inner" #items>
-      <div class="carousel-item active">
-          <!-- *ngFor="let content of contents;" -->
+      <div class="carousel-item">
         <ng-content select=".page1"></ng-content>
       </div>
       <div class="carousel-item">
@@ -25,7 +24,10 @@
       <div class="carousel-item">
         <ng-content select=".page7"></ng-content>
       </div>
+      <div class="carousel-item">
+        <ng-content select=".page8"></ng-content>
+      </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" #previousInput style="position: fixed;" ng-hide="disableControls" (click)="fireNext()" role="button" data-slide="prev"></a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" #nextInput style="position: fixed;" ng-hide="disableControls" (click)="fireBack()" role="button" data-slide="next"></a>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" #previousInput style="position: fixed;" [hidden]="true" (click)="fireNext()" role="button" data-slide="prev"></a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" #nextInput style="position: fixed;" [hidden]="true" (click)="fireBack()" role="button" data-slide="next"></a>
 </div>
