@@ -1,9 +1,9 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="false" data-interval="false">
     <ol class="carousel-indicators" style="position: fixed;">
-      <li *ngFor="let content of contents; let i = index" data-slide-to="{{i}}" [ngClass]="{ 'active': navbarOpen }" data-target="#carouselExampleIndicators"></li>
+      <li *ngFor="let content of contents; let i = index" data-slide-to="{{i}}" [ngClass]="{ 'active': content.active }" data-target="#carouselExampleIndicators"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item" *ngFor="let content of contents" [ngClass]="{ 'active': navbarOpen }">
+      <div class="carousel-item" *ngFor="let content of contents" [ngClass]="{ 'active': content.active }">
         <!-- <ng-content #child></ng-content> -->
       </div>
     </div>
