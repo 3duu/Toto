@@ -1,0 +1,12 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="false" data-interval="false">
+    <ol class="carousel-indicators" style="position: fixed;">
+      <li *ngFor="let content of contents; let i = index" data-slide-to="{{i}}" [ngClass]="{ 'active': navbarOpen }" data-target="#carouselExampleIndicators"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let content of contents" [ngClass]="{ 'active': navbarOpen }">
+        <!-- <ng-content #child></ng-content> -->
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" #previousInput style="position: fixed;" role="button" data-slide="prev"></a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" #nextInput style="position: fixed;" role="button" data-slide="next"></a>
+</div>
