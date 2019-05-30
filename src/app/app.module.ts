@@ -37,6 +37,7 @@ import { AlertComponent } from './templates/alert/alert.component';
 import { SignInComponent } from './templates/button/signin/signin.component';
 import { FacebookComponent } from './templates/button/facebook/facebook.component';
 import { GoogleComponent } from './templates/button/google/google.component';
+import { CarouselComponent } from './templates/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { GoogleComponent } from './templates/button/google/google.component';
     PetsWizardComponent,
     TutorialComponent,
     AppointmentsWizardComponent,
-    AppointmentsThumbComponent
+    AppointmentsThumbComponent,
+    CarouselComponent
   ],
   entryComponents: [
     SignInComponent,

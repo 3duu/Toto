@@ -1,6 +1,6 @@
 import { SessionService } from './session/session.service';
 import { environment } from './../environments/environment';
-import { OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
+import { OnInit, AfterViewInit, AfterContentInit, Input } from '@angular/core';
 import { LanguageService } from './language/Language';
 import { User } from './entity/entities';
 
@@ -11,6 +11,8 @@ export class AppBase implements OnInit, AfterContentInit, AfterViewInit {
   private static _language : LanguageService = new LanguageService();
   protected loading = false;
   title : string = this.applicationName;
+
+  @Input() active : boolean;
 
   get user() : User {
     return this.session.getCurrentUser();
