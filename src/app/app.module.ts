@@ -1,3 +1,6 @@
+import { TutorialComponent } from './templates/tutorial/tutorial.component';
+import { LoadingComponent } from './templates/loading/loading.component';
+import { SignUpComponent } from './templates/button/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { TextMaskModule } from 'angular2-text-mask';
 import { UserApiService, PetApiService, AuthenticationService, InfoService, AppointmentsApiService } from './service/services';
@@ -15,12 +18,7 @@ import { PetTypeComponent, PetsComponent, PetInfoComponent, PetPictureComponent,
 import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 import { FacebookService, GoogleService } from './socialNetwork/socialNetworkServices';
-import { FacebookComponent } from './button/facebook/facebook.component';
-import { SignUpComponent } from './button/signup/signup.component';
-import { SignInComponent } from './button/signin/signin.component';
-import { GoogleComponent } from './button/google/google.component';
 import { LocalDatabaseService } from './database/database';
-import { AlertComponent } from './alert/alert.component';
 import { RegisterUserComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -29,14 +27,16 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { SessionService } from './session/session.service';
 import { AppointmentsComponent, AppointmentsWizardComponent, AppointmentsThumbComponent } from './appointments/appointments.component';
-import { LoadingComponent } from './loading/loading.component';
 import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
 import { MatInputModule, MatInput, MatSuffix, MatIconModule, MatIcon } from '@angular/material';
 import { DateFormat } from './utils';
-import { TutorialComponent } from './tutorial/tutorial.component';
+import { AlertComponent } from './templates/alert/alert.component';
+import { SignInComponent } from './templates/button/signin/signin.component';
+import { FacebookComponent } from './templates/button/facebook/facebook.component';
+import { GoogleComponent } from './templates/button/google/google.component';
 
 @NgModule({
   declarations: [

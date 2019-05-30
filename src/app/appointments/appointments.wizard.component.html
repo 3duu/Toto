@@ -8,19 +8,40 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
+
                 <div class="row">
-                    <a href="javascript:;" *ngFor="let pet of user.pets" (click)="selectPet(pet)">
-                        <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body">
-                                <p><img class="img-fluid" src="{{pet.img}}"></p>
-                                <h4 class="card-title">{{pet.name}}</h4>
-                                </div>
+                    <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading c-list">
+                                <span class="title">{{language.myPet}}</span>
                             </div>
+                            
+                            <div class="row" style="display: none;">
+                                <div class="col-xs-12">
+                                    <div class="input-group c-search">
+                                        <input type="text" class="form-control" id="contact-list-search">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>                                                                           
+                            
+                            <ul class="list-group" id="contact-list">
+                                <li class="list-group-item">
+                                    <a href="javascript:;" *ngFor="let pet of user.pets" (click)="selectPet(pet)">
+                                        <div class="col-xs-12 col-sm-3">
+                                            <img src="{{pet.img}}" class="img-responsive img-circle" />
+                                        </div>
+                                        <div class="col-xs-12 col-sm-9">
+                                            <span class="name">{{pet.name}}</span><br/>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        </div>
-                    </a>
+                    </div>
                 </div>
             </div>
             <div class="carousel-item">
@@ -29,7 +50,7 @@
                         <br>
                         <mat-form-field>
                             <mat-label>{{language.appointmentType}}</mat-label>
-                            <select matNativeControl>
+                            <select matNativeControl class="ember-view ember-text-field text-muted">
                                 <option value="volvo">Volvo</option>
                                 <option value="saab">Saab</option>
                                 <option value="mercedes">Mercedes</option>

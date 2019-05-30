@@ -1,19 +1,19 @@
-import { FacebookComponent } from './../button/facebook/facebook.component';
-import { SignUpComponent } from './../button/signup/signup.component';
+import { GoogleComponent } from './../templates/button/google/google.component';
+import { FacebookComponent } from './../templates/button/facebook/facebook.component';
+import { SignUpComponent } from './../templates/button/signup/signup.component';
+import { AlertComponent } from './../templates/alert/alert.component';
 import { PETS_PAGE, LOGIN_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { Component, ViewChild } from '@angular/core';
 import { UserApiService } from '../service/services';
 import { AppBase } from '../appbase';
-import { AlertComponent } from '../alert/alert.component';
 import { StringUtils } from '../utils';
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
-import { ReturnCodeEventArgs } from '../button/button-classes';
 import { ColorClass } from '../styles/styles';
 import { Router } from '@angular/router';
 import { User } from '../entity/entities';
 import { ReturnCode } from '../entity/system';
-import { GoogleComponent } from '../button/google/google.component';
+import { ReturnCodeEventArgs } from '../templates/button/button-classes';
 
 //https://bootsnipp.com/snippets/kMdg
 @Component({

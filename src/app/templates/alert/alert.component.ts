@@ -1,5 +1,5 @@
-import { Component, OnInit, OnChanges, SimpleChange } from '@angular/core';
-import { ColorClass } from '../styles/styles';
+import { ColorClass } from './../../styles/styles';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-alert',

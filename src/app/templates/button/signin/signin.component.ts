@@ -1,10 +1,10 @@
-import { SessionService } from './../../session/session.service';
 import { ButtonComponent, ClickableComponent, ReturnCodeEventArgs } from './../button-classes';
 import { Component } from '@angular/core';
-import { StringUtils } from 'src/app/utils';
-import { User } from 'src/app/entity/entities';
-import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
-import { ReturnCode } from 'src/app/entity/system';
+import { SessionService } from '../../../session/session.service';
+import { ReturnCode } from '../../../entity/system';
+import { User } from '../../../entity/entities';
+import { SociaNetworkType } from '../../../socialNetwork/socialNetworkServices';
+import { StringUtils } from '../../../utils';
 
 @Component({
   selector: 'login-button',
@@ -15,10 +15,6 @@ export class SignInComponent extends ButtonComponent implements ClickableCompone
 
   constructor(session : SessionService) {
     super(session);
-  }
-
-  ngOnInit() {
-    
   }
   
   doLogin() : void {

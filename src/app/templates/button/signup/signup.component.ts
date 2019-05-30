@@ -1,12 +1,12 @@
-import { SessionService, PASSWORD_CONFIG } from './../../session/session.service';
 import { ButtonComponent, ClickableComponent, ReturnCodeEventArgs } from './../button-classes';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserApiService } from 'src/app/service/services';
-import { StringUtils } from 'src/app/utils';
-import { User } from 'src/app/entity/entities';
-import { SociaNetworkType } from 'src/app/socialNetwork/socialNetworkServices';
-import { ReturnCode } from 'src/app/entity/system';
+import { UserApiService } from '../../../service/services';
+import { SessionService, PASSWORD_CONFIG } from '../../../session/session.service';
+import { ReturnCode } from '../../../entity/system';
+import { User } from '../../../entity/entities';
+import { SociaNetworkType } from '../../../socialNetwork/socialNetworkServices';
+import { StringUtils } from '../../../utils';
 
 @Component({
   selector: 'register-button',
@@ -17,10 +17,6 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
 
   constructor(private userApi : UserApiService, session : SessionService) {
     super(session);
-  }
-
-  ngOnInit() {
-    
   }
 
   doRegister() : void {
@@ -36,7 +32,7 @@ export class SignUpComponent extends ButtonComponent implements ClickableCompone
     }
     this.loading = true;
 
-    let formUser = new User();
+    const formUser = new User();
     formUser.username = this.form.value.username;
     formUser.password = this.form.value.password;
     formUser.name = this.form.value.name;

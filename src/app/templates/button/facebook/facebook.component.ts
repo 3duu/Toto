@@ -1,10 +1,10 @@
-import { SessionService } from './../../session/session.service';
+import { SessionService } from './../../../session/session.service';
+import { FacebookService, SociaNetworkType } from './../../../socialNetwork/socialNetworkServices';
 import { ButtonComponent, ClickableComponent } from './../button-classes';
 import { Component } from '@angular/core';
-import { ObjectUtils } from '../../utils';
-import { SociaNetworkType, FacebookService } from '../../socialNetwork/socialNetworkServices';
 import { NgForm } from '@angular/forms';
 import { ReturnCode } from 'src/app/entity/system';
+import { ObjectUtils } from 'src/app/utils';
 
 @Component({
   selector: 'facebook-button',

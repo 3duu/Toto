@@ -1,8 +1,8 @@
-import { AppBase } from '../appbase';
+import { AppBase } from './../../appbase';
 import { Output, Input, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ReturnCode } from '../entity/system';
-import { SessionService } from '../session/session.service';
+import { ReturnCode } from 'src/app/entity/system';
+import { SessionService } from 'src/app/session/session.service';
 
 export interface ClickableComponent {
     onClicked() : void;

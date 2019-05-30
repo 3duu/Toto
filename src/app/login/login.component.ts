@@ -1,16 +1,16 @@
+import { SignInComponent } from './../templates/button/signin/signin.component';
+import { GoogleComponent } from './../templates/button/google/google.component';
+import { FacebookComponent } from './../templates/button/facebook/facebook.component';
+import { AlertComponent } from './../templates/alert/alert.component';
 import { SessionService } from './../session/session.service';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppBase } from '../appbase';
-import { AlertComponent } from '../alert/alert.component';
 import { StringUtils } from '../utils';
 import { ColorClass } from '../styles/styles';
 import { Router } from '@angular/router';
 import { REGISTER_USER_PAGE } from '../application';
 import { ReturnCode } from '../entity/system';
-import { FacebookComponent } from '../button/facebook/facebook.component';
-import { GoogleComponent } from '../button/google/google.component';
-import { SignInComponent } from '../button/signin/signin.component';
 
 //https://bootsnipp.com/snippets/kMd
 @Component({
@@ -25,7 +25,7 @@ export class LoginComponent extends AppBase {
   @ViewChild(AlertComponent) private alert: AlertComponent;
   @ViewChild(FacebookComponent) private facebook: FacebookComponent;
   @ViewChild(GoogleComponent) private google : GoogleComponent;
-  @ViewChild(SignInComponent) private signin : SignInComponent;
+  @ViewChild(LoginComponent) private signin : SignInComponent;
   
   constructor(session : SessionService, private router: Router) {
     super(session);

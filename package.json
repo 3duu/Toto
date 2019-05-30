@@ -4,7 +4,6 @@
   "displayName": "TOPPET",
   "endpoints": {
     "local": "http://localhost:9003",
-    "indra": "http://192.168.137.1:9003/toppet",
     "indraLocal": "http://192.168.137.1:9003",
     "home2": "http://192.168.1.3:9003/toppet",
     "home": "http://192.168.1.3:9003"

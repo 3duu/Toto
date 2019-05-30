@@ -1,9 +1,10 @@
 import { ButtonComponent, ClickableComponent } from './../button-classes';
 import { Component } from '@angular/core';
-import { ObjectUtils } from '../../utils';
-import { SociaNetworkType, GoogleService } from '../../socialNetwork/socialNetworkServices';
 import { NgForm } from '@angular/forms';
-import { SessionService } from '../../session/session.service';
+import { GoogleService, SociaNetworkType } from '../../../socialNetwork/socialNetworkServices';
+import { SessionService } from '../../../session/session.service';
+import { ObjectUtils } from '../../../utils';
+
 
 @Component({
   selector: 'google-button',

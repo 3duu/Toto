@@ -1,15 +1,14 @@
-import { TutorialComponent } from './../tutorial/tutorial.component';
-import { Breed, User, Pet, PetType } from 'src/app/entity/entities';
+import { AlertComponent } from './../templates/alert/alert.component';
+import { TutorialComponent } from './../templates/tutorial/tutorial.component';
+import { Breed, Pet, PetType } from 'src/app/entity/entities';
 import { PETS_WIZARD_PAGE, APPOINTMENTS_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, ViewChild, ElementRef, Inject } from '@angular/core';
 import { PetApiService } from '../service/services';
 import { StringUtils, ObjectUtils, DateUtils } from '../utils';
-import { AlertComponent } from '../alert/alert.component';
 import { ColorClass } from '../styles/styles';
 import { CordovaService } from '../cordova.service';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { ReturnCode } from '../entity/system';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
@@ -295,7 +294,7 @@ export class BreedPickerComponent extends AppBase  {
 })
 export class PetInfoComponent extends AppBase {
 
-  @ViewChild(AlertComponent) private alert: AlertComponent;
+  @ViewChild(PetsComponent) private alert: AlertComponent;
   
   constructor(session : SessionService/*, private cordova : CordovaService*/){
     super(session);
