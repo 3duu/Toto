@@ -1,12 +1,13 @@
+import { WorkingDays, Weekends } from './../entity/system';
 import { AppointmentsApiService } from './../service/services';
 import { CarouselComponent } from './../templates/carousel/carousel.component';
-import { Appointment, User, Pet, AppointmentType } from './../entity/entities';
+import { Appointment, User, Pet, AppointmentType, AppointmentExecutionFrequency } from './../entity/entities';
 import { SessionService } from './../session/session.service';
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
 import { Router, ActivatedRoute } from '@angular/router';
 import { APPOINTMENTS_WIZARD_PAGE } from '../application';
-import { ReturnCode } from '../entity/system';
+import { ReturnCode, Domain } from '../entity/system';
 import { ObjectUtils } from '../utils';
 
 @Component({
@@ -103,12 +104,26 @@ export class AppointmentsWizardComponent extends AppBase {
 
   protected appointment : Appointment;
   protected types : AppointmentType[];
+  protected frequency : Domain[];
+  protected workingdays : Domain[];
+  protected weekends : Domain[];
+
+  protected often : number = 0;
+  protected hour : string = "12:00";
+  protected weekend : number = 0;
+  protected workingday : number = 0;
+  protected date : Date;
 
   ngOnInit() {
     this.appointment = new Appointment();
     this.appointment.appointmentType = new AppointmentType();
     this.loading = true;
     const types = this.api.getTypes();
+
+    this.frequency = Domain.fromEnum(AppointmentExecutionFrequency, this.language.getAppointmentOften);
+    this.workingdays = Domain.fromEnum(WorkingDays, this.language.getWorkingDay);
+    this.weekends = Domain.fromEnum(Weekends, this.language.getWeekend);
+
     types.subscribe(result => {
 
       console.log(result);

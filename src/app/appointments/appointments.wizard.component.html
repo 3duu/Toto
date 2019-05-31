@@ -48,15 +48,28 @@
                     <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="appointment.appointmentType.description" placeholder="{{language.name}}" type="text" ngDefaultControl>
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput style="height: auto;height: 47px;" aria-describedby="basic-addon1" class="ember-view ember-text-field text-muted" [matDatepicker]="myDatepicker" placeholder="{{language.birthDate}}" [(ngModel)]="appointment.date" ngDefaultControl>
+                    <mat-label>{{language.appointmentFrequency}}</mat-label>
+                    <select matNativeControl class="ember-view ember-text-field text-muted" [(ngModel)]="often">
+                        <option *ngFor="let d of frequency" value="{{d.value}}">{{d.text}}</option>
+                    </select>
+                </mat-form-field>
+                <mat-form-field *ngIf="often == 0">
+                    <input matInput style="height: auto;height: 47px;" aria-describedby="basic-addon1" class="ember-view ember-text-field text-muted" [matDatepicker]="myDatepicker" placeholder="{{language.date}}" [(ngModel)]="date" ngDefaultControl>
                     <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
                     <mat-datepicker #myDatepicker></mat-datepicker>
                 </mat-form-field>
-                <mat-form-field>
-                    <mat-label>{{language.appointmentFrequency}}</mat-label>
-                    <select matNativeControl class="ember-view ember-text-field text-muted">
-                        <option *ngFor="let type of types" value="{{type.id}}">{{type.description}}</option>
+                <mat-form-field *ngIf="often == 2">
+                    <select matNativeControl class="ember-view ember-text-field text-muted" [(ngModel)]="workingday">
+                        <option *ngFor="let d of workingdays" value="{{d.value}}">{{d.text}}</option>
                     </select>
+                </mat-form-field>
+                <mat-form-field *ngIf="often == 3">
+                    <select matNativeControl class="ember-view ember-text-field text-muted" [(ngModel)]="weekend">
+                        <option *ngFor="let d of weekends" value="{{d.value}}">{{d.text}}</option>
+                    </select>
+                </mat-form-field>
+                <mat-form-field>
+                    <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="hour" placeholder="{{language.hour}}" type="number" ngDefaultControl>
                 </mat-form-field>
                 <mat-form-field>
                     <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="appointment.appointmentType.description" placeholder="{{language.description}}" type="text" ngDefaultControl>
