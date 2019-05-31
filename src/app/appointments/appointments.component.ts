@@ -96,7 +96,11 @@ export class AppointmentsThumbComponent extends AppBase {
 })
 export class AppointmentsWizardComponent extends AppBase {
 
-  constructor(session : SessionService, private api: AppointmentsApiService) {
+  constructor(
+    session : SessionService, 
+    private api: AppointmentsApiService, 
+    private router : Router, 
+    private activatedRoute: ActivatedRoute) {
     super(session);
   }
 
@@ -108,14 +112,18 @@ export class AppointmentsWizardComponent extends AppBase {
   protected workingdays : Domain[];
   protected weekends : Domain[];
 
+  protected type : number = 0;
   protected often : number = 0;
   protected hour : string = "12:00";
   protected weekend : number = 0;
   protected workingday : number = 0;
   protected date : Date;
 
+  private finish : boolean = false;
+
   ngOnInit() {
     this.appointment = new Appointment();
+    this.appointment.user = this.session.getCurrentUser();
     this.appointment.appointmentType = new AppointmentType();
     this.loading = true;
     const types = this.api.getTypes();
@@ -142,8 +150,49 @@ export class AppointmentsWizardComponent extends AppBase {
   }
 
   selectPet(pet : Pet) {
+    if(this.loading)
+      return;
     this.appointment.pet = pet;
     this.carouselComponent.next();
+    this.finish = true;
+  }
+
+  save() {
+
+    if(this.loading)
+      return;
+
+    this.appointment.date = this.date != undefined ? this.date : new Date();
+    this.loading = true;
+
+    const often = Domain.getDomainByValue(this.often, this.frequency);
+    if(often != undefined){
+      
+      switch(often.enumValue) {
+        case AppointmentExecutionFrequency.DAILY_BASIS:
+          break;
+      }
+    }
+
+    this.appointment.appointmentType.id = this.type;
+    const saving = this.api.save(this.appointment);
+    saving.subscribe(result => {
+
+      console.log(result);
+      this.loading = false;
+
+      if(result && result.sid) {
+        if(result.code == ReturnCode.SUCCESS){
+          this.session.zone.run(() => 
+          this.router.navigate(['.'], { relativeTo: this.activatedRoute.parent }));
+        }
+      }
+      
+    }, error => {
+      console.error(error);
+      this.loading = false;
+    });
+
   }
 
 

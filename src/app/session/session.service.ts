@@ -102,19 +102,19 @@ export class SessionService {
       if(!ObjectUtils.isEmpty(user)){
           authenticationService.localDatabase.resetUsers();
           if(ObjectUtils.isEmpty(zone)){
-              router.navigateByUrl(redirectUrl);
+            router.navigateByUrl(redirectUrl);
           }
           else {
-              zone.run(() => router.navigateByUrl(redirectUrl));
+            zone.run(() => router.navigateByUrl(redirectUrl));
           }
       }
       this.resetSession();
   }
 
   resetSession() {
-      let values = Object.keys(SessionAttributes).map(k => SessionAttributes[k as any]);
-      values.forEach(attr => {
-          localStorage.removeItem(attr);
-      });
+    const values = Object.keys(SessionAttributes).map(k => SessionAttributes[k as any]);
+    values.forEach(attr => {
+      localStorage.removeItem(attr);
+    });
   }
 }

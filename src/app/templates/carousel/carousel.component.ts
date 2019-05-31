@@ -1,5 +1,7 @@
 import { Component, Output, Input, EventEmitter, ViewChild, ElementRef, AfterContentInit } from '@angular/core';
 
+declare const $;
+
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
@@ -21,15 +23,25 @@ export class CarouselComponent implements AfterContentInit {
   @ViewChild("nextInput") private nextInput: ElementRef;
   @ViewChild("previousInput") private previousInput: ElementRef;
   @ViewChild("indicator") private indicator: ElementRef;
+  @ViewChild("carouselExampleIndicators") private carouselExampleIndicators: ElementRef;
 
-  private _contents : ElementRef[] = [];
+  private _contents = [];
+  private _currentPage : number = 0;
 
-  constructor() {
+  constructor(public element : ElementRef) {
     
   }
 
-  get contents(): ElementRef[] {
+  get contents(): any[] {
     return this._contents;
+  }
+
+  private setCurrentPage =()=> {
+    this._currentPage = $(this.carouselExampleIndicators.nativeElement).find('div.active').index() + 1;
+  }
+
+  get currentPage() : number {
+    return this._currentPage;
   }
 
   ngAfterContentInit(): void {
@@ -52,22 +64,30 @@ export class CarouselComponent implements AfterContentInit {
         this.items.nativeElement.removeChild(toRemove[i]);
       }
     }
+
+    $(this.carouselExampleIndicators.nativeElement).on('slid.bs.carousel', this.setCurrentPage);
+
+    this.setCurrentPage();
   }
 
   next =() => {
     this.nextInput.nativeElement.click();
+    this.fireNext();
   }
 
   back =() => {
     this.previousInput.nativeElement.click();
+    this.fireBack();
   }
 
   fireNext() {
     this.nextClicked.emit();
+    this.setCurrentPage();
   }
 
   fireBack() {
     this.previousClicked.emit();
+    this.setCurrentPage();
   }
 
 }

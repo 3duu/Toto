@@ -25604,10 +25604,6 @@
         "source": "C:\\home\\eduardo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\eafa019109b698e660dff9c5f185a91a\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
-        "merged": "C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_icon.png.flat",
-        "source": "C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\src\\main\\res\\mipmap-mdpi\\icon.png"
-    },
-    {
         "merged": "C:\\Users\\eporto\\git\\Toto\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "C:\\Users\\eporto\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\2066e795d11d6c829d2190d44b74df0c\\res\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
     },

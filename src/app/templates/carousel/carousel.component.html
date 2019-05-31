@@ -1,4 +1,4 @@
-<div id="carouselExampleIndicators" class="carousel slide" [attr.data-ride]="dataRide" [attr.data-interval]="dataInterval">
+<div id="carouselExampleIndicators" #carouselExampleIndicators class="carousel slide" [attr.data-ride]="dataRide" [attr.data-interval]="dataInterval">
     <ol class="carousel-indicators" #indicator style="position: fixed;"  [ngStyle]="{ 'bottom': indicatorBottom }">
       <li *ngFor="let content of contents; let i = index" [attr.data-slide-to]="i" [ngClass]="{ 'active': i == startsWith }" [attr.data-target]="disableControls ? '' : '#carouselExampleIndicators'"></li>
     </ol>

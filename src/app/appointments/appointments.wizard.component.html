@@ -40,7 +40,7 @@
                 <br>
                 <mat-form-field>
                     <mat-label>{{language.appointmentType}}</mat-label>
-                    <select matNativeControl class="ember-view ember-text-field text-muted">
+                    <select matNativeControl class="ember-view ember-text-field text-muted" [(ngModel)]="type">
                         <option *ngFor="let type of types" value="{{type.id}}">{{type.description}}</option>
                     </select>
                 </mat-form-field>
@@ -75,8 +75,7 @@
                     <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="appointment.appointmentType.description" placeholder="{{language.description}}" type="text" ngDefaultControl>
                 </mat-form-field>
             </div>
-            <a href="javascript:;" class="btn btn-toppet btn-bottom btn-round" style="position: fixed; margin-bottom: 16%; right: 40%;" (click)="next()"><i class="fa fa-chevron-right"></i></a>
         </div>
     </app-carousel>
-    
+    <a href="javascript:;" *ngIf="finish" class="btn btn-toppet btn-round btn-go" (click)="save()"><i class="fa fa-check"></i></a>
 </div>
