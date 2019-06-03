@@ -39,7 +39,9 @@ public class AppointmentController {
     public @ResponseBody ResponseEntity<Appointment> register(@RequestBody final Appointment appointment) {
 		ResponseEntity<Appointment> response = null;
 		try {
-
+			if(appointment.getAppointmentType() != null){
+				appointment.setAppointmentType(appointmentTypeRepository.findById(AppointmentType.class, (long) appointment.getAppointmentType().getId()));
+			}
 			response = new ResponseEntity<Appointment>(appointmentRespository.insert(appointment), RequestContextHolder.currentRequestAttributes().getSessionId());
 			if(response.getData() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());

@@ -20,6 +20,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -70,6 +71,9 @@ public class User implements Serializable, UserDetails {
 	@Column(name="login_type", nullable=true, length=2)
 	@Enumerated(EnumType.ORDINAL)
 	private SocialNetworkType loginType;
+	
+	@Transient
+	private List<Appointment> appointments;
 	
 	public long getId() {
 		return id;
@@ -182,6 +186,14 @@ public class User implements Serializable, UserDetails {
 
 	public void setLoginType(SocialNetworkType loginType) {
 		this.loginType = loginType;
+	}
+
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
 	}
 
 }

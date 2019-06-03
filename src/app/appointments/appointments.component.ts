@@ -30,6 +30,11 @@ export class AppointmentsComponent extends AppBase {
     this.title = this.language.appointments;
     this.setTitle();
     (<any>window).date = new Date();
+    this.user.pets.forEach(pet => {
+      pet.appointments.forEach(appointment => {
+        this.appointments.push(appointment);
+      });
+    });
   }
 
   add() {
@@ -112,7 +117,7 @@ export class AppointmentsWizardComponent extends AppBase {
   protected workingdays : Domain[];
   protected weekends : Domain[];
 
-  protected type : number = 0;
+  protected type : number = 1;
   protected often : number = 0;
   protected time : string = "12:00";
   protected weekend : number = 0;

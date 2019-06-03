@@ -19,16 +19,16 @@ public class AppointmentType implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@Column(name="description", length=16, nullable=false, unique=true)
 	private String description;
 	
-	public int getId() {
-		return id;
+	public Long getId() {
+		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

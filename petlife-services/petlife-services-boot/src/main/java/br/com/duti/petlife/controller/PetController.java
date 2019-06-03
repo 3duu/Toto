@@ -34,6 +34,7 @@ public class PetController {
 	@Autowired
 	private IPetTypeRepository petTypeRepository;
 	
+	
 	@GetMapping(value="/retrieve", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<List<Pet>> getPets(@RequestParam(value="userId") final Long userId) {
 		
@@ -41,7 +42,8 @@ public class PetController {
 
 		try {
 			if(response == null) {
-				response = new ResponseEntity<List<Pet>>(petRepository.getByUser(userId), RequestContextHolder.currentRequestAttributes().getSessionId());
+				final List<Pet> pets = petRepository.getByUser(userId);
+				response = new ResponseEntity<List<Pet>>(pets, RequestContextHolder.currentRequestAttributes().getSessionId());
 				if(response.getData() != null) {
 					response.setCode(ReturnCode.SUCCESS.getValue());
 				} else {

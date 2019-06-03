@@ -2,6 +2,7 @@ package br.com.duti.petlife.models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -58,6 +59,9 @@ public class Pet implements Serializable {
 	
 	@Transient
 	private Integer age;
+	
+	@Transient
+	private List<Appointment> appointments;
 
 	public Long getId() {
 		return id;
@@ -125,6 +129,14 @@ public class Pet implements Serializable {
 
 	public void setAge(Integer age) {
 		this.age = age;
+	}
+
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
 	}
 
 }

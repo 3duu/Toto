@@ -3,6 +3,7 @@ package br.com.duti.petlife.models;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -33,8 +35,8 @@ public class Appointment  implements Serializable {
 	@Column(name="date", nullable=false)
 	private Date date;
 	
-	@JoinColumn(name="appointment_type", nullable=false)
-	@ManyToOne(fetch=FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "appointment_type", referencedColumnName = "id")
     private AppointmentType appointmentType;
     
 	@JoinColumn(name="pet_id")

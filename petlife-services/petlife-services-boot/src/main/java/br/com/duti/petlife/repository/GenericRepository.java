@@ -62,4 +62,14 @@ public abstract class GenericRepository<T> {
 			.executeUpdate();
 		}
 	}
+	
+	public final T findById(Class<?> obj, final Long id){
+		try{
+			return (T) getEntityManager().find(obj, id);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
