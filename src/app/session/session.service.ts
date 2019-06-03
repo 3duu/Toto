@@ -19,7 +19,9 @@ export class SessionService {
     private _zone : NgZone, private _menuService : MenuService) { 
       (<any>window).session = this;
     }
-
+  
+  private sessionUser : User;
+  
   get zone() : NgZone {
     return this._zone;
   }
@@ -43,11 +45,19 @@ export class SessionService {
   }
 
   getCurrentUser() : User {
-    let json = this.getAttribute(SessionAttributes.CURRENT_USER) != undefined ? JSON.parse(this.getAttribute(SessionAttributes.CURRENT_USER)) : null;
-    if(json != null){
-      let user : User = json;
-      return user;
+    let user : User;
+    if(ObjectUtils.isEmpty(this.sessionUser)){
+      user = this.getJsonUser();
     }
+    else {
+      user = this.sessionUser;
+    }
+    
+    return user;
+  }
+
+  private getJsonUser() {
+    const json : User = this.getAttribute(SessionAttributes.CURRENT_USER) != undefined ? JSON.parse(this.getAttribute(SessionAttributes.CURRENT_USER)) : null;
     return json;
   }
 

@@ -34,15 +34,7 @@ export class NavbarComponent extends AppBase {
   }
 
   ngOnInit() {
-    this.updateUser();
     this._height = this.element.nativeElement.offsetHeight;
-  }
-
-  updateUser() {
-    this.user = this.session.getCurrentUser();
-    if(ObjectUtils.isEmpty(this.user)){
-      this.user = new User();
-    }
   }
   
   logout() {
