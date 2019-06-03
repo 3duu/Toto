@@ -38,6 +38,7 @@ import { SignInComponent } from './templates/button/signin/signin.component';
 import { FacebookComponent } from './templates/button/facebook/facebook.component';
 import { GoogleComponent } from './templates/button/google/google.component';
 import { CarouselComponent } from './templates/carousel/carousel.component';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import { CarouselComponent } from './templates/carousel/carousel.component';
     TutorialComponent,
     AppointmentsWizardComponent,
     AppointmentsThumbComponent,
-    CarouselComponent
+    CarouselComponent,
   ],
   entryComponents: [
     SignInComponent,
@@ -90,9 +91,10 @@ import { CarouselComponent } from './templates/carousel/carousel.component';
     // MatMenuModule,
     MatNativeDateModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
     // MatPaginatorModule,
     // MatToolbarModule
+    NgxMaterialTimepickerModule
   ],
   providers: [
     CordovaService, 

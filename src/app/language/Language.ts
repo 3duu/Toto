@@ -77,6 +77,7 @@ export class LanguageService {
     invalidEmailAddress = "Forneça um endereço de e-mail válido";
     invalidPassword = "Senha deve conter pelo menos :min caracteres";
     passwordDoesntMatch = "Confirmação de senha não corresponde com senha";
+    noPetsFound = "Você ainda não cadastrou o seu pet!";
 
     //Tutorial
 

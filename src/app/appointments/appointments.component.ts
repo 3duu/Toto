@@ -25,11 +25,25 @@ export class AppointmentsComponent extends AppBase {
   }
 
   protected appointments : Appointment[] = [];
+  protected currentDate : Date;
 
   ngOnInit() {
     this.title = this.language.appointments;
     this.setTitle();
     (<any>window).date = new Date();
+    this.currentDate = new Date();
+    this.setDate();
+  }
+
+  private setDate() {
+
+    const ping = this.session.authenticationService.infoService.doPing();
+    ping.subscribe(result => {
+
+      if(result.code == ReturnCode.SUCCESS) {
+        this.currentDate = new Date(result.date);
+      }
+    });
   }
 
   add() {

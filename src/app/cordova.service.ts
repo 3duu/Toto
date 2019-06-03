@@ -55,7 +55,7 @@ export class CordovaService {
    }
 
    get devicePlatform() : string {
-      return device != undefined || this.cordova == undefined ? device.platform : "browser";
+      return device != undefined ? device.platform : "browser";
    }
 
    get isBrowser() : boolean {
@@ -63,6 +63,9 @@ export class CordovaService {
          return this.devicePlatform == "browser";
       }
       catch(e){
+         // if(this.cordova != undefined) {
+         //    return false;
+         // }
          console.error(e);
          return true;
       }
