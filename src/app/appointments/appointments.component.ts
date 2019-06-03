@@ -70,7 +70,7 @@ export class AppointmentsThumbComponent extends AppBase {
 
         if (result && result.sid) {
           if(result.code == ReturnCode.SUCCESS){
-            this.appointments = result.entity;
+            this.appointments = result.data;
           }
           else  {
           }
@@ -140,7 +140,7 @@ export class AppointmentsWizardComponent extends AppBase {
 
       if(result && result.sid) {
         if(result.code == ReturnCode.SUCCESS){
-          this.types = result.entity;
+          this.types = result.data;
         }
       }
       
@@ -185,6 +185,7 @@ export class AppointmentsWizardComponent extends AppBase {
     this.loading = true;
 
     const often = Domain.getDomainByValue(this.often, this.frequency);
+    this.appointment.frequencyType = ObjectUtils.isEmpty(often) ? AppointmentExecutionFrequency.ONCE : often.enumValue;
 
     this.appointment.appointmentType.id = this.type;
 

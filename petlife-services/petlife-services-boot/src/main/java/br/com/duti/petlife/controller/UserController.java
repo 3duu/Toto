@@ -93,7 +93,7 @@ public class UserController {
 			user.setAdmin(false);
 			
 			response = new ResponseEntity<User>(userRepository.insert(user), RequestContextHolder.currentRequestAttributes().getSessionId());
-			if(response.getEntity() != null) {
+			if(response.getData() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
 			} else {
 				response.setCode(ReturnCode.SERVER_ERROR.getValue());

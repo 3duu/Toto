@@ -2566,9 +2566,7 @@ var PetsComponent = /** @class */ (function (_super) {
                 _this.loading = false;
                 if (result && result.sid) {
                     if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_12__["ReturnCode"].SUCCESS) {
-                        if (result.entity) {
-                            _this.user.pets = result.entity;
-                        }
+                        _this.user.pets = result.data;
                     }
                     else {
                     }

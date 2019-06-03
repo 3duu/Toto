@@ -11,7 +11,7 @@
             <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="pet.name" placeholder="{{language.name}}" type="text" ngDefaultControl>
         </mat-form-field>
         <mat-form-field>
-            <input matInput style="height: auto;height: 47px;" aria-describedby="basic-addon1" class="ember-view ember-text-field text-muted" [max]="currentDate" [matDatepicker]="myDatepicker" (dateInput)="updateAge()" placeholder="{{language.birthDate}}" [(ngModel)]="pet.birthDate" ngDefaultControl>
+            <input matInput aria-describedby="basic-addon1" class="ember-view ember-text-field text-muted" [max]="currentDate" [matDatepicker]="myDatepicker" (dateInput)="updateAge()" placeholder="{{language.birthDate}}" [(ngModel)]="pet.birthDate" ngDefaultControl>
             <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
             <mat-datepicker #myDatepicker></mat-datepicker>
         </mat-form-field>

@@ -37,7 +37,7 @@ export class SessionService {
   setUserInSession = (result : any, password : string) : void => {
     if (result && result.sid) {
       //store user details and jwt token in local storage to keep user logged in between page refreshes
-      this.setAttribute(SessionAttributes.CURRENT_USER, JSON.stringify(result.entity));
+      this.setAttribute(SessionAttributes.CURRENT_USER, JSON.stringify(result.data));
       this.setAttribute(SessionAttributes.CURRENT_PASSWORD, password);
       this.setAttribute(SessionAttributes.SESSION_ID, result.sid);
       this.setAttribute(SessionAttributes.LOGIN_DATE, result.date);

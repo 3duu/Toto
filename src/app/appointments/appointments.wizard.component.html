@@ -55,7 +55,7 @@
                     </select>
                 </mat-form-field>
                 <mat-form-field *ngIf="often == 0">
-                    <input matInput [min]="currentDate" style="height: auto;height: 47px;" aria-describedby="basic-addon1" class="ember-view ember-text-field text-muted" [matDatepicker]="myDatepicker" placeholder="{{language.date}}" [(ngModel)]="date" ngDefaultControl>
+                    <input matInput [min]="currentDate" aria-describedby="basic-addon1" class="ember-view ember-text-field text-muted" [matDatepicker]="myDatepicker" placeholder="{{language.date}}" [(ngModel)]="date" ngDefaultControl>
                     <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
                     <mat-datepicker #myDatepicker></mat-datepicker>
                 </mat-form-field>

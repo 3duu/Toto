@@ -21,7 +21,6 @@ public class InfoController {
     public @ResponseBody ResponseEntity<Date> ping() {
 
 		final ResponseEntity<Date> response = new ResponseEntity<Date>(null, RequestContextHolder.currentRequestAttributes().getSessionId());
-		response.setDate(new Date());
 		response.setCode(ReturnCode.SUCCESS.getValue());
 		try {
 			return response;

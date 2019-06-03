@@ -42,7 +42,7 @@ public class PetController {
 		try {
 			if(response == null) {
 				response = new ResponseEntity<List<Pet>>(petRepository.getByUser(userId), RequestContextHolder.currentRequestAttributes().getSessionId());
-				if(response.getEntity() != null) {
+				if(response.getData() != null) {
 					response.setCode(ReturnCode.SUCCESS.getValue());
 				} else {
 					response.setCode(ReturnCode.NOT_FOUND.getValue());
@@ -68,7 +68,7 @@ public class PetController {
 			pet.setBirthDate(today);
 			
 			response = new ResponseEntity<Pet>(petRepository.insert(pet), RequestContextHolder.currentRequestAttributes().getSessionId());
-			if(response.getEntity() != null) {
+			if(response.getData() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
 			} else {
 				response.setCode(ReturnCode.SERVER_ERROR.getValue());
@@ -91,7 +91,7 @@ public class PetController {
 		try {
 			final List<PetType> list = petTypeRepository.getAll();
 			response = new ResponseEntity<List<PetType>>(list, RequestContextHolder.currentRequestAttributes().getSessionId());
-			if(response.getEntity() != null) {
+			if(response.getData() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
 			} else {
 				response.setCode(ReturnCode.NOT_FOUND.getValue());
@@ -112,7 +112,7 @@ public class PetController {
 		final ResponseEntity<Pet> response = new ResponseEntity<Pet>(null, RequestContextHolder.currentRequestAttributes().getSessionId());
 		try {
 			petRepository.delete(pet);
-			if(response.getEntity() != null) {
+			if(response.getData() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
 			} else {
 				response.setCode(ReturnCode.SERVER_ERROR.getValue());

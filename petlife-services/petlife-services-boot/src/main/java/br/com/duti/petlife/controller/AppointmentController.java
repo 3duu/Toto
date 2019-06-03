@@ -41,7 +41,7 @@ public class AppointmentController {
 		try {
 
 			response = new ResponseEntity<Appointment>(appointmentRespository.insert(appointment), RequestContextHolder.currentRequestAttributes().getSessionId());
-			if(response.getEntity() != null) {
+			if(response.getData() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
 			} else {
 				response.setCode(ReturnCode.SERVER_ERROR.getValue());
@@ -64,7 +64,7 @@ public class AppointmentController {
 		try {
 			final List<Appointment> list = appointmentRespository.getByUser(userId);
 			response = new ResponseEntity<List<Appointment>>(list, RequestContextHolder.currentRequestAttributes().getSessionId());
-			if(response.getEntity() != null) {
+			if(response.getData() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
 			} else {
 				response.setCode(ReturnCode.NOT_FOUND.getValue());
@@ -87,7 +87,7 @@ public class AppointmentController {
 		try {
 			final List<AppointmentType> list = appointmentTypeRepository.getAll();
 			response = new ResponseEntity<List<AppointmentType>>(list, RequestContextHolder.currentRequestAttributes().getSessionId());
-			if(response.getEntity() != null) {
+			if(response.getData() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
 			} else {
 				response.setCode(ReturnCode.NOT_FOUND.getValue());

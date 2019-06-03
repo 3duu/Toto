@@ -10,19 +10,16 @@ public class ResponseEntity<T> implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private final String sid;
-	
-	public ResponseEntity(T entity, final String sid) {
+	public ResponseEntity(T data, final String sid) {
 		this.sid = sid;
-		this.entity = entity;
-		setDate(new Date());
+		this.data = data;
+		this.date = new Date();
 	}
 	
 	private int code;
-	
-	private Object entity;
-	
-	private Date date;
+	private final String sid;
+	private final Object data;
+	private final Date date;
 
 	public int getCode() {
 		return code;
@@ -32,8 +29,8 @@ public class ResponseEntity<T> implements Serializable {
 		this.code = code;
 	}
 
-	public Object getEntity() {
-		return entity;
+	public Object getData() {
+		return data;
 	}
 
 	public String getSid() {
@@ -43,10 +40,5 @@ public class ResponseEntity<T> implements Serializable {
 	public Date getDate() {
 		return date;
 	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 
 }

@@ -559,17 +559,6 @@ var AppointmentsComponent = /** @class */ (function (_super) {
         this.title = this.language.appointments;
         this.setTitle();
         window.date = new Date();
-        this.currentDate = new Date();
-        this.setDate();
-    };
-    AppointmentsComponent.prototype.setDate = function () {
-        var _this = this;
-        var ping = this.session.authenticationService.infoService.doPing();
-        ping.subscribe(function (result) {
-            if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
-                _this.currentDate = new Date(result.date);
-            }
-        });
     };
     AppointmentsComponent.prototype.add = function () {
         var _this = this;
@@ -609,7 +598,7 @@ var AppointmentsThumbComponent = /** @class */ (function (_super) {
                 _this.loading = false;
                 if (result && result.sid) {
                     if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
-                        _this.appointments = result.entity;
+                        _this.appointments = result.data;
                     }
                     else {
                     }
@@ -643,7 +632,7 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
         _this.activatedRoute = activatedRoute;
         _this.type = 0;
         _this.often = 0;
-        _this.hour = "12:00";
+        _this.time = "12:00";
         _this.weekend = 0;
         _this.workingday = 0;
         _this.finish = false;
@@ -659,12 +648,13 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
         this.frequency = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].fromEnum(_entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"], this.language.getAppointmentOften);
         this.workingdays = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].fromEnum(_entity_system__WEBPACK_IMPORTED_MODULE_1__["WorkingDays"], this.language.getWorkingDay);
         this.weekends = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].fromEnum(_entity_system__WEBPACK_IMPORTED_MODULE_1__["Weekends"], this.language.getWeekend);
+        this.setDate();
         types.subscribe(function (result) {
             console.log(result);
             _this.loading = false;
             if (result && result.sid) {
                 if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
-                    _this.types = result.entity;
+                    _this.types = result.data;
                 }
             }
         }, function (error) {
@@ -679,20 +669,35 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
         this.carouselComponent.next();
         this.finish = true;
     };
+    AppointmentsWizardComponent.prototype.setDate = function () {
+        var _this = this;
+        this.currentDate = new Date();
+        var ping = this.session.authenticationService.infoService.doPing();
+        ping.subscribe(function (result) {
+            if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
+                _this.currentDate = new Date(result.date);
+                _this.date = _this.currentDate;
+            }
+        });
+        this.date = this.currentDate;
+        window.currentDate = this.currentDate;
+    };
     AppointmentsWizardComponent.prototype.save = function () {
         var _this = this;
         if (this.loading)
             return;
-        this.appointment.date = this.date != undefined ? this.date : new Date();
+        this.appointment.date = this.date != undefined ? this.date : this.currentDate;
+        if (_utils__WEBPACK_IMPORTED_MODULE_10__["StringUtils"].isEmpty(this.time)) {
+            this.time = this.currentDate.getHours() + ":" + this.currentDate.getMinutes();
+        }
         this.loading = true;
         var often = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].getDomainByValue(this.often, this.frequency);
-        if (often != undefined) {
-            switch (often.enumValue) {
-                case _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"].DAILY_BASIS:
-                    break;
-            }
-        }
         this.appointment.appointmentType.id = this.type;
+        //add time to date
+        var time = this.time.split(":");
+        var hours = parseInt(time[0]);
+        var minutes = parseInt(time[1]);
+        this.appointment.date.setHours(hours, minutes, 0, 0);
         var saving = this.api.save(this.appointment);
         saving.subscribe(function (result) {
             console.log(result);
@@ -760,7 +765,7 @@ module.exports = "/* .form-input {\r\n    display: block;\r\n    width: 100%;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <app-carousel [disable-controls]=\"true\">\r\n\r\n        <div class=\"row page1\" #page1>\r\n            <div class=\"col-xs-12 col-sm-offset-3 col-sm-6\" *ngIf=\"user?.pets.length > 0\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading c-list\">\r\n                        <span class=\"title\">{{language.myPet}}</span>\r\n                    </div>\r\n                    \r\n                    <div class=\"row\" style=\"display: none;\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"input-group c-search\">\r\n                                <input type=\"text\" class=\"form-control\" id=\"contact-list-search\">\r\n                                <span class=\"input-group-btn\">\r\n                                    <button class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-search text-muted\"></span></button>\r\n                                </span>\r\n                            </div>\r\n                        </div>\r\n                    </div>                                                                           \r\n                    \r\n                    <ul class=\"list-group\" id=\"contact-list\">\r\n                        <li class=\"list-group-item\">\r\n                            <a href=\"javascript:;\" *ngFor=\"let pet of user.pets\" (click)=\"selectPet(pet)\">\r\n                                <div class=\"col-xs-12 col-sm-3\">\r\n                                    <img src=\"{{pet.img}}\" class=\"img-responsive img-circle\" />\r\n                                </div>\r\n                                <div class=\"col-xs-12 col-sm-9\">\r\n                                    <span class=\"name\">{{pet.name}}</span><br/>\r\n                                </div>\r\n                                <div class=\"clearfix\"></div>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <app-alert [visible]=\"user?.pets.length == 0\" [message]=\"language.noPetsFound\" type=\"info\"></app-alert>\r\n        </div>\r\n        <div class=\"text-center page2\" #page2>\r\n            <div class=\"form-signin\">\r\n                <br>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentType}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"type\">\r\n                        <option *ngFor=\"let type of types\" value=\"{{type.id}}\">{{type.description}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentFrequency}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"often\">\r\n                        <option *ngFor=\"let d of frequency\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 0\">\r\n                    <input matInput [min]=\"currentDate\" style=\"height: auto;height: 47px;\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [matDatepicker]=\"myDatepicker\" placeholder=\"{{language.date}}\" [(ngModel)]=\"date\" ngDefaultControl>\r\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #myDatepicker></mat-datepicker>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 2\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"workingday\">\r\n                        <option *ngFor=\"let d of workingdays\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 3\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"weekend\">\r\n                        <option *ngFor=\"let d of weekends\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input [ngxTimepicker]=\"picker\" class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"hour\" placeholder=\"{{language.hour}}\" type=\"text\" ngDefaultControl>\r\n                    <ngx-material-timepicker #picker></ngx-material-timepicker>\r\n                </mat-form-field>\r\n                \r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n    </app-carousel>\r\n    <a href=\"javascript:;\" *ngIf=\"finish\" class=\"btn btn-toppet btn-round btn-go\" (click)=\"save()\"><i class=\"fa fa-check\"></i></a>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n    <app-carousel [disable-controls]=\"true\">\r\n\r\n        <div class=\"row page1\" #page1>\r\n            <div class=\"col-xs-12 col-sm-offset-3 col-sm-6\" *ngIf=\"user?.pets.length > 0\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading c-list\">\r\n                        <span class=\"title\">{{language.myPet}}</span>\r\n                    </div>\r\n                    \r\n                    <div class=\"row\" style=\"display: none;\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"input-group c-search\">\r\n                                <input type=\"text\" class=\"form-control\" id=\"contact-list-search\">\r\n                                <span class=\"input-group-btn\">\r\n                                    <button class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-search text-muted\"></span></button>\r\n                                </span>\r\n                            </div>\r\n                        </div>\r\n                    </div>                                                                           \r\n                    \r\n                    <ul class=\"list-group\" id=\"contact-list\">\r\n                        <li class=\"list-group-item\">\r\n                            <a href=\"javascript:;\" *ngFor=\"let pet of user.pets\" (click)=\"selectPet(pet)\">\r\n                                <div class=\"col-xs-12 col-sm-3\">\r\n                                    <img src=\"{{pet.img}}\" class=\"img-responsive img-circle\" />\r\n                                </div>\r\n                                <div class=\"col-xs-12 col-sm-9\">\r\n                                    <span class=\"name\">{{pet.name}}</span><br/>\r\n                                </div>\r\n                                <div class=\"clearfix\"></div>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <app-alert [visible]=\"user?.pets.length == 0\" [message]=\"language.noPetsFound\" type=\"info\"></app-alert>\r\n        </div>\r\n        <div class=\"text-center page2\" #page2>\r\n            <div class=\"form-signin\">\r\n                <br>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentType}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"type\">\r\n                        <option *ngFor=\"let type of types\" value=\"{{type.id}}\">{{type.description}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentFrequency}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"often\">\r\n                        <option *ngFor=\"let d of frequency\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 0\">\r\n                    <input matInput [min]=\"currentDate\" style=\"height: auto;height: 47px;\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [matDatepicker]=\"myDatepicker\" placeholder=\"{{language.date}}\" [(ngModel)]=\"date\" ngDefaultControl>\r\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #myDatepicker></mat-datepicker>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 2\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"workingday\">\r\n                        <option *ngFor=\"let d of workingdays\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 3\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"weekend\">\r\n                        <option *ngFor=\"let d of weekends\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input [ngxTimepicker]=\"picker\" [format]=\"24\"class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"time\" placeholder=\"{{language.hour}}\" type=\"text\" ngDefaultControl>\r\n                    <ngx-material-timepicker #picker></ngx-material-timepicker>\r\n                </mat-form-field>\r\n                \r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n    </app-carousel>\r\n    <a href=\"javascript:;\" *ngIf=\"finish\" class=\"btn btn-toppet btn-round btn-go\" (click)=\"save()\"><i class=\"fa fa-check\"></i></a>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2070,11 +2075,7 @@ var PetsComponent = /** @class */ (function (_super) {
                 _this.loading = false;
                 if (result && result.sid) {
                     if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_13__["ReturnCode"].SUCCESS) {
-                        if (result.entity) {
-                            _this.user.pets = result.entity;
-                        }
-                    }
-                    else {
+                        _this.user.pets = result.data;
                     }
                 }
             }, function (error) {
@@ -2161,9 +2162,7 @@ var PetTypeComponent = /** @class */ (function (_super) {
             console.log(result);
             if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_13__["ReturnCode"].SUCCESS) {
                 if (result && result.sid) {
-                    if (result.entity) {
-                        _this.types = result.entity;
-                    }
+                    _this.types = result.data;
                 }
             }
             else {
@@ -2400,7 +2399,7 @@ var PetsWizardComponent = /** @class */ (function (_super) {
                 console.log(result);
                 _this.loading = false;
                 _this.element.nativeElement.hidden = _this.loading;
-                if (result.entity) {
+                if (result.data) {
                     if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_13__["ReturnCode"].SUCCESS) {
                         if (result && result.sid) {
                             _this.session.zone.run(function () {
@@ -2753,7 +2752,7 @@ var httpDefaultOptions = {
 var endpoints = _environments_environment__WEBPACK_IMPORTED_MODULE_11__["environment"].endpoint;
 var ApiService = /** @class */ (function () {
     function ApiService() {
-        this.endpoint = endpoints.indraLocal;
+        this.endpoint = endpoints.local;
         console.log(this.endpoint);
     }
     ApiService.prototype.handleError = function (error) {
@@ -3059,7 +3058,7 @@ var SessionService = /** @class */ (function () {
         this.setUserInSession = function (result, password) {
             if (result && result.sid) {
                 //store user details and jwt token in local storage to keep user logged in between page refreshes
-                _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].CURRENT_USER, JSON.stringify(result.entity));
+                _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].CURRENT_USER, JSON.stringify(result.data));
                 _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].CURRENT_PASSWORD, password);
                 _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].SESSION_ID, result.sid);
                 _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].LOGIN_DATE, result.date);

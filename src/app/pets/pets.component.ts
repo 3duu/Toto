@@ -115,11 +115,7 @@ export class PetsComponent extends AppBase {
 
         if (result && result.sid) {
           if(result.code == ReturnCode.SUCCESS){
-            if(result.entity){
-              this.user.pets = result.entity;
-            }
-          }
-          else  {
+            this.user.pets = result.data;
           }
         }
         
@@ -194,9 +190,7 @@ export class PetTypeComponent extends AppBase {
       if(result.code == ReturnCode.SUCCESS){
 
         if (result && result.sid) {
-          if(result.entity){
-            this.types = result.entity;
-          }
+          this.types = result.data;
         }
       }
       else {
@@ -494,7 +488,7 @@ export class PetsWizardComponent extends AppBase {
       this.loading = false;
       this.element.nativeElement.hidden = this.loading;
 
-      if(result.entity){
+      if(result.data){
         if(result.code == ReturnCode.SUCCESS){
           if(result && result.sid) {
             this.session.zone.run(() => 
