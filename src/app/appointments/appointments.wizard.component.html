@@ -70,7 +70,7 @@
                     </select>
                 </mat-form-field>
                 <mat-form-field>
-                    <input [ngxTimepicker]="picker" class="ember-view ember-text-field text-muted" matInput [(ngModel)]="hour" placeholder="{{language.hour}}" type="text" ngDefaultControl>
+                    <input [ngxTimepicker]="picker" [format]="24"class="ember-view ember-text-field text-muted" matInput [(ngModel)]="time" placeholder="{{language.hour}}" type="text" ngDefaultControl>
                     <ngx-material-timepicker #picker></ngx-material-timepicker>
                 </mat-form-field>
                 

@@ -7,7 +7,7 @@
 /*! exports provided: name, version, displayName, endpoints, passwordConfig, cordova, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indraLocal":"http://192.168.137.1:9003","home2":"http://192.168.1.3:9003/toppet","home":"http://192.168.1.3:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{},"cordova-plugin-context-menu":{},"cordova-plugin-listpicker":{}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"^7.2.15","@angular/cdk":"^7.3.7","@angular/common":"~7.2.15","@angular/compiler":"~7.2.15","@angular/core":"~7.2.15","@angular/forms":"~7.2.15","@angular/material":"^7.3.7","@angular/platform-browser":"~7.2.15","@angular/platform-browser-dynamic":"~7.2.15","@angular/router":"~7.2.15","@types/jquery":"^3.3.29","ansi-escapes":"^3.2.0","braces":"^2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"^1.0.2","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-plugin-camera":"4.0.3","cordova-plugin-context-menu":"0.1.1","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-listpicker":"2.2.2","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","hammerjs":"^2.0.8","jquery":"^3.3.1","lodash":"^4.17.11","ngx-bootstrap":"^3.2.0","ngx-modialog":"^5.0.1","phonegap":"^8.2.2","popper.js":"^1.15.0","rxjs":"^6.5.2","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"^7.3.9","@angular/compiler-cli":"~7.2.15","@angular/language-service":"~7.2.15","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.4"}};
+module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indraLocal":"http://192.168.137.1:9003","home2":"http://192.168.1.3:9003/toppet","home":"http://192.168.1.3:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{},"cordova-plugin-context-menu":{},"cordova-plugin-listpicker":{}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"^7.2.15","@angular/cdk":"^7.3.7","@angular/common":"~7.2.15","@angular/compiler":"~7.2.15","@angular/core":"~7.2.15","@angular/forms":"~7.2.15","@angular/material":"^7.3.7","@angular/platform-browser":"~7.2.15","@angular/platform-browser-dynamic":"~7.2.15","@angular/router":"~7.2.15","@types/jquery":"^3.3.29","ansi-escapes":"^3.2.0","braces":"^2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"^1.0.2","cordova-android":"^7.1.4","cordova-browser":"^5.0.4","cordova-plugin-camera":"4.0.3","cordova-plugin-context-menu":"0.1.1","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-listpicker":"2.2.2","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","hammerjs":"^2.0.8","jquery":"^3.3.1","lodash":"^4.17.11","luxon":"^1.16.0","ngx-bootstrap":"^3.2.0","ngx-material-timepicker":"^3.1.0","ngx-modialog":"^5.0.1","phonegap":"^8.2.2","popper.js":"^1.15.0","rxjs":"^6.5.2","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"^4.29.6","zone.js":"~0.8.26"},"devDependencies":{"@angular-devkit/build-angular":"^0.13.3","@angular/cli":"^7.3.9","@angular/compiler-cli":"~7.2.15","@angular/language-service":"~7.2.15","@types/jasmine":"~2.8.8","@types/jasminewd2":"~2.0.3","@types/node":"^8.10.42","codelyzer":"~4.5.0","jasmine-core":"~2.99.1","jasmine-spec-reporter":"~4.2.1","karma":"^4.0.1","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~1.1.2","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.11.0","typescript":"3.2.4"}};
 
 /***/ }),
 
@@ -237,12 +237,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _templates_button_facebook_facebook_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./templates/button/facebook/facebook.component */ "./src/app/templates/button/facebook/facebook.component.ts");
 /* harmony import */ var _templates_button_google_google_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./templates/button/google/google.component */ "./src/app/templates/button/google/google.component.ts");
 /* harmony import */ var _templates_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./templates/carousel/carousel.component */ "./src/app/templates/carousel/carousel.component.ts");
+/* harmony import */ var ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ngx-material-timepicker */ "./node_modules/ngx-material-timepicker/fesm5/ngx-material-timepicker.js");
 
 
 
 
 
 //import { TextMaskModule } from 'angular2-text-mask';
+
 
 
 
@@ -309,7 +311,7 @@ var AppModule = /** @class */ (function () {
                 _templates_tutorial_tutorial_component__WEBPACK_IMPORTED_MODULE_1__["TutorialComponent"],
                 _appointments_appointments_component__WEBPACK_IMPORTED_MODULE_28__["AppointmentsWizardComponent"],
                 _appointments_appointments_component__WEBPACK_IMPORTED_MODULE_28__["AppointmentsThumbComponent"],
-                _templates_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_39__["CarouselComponent"]
+                _templates_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_39__["CarouselComponent"],
             ],
             entryComponents: [
                 _templates_button_signin_signin_component__WEBPACK_IMPORTED_MODULE_36__["SignInComponent"],
@@ -335,9 +337,10 @@ var AppModule = /** @class */ (function () {
                 // MatMenuModule,
                 _angular_material_core__WEBPACK_IMPORTED_MODULE_32__["MatNativeDateModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_33__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_33__["MatIconModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_33__["MatIconModule"],
                 // MatPaginatorModule,
                 // MatToolbarModule
+                ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_40__["NgxMaterialTimepickerModule"]
             ],
             providers: [
                 _cordova_service__WEBPACK_IMPORTED_MODULE_13__["CordovaService"],
@@ -556,6 +559,17 @@ var AppointmentsComponent = /** @class */ (function (_super) {
         this.title = this.language.appointments;
         this.setTitle();
         window.date = new Date();
+        this.currentDate = new Date();
+        this.setDate();
+    };
+    AppointmentsComponent.prototype.setDate = function () {
+        var _this = this;
+        var ping = this.session.authenticationService.infoService.doPing();
+        ping.subscribe(function (result) {
+            if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
+                _this.currentDate = new Date(result.date);
+            }
+        });
     };
     AppointmentsComponent.prototype.add = function () {
         var _this = this;
@@ -622,18 +636,23 @@ var AppointmentsThumbComponent = /** @class */ (function (_super) {
 
 var AppointmentsWizardComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AppointmentsWizardComponent, _super);
-    function AppointmentsWizardComponent(session, api) {
+    function AppointmentsWizardComponent(session, api, router, activatedRoute) {
         var _this = _super.call(this, session) || this;
         _this.api = api;
+        _this.router = router;
+        _this.activatedRoute = activatedRoute;
+        _this.type = 0;
         _this.often = 0;
         _this.hour = "12:00";
         _this.weekend = 0;
         _this.workingday = 0;
+        _this.finish = false;
         return _this;
     }
     AppointmentsWizardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.appointment = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["Appointment"]();
+        this.appointment.user = this.session.getCurrentUser();
         this.appointment.appointmentType = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentType"]();
         this.loading = true;
         var types = this.api.getTypes();
@@ -654,8 +673,41 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
         });
     };
     AppointmentsWizardComponent.prototype.selectPet = function (pet) {
+        if (this.loading)
+            return;
         this.appointment.pet = pet;
         this.carouselComponent.next();
+        this.finish = true;
+    };
+    AppointmentsWizardComponent.prototype.save = function () {
+        var _this = this;
+        if (this.loading)
+            return;
+        this.appointment.date = this.date != undefined ? this.date : new Date();
+        this.loading = true;
+        var often = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].getDomainByValue(this.often, this.frequency);
+        if (often != undefined) {
+            switch (often.enumValue) {
+                case _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"].DAILY_BASIS:
+                    break;
+            }
+        }
+        this.appointment.appointmentType.id = this.type;
+        var saving = this.api.save(this.appointment);
+        saving.subscribe(function (result) {
+            console.log(result);
+            _this.loading = false;
+            if (result && result.sid) {
+                if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
+                    _this.session.zone.run(function () {
+                        return _this.router.navigate(['.'], { relativeTo: _this.activatedRoute.parent });
+                    });
+                }
+            }
+        }, function (error) {
+            console.error(error);
+            _this.loading = false;
+        });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ViewChild"])(_templates_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_3__["CarouselComponent"]),
@@ -667,7 +719,10 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./appointments.wizard.component.html */ "./src/app/appointments/appointments.wizard.component.html"),
             styles: [__webpack_require__(/*! ./appointments.wizard.component.css */ "./src/app/appointments/appointments.wizard.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _service_services__WEBPACK_IMPORTED_MODULE_2__["AppointmentsApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
+            _service_services__WEBPACK_IMPORTED_MODULE_2__["AppointmentsApiService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]])
     ], AppointmentsWizardComponent);
     return AppointmentsWizardComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_7__["AppBase"]));
@@ -705,7 +760,7 @@ module.exports = "/* .form-input {\r\n    display: block;\r\n    width: 100%;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <app-carousel [disable-controls]=\"true\">\r\n\r\n        <div class=\"row page1\" #page1>\r\n            <div class=\"col-xs-12 col-sm-offset-3 col-sm-6\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading c-list\">\r\n                        <span class=\"title\">{{language.myPet}}</span>\r\n                    </div>\r\n                    \r\n                    <div class=\"row\" style=\"display: none;\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"input-group c-search\">\r\n                                <input type=\"text\" class=\"form-control\" id=\"contact-list-search\">\r\n                                <span class=\"input-group-btn\">\r\n                                    <button class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-search text-muted\"></span></button>\r\n                                </span>\r\n                            </div>\r\n                        </div>\r\n                    </div>                                                                           \r\n                    \r\n                    <ul class=\"list-group\" id=\"contact-list\">\r\n                        <li class=\"list-group-item\">\r\n                            <a href=\"javascript:;\" *ngFor=\"let pet of user.pets\" (click)=\"selectPet(pet)\">\r\n                                <div class=\"col-xs-12 col-sm-3\">\r\n                                    <img src=\"{{pet.img}}\" class=\"img-responsive img-circle\" />\r\n                                </div>\r\n                                <div class=\"col-xs-12 col-sm-9\">\r\n                                    <span class=\"name\">{{pet.name}}</span><br/>\r\n                                </div>\r\n                                <div class=\"clearfix\"></div>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center page2\" #page2>\r\n            <div class=\"form-signin\">\r\n                <br>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentType}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\">\r\n                        <option *ngFor=\"let type of types\" value=\"{{type.id}}\">{{type.description}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentFrequency}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"often\">\r\n                        <option *ngFor=\"let d of frequency\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 0\">\r\n                    <input matInput style=\"height: auto;height: 47px;\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [matDatepicker]=\"myDatepicker\" placeholder=\"{{language.date}}\" [(ngModel)]=\"date\" ngDefaultControl>\r\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #myDatepicker></mat-datepicker>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 2\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"workingday\">\r\n                        <option *ngFor=\"let d of workingdays\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 3\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"weekend\">\r\n                        <option *ngFor=\"let d of weekends\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"hour\" placeholder=\"{{language.hour}}\" type=\"number\" ngDefaultControl>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n            </div>\r\n            <a href=\"javascript:;\" class=\"btn btn-toppet btn-bottom btn-round\" style=\"position: fixed; margin-bottom: 16%; right: 40%;\" (click)=\"next()\"><i class=\"fa fa-chevron-right\"></i></a>\r\n        </div>\r\n    </app-carousel>\r\n    \r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n    <app-carousel [disable-controls]=\"true\">\r\n\r\n        <div class=\"row page1\" #page1>\r\n            <div class=\"col-xs-12 col-sm-offset-3 col-sm-6\" *ngIf=\"user?.pets.length > 0\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading c-list\">\r\n                        <span class=\"title\">{{language.myPet}}</span>\r\n                    </div>\r\n                    \r\n                    <div class=\"row\" style=\"display: none;\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"input-group c-search\">\r\n                                <input type=\"text\" class=\"form-control\" id=\"contact-list-search\">\r\n                                <span class=\"input-group-btn\">\r\n                                    <button class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-search text-muted\"></span></button>\r\n                                </span>\r\n                            </div>\r\n                        </div>\r\n                    </div>                                                                           \r\n                    \r\n                    <ul class=\"list-group\" id=\"contact-list\">\r\n                        <li class=\"list-group-item\">\r\n                            <a href=\"javascript:;\" *ngFor=\"let pet of user.pets\" (click)=\"selectPet(pet)\">\r\n                                <div class=\"col-xs-12 col-sm-3\">\r\n                                    <img src=\"{{pet.img}}\" class=\"img-responsive img-circle\" />\r\n                                </div>\r\n                                <div class=\"col-xs-12 col-sm-9\">\r\n                                    <span class=\"name\">{{pet.name}}</span><br/>\r\n                                </div>\r\n                                <div class=\"clearfix\"></div>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <app-alert [visible]=\"user?.pets.length == 0\" [message]=\"language.noPetsFound\" type=\"info\"></app-alert>\r\n        </div>\r\n        <div class=\"text-center page2\" #page2>\r\n            <div class=\"form-signin\">\r\n                <br>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentType}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"type\">\r\n                        <option *ngFor=\"let type of types\" value=\"{{type.id}}\">{{type.description}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentFrequency}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"often\">\r\n                        <option *ngFor=\"let d of frequency\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 0\">\r\n                    <input matInput [min]=\"currentDate\" style=\"height: auto;height: 47px;\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [matDatepicker]=\"myDatepicker\" placeholder=\"{{language.date}}\" [(ngModel)]=\"date\" ngDefaultControl>\r\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #myDatepicker></mat-datepicker>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 2\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"workingday\">\r\n                        <option *ngFor=\"let d of workingdays\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 3\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"weekend\">\r\n                        <option *ngFor=\"let d of weekends\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input [ngxTimepicker]=\"picker\" class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"hour\" placeholder=\"{{language.hour}}\" type=\"text\" ngDefaultControl>\r\n                    <ngx-material-timepicker #picker></ngx-material-timepicker>\r\n                </mat-form-field>\r\n                \r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n    </app-carousel>\r\n    <a href=\"javascript:;\" *ngIf=\"finish\" class=\"btn btn-toppet btn-round btn-go\" (click)=\"save()\"><i class=\"fa fa-check\"></i></a>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -800,6 +855,9 @@ var CordovaService = /** @class */ (function () {
                 return this.devicePlatform == "browser";
             }
             catch (e) {
+                // if(this.cordova != undefined) {
+                //    return false;
+                // }
                 console.error(e);
                 return true;
             }
@@ -1124,9 +1182,26 @@ var Domain = /** @class */ (function () {
         var keys = Object.keys(_enum).filter(function (k) { return typeof _enum[k] === "number"; });
         for (var i = 0; i < keys.length; i++) {
             var o = new Domain(i, nameTranslate != undefined ? nameTranslate(_enum[keys[i]]) : keys[i]);
+            o.enumValue = _enum[keys[i]];
             domains.push(o);
         }
         return domains;
+    };
+    Domain.getDomainByValue = function (value, domains) {
+        domains.forEach(function (d) {
+            if (d.value == value) {
+                return d;
+            }
+        });
+        return null;
+    };
+    Domain.getDomainByEnumValue = function (enumValue, domains) {
+        domains.forEach(function (d) {
+            if (d.enumValue == enumValue) {
+                return d;
+            }
+        });
+        return null;
     };
     return Domain;
 }());
@@ -1370,6 +1445,7 @@ var LanguageService = /** @class */ (function () {
         this.invalidEmailAddress = "Forneça um endereço de e-mail válido";
         this.invalidPassword = "Senha deve conter pelo menos :min caracteres";
         this.passwordDoesntMatch = "Confirmação de senha não corresponde com senha";
+        this.noPetsFound = "Você ainda não cadastrou o seu pet!";
         //Tutorial
         this.addPetTutotial = "Clique aqui para começar a cuidar o seu pet!";
         this.links = new Links();
@@ -1774,11 +1850,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
 /* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../appbase */ "./src/app/appbase.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_entity_entities__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/entity/entities */ "./src/app/entity/entities.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-
-
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
 
@@ -1811,14 +1883,7 @@ var NavbarComponent = /** @class */ (function (_super) {
         configurable: true
     });
     NavbarComponent.prototype.ngOnInit = function () {
-        this.updateUser();
         this._height = this.element.nativeElement.offsetHeight;
-    };
-    NavbarComponent.prototype.updateUser = function () {
-        this.user = this.session.getCurrentUser();
-        if (_utils__WEBPACK_IMPORTED_MODULE_5__["ObjectUtils"].isEmpty(this.user)) {
-            this.user = new src_app_entity_entities__WEBPACK_IMPORTED_MODULE_4__["User"]();
-        }
     };
     NavbarComponent.prototype.logout = function () {
         console.log("loging out...");
@@ -1832,7 +1897,7 @@ var NavbarComponent = /** @class */ (function (_super) {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_1__["SessionService"],
             _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
             _angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"]])
     ], NavbarComponent);
     return NavbarComponent;
@@ -2241,7 +2306,7 @@ var PetInfoComponent = /** @class */ (function (_super) {
         return !(_utils__WEBPACK_IMPORTED_MODULE_10__["StringUtils"].isEmpty(pet.name) || _utils__WEBPACK_IMPORTED_MODULE_10__["ObjectUtils"].isEmpty(pet.birthDate) || _utils__WEBPACK_IMPORTED_MODULE_10__["ObjectUtils"].isEmpty(pet.petType));
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_8__["ViewChild"])(PetsComponent),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_8__["ViewChild"])(_templates_alert_alert_component__WEBPACK_IMPORTED_MODULE_2__["AlertComponent"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _templates_alert_alert_component__WEBPACK_IMPORTED_MODULE_2__["AlertComponent"])
     ], PetInfoComponent.prototype, "alert", void 0);
     PetInfoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2429,7 +2494,7 @@ module.exports = ".input-group-date {\r\n    background-color: #563d7c;\r\n}\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container text-center\" style=\"height: 90%\">\r\n    <div class=\"form-signin\">\r\n        <br>\r\n        <div class=\"input-group mb-3\" *ngIf=\"pet.breed.id\">\r\n            <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text bg-toppet\"><a href=\"javascript:;\" class=\"btn-toppet\" (click)=\"back()\"><i [ngClass]=\"'fa fa-' + pet.petType.icon\" style=\"float: right; font-size: 235%;\"></i></a></span>\r\n            </div>\r\n            <input type=\"text\" style=\"height: auto; font-size: 22px; background-color: transparent; color: white;\" disabled=\"true\" class=\"form-control\" value=\"{{pet.breed.description}}\" aria-describedby=\"basic-addon1\">\r\n        </div>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input matInput style=\"height: auto;height: 47px;\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [max]=\"currentDate\" [matDatepicker]=\"myDatepicker\" (dateInput)=\"updateAge()\" placeholder=\"{{language.birthDate}}\" [(ngModel)]=\"pet.birthDate\" ngDefaultControl>\r\n            <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n            <mat-datepicker #myDatepicker></mat-datepicker>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput value=\"{{age}}\" placeholder=\"{{language.age}}\" disabled=\"true\">\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n        </mat-form-field>\r\n        <app-alert></app-alert>\r\n    </div>\r\n    <a href=\"javascript:;\" class=\"btn btn-toppet btn-bottom btn-round\" style=\"position: fixed; margin-bottom: 16%; right: 40%;\" (click)=\"next()\"><i class=\"fa fa-chevron-right\"></i></a>\r\n</div>\r\n\r\n  \r\n  \r\n  \r\n      "
+module.exports = "<div class=\"text-center\">\r\n    <div class=\"form-signin\">\r\n        <br>\r\n        <div class=\"input-group mb-3\" *ngIf=\"pet.breed.id\">\r\n            <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text bg-toppet\"><a href=\"javascript:;\" class=\"btn-toppet\" (click)=\"back()\"><i [ngClass]=\"'fa fa-' + pet.petType.icon\" style=\"float: right; font-size: 235%;\"></i></a></span>\r\n            </div>\r\n            <input type=\"text\" style=\"height: auto; font-size: 22px; background-color: transparent; color: white;\" disabled=\"true\" class=\"form-control\" value=\"{{pet.breed.description}}\" aria-describedby=\"basic-addon1\">\r\n        </div>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input matInput style=\"height: auto;height: 47px;\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [max]=\"currentDate\" [matDatepicker]=\"myDatepicker\" (dateInput)=\"updateAge()\" placeholder=\"{{language.birthDate}}\" [(ngModel)]=\"pet.birthDate\" ngDefaultControl>\r\n            <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n            <mat-datepicker #myDatepicker></mat-datepicker>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput value=\"{{age}}\" placeholder=\"{{language.age}}\" disabled=\"true\">\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n        </mat-form-field>\r\n        <app-alert></app-alert>\r\n    </div>\r\n    <a href=\"javascript:;\" class=\"btn btn-toppet btn-bottom btn-round\" style=\"position: fixed; margin-bottom: 16%; right: 40%;\" (click)=\"next()\"><i class=\"fa fa-chevron-right\"></i></a>\r\n</div>\r\n\r\n  \r\n  \r\n  \r\n      "
 
 /***/ }),
 
@@ -2462,7 +2527,7 @@ module.exports = "<section class=\"body_section\">\r\n  <div class=interface_cla
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\" style=\"height: 100% !important;\">\r\n        <li *ngFor=\"let t of types\"  (click)=\"select(t)\" style=\"height: 82px;\">\r\n          <i class=\"icon fa fa-{{t.icon}}\" style=\"padding-top: 14px;\"></i>\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">{{t.description}}</h2>\r\n            <!-- <p class=\"desc\">{{t.icon}}</p> -->\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n"
+module.exports = "<app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n<div class=\"row\">\r\n  <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n    <ul class=\"event-list\" style=\"height: 100% !important;\">\r\n      <li *ngFor=\"let t of types;\"  (click)=\"select(t)\" style=\"height: 82px;\">\r\n        <i class=\"icon fa fa-{{t.icon}}\" style=\"padding-top: 14px;\"></i>\r\n        <div class=\"info\">\r\n          <h2 class=\"title\">{{t.description}}</h2>\r\n          <!-- <p class=\"desc\">{{t.icon}}</p> -->\r\n        </div>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -3037,11 +3102,17 @@ var SessionService = /** @class */ (function () {
         configurable: true
     });
     SessionService.prototype.getCurrentUser = function () {
-        var json = this.getAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].CURRENT_USER) != undefined ? JSON.parse(this.getAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].CURRENT_USER)) : null;
-        if (json != null) {
-            var user = json;
-            return user;
+        var user;
+        if (_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(this.sessionUser)) {
+            user = this.getJsonUser();
         }
+        else {
+            user = this.sessionUser;
+        }
+        return user;
+    };
+    SessionService.prototype.getJsonUser = function () {
+        var json = this.getAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].CURRENT_USER) != undefined ? JSON.parse(this.getAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].CURRENT_USER)) : null;
         return json;
     };
     SessionService.prototype.setAttribute = function (sttr, object) {
@@ -3300,7 +3371,9 @@ module.exports = "<div class=\"alert alert-{{type}}\" [ngClass]=\"{ 'button-disa
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertComponent", function() { return AlertComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../styles/styles */ "./src/app/styles/styles.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
 
 
 var AlertComponent = /** @class */ (function () {
@@ -3319,8 +3392,20 @@ var AlertComponent = /** @class */ (function () {
         this.visible = false;
         this.type = null;
     };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Boolean)
+    ], AlertComponent.prototype, "visible", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], AlertComponent.prototype, "message", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], AlertComponent.prototype, "type", void 0);
     AlertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-alert',
             template: __webpack_require__(/*! ./alert.component.html */ "./src/app/templates/alert/alert.component.html"),
             styles: [__webpack_require__(/*! ./alert.component.css */ "./src/app/templates/alert/alert.component.css")]
@@ -3860,7 +3945,7 @@ module.exports = ".center {\r\n    margin: auto;\r\n    width: 50%;\r\n    paddi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"carouselExampleIndicators\" class=\"carousel slide\" [attr.data-ride]=\"dataRide\" [attr.data-interval]=\"dataInterval\">\r\n    <ol class=\"carousel-indicators\" #indicator style=\"position: fixed;\"  [ngStyle]=\"{ 'bottom': indicatorBottom }\">\r\n      <li *ngFor=\"let content of contents; let i = index\" [attr.data-slide-to]=\"i\" [ngClass]=\"{ 'active': i == startsWith }\" [attr.data-target]=\"disableControls ? '' : '#carouselExampleIndicators'\"></li>\r\n    </ol>\r\n    <div class=\"carousel-inner\" #items>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page1\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page2\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page3\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page4\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page5\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page6\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page7\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page8\"></ng-content>\r\n      </div>\r\n    </div>\r\n    <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" #previousInput style=\"position: fixed;\" [hidden]=\"true\" (click)=\"fireNext()\" role=\"button\" data-slide=\"prev\"></a>\r\n    <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" #nextInput style=\"position: fixed;\" [hidden]=\"true\" (click)=\"fireBack()\" role=\"button\" data-slide=\"next\"></a>\r\n</div>\r\n"
+module.exports = "<div id=\"carouselExampleIndicators\" #carouselExampleIndicators class=\"carousel slide\" [attr.data-ride]=\"dataRide\" [attr.data-interval]=\"dataInterval\">\r\n    <ol class=\"carousel-indicators\" #indicator style=\"position: fixed;\"  [ngStyle]=\"{ 'bottom': indicatorBottom }\">\r\n      <li *ngFor=\"let content of contents; let i = index\" [attr.data-slide-to]=\"i\" [ngClass]=\"{ 'active': i == startsWith }\" [attr.data-target]=\"disableControls ? '' : '#carouselExampleIndicators'\"></li>\r\n    </ol>\r\n    <div class=\"carousel-inner\" #items>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page1\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page2\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page3\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page4\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page5\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page6\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page7\"></ng-content>\r\n      </div>\r\n      <div class=\"carousel-item\">\r\n        <ng-content select=\".page8\"></ng-content>\r\n      </div>\r\n    </div>\r\n    <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" #previousInput style=\"position: fixed;\" [hidden]=\"true\" (click)=\"fireNext()\" role=\"button\" data-slide=\"prev\"></a>\r\n    <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" #nextInput style=\"position: fixed;\" [hidden]=\"true\" (click)=\"fireBack()\" role=\"button\" data-slide=\"next\"></a>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -3879,8 +3964,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CarouselComponent = /** @class */ (function () {
-    function CarouselComponent() {
+    function CarouselComponent(element) {
         var _this = this;
+        this.element = element;
         this.nextClicked = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.previousClicked = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.endReached = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -3890,16 +3976,29 @@ var CarouselComponent = /** @class */ (function () {
         this.disableControls = false;
         this.indicatorBottom = "";
         this._contents = [];
+        this._currentPage = 0;
+        this.setCurrentPage = function () {
+            _this._currentPage = $(_this.carouselExampleIndicators.nativeElement).find('div.active').index() + 1;
+        };
         this.next = function () {
             _this.nextInput.nativeElement.click();
+            _this.fireNext();
         };
         this.back = function () {
             _this.previousInput.nativeElement.click();
+            _this.fireBack();
         };
     }
     Object.defineProperty(CarouselComponent.prototype, "contents", {
         get: function () {
             return this._contents;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CarouselComponent.prototype, "currentPage", {
+        get: function () {
+            return this._currentPage;
         },
         enumerable: true,
         configurable: true
@@ -3923,12 +4022,16 @@ var CarouselComponent = /** @class */ (function () {
                 this.items.nativeElement.removeChild(toRemove[i]);
             }
         }
+        $(this.carouselExampleIndicators.nativeElement).on('slid.bs.carousel', this.setCurrentPage);
+        this.setCurrentPage();
     };
     CarouselComponent.prototype.fireNext = function () {
         this.nextClicked.emit();
+        this.setCurrentPage();
     };
     CarouselComponent.prototype.fireBack = function () {
         this.previousClicked.emit();
+        this.setCurrentPage();
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
@@ -3978,13 +4081,17 @@ var CarouselComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("indicator"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
     ], CarouselComponent.prototype, "indicator", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("carouselExampleIndicators"),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], CarouselComponent.prototype, "carouselExampleIndicators", void 0);
     CarouselComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-carousel',
             template: __webpack_require__(/*! ./carousel.component.html */ "./src/app/templates/carousel/carousel.component.html"),
             styles: [__webpack_require__(/*! ./carousel.component.css */ "./src/app/templates/carousel/carousel.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
     ], CarouselComponent);
     return CarouselComponent;
 }());
