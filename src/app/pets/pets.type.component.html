@@ -1,17 +1,15 @@
-<div>
-  <app-loading *ngIf="loading" [center]="true"></app-loading>
-  <div class="row">
-    <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-      <ul class="event-list" style="height: 100% !important;">
-        <li *ngFor="let t of types"  (click)="select(t)" style="height: 82px;">
-          <i class="icon fa fa-{{t.icon}}" style="padding-top: 14px;"></i>
-          <div class="info">
-            <h2 class="title">{{t.description}}</h2>
-            <!-- <p class="desc">{{t.icon}}</p> -->
-          </div>
-        </li>
-      </ul>
-    </div>
+<app-loading *ngIf="loading" [center]="true"></app-loading>
+<div class="row">
+  <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+    <ul class="event-list" style="height: 100% !important;">
+      <li *ngFor="let t of types;"  (click)="select(t)" style="height: 82px;">
+        <i class="icon fa fa-{{t.icon}}" style="padding-top: 14px;"></i>
+        <div class="info">
+          <h2 class="title">{{t.description}}</h2>
+          <!-- <p class="desc">{{t.icon}}</p> -->
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 

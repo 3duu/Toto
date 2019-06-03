@@ -294,7 +294,7 @@ export class BreedPickerComponent extends AppBase  {
 })
 export class PetInfoComponent extends AppBase {
 
-  @ViewChild(PetsComponent) private alert: AlertComponent;
+  @ViewChild(AlertComponent) private alert: AlertComponent;
   
   constructor(session : SessionService/*, private cordova : CordovaService*/){
     super(session);
