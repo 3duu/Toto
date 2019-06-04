@@ -46,9 +46,6 @@
                     </select>
                 </mat-form-field>
                 <mat-form-field>
-                    <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="appointment.description" placeholder="{{language.description}}" type="text" ngDefaultControl>
-                </mat-form-field>
-                <mat-form-field>
                     <mat-label>{{language.appointmentFrequency}}</mat-label>
                     <select matNativeControl class="ember-view ember-text-field text-muted" [(ngModel)]="often">
                         <option *ngFor="let d of frequency" value="{{d.value}}">{{d.text}}</option>
@@ -73,9 +70,8 @@
                     <input [ngxTimepicker]="picker" [format]="24"class="ember-view ember-text-field text-muted" matInput [(ngModel)]="time" placeholder="{{language.hour}}" type="text" ngDefaultControl>
                     <ngx-material-timepicker #picker></ngx-material-timepicker>
                 </mat-form-field>
-                
                 <mat-form-field>
-                    <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="appointment.appointmentType.description" placeholder="{{language.description}}" type="text" ngDefaultControl>
+                    <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="appointment.description" placeholder="{{language.description}}" type="text" ngDefaultControl>
                 </mat-form-field>
             </div>
         </div>

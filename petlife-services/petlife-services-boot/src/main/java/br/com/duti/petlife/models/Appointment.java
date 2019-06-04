@@ -36,6 +36,9 @@ public class Appointment  implements Serializable {
 	@Column(name="date", nullable=false)
 	private Date date;
 	
+	@Column(name="description", nullable=true)
+	private String description;
+	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "appointment_type", referencedColumnName = "id")
     private AppointmentType appointmentType;
@@ -98,6 +101,14 @@ public class Appointment  implements Serializable {
 
 	public void setFrequencyType(AppointmentExecutionFrequency frequencyType) {
 		this.frequencyType = frequencyType;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	

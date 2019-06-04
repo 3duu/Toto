@@ -65,7 +65,7 @@ export enum State {
     AL= "Alagoas",
     PB= "Paraíba",
     RO= "Rondônia",
-    RR= "Raraima",
+    RR= "Roraima",
     RN= "Rio Grande do Norte",
     ES= "Espirito Santo",
     DF= "Distrito Federal",

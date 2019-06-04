@@ -18,7 +18,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import br.com.duti.petlife.models.ResponseEntity;
 import br.com.duti.petlife.models.SocialNetworkType;
 import br.com.duti.petlife.models.User;
-import br.com.duti.petlife.repository.interfaces.IAppointmentRespository;
 import br.com.duti.petlife.repository.interfaces.IUserRepository;
 import br.com.duti.utils.ReturnCode;
 
@@ -28,9 +27,6 @@ public class UserController {
 	
 	@Autowired
 	private IUserRepository userRepository;
-	
-	@Autowired
-	private IAppointmentRespository appointmentRespository;
 	
 	//@CrossOrigin(origins = {Utils.HTTP, Utils.SMARTPHONE})
 	@Transactional
