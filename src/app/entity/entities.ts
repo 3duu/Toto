@@ -117,16 +117,13 @@ export class Appointment {
     pet : Pet;
     user : User;
     frequencyType : AppointmentExecutionFrequency;
-    dddd = "20";
-    mmmm = "11";
-    yyyy= "2019";
 
     get day() : number {
-        return this.date.getDay();
+        return this.date.getUTCDate();
     }
 
-    get month() : number {
-        return this.date.getMonth();
+    get month() : string {
+        return Month[Object.keys(Month)[this.date.getUTCMonth()]];
     }
 
     get year() : number {
@@ -137,6 +134,25 @@ export class Appointment {
         return this.date.getTime();
     }
 
+    get fulldate() : string {
+        return (this.date.getUTCMonth() + 1) + "-" + this.day  + "-" + this.year;
+    }
+
+}
+
+export enum Month {
+    JANUARY ="Janeiro",
+    FEBRUARY ="Fevereiro",
+    MARCH ="Março",
+    APRIL ="Abril",
+    MAY ="Maio",
+    JUNE ="Junho",
+    JULY ="Julho",
+    AUGUST ="Agosto",
+    SEPTEMBER ="Setembro",
+    OCTOBER ="Outubro",
+    NOVEMBER ="Novembro",
+    DECEMBER ="Dezembro"
 }
 
 export class AppointmentType {

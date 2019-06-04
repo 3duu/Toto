@@ -54,6 +54,7 @@ export class AppointmentsComponent extends AppBase {
           });
 
           console.log(this.appointments);
+          (<any>window).appointments = this.appointments;
         }
       }
     }, error => {

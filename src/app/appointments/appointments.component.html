@@ -4,7 +4,7 @@
     <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
       <ul class="event-list">
         <li *ngFor="let appointment of appointments;">
-          <time [attr.datetime]="appointment.date">
+          <time [attr.datetime]="appointment.fulldate">
             <span class="day">{{appointment.day}}</span>
             <span class="month">{{appointment.month}}</span>
             <span class="year">{{appointment.year}}</span>
