@@ -11,17 +11,17 @@
           <small class="text-muted">{{language.createWithSomeInfo}}</small>
           <br>
           <mat-form-field>
-            <input matInput class="ember-view ember-text-field text-muted" placeholder="{{language.username}}" name="username" id="username" ngModel>
+            <input matInput class="ember-view ember-text-field text-muted" maxlength="32" placeholder="{{language.username}}" name="username" id="username" ngModel>
           </mat-form-field>
           <mat-form-field>
-            <input matInput class="ember-view ember-text-field text-muted" placeholder="{{language.name}}" name="name" id="name" ngModel>
+            <input matInput class="ember-view ember-text-field text-muted" maxlength="50" placeholder="{{language.name}}" name="name" id="name" ngModel>
           </mat-form-field>
           <mat-form-field>
-            <input matInput class="ember-view ember-text-field text-muted" placeholder="{{language.password}}" [type]="hide ? 'password' : 'text'" name="password" id="password" ngModel>
+            <input matInput class="ember-view ember-text-field text-muted" maxlength="32" placeholder="{{language.password}}" [type]="hide ? 'password' : 'text'" name="password" id="password" ngModel>
             <mat-icon matSuffix color="accent" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
           <mat-form-field>
-            <input matInput class="ember-view ember-text-field text-muted" placeholder="{{language.confirmPassword}}" [type]="hide ? 'password' : 'text'" name="confirmPassword" id="confirmPassword" ngModel>
+            <input matInput class="ember-view ember-text-field text-muted" maxlength="32" placeholder="{{language.confirmPassword}}" [type]="hide ? 'password' : 'text'" name="confirmPassword" id="confirmPassword" ngModel>
             <mat-icon matSuffix color="accent" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
           <br>

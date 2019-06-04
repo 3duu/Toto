@@ -21,8 +21,11 @@ public class AppointmentType implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="description", length=16, nullable=false, unique=true)
+	@Column(name="description", length=22, nullable=false, unique=true)
 	private String description;
+	
+	@Column(name="icon", length=16, nullable=true)
+	private String icon;
 	
 	public Long getId() {
 		return this.id;
@@ -38,6 +41,14 @@ public class AppointmentType implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
 
 }

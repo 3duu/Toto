@@ -71,7 +71,7 @@
                     <ngx-material-timepicker #picker></ngx-material-timepicker>
                 </mat-form-field>
                 <mat-form-field>
-                    <input class="ember-view ember-text-field text-muted" matInput [(ngModel)]="appointment.description" placeholder="{{language.description}}" type="text" ngDefaultControl>
+                    <input class="ember-view ember-text-field text-muted" maxlength="22" matInput [(ngModel)]="appointment.description" placeholder="{{language.description}}" type="text" ngDefaultControl>
                 </mat-form-field>
             </div>
         </div>

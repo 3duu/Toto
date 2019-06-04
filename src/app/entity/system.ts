@@ -1,3 +1,4 @@
+import { ColorClass } from './../styles/styles';
 export enum ReturnCode {
     SUCCESS = 0,
     NOT_FOUND = -1,
@@ -5,6 +6,10 @@ export enum ReturnCode {
     SERVER_ERROR = -3,
     RESOURCE_EXISTS = -4,
     CONNECTION_ERROR = -5,
+}
+
+export class Item {
+    constructor(public domain : Domain, public icon: string, public color : ColorClass){}
 }
 
 export class Domain {

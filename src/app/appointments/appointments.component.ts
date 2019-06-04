@@ -3,7 +3,7 @@ import { AppointmentsApiService } from './../service/services';
 import { CarouselComponent } from './../templates/carousel/carousel.component';
 import { Appointment, User, Pet, AppointmentType, AppointmentExecutionFrequency } from './../entity/entities';
 import { SessionService } from './../session/session.service';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Inject } from '@angular/core';
 import { AppBase } from '../appbase';
 import { Router, ActivatedRoute } from '@angular/router';
 import { APPOINTMENTS_WIZARD_PAGE } from '../application';
@@ -136,7 +136,8 @@ export class AppointmentsWizardComponent extends AppBase {
     session : SessionService, 
     private api: AppointmentsApiService, 
     private router : Router, 
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    @Inject(AppointmentsComponent) private appointmentsComponent: AppointmentsComponent) {
     super(session);
   }
 
@@ -240,6 +241,7 @@ export class AppointmentsWizardComponent extends AppBase {
         if(result.code == ReturnCode.SUCCESS){
           this.session.zone.run(() =>
           this.router.navigate(['.'], { relativeTo: this.activatedRoute.parent }));
+          this.appointmentsComponent.loadAppointments();
         }
       }
       
