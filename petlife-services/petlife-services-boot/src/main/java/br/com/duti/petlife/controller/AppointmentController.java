@@ -65,6 +65,10 @@ public class AppointmentController {
 		
 		try {
 			final List<Appointment> list = appointmentRespository.getByUser(userId);
+			list.forEach(app -> {
+				//app.setPet(null);
+				appointmentRespository.initialize(app.getPet());
+			});
 			response = new ResponseEntity<List<Appointment>>(list, RequestContextHolder.currentRequestAttributes().getSessionId());
 			if(response.getData() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());

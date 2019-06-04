@@ -5,7 +5,7 @@ import { Appointment, User, Pet, AppointmentType, AppointmentExecutionFrequency 
 import { SessionService } from './../session/session.service';
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../appbase';
-import { Router, ActivatedRoute, Data } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { APPOINTMENTS_WIZARD_PAGE } from '../application';
 import { ReturnCode, Domain } from '../entity/system';
 import { ObjectUtils, StringUtils } from '../utils';
@@ -29,11 +29,36 @@ export class AppointmentsComponent extends AppBase {
   ngOnInit() {
     this.title = this.language.appointments;
     this.setTitle();
-    (<any>window).date = new Date();
-    this.user.pets.forEach(pet => {
-      pet.appointments.forEach(appointment => {
-        this.appointments.push(appointment);
-      });
+    this.loadAppointments();
+  }
+
+  loadAppointments() {
+
+    this.loading = true;
+    this.api.getByUser(this.user).subscribe(result => {
+
+      this.loading = false;
+
+      if (result && result.sid) {
+        if(result.code == ReturnCode.SUCCESS){
+
+          result.data.forEach(app => {
+            const a = new Appointment();
+            a.id = app.id;
+            a.date = new Date(app.date);
+            a.appointmentType = app.appointmentType;
+            a.description = app.description;;
+            a.frequencyType = app.frequencyType;
+            a.pet = app.pet;
+            this.appointments.push(a);
+          });
+
+          console.log(this.appointments);
+        }
+      }
+    }, error => {
+      console.error(error);
+      this.loading = false;
     });
   }
 
@@ -66,18 +91,23 @@ export class AppointmentsThumbComponent extends AppBase {
     this.loading = true;
     if(!ObjectUtils.isEmpty(this.user)){
 
-      const apps = this.api.getByUser(this.session.getCurrentUser());
-    
-      apps.subscribe(result => {
+      this.api.getByUser(this.session.getCurrentUser()).subscribe(result => {
 
         console.log(result);
         this.loading = false;
 
         if (result && result.sid) {
           if(result.code == ReturnCode.SUCCESS){
-            this.appointments = result.data;
-          }
-          else  {
+            result.data.forEach(app => {
+              const a = new Appointment();
+              a.id = app.id;
+              a.date = new Date(app.date);
+              a.appointmentType = app.appointmentType;
+              a.description = app.description;;
+              a.frequencyType = app.frequencyType;
+              a.pet = app.pet;
+              this.appointments.push(a);
+            });
           }
         }
         
@@ -129,7 +159,7 @@ export class AppointmentsWizardComponent extends AppBase {
 
   ngOnInit() {
     this.appointment = new Appointment();
-    this.appointment.user = this.session.getCurrentUser();
+    //this.appointment.user = this.session.getCurrentUser();
     this.appointment.appointmentType = new AppointmentType();
     this.loading = true;
     const types = this.api.getTypes();
@@ -175,7 +205,6 @@ export class AppointmentsWizardComponent extends AppBase {
       }
     });
     this.date = this.currentDate;
-    (<any>window).currentDate = this.currentDate;
   }
 
   save() {

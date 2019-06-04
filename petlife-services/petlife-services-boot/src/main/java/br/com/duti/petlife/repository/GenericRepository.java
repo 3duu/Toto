@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 
+import org.hibernate.Hibernate;
+
 public abstract class GenericRepository<T> {
 	
 	protected final String ID = "id";
@@ -71,5 +73,9 @@ public abstract class GenericRepository<T> {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public void initialize(Object obj){
+		Hibernate.initialize(obj);
 	}
 }

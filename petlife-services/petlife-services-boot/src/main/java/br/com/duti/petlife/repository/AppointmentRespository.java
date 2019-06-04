@@ -13,7 +13,7 @@ import br.com.duti.petlife.repository.interfaces.IAppointmentRespository;
 @Repository
 public class AppointmentRespository extends GenericRepository<Appointment> implements IAppointmentRespository {
 	
-	private final String GET_APPOINTMENTS_QUERY = "SELECT p FROM Appointment p WHERE p.user.id = :id ORDER BY p.date DESC";
+	private final String GET_APPOINTMENTS_QUERY = "SELECT p FROM Appointment p LEFT JOIN FETCH p.pet WHERE p.pet.user.id = :id ORDER BY p.date DESC";
 	private final String GET_APPOINTMENTS_LAST_QUERY = "SELECT p FROM Appointment p WHERE p.user.id = :id";
 
 	@Override

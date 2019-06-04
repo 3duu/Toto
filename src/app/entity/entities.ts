@@ -113,12 +113,30 @@ export class Appointment {
     id : number;
     date : Date;
     appointmentType : AppointmentType;
+    description : string;
     pet : Pet;
     user : User;
     frequencyType : AppointmentExecutionFrequency;
+    dddd = "20";
+    mmmm = "11";
+    yyyy= "2019";
 
-    constructor() { }
-  
+    get day() : number {
+        return this.date.getDay();
+    }
+
+    get month() : number {
+        return this.date.getMonth();
+    }
+
+    get year() : number {
+        return this.date.getFullYear();
+    }
+
+    get time() : number {
+        return this.date.getTime();
+    }
+
 }
 
 export class AppointmentType {

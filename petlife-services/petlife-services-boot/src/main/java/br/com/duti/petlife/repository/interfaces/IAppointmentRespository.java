@@ -11,5 +11,7 @@ public interface IAppointmentRespository {
 	List<Appointment> getByUser(Long userId);
 
 	List<Appointment> getLastByUser(Long userId, int max);
+	
+	void initialize(Object obj);
 
 }

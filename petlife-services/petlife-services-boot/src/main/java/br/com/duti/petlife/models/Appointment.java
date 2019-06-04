@@ -16,8 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Table(name="appointment")
 @Entity
@@ -41,11 +42,10 @@ public class Appointment  implements Serializable {
     
 	@JoinColumn(name="pet_id")
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Pet pet;
 	
-	@JsonBackReference
-	@JoinColumn(name="user_id")
-	@ManyToOne(fetch=FetchType.LAZY)
+	@Transient
     private User user;
 	
 	@Column(name="frequency_type", nullable=false, length=2)

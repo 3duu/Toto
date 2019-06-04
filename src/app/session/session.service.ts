@@ -47,12 +47,10 @@ export class SessionService {
   getCurrentUser() : User {
     let user : User;
     if(ObjectUtils.isEmpty(this.sessionUser)){
-      user = this.getJsonUser();
+      this.sessionUser = this.getJsonUser();
     }
-    else {
-      user = this.sessionUser;
-    }
-    
+
+    user = this.sessionUser;
     return user;
   }
 
