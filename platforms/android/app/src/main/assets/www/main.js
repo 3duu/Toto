@@ -495,7 +495,7 @@ var APPOINTMENTS_WIZARD_PAGE = "wizard";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".float{\r\n\tposition:fixed;\r\n\twidth:60px;\r\n\theight:60px;\r\n\tbottom:40px;\r\n\tright:40px;\r\n\t/* background-color:#0C9; */\r\n\tcolor:#FFF;\r\n\tborder-radius:50px;\r\n\ttext-align:center;\r\n\tbox-shadow: 2px 2px 3px #999;\r\n}\r\n\r\n.my-float{\r\n\tmargin-top:22px;\r\n}\r\n\r\nbody {\r\n\tpadding: 60px 0px;\r\n\tbackground-color: rgb(220, 220, 220);\r\n}\r\n\r\n.event-list {\r\n\tlist-style: none;\r\n\tfont-family: 'Lato', sans-serif;\r\n\tmargin: 0px;\r\n\tpadding: 0px;\r\n}\r\n\r\n.event-list > li {\r\n\tbackground-color: rgb(255, 255, 255);\r\n\tbox-shadow: 0px 0px 5px rgb(51, 51, 51);\r\n\tbox-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);\r\n\tpadding: 0px;\r\n\tmargin: 0px 0px 20px;\r\n}\r\n\r\n.event-list > li > time {\r\n\tdisplay: inline-block;\r\n\twidth: 100%;\r\n\tcolor: rgb(255, 255, 255);\r\n\tbackground-color: rgb(197, 44, 102);\r\n\tpadding: 5px;\r\n\ttext-align: center;\r\n\ttext-transform: uppercase;\r\n}\r\n\r\n.event-list > li:nth-child(even) > time {\r\n\tbackground-color: rgb(165, 82, 167);\r\n}\r\n\r\n.event-list > li > time > span {\r\n\tdisplay: none;\r\n}\r\n\r\n.event-list > li > time > .day {\r\n\tdisplay: block;\r\n\tfont-size: 56pt;\r\n\tfont-weight: 100;\r\n\tline-height: 1;\r\n}\r\n\r\n.event-list > li time > .month {\r\n\tdisplay: block;\r\n\tfont-size: 24pt;\r\n\tfont-weight: 900;\r\n\tline-height: 1;\r\n}\r\n\r\n.event-list > li > img {\r\n\twidth: 100%;\r\n}\r\n\r\n.event-list > li > .info {\r\n\tpadding-top: 5px;\r\n\ttext-align: center;\r\n}\r\n\r\n.event-list > li > .info > .title {\r\n\tfont-size: 17pt;\r\n\tfont-weight: 700;\r\n\tmargin: 0px;\r\n}\r\n\r\n.event-list > li > .info > .desc {\r\n\tfont-size: 13pt;\r\n\tfont-weight: 300;\r\n\tmargin: 0px;\r\n}\r\n\r\n.event-list > li > .info > ul,\r\n.event-list > li > .social > ul {\r\n\tdisplay: table;\r\n\tlist-style: none;\r\n\tmargin: 10px 0px 0px;\r\n\tpadding: 0px;\r\n\twidth: 100%;\r\n\ttext-align: center;\r\n}\r\n\r\n.event-list > li > .social > ul {\r\n\tmargin: 0px;\r\n}\r\n\r\n.event-list > li > .info > ul > li,\r\n.event-list > li > .social > ul > li {\r\n\tdisplay: table-cell;\r\n\tcursor: pointer;\r\n\tcolor: rgb(30, 30, 30);\r\n\tfont-size: 11pt;\r\n\tfont-weight: 300;\r\n\tpadding: 3px 0px;\r\n}\r\n\r\n.event-list > li > .info > ul > li > a {\r\n\tdisplay: block;\r\n\twidth: 100%;\r\n\tcolor: rgb(30, 30, 30);\r\n\ttext-decoration: none;\r\n}\r\n\r\n.event-list > li > .social > ul > li {    \r\n\tpadding: 0px;\r\n}\r\n\r\n.event-list > li > .social > ul > li > a {\r\n\tpadding: 3px 0px;\r\n}\r\n\r\n.event-list > li > .info > ul > li:hover,\r\n.event-list > li > .social > ul > li:hover {\r\n\tcolor: rgb(30, 30, 30);\r\n\tbackground-color: rgb(200, 200, 200);\r\n}\r\n\r\n.facebook a,\r\n.twitter a,\r\n.google-plus a {\r\n\tdisplay: block;\r\n\twidth: 100%;\r\n\tcolor: rgb(75, 110, 168) !important;\r\n}\r\n\r\n.twitter a {\r\n\tcolor: rgb(79, 213, 248) !important;\r\n}\r\n\r\n.google-plus a {\r\n\tcolor: rgb(221, 75, 57) !important;\r\n}\r\n\r\n.facebook:hover a {\r\n\tcolor: rgb(255, 255, 255) !important;\r\n\tbackground-color: rgb(75, 110, 168) !important;\r\n}\r\n\r\n.twitter:hover a {\r\n\tcolor: rgb(255, 255, 255) !important;\r\n\tbackground-color: rgb(79, 213, 248) !important;\r\n}\r\n\r\n.google-plus:hover a {\r\n\tcolor: rgb(255, 255, 255) !important;\r\n\tbackground-color: rgb(221, 75, 57) !important;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n\t.event-list > li {\r\n\t\tposition: relative;\r\n\t\tdisplay: block;\r\n\t\twidth: 100%;\r\n\t\theight: 120px;\r\n\t\tpadding: 0px;\r\n\t}\r\n\t.event-list > li > time,\r\n\t.event-list > li > img  {\r\n\t\tdisplay: inline-block;\r\n\t}\r\n\t.event-list > li > time,\r\n\t.event-list > li > img {\r\n\t\twidth: 120px;\r\n\t\tfloat: left;\r\n\t}\r\n\t.event-list > li > .info {\r\n\t\tbackground-color: rgb(245, 245, 245);\r\n\t\toverflow: hidden;\r\n\t}\r\n\t.event-list > li > time,\r\n\t.event-list > li > img {\r\n\t\twidth: 120px;\r\n\t\theight: 120px;\r\n\t\tpadding: 0px;\r\n\t\tmargin: 0px;\r\n\t}\r\n\t.event-list > li > .info {\r\n\t\tposition: relative;\r\n\t\theight: 120px;\r\n\t\ttext-align: left;\r\n\t\tpadding-right: 40px;\r\n\t}\t\r\n\t.event-list > li > .info > .title, \r\n\t.event-list > li > .info > .desc {\r\n\t\tpadding: 0px 10px;\r\n\t}\r\n\t.event-list > li > .info > ul {\r\n\t\tposition: absolute;\r\n\t\tleft: 0px;\r\n\t\tbottom: 0px;\r\n\t}\r\n\t.event-list > li > .social {\r\n\t\tposition: absolute;\r\n\t\ttop: 0px;\r\n\t\tright: 0px;\r\n\t\tdisplay: block;\r\n\t\twidth: 40px;\r\n\t}\r\n\t.event-list > li > .social > ul {\r\n\t\tborder-left: 1px solid rgb(230, 230, 230);\r\n\t}\r\n\t.event-list > li > .social > ul > li {\t\t\t\r\n\t\tdisplay: block;\r\n\t\tpadding: 0px;\r\n\t}\r\n\t.event-list > li > .social > ul > li > a {\r\n\t\tdisplay: block;\r\n\t\twidth: 40px;\r\n\t\tpadding: 10px 0px 9px;\r\n\t}\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwb2ludG1lbnRzL2FwcG9pbnRtZW50cy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0NBQ0MsY0FBYztDQUNkLFVBQVU7Q0FDVixXQUFXO0NBQ1gsV0FBVztDQUNYLFVBQVU7Q0FDViwyQkFBMkI7Q0FDM0IsVUFBVTtDQUNWLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsNEJBQTRCO0FBQzdCOztBQUVBO0NBQ0MsZUFBZTtBQUNoQjs7QUFFQTtDQUNDLGlCQUFpQjtDQUNqQixvQ0FBb0M7QUFDckM7O0FBRUE7Q0FDQyxnQkFBZ0I7Q0FDaEIsK0JBQStCO0NBQy9CLFdBQVc7Q0FDWCxZQUFZO0FBQ2I7O0FBQ0E7Q0FDQyxvQ0FBb0M7Q0FDcEMsdUNBQXVDO0NBQ3ZDLDZDQUE2QztDQUM3QyxZQUFZO0NBQ1osb0JBQW9CO0FBQ3JCOztBQUNBO0NBQ0MscUJBQXFCO0NBQ3JCLFdBQVc7Q0FDWCx5QkFBeUI7Q0FDekIsbUNBQW1DO0NBQ25DLFlBQVk7Q0FDWixrQkFBa0I7Q0FDbEIseUJBQXlCO0FBQzFCOztBQUNBO0NBQ0MsbUNBQW1DO0FBQ3BDOztBQUNBO0NBQ0MsYUFBYTtBQUNkOztBQUNBO0NBQ0MsY0FBYztDQUNkLGVBQWU7Q0FDZixnQkFBZ0I7Q0FDaEIsY0FBYztBQUNmOztBQUNBO0NBQ0MsY0FBYztDQUNkLGVBQWU7Q0FDZixnQkFBZ0I7Q0FDaEIsY0FBYztBQUNmOztBQUNBO0NBQ0MsV0FBVztBQUNaOztBQUNBO0NBQ0MsZ0JBQWdCO0NBQ2hCLGtCQUFrQjtBQUNuQjs7QUFDQTtDQUNDLGVBQWU7Q0FDZixnQkFBZ0I7Q0FDaEIsV0FBVztBQUNaOztBQUNBO0NBQ0MsZUFBZTtDQUNmLGdCQUFnQjtDQUNoQixXQUFXO0FBQ1o7O0FBQ0E7O0NBRUMsY0FBYztDQUNkLGdCQUFnQjtDQUNoQixvQkFBb0I7Q0FDcEIsWUFBWTtDQUNaLFdBQVc7Q0FDWCxrQkFBa0I7QUFDbkI7O0FBQ0E7Q0FDQyxXQUFXO0FBQ1o7O0FBQ0E7O0NBRUMsbUJBQW1CO0NBQ25CLGVBQWU7Q0FDZixzQkFBc0I7Q0FDdEIsZUFBZTtDQUNmLGdCQUFnQjtDQUNoQixnQkFBZ0I7QUFDakI7O0FBQ0E7Q0FDQyxjQUFjO0NBQ2QsV0FBVztDQUNYLHNCQUFzQjtDQUN0QixxQkFBcUI7QUFDdEI7O0FBQ0E7Q0FDQyxZQUFZO0FBQ2I7O0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7O0FBQ0E7O0NBRUMsc0JBQXNCO0NBQ3RCLG9DQUFvQztBQUNyQzs7QUFDQTs7O0NBR0MsY0FBYztDQUNkLFdBQVc7Q0FDWCxtQ0FBbUM7QUFDcEM7O0FBQ0E7Q0FDQyxtQ0FBbUM7QUFDcEM7O0FBQ0E7Q0FDQyxrQ0FBa0M7QUFDbkM7O0FBQ0E7Q0FDQyxvQ0FBb0M7Q0FDcEMsOENBQThDO0FBQy9DOztBQUNBO0NBQ0Msb0NBQW9DO0NBQ3BDLDhDQUE4QztBQUMvQzs7QUFDQTtDQUNDLG9DQUFvQztDQUNwQyw2Q0FBNkM7QUFDOUM7O0FBRUE7Q0FDQztFQUNDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLGFBQWE7RUFDYixZQUFZO0NBQ2I7Q0FDQTs7RUFFQyxxQkFBcUI7Q0FDdEI7Q0FDQTs7RUFFQyxZQUFZO0VBQ1osV0FBVztDQUNaO0NBQ0E7RUFDQyxvQ0FBb0M7RUFDcEMsZ0JBQWdCO0NBQ2pCO0NBQ0E7O0VBRUMsWUFBWTtFQUNaLGFBQWE7RUFDYixZQUFZO0VBQ1osV0FBVztDQUNaO0NBQ0E7RUFDQyxrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixtQkFBbUI7Q0FDcEI7Q0FDQTs7RUFFQyxpQkFBaUI7Q0FDbEI7Q0FDQTtFQUNDLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsV0FBVztDQUNaO0NBQ0E7RUFDQyxrQkFBa0I7RUFDbEIsUUFBUTtFQUNSLFVBQVU7RUFDVixjQUFjO0VBQ2QsV0FBVztDQUNaO0NBQ0E7RUFDQyx5Q0FBeUM7Q0FDMUM7Q0FDQTtFQUNDLGNBQWM7RUFDZCxZQUFZO0NBQ2I7Q0FDQTtFQUNDLGNBQWM7RUFDZCxXQUFXO0VBQ1gscUJBQXFCO0NBQ3RCO0FBQ0QiLCJmaWxlIjoic3JjL2FwcC9hcHBvaW50bWVudHMvYXBwb2ludG1lbnRzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZmxvYXR7XHJcblx0cG9zaXRpb246Zml4ZWQ7XHJcblx0d2lkdGg6NjBweDtcclxuXHRoZWlnaHQ6NjBweDtcclxuXHRib3R0b206NDBweDtcclxuXHRyaWdodDo0MHB4O1xyXG5cdC8qIGJhY2tncm91bmQtY29sb3I6IzBDOTsgKi9cclxuXHRjb2xvcjojRkZGO1xyXG5cdGJvcmRlci1yYWRpdXM6NTBweDtcclxuXHR0ZXh0LWFsaWduOmNlbnRlcjtcclxuXHRib3gtc2hhZG93OiAycHggMnB4IDNweCAjOTk5O1xyXG59XHJcblxyXG4ubXktZmxvYXR7XHJcblx0bWFyZ2luLXRvcDoyMnB4O1xyXG59XHJcblxyXG5ib2R5IHtcclxuXHRwYWRkaW5nOiA2MHB4IDBweDtcclxuXHRiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjIwLCAyMjAsIDIyMCk7XHJcbn1cclxuXHJcbi5ldmVudC1saXN0IHtcclxuXHRsaXN0LXN0eWxlOiBub25lO1xyXG5cdGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XHJcblx0bWFyZ2luOiAwcHg7XHJcblx0cGFkZGluZzogMHB4O1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkge1xyXG5cdGJhY2tncm91bmQtY29sb3I6IHJnYigyNTUsIDI1NSwgMjU1KTtcclxuXHRib3gtc2hhZG93OiAwcHggMHB4IDVweCByZ2IoNTEsIDUxLCA1MSk7XHJcblx0Ym94LXNoYWRvdzogMHB4IDBweCA1cHggcmdiYSg1MSwgNTEsIDUxLCAwLjcpO1xyXG5cdHBhZGRpbmc6IDBweDtcclxuXHRtYXJnaW46IDBweCAwcHggMjBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gdGltZSB7XHJcblx0ZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG5cdHdpZHRoOiAxMDAlO1xyXG5cdGNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7XHJcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDE5NywgNDQsIDEwMik7XHJcblx0cGFkZGluZzogNXB4O1xyXG5cdHRleHQtYWxpZ246IGNlbnRlcjtcclxuXHR0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGk6bnRoLWNoaWxkKGV2ZW4pID4gdGltZSB7XHJcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDE2NSwgODIsIDE2Nyk7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IHRpbWUgPiBzcGFuIHtcclxuXHRkaXNwbGF5OiBub25lO1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiB0aW1lID4gLmRheSB7XHJcblx0ZGlzcGxheTogYmxvY2s7XHJcblx0Zm9udC1zaXplOiA1NnB0O1xyXG5cdGZvbnQtd2VpZ2h0OiAxMDA7XHJcblx0bGluZS1oZWlnaHQ6IDE7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSB0aW1lID4gLm1vbnRoIHtcclxuXHRkaXNwbGF5OiBibG9jaztcclxuXHRmb250LXNpemU6IDI0cHQ7XHJcblx0Zm9udC13ZWlnaHQ6IDkwMDtcclxuXHRsaW5lLWhlaWdodDogMTtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gaW1nIHtcclxuXHR3aWR0aDogMTAwJTtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8ge1xyXG5cdHBhZGRpbmctdG9wOiA1cHg7XHJcblx0dGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC50aXRsZSB7XHJcblx0Zm9udC1zaXplOiAxN3B0O1xyXG5cdGZvbnQtd2VpZ2h0OiA3MDA7XHJcblx0bWFyZ2luOiAwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gLmRlc2Mge1xyXG5cdGZvbnQtc2l6ZTogMTNwdDtcclxuXHRmb250LXdlaWdodDogMzAwO1xyXG5cdG1hcmdpbjogMHB4O1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsLFxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsIHtcclxuXHRkaXNwbGF5OiB0YWJsZTtcclxuXHRsaXN0LXN0eWxlOiBub25lO1xyXG5cdG1hcmdpbjogMTBweCAwcHggMHB4O1xyXG5cdHBhZGRpbmc6IDBweDtcclxuXHR3aWR0aDogMTAwJTtcclxuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCB7XHJcblx0bWFyZ2luOiAwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gdWwgPiBsaSxcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpIHtcclxuXHRkaXNwbGF5OiB0YWJsZS1jZWxsO1xyXG5cdGN1cnNvcjogcG9pbnRlcjtcclxuXHRjb2xvcjogcmdiKDMwLCAzMCwgMzApO1xyXG5cdGZvbnQtc2l6ZTogMTFwdDtcclxuXHRmb250LXdlaWdodDogMzAwO1xyXG5cdHBhZGRpbmc6IDNweCAwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gdWwgPiBsaSA+IGEge1xyXG5cdGRpc3BsYXk6IGJsb2NrO1xyXG5cdHdpZHRoOiAxMDAlO1xyXG5cdGNvbG9yOiByZ2IoMzAsIDMwLCAzMCk7XHJcblx0dGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG59IFxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGkgeyAgICBcclxuXHRwYWRkaW5nOiAwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpID4gYSB7XHJcblx0cGFkZGluZzogM3B4IDBweDtcclxufSBcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gdWwgPiBsaTpob3ZlcixcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpOmhvdmVyIHtcclxuXHRjb2xvcjogcmdiKDMwLCAzMCwgMzApO1xyXG5cdGJhY2tncm91bmQtY29sb3I6IHJnYigyMDAsIDIwMCwgMjAwKTtcclxufVxyXG4uZmFjZWJvb2sgYSxcclxuLnR3aXR0ZXIgYSxcclxuLmdvb2dsZS1wbHVzIGEge1xyXG5cdGRpc3BsYXk6IGJsb2NrO1xyXG5cdHdpZHRoOiAxMDAlO1xyXG5cdGNvbG9yOiByZ2IoNzUsIDExMCwgMTY4KSAhaW1wb3J0YW50O1xyXG59XHJcbi50d2l0dGVyIGEge1xyXG5cdGNvbG9yOiByZ2IoNzksIDIxMywgMjQ4KSAhaW1wb3J0YW50O1xyXG59XHJcbi5nb29nbGUtcGx1cyBhIHtcclxuXHRjb2xvcjogcmdiKDIyMSwgNzUsIDU3KSAhaW1wb3J0YW50O1xyXG59XHJcbi5mYWNlYm9vazpob3ZlciBhIHtcclxuXHRjb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpICFpbXBvcnRhbnQ7XHJcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDc1LCAxMTAsIDE2OCkgIWltcG9ydGFudDtcclxufVxyXG4udHdpdHRlcjpob3ZlciBhIHtcclxuXHRjb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpICFpbXBvcnRhbnQ7XHJcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDc5LCAyMTMsIDI0OCkgIWltcG9ydGFudDtcclxufVxyXG4uZ29vZ2xlLXBsdXM6aG92ZXIgYSB7XHJcblx0Y29sb3I6IHJnYigyNTUsIDI1NSwgMjU1KSAhaW1wb3J0YW50O1xyXG5cdGJhY2tncm91bmQtY29sb3I6IHJnYigyMjEsIDc1LCA1NykgIWltcG9ydGFudDtcclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6IDc2OHB4KSB7XHJcblx0LmV2ZW50LWxpc3QgPiBsaSB7XHJcblx0XHRwb3NpdGlvbjogcmVsYXRpdmU7XHJcblx0XHRkaXNwbGF5OiBibG9jaztcclxuXHRcdHdpZHRoOiAxMDAlO1xyXG5cdFx0aGVpZ2h0OiAxMjBweDtcclxuXHRcdHBhZGRpbmc6IDBweDtcclxuXHR9XHJcblx0LmV2ZW50LWxpc3QgPiBsaSA+IHRpbWUsXHJcblx0LmV2ZW50LWxpc3QgPiBsaSA+IGltZyAge1xyXG5cdFx0ZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG5cdH1cclxuXHQuZXZlbnQtbGlzdCA+IGxpID4gdGltZSxcclxuXHQuZXZlbnQtbGlzdCA+IGxpID4gaW1nIHtcclxuXHRcdHdpZHRoOiAxMjBweDtcclxuXHRcdGZsb2F0OiBsZWZ0O1xyXG5cdH1cclxuXHQuZXZlbnQtbGlzdCA+IGxpID4gLmluZm8ge1xyXG5cdFx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDI0NSwgMjQ1LCAyNDUpO1xyXG5cdFx0b3ZlcmZsb3c6IGhpZGRlbjtcclxuXHR9XHJcblx0LmV2ZW50LWxpc3QgPiBsaSA+IHRpbWUsXHJcblx0LmV2ZW50LWxpc3QgPiBsaSA+IGltZyB7XHJcblx0XHR3aWR0aDogMTIwcHg7XHJcblx0XHRoZWlnaHQ6IDEyMHB4O1xyXG5cdFx0cGFkZGluZzogMHB4O1xyXG5cdFx0bWFyZ2luOiAwcHg7XHJcblx0fVxyXG5cdC5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyB7XHJcblx0XHRwb3NpdGlvbjogcmVsYXRpdmU7XHJcblx0XHRoZWlnaHQ6IDEyMHB4O1xyXG5cdFx0dGV4dC1hbGlnbjogbGVmdDtcclxuXHRcdHBhZGRpbmctcmlnaHQ6IDQwcHg7XHJcblx0fVx0XHJcblx0LmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gLnRpdGxlLCBcclxuXHQuZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiAuZGVzYyB7XHJcblx0XHRwYWRkaW5nOiAwcHggMTBweDtcclxuXHR9XHJcblx0LmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gdWwge1xyXG5cdFx0cG9zaXRpb246IGFic29sdXRlO1xyXG5cdFx0bGVmdDogMHB4O1xyXG5cdFx0Ym90dG9tOiAwcHg7XHJcblx0fVxyXG5cdC5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsIHtcclxuXHRcdHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuXHRcdHRvcDogMHB4O1xyXG5cdFx0cmlnaHQ6IDBweDtcclxuXHRcdGRpc3BsYXk6IGJsb2NrO1xyXG5cdFx0d2lkdGg6IDQwcHg7XHJcblx0fVxyXG5cdC5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwge1xyXG5cdFx0Ym9yZGVyLWxlZnQ6IDFweCBzb2xpZCByZ2IoMjMwLCAyMzAsIDIzMCk7XHJcblx0fVxyXG5cdC5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSB7XHRcdFx0XHJcblx0XHRkaXNwbGF5OiBibG9jaztcclxuXHRcdHBhZGRpbmc6IDBweDtcclxuXHR9XHJcblx0LmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpID4gYSB7XHJcblx0XHRkaXNwbGF5OiBibG9jaztcclxuXHRcdHdpZHRoOiA0MHB4O1xyXG5cdFx0cGFkZGluZzogMTBweCAwcHggOXB4O1xyXG5cdH1cclxufSJdfQ== */"
+module.exports = ".float{\r\n\tposition:fixed;\r\n\twidth:60px;\r\n\theight:60px;\r\n\tbottom:40px;\r\n\tright:40px;\r\n\t/* background-color:#0C9; */\r\n\tcolor:#FFF;\r\n\tborder-radius:50px;\r\n\ttext-align:center;\r\n\tbox-shadow: 2px 2px 3px #999;\r\n}\r\n\r\n.my-float{\r\n\tmargin-top:22px;\r\n}\r\n\r\n/* body {\r\n\tpadding: 60px 0px;\r\n\tbackground-color: rgb(220, 220, 220);\r\n} */\r\n\r\n.event-list {\r\n\tlist-style: none;\r\n\tfont-family: 'Lato', sans-serif;\r\n\tmargin: 0px;\r\n\tpadding: 0px;\r\n}\r\n\r\n.event-list > li {\r\n\tbackground-color: rgb(255, 255, 255);\r\n\tbox-shadow: 0px 0px 5px rgb(51, 51, 51);\r\n\tbox-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);\r\n\tpadding: 0px;\r\n\tmargin: 0px 0px 20px;\r\n}\r\n\r\n.event-list > li > time {\r\n\tdisplay: inline-block;\r\n\twidth: 100%;\r\n\tcolor: rgb(255, 255, 255);\r\n\tbackground-color: rgb(197, 44, 102);\r\n\tpadding: 5px;\r\n\ttext-align: center;\r\n\ttext-transform: uppercase;\r\n}\r\n\r\n.event-list > li:nth-child(even) > time {\r\n\tbackground-color: rgb(165, 82, 167);\r\n}\r\n\r\n.event-list > li > time > span {\r\n\tdisplay: none;\r\n}\r\n\r\n.event-list > li > time > .day {\r\n\tdisplay: block;\r\n\tfont-size: 58pt;\r\n\tfont-weight: 100;\r\n\tline-height: 1;\r\n}\r\n\r\n.event-list > li time > .month {\r\n\tdisplay: block;\r\n\tfont-size: 20pt;\r\n\tfont-weight: 950;\r\n\tline-height: 1;\r\n}\r\n\r\n.event-list > li > img {\r\n\twidth: 100%;\r\n}\r\n\r\n.event-list > li > .info {\r\n\tpadding-top: 5px;\r\n\ttext-align: center;\r\n}\r\n\r\n.event-list > li > .info > .title {\r\n\tfont-size: 17pt;\r\n\tfont-weight: 700;\r\n\tmargin: 0px;\r\n}\r\n\r\n.event-list > li > .info > .desc {\r\n\tfont-size: 13pt;\r\n\tfont-weight: 300;\r\n\tmargin: 0px;\r\n}\r\n\r\n.event-list > li > .info > ul,\r\n.event-list > li > .social > ul {\r\n\tdisplay: table;\r\n\tlist-style: none;\r\n\tmargin: 10px 0px 0px;\r\n\tpadding: 0px;\r\n\twidth: 100%;\r\n\ttext-align: center;\r\n}\r\n\r\n.event-list > li > .social > ul {\r\n\tmargin: 0px;\r\n}\r\n\r\n.event-list > li > .info > ul > li,\r\n.event-list > li > .social > ul > li {\r\n\tdisplay: table-cell;\r\n\tcursor: pointer;\r\n\tcolor: rgb(30, 30, 30);\r\n\tfont-size: 11pt;\r\n\tfont-weight: 300;\r\n\tpadding: 3px 0px;\r\n}\r\n\r\n.event-list > li > .info > ul > li > a {\r\n\tdisplay: block;\r\n\twidth: 100%;\r\n\tcolor: rgb(30, 30, 30);\r\n\ttext-decoration: none;\r\n}\r\n\r\n.event-list > li > .social > ul > li {    \r\n\tpadding: 0px;\r\n}\r\n\r\n.event-list > li > .social > ul > li > a {\r\n\tpadding: 3px 0px;\r\n}\r\n\r\n.event-list > li > .info > ul > li:hover,\r\n.event-list > li > .social > ul > li:hover {\r\n\tcolor: rgb(30, 30, 30);\r\n\tbackground-color: rgb(200, 200, 200);\r\n}\r\n\r\n/* @media (min-width: 768px) { */\r\n\r\n.event-list > li {\r\n\t\tposition: relative;\r\n\t\tdisplay: block;\r\n\t\twidth: 100%;\r\n\t\theight: 120px;\r\n\t\tpadding: 0px;\r\n\t}\r\n\r\n.event-list > li > time,\r\n\t.event-list > li > img  {\r\n\t\tdisplay: inline-block;\r\n\t}\r\n\r\n.event-list > li > time,\r\n\t.event-list > li > img {\r\n\t\twidth: 120px;\r\n\t\tfloat: left;\r\n\t}\r\n\r\n.event-list > li > .info {\r\n\t\tbackground-color: rgb(245, 245, 245);\r\n\t\toverflow: hidden;\r\n\t}\r\n\r\n.event-list > li > time,\r\n\t.event-list > li > img {\r\n\t\twidth: 120px;\r\n\t\theight: 120px;\r\n\t\tpadding: 0px;\r\n\t\tmargin: 0px;\r\n\t}\r\n\r\n.event-list > li > .info {\r\n\t\tposition: relative;\r\n\t\theight: 120px;\r\n\t\ttext-align: left;\r\n\t\tpadding-right: 40px;\r\n\t}\r\n\r\n.event-list > li > .info > .title, \r\n\t.event-list > li > .info > .desc {\r\n\t\tpadding: 0px 10px;\r\n\t}\r\n\r\n.event-list > li > .info > ul {\r\n\t\tposition: absolute;\r\n\t\tleft: 0px;\r\n\t\tbottom: 0px;\r\n\t}\r\n\r\n.event-list > li > .social {\r\n\t\tposition: absolute;\r\n\t\ttop: 0px;\r\n\t\tright: 0px;\r\n\t\tdisplay: block;\r\n\t\twidth: 40px;\r\n\t}\r\n\r\n.event-list > li > .social > ul {\r\n\t\tborder-left: 1px solid rgb(230, 230, 230);\r\n\t}\r\n\r\n.event-list > li > .social > ul > li {\t\t\t\r\n\t\tdisplay: block;\r\n\t\tpadding: 0px;\r\n\t}\r\n\r\n.event-list > li > .social > ul > li > a {\r\n\t\tdisplay: block;\r\n\t\twidth: 40px;\r\n\t\tpadding: 10px 0px 9px;\r\n\t}\r\n\r\n/* } */\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwb2ludG1lbnRzL2FwcG9pbnRtZW50cy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0NBQ0MsY0FBYztDQUNkLFVBQVU7Q0FDVixXQUFXO0NBQ1gsV0FBVztDQUNYLFVBQVU7Q0FDViwyQkFBMkI7Q0FDM0IsVUFBVTtDQUNWLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsNEJBQTRCO0FBQzdCOztBQUVBO0NBQ0MsZUFBZTtBQUNoQjs7QUFFQTs7O0dBR0c7O0FBRUg7Q0FDQyxnQkFBZ0I7Q0FDaEIsK0JBQStCO0NBQy9CLFdBQVc7Q0FDWCxZQUFZO0FBQ2I7O0FBQ0E7Q0FDQyxvQ0FBb0M7Q0FDcEMsdUNBQXVDO0NBQ3ZDLDZDQUE2QztDQUM3QyxZQUFZO0NBQ1osb0JBQW9CO0FBQ3JCOztBQUNBO0NBQ0MscUJBQXFCO0NBQ3JCLFdBQVc7Q0FDWCx5QkFBeUI7Q0FDekIsbUNBQW1DO0NBQ25DLFlBQVk7Q0FDWixrQkFBa0I7Q0FDbEIseUJBQXlCO0FBQzFCOztBQUNBO0NBQ0MsbUNBQW1DO0FBQ3BDOztBQUNBO0NBQ0MsYUFBYTtBQUNkOztBQUNBO0NBQ0MsY0FBYztDQUNkLGVBQWU7Q0FDZixnQkFBZ0I7Q0FDaEIsY0FBYztBQUNmOztBQUNBO0NBQ0MsY0FBYztDQUNkLGVBQWU7Q0FDZixnQkFBZ0I7Q0FDaEIsY0FBYztBQUNmOztBQUNBO0NBQ0MsV0FBVztBQUNaOztBQUNBO0NBQ0MsZ0JBQWdCO0NBQ2hCLGtCQUFrQjtBQUNuQjs7QUFDQTtDQUNDLGVBQWU7Q0FDZixnQkFBZ0I7Q0FDaEIsV0FBVztBQUNaOztBQUNBO0NBQ0MsZUFBZTtDQUNmLGdCQUFnQjtDQUNoQixXQUFXO0FBQ1o7O0FBQ0E7O0NBRUMsY0FBYztDQUNkLGdCQUFnQjtDQUNoQixvQkFBb0I7Q0FDcEIsWUFBWTtDQUNaLFdBQVc7Q0FDWCxrQkFBa0I7QUFDbkI7O0FBQ0E7Q0FDQyxXQUFXO0FBQ1o7O0FBQ0E7O0NBRUMsbUJBQW1CO0NBQ25CLGVBQWU7Q0FDZixzQkFBc0I7Q0FDdEIsZUFBZTtDQUNmLGdCQUFnQjtDQUNoQixnQkFBZ0I7QUFDakI7O0FBQ0E7Q0FDQyxjQUFjO0NBQ2QsV0FBVztDQUNYLHNCQUFzQjtDQUN0QixxQkFBcUI7QUFDdEI7O0FBQ0E7Q0FDQyxZQUFZO0FBQ2I7O0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7O0FBQ0E7O0NBRUMsc0JBQXNCO0NBQ3RCLG9DQUFvQztBQUNyQzs7QUFFQSxnQ0FBZ0M7O0FBQy9CO0VBQ0Msa0JBQWtCO0VBQ2xCLGNBQWM7RUFDZCxXQUFXO0VBQ1gsYUFBYTtFQUNiLFlBQVk7Q0FDYjs7QUFDQTs7RUFFQyxxQkFBcUI7Q0FDdEI7O0FBQ0E7O0VBRUMsWUFBWTtFQUNaLFdBQVc7Q0FDWjs7QUFDQTtFQUNDLG9DQUFvQztFQUNwQyxnQkFBZ0I7Q0FDakI7O0FBQ0E7O0VBRUMsWUFBWTtFQUNaLGFBQWE7RUFDYixZQUFZO0VBQ1osV0FBVztDQUNaOztBQUNBO0VBQ0Msa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsbUJBQW1CO0NBQ3BCOztBQUNBOztFQUVDLGlCQUFpQjtDQUNsQjs7QUFDQTtFQUNDLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsV0FBVztDQUNaOztBQUNBO0VBQ0Msa0JBQWtCO0VBQ2xCLFFBQVE7RUFDUixVQUFVO0VBQ1YsY0FBYztFQUNkLFdBQVc7Q0FDWjs7QUFDQTtFQUNDLHlDQUF5QztDQUMxQzs7QUFDQTtFQUNDLGNBQWM7RUFDZCxZQUFZO0NBQ2I7O0FBQ0E7RUFDQyxjQUFjO0VBQ2QsV0FBVztFQUNYLHFCQUFxQjtDQUN0Qjs7QUFDRCxNQUFNIiwiZmlsZSI6InNyYy9hcHAvYXBwb2ludG1lbnRzL2FwcG9pbnRtZW50cy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZsb2F0e1xyXG5cdHBvc2l0aW9uOmZpeGVkO1xyXG5cdHdpZHRoOjYwcHg7XHJcblx0aGVpZ2h0OjYwcHg7XHJcblx0Ym90dG9tOjQwcHg7XHJcblx0cmlnaHQ6NDBweDtcclxuXHQvKiBiYWNrZ3JvdW5kLWNvbG9yOiMwQzk7ICovXHJcblx0Y29sb3I6I0ZGRjtcclxuXHRib3JkZXItcmFkaXVzOjUwcHg7XHJcblx0dGV4dC1hbGlnbjpjZW50ZXI7XHJcblx0Ym94LXNoYWRvdzogMnB4IDJweCAzcHggIzk5OTtcclxufVxyXG5cclxuLm15LWZsb2F0e1xyXG5cdG1hcmdpbi10b3A6MjJweDtcclxufVxyXG5cclxuLyogYm9keSB7XHJcblx0cGFkZGluZzogNjBweCAwcHg7XHJcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDIyMCwgMjIwLCAyMjApO1xyXG59ICovXHJcblxyXG4uZXZlbnQtbGlzdCB7XHJcblx0bGlzdC1zdHlsZTogbm9uZTtcclxuXHRmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xyXG5cdG1hcmdpbjogMHB4O1xyXG5cdHBhZGRpbmc6IDBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpIHtcclxuXHRiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7XHJcblx0Ym94LXNoYWRvdzogMHB4IDBweCA1cHggcmdiKDUxLCA1MSwgNTEpO1xyXG5cdGJveC1zaGFkb3c6IDBweCAwcHggNXB4IHJnYmEoNTEsIDUxLCA1MSwgMC43KTtcclxuXHRwYWRkaW5nOiAwcHg7XHJcblx0bWFyZ2luOiAwcHggMHB4IDIwcHg7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IHRpbWUge1xyXG5cdGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuXHR3aWR0aDogMTAwJTtcclxuXHRjb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpO1xyXG5cdGJhY2tncm91bmQtY29sb3I6IHJnYigxOTcsIDQ0LCAxMDIpO1xyXG5cdHBhZGRpbmc6IDVweDtcclxuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XHJcblx0dGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpOm50aC1jaGlsZChldmVuKSA+IHRpbWUge1xyXG5cdGJhY2tncm91bmQtY29sb3I6IHJnYigxNjUsIDgyLCAxNjcpO1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiB0aW1lID4gc3BhbiB7XHJcblx0ZGlzcGxheTogbm9uZTtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gdGltZSA+IC5kYXkge1xyXG5cdGRpc3BsYXk6IGJsb2NrO1xyXG5cdGZvbnQtc2l6ZTogNThwdDtcclxuXHRmb250LXdlaWdodDogMTAwO1xyXG5cdGxpbmUtaGVpZ2h0OiAxO1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgdGltZSA+IC5tb250aCB7XHJcblx0ZGlzcGxheTogYmxvY2s7XHJcblx0Zm9udC1zaXplOiAyMHB0O1xyXG5cdGZvbnQtd2VpZ2h0OiA5NTA7XHJcblx0bGluZS1oZWlnaHQ6IDE7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IGltZyB7XHJcblx0d2lkdGg6IDEwMCU7XHJcbn1cclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvIHtcclxuXHRwYWRkaW5nLXRvcDogNXB4O1xyXG5cdHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiAudGl0bGUge1xyXG5cdGZvbnQtc2l6ZTogMTdwdDtcclxuXHRmb250LXdlaWdodDogNzAwO1xyXG5cdG1hcmdpbjogMHB4O1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC5kZXNjIHtcclxuXHRmb250LXNpemU6IDEzcHQ7XHJcblx0Zm9udC13ZWlnaHQ6IDMwMDtcclxuXHRtYXJnaW46IDBweDtcclxufVxyXG4uZXZlbnQtbGlzdCA+IGxpID4gLmluZm8gPiB1bCxcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCB7XHJcblx0ZGlzcGxheTogdGFibGU7XHJcblx0bGlzdC1zdHlsZTogbm9uZTtcclxuXHRtYXJnaW46IDEwcHggMHB4IDBweDtcclxuXHRwYWRkaW5nOiAwcHg7XHJcblx0d2lkdGg6IDEwMCU7XHJcblx0dGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwge1xyXG5cdG1hcmdpbjogMHB4O1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsID4gbGksXHJcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSB7XHJcblx0ZGlzcGxheTogdGFibGUtY2VsbDtcclxuXHRjdXJzb3I6IHBvaW50ZXI7XHJcblx0Y29sb3I6IHJnYigzMCwgMzAsIDMwKTtcclxuXHRmb250LXNpemU6IDExcHQ7XHJcblx0Zm9udC13ZWlnaHQ6IDMwMDtcclxuXHRwYWRkaW5nOiAzcHggMHB4O1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsID4gbGkgPiBhIHtcclxuXHRkaXNwbGF5OiBibG9jaztcclxuXHR3aWR0aDogMTAwJTtcclxuXHRjb2xvcjogcmdiKDMwLCAzMCwgMzApO1xyXG5cdHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxufSBcclxuLmV2ZW50LWxpc3QgPiBsaSA+IC5zb2NpYWwgPiB1bCA+IGxpIHsgICAgXHJcblx0cGFkZGluZzogMHB4O1xyXG59XHJcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSA+IGEge1xyXG5cdHBhZGRpbmc6IDNweCAwcHg7XHJcbn0gXHJcbi5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsID4gbGk6aG92ZXIsXHJcbi5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaTpob3ZlciB7XHJcblx0Y29sb3I6IHJnYigzMCwgMzAsIDMwKTtcclxuXHRiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjAwLCAyMDAsIDIwMCk7XHJcbn1cclxuXHJcbi8qIEBtZWRpYSAobWluLXdpZHRoOiA3NjhweCkgeyAqL1xyXG5cdC5ldmVudC1saXN0ID4gbGkge1xyXG5cdFx0cG9zaXRpb246IHJlbGF0aXZlO1xyXG5cdFx0ZGlzcGxheTogYmxvY2s7XHJcblx0XHR3aWR0aDogMTAwJTtcclxuXHRcdGhlaWdodDogMTIwcHg7XHJcblx0XHRwYWRkaW5nOiAwcHg7XHJcblx0fVxyXG5cdC5ldmVudC1saXN0ID4gbGkgPiB0aW1lLFxyXG5cdC5ldmVudC1saXN0ID4gbGkgPiBpbWcgIHtcclxuXHRcdGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuXHR9XHJcblx0LmV2ZW50LWxpc3QgPiBsaSA+IHRpbWUsXHJcblx0LmV2ZW50LWxpc3QgPiBsaSA+IGltZyB7XHJcblx0XHR3aWR0aDogMTIwcHg7XHJcblx0XHRmbG9hdDogbGVmdDtcclxuXHR9XHJcblx0LmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvIHtcclxuXHRcdGJhY2tncm91bmQtY29sb3I6IHJnYigyNDUsIDI0NSwgMjQ1KTtcclxuXHRcdG92ZXJmbG93OiBoaWRkZW47XHJcblx0fVxyXG5cdC5ldmVudC1saXN0ID4gbGkgPiB0aW1lLFxyXG5cdC5ldmVudC1saXN0ID4gbGkgPiBpbWcge1xyXG5cdFx0d2lkdGg6IDEyMHB4O1xyXG5cdFx0aGVpZ2h0OiAxMjBweDtcclxuXHRcdHBhZGRpbmc6IDBweDtcclxuXHRcdG1hcmdpbjogMHB4O1xyXG5cdH1cclxuXHQuZXZlbnQtbGlzdCA+IGxpID4gLmluZm8ge1xyXG5cdFx0cG9zaXRpb246IHJlbGF0aXZlO1xyXG5cdFx0aGVpZ2h0OiAxMjBweDtcclxuXHRcdHRleHQtYWxpZ246IGxlZnQ7XHJcblx0XHRwYWRkaW5nLXJpZ2h0OiA0MHB4O1xyXG5cdH1cdFxyXG5cdC5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IC50aXRsZSwgXHJcblx0LmV2ZW50LWxpc3QgPiBsaSA+IC5pbmZvID4gLmRlc2Mge1xyXG5cdFx0cGFkZGluZzogMHB4IDEwcHg7XHJcblx0fVxyXG5cdC5ldmVudC1saXN0ID4gbGkgPiAuaW5mbyA+IHVsIHtcclxuXHRcdHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuXHRcdGxlZnQ6IDBweDtcclxuXHRcdGJvdHRvbTogMHB4O1xyXG5cdH1cclxuXHQuZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCB7XHJcblx0XHRwb3NpdGlvbjogYWJzb2x1dGU7XHJcblx0XHR0b3A6IDBweDtcclxuXHRcdHJpZ2h0OiAwcHg7XHJcblx0XHRkaXNwbGF5OiBibG9jaztcclxuXHRcdHdpZHRoOiA0MHB4O1xyXG5cdH1cclxuXHQuZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsIHtcclxuXHRcdGJvcmRlci1sZWZ0OiAxcHggc29saWQgcmdiKDIzMCwgMjMwLCAyMzApO1xyXG5cdH1cclxuXHQuZXZlbnQtbGlzdCA+IGxpID4gLnNvY2lhbCA+IHVsID4gbGkge1x0XHRcdFxyXG5cdFx0ZGlzcGxheTogYmxvY2s7XHJcblx0XHRwYWRkaW5nOiAwcHg7XHJcblx0fVxyXG5cdC5ldmVudC1saXN0ID4gbGkgPiAuc29jaWFsID4gdWwgPiBsaSA+IGEge1xyXG5cdFx0ZGlzcGxheTogYmxvY2s7XHJcblx0XHR3aWR0aDogNDBweDtcclxuXHRcdHBhZGRpbmc6IDEwcHggMHB4IDlweDtcclxuXHR9XHJcbi8qIH0gKi8iXX0= */"
 
 /***/ }),
 
@@ -506,7 +506,7 @@ module.exports = ".float{\r\n\tposition:fixed;\r\n\twidth:60px;\r\n\theight:60px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated == false\">\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\">\r\n        <li *ngFor=\"let appointment of appointments\">\r\n          <time datetime=\"\">\r\n            <span class=\"day\">{{appointment.date.getDay()}}</span>\r\n            <span class=\"month\">{{appointment.date.getMonth()}}</span>\r\n            <span class=\"year\">{{appointment.date.getFullYear()}}</span>\r\n            <span class=\"time\">{{appointment.date.getTime()}}</span>\r\n          </time>\r\n          <img src=\"{{appointment.pet?.img}}\" />\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">{{appointment.appointmentType?.name}}</h2>\r\n            <p class=\"desc\">{{appointment.pet?.name}}</p>\r\n          </div>\r\n          <!-- <div class=\"social\">\r\n            <ul>\r\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-facebook\"></span></a></li>\r\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-google-plus\"></span></a></li>\r\n            </ul>\r\n          </div> -->\r\n        </li>\r\n      </ul>\r\n  </div>\r\n  </div>\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\">\r\n    <i class=\"fa fa-plus my-float\"></i>\r\n  </a>\r\n</div>\r\n</section>\r\n<router-outlet #outlet=\"outlet\"></router-outlet>"
+module.exports = "<section id=\"team\" class=\"pb-5\" *ngIf=\"outlet.isActivated == false\">\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\">\r\n      <ul class=\"event-list\">\r\n        <li *ngFor=\"let appointment of appointments;\">\r\n          <time [attr.datetime]=\"appointment.fulldate\">\r\n            <span class=\"day\">{{appointment.day}}</span>\r\n            <span class=\"month\">{{appointment.month}}</span>\r\n            <span class=\"year\">{{appointment.year}}</span>\r\n            <span class=\"time\">{{appointment.time}}</span>\r\n          </time>\r\n          <img src=\"{{appointment.pet?.img}}\" />\r\n          <div class=\"info\">\r\n            <h2 class=\"title\">{{appointment.appointmentType?.description}}</h2>\r\n            <p class=\"desc\">{{appointment.description}}</p>\r\n          </div>\r\n          <!-- <div class=\"social\">\r\n            <ul>\r\n              <li class=\"facebook\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-facebook\"></span></a></li>\r\n              <li class=\"google-plus\" style=\"width:33%;\"><a href=\"javascript:;\"><span class=\"fa fa-google-plus\"></span></a></li>\r\n            </ul>\r\n          </div> -->\r\n        </li>\r\n      </ul>\r\n  </div>\r\n  </div>\r\n  <app-loading *ngIf=\"loading\" [center]=\"true\"></app-loading>\r\n  <a href=\"javascript:;\" class=\"float bg-toppet\" (click)=\"add()\">\r\n    <i class=\"fa fa-plus my-float\"></i>\r\n  </a>\r\n</div>\r\n</section>\r\n<router-outlet #outlet=\"outlet\"></router-outlet>"
 
 /***/ }),
 
@@ -558,17 +558,33 @@ var AppointmentsComponent = /** @class */ (function (_super) {
     AppointmentsComponent.prototype.ngOnInit = function () {
         this.title = this.language.appointments;
         this.setTitle();
-        window.date = new Date();
-        this.currentDate = new Date();
-        this.setDate();
+        this.loadAppointments();
     };
-    AppointmentsComponent.prototype.setDate = function () {
+    AppointmentsComponent.prototype.loadAppointments = function () {
         var _this = this;
-        var ping = this.session.authenticationService.infoService.doPing();
-        ping.subscribe(function (result) {
-            if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
-                _this.currentDate = new Date(result.date);
+        this.loading = true;
+        this.api.getByUser(this.user).subscribe(function (result) {
+            _this.loading = false;
+            if (result && result.sid) {
+                if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
+                    result.data.forEach(function (app) {
+                        var a = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["Appointment"]();
+                        a.id = app.id;
+                        a.date = new Date(app.date);
+                        a.appointmentType = app.appointmentType;
+                        a.description = app.description;
+                        ;
+                        a.frequencyType = app.frequencyType;
+                        a.pet = app.pet;
+                        _this.appointments.push(a);
+                    });
+                    console.log(_this.appointments);
+                    window.appointments = _this.appointments;
+                }
             }
+        }, function (error) {
+            console.error(error);
+            _this.loading = false;
         });
     };
     AppointmentsComponent.prototype.add = function () {
@@ -603,15 +619,22 @@ var AppointmentsThumbComponent = /** @class */ (function (_super) {
         var _this = this;
         this.loading = true;
         if (!_utils__WEBPACK_IMPORTED_MODULE_10__["ObjectUtils"].isEmpty(this.user)) {
-            var apps = this.api.getByUser(this.session.getCurrentUser());
-            apps.subscribe(function (result) {
+            this.api.getByUser(this.session.getCurrentUser()).subscribe(function (result) {
                 console.log(result);
                 _this.loading = false;
                 if (result && result.sid) {
                     if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
-                        _this.appointments = result.entity;
-                    }
-                    else {
+                        result.data.forEach(function (app) {
+                            var a = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["Appointment"]();
+                            a.id = app.id;
+                            a.date = new Date(app.date);
+                            a.appointmentType = app.appointmentType;
+                            a.description = app.description;
+                            ;
+                            a.frequencyType = app.frequencyType;
+                            a.pet = app.pet;
+                            _this.appointments.push(a);
+                        });
                     }
                 }
             }, function (error) {
@@ -636,14 +659,15 @@ var AppointmentsThumbComponent = /** @class */ (function (_super) {
 
 var AppointmentsWizardComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AppointmentsWizardComponent, _super);
-    function AppointmentsWizardComponent(session, api, router, activatedRoute) {
+    function AppointmentsWizardComponent(session, api, router, activatedRoute, appointmentsComponent) {
         var _this = _super.call(this, session) || this;
         _this.api = api;
         _this.router = router;
         _this.activatedRoute = activatedRoute;
-        _this.type = 0;
+        _this.appointmentsComponent = appointmentsComponent;
+        _this.type = 1;
         _this.often = 0;
-        _this.hour = "12:00";
+        _this.time = "12:00";
         _this.weekend = 0;
         _this.workingday = 0;
         _this.finish = false;
@@ -652,19 +676,20 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
     AppointmentsWizardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.appointment = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["Appointment"]();
-        this.appointment.user = this.session.getCurrentUser();
+        //this.appointment.user = this.session.getCurrentUser();
         this.appointment.appointmentType = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentType"]();
         this.loading = true;
         var types = this.api.getTypes();
         this.frequency = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].fromEnum(_entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"], this.language.getAppointmentOften);
         this.workingdays = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].fromEnum(_entity_system__WEBPACK_IMPORTED_MODULE_1__["WorkingDays"], this.language.getWorkingDay);
         this.weekends = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].fromEnum(_entity_system__WEBPACK_IMPORTED_MODULE_1__["Weekends"], this.language.getWeekend);
+        this.setDate();
         types.subscribe(function (result) {
             console.log(result);
             _this.loading = false;
             if (result && result.sid) {
                 if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
-                    _this.types = result.entity;
+                    _this.types = result.data;
                 }
             }
         }, function (error) {
@@ -679,20 +704,35 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
         this.carouselComponent.next();
         this.finish = true;
     };
+    AppointmentsWizardComponent.prototype.setDate = function () {
+        var _this = this;
+        this.currentDate = new Date();
+        var ping = this.session.authenticationService.infoService.doPing();
+        ping.subscribe(function (result) {
+            if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
+                _this.currentDate = new Date(result.date);
+                _this.date = _this.currentDate;
+            }
+        });
+        this.date = this.currentDate;
+    };
     AppointmentsWizardComponent.prototype.save = function () {
         var _this = this;
         if (this.loading)
             return;
-        this.appointment.date = this.date != undefined ? this.date : new Date();
+        this.appointment.date = this.date != undefined ? this.date : this.currentDate;
+        if (_utils__WEBPACK_IMPORTED_MODULE_10__["StringUtils"].isEmpty(this.time)) {
+            this.time = this.currentDate.getHours() + ":" + this.currentDate.getMinutes();
+        }
         this.loading = true;
         var often = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].getDomainByValue(this.often, this.frequency);
-        if (often != undefined) {
-            switch (often.enumValue) {
-                case _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"].DAILY_BASIS:
-                    break;
-            }
-        }
+        this.appointment.frequencyType = _utils__WEBPACK_IMPORTED_MODULE_10__["ObjectUtils"].isEmpty(often) ? _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"].ONCE : often.enumValue;
         this.appointment.appointmentType.id = this.type;
+        //add time to date
+        var time = this.time.split(":");
+        var hours = parseInt(time[0]);
+        var minutes = parseInt(time[1]);
+        this.appointment.date.setHours(hours, minutes, 0, 0);
         var saving = this.api.save(this.appointment);
         saving.subscribe(function (result) {
             console.log(result);
@@ -702,6 +742,7 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
                     _this.session.zone.run(function () {
                         return _this.router.navigate(['.'], { relativeTo: _this.activatedRoute.parent });
                     });
+                    _this.appointmentsComponent.loadAppointments();
                 }
             }
         }, function (error) {
@@ -719,10 +760,12 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
             template: __webpack_require__(/*! ./appointments.wizard.component.html */ "./src/app/appointments/appointments.wizard.component.html"),
             styles: [__webpack_require__(/*! ./appointments.wizard.component.css */ "./src/app/appointments/appointments.wizard.component.css")]
         }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"])(AppointmentsComponent)),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
             _service_services__WEBPACK_IMPORTED_MODULE_2__["AppointmentsApiService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
+            AppointmentsComponent])
     ], AppointmentsWizardComponent);
     return AppointmentsWizardComponent;
 }(_appbase__WEBPACK_IMPORTED_MODULE_7__["AppBase"]));
@@ -738,7 +781,7 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"row\" style=\"height: 65%;\" style=\"background-color: white; height: 400px;\">\r\n  <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\" *ngIf=\"!isEmpty();\">\r\n    <ul class=\"event-list\">\r\n      <li *ngFor=\"let appointment of appointments\">\r\n        <time datetime=\"2014-07-20\">\r\n          <span class=\"day\">{{appointment.date.day}}</span>\r\n          <span class=\"month\">{{appointment.date.month}}</span>\r\n          <span class=\"year\">{{appointment.date.year}}</span>\r\n          <span class=\"time\">ALL DAY</span>\r\n        </time>\r\n        <img src=\"{{appointment.pet.img}}\" />\r\n        <div class=\"info\">\r\n          <h2 class=\"title\">{{appointment.appointmentType}}</h2>\r\n          <p class=\"desc\">United States Holiday</p>\r\n        </div>\r\n        <div class=\"social\">\r\n          <ul>\r\n            <li class=\"facebook\" style=\"width:33%;\"><a href=\"#facebook\"><span class=\"fa fa-facebook\"></span></a></li>\r\n            <li class=\"twitter\" style=\"width:34%;\"><a href=\"#twitter\"><span class=\"fa fa-twitter\"></span></a></li>\r\n            <li class=\"google-plus\" style=\"width:33%;\"><a href=\"#google-plus\"><span class=\"fa fa-google-plus\"></span></a></li>\r\n          </ul>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <section class=\"body_section\" *ngIf=\"isEmpty();\">\r\n    <div class=interface_class>\r\n      <small class=\"default-text text-petlife\" style=\"position: fixed;top: 42%;left: 26%;\">{{language.noAppointmentsClick}}</small>\r\n    </div>\r\n  </section>\r\n</div>\r\n\r\n"
+module.exports = "\r\n<div class=\"row\" style=\"height: 65%;\" style=\"background-color: white; height: 400px;\">\r\n  <div class=\"[ col-xs-12 col-sm-offset-2 col-sm-8 ]\" *ngIf=\"!isEmpty();\">\r\n    <ul class=\"event-list\">\r\n      <li *ngFor=\"let appointment of appointments;\">\r\n        <time [attr.datetime]=\"appointment.fulldate\">\r\n          <span class=\"day\">{{appointment.day}}</span>\r\n          <span class=\"month\">{{appointment.month}}</span>\r\n          <span class=\"year\">{{appointment.year}}</span>\r\n          <span class=\"time\">{{appointment.time}}</span>\r\n        </time>\r\n        <img src=\"{{appointment.pet?.img}}\" />\r\n        <div class=\"info\">\r\n          <h2 class=\"title\">{{appointment.appointmentType?.description}}</h2>\r\n          <p class=\"desc\">{{appointment.description}}</p>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <section class=\"body_section\" *ngIf=\"isEmpty();\">\r\n    <div class=interface_class>\r\n      <small class=\"default-text text-petlife\" style=\"position: fixed;top: 42%;left: 26%;\">{{language.noAppointmentsClick}}</small>\r\n    </div>\r\n  </section>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -760,7 +803,7 @@ module.exports = "/* .form-input {\r\n    display: block;\r\n    width: 100%;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <app-carousel [disable-controls]=\"true\">\r\n\r\n        <div class=\"row page1\" #page1>\r\n            <div class=\"col-xs-12 col-sm-offset-3 col-sm-6\" *ngIf=\"user?.pets.length > 0\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading c-list\">\r\n                        <span class=\"title\">{{language.myPet}}</span>\r\n                    </div>\r\n                    \r\n                    <div class=\"row\" style=\"display: none;\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"input-group c-search\">\r\n                                <input type=\"text\" class=\"form-control\" id=\"contact-list-search\">\r\n                                <span class=\"input-group-btn\">\r\n                                    <button class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-search text-muted\"></span></button>\r\n                                </span>\r\n                            </div>\r\n                        </div>\r\n                    </div>                                                                           \r\n                    \r\n                    <ul class=\"list-group\" id=\"contact-list\">\r\n                        <li class=\"list-group-item\">\r\n                            <a href=\"javascript:;\" *ngFor=\"let pet of user.pets\" (click)=\"selectPet(pet)\">\r\n                                <div class=\"col-xs-12 col-sm-3\">\r\n                                    <img src=\"{{pet.img}}\" class=\"img-responsive img-circle\" />\r\n                                </div>\r\n                                <div class=\"col-xs-12 col-sm-9\">\r\n                                    <span class=\"name\">{{pet.name}}</span><br/>\r\n                                </div>\r\n                                <div class=\"clearfix\"></div>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <app-alert [visible]=\"user?.pets.length == 0\" [message]=\"language.noPetsFound\" type=\"info\"></app-alert>\r\n        </div>\r\n        <div class=\"text-center page2\" #page2>\r\n            <div class=\"form-signin\">\r\n                <br>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentType}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"type\">\r\n                        <option *ngFor=\"let type of types\" value=\"{{type.id}}\">{{type.description}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentFrequency}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"often\">\r\n                        <option *ngFor=\"let d of frequency\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 0\">\r\n                    <input matInput [min]=\"currentDate\" style=\"height: auto;height: 47px;\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [matDatepicker]=\"myDatepicker\" placeholder=\"{{language.date}}\" [(ngModel)]=\"date\" ngDefaultControl>\r\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #myDatepicker></mat-datepicker>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 2\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"workingday\">\r\n                        <option *ngFor=\"let d of workingdays\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 3\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"weekend\">\r\n                        <option *ngFor=\"let d of weekends\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input [ngxTimepicker]=\"picker\" class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"hour\" placeholder=\"{{language.hour}}\" type=\"text\" ngDefaultControl>\r\n                    <ngx-material-timepicker #picker></ngx-material-timepicker>\r\n                </mat-form-field>\r\n                \r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"appointment.appointmentType.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n    </app-carousel>\r\n    <a href=\"javascript:;\" *ngIf=\"finish\" class=\"btn btn-toppet btn-round btn-go\" (click)=\"save()\"><i class=\"fa fa-check\"></i></a>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n    <app-carousel [disable-controls]=\"true\">\r\n\r\n        <div class=\"row page1\" #page1>\r\n            <div class=\"col-xs-12 col-sm-offset-3 col-sm-6\" *ngIf=\"user?.pets.length > 0\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading c-list\">\r\n                        <span class=\"title\">{{language.myPet}}</span>\r\n                    </div>\r\n                    \r\n                    <div class=\"row\" style=\"display: none;\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"input-group c-search\">\r\n                                <input type=\"text\" class=\"form-control\" id=\"contact-list-search\">\r\n                                <span class=\"input-group-btn\">\r\n                                    <button class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-search text-muted\"></span></button>\r\n                                </span>\r\n                            </div>\r\n                        </div>\r\n                    </div>                                                                           \r\n                    \r\n                    <ul class=\"list-group\" id=\"contact-list\">\r\n                        <li class=\"list-group-item\">\r\n                            <a href=\"javascript:;\" *ngFor=\"let pet of user.pets\" (click)=\"selectPet(pet)\">\r\n                                <div class=\"col-xs-12 col-sm-3\">\r\n                                    <img src=\"{{pet.img}}\" class=\"img-responsive img-circle\" />\r\n                                </div>\r\n                                <div class=\"col-xs-12 col-sm-9\">\r\n                                    <span class=\"name\">{{pet.name}}</span><br/>\r\n                                </div>\r\n                                <div class=\"clearfix\"></div>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <app-alert [visible]=\"user?.pets.length == 0\" [message]=\"language.noPetsFound\" type=\"info\"></app-alert>\r\n        </div>\r\n        <div class=\"text-center page2\" #page2>\r\n            <div class=\"form-signin\">\r\n                <br>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentType}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"type\">\r\n                        <option *ngFor=\"let type of types\" value=\"{{type.id}}\">{{type.description}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentFrequency}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"often\">\r\n                        <option *ngFor=\"let d of frequency\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 0\">\r\n                    <input matInput [min]=\"currentDate\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [matDatepicker]=\"myDatepicker\" placeholder=\"{{language.date}}\" [(ngModel)]=\"date\" ngDefaultControl>\r\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #myDatepicker></mat-datepicker>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 2\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"workingday\">\r\n                        <option *ngFor=\"let d of workingdays\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 3\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"weekend\">\r\n                        <option *ngFor=\"let d of weekends\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input [ngxTimepicker]=\"picker\" [format]=\"24\"class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"time\" placeholder=\"{{language.hour}}\" type=\"text\" ngDefaultControl>\r\n                    <ngx-material-timepicker #picker></ngx-material-timepicker>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" maxlength=\"22\" matInput [(ngModel)]=\"appointment.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n    </app-carousel>\r\n    <a href=\"javascript:;\" *ngIf=\"finish\" class=\"btn btn-toppet btn-round btn-go\" (click)=\"save()\"><i class=\"fa fa-check\"></i></a>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1015,7 +1058,7 @@ var LocalDatabaseService = /** @class */ (function () {
 /*!************************************!*\
   !*** ./src/app/entity/entities.ts ***!
   \************************************/
-/*! exports provided: Rating, Bookmark, User, State, Address, PetServiceType, ServiceType, Appointment, AppointmentType, AppointmentExecutionFrequency, PetService, Pet, PetType, Breed */
+/*! exports provided: Rating, Bookmark, User, State, Address, PetServiceType, ServiceType, Appointment, Month, AppointmentType, AppointmentExecutionFrequency, PetService, Pet, PetType, Breed */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1028,6 +1071,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetServiceType", function() { return PetServiceType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServiceType", function() { return ServiceType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Appointment", function() { return Appointment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Month", function() { return Month; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentType", function() { return AppointmentType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentExecutionFrequency", function() { return AppointmentExecutionFrequency; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetService", function() { return PetService; });
@@ -1073,7 +1117,7 @@ var State;
     State["AL"] = "Alagoas";
     State["PB"] = "Para\u00EDba";
     State["RO"] = "Rond\u00F4nia";
-    State["RR"] = "Raraima";
+    State["RR"] = "Roraima";
     State["RN"] = "Rio Grande do Norte";
     State["ES"] = "Espirito Santo";
     State["DF"] = "Distrito Federal";
@@ -1106,9 +1150,59 @@ var ServiceType = /** @class */ (function () {
 var Appointment = /** @class */ (function () {
     function Appointment() {
     }
+    Object.defineProperty(Appointment.prototype, "day", {
+        get: function () {
+            return this.date.getUTCDate();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Appointment.prototype, "month", {
+        get: function () {
+            return Month[Object.keys(Month)[this.date.getUTCMonth()]];
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Appointment.prototype, "year", {
+        get: function () {
+            return this.date.getFullYear();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Appointment.prototype, "time", {
+        get: function () {
+            return this.date.getTime();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Appointment.prototype, "fulldate", {
+        get: function () {
+            return (this.date.getUTCMonth() + 1) + "-" + this.day + "-" + this.year;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return Appointment;
 }());
 
+var Month;
+(function (Month) {
+    Month["JANUARY"] = "Janeiro";
+    Month["FEBRUARY"] = "Fevereiro";
+    Month["MARCH"] = "Mar\u00E7o";
+    Month["APRIL"] = "Abril";
+    Month["MAY"] = "Maio";
+    Month["JUNE"] = "Junho";
+    Month["JULY"] = "Julho";
+    Month["AUGUST"] = "Agosto";
+    Month["SEPTEMBER"] = "Setembro";
+    Month["OCTOBER"] = "Outubro";
+    Month["NOVEMBER"] = "Novembro";
+    Month["DECEMBER"] = "Dezembro";
+})(Month || (Month = {}));
 var AppointmentType = /** @class */ (function () {
     function AppointmentType() {
     }
@@ -1154,12 +1248,13 @@ var Breed = /** @class */ (function () {
 /*!**********************************!*\
   !*** ./src/app/entity/system.ts ***!
   \**********************************/
-/*! exports provided: ReturnCode, Domain, WorkingDays, Weekends */
+/*! exports provided: ReturnCode, Item, Domain, WorkingDays, Weekends */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReturnCode", function() { return ReturnCode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return Item; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Domain", function() { return Domain; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkingDays", function() { return WorkingDays; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Weekends", function() { return Weekends; });
@@ -1172,6 +1267,15 @@ var ReturnCode;
     ReturnCode[ReturnCode["RESOURCE_EXISTS"] = -4] = "RESOURCE_EXISTS";
     ReturnCode[ReturnCode["CONNECTION_ERROR"] = -5] = "CONNECTION_ERROR";
 })(ReturnCode || (ReturnCode = {}));
+var Item = /** @class */ (function () {
+    function Item(domain, icon, color) {
+        this.domain = domain;
+        this.icon = icon;
+        this.color = color;
+    }
+    return Item;
+}());
+
 var Domain = /** @class */ (function () {
     function Domain(value, text) {
         this.value = value;
@@ -2070,11 +2174,7 @@ var PetsComponent = /** @class */ (function (_super) {
                 _this.loading = false;
                 if (result && result.sid) {
                     if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_13__["ReturnCode"].SUCCESS) {
-                        if (result.entity) {
-                            _this.user.pets = result.entity;
-                        }
-                    }
-                    else {
+                        _this.user.pets = result.data;
                     }
                 }
             }, function (error) {
@@ -2161,9 +2261,7 @@ var PetTypeComponent = /** @class */ (function (_super) {
             console.log(result);
             if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_13__["ReturnCode"].SUCCESS) {
                 if (result && result.sid) {
-                    if (result.entity) {
-                        _this.types = result.entity;
-                    }
+                    _this.types = result.data;
                 }
             }
             else {
@@ -2400,7 +2498,7 @@ var PetsWizardComponent = /** @class */ (function (_super) {
                 console.log(result);
                 _this.loading = false;
                 _this.element.nativeElement.hidden = _this.loading;
-                if (result.entity) {
+                if (result.data) {
                     if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_13__["ReturnCode"].SUCCESS) {
                         if (result && result.sid) {
                             _this.session.zone.run(function () {
@@ -2494,7 +2592,7 @@ module.exports = ".input-group-date {\r\n    background-color: #563d7c;\r\n}\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"text-center\">\r\n    <div class=\"form-signin\">\r\n        <br>\r\n        <div class=\"input-group mb-3\" *ngIf=\"pet.breed.id\">\r\n            <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text bg-toppet\"><a href=\"javascript:;\" class=\"btn-toppet\" (click)=\"back()\"><i [ngClass]=\"'fa fa-' + pet.petType.icon\" style=\"float: right; font-size: 235%;\"></i></a></span>\r\n            </div>\r\n            <input type=\"text\" style=\"height: auto; font-size: 22px; background-color: transparent; color: white;\" disabled=\"true\" class=\"form-control\" value=\"{{pet.breed.description}}\" aria-describedby=\"basic-addon1\">\r\n        </div>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input matInput style=\"height: auto;height: 47px;\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [max]=\"currentDate\" [matDatepicker]=\"myDatepicker\" (dateInput)=\"updateAge()\" placeholder=\"{{language.birthDate}}\" [(ngModel)]=\"pet.birthDate\" ngDefaultControl>\r\n            <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n            <mat-datepicker #myDatepicker></mat-datepicker>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput value=\"{{age}}\" placeholder=\"{{language.age}}\" disabled=\"true\">\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"pet.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n        </mat-form-field>\r\n        <app-alert></app-alert>\r\n    </div>\r\n    <a href=\"javascript:;\" class=\"btn btn-toppet btn-bottom btn-round\" style=\"position: fixed; margin-bottom: 16%; right: 40%;\" (click)=\"next()\"><i class=\"fa fa-chevron-right\"></i></a>\r\n</div>\r\n\r\n  \r\n  \r\n  \r\n      "
+module.exports = "<div class=\"text-center\">\r\n    <div class=\"form-signin\">\r\n        <br>\r\n        <div class=\"input-group mb-3\" *ngIf=\"pet.breed.id\">\r\n            <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text bg-toppet\"><a href=\"javascript:;\" class=\"btn-toppet\" (click)=\"back()\"><i [ngClass]=\"'fa fa-' + pet.petType.icon\" style=\"float: right; font-size: 235%;\"></i></a></span>\r\n            </div>\r\n            <input type=\"text\" style=\"height: auto; font-size: 22px; background-color: transparent; color: white;\" disabled=\"true\" class=\"form-control\" value=\"{{pet.breed.description}}\" aria-describedby=\"basic-addon1\">\r\n        </div>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" maxlength=\"22\" matInput [(ngModel)]=\"pet.name\" placeholder=\"{{language.name}}\" type=\"text\" ngDefaultControl>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input matInput aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [max]=\"currentDate\" [matDatepicker]=\"myDatepicker\" (dateInput)=\"updateAge()\" placeholder=\"{{language.birthDate}}\" [(ngModel)]=\"pet.birthDate\" ngDefaultControl>\r\n            <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n            <mat-datepicker #myDatepicker></mat-datepicker>\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput value=\"{{age}}\" placeholder=\"{{language.age}}\" disabled=\"true\">\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"pet.description\" maxlength=\"100\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n        </mat-form-field>\r\n        <app-alert></app-alert>\r\n    </div>\r\n    <a href=\"javascript:;\" class=\"btn btn-toppet btn-bottom btn-round\" style=\"position: fixed; margin-bottom: 16%; right: 40%;\" (click)=\"next()\"><i class=\"fa fa-chevron-right\"></i></a>\r\n</div>\r\n\r\n  \r\n  \r\n  \r\n      "
 
 /***/ }),
 
@@ -2560,7 +2658,7 @@ module.exports = "/* brandico */\r\n[class*=\"brandico-\"]:before {\r\n  font-fa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" style=\"margin-top: 0 !important;\">     \r\n  <div class=\"text-center\">\r\n      <form class=\"form-signin\" #registerForm=\"ngForm\" autocomplete=\"off\">\r\n          <h2 class=\"form-signin-heading\" style=\"color: white !important\">{{language.signUp}}</h2>\r\n          <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\r\n          <br>\r\n          <p>\r\n            <facebook-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></facebook-button>\r\n            <google-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></google-button>\r\n          </p>\r\n          <small class=\"text-muted\">{{language.createWithSomeInfo}}</small>\r\n          <br>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" placeholder=\"{{language.username}}\" name=\"username\" id=\"username\" ngModel>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" placeholder=\"{{language.name}}\" name=\"name\" id=\"name\" ngModel>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" placeholder=\"{{language.password}}\" [type]=\"hide ? 'password' : 'text'\" name=\"password\" id=\"password\" ngModel>\r\n            <mat-icon matSuffix color=\"accent\" (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" placeholder=\"{{language.confirmPassword}}\" [type]=\"hide ? 'password' : 'text'\" name=\"confirmPassword\" id=\"confirmPassword\" ngModel>\r\n            <mat-icon matSuffix color=\"accent\" (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n          </mat-form-field>\r\n          <br>\r\n          <app-alert></app-alert>\r\n          <register-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block\" [form]=\"registerForm\" (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, false)\">{{language.signUp}}</register-button>\r\n          <br>\r\n      </form>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"container\" style=\"margin-top: 0 !important;\">     \r\n  <div class=\"text-center\">\r\n      <form class=\"form-signin\" #registerForm=\"ngForm\" autocomplete=\"off\">\r\n          <h2 class=\"form-signin-heading\" style=\"color: white !important\">{{language.signUp}}</h2>\r\n          <small class=\"text-muted\">{{language.connect}} {{applicationName}} {{language.favoriteSocialMedia}}</small>\r\n          <br>\r\n          <p>\r\n            <facebook-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></facebook-button>\r\n            <google-button (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, true)\"></google-button>\r\n          </p>\r\n          <small class=\"text-muted\">{{language.createWithSomeInfo}}</small>\r\n          <br>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" maxlength=\"32\" placeholder=\"{{language.username}}\" name=\"username\" id=\"username\" ngModel>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" maxlength=\"50\" placeholder=\"{{language.name}}\" name=\"name\" id=\"name\" ngModel>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" maxlength=\"32\" placeholder=\"{{language.password}}\" [type]=\"hide ? 'password' : 'text'\" name=\"password\" id=\"password\" ngModel>\r\n            <mat-icon matSuffix color=\"accent\" (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n          </mat-form-field>\r\n          <mat-form-field>\r\n            <input matInput class=\"ember-view ember-text-field text-muted\" maxlength=\"32\" placeholder=\"{{language.confirmPassword}}\" [type]=\"hide ? 'password' : 'text'\" name=\"confirmPassword\" id=\"confirmPassword\" ngModel>\r\n            <mat-icon matSuffix color=\"accent\" (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n          </mat-form-field>\r\n          <br>\r\n          <app-alert></app-alert>\r\n          <register-button [hidden]=\"loading\" classes=\"btn btn-lg btn-toppet btn-block\" [form]=\"registerForm\" (begin)=\"onRegisterInit()\" (done)=\"onRegisterEnd($event, false)\">{{language.signUp}}</register-button>\r\n          <br>\r\n      </form>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -2753,7 +2851,7 @@ var httpDefaultOptions = {
 var endpoints = _environments_environment__WEBPACK_IMPORTED_MODULE_11__["environment"].endpoint;
 var ApiService = /** @class */ (function () {
     function ApiService() {
-        this.endpoint = endpoints.indraLocal;
+        this.endpoint = endpoints.local;
         console.log(this.endpoint);
     }
     ApiService.prototype.handleError = function (error) {
@@ -3059,7 +3157,7 @@ var SessionService = /** @class */ (function () {
         this.setUserInSession = function (result, password) {
             if (result && result.sid) {
                 //store user details and jwt token in local storage to keep user logged in between page refreshes
-                _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].CURRENT_USER, JSON.stringify(result.entity));
+                _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].CURRENT_USER, JSON.stringify(result.data));
                 _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].CURRENT_PASSWORD, password);
                 _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].SESSION_ID, result.sid);
                 _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].LOGIN_DATE, result.date);
@@ -3104,11 +3202,9 @@ var SessionService = /** @class */ (function () {
     SessionService.prototype.getCurrentUser = function () {
         var user;
         if (_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(this.sessionUser)) {
-            user = this.getJsonUser();
+            this.sessionUser = this.getJsonUser();
         }
-        else {
-            user = this.sessionUser;
-        }
+        user = this.sessionUser;
         return user;
     };
     SessionService.prototype.getJsonUser = function () {

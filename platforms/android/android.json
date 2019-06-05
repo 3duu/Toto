@@ -302,9 +302,6 @@
     "cordova-sqlite-storage": {
       "PACKAGE_NAME": "br.com.duti.toppet"
     },
-    "cordova-plugin-context-menu": {
-      "PACKAGE_NAME": "br.com.duti.toppet"
-    },
     "cordova-plugin-listpicker": {
       "PACKAGE_NAME": "br.com.duti.toppet"
     }
@@ -628,22 +625,6 @@
       ]
     },
     {
-      "id": "cordova-plugin-context-menu.ContextMenu",
-      "file": "plugins/cordova-plugin-context-menu/www/ContextMenu.js",
-      "pluginId": "cordova-plugin-context-menu",
-      "clobbers": [
-        "ContextMenu"
-      ]
-    },
-    {
-      "id": "cordova-plugin-context-menu.ContextMenuProxy",
-      "file": "plugins/cordova-plugin-context-menu/src/browser/ContextMenuProxy.js",
-      "pluginId": "cordova-plugin-context-menu",
-      "merges": [
-        ""
-      ]
-    },
-    {
       "id": "cordova-plugin-listpicker.ListPicker",
       "file": "plugins/cordova-plugin-listpicker/www/ListPicker.js",
       "pluginId": "cordova-plugin-listpicker",
@@ -662,7 +643,6 @@
     "cordova-plugin-facebook4": "4.2.1",
     "cordova-plugin-camera": "4.0.3",
     "cordova-sqlite-storage": "3.2.0",
-    "cordova-plugin-context-menu": "0.1.1",
     "cordova-plugin-listpicker": "2.2.2"
   }
 }

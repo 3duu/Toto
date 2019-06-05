@@ -38,9 +38,6 @@
     "cordova-sqlite-storage": {
       "PACKAGE_NAME": "br.com.duti.toppet"
     },
-    "cordova-plugin-context-menu": {
-      "PACKAGE_NAME": "br.com.duti.toppet"
-    },
     "cordova-plugin-listpicker": {
       "PACKAGE_NAME": "br.com.duti.toppet"
     }

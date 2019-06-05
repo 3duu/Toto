@@ -23,10 +23,10 @@ import { ReturnCodeEventArgs } from '../templates/button/button-classes';
 })
 export class RegisterUserComponent extends AppBase {
 
-  @ViewChild(AlertComponent) private alert: AlertComponent;
-  @ViewChild(SignUpComponent) private submit: SignUpComponent;
-  @ViewChild(FacebookComponent) private facebook: FacebookComponent;
-  @ViewChild(GoogleComponent) private google : GoogleComponent;
+  @ViewChild(AlertComponent, { static: true }) private alert: AlertComponent;
+  @ViewChild(SignUpComponent, { static: true }) private submit: SignUpComponent;
+  @ViewChild(FacebookComponent, { static: true }) private facebook: FacebookComponent;
+  @ViewChild(GoogleComponent, { static: true }) private google : GoogleComponent;
 
   constructor(session: SessionService,
     private api: UserApiService,

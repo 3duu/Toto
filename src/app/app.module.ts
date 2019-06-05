@@ -1,21 +1,23 @@
+import { ContextMenuModule } from './lib/contextmenu/index';
+import { MatDatepickerModule, MatDatepicker } from '@angular/material/datepicker';
+import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { TutorialComponent } from './templates/tutorial/tutorial.component';
 import { LoadingComponent } from './templates/loading/loading.component';
 import { SignUpComponent } from './templates/button/signup/signup.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { TextMaskModule } from 'angular2-text-mask';
 import { UserApiService, PetApiService, AuthenticationService, InfoService, AppointmentsApiService } from './service/services';
 import { MenuService } from './navbar/menuService';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { FormsModule } from '@angular/forms';
 import { CordovaService } from './cordova.service';
-import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PetTypeComponent, PetsComponent, PetInfoComponent, PetPictureComponent, BreedPickerComponent, PetsWizardComponent } from './pets/pets.component';
-import { ModalModule } from 'ngx-modialog';
+import { ModalModule, Overlay } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 import { FacebookService, GoogleService } from './socialNetwork/socialNetworkServices';
 import { LocalDatabaseService } from './database/database';
@@ -27,11 +29,6 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { SessionService } from './session/session.service';
 import { AppointmentsComponent, AppointmentsWizardComponent, AppointmentsThumbComponent } from './appointments/appointments.component';
-import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { Overlay } from '@angular/cdk/overlay';
-import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
-import { MatInputModule, MatInput, MatSuffix, MatIconModule, MatIcon } from '@angular/material';
 import { DateFormat } from './utils';
 import { AlertComponent } from './templates/alert/alert.component';
 import { SignInComponent } from './templates/button/signin/signin.component';
@@ -39,6 +36,8 @@ import { FacebookComponent } from './templates/button/facebook/facebook.componen
 import { GoogleComponent } from './templates/button/google/google.component';
 import { CarouselComponent } from './templates/carousel/carousel.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgModule } from '@angular/core';
+import { MatInputModule, MatMenuModule, MatIconModule, MatInput, MatIcon, MatSuffix } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -82,19 +81,19 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     ModalModule.forRoot(),
     BootstrapModalModule,
     BrowserModule,
-    //TextMaskModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatNativeDateModule,
     MatDatepickerModule,
     MatInputModule,
-    // MatMenuModule,
+    MatMenuModule,
     MatNativeDateModule,
     MatInputModule,
     MatIconModule,
-    // MatPaginatorModule,
-    // MatToolbarModule
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    // ContextMenuModule.forRoot({
+    //   useBootstrap4: true,
+    // })
   ],
   providers: [
     CordovaService, 

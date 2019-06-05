@@ -141,7 +141,7 @@ export class AppointmentsWizardComponent extends AppBase {
     super(session);
   }
 
-  @ViewChild(CarouselComponent) private carouselComponent : CarouselComponent;
+  @ViewChild(CarouselComponent, { static: false }) private carouselComponent : CarouselComponent;
 
   protected appointment : Appointment;
   protected types : AppointmentType[];

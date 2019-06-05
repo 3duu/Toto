@@ -22,10 +22,10 @@ export class LoginComponent extends AppBase {
 
   loginForm: NgForm;
 
-  @ViewChild(AlertComponent) private alert: AlertComponent;
-  @ViewChild(FacebookComponent) private facebook: FacebookComponent;
-  @ViewChild(GoogleComponent) private google : GoogleComponent;
-  @ViewChild(SignInComponent) private signin : SignInComponent;
+  @ViewChild(AlertComponent, { static: true }) private alert: AlertComponent;
+  @ViewChild(FacebookComponent, { static: true }) private facebook: FacebookComponent;
+  @ViewChild(GoogleComponent, { static: true }) private google : GoogleComponent;
+  @ViewChild(SignInComponent, { static: true }) private signin : SignInComponent;
   
   constructor(session : SessionService, private router: Router) {
     super(session);

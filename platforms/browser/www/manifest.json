@@ -6,13 +6,7 @@
   "version": "br.com.duti.toppet",
   "description": "Manage you Pet Life",
   "author": "DUTI",
-  "icons": [
-    {
-      "src": "/tigela-de-cachorro.png",
-      "type": "image/png",
-      "sizes": "50x50"
-    }
-  ],
+  "icons": [],
   "orientation": "any",
   "start_url": "index.html"
 }

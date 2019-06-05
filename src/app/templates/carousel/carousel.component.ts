@@ -19,12 +19,12 @@ export class CarouselComponent implements AfterContentInit {
   @Input("disable-controls") disableControls : boolean = false;
   @Input("indicator-bottom") indicatorBottom : string = "";
 
-  @ViewChild("items") items: ElementRef;
-  @ViewChild("nextInput") private nextInput: ElementRef;
-  @ViewChild("previousInput") private previousInput: ElementRef;
-  @ViewChild("indicator") private indicator: ElementRef;
-  @ViewChild("carouselExampleIndicators") private carouselExampleIndicators: ElementRef;
-
+  @ViewChild("items", { static: true }) items: ElementRef;
+  @ViewChild("nextInput", { static: true }) private nextInput: ElementRef;
+  @ViewChild("previousInput", { static: true }) private previousInput: ElementRef;
+  @ViewChild("indicator", { static: true }) private indicator: ElementRef;
+  @ViewChild("carouselExampleIndicators", { static: true }) private carouselExampleIndicators: ElementRef;
+l
   private _contents = [];
   private _currentPage : number = 0;
 

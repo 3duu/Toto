@@ -397,22 +397,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-context-menu/www/ContextMenu.js",
-        "id": "cordova-plugin-context-menu.ContextMenu",
-        "pluginId": "cordova-plugin-context-menu",
-        "clobbers": [
-            "ContextMenu"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-context-menu/src/browser/ContextMenuProxy.js",
-        "id": "cordova-plugin-context-menu.ContextMenuProxy",
-        "pluginId": "cordova-plugin-context-menu",
-        "merges": [
-            ""
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-listpicker/www/ListPicker.js",
         "id": "cordova-plugin-listpicker.ListPicker",
         "pluginId": "cordova-plugin-listpicker",
@@ -433,7 +417,6 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-camera": "4.0.3",
     "cordova-sqlite-storage": "3.2.0",
-    "cordova-plugin-context-menu": "0.1.1",
     "cordova-plugin-listpicker": "2.2.2"
 }
 // BOTTOM OF METADATA

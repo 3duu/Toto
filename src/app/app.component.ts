@@ -1,10 +1,10 @@
+import { Router } from '@angular/router';
+import { OnInit, ViewChild, Component } from '@angular/core';
 import { WELCOME_PAGE } from './application';
-import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MenuService } from './navbar/menuService';
 import { environment } from '../environments/environment';
 import { SessionService } from './session/session.service';
-import { Router } from '@angular/router';
 import { ReturnCode } from './entity/system';
 
 //https://fontawesome.com/icons?d=gallery&c=charity&m=free
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   //static language : Language = new Language();
   // Keep track of list of generated components for removal purposes
-  @ViewChild(NavbarComponent) private menu : NavbarComponent;
+  @ViewChild(NavbarComponent, { static: true }) private menu : NavbarComponent;
 
   constructor(private router : Router, private session : SessionService, private menuService : MenuService) {
   

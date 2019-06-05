@@ -14,6 +14,7 @@ import { ReturnCode } from '../entity/system';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
 import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
+//import { ContextMenuComponent } from '../lib/contextmenu/contextMenu.component';
 
 @Component({
   selector: 'app-pets',
@@ -34,8 +35,13 @@ export class PetsComponent extends AppBase {
   protected menuEntries = [];
   private contextMenu : any;
 
-  @ViewChild("addButton") private addButton;
-  @ViewChild(TutorialComponent) tutorialComponent : TutorialComponent;
+  @ViewChild(TutorialComponent, { static: true }) tutorialComponent : TutorialComponent;
+  //@ViewChild(ContextMenuComponent, { static: true }) public basicMenu: ContextMenuComponent;
+
+  public items = [
+      { name: 'John', otherProperty: 'Foo' },
+      { name: 'Joe', otherProperty: 'Bar' }
+  ];
 
   get pets() : Pet[] {
     return this._pets;
@@ -51,7 +57,6 @@ export class PetsComponent extends AppBase {
   }
 
   ngAfterViewInit() {
-    this.cordova.window.float = this.addButton.nativeElement;
     if(!this.loading && (this.user == undefined || this.user.pets == undefined || this.user.pets.length == 0)){
       setTimeout(() => this.tutorialComponent.show());
     }
@@ -260,7 +265,7 @@ export class BreedPickerComponent extends AppBase  {
     }
   }
 
-  @ViewChild("modalBody") private modalBody;
+  @ViewChild("modalBody", { static: true }) private modalBody;
 
   ngAfterViewInit(): void {
     this.modalBody.nativeElement.style.overflowY = "auto";
@@ -288,7 +293,7 @@ export class BreedPickerComponent extends AppBase  {
 })
 export class PetInfoComponent extends AppBase {
 
-  @ViewChild(AlertComponent) private alert: AlertComponent;
+  @ViewChild(AlertComponent, { static: true }) private alert: AlertComponent;
   
   constructor(session : SessionService/*, private cordova : CordovaService*/){
     super(session);
@@ -440,10 +445,10 @@ export class PetPictureComponent extends AppBase {
 })
 export class PetsWizardComponent extends AppBase {
 
-  @ViewChild(PetTypeComponent) private petTypeComponent : PetTypeComponent;
-  @ViewChild(PetInfoComponent) private petInfoComponent : PetInfoComponent;
-  @ViewChild(PetPictureComponent) private petPictureComponent : PetPictureComponent;
-  @ViewChild(CarouselComponent) private carouselComponent : CarouselComponent;
+  @ViewChild(PetTypeComponent, { static: true }) private petTypeComponent : PetTypeComponent;
+  @ViewChild(PetInfoComponent, { static: true }) private petInfoComponent : PetInfoComponent;
+  @ViewChild(PetPictureComponent, { static: true }) private petPictureComponent : PetPictureComponent;
+  @ViewChild(CarouselComponent, { static: true }) private carouselComponent : CarouselComponent;
 
   private pet : Pet;
 

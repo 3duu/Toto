@@ -17,7 +17,7 @@ export class HomeComponent extends AppBase {
     super(session);
   }
 
-  @ViewChild(AppointmentsThumbComponent) appointmentsComponent : AppointmentsThumbComponent;
+  @ViewChild(AppointmentsThumbComponent, { static: false }) appointmentsComponent : AppointmentsThumbComponent;
 
   ngOnInit() {
     this.title = this.applicationName;
