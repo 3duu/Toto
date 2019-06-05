@@ -4,7 +4,7 @@ public enum AppointmentExecutionFrequency {
 	
 	ONCE(0),
 	DAILY_BASIS(1),
-	WORKING_DAY(2),
+	WEEKDAY(2),
 	WEEKEND(3);
 	
 	private final int value;

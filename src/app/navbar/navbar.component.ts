@@ -1,8 +1,6 @@
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, NgZone, ElementRef } from '@angular/core';
-import { User } from 'src/app/entity/entities';
-import { ObjectUtils } from '../utils';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,10 +13,9 @@ export class NavbarComponent extends AppBase {
   disableMenu = false;
   disable = true;
   navbarOpen = false;
-  user : User;
   private _height : number;
 
-  constructor(session: SessionService, 
+  constructor(session: SessionService,
     private zone : NgZone, 
     private router: Router, 
     private element : ElementRef) {

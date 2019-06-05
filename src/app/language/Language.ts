@@ -1,4 +1,4 @@
-import { Weekends, WorkingDays } from './../entity/system';
+import { Weekday } from './../entity/system';
 import { Injectable } from '@angular/core';
 import { PETS_PAGE, HOME_PAGE, WELCOME_PAGE, LOGIN_PAGE } from '../application';
 import { AppointmentExecutionFrequency } from '../entity/entities';
@@ -95,7 +95,7 @@ export class LanguageService {
         else if(often == AppointmentExecutionFrequency.WEEKEND){
             return "Finais de Semanas";
         }
-        else if(often == AppointmentExecutionFrequency.WORKING_DAY){
+        else if(often == AppointmentExecutionFrequency.WEEKDAY){
             return "Durante a Semana";
         }
         else {
@@ -103,33 +103,27 @@ export class LanguageService {
         }
     }
 
-    getWeekend(wknd : Weekends)  {
-        if(wknd == Weekends.SUNDAY){
-            return "Domingo";
-        }
-        else if(wknd == Weekends.SATURDAY){
-            return "Sábado";
-        }
-        else {
-            return "";
-        }
-    }
-
-    getWorkingDay(work : WorkingDays)  {
-        if(work == WorkingDays.MONDAY){
+    getWeekday(work : Weekday)  {
+        if(work == Weekday.MONDAY){
             return "Segunda-feira";
         }
-        else if(work == WorkingDays.TUESDAY){
+        else if(work == Weekday.TUESDAY){
             return "Terça-feira";
         }
-        else if(work == WorkingDays.WEDNESDAY){
+        else if(work == Weekday.WEDNESDAY){
             return "Quarta-feira";
         }
-        else if(work == WorkingDays.THURSDAY){
+        else if(work == Weekday.THURSDAY){
             return "Quinta-feira";
         }
-        else if(work == WorkingDays.FRIDAY){
+        else if(work == Weekday.FRIDAY){
             return "Sexta-feira";
+        }
+        else if(work == Weekday.SATURDAY){
+            return "Sábado";
+        }
+        else if(work == Weekday.SUNDAY){
+            return "Domingo";
         }
         else {
             return "";

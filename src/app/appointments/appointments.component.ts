@@ -1,7 +1,7 @@
-import { WorkingDays, Weekends } from './../entity/system';
+import { Weekday, getWeekday, addDays } from './../entity/system';
 import { AppointmentsApiService } from './../service/services';
 import { CarouselComponent } from './../templates/carousel/carousel.component';
-import { Appointment, User, Pet, AppointmentType, AppointmentExecutionFrequency } from './../entity/entities';
+import { Appointment, Pet, AppointmentType, AppointmentExecutionFrequency } from './../entity/entities';
 import { SessionService } from './../session/session.service';
 import { Component, ViewChild, Inject } from '@angular/core';
 import { AppBase } from '../appbase';
@@ -43,14 +43,7 @@ export class AppointmentsComponent extends AppBase {
         if(result.code == ReturnCode.SUCCESS){
 
           result.data.forEach(app => {
-            const a = new Appointment();
-            a.id = app.id;
-            a.date = new Date(app.date);
-            a.appointmentType = app.appointmentType;
-            a.description = app.description;;
-            a.frequencyType = app.frequencyType;
-            a.pet = app.pet;
-            this.appointments.push(a);
+            this.appointments.push(Appointment.newInstance(result.date, app));
           });
 
           console.log(this.appointments);
@@ -81,7 +74,6 @@ export class AppointmentsThumbComponent extends AppBase {
   }
 
   protected appointments : Appointment[] = [];
-  user : User;
 
   ngOnInit(){
     
@@ -92,6 +84,11 @@ export class AppointmentsThumbComponent extends AppBase {
     this.loading = true;
     if(!ObjectUtils.isEmpty(this.user)){
 
+      if(this.session.getCurrentUser() == undefined){
+        this.loading = false;
+        return;
+      }
+
       this.api.getByUser(this.session.getCurrentUser()).subscribe(result => {
 
         console.log(result);
@@ -100,14 +97,7 @@ export class AppointmentsThumbComponent extends AppBase {
         if (result && result.sid) {
           if(result.code == ReturnCode.SUCCESS){
             result.data.forEach(app => {
-              const a = new Appointment();
-              a.id = app.id;
-              a.date = new Date(app.date);
-              a.appointmentType = app.appointmentType;
-              a.description = app.description;;
-              a.frequencyType = app.frequencyType;
-              a.pet = app.pet;
-              this.appointments.push(a);
+              this.appointments.push(Appointment.newInstance(result.date, app));
             });
           }
         }
@@ -147,28 +137,23 @@ export class AppointmentsWizardComponent extends AppBase {
   protected types : AppointmentType[];
   protected frequency : Domain[];
   protected workingdays : Domain[];
-  protected weekends : Domain[];
 
   protected type : number = 1;
   protected often : number = 0;
   protected time : string = "12:00";
-  protected weekend : number = 0;
   protected workingday : number = 0;
   protected date : Date;
 
   private finish : boolean = false;
-  protected currentDate : Date;
+  protected currentDate : Date = new Date();
 
   ngOnInit() {
-    this.appointment = new Appointment();
-    //this.appointment.user = this.session.getCurrentUser();
-    this.appointment.appointmentType = new AppointmentType();
+
+    this.appointment = new Appointment(this.currentDate);
     this.loading = true;
     const types = this.api.getTypes();
-
     this.frequency = Domain.fromEnum(AppointmentExecutionFrequency, this.language.getAppointmentOften);
-    this.workingdays = Domain.fromEnum(WorkingDays, this.language.getWorkingDay);
-    this.weekends = Domain.fromEnum(Weekends, this.language.getWeekend);
+    this.workingdays = Domain.fromEnum(Weekday, this.language.getWeekday);
     this.setDate();
     types.subscribe(result => {
 
@@ -197,12 +182,11 @@ export class AppointmentsWizardComponent extends AppBase {
 
   private setDate() {
 
-    this.currentDate = new Date();
-    const ping = this.session.authenticationService.infoService.doPing();
-    ping.subscribe(result => {
+    this.session.authenticationService.infoService.doPing().subscribe(result => {
 
       if(result.code == ReturnCode.SUCCESS) {
         this.currentDate = new Date(result.date);
+        this.appointment = new Appointment(this.currentDate);
         this.date = this.currentDate;
       }
     });
@@ -214,42 +198,59 @@ export class AppointmentsWizardComponent extends AppBase {
     if(this.loading)
       return;
 
-    this.appointment.date = this.date != undefined ? this.date : this.currentDate;
-    if(StringUtils.isEmpty(this.time)){
-      this.time = this.currentDate.getHours() + ":" + this.currentDate.getMinutes();
-    }
-    this.loading = true;
+    try{
 
-    const often = Domain.getDomainByValue(this.often, this.frequency);
-    this.appointment.frequencyType = ObjectUtils.isEmpty(often) ? AppointmentExecutionFrequency.ONCE : often.enumValue;
+      this.appointment.date = this.date != undefined ? this.date : this.currentDate;
+      if(StringUtils.isEmpty(this.time)){
+        this.time = this.currentDate.getHours() + ":" + this.currentDate.getMinutes();
+      }
+      this.loading = true;
 
-    this.appointment.appointmentType.id = this.type;
+      const often = Domain.getDomainByValue(this.often, this.frequency);
+      this.appointment.frequencyType = ObjectUtils.isEmpty(often) ? AppointmentExecutionFrequency.ONCE : often.enumValue;
 
-    //add time to date
-    const time = this.time.split(":");
-    const hours = parseInt(time[0]);
-    const minutes = parseInt(time[1]);
-    this.appointment.date.setHours(hours, minutes, 0, 0);
-
-    const saving = this.api.save(this.appointment);
-    saving.subscribe(result => {
-
-      console.log(result);
-      this.loading = false;
-
-      if(result && result.sid) {
-        if(result.code == ReturnCode.SUCCESS){
-          this.session.zone.run(() =>
-          this.router.navigate(['.'], { relativeTo: this.activatedRoute.parent }));
-          this.appointmentsComponent.loadAppointments();
+      if(this.appointment.frequencyType == AppointmentExecutionFrequency.WEEKDAY){
+        this.appointment.date = new Date("2-27-1991");
+        for(let i = 0; i < 7; i++){
+          if(getWeekday(this.appointment.date) != this.workingday){
+            this.appointment.date = addDays(this.appointment.date, 1);
+          }
         }
+        console.log(this.language.getWeekday(getWeekday(this.appointment.date)));
       }
       
-    }, error => {
-      console.error(error);
+      if(this.appointment.appointmentType == undefined) {
+        this.appointment.appointmentType = new AppointmentType();
+      }
+      this.appointment.appointmentType.id = this.type;
+  
+      //add time to date
+      const time = this.time.split(":");
+      const hours = parseInt(time[0]);
+      const minutes = parseInt(time[1]);
+      this.appointment.date.setHours(hours, minutes, 0, 0);
+  
+      const saving = this.api.save(this.appointment);
+      saving.subscribe(result => {
+  
+        console.log(result);
+        this.loading = false;
+  
+        if(result && result.sid) {
+          if(result.code == ReturnCode.SUCCESS){
+            this.session.zone.run(() =>
+            this.router.navigate(['.'], { relativeTo: this.activatedRoute.parent }));
+            this.appointmentsComponent.loadAppointments();
+          }
+        }
+      }, error => {
+        console.error(error);
+        this.loading = false;
+      });
+    }
+    catch(e){
       this.loading = false;
-    });
-
+    }
   }
 
 

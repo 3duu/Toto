@@ -28,13 +28,15 @@ export class Domain {
         return domains;
     }
 
-    static getDomainByValue(value, domains : Domain[]) : Domain {
+    static getDomainByValue(value : number, domains : Domain[]) : Domain {
+        let domain : Domain;
         domains.forEach(d => {
-            if(d.value == value){
-                return d;
+            if(d.value.toString() === value.toString()){
+                domain = d;
+                return domain;
             }
         });
-        return null;
+        return domain;
     }
 
     static getDomainByEnumValue(enumValue, domains : Domain[]) : Domain {
@@ -47,15 +49,24 @@ export class Domain {
     }
 }
 
-export enum WorkingDays {
+export enum Weekday {
+    SUNDAY,
     MONDAY,
     TUESDAY,
     WEDNESDAY,
     THURSDAY,
     FRIDAY,
+    SATURDAY
 }
 
-export enum Weekends {
-    SATURDAY,
-    SUNDAY
+export let getWeekday = (date : Date) : Weekday => {
+    return Weekday[date.toLocaleString('en-us', {  weekday: 'long' }).toUpperCase()];
 }
+
+export let addDays = (date: Date, days: number) : Date => {
+    //console.log('adding ' + days + ' days');
+    //console.log(date);
+    date.setDate(date.getDate() + days);
+    //console.log(date);
+    return date;
+  }

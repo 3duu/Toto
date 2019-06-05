@@ -1,4 +1,6 @@
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
+import { Weekday, getWeekday, addDays } from './system';
+import { LanguageService } from '../language/Language';
 
 export class Rating {
 
@@ -9,17 +11,12 @@ export class Rating {
     value : number;
     owner : User;
     rated : User;
-    
-    constructor() { }
 }
 
 export class Bookmark {
 
     id : number;
     user : User;
-
-    constructor() { }
-  
 }
 
 export class User {
@@ -33,17 +30,14 @@ export class User {
     loginType: SociaNetworkType;
     pets: Pet[];
 
-    //bookmarks: Bookmark[];
+    bookmarks: Bookmark[];
 
-    //ratings: Rating[];
+    ratings: Rating[];
 
-    //myRatings: Rating[];
+    myRatings: Rating[];
 
     petServices: PetService[];
     rate : number;
-
-    constructor() { }
-  
 }
 
 export enum State {
@@ -86,9 +80,6 @@ export class Address {
     city : string;
     state : State;
     geolocationstate : Geolocation;
-
-    constructor() { }
-  
 }
 
 export enum PetServiceType {
@@ -103,9 +94,6 @@ export class ServiceType {
 
     id : number;
     name : string;
-
-    constructor() { }
-  
 }
 
 export class Appointment {
@@ -118,24 +106,75 @@ export class Appointment {
     user : User;
     frequencyType : AppointmentExecutionFrequency;
 
+    constructor(private today : Date) {}
+
+    static newInstance(date, data) : Appointment  {
+        const a : Appointment = new Appointment(new Date(date));
+        a.id = data.id;
+        a.date = new Date(data.date);
+        a.appointmentType = new AppointmentType();
+        a.appointmentType.id = data.appointmentType.id;
+        a.appointmentType.description = data.appointmentType.description;
+        a.description = data.description;;
+        a.frequencyType = AppointmentExecutionFrequency[<string>data.frequencyType];
+        a.pet = data.pet;
+        return a;
+    }
+
+    get alarm() : Date {
+
+        let dt : Date = this.today;
+        switch(this.frequencyType) {
+
+            case AppointmentExecutionFrequency.DAILY_BASIS:
+                dt.setHours(this.today.getHours());
+                dt.setMinutes(this.today.getMinutes());
+                return dt;
+            case AppointmentExecutionFrequency.WEEKDAY:
+                const weekday = getWeekday(this.date);
+                for(let i = 0; i < 7; i++){
+                    if(getWeekday(dt) != weekday){
+                        dt = addDays(dt, 1);
+                    }
+                }
+                dt.setHours(this.date.getHours());
+                dt.setMinutes(this.date.getMinutes());
+                return dt;
+            case AppointmentExecutionFrequency.WEEKEND:
+                for(let i = 0; i < 7; i++){
+                    if(getWeekday(dt) != Weekday.SATURDAY && getWeekday(dt) != Weekday.SUNDAY){
+                        dt = addDays(dt, 1);
+                    }
+                }
+                dt.setHours(this.date.getHours());
+                dt.setMinutes(this.date.getMinutes());
+                return dt;
+        }
+        return this.date;
+    }
+
     get day() : number {
-        return this.date.getUTCDate();
+        return this.alarm.getUTCDate();
     }
 
     get month() : string {
-        return Month[Object.keys(Month)[this.date.getUTCMonth()]];
+        return Month[Object.keys(Month)[this.alarm.getUTCMonth()]];
     }
 
     get year() : number {
-        return this.date.getFullYear();
+        return this.alarm.getFullYear();
     }
 
     get time() : number {
-        return this.date.getTime();
+        return this.alarm.getTime();
     }
 
     get fulldate() : string {
-        return (this.date.getUTCMonth() + 1) + "-" + this.day  + "-" + this.year;
+        return (this.alarm.getUTCMonth() + 1) + "-" + this.day  + "-" + this.year;
+    }
+
+    get weekday() : string {
+        return new LanguageService().getWeekday(getWeekday(this.alarm));
     }
 
 }
@@ -165,7 +204,7 @@ export enum AppointmentExecutionFrequency {
 
     ONCE,
     DAILY_BASIS,
-    WORKING_DAY,
+    WEEKDAY,
     WEEKEND
 }
 
