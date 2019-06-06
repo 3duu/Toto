@@ -15,11 +15,6 @@
 	margin-top:22px;
 }
 
-/* body {
-	padding: 60px 0px;
-	background-color: rgb(220, 220, 220);
-} */
-
 .event-list {
 	list-style: none;
 	font-family: 'Lato', sans-serif;
@@ -60,6 +55,14 @@
 	font-weight: 950;
 	line-height: 1;
 }
+
+.event-list > li time > .title {
+	display: block;
+	font-size: 12pt;
+	font-weight: 650;
+	line-height: 1;
+}
+
 .event-list > li > img {
 	width: 100%;
 }

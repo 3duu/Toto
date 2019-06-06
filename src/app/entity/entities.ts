@@ -252,3 +252,9 @@ export class Breed {
 	description : string;
 	petType : PetType;
 }
+
+export class Notification {
+    description : string;
+    appointmentType: AppointmentType;
+    viewed : boolean;
+}
