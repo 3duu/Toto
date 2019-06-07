@@ -46,7 +46,6 @@ export class AppointmentsComponent extends AppBase {
             this.appointments.push(Appointment.newInstance(result.date, app));
           });
 
-          console.log(this.appointments);
           (<any>window).appointments = this.appointments;
         }
       }
@@ -74,10 +73,6 @@ export class AppointmentsThumbComponent extends AppBase {
   }
 
   protected appointments : Appointment[] = [];
-
-  ngOnInit(){
-    
-  }
 
   ngAfterViewInit() {
 

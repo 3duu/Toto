@@ -1213,7 +1213,7 @@ var AppointmentExecutionFrequency;
 (function (AppointmentExecutionFrequency) {
     AppointmentExecutionFrequency[AppointmentExecutionFrequency["ONCE"] = 0] = "ONCE";
     AppointmentExecutionFrequency[AppointmentExecutionFrequency["DAILY_BASIS"] = 1] = "DAILY_BASIS";
-    AppointmentExecutionFrequency[AppointmentExecutionFrequency["WEEKDAY"] = 2] = "WEEKDAY";
+    AppointmentExecutionFrequency[AppointmentExecutionFrequency["WORKING_DAY"] = 2] = "WORKING_DAY";
     AppointmentExecutionFrequency[AppointmentExecutionFrequency["WEEKEND"] = 3] = "WEEKEND";
 })(AppointmentExecutionFrequency || (AppointmentExecutionFrequency = {}));
 var PetService = /** @class */ (function () {
@@ -1564,7 +1564,7 @@ var LanguageService = /** @class */ (function () {
         else if (often == _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"].WEEKEND) {
             return "Finais de Semanas";
         }
-        else if (often == _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"].WEEKDAY) {
+        else if (often == _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"].WORKING_DAY) {
             return "Durante a Semana";
         }
         else {
