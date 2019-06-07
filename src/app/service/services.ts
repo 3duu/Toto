@@ -14,7 +14,8 @@ import { LanguageService } from '../language/Language';
 import { ObjectUtils } from '../utils';
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 import { environment } from '../../environments/environment';
-
+//sudo ssh -i "toppet-keypair.pem" ubuntu@18.228.12.209
+scp -i "toppet-keypair.pem" petlife.jar ubuntu@18.228.12.209:toppet
 // Set the http options
 export const httpHeaders = new HttpHeaders({"Content-Type": 
 "application/json","Access-Control-Allow-Origin": "*",
@@ -36,7 +37,7 @@ class ApiService {
   protected endpoint : string;
 
   constructor() {
-    this.endpoint = endpoints.local;
+    this.endpoint = endpoints.aws;
     console.log(this.endpoint);
   }
 
