@@ -39,26 +39,26 @@ public class UserRepository extends GenericRepository<User> implements IUserRepo
 		return users.isEmpty() ? null : users.get(0);
 	}
 	
-	@Override
-	public final UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-		final String jpql = "SELECT u FROM User u WHERE u.username = :login";
-		List<User> users = null;
-		if(username == null)
-			throw new UsernameNotFoundException("Erro ao fazer login");
-		try{
-			users = getEntityManager().createQuery(jpql, User.class)
-					.setParameter(LOGIN, username).getResultList();
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-
-		if(users == null || users.isEmpty()){
-			throw new UsernameNotFoundException("O usuário " + username + " não existe");
-		}
-		
-		return users.get(0);
-	}
+//	@Override
+//	public final UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
+//		final String jpql = "SELECT u FROM User u WHERE u.username = :login";
+//		List<User> users = null;
+//		if(username == null)
+//			throw new UsernameNotFoundException("Erro ao fazer login");
+//		try{
+//			users = getEntityManager().createQuery(jpql, User.class)
+//					.setParameter(LOGIN, username).getResultList();
+//		}
+//		catch(Exception e){
+//			e.printStackTrace();
+//		}
+//
+//		if(users == null || users.isEmpty()){
+//			throw new UsernameNotFoundException("O usuário " + username + " não existe");
+//		}
+//		
+//		return users.get(0);
+//	}
 	
 	@Override
 	public User getByUsername(final String username) {

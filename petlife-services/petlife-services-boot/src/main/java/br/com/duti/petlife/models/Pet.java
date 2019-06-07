@@ -28,7 +28,7 @@ public class Pet implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	
 	@Column(name="name", length=22, nullable=false)
 	private String name;
@@ -63,11 +63,11 @@ public class Pet implements Serializable {
 	@Transient
 	private List<Appointment> appointments;
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

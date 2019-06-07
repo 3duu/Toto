@@ -31,7 +31,7 @@ public class Appointment  implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	
 	@Column(name="date", nullable=false)
 	private Date date;
@@ -55,11 +55,11 @@ public class Appointment  implements Serializable {
 	@Enumerated(EnumType.ORDINAL)
 	private AppointmentExecutionFrequency frequencyType;
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -32,7 +32,7 @@ public class PetService implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	
 	@Column(name="creation_date", nullable=false)
 	private Date creationDate;
@@ -54,11 +54,11 @@ public class PetService implements Serializable {
             inverseJoinColumns = @JoinColumn( name="address_id"))
 	private List<Address> addresses;
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
