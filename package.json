@@ -45,7 +45,9 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-listpicker": {}
     },
-    "platforms": []
+    "platforms": [
+      "android"
+    ]
   },
   "scripts": {
     "ng": "ng",
@@ -81,7 +83,6 @@
     "cordova-plugin-googlemaps": "~2.5.2",
     "cordova-plugin-inappbrowser": "~3.0.0",
     "cordova-plugin-listpicker": "2.2.2",
-    "cordova-plugin-local-notifications": "1.0.0",
     "cordova-plugin-safariviewcontroller": "~1.5.4",
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-sqlite-storage": "3.2.0",
