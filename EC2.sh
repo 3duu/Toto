@@ -1,1 +1,1 @@
-sudo ssh -i 'C:\toppet-keypair.pem' ubuntu@52.7.233.209
+sudo ssh -i 'toppet-keypair.pem' ubuntu@18.228.12.209

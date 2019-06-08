@@ -4,6 +4,7 @@
     <description>
         Manage you Pet Life
     </description>
+    <icon height="50" src="/tigela-de-cachorro.png" width="50" />
     <author email="eduu.porto@gmail.com" href="http://phonegap.com">
         DUTI
     </author>
@@ -56,5 +57,4 @@
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
     <plugin name="cordova-sqlite-storage" spec="3.2.0" />
     <plugin name="cordova-plugin-listpicker" spec="2.2.2" />
-    <engine name="android" spec="^7.1.4" />
 </widget>

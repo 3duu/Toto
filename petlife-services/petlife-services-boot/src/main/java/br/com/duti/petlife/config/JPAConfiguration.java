@@ -69,10 +69,12 @@ public class JPAConfiguration {
 	
 	private Properties additionalProperties() {
 		
-		Properties properties = new Properties();
+		final Properties properties = new Properties();
 		properties.setProperty("hibernate.hbm2ddl.auto","update");
 		properties.setProperty("hibernate.dialect", dataSourceProperties.getDialect());
 		properties.setProperty("hibernate.show_sql", "true");
+		//properties.setProperty("hibernate.temp.use_jdbc_metadata_defaults", "false");
+		properties.setProperty("hibernate.jdbc.lob.non_contextual_creation", "true");
 		
 		return properties;
 	}
