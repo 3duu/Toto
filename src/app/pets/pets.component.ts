@@ -14,7 +14,6 @@ import { ReturnCode } from '../entity/system';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
 import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
-//import { ContextMenuComponent } from '../lib/contextmenu/contextMenu.component';
 
 @Component({
   selector: 'app-pets',
@@ -35,12 +34,12 @@ export class PetsComponent extends AppBase {
   protected menuEntries = [];
   private contextMenu : any;
 
-  @ViewChild(TutorialComponent, { static: true }) tutorialComponent : TutorialComponent;
+  @ViewChild(TutorialComponent, { static: false }) private tutorialComponent: TutorialComponent;
   //@ViewChild(ContextMenuComponent, { static: true }) public basicMenu: ContextMenuComponent;
 
   public items = [
-      { name: 'John', otherProperty: 'Foo' },
-      { name: 'Joe', otherProperty: 'Bar' }
+    { name: 'John', otherProperty: 'Foo' },
+    { name: 'Joe', otherProperty: 'Bar' }
   ];
 
   get pets() : Pet[] {
@@ -56,7 +55,7 @@ export class PetsComponent extends AppBase {
     this.setPets();
   }
 
-  ngAfterViewInit() {
+  ngAfterContentInit() {
     if(!this.loading && (this.user == undefined || this.user.pets == undefined || this.user.pets.length == 0)){
       setTimeout(() => this.tutorialComponent.show());
     }

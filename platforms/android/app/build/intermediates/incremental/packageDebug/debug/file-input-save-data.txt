@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Jun 08 00:14:43 BRT 2019
+#Sat Jun 08 14:38:44 BRT 2019
 1670.baseType=DIRECTORY
 1511.path=www/assets/font-awesome/svgs/brands/fulcrum.svg
 1391.set=ASSET
