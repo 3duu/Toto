@@ -10,6 +10,8 @@
 # dependencies
 /www/*
 /node_modules/*
+/platforms/android/*
+
 
 # profiling files
 chrome-profiler-events.json

@@ -1,6 +1,5 @@
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 import { Weekday, getWeekday, addDays } from './system';
-import { LanguageService } from '../language/Language';
 
 export class Rating {
 
@@ -173,8 +172,9 @@ export class Appointment {
         return (this.alarm.getUTCMonth() + 1) + "-" + this.day  + "-" + this.year;
     }
 
-    get weekday() : string {
-        return new LanguageService().getWeekday(getWeekday(this.alarm));
+    get weekday() : Weekday {
+        return getWeekday(this.alarm);
+        //return new LanguageService().getWeekday(getWeekday(this.alarm));
     }
 
 }
