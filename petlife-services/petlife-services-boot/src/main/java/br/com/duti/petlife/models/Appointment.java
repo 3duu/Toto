@@ -51,7 +51,7 @@ public class Appointment  implements Serializable {
 	@Transient
     private User user;
 	
-	@Column(name="frequency_type", nullable=false, length=2)
+	@Column(name="frequency_type", nullable=false)
 	@Enumerated(EnumType.ORDINAL)
 	private AppointmentExecutionFrequency frequencyType;
 

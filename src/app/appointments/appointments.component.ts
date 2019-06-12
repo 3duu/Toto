@@ -1,3 +1,4 @@
+import { AlertComponent } from './../templates/alert/alert.component';
 import { Weekday, getWeekday, addDays } from './../entity/system';
 import { AppointmentsApiService } from './../service/services';
 import { CarouselComponent } from './../templates/carousel/carousel.component';
@@ -9,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { APPOINTMENTS_WIZARD_PAGE } from '../application';
 import { ReturnCode, Domain } from '../entity/system';
 import { ObjectUtils, StringUtils } from '../utils';
+import { ColorClass } from '../styles/styles';
 
 @Component({
   selector: 'app-appointments',
@@ -127,6 +129,7 @@ export class AppointmentsWizardComponent extends AppBase {
   }
 
   @ViewChild(CarouselComponent, { static: false }) private carouselComponent : CarouselComponent;
+  @ViewChild("petSavingMsg", { static: false }) private alert: AlertComponent;
 
   protected appointment : Appointment;
   protected types : AppointmentType[];
@@ -159,10 +162,14 @@ export class AppointmentsWizardComponent extends AppBase {
         if(result.code == ReturnCode.SUCCESS){
           this.types = result.data;
         }
+        else {
+          this.alert.show(this.api.getErrorMessage(this.language, result.code), ColorClass.danger);
+        }
       }
       
     }, error => {
-      console.error(error);
+      //console.error(error);
+      this.alert.show(this.language.connectionError, ColorClass.danger);
       this.loading = false;
     });
   }
@@ -189,11 +196,13 @@ export class AppointmentsWizardComponent extends AppBase {
   }
 
   save() {
-
+    
     if(this.loading)
       return;
 
     try{
+
+      this.alert.hide();
 
       this.appointment.date = this.date != undefined ? this.date : this.currentDate;
       if(StringUtils.isEmpty(this.time)){
@@ -237,9 +246,13 @@ export class AppointmentsWizardComponent extends AppBase {
             this.router.navigate(['.'], { relativeTo: this.activatedRoute.parent }));
             this.appointmentsComponent.loadAppointments();
           }
+          else {
+            this.alert.show(this.api.getErrorMessage(this.language, result.code), ColorClass.danger);
+          }
         }
       }, error => {
-        console.error(error);
+        this.alert.show(this.language.connectionError, ColorClass.danger);
+        //console.error(error);
         this.loading = false;
       });
     }

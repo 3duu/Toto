@@ -65,7 +65,7 @@ public abstract class GenericRepository<T> {
 		}
 	}
 	
-	public final T findById(Class<?> obj, final Long id){
+	public final T findById(Class<?> obj, final Integer id){
 		try{
 			return (T) getEntityManager().find(obj, id);
 		}

@@ -34,7 +34,7 @@
                     </ul>
                 </div>
             </div>
-            <app-alert [visible]="user?.pets.length == 0" [message]="language.noPetsFound" type="info"></app-alert>
+            <app-alert #petListMessage [visible]="user?.pets.length == 0" [message]="language.noPetsFound" type="info"></app-alert>
         </div>
         <div class="text-center page2" #page2>
             <div class="form-signin">
@@ -71,5 +71,6 @@
             </div>
         </div>
     </app-carousel>
+    <app-alert #petSavingMsg></app-alert>
     <a href="javascript:;" *ngIf="finish" class="btn btn-toppet btn-round btn-go" (click)="save()"><i class="fa fa-check"></i></a>
 </div>

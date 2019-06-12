@@ -17,14 +17,14 @@ public class AppointmentRespository extends GenericRepository<Appointment> imple
 	private final String GET_APPOINTMENTS_LAST_QUERY = "SELECT p FROM Appointment p WHERE p.user.id = :id";
 
 	@Override
-	public List<Appointment> getByUser(final Long userId) {
+	public List<Appointment> getByUser(final Integer userId) {
 		return getEntityManager().createQuery(GET_APPOINTMENTS_QUERY, Appointment.class)
 				.setParameter(ID, userId)
 				.getResultList();
 	}
 	
 	@Override
-	public List<Appointment> getLastByUser(final Long userId, int max) {
+	public List<Appointment> getLastByUser(final Integer userId, int max) {
 		if(max <= 0) {
 			max = 1;
 		}

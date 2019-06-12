@@ -7,6 +7,6 @@ import br.com.duti.petlife.models.AppointmentType;
 public interface IAppointmentTypeRepository {
 
 	List<AppointmentType> getAll();
-	AppointmentType findById(Class<?> obj, final Long id);
+	AppointmentType findById(Class<?> obj, final Integer id);
 
 }

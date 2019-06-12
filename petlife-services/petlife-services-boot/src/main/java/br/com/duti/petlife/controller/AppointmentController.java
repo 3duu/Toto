@@ -40,7 +40,7 @@ public class AppointmentController {
 		ResponseEntity<Appointment> response = null;
 		try {
 			if(appointment.getAppointmentType() != null){
-				appointment.setAppointmentType(appointmentTypeRepository.findById(AppointmentType.class, (long) appointment.getAppointmentType().getId()));
+				appointment.setAppointmentType(appointmentTypeRepository.findById(AppointmentType.class, appointment.getAppointmentType().getId()));
 			}
 			response = new ResponseEntity<Appointment>(appointmentRespository.insert(appointment), RequestContextHolder.currentRequestAttributes().getSessionId());
 			if(response.getData() != null) {
@@ -59,7 +59,7 @@ public class AppointmentController {
     }
 	
 	@GetMapping(value="/retrieve", produces=MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<List<Appointment>> getAppointments(@RequestParam(value="userId") final Long userId) {
+    public @ResponseBody ResponseEntity<List<Appointment>> getAppointments(@RequestParam(value="userId") final Integer userId) {
 		
 		ResponseEntity<List<Appointment>> response = null;
 		

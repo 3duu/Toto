@@ -8,9 +8,9 @@ public interface IAppointmentRespository {
 
 	Appointment insert(Appointment appointment);
 
-	List<Appointment> getByUser(Long userId);
+	List<Appointment> getByUser(Integer userId);
 
-	List<Appointment> getLastByUser(Long userId, int max);
+	List<Appointment> getLastByUser(Integer userId, int max);
 	
 	void initialize(Object obj);
 
