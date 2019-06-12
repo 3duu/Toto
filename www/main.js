@@ -40,7 +40,7 @@ module.exports = "\r\n<div class=\"row\" style=\"height: 65%;\" style=\"backgrou
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <app-carousel [disable-controls]=\"true\">\r\n\r\n        <div class=\"row page1\" #page1>\r\n            <div class=\"col-xs-12 col-sm-offset-3 col-sm-6\" *ngIf=\"user?.pets.length > 0\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading c-list\">\r\n                        <span class=\"title\">{{language.myPet}}</span>\r\n                    </div>\r\n                    \r\n                    <div class=\"row\" style=\"display: none;\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"input-group c-search\">\r\n                                <input type=\"text\" class=\"form-control\" id=\"contact-list-search\">\r\n                                <span class=\"input-group-btn\">\r\n                                    <button class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-search text-muted\"></span></button>\r\n                                </span>\r\n                            </div>\r\n                        </div>\r\n                    </div>                                                                           \r\n                    \r\n                    <ul class=\"list-group\" id=\"contact-list\">\r\n                        <li class=\"list-group-item\">\r\n                            <a href=\"javascript:;\" *ngFor=\"let pet of user.pets\" (click)=\"selectPet(pet)\">\r\n                                <div class=\"col-xs-12 col-sm-3\">\r\n                                    <img src=\"{{pet.img}}\" class=\"img-responsive img-circle\" />\r\n                                </div>\r\n                                <div class=\"col-xs-12 col-sm-9\">\r\n                                    <span class=\"name\">{{pet.name}}</span><br/>\r\n                                </div>\r\n                                <div class=\"clearfix\"></div>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <app-alert [visible]=\"user?.pets.length == 0\" [message]=\"language.noPetsFound\" type=\"info\"></app-alert>\r\n        </div>\r\n        <div class=\"text-center page2\" #page2>\r\n            <div class=\"form-signin\">\r\n                <br>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentType}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"type\">\r\n                        <option *ngFor=\"let type of types\" value=\"{{type.id}}\">{{type.description}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentFrequency}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"often\">\r\n                        <option *ngFor=\"let d of frequency\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 0\">\r\n                    <input matInput [min]=\"currentDate\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [matDatepicker]=\"myDatepicker\" placeholder=\"{{language.date}}\" [(ngModel)]=\"date\" ngDefaultControl>\r\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #myDatepicker></mat-datepicker>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 2\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"workingday\">\r\n                        <option *ngFor=\"let d of workingdays\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input [ngxTimepicker]=\"picker\" [format]=\"24\"class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"time\" placeholder=\"{{language.hour}}\" type=\"text\" ngDefaultControl>\r\n                    <ngx-material-timepicker #picker></ngx-material-timepicker>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" maxlength=\"22\" matInput [(ngModel)]=\"appointment.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n    </app-carousel>\r\n    <a href=\"javascript:;\" *ngIf=\"finish\" class=\"btn btn-toppet btn-round btn-go\" (click)=\"save()\"><i class=\"fa fa-check\"></i></a>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n    <app-carousel [disable-controls]=\"true\">\r\n\r\n        <div class=\"row page1\" #page1>\r\n            <div class=\"col-xs-12 col-sm-offset-3 col-sm-6\" *ngIf=\"user?.pets.length > 0\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading c-list\">\r\n                        <span class=\"title\">{{language.myPet}}</span>\r\n                    </div>\r\n                    \r\n                    <div class=\"row\" style=\"display: none;\">\r\n                        <div class=\"col-xs-12\">\r\n                            <div class=\"input-group c-search\">\r\n                                <input type=\"text\" class=\"form-control\" id=\"contact-list-search\">\r\n                                <span class=\"input-group-btn\">\r\n                                    <button class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-search text-muted\"></span></button>\r\n                                </span>\r\n                            </div>\r\n                        </div>\r\n                    </div>                                                                           \r\n                    \r\n                    <ul class=\"list-group\" id=\"contact-list\">\r\n                        <li class=\"list-group-item\">\r\n                            <a href=\"javascript:;\" *ngFor=\"let pet of user.pets\" (click)=\"selectPet(pet)\">\r\n                                <div class=\"col-xs-12 col-sm-3\">\r\n                                    <img src=\"{{pet.img}}\" class=\"img-responsive img-circle\" />\r\n                                </div>\r\n                                <div class=\"col-xs-12 col-sm-9\">\r\n                                    <span class=\"name\">{{pet.name}}</span><br/>\r\n                                </div>\r\n                                <div class=\"clearfix\"></div>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <app-alert #petListMessage [visible]=\"user?.pets.length == 0\" [message]=\"language.noPetsFound\" type=\"info\"></app-alert>\r\n        </div>\r\n        <div class=\"text-center page2\" #page2>\r\n            <div class=\"form-signin\">\r\n                <br>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentType}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"type\">\r\n                        <option *ngFor=\"let type of types\" value=\"{{type.id}}\">{{type.description}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <mat-label>{{language.appointmentFrequency}}</mat-label>\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"often\">\r\n                        <option *ngFor=\"let d of frequency\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 0\">\r\n                    <input matInput [min]=\"currentDate\" aria-describedby=\"basic-addon1\" class=\"ember-view ember-text-field text-muted\" [matDatepicker]=\"myDatepicker\" placeholder=\"{{language.date}}\" [(ngModel)]=\"date\" ngDefaultControl>\r\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #myDatepicker></mat-datepicker>\r\n                </mat-form-field>\r\n                <mat-form-field *ngIf=\"often == 2\">\r\n                    <select matNativeControl class=\"ember-view ember-text-field text-muted\" [(ngModel)]=\"workingday\">\r\n                        <option *ngFor=\"let d of workingdays\" value=\"{{d.value}}\">{{d.text}}</option>\r\n                    </select>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input [ngxTimepicker]=\"picker\" [format]=\"24\"class=\"ember-view ember-text-field text-muted\" matInput [(ngModel)]=\"time\" placeholder=\"{{language.hour}}\" type=\"text\" ngDefaultControl>\r\n                    <ngx-material-timepicker #picker></ngx-material-timepicker>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <input class=\"ember-view ember-text-field text-muted\" maxlength=\"22\" matInput [(ngModel)]=\"appointment.description\" placeholder=\"{{language.description}}\" type=\"text\" ngDefaultControl>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n    </app-carousel>\r\n    <app-alert #petSavingMsg></app-alert>\r\n    <a href=\"javascript:;\" *ngIf=\"finish\" class=\"btn btn-toppet btn-round btn-go\" (click)=\"save()\"><i class=\"fa fa-check\"></i></a>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -271,7 +271,7 @@ module.exports = "<div class=\"container text-center\">\r\n  <h1 class=\"form-si
 /*! exports provided: name, version, displayName, endpoints, passwordConfig, cordova, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indraLocal":"http://192.168.137.1:9003","home2":"http://192.168.1.3:9003/toppet","home":"http://192.168.1.3:9003","aws":"http://54.233.202.28:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{},"cordova-plugin-listpicker":{}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"8.0.0","@angular/cdk":"8.0.0","@angular/common":"8.0.0","@angular/compiler":"~8.0.0","@angular/core":"8.0.0","@angular/forms":"8.0.0","@angular/material":"8.0.0","@angular/platform-browser":"8.0.0","@angular/platform-browser-dynamic":"8.0.0","@angular/router":"8.0.0","@types/jquery":"^3.3.29","ansi-escapes":"^3.2.0","braces":"2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"1.0.2","cordova-android":"^7.1.4","cordova-browser":"5.0.4","cordova-plugin-camera":"4.0.3","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-listpicker":"2.2.2","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","hammerjs":"^2.0.8","jquery":"^3.4.1","lodash":"4.17.11","luxon":"1.16.0","ngx-bootstrap":"3.2.0","ngx-material-timepicker":"3.1.0","ngx-modialog":"5.0.1","phonegap":"^8.2.2","popper.js":"^1.15.0","rxjs":"~6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"4.29.6","zone.js":"~0.9.1"},"devDependencies":{"@angular-devkit/build-angular":"~0.800.0","@angular/cli":"~8.0.1","@angular/compiler-cli":"~8.0.0","@angular/language-service":"~8.0.0","@types/node":"~8.9.4","@types/jasmine":"~3.3.8","@types/jasminewd2":"~2.0.3","codelyzer":"^5.0.0","jasmine-core":"~3.4.0","jasmine-spec-reporter":"~4.2.1","karma":"~4.1.0","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~2.0.1","karma-jasmine-html-reporter":"^1.4.0","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.15.0","typescript":"~3.4.3"}};
+module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indraLocal":"http://192.168.137.1:9003","home2":"http://192.168.1.3:9003/toppet","home":"http://192.168.1.3:9003","aws":"http://ec2-54-233-202-28.sa-east-1.compute.amazonaws.com:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{},"cordova-plugin-listpicker":{}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"8.0.0","@angular/cdk":"8.0.0","@angular/common":"8.0.0","@angular/compiler":"~8.0.0","@angular/core":"8.0.0","@angular/forms":"8.0.0","@angular/material":"8.0.0","@angular/platform-browser":"8.0.0","@angular/platform-browser-dynamic":"8.0.0","@angular/router":"8.0.0","@types/jquery":"^3.3.29","ansi-escapes":"^3.2.0","braces":"2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"1.0.2","cordova-android":"7.1.4","cordova-browser":"5.0.4","cordova-plugin-camera":"4.0.3","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-listpicker":"2.2.2","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","hammerjs":"^2.0.8","jquery":"^3.4.1","lodash":"4.17.11","luxon":"1.16.0","ngx-bootstrap":"3.2.0","ngx-material-timepicker":"3.1.0","ngx-modialog":"5.0.1","phonegap":"^8.2.2","popper.js":"^1.15.0","rxjs":"~6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"4.29.6","zone.js":"~0.9.1"},"devDependencies":{"@angular-devkit/build-angular":"~0.800.0","@angular/cli":"~8.0.1","@angular/compiler-cli":"~8.0.0","@angular/language-service":"~8.0.0","@types/node":"~8.9.4","@types/jasmine":"~3.3.8","@types/jasminewd2":"~2.0.3","codelyzer":"^5.0.0","jasmine-core":"~3.4.0","jasmine-spec-reporter":"~4.2.1","karma":"~4.1.0","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~2.0.1","karma-jasmine-html-reporter":"^1.4.0","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.15.0","typescript":"~3.4.3"}};
 
 /***/ }),
 
@@ -759,16 +759,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentsThumbComponent", function() { return AppointmentsThumbComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentsWizardComponent", function() { return AppointmentsWizardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../entity/system */ "./src/app/entity/system.ts");
-/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../service/services */ "./src/app/service/services.ts");
-/* harmony import */ var _templates_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../templates/carousel/carousel.component */ "./src/app/templates/carousel/carousel.component.ts");
-/* harmony import */ var _entity_entities__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../entity/entities */ "./src/app/entity/entities.ts");
-/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../application */ "./src/app/application.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+/* harmony import */ var _templates_alert_alert_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../templates/alert/alert.component */ "./src/app/templates/alert/alert.component.ts");
+/* harmony import */ var _entity_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../entity/system */ "./src/app/entity/system.ts");
+/* harmony import */ var _service_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../service/services */ "./src/app/service/services.ts");
+/* harmony import */ var _templates_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../templates/carousel/carousel.component */ "./src/app/templates/carousel/carousel.component.ts");
+/* harmony import */ var _entity_entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../entity/entities */ "./src/app/entity/entities.ts");
+/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../session/session.service */ "./src/app/session/session.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _appbase__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../appbase */ "./src/app/appbase.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../application */ "./src/app/application.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils */ "./src/app/utils.ts");
+/* harmony import */ var _styles_styles__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../styles/styles */ "./src/app/styles/styles.ts");
+
+
 
 
 
@@ -802,9 +806,9 @@ var AppointmentsComponent = /** @class */ (function (_super) {
         this.api.getByUser(this.user).subscribe(function (result) {
             _this.loading = false;
             if (result && result.sid) {
-                if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
+                if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].SUCCESS) {
                     result.data.forEach(function (app) {
-                        _this.appointments.push(_entity_entities__WEBPACK_IMPORTED_MODULE_4__["Appointment"].newInstance(result.date, app));
+                        _this.appointments.push(_entity_entities__WEBPACK_IMPORTED_MODULE_5__["Appointment"].newInstance(result.date, app));
                     });
                     window.appointments = _this.appointments;
                 }
@@ -816,21 +820,21 @@ var AppointmentsComponent = /** @class */ (function (_super) {
     };
     AppointmentsComponent.prototype.add = function () {
         var _this = this;
-        this.session.zone.run(function () { return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_9__["APPOINTMENTS_WIZARD_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute }); });
+        this.session.zone.run(function () { return _this.router.navigate([_application__WEBPACK_IMPORTED_MODULE_10__["APPOINTMENTS_WIZARD_PAGE"]], { replaceUrl: true, relativeTo: _this.activatedRoute }); });
     };
     AppointmentsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["Component"])({
             selector: 'app-appointments',
             template: __webpack_require__(/*! raw-loader!./appointments.component.html */ "./node_modules/raw-loader/index.js!./src/app/appointments/appointments.component.html"),
             styles: [__webpack_require__(/*! ./appointments.component.css */ "./src/app/appointments/appointments.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
-            _service_services__WEBPACK_IMPORTED_MODULE_2__["AppointmentsApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"],
+            _service_services__WEBPACK_IMPORTED_MODULE_3__["AppointmentsApiService"]])
     ], AppointmentsComponent);
     return AppointmentsComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_7__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_8__["AppBase"]));
 
 var AppointmentsThumbComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AppointmentsThumbComponent, _super);
@@ -843,7 +847,7 @@ var AppointmentsThumbComponent = /** @class */ (function (_super) {
     AppointmentsThumbComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
         this.loading = true;
-        if (!_utils__WEBPACK_IMPORTED_MODULE_10__["ObjectUtils"].isEmpty(this.user)) {
+        if (!_utils__WEBPACK_IMPORTED_MODULE_11__["ObjectUtils"].isEmpty(this.user)) {
             if (this.session.getCurrentUser() == undefined) {
                 this.loading = false;
                 return;
@@ -852,9 +856,9 @@ var AppointmentsThumbComponent = /** @class */ (function (_super) {
                 console.log(result);
                 _this.loading = false;
                 if (result && result.sid) {
-                    if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
+                    if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].SUCCESS) {
                         result.data.forEach(function (app) {
-                            _this.appointments.push(_entity_entities__WEBPACK_IMPORTED_MODULE_4__["Appointment"].newInstance(result.date, app));
+                            _this.appointments.push(_entity_entities__WEBPACK_IMPORTED_MODULE_5__["Appointment"].newInstance(result.date, app));
                         });
                     }
                 }
@@ -868,15 +872,15 @@ var AppointmentsThumbComponent = /** @class */ (function (_super) {
         return this.appointments == undefined || this.appointments.length == 0;
     };
     AppointmentsThumbComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["Component"])({
             selector: 'app-appointments-thumb',
             template: __webpack_require__(/*! raw-loader!./appointments.thumb.component.html */ "./node_modules/raw-loader/index.js!./src/app/appointments/appointments.thumb.component.html"),
             styles: [__webpack_require__(/*! ./appointments.component.css */ "./src/app/appointments/appointments.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _service_services__WEBPACK_IMPORTED_MODULE_2__["AppointmentsApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _service_services__WEBPACK_IMPORTED_MODULE_3__["AppointmentsApiService"]])
     ], AppointmentsThumbComponent);
     return AppointmentsThumbComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_7__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_8__["AppBase"]));
 
 var AppointmentsWizardComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AppointmentsWizardComponent, _super);
@@ -896,22 +900,26 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
     }
     AppointmentsWizardComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.appointment = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["Appointment"](this.currentDate);
+        this.appointment = new _entity_entities__WEBPACK_IMPORTED_MODULE_5__["Appointment"](this.currentDate);
         this.loading = true;
         var types = this.api.getTypes();
-        this.frequency = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].fromEnum(_entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"], this.language.getAppointmentOften);
-        this.workingdays = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].fromEnum(_entity_system__WEBPACK_IMPORTED_MODULE_1__["Weekday"], this.language.getWeekday);
+        this.frequency = _entity_system__WEBPACK_IMPORTED_MODULE_2__["Domain"].fromEnum(_entity_entities__WEBPACK_IMPORTED_MODULE_5__["AppointmentExecutionFrequency"], this.language.getAppointmentOften);
+        this.workingdays = _entity_system__WEBPACK_IMPORTED_MODULE_2__["Domain"].fromEnum(_entity_system__WEBPACK_IMPORTED_MODULE_2__["Weekday"], this.language.getWeekday);
         this.setDate();
         types.subscribe(function (result) {
             console.log(result);
             _this.loading = false;
             if (result && result.sid) {
-                if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
+                if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].SUCCESS) {
                     _this.types = result.data;
+                }
+                else {
+                    _this.alert.show(_this.api.getErrorMessage(_this.language, result.code), _styles_styles__WEBPACK_IMPORTED_MODULE_12__["ColorClass"].danger);
                 }
             }
         }, function (error) {
-            console.error(error);
+            //console.error(error);
+            _this.alert.show(_this.language.connectionError, _styles_styles__WEBPACK_IMPORTED_MODULE_12__["ColorClass"].danger);
             _this.loading = false;
         });
     };
@@ -925,9 +933,9 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
     AppointmentsWizardComponent.prototype.setDate = function () {
         var _this = this;
         this.session.authenticationService.infoService.doPing().subscribe(function (result) {
-            if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
+            if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].SUCCESS) {
                 _this.currentDate = new Date(result.date);
-                _this.appointment = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["Appointment"](_this.currentDate);
+                _this.appointment = new _entity_entities__WEBPACK_IMPORTED_MODULE_5__["Appointment"](_this.currentDate);
                 _this.date = _this.currentDate;
             }
         });
@@ -938,24 +946,25 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
         if (this.loading)
             return;
         try {
+            this.alert.hide();
             this.appointment.date = this.date != undefined ? this.date : this.currentDate;
-            if (_utils__WEBPACK_IMPORTED_MODULE_10__["StringUtils"].isEmpty(this.time)) {
+            if (_utils__WEBPACK_IMPORTED_MODULE_11__["StringUtils"].isEmpty(this.time)) {
                 this.time = this.currentDate.getHours() + ":" + this.currentDate.getMinutes();
             }
             this.loading = true;
-            var often = _entity_system__WEBPACK_IMPORTED_MODULE_1__["Domain"].getDomainByValue(this.often, this.frequency);
-            this.appointment.frequencyType = _utils__WEBPACK_IMPORTED_MODULE_10__["ObjectUtils"].isEmpty(often) ? _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"].ONCE : often.enumValue;
-            if (this.appointment.frequencyType == _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentExecutionFrequency"].WEEKDAY) {
+            var often = _entity_system__WEBPACK_IMPORTED_MODULE_2__["Domain"].getDomainByValue(this.often, this.frequency);
+            this.appointment.frequencyType = _utils__WEBPACK_IMPORTED_MODULE_11__["ObjectUtils"].isEmpty(often) ? _entity_entities__WEBPACK_IMPORTED_MODULE_5__["AppointmentExecutionFrequency"].ONCE : often.enumValue;
+            if (this.appointment.frequencyType == _entity_entities__WEBPACK_IMPORTED_MODULE_5__["AppointmentExecutionFrequency"].WEEKDAY) {
                 this.appointment.date = new Date("2-27-1991");
                 for (var i = 0; i < 7; i++) {
-                    if (Object(_entity_system__WEBPACK_IMPORTED_MODULE_1__["getWeekday"])(this.appointment.date) != this.workingday) {
-                        this.appointment.date = Object(_entity_system__WEBPACK_IMPORTED_MODULE_1__["addDays"])(this.appointment.date, 1);
+                    if (Object(_entity_system__WEBPACK_IMPORTED_MODULE_2__["getWeekday"])(this.appointment.date) != this.workingday) {
+                        this.appointment.date = Object(_entity_system__WEBPACK_IMPORTED_MODULE_2__["addDays"])(this.appointment.date, 1);
                     }
                 }
-                console.log(this.language.getWeekday(Object(_entity_system__WEBPACK_IMPORTED_MODULE_1__["getWeekday"])(this.appointment.date)));
+                console.log(this.language.getWeekday(Object(_entity_system__WEBPACK_IMPORTED_MODULE_2__["getWeekday"])(this.appointment.date)));
             }
             if (this.appointment.appointmentType == undefined) {
-                this.appointment.appointmentType = new _entity_entities__WEBPACK_IMPORTED_MODULE_4__["AppointmentType"]();
+                this.appointment.appointmentType = new _entity_entities__WEBPACK_IMPORTED_MODULE_5__["AppointmentType"]();
             }
             this.appointment.appointmentType.id = this.type;
             //add time to date
@@ -968,15 +977,19 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
                 console.log(result);
                 _this.loading = false;
                 if (result && result.sid) {
-                    if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_1__["ReturnCode"].SUCCESS) {
+                    if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].SUCCESS) {
                         _this.session.zone.run(function () {
                             return _this.router.navigate(['.'], { relativeTo: _this.activatedRoute.parent });
                         });
                         _this.appointmentsComponent.loadAppointments();
                     }
+                    else {
+                        _this.alert.show(_this.api.getErrorMessage(_this.language, result.code), _styles_styles__WEBPACK_IMPORTED_MODULE_12__["ColorClass"].danger);
+                    }
                 }
             }, function (error) {
-                console.error(error);
+                _this.alert.show(_this.language.connectionError, _styles_styles__WEBPACK_IMPORTED_MODULE_12__["ColorClass"].danger);
+                //console.error(error);
                 _this.loading = false;
             });
         }
@@ -985,24 +998,28 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
         }
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ViewChild"])(_templates_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_3__["CarouselComponent"], { static: false }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _templates_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_3__["CarouselComponent"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ViewChild"])(_templates_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_4__["CarouselComponent"], { static: false }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _templates_carousel_carousel_component__WEBPACK_IMPORTED_MODULE_4__["CarouselComponent"])
     ], AppointmentsWizardComponent.prototype, "carouselComponent", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ViewChild"])("petSavingMsg", { static: false }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _templates_alert_alert_component__WEBPACK_IMPORTED_MODULE_1__["AlertComponent"])
+    ], AppointmentsWizardComponent.prototype, "alert", void 0);
     AppointmentsWizardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["Component"])({
             selector: 'app-appointments-wizard',
             template: __webpack_require__(/*! raw-loader!./appointments.wizard.component.html */ "./node_modules/raw-loader/index.js!./src/app/appointments/appointments.wizard.component.html"),
             styles: [__webpack_require__(/*! ./appointments.wizard.component.css */ "./src/app/appointments/appointments.wizard.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"])(AppointmentsComponent)),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
-            _service_services__WEBPACK_IMPORTED_MODULE_2__["AppointmentsApiService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["Inject"])(AppointmentsComponent)),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+            _service_services__WEBPACK_IMPORTED_MODULE_3__["AppointmentsApiService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"],
             AppointmentsComponent])
     ], AppointmentsWizardComponent);
     return AppointmentsWizardComponent;
-}(_appbase__WEBPACK_IMPORTED_MODULE_7__["AppBase"]));
+}(_appbase__WEBPACK_IMPORTED_MODULE_8__["AppBase"]));
 
 
 
