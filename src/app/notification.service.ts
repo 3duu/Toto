@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 export class NotificationService {
 
   //phonegap plugin add cordova-plugin-local-notifications
+  //https://github.com/katzer/cordova-plugin-local-notifications
   constructor(private cordova : CordovaService) { }
 
   setAlarm(appointment : Appointment) {
