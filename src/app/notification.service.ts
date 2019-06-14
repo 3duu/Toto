@@ -13,15 +13,10 @@ export class NotificationService {
 
   setAlarm(appointment : Appointment) {
     this.cordova.cordova.plugins.notification.local.schedule({
-      id: 5,
-      title: "Sample Notification",
-      text: "kill the batman ",
-      at: appointment.alarm,
-      icon: 'res://icon',
-      smallIcon: 'res://icon',
-      every: 87600
-  });
+      title: appointment.appointmentType.description,
+      text: appointment.description,
+      trigger: { at: appointment.alarm }
+    });
   }
-
   
 }

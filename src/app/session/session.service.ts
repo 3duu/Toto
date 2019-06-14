@@ -1,4 +1,3 @@
-import { Appointment } from './../entity/entities';
 import { Injectable, NgZone } from '@angular/core';
 import { AuthenticationService } from '../service/services';
 import { SessionAttributes, StringUtils, ObjectUtils } from '../utils';
@@ -42,6 +41,10 @@ export class SessionService {
   get notificationService() : NotificationService {
     return this._notificationService;
   }
+
+  // get language() : LanguageService {
+  //   return this._language;
+  // }
 
   setUserInSession = (result : any, password : string) : void => {
     if (result && result.sid) {

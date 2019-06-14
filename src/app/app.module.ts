@@ -1,4 +1,3 @@
-import { ContextMenuModule } from './lib/contextmenu/index';
 import { MatDatepickerModule, MatDatepicker } from '@angular/material/datepicker';
 import { MatNativeDateModule, DateAdapter } from '@angular/material/core';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
@@ -97,7 +96,7 @@ import { NotificationService } from './notification.service';
     // })
   ],
   providers: [
-    CordovaService, 
+    CordovaService,
     NotificationService,
     LocalDatabaseService,
     UserApiService, 

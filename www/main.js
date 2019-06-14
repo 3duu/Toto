@@ -2296,18 +2296,15 @@ __webpack_require__.r(__webpack_exports__);
 
 var NotificationService = /** @class */ (function () {
     //phonegap plugin add cordova-plugin-local-notifications
+    //https://github.com/katzer/cordova-plugin-local-notifications
     function NotificationService(cordova) {
         this.cordova = cordova;
     }
     NotificationService.prototype.setAlarm = function (appointment) {
         this.cordova.cordova.plugins.notification.local.schedule({
-            id: 5,
-            title: "Sample Notification",
-            text: "kill the batman ",
-            at: appointment.alarm,
-            icon: 'res://icon',
-            smallIcon: 'res://icon',
-            every: 87600
+            title: appointment.appointmentType.description,
+            text: appointment.description,
+            trigger: { at: appointment.alarm }
         });
     };
     NotificationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -3088,7 +3085,7 @@ var httpDefaultOptions = {
 var endpoints = _environments_environment__WEBPACK_IMPORTED_MODULE_11__["environment"].endpoint;
 var ApiService = /** @class */ (function () {
     function ApiService() {
-        this.endpoint = endpoints.local;
+        this.endpoint = endpoints.aws;
         console.log(this.endpoint);
     }
     ApiService.prototype.handleError = function (error) {
@@ -3394,6 +3391,9 @@ var SessionService = /** @class */ (function () {
         this._zone = _zone;
         this._menuService = _menuService;
         this._notificationService = _notificationService;
+        // get language() : LanguageService {
+        //   return this._language;
+        // }
         this.setUserInSession = function (result, password) {
             if (result && result.sid) {
                 //store user details and jwt token in local storage to keep user logged in between page refreshes

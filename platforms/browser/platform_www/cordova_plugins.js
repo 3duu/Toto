@@ -397,14 +397,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-listpicker/www/ListPicker.js",
-        "id": "cordova-plugin-listpicker.ListPicker",
-        "pluginId": "cordova-plugin-listpicker",
-        "clobbers": [
-            "window.plugins.listpicker"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-badge/www/badge.js",
         "id": "cordova-plugin-badge.Badge",
         "pluginId": "cordova-plugin-badge",
@@ -447,7 +439,6 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-camera": "4.0.3",
     "cordova-sqlite-storage": "3.2.0",
-    "cordova-plugin-listpicker": "2.2.2",
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-local-notification": "0.9.0-beta.3"
 }
