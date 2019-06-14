@@ -99,9 +99,27 @@
   "de.appplant.cordova.plugin.local-notification": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-local-notifications@1.0.0"
+      "id": "cordova-plugin-local-notifications"
     },
     "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-local-notification": {
+    "source": {
+      "type": "local",
+      "path": "C:\\Users\\eporto\\git\\Toto\\node_modules\\cordova-plugin-local-notification"
+    },
+    "is_top_level": true,
+    "variables": {
+      "ANDROID_SUPPORT_V4_VERSION": "26.+"
+    }
+  },
+  "cordova-plugin-badge": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-badge@>=0.8.5"
+    },
+    "is_top_level": false,
     "variables": {}
   }
 }

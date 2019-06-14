@@ -40,7 +40,14 @@
     },
     "cordova-plugin-listpicker": {
       "PACKAGE_NAME": "br.com.duti.toppet"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "br.com.duti.toppet"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "br.com.duti.toppet"
+    }
+  }
 }

@@ -43,7 +43,15 @@
     },
     "cordova-sqlite-storage": {
       "PACKAGE_NAME": "br.com.duti.toppet"
+    },
+    "cordova-plugin-local-notification": {
+      "ANDROID_SUPPORT_V4_VERSION": "26.+",
+      "PACKAGE_NAME": "br.com.duti.toppet"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "br.com.duti.toppet"
+    }
+  }
 }

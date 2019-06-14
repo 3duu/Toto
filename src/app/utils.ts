@@ -57,5 +57,6 @@ export enum SessionAttributes {
     CURRENT_PASSWORD = "currentPassword",
     SESSION_ID = "sessionId",
     LOGIN_DATE = "loginDate",
-    EDITING_PET = "editingPet"
+    EDITING_PET = "editingPet",
+    NOTIFICATIONS = "notifications"
 }

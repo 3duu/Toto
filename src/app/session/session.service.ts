@@ -1,3 +1,4 @@
+import { Appointment } from './../entity/entities';
 import { Injectable, NgZone } from '@angular/core';
 import { AuthenticationService } from '../service/services';
 import { SessionAttributes, StringUtils, ObjectUtils } from '../utils';
@@ -7,6 +8,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { HOME_PAGE, WELCOME_PAGE } from '../application';
 import { environment } from 'src/environments/environment';
 import { MenuService } from '../navbar/menuService';
+import { NotificationService } from '../notification.service';
 
 export const PASSWORD_CONFIG = environment.passwordConfig;
 
@@ -15,8 +17,11 @@ export const PASSWORD_CONFIG = environment.passwordConfig;
 })
 export class SessionService {
 
-  constructor(private _authenticationService: AuthenticationService, 
-    private _zone : NgZone, private _menuService : MenuService) { 
+  constructor(
+    private _authenticationService: AuthenticationService, 
+    private _zone : NgZone, 
+    private _menuService : MenuService,
+    private _notificationService : NotificationService) { 
       (<any>window).session = this;
     }
   
@@ -34,6 +39,10 @@ export class SessionService {
     return this._authenticationService;
   }
 
+  get notificationService() : NotificationService {
+    return this._notificationService;
+  }
+
   setUserInSession = (result : any, password : string) : void => {
     if (result && result.sid) {
       //store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -41,6 +50,22 @@ export class SessionService {
       this.setAttribute(SessionAttributes.CURRENT_PASSWORD, password);
       this.setAttribute(SessionAttributes.SESSION_ID, result.sid);
       this.setAttribute(SessionAttributes.LOGIN_DATE, result.date);
+      this.setNotifications();
+    }
+  }
+
+  setNotifications() {
+    if(this.notificationService){
+      const pets : Pet[] = this.getCurrentUser().pets;
+      if(!ObjectUtils.isEmpty(pets)) {
+        pets.forEach(pet => {
+          if(!ObjectUtils.isEmpty(pet.appointments)) {
+            pet.appointments.forEach(app => {
+              this.notificationService.setAlarm(app);
+            });
+          }
+        });
+      }
     }
   }
 

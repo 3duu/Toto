@@ -271,7 +271,7 @@ module.exports = "<div class=\"container text-center\">\r\n  <h1 class=\"form-si
 /*! exports provided: name, version, displayName, endpoints, passwordConfig, cordova, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indraLocal":"http://192.168.137.1:9003","home2":"http://192.168.1.3:9003/toppet","home":"http://192.168.1.3:9003","aws":"http://ec2-54-233-202-28.sa-east-1.compute.amazonaws.com:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{},"cordova-plugin-listpicker":{}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"8.0.0","@angular/cdk":"8.0.0","@angular/common":"8.0.0","@angular/compiler":"~8.0.0","@angular/core":"8.0.0","@angular/forms":"8.0.0","@angular/material":"8.0.0","@angular/platform-browser":"8.0.0","@angular/platform-browser-dynamic":"8.0.0","@angular/router":"8.0.0","@types/jquery":"^3.3.29","ansi-escapes":"^3.2.0","braces":"2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"1.0.2","cordova-android":"7.1.4","cordova-browser":"5.0.4","cordova-plugin-camera":"4.0.3","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-listpicker":"2.2.2","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","hammerjs":"^2.0.8","jquery":"^3.4.1","lodash":"4.17.11","luxon":"1.16.0","ngx-bootstrap":"3.2.0","ngx-material-timepicker":"3.1.0","ngx-modialog":"5.0.1","phonegap":"^8.2.2","popper.js":"^1.15.0","rxjs":"~6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"4.29.6","zone.js":"~0.9.1"},"devDependencies":{"@angular-devkit/build-angular":"~0.800.0","@angular/cli":"~8.0.1","@angular/compiler-cli":"~8.0.0","@angular/language-service":"~8.0.0","@types/node":"~8.9.4","@types/jasmine":"~3.3.8","@types/jasminewd2":"~2.0.3","codelyzer":"^5.0.0","jasmine-core":"~3.4.0","jasmine-spec-reporter":"~4.2.1","karma":"~4.1.0","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~2.0.1","karma-jasmine-html-reporter":"^1.4.0","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.15.0","typescript":"~3.4.3"}};
+module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indraLocal":"http://192.168.137.1:9003","home2":"http://192.168.1.3:9003/toppet","home":"http://192.168.1.3:9003","aws":"http://ec2-54-233-202-28.sa-east-1.compute.amazonaws.com:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{},"cordova-plugin-listpicker":{},"cordova-plugin-local-notification":{"ANDROID_SUPPORT_V4_VERSION":"26.+"}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"8.0.0","@angular/cdk":"8.0.0","@angular/common":"8.0.0","@angular/compiler":"~8.0.0","@angular/core":"8.0.0","@angular/forms":"8.0.0","@angular/material":"8.0.0","@angular/platform-browser":"8.0.0","@angular/platform-browser-dynamic":"8.0.0","@angular/router":"8.0.0","@types/jquery":"^3.3.29","ansi-escapes":"^3.2.0","braces":"2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"1.0.2","cordova-android":"7.1.4","cordova-browser":"5.0.4","cordova-plugin-badge":"0.8.8","cordova-plugin-camera":"4.0.3","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-listpicker":"2.2.2","cordova-plugin-local-notification":"file:../../Downloads/cordova-plugin-local-notifications-master","cordova-plugin-local-notifications":"1.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","hammerjs":"^2.0.8","jquery":"^3.4.1","lodash":"4.17.11","luxon":"1.16.0","ngx-bootstrap":"3.2.0","ngx-material-timepicker":"3.1.0","ngx-modialog":"5.0.1","phonegap":"^8.2.2","popper.js":"^1.15.0","rxjs":"~6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"4.29.6","zone.js":"~0.9.1"},"devDependencies":{"@angular-devkit/build-angular":"~0.800.0","@angular/cli":"~8.0.1","@angular/compiler-cli":"~8.0.0","@angular/language-service":"~8.0.0","@types/node":"~8.9.4","@types/jasmine":"~3.3.8","@types/jasminewd2":"~2.0.3","codelyzer":"^5.0.0","jasmine-core":"~3.4.0","jasmine-spec-reporter":"~4.2.1","karma":"~4.1.0","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~2.0.1","karma-jasmine-html-reporter":"^1.4.0","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.15.0","typescript":"~3.4.3"}};
 
 /***/ }),
 
@@ -490,6 +490,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ngx-material-timepicker */ "./node_modules/ngx-material-timepicker/fesm5/ngx-material-timepicker.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _notification_service__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./notification.service */ "./src/app/notification.service.ts");
+
 
 
 
@@ -591,6 +593,7 @@ var AppModule = /** @class */ (function () {
             ],
             providers: [
                 _cordova_service__WEBPACK_IMPORTED_MODULE_16__["CordovaService"],
+                _notification_service__WEBPACK_IMPORTED_MODULE_40__["NotificationService"],
                 _database_database__WEBPACK_IMPORTED_MODULE_22__["LocalDatabaseService"],
                 _service_services__WEBPACK_IMPORTED_MODULE_11__["UserApiService"],
                 _service_services__WEBPACK_IMPORTED_MODULE_11__["PetApiService"],
@@ -858,7 +861,9 @@ var AppointmentsThumbComponent = /** @class */ (function (_super) {
                 if (result && result.sid) {
                     if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].SUCCESS) {
                         result.data.forEach(function (app) {
-                            _this.appointments.push(_entity_entities__WEBPACK_IMPORTED_MODULE_5__["Appointment"].newInstance(result.date, app));
+                            var newApp = _entity_entities__WEBPACK_IMPORTED_MODULE_5__["Appointment"].newInstance(result.date, app);
+                            _this.appointments.push(newApp);
+                            _this.session.notificationService.setAlarm(newApp);
                         });
                     }
                 }
@@ -2273,6 +2278,51 @@ var NavbarComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/app/notification.service.ts":
+/*!*****************************************!*\
+  !*** ./src/app/notification.service.ts ***!
+  \*****************************************/
+/*! exports provided: NotificationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationService", function() { return NotificationService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _cordova_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cordova.service */ "./src/app/cordova.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+
+var NotificationService = /** @class */ (function () {
+    //phonegap plugin add cordova-plugin-local-notifications
+    function NotificationService(cordova) {
+        this.cordova = cordova;
+    }
+    NotificationService.prototype.setAlarm = function (appointment) {
+        this.cordova.cordova.plugins.notification.local.schedule({
+            id: 5,
+            title: "Sample Notification",
+            text: "kill the batman ",
+            at: appointment.alarm,
+            icon: 'res://icon',
+            smallIcon: 'res://icon',
+            every: 87600
+        });
+    };
+    NotificationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_cordova_service__WEBPACK_IMPORTED_MODULE_1__["CordovaService"]])
+    ], NotificationService);
+    return NotificationService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pets/pets.component.css":
 /*!*****************************************!*\
   !*** ./src/app/pets/pets.component.css ***!
@@ -3038,7 +3088,7 @@ var httpDefaultOptions = {
 var endpoints = _environments_environment__WEBPACK_IMPORTED_MODULE_11__["environment"].endpoint;
 var ApiService = /** @class */ (function () {
     function ApiService() {
-        this.endpoint = endpoints.aws;
+        this.endpoint = endpoints.local;
         console.log(this.endpoint);
     }
     ApiService.prototype.handleError = function (error) {
@@ -3327,6 +3377,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../application */ "./src/app/application.ts");
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _navbar_menuService__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../navbar/menuService */ "./src/app/navbar/menuService.ts");
+/* harmony import */ var _notification_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../notification.service */ "./src/app/notification.service.ts");
+
 
 
 
@@ -3336,11 +3388,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var PASSWORD_CONFIG = src_environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].passwordConfig;
 var SessionService = /** @class */ (function () {
-    function SessionService(_authenticationService, _zone, _menuService) {
+    function SessionService(_authenticationService, _zone, _menuService, _notificationService) {
         var _this = this;
         this._authenticationService = _authenticationService;
         this._zone = _zone;
         this._menuService = _menuService;
+        this._notificationService = _notificationService;
         this.setUserInSession = function (result, password) {
             if (result && result.sid) {
                 //store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -3348,6 +3401,7 @@ var SessionService = /** @class */ (function () {
                 _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].CURRENT_PASSWORD, password);
                 _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].SESSION_ID, result.sid);
                 _this.setAttribute(_utils__WEBPACK_IMPORTED_MODULE_3__["SessionAttributes"].LOGIN_DATE, result.date);
+                _this.setNotifications();
             }
         };
         this.setEditingPet = function (pet) {
@@ -3386,6 +3440,28 @@ var SessionService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(SessionService.prototype, "notificationService", {
+        get: function () {
+            return this._notificationService;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SessionService.prototype.setNotifications = function () {
+        var _this = this;
+        if (this.notificationService) {
+            var pets = this.getCurrentUser().pets;
+            if (!_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(pets)) {
+                pets.forEach(function (pet) {
+                    if (!_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(pet.appointments)) {
+                        pet.appointments.forEach(function (app) {
+                            _this.notificationService.setAlarm(app);
+                        });
+                    }
+                });
+            }
+        }
+    };
     SessionService.prototype.getCurrentUser = function () {
         var user;
         if (_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(this.sessionUser)) {
@@ -3448,7 +3524,9 @@ var SessionService = /** @class */ (function () {
             providedIn: 'root'
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _navbar_menuService__WEBPACK_IMPORTED_MODULE_6__["MenuService"]])
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"],
+            _navbar_menuService__WEBPACK_IMPORTED_MODULE_6__["MenuService"],
+            _notification_service__WEBPACK_IMPORTED_MODULE_7__["NotificationService"]])
     ], SessionService);
     return SessionService;
 }());
@@ -4508,6 +4586,7 @@ var SessionAttributes;
     SessionAttributes["SESSION_ID"] = "sessionId";
     SessionAttributes["LOGIN_DATE"] = "loginDate";
     SessionAttributes["EDITING_PET"] = "editingPet";
+    SessionAttributes["NOTIFICATIONS"] = "notifications";
 })(SessionAttributes || (SessionAttributes = {}));
 
 

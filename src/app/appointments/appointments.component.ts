@@ -94,7 +94,9 @@ export class AppointmentsThumbComponent extends AppBase {
         if (result && result.sid) {
           if(result.code == ReturnCode.SUCCESS){
             result.data.forEach(app => {
-              this.appointments.push(Appointment.newInstance(result.date, app));
+              const newApp : Appointment = Appointment.newInstance(result.date, app);
+              this.appointments.push(newApp);
+              this.session.notificationService.setAlarm(newApp);
             });
           }
         }

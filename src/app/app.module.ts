@@ -35,9 +35,10 @@ import { SignInComponent } from './templates/button/signin/signin.component';
 import { FacebookComponent } from './templates/button/facebook/facebook.component';
 import { GoogleComponent } from './templates/button/google/google.component';
 import { CarouselComponent } from './templates/carousel/carousel.component';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NgModule } from '@angular/core';
 import { MatInputModule, MatMenuModule, MatIconModule, MatInput, MatIcon, MatSuffix } from '@angular/material';
+import { NotificationService } from './notification.service';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { MatInputModule, MatMenuModule, MatIconModule, MatInput, MatIcon, MatSuf
   ],
   providers: [
     CordovaService, 
-    LocalDatabaseService, 
+    NotificationService,
+    LocalDatabaseService,
     UserApiService, 
     PetApiService, 
     FacebookService, 
