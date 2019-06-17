@@ -170,7 +170,7 @@ export class AppointmentsWizardComponent extends AppBase {
       }
       
     }, error => {
-      //console.error(error);
+      console.error(error);
       this.alert.show(this.language.connectionError, ColorClass.danger);
       this.loading = false;
     });
@@ -187,7 +187,6 @@ export class AppointmentsWizardComponent extends AppBase {
   private setDate() {
 
     this.session.authenticationService.infoService.doPing().subscribe(result => {
-
       if(result.code == ReturnCode.SUCCESS) {
         this.currentDate = new Date(result.date);
         this.appointment = new Appointment(this.currentDate);
@@ -203,7 +202,6 @@ export class AppointmentsWizardComponent extends AppBase {
       return;
 
     try{
-
       this.alert.hide();
 
       this.appointment.date = this.date != undefined ? this.date : this.currentDate;
@@ -253,9 +251,9 @@ export class AppointmentsWizardComponent extends AppBase {
           }
         }
       }, error => {
-        this.alert.show(this.language.connectionError, ColorClass.danger);
-        //console.error(error);
         this.loading = false;
+        this.alert.show(this.language.connectionError, ColorClass.danger);
+        console.error(error);
       });
     }
     catch(e){

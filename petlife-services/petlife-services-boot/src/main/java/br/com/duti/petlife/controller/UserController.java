@@ -19,6 +19,7 @@ import br.com.duti.petlife.models.ResponseEntity;
 import br.com.duti.petlife.models.SocialNetworkType;
 import br.com.duti.petlife.models.User;
 import br.com.duti.petlife.repository.interfaces.IUserRepository;
+import br.com.duti.petlife.repository.interfaces.IAppointmentRespository;
 import br.com.duti.utils.ReturnCode;
 
 @RequestMapping("/user")
@@ -27,6 +28,9 @@ public class UserController {
 	
 	@Autowired
 	private IUserRepository userRepository;
+
+	@Autowired
+	private IAppointmentRespository appointmentRespository;
 	
 	//@CrossOrigin(origins = {Utils.HTTP, Utils.SMARTPHONE})
 	@Transactional
@@ -48,7 +52,11 @@ public class UserController {
 					response = register(user);
 				}
 			}
-			
+			else {
+				//Fill appointments
+				foundUser.setAppointments(appointmentRespository.getByUser(user.getId()));
+			}
+
 			if(response == null) {
 				response = new ResponseEntity<User>(foundUser, RequestContextHolder.currentRequestAttributes().getSessionId());
 				if(foundUser != null) {

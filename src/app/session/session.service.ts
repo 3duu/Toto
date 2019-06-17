@@ -20,7 +20,7 @@ export class SessionService {
     private _authenticationService: AuthenticationService, 
     private _zone : NgZone, 
     private _menuService : MenuService,
-    private _notificationService : NotificationService) { 
+    private _notificationService : NotificationService) {
       (<any>window).session = this;
     }
   

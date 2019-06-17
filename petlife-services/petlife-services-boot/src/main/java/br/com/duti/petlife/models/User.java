@@ -64,14 +64,14 @@ public class User implements Serializable {
             inverseJoinColumns = @JoinColumn( name="address_id"))
 	private Address address;
 	
-	@Column(name="login_type", nullable=true, length=2)
+	@Column(name="login_type", nullable=true)
 	@Enumerated(EnumType.ORDINAL)
 	private SocialNetworkType loginType;
 	
 	@Transient
 	private List<Appointment> appointments;
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
