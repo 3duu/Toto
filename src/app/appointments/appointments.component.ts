@@ -86,6 +86,13 @@ export class AppointmentsThumbComponent extends AppBase {
         return;
       }
 
+      this.session.getCurrentUser().appointments.forEach(app => {
+        const newApp : Appointment = Appointment.newInstance(new Date(), app);
+        this.appointments.push(newApp);
+        this.session.notificationService.setAlarm(newApp);
+      });
+      
+    /*
       this.api.getByUser(this.session.getCurrentUser()).subscribe(result => {
 
         console.log(result);
@@ -104,7 +111,7 @@ export class AppointmentsThumbComponent extends AppBase {
       }, error => {
         console.error(error);
         this.loading = false;
-      });
+      });*/
     }
   }
     

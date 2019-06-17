@@ -1,3 +1,4 @@
+import { Appointment } from './../entity/entities';
 import { Injectable, NgZone } from '@angular/core';
 import { AuthenticationService } from '../service/services';
 import { SessionAttributes, StringUtils, ObjectUtils } from '../utils';
@@ -59,14 +60,10 @@ export class SessionService {
 
   setNotifications() {
     if(this.notificationService){
-      const pets : Pet[] = this.getCurrentUser().pets;
-      if(!ObjectUtils.isEmpty(pets)) {
-        pets.forEach(pet => {
-          if(!ObjectUtils.isEmpty(pet.appointments)) {
-            pet.appointments.forEach(app => {
-              this.notificationService.setAlarm(app);
-            });
-          }
+      const appointments : Appointment[] = this.getCurrentUser().appointments;
+      if(!ObjectUtils.isEmpty(appointments)) {
+        appointments.forEach(app => {
+          this.notificationService.setAlarm(app);
         });
       }
     }
@@ -94,7 +91,7 @@ export class SessionService {
   }
 
   getEditingPet = () : Pet => {
-    let json = this.getAttribute(SessionAttributes.EDITING_PET) != undefined ? JSON.parse(this.getAttribute(SessionAttributes.EDITING_PET)) : null;
+    const json = this.getAttribute(SessionAttributes.EDITING_PET) != undefined ? JSON.parse(this.getAttribute(SessionAttributes.EDITING_PET)) : null;
     if(json != null){
       let pet : Pet = json;
       return pet;

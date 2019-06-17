@@ -54,7 +54,7 @@ public class UserController {
 			}
 			else {
 				//Fill appointments
-				foundUser.setAppointments(appointmentRespository.getByUser(user.getId()));
+				foundUser.setAppointments(appointmentRespository.getByUser(foundUser.getId()));
 			}
 
 			if(response == null) {

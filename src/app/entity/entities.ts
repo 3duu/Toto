@@ -28,13 +28,10 @@ export class User {
     admin : boolean;
     loginType: SociaNetworkType;
     pets: Pet[];
-
+    appointments : Appointment[];
     bookmarks: Bookmark[];
-
     ratings: Rating[];
-
     myRatings: Rating[];
-
     petServices: PetService[];
     rate : number;
 }

@@ -12,11 +12,16 @@ export class NotificationService {
   constructor(private cordova : CordovaService) { }
 
   setAlarm(appointment : Appointment) {
-    this.cordova.cordova.plugins.notification.local.schedule({
-      title: appointment.appointmentType.description,
-      text: appointment.description,
-      trigger: { at: appointment.alarm }
-    });
+    try {
+      this.cordova.cordova.plugins.notification.local.schedule({
+        title: appointment.appointmentType.description,
+        text: appointment.description,
+        trigger: { at: appointment.alarm }
+      });
+    }
+    catch(e) {
+
+    }
   }
   
 }
