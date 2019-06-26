@@ -4,7 +4,7 @@ import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TutorialComponent } from './templates/tutorial/tutorial.component';
 import { LoadingComponent } from './templates/loading/loading.component';
 import { SignUpComponent } from './templates/button/signup/signup.component';
@@ -36,8 +36,9 @@ import { GoogleComponent } from './templates/button/google/google.component';
 import { CarouselComponent } from './templates/carousel/carousel.component';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NgModule } from '@angular/core';
-import { MatInputModule, MatMenuModule, MatIconModule, MatInput, MatIcon, MatSuffix } from '@angular/material';
+import { MatInputModule, MatMenuModule, MatIconModule, MatInput, MatIcon, MatSuffix, MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { NotificationService } from './notification.service';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,10 @@ import { NotificationService } from './notification.service';
     MatInputModule,
     MatIconModule,
     NgxMaterialTimepickerModule,
+    MatSidenavModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatListModule
     // ContextMenuModule.forRoot({
     //   useBootstrap4: true,
     // })
