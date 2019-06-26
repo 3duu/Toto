@@ -149,14 +149,13 @@ export class AppointmentsWizardComponent extends AppBase {
   protected often : number = 0;
   protected time : string = "12:00";
   protected workingday : number = 0;
-  protected date : Date;
+  protected date : Date = new Date();
 
   private finish : boolean = false;
-  protected currentDate : Date = new Date();
 
   ngOnInit() {
 
-    this.appointment = new Appointment(this.currentDate);
+    this.appointment = new Appointment();
     this.loading = true;
     const types = this.api.getTypes();
     this.frequency = Domain.fromEnum(AppointmentExecutionFrequency, this.language.getAppointmentOften);
@@ -195,12 +194,9 @@ export class AppointmentsWizardComponent extends AppBase {
 
     this.session.authenticationService.infoService.doPing().subscribe(result => {
       if(result.code == ReturnCode.SUCCESS) {
-        this.currentDate = new Date(result.date);
-        this.appointment = new Appointment(this.currentDate);
-        this.date = this.currentDate;
+        this.appointment = new Appointment();
       }
     });
-    this.date = this.currentDate;
   }
 
   save() {
@@ -211,9 +207,9 @@ export class AppointmentsWizardComponent extends AppBase {
     try{
       this.alert.hide();
 
-      this.appointment.date = this.date != undefined ? this.date : this.currentDate;
+      this.appointment.date = this.date;
       if(StringUtils.isEmpty(this.time)){
-        this.time = this.currentDate.getHours() + ":" + this.currentDate.getMinutes();
+        this.time = this.date.getHours() + ":" + this.date.getMinutes();
       }
       this.loading = true;
 

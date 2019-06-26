@@ -101,11 +101,14 @@ export class Appointment {
     pet : Pet;
     user : User;
     frequencyType : AppointmentExecutionFrequency;
+    private today : Date
 
-    constructor(private today : Date) {}
+    constructor() {
+        this.today = new Date();
+    }
 
     static newInstance(data) : Appointment  {
-        const a : Appointment = new Appointment(new Date());
+        const a : Appointment = new Appointment();
         a.id = data.id;
         a.date = new Date(data.date);
         a.appointmentType = new AppointmentType();
