@@ -104,14 +104,14 @@ export class Appointment {
 
     constructor(private today : Date) {}
 
-    static newInstance(date, data) : Appointment  {
-        const a : Appointment = new Appointment(new Date(date));
+    static newInstance(data) : Appointment  {
+        const a : Appointment = new Appointment(new Date());
         a.id = data.id;
         a.date = new Date(data.date);
         a.appointmentType = new AppointmentType();
-        a.appointmentType.id = data.appointmentType.id;
-        a.appointmentType.description = data.appointmentType.description;
-        a.description = data.description;;
+        a.appointmentType.id = data.appointmentType != undefined ? data.appointmentType.id : null;
+        a.appointmentType.description = data.appointmentType != undefined ? data.appointmentType.description : "";
+        a.description = data.description;
         a.frequencyType = AppointmentExecutionFrequency[<string>data.frequencyType];
         a.pet = data.pet;
         return a;

@@ -271,7 +271,7 @@ module.exports = "<div class=\"container text-center\">\r\n  <h1 class=\"form-si
 /*! exports provided: name, version, displayName, endpoints, passwordConfig, cordova, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indraLocal":"http://192.168.137.1:9003","home2":"http://192.168.1.3:9003/toppet","home":"http://192.168.1.3:9003","aws":"http://ec2-54-233-202-28.sa-east-1.compute.amazonaws.com:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{},"cordova-plugin-listpicker":{},"cordova-plugin-local-notification":{"ANDROID_SUPPORT_V4_VERSION":"26.+"}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"8.0.0","@angular/cdk":"8.0.0","@angular/common":"8.0.0","@angular/compiler":"~8.0.0","@angular/core":"8.0.0","@angular/forms":"8.0.0","@angular/material":"8.0.0","@angular/platform-browser":"8.0.0","@angular/platform-browser-dynamic":"8.0.0","@angular/router":"8.0.0","@types/jquery":"^3.3.29","ansi-escapes":"^3.2.0","braces":"2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"1.0.2","cordova-android":"7.1.4","cordova-browser":"5.0.4","cordova-plugin-badge":"0.8.8","cordova-plugin-camera":"4.0.3","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-listpicker":"2.2.2","cordova-plugin-local-notification":"file:../../Downloads/cordova-plugin-local-notifications-master","cordova-plugin-local-notifications":"1.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","hammerjs":"^2.0.8","jquery":"^3.4.1","lodash":"4.17.11","luxon":"1.16.0","ngx-bootstrap":"3.2.0","ngx-material-timepicker":"3.1.0","ngx-modialog":"5.0.1","phonegap":"^8.2.2","popper.js":"^1.15.0","rxjs":"~6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"4.29.6","zone.js":"~0.9.1"},"devDependencies":{"@angular-devkit/build-angular":"~0.800.0","@angular/cli":"~8.0.1","@angular/compiler-cli":"~8.0.0","@angular/language-service":"~8.0.0","@types/node":"~8.9.4","@types/jasmine":"~3.3.8","@types/jasminewd2":"~2.0.3","codelyzer":"^5.0.0","jasmine-core":"~3.4.0","jasmine-spec-reporter":"~4.2.1","karma":"~4.1.0","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~2.0.1","karma-jasmine-html-reporter":"^1.4.0","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.15.0","typescript":"~3.4.3"}};
+module.exports = {"name":"br.com.toppet","version":"1.0.0","displayName":"TOPPET","endpoints":{"local":"http://localhost:9003","indraLocal":"http://192.168.137.1:9003","home2":"http://192.168.1.3:9003/toppet","home":"http://192.168.1.3:9003","aws":"http://ec2-54-233-202-28.sa-east-1.compute.amazonaws.com:9003"},"passwordConfig":{"min":6,"contains":""},"cordova":{"plugins":{"cordova-plugin-device":{},"cordova-plugin-safariviewcontroller":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-googlemaps":{"API_KEY_FOR_ANDROID":"AIzaSyCktbQb6g7SX4lIgecyzsrz0sMzl3660nU","API_KEY_FOR_IOS":"AIzaSyAaRDbFBx5gubzyW9_LE6KCFM3vE80hQw8","PLAY_SERVICES_VERSION":"15.0.1","ANDROID_SUPPORT_V4_VERSION":"27.+","LOCATION_WHEN_IN_USE_DESCRIPTION":"This app wants to get your location while this app runs only.","LOCATION_ALWAYS_USAGE_DESCRIPTION":"This app wants to get your location always, even this app runs in background."},"cordova-plugin-inappbrowser":{},"cordova-plugin-geolocation":{},"cordova-plugin-whitelist":{},"cordova-plugin-facebook4":{"APP_ID":"389609115207477","APP_NAME":"Toppet","FACEBOOK_HYBRID_APP_EVENTS":"false","FACEBOOK_ANDROID_SDK_VERSION":"4.40.0"},"cordova-plugin-camera":{},"cordova-sqlite-storage":{},"cordova-plugin-local-notification":{"ANDROID_SUPPORT_V4_VERSION":"26.+"}},"platforms":["android"]},"scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"8.0.0","@angular/cdk":"8.0.0","@angular/common":"8.0.0","@angular/compiler":"~8.0.0","@angular/core":"8.0.0","@angular/forms":"8.0.0","@angular/material":"8.0.0","@angular/platform-browser":"8.0.0","@angular/platform-browser-dynamic":"8.0.0","@angular/router":"8.0.0","@types/jquery":"^3.3.29","ansi-escapes":"^3.2.0","braces":"2.3.2","browserify-zlib":"^0.2.0","cached-path-relative":"1.0.2","cordova-android":"7.1.4","cordova-browser":"5.0.4","cordova-plugin-badge":"0.8.8","cordova-plugin-camera":"4.0.3","cordova-plugin-device":"2.0.2","cordova-plugin-facebook4":"4.2.1","cordova-plugin-geolocation":"4.0.1","cordova-plugin-googlemaps":"~2.5.2","cordova-plugin-inappbrowser":"~3.0.0","cordova-plugin-local-notification":"file:../../Downloads/cordova-plugin-local-notifications-master","cordova-plugin-local-notifications":"1.0.0","cordova-plugin-safariviewcontroller":"~1.5.4","cordova-plugin-whitelist":"1.3.3","cordova-sqlite-storage":"3.2.0","core-js":"^2.5.4","hammerjs":"^2.0.8","jquery":"^3.4.1","lodash":"4.17.11","luxon":"1.16.0","ngx-bootstrap":"3.2.0","ngx-material-timepicker":"3.1.0","ngx-modialog":"5.0.1","phonegap":"^8.2.2","popper.js":"^1.15.0","rxjs":"~6.4.0","stream":"0.0.2","tls":"0.0.1","tslib":"^1.9.0","webpack":"4.29.6","zone.js":"~0.9.1"},"devDependencies":{"@angular-devkit/build-angular":"~0.800.0","@angular/cli":"~8.0.1","@angular/compiler-cli":"~8.0.0","@angular/language-service":"~8.0.0","@types/node":"~8.9.4","@types/jasmine":"~3.3.8","@types/jasminewd2":"~2.0.3","codelyzer":"^5.0.0","jasmine-core":"~3.4.0","jasmine-spec-reporter":"~4.2.1","karma":"~4.1.0","karma-chrome-launcher":"~2.2.0","karma-coverage-istanbul-reporter":"~2.0.1","karma-jasmine":"~2.0.1","karma-jasmine-html-reporter":"^1.4.0","protractor":"~5.4.0","ts-node":"~7.0.0","tslint":"~5.15.0","typescript":"~3.4.3"}};
 
 /***/ }),
 
@@ -855,22 +855,31 @@ var AppointmentsThumbComponent = /** @class */ (function (_super) {
                 this.loading = false;
                 return;
             }
-            this.api.getByUser(this.session.getCurrentUser()).subscribe(function (result) {
-                console.log(result);
-                _this.loading = false;
-                if (result && result.sid) {
-                    if (result.code == _entity_system__WEBPACK_IMPORTED_MODULE_2__["ReturnCode"].SUCCESS) {
-                        result.data.forEach(function (app) {
-                            var newApp = _entity_entities__WEBPACK_IMPORTED_MODULE_5__["Appointment"].newInstance(result.date, app);
-                            _this.appointments.push(newApp);
-                            _this.session.notificationService.setAlarm(newApp);
-                        });
-                    }
-                }
-            }, function (error) {
-                console.error(error);
-                _this.loading = false;
+            this.session.getCurrentUser().appointments.forEach(function (app) {
+                var newApp = _entity_entities__WEBPACK_IMPORTED_MODULE_5__["Appointment"].newInstance(new Date(), app);
+                _this.appointments.push(newApp);
+                _this.session.notificationService.setAlarm(newApp);
             });
+            /*
+              this.api.getByUser(this.session.getCurrentUser()).subscribe(result => {
+        
+                console.log(result);
+                this.loading = false;
+        
+                if (result && result.sid) {
+                  if(result.code == ReturnCode.SUCCESS){
+                    result.data.forEach(app => {
+                      const newApp : Appointment = Appointment.newInstance(result.date, app);
+                      this.appointments.push(newApp);
+                      this.session.notificationService.setAlarm(newApp);
+                    });
+                  }
+                }
+                
+              }, error => {
+                console.error(error);
+                this.loading = false;
+              });*/
         }
     };
     AppointmentsThumbComponent.prototype.isEmpty = function () {
@@ -923,7 +932,7 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
                 }
             }
         }, function (error) {
-            //console.error(error);
+            console.error(error);
             _this.alert.show(_this.language.connectionError, _styles_styles__WEBPACK_IMPORTED_MODULE_12__["ColorClass"].danger);
             _this.loading = false;
         });
@@ -993,9 +1002,9 @@ var AppointmentsWizardComponent = /** @class */ (function (_super) {
                     }
                 }
             }, function (error) {
-                _this.alert.show(_this.language.connectionError, _styles_styles__WEBPACK_IMPORTED_MODULE_12__["ColorClass"].danger);
-                //console.error(error);
                 _this.loading = false;
+                _this.alert.show(_this.language.connectionError, _styles_styles__WEBPACK_IMPORTED_MODULE_12__["ColorClass"].danger);
+                console.error(error);
             });
         }
         catch (e) {
@@ -2301,11 +2310,15 @@ var NotificationService = /** @class */ (function () {
         this.cordova = cordova;
     }
     NotificationService.prototype.setAlarm = function (appointment) {
-        this.cordova.cordova.plugins.notification.local.schedule({
-            title: appointment.appointmentType.description,
-            text: appointment.description,
-            trigger: { at: appointment.alarm }
-        });
+        try {
+            this.cordova.cordova.plugins.notification.local.schedule({
+                title: appointment.appointmentType.description,
+                text: appointment.description,
+                trigger: { at: appointment.alarm }
+            });
+        }
+        catch (e) {
+        }
     };
     NotificationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
@@ -3450,14 +3463,10 @@ var SessionService = /** @class */ (function () {
     SessionService.prototype.setNotifications = function () {
         var _this = this;
         if (this.notificationService) {
-            var pets = this.getCurrentUser().pets;
-            if (!_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(pets)) {
-                pets.forEach(function (pet) {
-                    if (!_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(pet.appointments)) {
-                        pet.appointments.forEach(function (app) {
-                            _this.notificationService.setAlarm(app);
-                        });
-                    }
+            var appointments = this.getCurrentUser().appointments;
+            if (!_utils__WEBPACK_IMPORTED_MODULE_3__["ObjectUtils"].isEmpty(appointments)) {
+                appointments.forEach(function (app) {
+                    _this.notificationService.setAlarm(app);
                 });
             }
         }

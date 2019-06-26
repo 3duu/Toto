@@ -45,7 +45,7 @@ export class AppointmentsComponent extends AppBase {
         if(result.code == ReturnCode.SUCCESS){
 
           result.data.forEach(app => {
-            this.appointments.push(Appointment.newInstance(result.date, app));
+            this.appointments.push(Appointment.newInstance(app));
           });
 
           (<any>window).appointments = this.appointments;
@@ -87,7 +87,7 @@ export class AppointmentsThumbComponent extends AppBase {
       }
 
       this.session.getCurrentUser().appointments.forEach(app => {
-        const newApp : Appointment = Appointment.newInstance(new Date(), app);
+        const newApp : Appointment = Appointment.newInstance(app);
         this.appointments.push(newApp);
         this.session.notificationService.setAlarm(newApp);
       });
