@@ -36,7 +36,7 @@ import { GoogleComponent } from './templates/button/google/google.component';
 import { CarouselComponent } from './templates/carousel/carousel.component';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NgModule } from '@angular/core';
-import { MatInputModule, MatMenuModule, MatIconModule, MatInput, MatIcon, MatSuffix, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { MatInputModule, MatMenuModule, MatIconModule, MatInput, MatIcon, MatSuffix, MatSidenavModule, MatToolbarModule, MatTab, MatTabsModule } from '@angular/material';
 import { NotificationService } from './notification.service';
 import { MatListModule } from '@angular/material/list';
 
@@ -88,14 +88,15 @@ import { MatListModule } from '@angular/material/list';
     MatDatepickerModule,
     MatInputModule,
     MatMenuModule,
-    MatNativeDateModule,
     MatInputModule,
     MatIconModule,
     NgxMaterialTimepickerModule,
     MatSidenavModule,
     ReactiveFormsModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule
+    
     // ContextMenuModule.forRoot({
     //   useBootstrap4: true,
     // })
