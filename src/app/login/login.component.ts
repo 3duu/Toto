@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 import { REGISTER_USER_PAGE } from '../application';
 import { ReturnCode } from '../entity/system';
 
-//https://bootsnipp.com/snippets/kMd
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

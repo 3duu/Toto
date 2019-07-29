@@ -3,7 +3,6 @@
         <button  class="navbar-toggler" type="button" (click)="snav.toggle()" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- <h1 class="example-app-name">Menu</h1> -->
     </mat-toolbar>
     
     <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
@@ -25,25 +24,3 @@
     </mat-sidenav-container>
 </div>
 <br>
-
-<!-- <nav class="navbar navbar-dark bg-toppet main-menu"  *ngIf="disable == false">
-    <span class="navbar-brand">{{title}}</span>
-    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="javascript:;"><i class="fa fa-user">&nbsp;&nbsp;</i>{{user.name}}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:;"><i class="fa fa-question-circle">&nbsp;&nbsp;</i>{{language.about}}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:;" (click)="logout()"><i class="fa fa-times-circle">&nbsp;&nbsp;</i>{{language.logout}}</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<br> -->
