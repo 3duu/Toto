@@ -14,12 +14,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -45,31 +41,26 @@ public class User implements Serializable {
 	@Column(name="creation_date", nullable=true)
 	private Date creationDate;
 	
-	@Column(name="password", length=32,nullable=false)
+	@Column(name="password", length=32, nullable=false)
 	private String password;
-	
-	@Column(name="admin",nullable=false)
-	private boolean admin;
 	
 	@Column(name="birth_date", nullable=true)
 	private Date birthDate;
 	
 	@JsonManagedReference
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.LAZY, mappedBy="user")
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.EAGER, mappedBy="user")
 	private List<Pet> pets;
 	
+	/*
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinTable(name="user_address",
             joinColumns = @JoinColumn( name="user_id"),
             inverseJoinColumns = @JoinColumn( name="address_id"))
-	private Address address;
+	private Address address;*/
 	
 	@Column(name="login_type", nullable=true)
 	@Enumerated(EnumType.ORDINAL)
 	private SocialNetworkType loginType;
-	
-	@Transient
-	private List<Appointment> appointments;
 	
 	public int getId() {
 		return id;
@@ -93,14 +84,6 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	public Boolean isAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(Boolean admin) {
-		this.admin = admin;
 	}
 	
 	public String getName() {
@@ -138,28 +121,12 @@ public class User implements Serializable {
 		this.birthDate = birthDate;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
 	public SocialNetworkType getLoginType() {
 		return loginType;
 	}
 
 	public void setLoginType(SocialNetworkType loginType) {
 		this.loginType = loginType;
-	}
-
-	public List<Appointment> getAppointments() {
-		return appointments;
-	}
-
-	public void setAppointments(List<Appointment> appointments) {
-		this.appointments = appointments;
 	}
 
 }

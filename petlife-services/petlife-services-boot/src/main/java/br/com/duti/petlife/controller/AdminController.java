@@ -27,7 +27,7 @@ public class AdminController implements ApplicationListener<ContextRefreshedEven
 		admin.setUsername("admin");
 		admin.setName("Administrador");
 		admin.setPassword("1");
-		admin.setAdmin(true);
+		//admin.setAdmin(true);
 		
 		final List<String> dados = Utils.readConfigFile(Utils.ADMIN_CONFIG_FILE);
 		if(dados != null){

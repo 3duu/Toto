@@ -11,8 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="address")
-@Entity
+//@Table(name="address")
+//@Entity
 public class Address implements Serializable {
 	
 	/**
@@ -20,27 +20,27 @@ public class Address implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="street_name", nullable=false)
+	//@Column(name="street_name", nullable=false)
 	private String streetName;
 	
-	@Column(name="number", nullable=false)
+	//@Column(name="number", nullable=false)
 	private String number;
 	
-	@Column(name="complement", nullable=true)
+	//@Column(name="complement", nullable=true)
 	private String complement;
 	
-	@Column(name="zipcode", nullable=false)
+	//@Column(name="zipcode", nullable=false)
 	private String zipcode;
 	
-	@Column(name="city", nullable=false)
+	//@Column(name="city", nullable=false)
 	private String city;
 	
-	@Enumerated(EnumType.STRING)
-	@Column(name="state", nullable=false, length=2)
+	//@Enumerated(EnumType.STRING)
+	//@Column(name="state", nullable=false, length=2)
 	private State state;
 
 	public int getId() {

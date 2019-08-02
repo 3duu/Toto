@@ -1,7 +1,7 @@
 {
-  "name": "br.com.toppet",
+  "name": "br.com.petmove",
   "version": "1.0.0",
-  "displayName": "TOPPET",
+  "displayName": "PETMOVE",
   "endpoints": {
     "local": "http://localhost:9003",
     "indraLocal": "http://192.168.137.1:9003",
