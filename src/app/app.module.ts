@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { CordovaService } from './cordova.service';
 import { NavbarComponent } from './navbar/navbar.component';
-import { PetTypeComponent, PetsComponent, PetInfoComponent, PetPictureComponent, BreedPickerComponent, PetsWizardComponent } from './pets/pets.component';
+import { PetsComponent, PetInfoComponent, PetPictureComponent, BreedPickerComponent, PetsWizardComponent } from './pets/pets.component';
 import { ModalModule, Overlay } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 import { FacebookService, GoogleService } from './socialNetwork/socialNetworkServices';
@@ -52,7 +52,6 @@ import { MatListModule } from '@angular/material/list';
     RegisterUserComponent,
     PetsComponent,
     PetInfoComponent,
-    PetTypeComponent,
     PetPictureComponent,
     SignInComponent,
     SignUpComponent,

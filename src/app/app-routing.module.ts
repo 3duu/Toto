@@ -1,5 +1,5 @@
 import { AppointmentsComponent, AppointmentsWizardComponent } from './appointments/appointments.component';
-import { PetsComponent, PetTypeComponent, PetInfoComponent, PetPictureComponent, PetsWizardComponent } from './pets/pets.component';
+import { PetsComponent, PetInfoComponent, PetPictureComponent, PetsWizardComponent, BreedPickerComponent } from './pets/pets.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
@@ -18,7 +18,7 @@ const routes: Routes = [
     { path: APPOINTMENTS_WIZARD_PAGE, component: AppointmentsWizardComponent},] },
   { path: PETS_PAGE, component: PetsComponent, children : [
     { path: PETS_WIZARD_PAGE, component: PetsWizardComponent},
-    { path: PETS_WIZARD_DEF_PAGE, component: PetTypeComponent},
+    { path: PETS_WIZARD_DEF_PAGE, component: BreedPickerComponent},
     { path: PETS_WIZARD_INFO_PAGE, component: PetInfoComponent},
     { path: PETS_WIZARD_PIC_PAGE, component: PetPictureComponent},
   ] },

@@ -41,7 +41,7 @@ export class LanguageService {
     petType = "Animal";
     birthDate = "Nascimento";
     breed = "Qual a raça?";
-    takePicture = "Tire uma foto do seu pet";
+    takePicture = "Tire uma foto do seu dog";
     description = "Descrição";
     noAppointmentsClick = "Sem compromissos.";
     appointmentType = "Tipo do Compromisso";
@@ -53,17 +53,17 @@ export class LanguageService {
     months = "meses";
     day = "dia";
     days = "dias";
-    animal = "Qual o Pet?";
-    addNewPet = "Adicionar Pet";
+    //animal = "Qual o Pet?";
+    addNewPet = "Adicionar Dog";
     welcome = "Bem vindo ao ";
     alreadyHaveAnAccount = "Você já passui uma conta? Clique em ";
     otherWiseClickNext = "Caso contrário clique em ";
     quickAndEasy = "é rápido e fácil!";
     next = "Próximo";
     createWithSomeInfo = "Ou forneça apenas algumas informações";
-    appDescription1 = "O jeito mais fácil e completo de cuidar do seu pet.";
-    appDescription2 = "Cuide da agenda do seu pet para não perder nenhum compromisso.";
-    appDescription3 = "Encontre os melhores serviços com os melhores preços para a sua região.";
+    appDescription1 = "Mantenha uma vida saudável ao lado do seu dog.";
+    appDescription2 = "Obtenha dicas selecionadas de acordo com o seu perfil e do seu dog.";
+    appDescription3 = "Cuide da agenda do seu dog para não perder nenhum compromisso.";
 
     //Messages
     connectionError = "Algo deu errado! \n Verifique se o dispositivo está conectado ou tente novamente mais tarde";
@@ -77,11 +77,10 @@ export class LanguageService {
     invalidEmailAddress = "Forneça um endereço de e-mail válido";
     invalidPassword = "Senha deve conter pelo menos :min caracteres";
     passwordDoesntMatch = "Confirmação de senha não corresponde com senha";
-    noPetsFound = "Você ainda não cadastrou o seu pet!";
+    noPetsFound = "Você ainda não cadastrou o seu dog!";
 
     //Tutorial
-
-    addPetTutotial = "Clique aqui para começar a cuidar o seu pet!";
+    addPetTutotial = "Clique aqui para começar a se exercitar com o seu dog!";
 
     links : Links = new Links();
 

@@ -1,3 +1,4 @@
+import { SessionService } from 'src/app/session/session.service';
 import { CarouselComponent } from './../templates/carousel/carousel.component';
 import { AlertComponent } from './../templates/alert/alert.component';
 import { TutorialComponent } from './../templates/tutorial/tutorial.component';
@@ -12,8 +13,6 @@ import { ColorClass } from '../styles/styles';
 import { CordovaService } from '../cordova.service';
 import { ReturnCode } from '../entity/system';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
-import { overlayConfigFactory, DialogRef } from 'ngx-modialog';
 
 @Component({
   selector: 'app-pets',
@@ -35,7 +34,6 @@ export class PetsComponent extends AppBase {
   private contextMenu : any;
 
   @ViewChild(TutorialComponent, { static: false }) private tutorialComponent: TutorialComponent;
-  //@ViewChild(ContextMenuComponent, { static: true }) public basicMenu: ContextMenuComponent;
 
   public items = [
     { name: 'John', otherProperty: 'Foo' },
@@ -66,21 +64,21 @@ export class PetsComponent extends AppBase {
     this.menuEntries = [];
 
     this.menuEntries.push({
-        title: 'Entry 1',
-        id: 'test'
+      title: 'Entry 1',
+      id: 'test'
     });
     this.menuEntries.push({
-        title: 'Entry 2',
-        id: 'foo'
+      title: 'Entry 2',
+      id: 'foo'
     });
     this.menuEntries.push({
-        title: '',
-        id: '',
-        isSeparator: true
+      title: '',
+      id: '',
+      isSeparator: true
     });
     this.menuEntries.push({
-        title: 'Entry 3',
-        id: 'bar'
+      title: 'Entry 3',
+      id: 'bar'
     });
  
     this.contextMenu = {
@@ -162,89 +160,6 @@ export class PetsComponent extends AppBase {
   }
 }
 
-///////////////////////////
-
-@Component({
-  selector: 'app-pets-type',
-  templateUrl: './pets.type.component.html',
-  styleUrls: ["./pets.picker.component.css"]
-})
-export class PetTypeComponent extends AppBase {
-
-  types : PetType[] = [];
-  pet : Pet;
-  carouselComponent : CarouselComponent;
-
-  constructor(private api : PetApiService, 
-    private modal: Modal,
-    session : SessionService) {
-      super(session);
-  }
-  
-  ngOnInit() {
-
-    this.loading = true;
-
-    const response = this.api.getAllPetTypes();
-    
-    response.subscribe(result => {
-
-      console.log(result);
-
-      if(result.code == ReturnCode.SUCCESS){
-
-        if (result && result.sid) {
-          this.types = result.data;
-        }
-      }
-      else {
-        //alert(this.api.getErrorMessage(result, this.language));
-      }
-      this.loading = false;
-    } ,error => {
-      console.log(error);
-      this.loading = false;
-    });
-  }
-  
-  select(selected : PetType) : void {
-
-    if(selected.breeds != undefined && selected.breeds.length > 0){
-      
-      //this.dialog = true;
-      const dialogRef = this.modal
-        .open(BreedPickerComponent, overlayConfigFactory({ isBlocking: false , data : {type : selected} }, BSModalContext));
-
-      dialogRef.result
-        .then(res => {
-          if(!ObjectUtils.isEmpty(res) &&  res.result)
-            this.selectPetType(selected, res.breed)
-          });
-
-      dialogRef.onDestroy.subscribe(() => {
-        //this.dialog = false;
-      });
-    }
-  }
-
-  selectPetType = (type : PetType, breed : Breed) => {
-    console.log(type);
-    console.log(breed);
-    if(!ObjectUtils.isEmpty(breed)) {
-      this.pet.petType = type;
-      this.pet.breed = breed;
-      this.next();
-    }
-  }
-
-  next() : void {
-    /*this.session.zone.run(() => 
-      this.router.navigate([PETS_PAGE,PETS_WIZARD_INFO_PAGE], {replaceUrl: true,  queryParams: {id: ""}}));*/
-      this.carouselComponent.next();
-  }
-
-}
-
 ///////////////////////////////////////////////
 
 @Component({
@@ -254,31 +169,14 @@ export class PetTypeComponent extends AppBase {
 })
 export class BreedPickerComponent extends AppBase  {
 
-  private type : PetType;
+  pet : Pet;
 
-  constructor(private dialogRef : DialogRef<any>, session : SessionService) {
+  constructor(session : SessionService) {
     super(session);
-    const data = this.dialogRef.context.data;
-    if(data != undefined){
-      this.type = data.type;
-    }
   }
 
-  @ViewChild("modalBody", { static: true }) private modalBody;
-
-  ngAfterViewInit(): void {
-    this.modalBody.nativeElement.style.overflowY = "auto";
-    this.modalBody.nativeElement.style.overflowX = "hidden";
-    const maxHeight = ((window.innerHeight - 30) + "px");
-    this.modalBody.nativeElement.style.maxHeight = maxHeight;
-  }
-  
-  select(selected : Breed) : void {
-    this.closeDialog({result : true, breed: selected});
-  }
-
-  private closeDialog(selected) : void {
-    this.dialogRef.close(selected);
+  ngAfterViewInit() {
+    
   }
 
 }
@@ -294,7 +192,7 @@ export class PetInfoComponent extends AppBase {
 
   @ViewChild(AlertComponent, { static: true }) private alert: AlertComponent;
   
-  constructor(session : SessionService/*, private cordova : CordovaService*/){
+  constructor(session : SessionService){
     super(session);
   }
 
@@ -444,7 +342,7 @@ export class PetPictureComponent extends AppBase {
 })
 export class PetsWizardComponent extends AppBase {
 
-  @ViewChild(PetTypeComponent, { static: true }) private petTypeComponent : PetTypeComponent;
+  @ViewChild(BreedPickerComponent, { static: true }) private breedPickerComponent : BreedPickerComponent;
   @ViewChild(PetInfoComponent, { static: true }) private petInfoComponent : PetInfoComponent;
   @ViewChild(PetPictureComponent, { static: true }) private petPictureComponent : PetPictureComponent;
   @ViewChild(CarouselComponent, { static: true }) private carouselComponent : CarouselComponent;
@@ -473,9 +371,8 @@ export class PetsWizardComponent extends AppBase {
     }
     this.petInfoComponent.pet = this.pet;
     this.petPictureComponent.pet = this.pet;
-    this.petTypeComponent.pet = this.pet;
+    this.breedPickerComponent.pet = this.pet;
     this.petPictureComponent.callback = this.save;
-    this.petTypeComponent.carouselComponent = this.carouselComponent;
     this.petInfoComponent.carouselComponent = this.carouselComponent;
     this.petPictureComponent.carouselComponent = this.carouselComponent;
   }
