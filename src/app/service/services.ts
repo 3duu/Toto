@@ -36,7 +36,7 @@ class ApiService {
   protected endpoint : string;
 
   constructor() {
-    this.endpoint = endpoints.local;
+    this.endpoint = endpoints.aws;
     console.log(this.endpoint);
   }
 
@@ -122,7 +122,6 @@ export class PetApiService extends ApiService {
   private controller = this.endpoint+"/pet";
   private retrieve = this.controller+"/retrieve";
   private register = this.controller+"/register";
-  private types = this.controller+"/types";
   private breeds = this.controller+"/breeds";
   private remove = this.controller+"/remove";
 
@@ -155,11 +154,10 @@ export class PetApiService extends ApiService {
     );
   }
 
-  public getAllPetTypes(): Observable<any> {
-    console.log(this.types);
+  public getAllBreeds(): Observable<any> {
+    console.log(this.breeds);
 
-
-    return this.http.get(this.types, httpDefaultOptions)
+    return this.http.get(this.breeds, httpDefaultOptions)
     .pipe(
       catchError(this.handleError)
     );

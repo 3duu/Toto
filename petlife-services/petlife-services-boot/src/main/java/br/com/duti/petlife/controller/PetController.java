@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 
+import br.com.duti.petlife.models.Breed;
 import br.com.duti.petlife.models.Pet;
-import br.com.duti.petlife.models.PetType;
 import br.com.duti.petlife.models.ResponseEntity;
+import br.com.duti.petlife.repository.interfaces.IBreedsRepository;
 import br.com.duti.petlife.repository.interfaces.IPetRepository;
-import br.com.duti.petlife.repository.interfaces.IPetTypeRepository;
 import br.com.duti.utils.ReturnCode;
 
 @RequestMapping("/pet")
@@ -32,7 +32,7 @@ public class PetController {
 	private IPetRepository petRepository;
 	
 	@Autowired
-	private IPetTypeRepository petTypeRepository;
+	private IBreedsRepository breedsRepository;
 	
 	
 	@GetMapping(value="/retrieve", produces=MediaType.APPLICATION_JSON_VALUE)
@@ -85,14 +85,14 @@ public class PetController {
         return response;
     }
 	
-	@GetMapping(value="/types", produces=MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<List<PetType>> getPetTypes() {
+	@GetMapping(value="/breeds", produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<List<Breed>> getBreeds() {
 		
-		ResponseEntity<List<PetType>> response = null;
+		ResponseEntity<List<Breed>> response = null;
 		
 		try {
-			final List<PetType> list = petTypeRepository.getAll();
-			response = new ResponseEntity<List<PetType>>(list, RequestContextHolder.currentRequestAttributes().getSessionId());
+			final List<Breed> list = breedsRepository.getAll();
+			response = new ResponseEntity<List<Breed>>(list, RequestContextHolder.currentRequestAttributes().getSessionId());
 			if(response.getData() != null) {
 				response.setCode(ReturnCode.SUCCESS.getValue());
 			} else {
@@ -101,7 +101,7 @@ public class PetController {
 		
 		}
 		catch(Exception e){
-			response = new ResponseEntity<List<PetType>>(new ArrayList<PetType>(), RequestContextHolder.currentRequestAttributes().getSessionId());
+			response = new ResponseEntity<List<Breed>>(new ArrayList<Breed>(), RequestContextHolder.currentRequestAttributes().getSessionId());
 			response.setCode(ReturnCode.SERVER_ERROR.getValue());
 			e.printStackTrace();
 		}

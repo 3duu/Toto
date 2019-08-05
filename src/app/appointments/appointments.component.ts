@@ -86,12 +86,14 @@ export class AppointmentsThumbComponent extends AppBase {
         return;
       }
 
-      this.session.getCurrentUser().appointments.forEach(app => {
-        const newApp : Appointment = Appointment.newInstance(app);
-        this.appointments.push(newApp);
-        this.session.notificationService.setAlarm(newApp);
-      });
-      
+      if(this.session.getCurrentUser().appointments != undefined) {
+        this.session.getCurrentUser().appointments.forEach(app => {
+          const newApp : Appointment = Appointment.newInstance(app);
+          this.appointments.push(newApp);
+          this.session.notificationService.setAlarm(newApp);
+        });
+      }
+
     /*
       this.api.getByUser(this.session.getCurrentUser()).subscribe(result => {
 
@@ -225,11 +227,6 @@ export class AppointmentsWizardComponent extends AppBase {
         }
         console.log(this.language.getWeekday(getWeekday(this.appointment.date)));
       }
-      
-      if(this.appointment.appointmentType == undefined) {
-        this.appointment.appointmentType = new AppointmentType();
-      }
-      this.appointment.appointmentType.id = this.type;
   
       //add time to date
       const time = this.time.split(":");
@@ -263,6 +260,4 @@ export class AppointmentsWizardComponent extends AppBase {
       this.loading = false;
     }
   }
-
-
 }

@@ -166,16 +166,34 @@ export class PetsComponent extends AppBase {
   templateUrl: './pets.breeds.component.html',
   styleUrls: ["./pets.picker.component.css"]
 })
-export class BreedPickerComponent extends AppBase  {
+export class BreedPickerComponent extends AppBase {
 
   pet : Pet;
+  breeds : Breed[];
 
-  constructor(session : SessionService) {
+  constructor(session : SessionService, 
+    private api : PetApiService) {
     super(session);
   }
 
-  ngAfterViewInit() {
-    
+  ngOnInit() {
+    const pets = this.api.getAllBreeds();
+    this.loading = true;
+    pets.subscribe(result => {
+
+      console.log(result);
+      this.loading = false;
+
+      if (result && result.sid) {
+        if(result.code == ReturnCode.SUCCESS){
+          this.breeds = result.data;
+        }
+      }
+      
+    }, error => {
+      console.error(error);
+      this.loading = false;
+    });
   }
 
 }

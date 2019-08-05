@@ -18,11 +18,9 @@
             <input class="ember-view ember-text-field text-muted"  matInput placeholder="{{language.password}}" [type]="hide ? 'password' : 'text'" name="password" id="password" ngModel>
             <mat-icon color="accent" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
-        
         <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
         <app-alert></app-alert>
         <login-button [hidden]="loading" classes="btn btn-lg btn-toppet btn-block" [form]="loginForm" (begin)="onLoginInit()" (done)="onLoginEnd($event)">{{language.signIn}}</login-button>
-        <br>
     </form>
     <small class="create-account text-muted">{{language.dontHave}} {{applicationName}} {{language.orSocialMediaAccount}} <button style="color: white;" class="ember-view btn btn-sm btn-default" (click)="register()"> <b>{{language.register}} </b></button> </small>
 </div>

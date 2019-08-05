@@ -96,7 +96,7 @@ export class Appointment {
 
     id : number;
     date : Date;
-    appointmentType : AppointmentType;
+    activity : Activity;
     description : string;
     pet : Pet;
     user : User;
@@ -111,9 +111,6 @@ export class Appointment {
         const a : Appointment = new Appointment();
         a.id = data.id;
         a.date = new Date(data.date);
-        a.appointmentType = new AppointmentType();
-        a.appointmentType.id = data.appointmentType != undefined ? data.appointmentType.id : null;
-        a.appointmentType.description = data.appointmentType != undefined ? data.appointmentType.description : "";
         a.description = data.description;
         a.frequencyType = AppointmentExecutionFrequency[<string>data.frequencyType];
         a.pet = data.pet;
@@ -176,7 +173,19 @@ export class Appointment {
         return getWeekday(this.alarm);
         //return new LanguageService().getWeekday(getWeekday(this.alarm));
     }
+}
 
+export class Activity {
+
+    id : number;
+    description : string;
+
+    static newInstance(data) : Activity  {
+        const a : Activity = new Activity();
+        a.id = data.id;
+        a.description = data.description;
+        return a;
+    }
 }
 
 export enum Month {
