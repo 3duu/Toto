@@ -1,4 +1,3 @@
-import { SessionService } from 'src/app/session/session.service';
 import { CarouselComponent } from './../templates/carousel/carousel.component';
 import { AlertComponent } from './../templates/alert/alert.component';
 import { TutorialComponent } from './../templates/tutorial/tutorial.component';
