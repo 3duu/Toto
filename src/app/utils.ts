@@ -40,18 +40,19 @@ export class DateUtils {
         if(!ObjectUtils.isEmpty(currentDate) && !ObjectUtils.isEmpty(birthDate)) {
 
             const timeDiff = Math.abs(currentDate.getTime() - birthDate.getTime());
-            const age = Math.floor((timeDiff / (1000 * 3600 * 24)) / 365.25);
-            
+            const time = timeDiff / (1000 * 3600 * 24);
+            const age = Math.floor(time / 365.25);
+
             if(age > 0) {
               text = age + " " + (age > 1 ? language.years : language.year);
             }
             else {
-              const age = Math.floor((timeDiff / (1000 * 3600 * 24)) / 30);
+              const age = Math.floor(time / 30);
               if(age > 0){
                 text = age + " " + (age > 1 ? language.months : language.month).replace("-", "");
               }
               else {
-                const age = Math.floor((timeDiff / (1000 * 3600 * 24)));
+                const age = Math.floor(time);
                 text = age + " " + (age > 1 ? language.days : language.day).replace("-", "");
               }
             }
