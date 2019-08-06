@@ -171,8 +171,7 @@ export class BreedPickerComponent extends AppBase {
   pet : Pet;
   breeds : Breed[];
 
-  constructor(session : SessionService, 
-    private api : PetApiService) {
+  constructor(session : SessionService, private api : PetApiService) {
     super(session);
   }
 
@@ -184,12 +183,11 @@ export class BreedPickerComponent extends AppBase {
       console.log(result);
       this.loading = false;
 
-      if (result && result.sid) {
+      if(result) {
         if(result.code == ReturnCode.SUCCESS){
           this.breeds = result.data;
         }
       }
-      
     }, error => {
       console.error(error);
       this.loading = false;
@@ -241,25 +239,7 @@ export class PetInfoComponent extends AppBase {
       return;
     }
 
-    if(!ObjectUtils.isEmpty(this.currentDate) && !ObjectUtils.isEmpty(this.pet.birthDate)) {
-
-      const timeDiff = Math.abs(this.currentDate.getTime() - this.pet.birthDate.getTime());
-      const age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25);
-
-      if(age > 0) {
-        this.age = age + " " + (age > 1 ? this.language.years : this.language.year);
-      }
-      else {
-        const age = Math.floor((timeDiff / (1000 * 3600 * 24))/30);
-        if(age > 0){
-          this.age = age + " " + (age > 1 ? this.language.months : this.language.month).replace("-", "");
-        }
-        else {
-          const age = Math.floor((timeDiff / (1000 * 3600 * 24)));
-          this.age = age + " " + (age > 1 ? this.language.days : this.language.day).replace("-", "");
-        }
-      }
-    }
+    this.age = DateUtils.getAge(this.currentDate, this.pet.birthDate, this.language);
   }
 
   protected next() : void {
