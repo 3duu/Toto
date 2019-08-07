@@ -35,7 +35,7 @@ export class LocalDatabaseService {
 			let tables = [
 				'CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement,  username text, password text, current boolean, loginType integer)',
 				'CREATE TABLE IF NOT EXISTS pet  (id integer primary key autoincrement,  name text)',
-				'CREATE TABLE IF NOT EXISTS notification (id integer primary key autoincrement, description text, appointmentType integer, viewed boolean)'
+				'CREATE TABLE IF NOT EXISTS notification (id integer primary key autoincrement, description text, viewed boolean)'
 			];
 			//cria tabelas
 			tables.forEach((sql) => {
@@ -118,10 +118,10 @@ export class LocalDatabaseService {
 
 	createNotification(appointment : Appointment) {
 		
-		const insertQuery = "INSERT INTO notification (description, appo, appointmentType, viewed) VALUES ('";
+		const insertQuery = "INSERT INTO notification (description, appo, viewed) VALUES ('";
 
 		let insertNew = (tx) => {
-			tx.executeSql(insertQuery +appointment.description+"',"+appointment.appointmentType+", false)");
+			tx.executeSql(insertQuery +appointment.description+"', false)");
 		};
 
 		this.database.transaction(insertNew, this.error, this.success);

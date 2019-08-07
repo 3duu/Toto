@@ -203,12 +203,6 @@ export enum Month {
     DECEMBER ="Dezembro"
 }
 
-export class AppointmentType {
-
-    id : number;
-    description : string;
-}
-
 export enum AppointmentExecutionFrequency {
 
     ONCE,
@@ -264,6 +258,5 @@ export class Breed {
 
 export class Notification {
     description : string;
-    appointmentType: AppointmentType;
     viewed : boolean;
 }

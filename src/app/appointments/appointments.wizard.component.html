@@ -40,12 +40,6 @@
             <div class="form-signin">
                 <br>
                 <mat-form-field>
-                    <mat-label>{{language.appointmentType}}</mat-label>
-                    <select matNativeControl class="ember-view ember-text-field text-muted" [(ngModel)]="type">
-                        <option *ngFor="let type of types" value="{{type.id}}">{{type.description}}</option>
-                    </select>
-                </mat-form-field>
-                <mat-form-field>
                     <mat-label>{{language.appointmentFrequency}}</mat-label>
                     <select matNativeControl class="ember-view ember-text-field text-muted" [(ngModel)]="often">
                         <option *ngFor="let d of frequency" value="{{d.value}}">{{d.text}}</option>

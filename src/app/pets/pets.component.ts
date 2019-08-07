@@ -7,7 +7,7 @@ import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, ViewChild, ElementRef, Inject } from '@angular/core';
 import { PetApiService } from '../service/services';
-import { StringUtils, ObjectUtils, DateUtils } from '../utils';
+import { StringUtils, ObjectUtils, DateUtils, isEmpty } from '../utils';
 import { ColorClass } from '../styles/styles';
 import { CordovaService } from '../cordova.service';
 import { ReturnCode } from '../entity/system';
@@ -97,14 +97,14 @@ export class PetsComponent extends AppBase {
   }
 
   private setPets() {
-    if(!ObjectUtils.isEmpty(this.user)){
+    if(!isEmpty(this.user)){
       this._pets = this.user.pets;
     }
   }
 
   public loadPets() : void {
 
-    if(!ObjectUtils.isEmpty(this.user)){
+    if(!isEmpty(this.user)){
 
       const pets = this.api.getByUser(this.user);
       this.user.pets = [];
@@ -148,7 +148,7 @@ export class PetsComponent extends AppBase {
   }
 
   protected view(pet : Pet) {
-    if(!ObjectUtils.isEmpty(pet.id)){
+    if(!isEmpty(pet.id)){
       this.router.navigateByUrl(APPOINTMENTS_PAGE);
     }
   }
@@ -258,7 +258,7 @@ export class PetInfoComponent extends AppBase {
   }
 
   requiredFieldsFilled(pet: Pet) : boolean {
-    return !(StringUtils.isEmpty(pet.name) || ObjectUtils.isEmpty(pet.birthDate) || ObjectUtils.isEmpty(pet.petType));
+    return !(StringUtils.isEmpty(pet.name) || isEmpty(pet.birthDate) || isEmpty(pet.petType));
   }
 
 }
@@ -304,7 +304,7 @@ export class PetPictureComponent extends AppBase {
       alert('Failed because: ' + message);
     }
 
-    if(!this.phonegap.isBrowser && !ObjectUtils.isEmpty(this.phonegap.window.navigator.camera)){
+    if(!this.phonegap.isBrowser && !isEmpty(this.phonegap.window.navigator.camera)){
       const cameraOptions = {
         quality: 100,
         destinationType: this.phonegap.Camera.DestinationType.FILE_URI,
@@ -361,7 +361,7 @@ export class PetsWizardComponent extends AppBase {
     this.menu.disable = false;
     this.menu.disableMenu = false;
     this.pet = this.session.getEditingPet();
-    if(ObjectUtils.isEmpty(this.pet)){
+    if(isEmpty(this.pet)){
       this.pet = new Pet();
       this.pet.petType = new PetType();
       this.pet.breed = new Breed();

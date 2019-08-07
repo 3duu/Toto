@@ -14,7 +14,7 @@ export class NotificationService {
   setAlarm(appointment : Appointment) {
     try {
       this.cordova.cordova.plugins.notification.local.schedule({
-        title: appointment.appointmentType.description,
+        title: appointment.activity.description,
         text: appointment.description,
         trigger: { at: appointment.alarm }
       });

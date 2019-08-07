@@ -23,9 +23,13 @@ export class FormUtils {
 
 export class ObjectUtils {
 
-    static isEmpty(str : any) : boolean {
-        return (str == undefined || str == null);
+    static isEmpty(obj) : boolean {
+        return (obj == undefined || obj == null);
     }
+}
+
+export let isEmpty = (obj) : boolean => {
+    return ObjectUtils.isEmpty(obj);
 }
 
 export class DateUtils {

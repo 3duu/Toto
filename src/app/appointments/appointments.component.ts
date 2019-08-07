@@ -2,7 +2,7 @@ import { AlertComponent } from './../templates/alert/alert.component';
 import { Weekday, getWeekday, addDays } from './../entity/system';
 import { AppointmentsApiService } from './../service/services';
 import { CarouselComponent } from './../templates/carousel/carousel.component';
-import { Appointment, Pet, AppointmentType, AppointmentExecutionFrequency } from './../entity/entities';
+import { Appointment, Pet, AppointmentExecutionFrequency } from './../entity/entities';
 import { SessionService } from './../session/session.service';
 import { Component, ViewChild, Inject } from '@angular/core';
 import { AppBase } from '../appbase';
@@ -143,7 +143,6 @@ export class AppointmentsWizardComponent extends AppBase {
   @ViewChild("petSavingMsg", { static: false }) private alert: AlertComponent;
 
   protected appointment : Appointment;
-  protected types : AppointmentType[];
   protected frequency : Domain[];
   protected workingdays : Domain[];
 
@@ -159,29 +158,9 @@ export class AppointmentsWizardComponent extends AppBase {
 
     this.appointment = new Appointment();
     this.loading = true;
-    const types = this.api.getTypes();
     this.frequency = Domain.fromEnum(AppointmentExecutionFrequency, this.language.getAppointmentOften);
     this.workingdays = Domain.fromEnum(Weekday, this.language.getWeekday);
     this.setDate();
-    types.subscribe(result => {
-
-      console.log(result);
-      this.loading = false;
-
-      if(result && result.sid) {
-        if(result.code == ReturnCode.SUCCESS){
-          this.types = result.data;
-        }
-        else {
-          this.alert.show(this.api.getErrorMessage(this.language, result.code), ColorClass.danger);
-        }
-      }
-      
-    }, error => {
-      console.error(error);
-      this.alert.show(this.language.connectionError, ColorClass.danger);
-      this.loading = false;
-    });
   }
 
   selectPet(pet : Pet) {
