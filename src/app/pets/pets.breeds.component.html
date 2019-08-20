@@ -1,17 +1,11 @@
-<div class="modal-dialog breeds-container" role="document">
-  <div class="modal-body" #modalBody>
-      <div class="row">
-          <ul class="list-group">
-            <li class="list-group-item" *ngFor="let b of breeds" (click)="select(b)" style="height: 65px !important; line-height:65px;">
-                <div style="text-align: center; width: 100%;">
-                  <h2 class="new-title" >{{b.description}}</h2>
-                </div>
-            </li>
-          </ul>
-      </div> 
-  </div>
+<div class="breeds-container" role="document">
+  <div class="row">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let b of breeds" (click)="select(b)" style="height: 65px !important; line-height:65px;">
+        <div style="text-align: center; width: 100%;">
+          <h2 class="new-title" >{{b.description}}</h2>
+        </div>
+      </li>
+    </ul>
+  </div> 
 </div>
-<!-- <div class="container">
-    <div class="row">
-      <ul class="list-group">
-            <li class="list-group-item"><a href="https://frikinow.com" target="_blank">regalos frikis</a></li> -->

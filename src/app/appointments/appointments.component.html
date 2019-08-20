@@ -3,17 +3,17 @@
   <div class="row">
     <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
       <ul class="event-list">
-        <li *ngFor="let appointment of appointments;">
-          <time [attr.datetime]="appointment.fulldate">
-            <span class="day">{{appointment.day}}</span>
-            <span class="month">{{appointment.month}}</span>
-            <!-- <span class="year">{{appointment.year}}</span>
-            <span class="time">{{appointment.time}}</span> -->
+        <li *ngFor="let app of appointments;">
+          <time [attr.datetime]="app.fulldate">
+            <span class="day">{{app.day}}</span>
+            <span class="month">{{app.month}}</span>
+            <!-- <span class="year">{{app.year}}</span>
+            <span class="time">{{app.time}}</span> -->
           </time>
-          <img src="{{appointment.pet?.img}}" />
+          <img src="{{app.pet?.img}}" />
           <div class="info">
-            <h2 class="title">{{appointment.appointmentType?.description}}</h2>
-            <p class="desc">{{appointment.description}}</p>
+            <!-- <h2 class="title">{{app.appointmentType?.description}}</h2> -->
+            <p class="desc">{{app.description}}</p>
           </div>
           <!-- <div class="social">
             <ul>

@@ -1,23 +1,6 @@
 import { SociaNetworkType } from '../socialNetwork/socialNetworkServices';
 import { Weekday, getWeekday, addDays } from './system';
 
-export class Rating {
-
-    static MAX_RATING : number = 5;
-
-    id : number;
-    ratingDate : Date;
-    value : number;
-    owner : User;
-    rated : User;
-}
-
-export class Bookmark {
-
-    id : number;
-    user : User;
-}
-
 export class User {
 
     id : number;
@@ -25,14 +8,9 @@ export class User {
     name : string;
     creationDate : Date;
     password : string;
-    admin : boolean;
     loginType: SociaNetworkType;
     pets: Pet[];
     appointments : Appointment[];
-    bookmarks: Bookmark[];
-    ratings: Rating[];
-    myRatings: Rating[];
-    petServices: PetService[];
     rate : number;
 }
 
@@ -76,20 +54,6 @@ export class Address {
     city : string;
     state : State;
     geolocationstate : Geolocation;
-}
-
-export enum PetServiceType {
-    PETSHOP = 1,
-    DOG_WALKER = 2,
-    VET = 3,
-    PET_SHOWER = 4,
-    KENNEL = 5
-}
-
-export class ServiceType {
-
-    id : number;
-    name : string;
 }
 
 export class Appointment {
@@ -179,6 +143,7 @@ export class Activity {
 
     id : number;
     description : string;
+    levels : number[];
 
     static newInstance(data) : Activity  {
         const a : Activity = new Activity();
@@ -211,19 +176,6 @@ export enum AppointmentExecutionFrequency {
     WEEKEND
 }
 
-export class PetService {
-
-    id : number;
-    user : User;
-    creationDate : Date;
-    serviceType : ServiceType;
-    description : string;
-    address : Address;
-
-    constructor() { }
-  
-}
-
 export class Pet {
 
     id : number;
@@ -232,7 +184,6 @@ export class Pet {
 	birthDate : Date;
 	age : number;
     img : string;
-    petType : PetType;
     breed : Breed;
 	description : string;
     user : User;
@@ -241,19 +192,13 @@ export class Pet {
     constructor() { }
 }
 
-export class PetType {
-
-    id : number;
-    description : string;
-    icon : string;
-	breeds : Breed[];
-}
-
 export class Breed {
-	
+    
+    static readonly MAX_LEVEL : number = 5;
     id : number;
 	description : string;
-	petType : PetType;
+    level : number;
+    info : string;
 }
 
 export class Notification {

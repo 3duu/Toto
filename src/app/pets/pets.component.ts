@@ -1,13 +1,13 @@
 import { CarouselComponent } from './../templates/carousel/carousel.component';
 import { AlertComponent } from './../templates/alert/alert.component';
 import { TutorialComponent } from './../templates/tutorial/tutorial.component';
-import { Breed, Pet, PetType } from '../entity/entities';
+import { Breed, Pet } from '../entity/entities';
 import { PETS_WIZARD_PAGE, APPOINTMENTS_PAGE } from './../application';
 import { SessionService } from './../session/session.service';
 import { AppBase } from './../appbase';
 import { Component, ViewChild, ElementRef, Inject } from '@angular/core';
 import { PetApiService } from '../service/services';
-import { StringUtils, ObjectUtils, DateUtils, isEmpty } from '../utils';
+import { StringUtils, DateUtils, isEmpty } from '../utils';
 import { ColorClass } from '../styles/styles';
 import { CordovaService } from '../cordova.service';
 import { ReturnCode } from '../entity/system';
@@ -258,13 +258,12 @@ export class PetInfoComponent extends AppBase {
   }
 
   requiredFieldsFilled(pet: Pet) : boolean {
-    return !(StringUtils.isEmpty(pet.name) || isEmpty(pet.birthDate) || isEmpty(pet.petType));
+    return !(StringUtils.isEmpty(pet.name) || isEmpty(pet.birthDate));
   }
 
 }
 
 //////////////////////////////////////
-
 
 @Component({
   selector: 'app-pets-picture',
@@ -363,7 +362,6 @@ export class PetsWizardComponent extends AppBase {
     this.pet = this.session.getEditingPet();
     if(isEmpty(this.pet)){
       this.pet = new Pet();
-      this.pet.petType = new PetType();
       this.pet.breed = new Breed();
     }
     this.petInfoComponent.pet = this.pet;
