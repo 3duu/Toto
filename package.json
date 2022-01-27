@@ -75,7 +75,7 @@
     "ansi-escapes": "^3.2.0",
     "braces": "2.3.2",
     "browserify-zlib": "^0.2.0",
-    "cached-path-relative": "1.0.2",
+    "cached-path-relative": "1.1.0",
     "cordova-android": "7.1.4",
     "cordova-browser": "5.0.4",
     "cordova-plugin-badge": "0.8.8",
